@@ -1,0 +1,324 @@
+@import "tailwindcss";
+@import "./tokens.css";
+@import "./products.css";
+
+/*
+ * Tailwind v4 must scan library components AND the workbench stories.
+ * Without this, classes that exist only in extracted TSX (shadow-glow, field
+ * focus rings, !h-12 overrides) never generate — the main visual mismatch.
+ */
+@source "../**/*.{ts,tsx}";
+@source "../../../rahino-ui-frontend/src/**/*.tsx";
+@source "../../../rahino-ui-frontend/.storybook/**/*.tsx";
+
+@theme {
+  --color-primary-50: var(--qipper-brand-50);
+  --color-primary-100: var(--qipper-brand-100);
+  --color-primary-200: var(--qipper-brand-200);
+  --color-primary-300: var(--qipper-brand-300);
+  --color-primary-400: var(--qipper-brand-400);
+  --color-primary-500: var(--qipper-brand-500);
+  --color-primary-600: var(--qipper-brand-600);
+  --color-primary-700: var(--qipper-brand-700);
+  --color-primary-800: var(--qipper-brand-800);
+  --color-primary-900: var(--qipper-brand-900);
+
+  --color-bg-body: var(--qipper-bg-body);
+  --color-bg-surface: var(--qipper-bg-surface);
+  --color-bg-muted: var(--qipper-bg-muted);
+  --color-bg-elevated: var(--qipper-bg-elevated);
+  --color-fg: var(--qipper-fg);
+  --color-fg-muted: var(--qipper-fg-muted);
+  --color-fg-subtle: var(--qipper-fg-subtle);
+  --color-border: var(--qipper-border);
+  --color-border-subtle: var(--qipper-border-subtle);
+  --color-overlay: var(--qipper-overlay);
+
+  --color-slate-50: var(--qipper-slate-50);
+  --color-slate-100: var(--qipper-slate-100);
+  --color-slate-200: var(--qipper-slate-200);
+  --color-slate-300: var(--qipper-slate-300);
+  --color-slate-400: var(--qipper-slate-400);
+  --color-slate-500: var(--qipper-slate-500);
+  --color-slate-600: var(--qipper-slate-600);
+  --color-slate-700: var(--qipper-slate-700);
+  --color-slate-800: var(--qipper-slate-800);
+  --color-slate-900: var(--qipper-slate-900);
+  --color-slate-950: var(--qipper-slate-950);
+
+  --color-neutral-100: var(--qipper-neutral-100);
+  --color-neutral-200: var(--qipper-neutral-200);
+  --color-neutral-300: var(--qipper-neutral-300);
+  --color-neutral-400: var(--qipper-neutral-400);
+  --color-neutral-500: var(--qipper-neutral-500);
+  --color-neutral-600: var(--qipper-neutral-600);
+  --color-neutral-700: var(--qipper-neutral-700);
+  --color-neutral-800: var(--qipper-neutral-800);
+  --color-neutral-900: var(--qipper-neutral-900);
+
+  --color-error-50: var(--qipper-error-50);
+  --color-error-100: var(--qipper-error-100);
+  --color-error-200: #ffaaaa;
+  --color-error-300: #ff7f7f;
+  --color-error-400: #ff5555;
+  --color-error-500: #fe2a2a;
+  --color-error-600: #cb2222;
+  --color-error-700: #981919;
+  --color-error-800: #661111;
+  --color-error-900: #330808;
+
+  --color-success-50: var(--qipper-success-50);
+  --color-success-100: var(--qipper-success-100);
+  --color-success-200: #b9e2a0;
+  --color-success-300: #96d471;
+  --color-success-400: #74c643;
+  --color-success-500: #53b816;
+  --color-success-600: #429312;
+  --color-success-700: #326e0d;
+  --color-success-800: #214a09;
+  --color-success-900: #112504;
+
+  --color-warning-50: var(--qipper-warning-50);
+  --color-warning-100: var(--qipper-warning-100);
+  --color-warning-200: #fde68a;
+  --color-warning-300: #fcd34d;
+  --color-warning-400: #fbbf24;
+  --color-warning-500: #f59e0b;
+  --color-warning-600: #d97706;
+  --color-warning-700: #b45309;
+  --color-warning-800: #92400e;
+  --color-warning-900: #78350f;
+
+  --font-sans: "IRANYekanX", sans-serif;
+
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
+  --breakpoint-2xl: 96rem;
+
+  --layout-header-height: 5rem;
+  --layout-mobile-header-height: 3.5rem;
+  --layout-mobile-nav-height: 4.25rem;
+  --spacing-safe-bottom: env(safe-area-inset-bottom, 0px);
+  --spacing-page-x: 1rem;
+  --spacing-page-x-md: 1.5rem;
+  --spacing-page-x-lg: 2rem;
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+
+  --shadow-light: var(--qipper-shadow-light);
+  --shadow-heavy: var(--qipper-shadow-heavy);
+  --shadow-glow: var(--qipper-shadow-glow);
+
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@font-face {
+  font-family: "IRANYekanX";
+  src: url("./fonts/IRANYekanX-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IRANYekanX";
+  src: url("./fonts/IRANYekanX-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IRANYekanX";
+  src: url("./fonts/IRANYekanX-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IRANYekanX";
+  src: url("./fonts/IRANYekanX-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IRANYekanX";
+  src: url("./fonts/IRANYekanX-Bold.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IRANYekanX";
+  src: url("./fonts/IRANYekanX-Bold.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: var(--font-sans);
+  direction: rtl;
+  background-color: var(--color-bg-body);
+  color: var(--color-fg);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.container-xl {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+*,
+*::before,
+*::after {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+*::-webkit-scrollbar,
+*::-webkit-scrollbar-track,
+*::-webkit-scrollbar-thumb {
+  display: none;
+  width: 0;
+  height: 0;
+  background: transparent;
+}
+
+.custom-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.custom-scrollbar::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.qipper-pdp,
+.qipper-pdp-popover,
+.qipper-datepicker,
+.rahino-pdp,
+.rahino-pdp-popover,
+.rahino-datepicker {
+  --dvx-pdp-bg: var(--qipper-bg-surface);
+  --dvx-pdp-fg: var(--qipper-fg);
+  --dvx-pdp-muted: var(--qipper-fg-subtle);
+  --dvx-pdp-border: var(--qipper-border);
+  --dvx-pdp-shadow: var(--qipper-shadow-heavy);
+  --dvx-pdp-accent: var(--qipper-brand-500);
+  --dvx-pdp-accentFg: #ffffff;
+  --dvx-pdp-ring: color-mix(in srgb, var(--qipper-brand-500) 22%, transparent);
+  --dvx-pdp-dayHover: color-mix(in srgb, var(--qipper-brand-500) 8%, transparent);
+  font-family: "IRANYekanX", sans-serif !important;
+}
+
+.qipper-pdp *,
+.qipper-pdp-popover *,
+.qipper-datepicker *,
+.rahino-pdp *,
+.rahino-pdp-popover *,
+.rahino-datepicker * {
+  font-family: "IRANYekanX", sans-serif !important;
+}
+
+.qipper-datepicker .dvx-pdp,
+.qipper-datepicker .dvx-pdp__control,
+.rahino-datepicker .dvx-pdp,
+.rahino-datepicker .dvx-pdp__control {
+  width: 100%;
+  display: block;
+}
+
+.qipper-datepicker .dvx-pdp__input,
+.rahino-datepicker .dvx-pdp__input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button,
+input,
+select,
+textarea,
+option,
+table,
+th,
+td {
+  font-family: "IRANYekanX", sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+
+.dark .bg-white {
+  background-color: var(--qipper-bg-surface) !important;
+}
+.dark .hover\:bg-white:hover {
+  background-color: var(--qipper-bg-surface) !important;
+}
+.dark .bg-white\/95 {
+  background-color: color-mix(in srgb, var(--qipper-bg-surface) 95%, transparent) !important;
+}
+.dark .bg-white\/90 {
+  background-color: color-mix(in srgb, var(--qipper-bg-surface) 90%, transparent) !important;
+}
+.dark .bg-white\/80 {
+  background-color: color-mix(in srgb, var(--qipper-bg-surface) 80%, transparent) !important;
+}
+.dark .bg-white\/70 {
+  background-color: color-mix(in srgb, var(--qipper-bg-surface) 70%, transparent) !important;
+}
+.dark .bg-white\/60 {
+  background-color: color-mix(in srgb, var(--qipper-bg-surface) 60%, transparent) !important;
+}
+.dark .bg-white\/50 {
+  background-color: color-mix(in srgb, var(--qipper-bg-surface) 50%, transparent) !important;
+}
+.dark .bg-white\/40 {
+  background-color: color-mix(in srgb, var(--qipper-bg-surface) 40%, transparent) !important;
+}
+.dark .bg-white\/30 {
+  background-color: color-mix(in srgb, var(--qipper-bg-surface) 30%, transparent) !important;
+}
+.dark .bg-white\/20 {
+  background-color: color-mix(in srgb, var(--qipper-bg-surface) 20%, transparent) !important;
+}
+.dark .bg-white\/10 {
+  background-color: color-mix(in srgb, var(--qipper-bg-surface) 10%, transparent) !important;
+}
+.dark .bg-white\/5 {
+  background-color: color-mix(in srgb, var(--qipper-bg-surface) 5%, transparent) !important;
+}
+.dark .bg-\[\#f8fafc\],
+.dark .bg-\[\#f8f9fc\],
+.dark .bg-\[\#f3f5fa\],
+.dark .bg-\[\#eef1f6\],
+.dark .bg-\[\#e8ecf3\],
+.dark .bg-\[\#F8FAFC\],
+.dark .bg-\[\#F8F9FC\] {
+  background-color: var(--qipper-bg-body) !important;
+}
+.dark .bg-\[\#ffffff\],
+.dark .bg-\[\#fff\],
+.dark .bg-\[\#FFFFFF\] {
+  background-color: var(--qipper-bg-surface) !important;
+}
+.dark .bg-white\/95.backdrop-blur-xl,
+.dark .bg-white\/90.backdrop-blur-xl,
+.dark .backdrop-blur-xl.bg-white\/95,
+.dark .backdrop-blur-xl.bg-white\/90 {
+  background-color: color-mix(in srgb, var(--qipper-bg-elevated) 88%, transparent) !important;
+}
+
+.rahino-ui {
+  font-family: var(--font-sans);
+  color: var(--color-fg);
+}
+
+.rahino-ui *,
+.rahino-ui *::before,
+.rahino-ui *::after {
+  box-sizing: border-box;
+}

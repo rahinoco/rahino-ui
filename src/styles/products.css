@@ -1,0 +1,20 @@
+/**
+ * Product visual themes — same component contract, different tokens later.
+ *
+ * Phase 1: `rahino` and `qipper` share the extracted Qipper token values.
+ * `qippo` and `digix` are reserved slots. Do not invent palettes here.
+ */
+
+:root,
+:root[data-product='rahino'],
+:root[data-product='qipper'] {
+  --rahino-product-label: 'qipper-candidate';
+}
+
+:root[data-product='qippo'] {
+  --rahino-product-label: 'qippo-pending-figma';
+}
+
+:root[data-product='digix'] {
+  --rahino-product-label: 'digix-pending';
+}

@@ -1,0 +1,225 @@
+/**
+ * Qipper design tokens — copied from qipper-app-frontend/src/app/styles/tokens.css.
+ * Phase 1 keeps the original `--qipper-*` names so extracted components match the product.
+ * `--rahino-*` aliases track the same values for later product theming; they are not a redesign.
+ */
+
+/* ---------- Brand: blue (default) ---------- */
+:root,
+:root[data-brand="blue"] {
+  --qipper-brand-50: #eef4fe;
+  --qipper-brand-100: #d9e4fc;
+  --qipper-brand-200: #b3c9f9;
+  --qipper-brand-300: #8daef6;
+  --qipper-brand-400: #6793f3;
+  --qipper-brand-500: #4179f0;
+  --qipper-brand-600: #3461c0;
+  --qipper-brand-700: #274990;
+  --qipper-brand-800: #1a3060;
+  --qipper-brand-900: #0d1830;
+}
+
+/* ---------- Brand: purple (#5E3FCA) ---------- */
+:root[data-brand="purple"] {
+  --qipper-brand-50: #f4f0fc;
+  --qipper-brand-100: #e9e2f9;
+  --qipper-brand-200: #d3c5f3;
+  --qipper-brand-300: #bca7ed;
+  --qipper-brand-400: #8f6fe0;
+  --qipper-brand-500: #5e3fca;
+  --qipper-brand-600: #4b32a2;
+  --qipper-brand-700: #39267a;
+  --qipper-brand-800: #261951;
+  --qipper-brand-900: #130d29;
+}
+
+/* ---------- Light defaults ---------- */
+:root {
+  --qipper-slate-50: #f8fafc;
+  --qipper-slate-100: #f1f5f9;
+  --qipper-slate-200: #e2e8f0;
+  --qipper-slate-300: #cbd5e1;
+  --qipper-slate-400: #94a3b8;
+  --qipper-slate-500: #64748b;
+  --qipper-slate-600: #475569;
+  --qipper-slate-700: #334155;
+  --qipper-slate-800: #1e293b;
+  --qipper-slate-900: #0f172a;
+  --qipper-slate-950: #020617;
+
+  --qipper-neutral-100: #f7f7f7;
+  --qipper-neutral-200: #c5c5c5;
+  --qipper-neutral-300: #a8a8a8;
+  --qipper-neutral-400: #8b8b8b;
+  --qipper-neutral-500: #6d6d6d;
+  --qipper-neutral-600: #575757;
+  --qipper-neutral-700: #414141;
+  --qipper-neutral-800: #2c2c2c;
+  --qipper-neutral-900: #161616;
+
+  --qipper-bg-body: #f8f9fc;
+  --qipper-bg-surface: #ffffff;
+  --qipper-bg-muted: #f1f3f8;
+  --qipper-bg-elevated: #ffffff;
+  --qipper-fg: #1e293b;
+  --qipper-fg-muted: #64748b;
+  --qipper-fg-subtle: #94a3b8;
+  --qipper-border: #e8ecf2;
+  --qipper-border-subtle: #f1f4f8;
+  --qipper-overlay: rgb(15 23 42 / 0.42);
+  --qipper-shadow-light: 0px 4px 18px 0px rgb(0 0 0 / 0.04);
+  --qipper-shadow-heavy: 0px 10px 40px 0px rgb(0 0 0 / 0.08);
+  --qipper-shadow-glow: 0px 8px 20px -4px
+    color-mix(in srgb, var(--qipper-brand-500) 40%, transparent);
+
+  --qipper-error-50: #fff5f5;
+  --qipper-error-100: #ffd4d4;
+  --qipper-success-50: #f3faf0;
+  --qipper-success-100: #dcf1cf;
+  --qipper-warning-50: #fffbeb;
+  --qipper-warning-100: #fef3c7;
+}
+
+/* ---------- Dark ---------- */
+.dark {
+  --qipper-bg-body: #0b0d12;
+  --qipper-bg-surface: #12151d;
+  --qipper-bg-muted: #1a1f2b;
+  --qipper-bg-elevated: #222836;
+  --qipper-fg: #eef1f6;
+  --qipper-fg-muted: #9aa3b5;
+  --qipper-fg-subtle: #6f788c;
+  --qipper-border: rgb(255 255 255 / 0.1);
+  --qipper-border-subtle: rgb(255 255 255 / 0.06);
+  --qipper-overlay: rgb(0 0 0 / 0.62);
+  --qipper-shadow-light: 0px 4px 18px 0px rgb(0 0 0 / 0.4);
+  --qipper-shadow-heavy: 0px 12px 40px 0px rgb(0 0 0 / 0.55);
+  --qipper-shadow-glow: 0px 8px 22px -4px
+    color-mix(in srgb, var(--qipper-brand-500) 45%, transparent);
+
+  /* Invert slate so legacy text-slate-900 / bg-slate-50 flip correctly */
+  --qipper-slate-50: #161b26;
+  --qipper-slate-100: #1c2230;
+  --qipper-slate-200: #2a3344;
+  --qipper-slate-300: #3d4a5c;
+  --qipper-slate-400: #6b7385;
+  --qipper-slate-500: #8b95a8;
+  --qipper-slate-600: #aeb6c6;
+  --qipper-slate-700: #c9cfdb;
+  --qipper-slate-800: #dde2ec;
+  --qipper-slate-900: #eef1f6;
+  --qipper-slate-950: #f8fafc;
+
+  --qipper-neutral-100: #1a1f2b;
+  --qipper-neutral-200: #2a3140;
+  --qipper-neutral-300: #3d4658;
+  --qipper-neutral-400: #6b7385;
+  --qipper-neutral-500: #8b95a8;
+  --qipper-neutral-600: #aeb6c6;
+  --qipper-neutral-700: #c9cfdb;
+  --qipper-neutral-800: #e2e6ef;
+  --qipper-neutral-900: #eef1f6;
+
+  /* Soft brand fills on dark canvases */
+  --qipper-brand-50: color-mix(in srgb, var(--qipper-brand-500) 18%, #12151d);
+  --qipper-brand-100: color-mix(in srgb, var(--qipper-brand-500) 26%, #12151d);
+  --qipper-brand-200: color-mix(in srgb, var(--qipper-brand-500) 38%, #12151d);
+  /* Lighter mid/dark steps so text-primary-600/700 stay readable on dark */
+  --qipper-brand-600: color-mix(in srgb, var(--qipper-brand-500) 78%, white);
+  --qipper-brand-700: color-mix(in srgb, var(--qipper-brand-500) 62%, white);
+  --qipper-brand-800: color-mix(in srgb, var(--qipper-brand-500) 48%, white);
+  --qipper-brand-900: color-mix(in srgb, var(--qipper-brand-500) 35%, white);
+
+  --qipper-error-50: color-mix(in srgb, #fe2a2a 18%, #12151d);
+  --qipper-error-100: color-mix(in srgb, #fe2a2a 28%, #12151d);
+  --qipper-success-50: color-mix(in srgb, #53b816 18%, #12151d);
+  --qipper-success-100: color-mix(in srgb, #53b816 28%, #12151d);
+  --qipper-warning-50: color-mix(in srgb, #f59e0b 18%, #12151d);
+  --qipper-warning-100: color-mix(in srgb, #f59e0b 28%, #12151d);
+}
+
+/* ---------- Structure tokens (palette-agnostic; swap colors above only) ---------- */
+:root {
+  --qipper-radius-sm: 0.75rem;
+  --qipper-radius-md: 1rem;
+  --qipper-radius-lg: 1.5rem;
+  --qipper-radius-xl: 1.75rem;
+  --qipper-space-1: 0.25rem;
+  --qipper-space-2: 0.5rem;
+  --qipper-space-3: 0.75rem;
+  --qipper-space-4: 1rem;
+  --qipper-space-6: 1.5rem;
+  --qipper-space-8: 2rem;
+  /* Unused by Qipper @theme (live font is IRANYekanX). Copied as-is from Qipper tokens.css. */
+  --qipper-font-sans: "Vazirmatn", ui-sans-serif, system-ui, sans-serif;
+  --qipper-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --qipper-text-xs: 0.75rem;
+  --qipper-text-sm: 0.875rem;
+  --qipper-text-base: 1rem;
+  --qipper-text-lg: 1.125rem;
+  --qipper-text-xl: 1.25rem;
+  --qipper-text-2xl: 1.5rem;
+}
+
+/*
+ * Rahino aliases — always follow --qipper-* so later product theming can retarget
+ * without rewriting component class strings that still use --qipper-* (fieldTokens).
+ */
+:root,
+.dark {
+  --rahino-brand-50: var(--qipper-brand-50);
+  --rahino-brand-100: var(--qipper-brand-100);
+  --rahino-brand-200: var(--qipper-brand-200);
+  --rahino-brand-300: var(--qipper-brand-300);
+  --rahino-brand-400: var(--qipper-brand-400);
+  --rahino-brand-500: var(--qipper-brand-500);
+  --rahino-brand-600: var(--qipper-brand-600);
+  --rahino-brand-700: var(--qipper-brand-700);
+  --rahino-brand-800: var(--qipper-brand-800);
+  --rahino-brand-900: var(--qipper-brand-900);
+  --rahino-slate-50: var(--qipper-slate-50);
+  --rahino-slate-100: var(--qipper-slate-100);
+  --rahino-slate-200: var(--qipper-slate-200);
+  --rahino-slate-300: var(--qipper-slate-300);
+  --rahino-slate-400: var(--qipper-slate-400);
+  --rahino-slate-500: var(--qipper-slate-500);
+  --rahino-slate-600: var(--qipper-slate-600);
+  --rahino-slate-700: var(--qipper-slate-700);
+  --rahino-slate-800: var(--qipper-slate-800);
+  --rahino-slate-900: var(--qipper-slate-900);
+  --rahino-slate-950: var(--qipper-slate-950);
+  --rahino-neutral-100: var(--qipper-neutral-100);
+  --rahino-neutral-200: var(--qipper-neutral-200);
+  --rahino-neutral-300: var(--qipper-neutral-300);
+  --rahino-neutral-400: var(--qipper-neutral-400);
+  --rahino-neutral-500: var(--qipper-neutral-500);
+  --rahino-neutral-600: var(--qipper-neutral-600);
+  --rahino-neutral-700: var(--qipper-neutral-700);
+  --rahino-neutral-800: var(--qipper-neutral-800);
+  --rahino-neutral-900: var(--qipper-neutral-900);
+  --rahino-bg-body: var(--qipper-bg-body);
+  --rahino-bg-surface: var(--qipper-bg-surface);
+  --rahino-bg-muted: var(--qipper-bg-muted);
+  --rahino-bg-elevated: var(--qipper-bg-elevated);
+  --rahino-fg: var(--qipper-fg);
+  --rahino-fg-muted: var(--qipper-fg-muted);
+  --rahino-fg-subtle: var(--qipper-fg-subtle);
+  --rahino-border: var(--qipper-border);
+  --rahino-border-subtle: var(--qipper-border-subtle);
+  --rahino-overlay: var(--qipper-overlay);
+  --rahino-shadow-light: var(--qipper-shadow-light);
+  --rahino-shadow-heavy: var(--qipper-shadow-heavy);
+  --rahino-shadow-glow: var(--qipper-shadow-glow);
+  --rahino-error-50: var(--qipper-error-50);
+  --rahino-error-100: var(--qipper-error-100);
+  --rahino-success-50: var(--qipper-success-50);
+  --rahino-success-100: var(--qipper-success-100);
+  --rahino-warning-50: var(--qipper-warning-50);
+  --rahino-warning-100: var(--qipper-warning-100);
+  --rahino-radius-sm: var(--qipper-radius-sm);
+  --rahino-radius-md: var(--qipper-radius-md);
+  --rahino-radius-lg: var(--qipper-radius-lg);
+  --rahino-radius-xl: var(--qipper-radius-xl);
+  --rahino-font-sans: var(--qipper-font-sans);
+  --rahino-font-mono: var(--qipper-font-mono);
+}
