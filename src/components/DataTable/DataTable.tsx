@@ -118,6 +118,7 @@ export function DataTable<T extends object>({
   const pageSize = pageSizeProp ?? variantConfig.pageSize;
   const withCheckbox = rowSelection === 'multiple';
   const rowMinH = variantConfig.rowMinHeight;
+  const filled = height != null || /\bh-full\b/.test(className ?? '');
 
   const pipeline = useDataTablePipeline({
     data,
@@ -182,11 +183,11 @@ export function DataTable<T extends object>({
 
   return (
     <div
-      className={twMerge('qipper-table rahino-table flex flex-col min-h-0 w-full', className)}
+      className={twMerge('qipper-table rahino-table flex flex-col w-full', filled && 'min-h-0', className)}
       style={containerStyle}
       dir="rtl"
     >
-      <div className="flex-1 min-h-0 flex flex-col overflow-hidden">
+      <div className={clsx('flex flex-col', filled && 'flex-1 min-h-0 overflow-hidden')}>
         {/* Desktop header — breathable, no box */}
         {showHeader ? (
           <div
@@ -224,8 +225,9 @@ export function DataTable<T extends object>({
         {/* Body */}
         <div
           className={clsx(
-            'flex-1 min-h-0 overflow-y-auto custom-scrollbar flex flex-col pb-1',
-            gapClass
+            'flex flex-col pb-1',
+            gapClass,
+            filled && 'flex-1 min-h-0 overflow-y-auto custom-scrollbar'
           )}
         >
           {loading ? (

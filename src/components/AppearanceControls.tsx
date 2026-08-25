@@ -20,7 +20,7 @@ const BRANDS: { id: UiBrand; label: string; swatch: string }[] = [
 ];
 
 const PRODUCTS: { id: UiProduct; label: string; hint: string }[] = [
-  { id: 'rahino', label: 'راهینو', hint: 'نامزد فعلی = استخراج کیپر' },
+  { id: 'rahino', label: 'راهی‌نو', hint: 'نامزد فعلی = استخراج کیپر' },
   { id: 'qipper', label: 'کیپر', hint: 'توکن‌های استخراج‌شده' },
   { id: 'qippo', label: 'کیپو', hint: 'منتظر فیگما' },
   { id: 'digix', label: 'دیجیکس', hint: 'فاز بعدی' },

@@ -15,7 +15,7 @@ const VARIANT_ALIASES: Record<string, ButtonVariant> = {
   slate: 'primary',
 };
 
-export type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'danger';
+export type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'danger' | 'stroke' | 'text-only';
 export type ButtonSize = 'sm' | 'md' | 'lg';
 
 export interface ButtonProps
@@ -63,6 +63,12 @@ export default function Button({
     danger:
       'bg-error-500 text-white hover:bg-error-600 active:bg-error-700 ' +
       'shadow-[0_4px_16px_rgba(239,68,68,0.28)] hover:shadow-[0_6px_22px_rgba(239,68,68,0.34)]',
+    stroke:
+      'bg-transparent text-primary-600 shadow-[inset_0_0_0_2px_var(--qipper-brand-600)] ' +
+      'hover:bg-primary-500 hover:text-white hover:shadow-glow active:bg-primary-600',
+    'text-only':
+      'bg-transparent text-primary-600 shadow-none hover:bg-transparent hover:text-primary-700 ' +
+      'active:text-primary-800',
   };
 
   const sizes: Record<ButtonSize, string> = {

@@ -290,8 +290,7 @@ export function MetricCard({
   if (layout === 'hero') {
     const isPositive = (trend ?? 0) > 0;
     return (
-      <motion.div
-        layout
+      <div
         onClick={onToggle ?? onClick}
         className={twMerge(
           shellClass,
@@ -302,7 +301,7 @@ export function MetricCard({
             : clsx(theme.border, METRIC_CARD_HOVER)
         )}
       >
-        <motion.div layout="position" className="flex justify-between items-start gap-3">
+        <div className="flex justify-between items-start gap-3">
           <div className={clsx('p-2.5 sm:p-3 rounded-xl shrink-0', theme.iconSoft)}>
             {renderIcon(icon, '', 20)}
           </div>
@@ -334,9 +333,9 @@ export function MetricCard({
               </div>
             ) : null}
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div layout="position" className="mt-4 sm:mt-5">
+        <div className="mt-4 sm:mt-5">
           <div className="flex items-baseline gap-1.5 flex-wrap">
             <span className="text-2xl sm:text-3xl font-bold text-slate-800 tracking-tight tabular-nums">
               {displayValue}
@@ -348,7 +347,7 @@ export function MetricCard({
           <p className="text-[11px] sm:text-xs font-semibold text-slate-500 mt-1.5 leading-snug">
             {label}
           </p>
-        </motion.div>
+        </div>
 
         <AnimatePresence initial={false}>
           {isExpanded && drillContent ? (
@@ -363,7 +362,7 @@ export function MetricCard({
             </motion.div>
           ) : null}
         </AnimatePresence>
-      </motion.div>
+      </div>
     );
   }
 

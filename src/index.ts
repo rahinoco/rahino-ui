@@ -141,14 +141,83 @@ export {
   NOT_FOR_SHARED_SYSTEM,
   type InventoryCategory,
   type InventoryItem,
+  type InventoryPresence,
   type InventoryStatus,
 } from '@/inventory/catalog';
+export { inventoryWithQippo } from '@/inventory/withQippo';
 export { DECISIONS, getDecision, type DecisionOutcome, type DecisionStatus, type DesignDecision } from '@/decisions';
 export {
   COMPARISON_REGISTRY,
+  comparisonReviewQueue,
   getComparison,
   type ComparisonEntry,
+  type ComparisonPresence,
   type ComparisonSourceId,
   type ComparisonSourceMeta,
   type SourceAvailability,
 } from '@/comparison/registry';
+export {
+  QIPPO_CATALOG,
+  QIPPO_REVIEW_FIRST,
+  getQippoComponent,
+  qippoByPresence,
+  type QippoComponentRef,
+  type QippoConfidence,
+  type QippoPresence,
+} from '@/qippo/catalog';
+export { QIPPO_FIGMA, QIPPO_KIT_SECTIONS, qippoFigmaUrl } from '@/qippo/figma';
+export { QIPPO_OBSERVED_TOKENS } from '@/qippo/tokens';
+export {
+  QippoButton,
+  type QippoButtonProps,
+  type QippoButtonShape,
+  type QippoButtonSize,
+  type QippoButtonType,
+  type QippoForceState,
+  type QippoIconStatus,
+} from '@/qippo/Button';
+export {
+  QippoSelect,
+  type QippoSelectOption,
+  type QippoSelectProps,
+  type QippoSelectSize,
+} from '@/qippo/Select';
+export { QippoInput, type QippoInputProps, type QippoInputSize } from '@/qippo/Input';
+export {
+  QippoCheckbox,
+  type QippoCheckboxProps,
+  type QippoCheckboxType,
+} from '@/qippo/Checkbox';
+export {
+  QippoRadio,
+  type QippoRadioOption,
+  type QippoRadioProps,
+  type QippoRadioType,
+} from '@/qippo/Radio';
+export { QippoSwitch, type QippoSwitchProps, type QippoSwitchSize } from '@/qippo/Switch';
+export { QippoTabs, type QippoTabItem, type QippoTabsProps } from '@/qippo/Tabs';
+export {
+  QippoSegmented,
+  type QippoSegmentedOption,
+  type QippoSegmentedProps,
+  type QippoSegmentedSize,
+} from '@/qippo/Segmented';
+export {
+  QippoAvatar,
+  type QippoAvatarProps,
+  type QippoAvatarSize,
+  type QippoAvatarType,
+} from '@/qippo/Avatar';
+export { QippoCard, type QippoCardProps } from '@/qippo/Card';
+export {
+  QippoIconButton,
+  type QippoIconButtonForce,
+  type QippoIconButtonProps,
+  type QippoIconButtonSize,
+} from '@/qippo/IconButton';
+export { QippoOtp, type QippoOtpProps, type QippoOtpTone } from '@/qippo/Otp';
+export {
+  QippoSnackbar,
+  type QippoSnackbarProps,
+  type QippoSnackbarTone,
+} from '@/qippo/Snackbar';

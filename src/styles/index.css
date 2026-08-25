@@ -1,6 +1,8 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 @import "./tokens.css";
 @import "./products.css";
+@import "../qippo/qippo.css";
 
 /*
  * Tailwind v4 must scan library components AND the workbench stories.
@@ -214,7 +216,7 @@ body {
   --dvx-pdp-accentFg: #ffffff;
   --dvx-pdp-ring: color-mix(in srgb, var(--qipper-brand-500) 22%, transparent);
   --dvx-pdp-dayHover: color-mix(in srgb, var(--qipper-brand-500) 8%, transparent);
-  font-family: "IRANYekanX", sans-serif !important;
+  font-family: var(--font-sans) !important;
 }
 
 .qipper-pdp *,
@@ -223,7 +225,7 @@ body {
 .rahino-pdp *,
 .rahino-pdp-popover *,
 .rahino-datepicker * {
-  font-family: "IRANYekanX", sans-serif !important;
+  font-family: var(--font-sans) !important;
 }
 
 .qipper-datepicker .dvx-pdp,
@@ -248,7 +250,7 @@ option,
 table,
 th,
 td {
-  font-family: "IRANYekanX", sans-serif;
+  font-family: var(--font-sans), sans-serif;
   font-variant-numeric: tabular-nums;
 }
 

@@ -1,0 +1,1192 @@
+/**
+ * Qippo geometry (radius, padding, states) with Qipper color tokens
+ * so Comparison Lab can isolate structure from paint.
+ */
+.qippo {
+  --qippo-primary: var(--qipper-brand-500);
+  --qippo-primary-dark: var(--qipper-brand-600);
+  --qippo-white: var(--qipper-bg-surface);
+  --qippo-on-primary: #ffffff;
+  --qippo-black: var(--qipper-fg);
+  --qippo-neutral: var(--qipper-fg-muted);
+  --qippo-neutral-100: var(--qipper-bg-muted);
+  --qippo-danger: var(--qipper-error-500, #fe2a2a);
+  --qippo-danger-dark: var(--qipper-error-600, #cb2222);
+  --qippo-radius-xl: 24px;
+  --qippo-radius-md: 12px;
+  --qippo-radius-sm: 8px;
+  --qippo-radius-xs: 4px;
+  --qippo-disabled-opacity: 0.32;
+  --qippo-selected-ring: 0 0 0 4px color-mix(in srgb, var(--qipper-brand-500) 22%, transparent);
+}
+
+.qippo-btn {
+  position: relative;
+  display: inline-flex;
+  flex-direction: row;
+  direction: ltr;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 0;
+  border: 0 solid transparent;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: center;
+  white-space: nowrap;
+  user-select: none;
+  overflow: hidden;
+  outline: none;
+  box-sizing: border-box;
+  transition:
+    background-color 120ms ease,
+    color 120ms ease,
+    border-color 120ms ease,
+    box-shadow 120ms ease,
+    opacity 120ms ease;
+}
+
+.qippo-btn:focus-visible {
+  outline: 2px solid var(--qippo-primary);
+  outline-offset: 2px;
+}
+
+.qippo-btn:disabled {
+  opacity: var(--qippo-disabled-opacity);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.qippo-btn[data-size='lg'] {
+  min-height: 48px;
+  padding: 12px 16px;
+  font-size: 16px;
+}
+
+.qippo-btn[data-size='md'] {
+  min-height: 40px;
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+.qippo-btn[data-size='sm'] {
+  min-height: 32px;
+  padding: 4px 8px;
+  font-size: 14px;
+}
+
+.qippo-btn[data-shape='curved'] {
+  border-radius: var(--qippo-radius-xl);
+}
+
+.qippo-btn[data-shape='square'] {
+  border-radius: var(--qippo-radius-md);
+}
+
+.qippo-btn[data-icon='centre'][data-size='lg'] {
+  width: 48px;
+  height: 48px;
+  min-height: 48px;
+  padding: 12px;
+}
+
+.qippo-btn[data-icon='centre'][data-size='md'] {
+  width: 40px;
+  height: 40px;
+  min-height: 40px;
+  padding: 10px;
+}
+
+.qippo-btn[data-icon='centre'][data-size='sm'] {
+  width: 32px;
+  height: 32px;
+  min-height: 32px;
+  padding: 8px;
+}
+
+.qippo-btn[data-icon='left'],
+.qippo-btn[data-icon='right'] {
+  padding-inline: 12px;
+}
+
+.qippo-btn__icon {
+  display: block;
+  flex-shrink: 0;
+}
+
+.qippo-btn[data-size='lg'] .qippo-btn__icon {
+  width: 24px;
+  height: 24px;
+}
+
+.qippo-btn[data-size='md'] .qippo-btn__icon {
+  width: 20px;
+  height: 20px;
+}
+
+.qippo-btn[data-size='sm'] .qippo-btn__icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Primary — Default Dark-600, hover/selected Primary */
+.qippo-btn[data-type='primary'] {
+  background: var(--qippo-primary-dark);
+  color: var(--qippo-on-primary);
+}
+
+.qippo-btn[data-type='primary']:hover:not(:disabled),
+.qippo-btn[data-type='primary'][data-force='hover'],
+.qippo-btn[data-type='primary'][data-force='selected'] {
+  background: var(--qippo-primary);
+}
+
+/* Secondary — white fill, primary text. Figma hover matched default. */
+.qippo-btn[data-type='secondary'] {
+  background: var(--qippo-white);
+  color: var(--qippo-primary);
+}
+
+/* Stroke — 2px Dark-600 outline; hover/selected fill Dark-600 */
+.qippo-btn[data-type='stroke'] {
+  background: transparent;
+  color: var(--qippo-primary-dark);
+  border-width: 2px;
+  border-color: var(--qippo-primary-dark);
+}
+
+.qippo-btn[data-type='stroke']:hover:not(:disabled),
+.qippo-btn[data-type='stroke'][data-force='hover'],
+.qippo-btn[data-type='stroke'][data-force='selected'] {
+  background: var(--qippo-primary-dark);
+  color: var(--qippo-on-primary);
+  border-color: var(--qippo-on-primary);
+}
+
+/* Ghost — transparent, Neutral text; hover Neutral-100 / black */
+.qippo-btn[data-type='ghost'] {
+  background: transparent;
+  color: var(--qippo-neutral);
+}
+
+.qippo-btn[data-type='ghost']:hover:not(:disabled),
+.qippo-btn[data-type='ghost'][data-force='hover'],
+.qippo-btn[data-type='ghost'][data-force='selected'] {
+  background: var(--qippo-neutral-100);
+  color: var(--qippo-black);
+}
+
+/* Text Only — transparent, primary text. Figma hover matched default. */
+.qippo-btn[data-type='text-only'] {
+  background: transparent;
+  color: var(--qippo-primary);
+}
+
+.qippo-btn[data-force='selected'] {
+  box-shadow: var(--qippo-selected-ring);
+}
+
+/* Danger — Qippo geometry, Qipper error paint (constructed for the lab). */
+.qippo-btn[data-type='danger'] {
+  background: var(--qippo-danger-dark);
+  color: var(--qippo-on-primary);
+}
+
+.qippo-btn[data-type='danger']:hover:not(:disabled),
+.qippo-btn[data-type='danger'][data-force='hover'],
+.qippo-btn[data-type='danger'][data-force='selected'] {
+  background: var(--qippo-danger);
+}
+
+.qippo-btn__spin {
+  display: block;
+  flex-shrink: 0;
+  animation: qippo-spin 0.7s linear infinite;
+}
+
+@keyframes qippo-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Select — Figma 7347:24406. Filled field, Magicoon chevron, open list. Qipper paint. */
+.qippo-select {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+}
+
+.qippo-select__label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.8;
+  color: var(--qippo-black);
+  text-align: start;
+}
+
+.qippo-select__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  margin: 0;
+  border: 0 solid transparent;
+  background: color-mix(in srgb, var(--qipper-fg) 8%, transparent);
+  color: var(--qippo-black);
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.8;
+  text-align: start;
+  border-radius: var(--qippo-radius-sm);
+  box-sizing: border-box;
+  outline: none;
+  transition:
+    background-color 120ms ease,
+    color 120ms ease,
+    box-shadow 120ms ease;
+}
+
+.qippo-select__trigger[data-size='sm'] {
+  min-height: 32px;
+  padding: 4px 12px;
+  font-size: 14px;
+}
+
+.qippo-select__trigger[data-size='md'] {
+  min-height: 40px;
+  padding: 8px 12px;
+  font-size: 16px;
+}
+
+.qippo-select__trigger[data-size='lg'] {
+  min-height: 48px;
+  padding: 12px;
+  font-size: 16px;
+}
+
+.qippo-select__trigger:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--qipper-fg) 12%, transparent);
+}
+
+.qippo-select__trigger:focus-visible {
+  outline: 2px solid var(--qippo-primary);
+  outline-offset: 2px;
+}
+
+.qippo-select__trigger[data-open='true'] {
+  background: var(--qippo-white);
+  box-shadow: var(--qippo-selected-ring);
+}
+
+.qippo-select__trigger:disabled {
+  opacity: var(--qippo-disabled-opacity);
+  cursor: not-allowed;
+}
+
+.qippo-select__value {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.qippo-select__value--placeholder {
+  color: var(--qippo-neutral);
+}
+
+.qippo-select__chevron {
+  display: block;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  color: var(--qippo-black);
+  transition: transform 160ms ease;
+}
+
+.qippo-select__trigger[data-size='sm'] .qippo-select__chevron {
+  width: 16px;
+  height: 16px;
+}
+
+.qippo-select__trigger[data-open='true'] .qippo-select__chevron {
+  transform: rotate(180deg);
+}
+
+.qippo-select__menu {
+  position: absolute;
+  z-index: 60;
+  top: calc(100% + 8px);
+  right: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
+  padding: 8px 4px;
+  list-style: none;
+  background: var(--qippo-white);
+  border-radius: var(--qippo-radius-xs);
+  box-shadow: 0 8px 8px -8px rgb(0 0 0 / 0.16), 0 0 1px rgb(0 0 0 / 0.4);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-4px);
+  transition:
+    opacity 120ms ease,
+    transform 120ms ease,
+    visibility 120ms ease;
+}
+
+.qippo-select__menu--open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.qippo-select__option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  width: 100%;
+  min-height: 32px;
+  margin: 0;
+  padding: 4px 8px;
+  border: 0;
+  border-radius: var(--qippo-radius-xs);
+  background: transparent;
+  color: var(--qippo-black);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.8;
+  text-align: start;
+}
+
+.qippo-select__option:hover,
+.qippo-select__option[data-selected='true'] {
+  background: color-mix(in srgb, var(--qipper-fg) 8%, transparent);
+}
+
+.qippo-select__check {
+  display: block;
+  flex-shrink: 0;
+  color: var(--qippo-primary-dark);
+}
+
+.qippo-select__trigger[data-error='true'] {
+  box-shadow: inset 0 0 0 2px var(--qippo-danger);
+}
+
+.qippo-select__error {
+  margin: 4px 0 0;
+  padding-inline: 12px;
+  font-size: 10px;
+  line-height: 1.8;
+  color: var(--qippo-danger);
+}
+
+/* Input — Figma 7130:57816 */
+.qippo-input {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  min-width: 0;
+}
+
+.qippo-input__label {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.8;
+  color: var(--qippo-black);
+  text-align: start;
+}
+
+.qippo-input__field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: var(--qippo-radius-xs);
+  background: color-mix(in srgb, var(--qipper-fg) 8%, transparent);
+  padding: 4px 12px;
+  transition:
+    background-color 120ms ease,
+    box-shadow 120ms ease;
+}
+
+.qippo-input[data-size='sm'] .qippo-input__field {
+  min-height: 32px;
+}
+
+.qippo-input[data-size='md'] .qippo-input__field {
+  min-height: 40px;
+  padding-block: 8px;
+}
+
+.qippo-input[data-size='lg'] .qippo-input__field {
+  min-height: 48px;
+  padding-block: 12px;
+}
+
+.qippo-input[data-size='xl'] .qippo-input__field {
+  min-height: 40px;
+  padding-block: 8px;
+}
+
+.qippo-input__field:hover:not([data-disabled='true']) {
+  background: color-mix(in srgb, var(--qipper-fg) 12%, transparent);
+}
+
+.qippo-input__field:focus-within:not([data-disabled='true']) {
+  background: var(--qippo-white);
+  box-shadow: var(--qippo-selected-ring);
+}
+
+.qippo-input__field[data-error='true'] {
+  box-shadow: inset 0 0 0 2px var(--qippo-danger);
+}
+
+.qippo-input__field[data-disabled='true'] {
+  opacity: var(--qippo-disabled-opacity);
+}
+
+.qippo-input__control-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.qippo-input__float {
+  font-size: 10px;
+  line-height: 1.4;
+  color: var(--qippo-neutral);
+}
+
+.qippo-input__control {
+  width: 100%;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  color: var(--qippo-black);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.8;
+  outline: none;
+  text-align: start;
+}
+
+.qippo-input[data-size='lg'] .qippo-input__control,
+.qippo-input[data-size='xl'] .qippo-input__control {
+  font-size: 16px;
+}
+
+.qippo-input__control::placeholder {
+  color: var(--qippo-neutral);
+}
+
+.qippo-input__icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  align-items: center;
+  justify-content: center;
+  color: var(--qippo-neutral);
+}
+
+.qippo-input__hint {
+  margin: 0;
+  padding-inline: 12px;
+  font-size: 10px;
+  line-height: 1.8;
+  color: var(--qippo-neutral);
+}
+
+.qippo-input__hint[data-error='true'] {
+  color: var(--qippo-danger);
+}
+
+/* Checkbox — Figma 2896:22985 */
+.qippo-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+  color: var(--qippo-black);
+  outline: none;
+}
+
+.qippo-check:focus-visible {
+  outline: 2px solid var(--qippo-primary);
+  outline-offset: 2px;
+}
+
+.qippo-check[data-disabled='true'] {
+  opacity: var(--qippo-disabled-opacity);
+  cursor: not-allowed;
+}
+
+.qippo-check--simple {
+  flex-direction: row;
+  min-height: 24px;
+}
+
+.qippo-check--item {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+  width: 100%;
+  min-width: 200px;
+  padding: 8px 12px;
+  border: 1px solid color-mix(in srgb, var(--qipper-fg) 28%, transparent);
+  border-radius: var(--qippo-radius-sm);
+  text-align: start;
+}
+
+.qippo-check--item[data-selected='true'] {
+  border-width: 1.5px;
+  border-color: var(--qippo-primary);
+  background: color-mix(in srgb, var(--qipper-fg) 8%, transparent);
+}
+
+.qippo-check__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+}
+
+.qippo-check__label {
+  flex: 1;
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: start;
+}
+
+.qippo-check--item .qippo-check__label {
+  font-size: 12px;
+}
+
+.qippo-check__desc {
+  font-size: 10px;
+  line-height: 1.6;
+  color: var(--qippo-neutral);
+  text-align: start;
+}
+
+.qippo-check__box {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  border-radius: var(--qippo-radius-xs);
+  border: 1px solid var(--qippo-neutral);
+  background: transparent;
+  color: var(--qippo-on-primary);
+  box-sizing: border-box;
+}
+
+.qippo-check--simple .qippo-check__box {
+  width: 24px;
+  height: 24px;
+}
+
+.qippo-check__box[data-checked='true'],
+.qippo-check__box[data-partial='true'] {
+  border-color: var(--qippo-primary);
+  background: var(--qippo-primary);
+}
+
+.qippo-check__mark {
+  display: block;
+}
+
+/* Radio — Figma 2858:4242 */
+.qippo-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.qippo-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+  color: var(--qippo-black);
+  outline: none;
+}
+
+.qippo-radio:focus-visible {
+  outline: 2px solid var(--qippo-primary);
+  outline-offset: 2px;
+}
+
+.qippo-radio[data-disabled='true'] {
+  opacity: var(--qippo-disabled-opacity);
+  cursor: not-allowed;
+}
+
+.qippo-radio--simple {
+  min-height: 24px;
+}
+
+.qippo-radio--item {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+  width: 100%;
+  min-width: 200px;
+  padding: 8px 12px;
+  border: 1px solid color-mix(in srgb, var(--qipper-fg) 28%, transparent);
+  border-radius: var(--qippo-radius-sm);
+  text-align: start;
+}
+
+.qippo-radio--item[data-selected='true'] {
+  border-width: 1.5px;
+  border-color: var(--qippo-primary);
+  background: color-mix(in srgb, var(--qipper-fg) 6%, transparent);
+}
+
+.qippo-radio__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+}
+
+.qippo-radio__label {
+  flex: 1;
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: start;
+}
+
+.qippo-radio--item .qippo-radio__label {
+  font-size: 12px;
+}
+
+.qippo-radio__desc {
+  font-size: 10px;
+  line-height: 1.6;
+  color: var(--qippo-neutral);
+  text-align: start;
+}
+
+.qippo-radio__circle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  border-radius: 999px;
+  border: 1px solid var(--qippo-neutral);
+  box-sizing: border-box;
+}
+
+.qippo-radio--simple .qippo-radio__circle {
+  width: 24px;
+  height: 24px;
+}
+
+.qippo-radio__circle[data-selected='true'] {
+  border-color: var(--qippo-primary);
+}
+
+.qippo-radio__dot {
+  width: 50%;
+  height: 50%;
+  border-radius: 999px;
+  background: var(--qippo-primary);
+}
+
+/* Switch — Figma 2014:3071 */
+.qippo-switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  border: 0;
+  padding: 2px;
+  cursor: pointer;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--qipper-fg) 22%, transparent);
+  outline: none;
+  transition: background-color 140ms ease;
+  box-sizing: border-box;
+}
+
+.qippo-switch:focus-visible {
+  outline: 2px solid var(--qippo-primary);
+  outline-offset: 2px;
+}
+
+.qippo-switch:disabled {
+  opacity: var(--qippo-disabled-opacity);
+  cursor: not-allowed;
+}
+
+.qippo-switch[data-on='true'] {
+  background: var(--qippo-primary);
+}
+
+.qippo-switch[data-size='2xs'] {
+  width: 28px;
+  height: 16px;
+}
+
+.qippo-switch[data-size='xs'] {
+  width: 44px;
+  height: 24px;
+}
+
+.qippo-switch[data-size='sm'] {
+  width: 60px;
+  height: 32px;
+}
+
+.qippo-switch__thumb {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--qippo-white);
+  color: var(--qippo-neutral);
+  box-shadow: 0 0 1px rgb(0 0 0 / 0.4), 0 6px 6px -6px rgb(0 0 0 / 0.16);
+  margin-inline-start: 0;
+  transition:
+    margin-inline-start 140ms ease,
+    color 140ms ease;
+}
+
+.qippo-switch[data-size='2xs'] .qippo-switch__thumb {
+  width: 12px;
+  height: 12px;
+}
+
+.qippo-switch[data-size='xs'] .qippo-switch__thumb {
+  width: 20px;
+  height: 20px;
+}
+
+.qippo-switch[data-size='sm'] .qippo-switch__thumb {
+  width: 28px;
+  height: 28px;
+}
+
+.qippo-switch[data-on='true'] .qippo-switch__thumb {
+  margin-inline-start: auto;
+  color: var(--qippo-primary);
+}
+
+/* Tabs underline — Figma 2035:4098 */
+.qippo-tabs {
+  display: flex;
+  align-items: stretch;
+  gap: 16px;
+  width: 100%;
+  padding: 8px 8px 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--qipper-fg) 22%, transparent);
+  justify-content: flex-end;
+}
+
+.qippo-tabs__tab {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  color: var(--qippo-neutral);
+  font-family: inherit;
+  outline: none;
+}
+
+.qippo-tabs__tab:disabled {
+  opacity: var(--qippo-disabled-opacity);
+  cursor: not-allowed;
+}
+
+.qippo-tabs__tab[data-selected='true'] {
+  color: var(--qippo-black);
+}
+
+.qippo-tabs__label {
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.8;
+  white-space: nowrap;
+}
+
+.qippo-tabs__line {
+  display: block;
+  width: 100%;
+  height: 2px;
+  border-radius: 2px 2px 0 0;
+  background: var(--qippo-primary);
+}
+
+/* Segmented — Figma 7506:49134 */
+.qippo-segmented {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  border-radius: var(--qippo-radius-md);
+  background: var(--qippo-white);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--qipper-fg) 8%, transparent);
+}
+
+.qippo-segmented[data-size='sm'] {
+  max-height: 40px;
+}
+
+.qippo-segmented[data-size='md'] {
+  min-height: 48px;
+}
+
+.qippo-segmented[data-disabled='true'] {
+  opacity: var(--qippo-disabled-opacity);
+  pointer-events: none;
+}
+
+.qippo-segmented__item {
+  margin: 0;
+  border: 0;
+  border-radius: var(--qippo-radius-sm);
+  background: transparent;
+  color: var(--qippo-black);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.8;
+  white-space: nowrap;
+  outline: none;
+}
+
+.qippo-segmented[data-size='sm'] .qippo-segmented__item {
+  padding: 4px 8px;
+}
+
+.qippo-segmented[data-size='md'] .qippo-segmented__item {
+  padding: 8px 16px;
+}
+
+.qippo-segmented__item[data-selected='true'] {
+  background: var(--qippo-primary);
+  color: var(--qippo-on-primary);
+}
+
+.qippo-segmented__item:focus-visible {
+  outline: 2px solid var(--qippo-primary);
+  outline-offset: 1px;
+}
+
+/* Avatar — Figma 2066:1223 */
+.qippo-avatar {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--qippo-white);
+  color: var(--qippo-black);
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--qipper-fg) 10%, transparent);
+}
+
+.qippo-avatar[data-size='xs'] {
+  width: 24px;
+  height: 24px;
+  font-size: 10px;
+}
+
+.qippo-avatar[data-size='sm'] {
+  width: 32px;
+  height: 32px;
+  font-size: 12px;
+}
+
+.qippo-avatar[data-size='md'] {
+  width: 40px;
+  height: 40px;
+  font-size: 14px;
+}
+
+.qippo-avatar[data-size='lg'] {
+  width: 48px;
+  height: 48px;
+  font-size: 16px;
+}
+
+.qippo-avatar[data-size='xl'] {
+  width: 56px;
+  height: 56px;
+  font-size: 16px;
+}
+
+.qippo-avatar[data-size='2xl'] {
+  width: 64px;
+  height: 64px;
+  font-size: 20px;
+}
+
+.qippo-avatar__initials {
+  font-weight: 600;
+  line-height: 1;
+}
+
+.qippo-avatar__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.qippo-avatar__icon {
+  display: inline-flex;
+  font-size: 0.55em;
+  color: var(--qippo-neutral);
+}
+
+.qippo-avatar[data-size='lg'] .qippo-avatar__icon,
+.qippo-avatar[data-size='xl'] .qippo-avatar__icon,
+.qippo-avatar[data-size='2xl'] .qippo-avatar__icon {
+  font-size: 0.7em;
+}
+
+.qippo-avatar__status {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 25%;
+  height: 25%;
+  min-width: 8px;
+  min-height: 8px;
+  border-radius: 999px;
+  background: var(--qipper-success-500, #22c55e);
+  border: 2px solid var(--qippo-white);
+}
+
+/* Card surface — fair-lab from Card-Component chrome */
+.qippo-card {
+  width: 100%;
+  border-radius: var(--qippo-radius-md);
+  background: var(--qippo-white);
+  box-shadow: 0 8px 24px -12px rgb(0 0 0 / 0.18), 0 0 1px rgb(0 0 0 / 0.12);
+  box-sizing: border-box;
+}
+
+.qippo-card[data-padding='true'] {
+  padding: 16px;
+}
+
+/* Icon Button — Figma 2039:3836 */
+.qippo-icon-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  border: 0;
+  padding: 12px;
+  border-radius: var(--qippo-radius-sm);
+  background: transparent;
+  color: var(--qippo-black);
+  cursor: pointer;
+  outline: none;
+  transition: background-color 120ms ease;
+}
+
+.qippo-icon-btn[data-size='48'] {
+  width: 48px;
+  height: 48px;
+}
+
+.qippo-icon-btn[data-size='56'] {
+  width: 56px;
+  height: 56px;
+}
+
+.qippo-icon-btn:hover:not(:disabled),
+.qippo-icon-btn[data-force='hover'] {
+  background: color-mix(in srgb, var(--qipper-fg) 6%, transparent);
+}
+
+.qippo-icon-btn[data-force='selected'],
+.qippo-icon-btn[aria-pressed='true'] {
+  background: color-mix(in srgb, var(--qippo-primary) 12%, transparent);
+  color: var(--qippo-primary-dark);
+}
+
+.qippo-icon-btn:disabled {
+  opacity: var(--qippo-disabled-opacity);
+  cursor: not-allowed;
+}
+
+.qippo-icon-btn__glyph {
+  display: block;
+}
+
+.qippo-icon-btn[data-size='56'] .qippo-icon-btn__glyph {
+  width: 32px;
+  height: 32px;
+}
+
+.qippo-icon-btn__badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--qippo-danger);
+  box-shadow: 0 0 0 2px var(--qippo-white);
+}
+
+/* OTP — Figma 2187:3585 */
+.qippo-otp {
+  display: inline-flex;
+  gap: 8px;
+}
+
+.qippo-otp__cell {
+  width: 74px;
+  height: 40px;
+  margin: 0;
+  border: 1px solid var(--qippo-neutral);
+  border-radius: var(--qippo-radius-md);
+  background: transparent;
+  color: var(--qippo-black);
+  font-family: inherit;
+  font-size: 14px;
+  text-align: center;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.qippo-otp__cell[data-tone='focused'],
+.qippo-otp__cell:focus {
+  border-color: var(--qippo-primary);
+}
+
+.qippo-otp__cell[data-tone='active'] {
+  border-color: var(--qipper-success-600, #009c09);
+  color: var(--qipper-success-600, #009c09);
+}
+
+.qippo-otp__cell[data-tone='error'] {
+  border-color: var(--qippo-danger-dark);
+}
+
+.qippo-otp__cell[data-tone='disabled'],
+.qippo-otp__cell:disabled {
+  opacity: var(--qippo-disabled-opacity);
+}
+
+/* Snackbar — Figma 2302:1232 */
+.qippo-snackbar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 149px;
+  min-height: 49px;
+  padding: 8px 24px 12px;
+  border-radius: var(--qippo-radius-sm);
+  box-sizing: border-box;
+}
+
+.qippo-snackbar[data-tone='error'] {
+  background: color-mix(in srgb, var(--qippo-danger) 18%, white);
+  color: var(--qippo-danger-dark);
+}
+
+.qippo-snackbar[data-tone='success'] {
+  background: color-mix(in srgb, var(--qipper-success-500, #22c55e) 18%, white);
+  color: var(--qipper-success-700, #009c09);
+}
+
+.qippo-snackbar__text {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: center;
+}
+
+.qippo-snackbar__close {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--qippo-neutral);
+  cursor: pointer;
+}
+
+.qippo-snackbar__track {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 8px;
+  height: 3px;
+  margin-inline: 0;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--qipper-fg) 18%, transparent);
+  overflow: hidden;
+}
+
+.qippo-snackbar__bar {
+  display: block;
+  height: 100%;
+  border-radius: 4px;
+  background: currentColor;
+}

@@ -6,7 +6,7 @@
 import { clsx } from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
 import { X, type LucideIcon } from 'lucide-react';
-import { type ReactNode, useEffect, useState } from 'react';
+import { type ReactNode, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { twMerge } from 'tailwind-merge';
 
@@ -54,8 +54,18 @@ export default function Modal({
   closeOnBackdrop = true,
 }: ModalProps) {
   const [mounted, setMounted] = useState(false);
+  const portalRef = useRef<HTMLElement | null>(null);
 
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    portalRef.current =
+      document.getElementById('rahino-portal-root') ??
+      document.getElementById('portal-root') ??
+      document.body;
+    setMounted(true);
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, []);
 
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
@@ -73,14 +83,15 @@ export default function Modal({
     };
   }, [isOpen]);
 
-  if (!mounted) return null;
+  if (!mounted || !portalRef.current) return null;
 
   const showChrome = Boolean(title || subtitle || Icon || headerExtra);
 
   return createPortal(
-    <AnimatePresence>
-      {isOpen && (
+    <AnimatePresence mode="wait">
+      {isOpen ? (
         <div
+          key="rahino-modal"
           className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6"
           role="dialog"
           aria-modal="true"
@@ -163,9 +174,9 @@ export default function Modal({
             )}
           </motion.div>
         </div>
-      )}
+      ) : null}
     </AnimatePresence>,
-    document.body
+    portalRef.current
   );
 }
 

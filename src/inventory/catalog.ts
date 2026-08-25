@@ -18,12 +18,15 @@ export type InventoryCategory =
   | 'specialized'
   | 'utility';
 
+export type InventoryPresence = 'mapped' | 'qippo-only' | 'qipper-only' | 'needs-review';
+
 export interface InventoryItem {
   id: string;
   name: string;
   category: InventoryCategory;
   status: InventoryStatus;
   qipperSource?: string;
+  qippoSource?: string;
   extractedPath?: string;
   variants?: string[];
   states?: string[];
@@ -32,6 +35,8 @@ export interface InventoryItem {
   knownIssues?: string[];
   designDecisionsNeeded?: string[];
   notes?: string;
+  /** Filled by inventoryWithQippo() from the Qippo Figma catalog. */
+  presence?: InventoryPresence;
 }
 
 export const INVENTORY: InventoryItem[] = [
