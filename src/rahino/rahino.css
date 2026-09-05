@@ -1,0 +1,72 @@
+/**
+ * Rahino final primitives — floating-label motion on Qipper field geometry.
+ * Soft Material-style float; does not copy Qippo sizing.
+ */
+
+.rahino-float {
+  position: relative;
+  width: 100%;
+}
+
+.rahino-float__label {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  right: 1rem;
+  z-index: 1;
+  margin: 0;
+  transform: translateY(-50%);
+  transform-origin: right center;
+  pointer-events: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: start;
+  color: var(--qipper-fg-subtle);
+  transition:
+    top 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    font-size 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Qipper default: icon on physical left (pl-11) */
+.rahino-float[data-has-icon='true'] .rahino-float__label {
+  left: 2.75rem;
+}
+
+/* LTR credentials: adornments on the end (right) */
+.rahino-float[data-ltr='true'][data-has-end='true'] .rahino-float__label {
+  left: 1rem;
+  right: 2.75rem;
+}
+
+.rahino-float[data-floated='true'] .rahino-float__label {
+  top: 0.375rem;
+  transform: translateY(0);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--qipper-fg-muted);
+}
+
+.rahino-float[data-floated='true'][data-error='true'] .rahino-float__label {
+  color: var(--qipper-error-500, #fe2a2a);
+}
+
+.rahino-float[data-floated='true']:focus-within:not([data-error='true']) .rahino-float__label {
+  color: var(--qipper-brand-600);
+}
+
+.rahino-float__control {
+  padding-block: 0;
+  transition: padding-block 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.rahino-float[data-floated='true'] .rahino-float__control {
+  /* Room for floated label inside h-11 soft field */
+  padding-block: 1.125rem 0.375rem;
+}

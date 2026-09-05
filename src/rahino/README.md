@@ -17,4 +17,4 @@ This folder is the home for **Phase-1 final Rahino** UI components — the chose
 
 ## Status
 
-Empty scaffold — no final components yet. Add files here only after a deliberate Phase-1 decision.
+- `RahinoInput` / `RahinoSelect` — Qipper geometry + Material floating labels (lab final slot).
