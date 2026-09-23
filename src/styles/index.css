@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 @import "./tokens.css";
+@import "./rds-colors.css";
 @import "./products.css";
 @import "../qippo/qippo.css";
 @import "../rahino/rahino.css";

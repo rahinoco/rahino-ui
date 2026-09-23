@@ -25,6 +25,12 @@ import { Button, ThemeProvider } from '@rahinoco/rahino-ui';
 import '@rahinoco/rahino-ui/styles.css';
 ```
 
+## Rahino color palette
+
+The official RDS colors live in `tokens/Value.tokens.json`, `tokens/Light.tokens.json`, and `tokens/Dark.tokens.json`. `src/styles/rds-colors.css` is generated from those files and loaded by the package's base stylesheet. It exposes every primitive plus light, dark, and appearance-aware semantic CSS variables using the Figma `--rds-color-*` names. The `rahino` product skin maps older `--qipper-*` variables to those RDS colors; the `qipper` skin keeps its existing palette.
+
+When the workspace source JSON files change, run `npm run tokens:sync` in this repo. `npm run tokens:check` verifies the generated CSS and checks the workspace originals when they are present.
+
 Inventory, comparison registry, and design decisions are exported from the same package so the documentation workbench cannot drift:
 
 ```ts

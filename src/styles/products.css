@@ -18,3 +18,96 @@
 :root[data-product='digix'] {
   --rahino-product-label: 'digix-pending';
 }
+
+/* Rahino's official RDS palette. Legacy Qipper names remain as a compatibility
+   bridge for components already extracted into the shared package. Product
+   Qipper keeps its own blue/purple candidate palette above. */
+:root[data-product='rahino'] {
+  --rahino-product-label: 'rahino-rds';
+  --qipper-brand-50: var(--rds-color-primitive-brand-50);
+  --qipper-brand-100: var(--rds-color-primitive-brand-100);
+  --qipper-brand-200: var(--rds-color-primitive-brand-200);
+  --qipper-brand-300: var(--rds-color-primitive-brand-300);
+  --qipper-brand-400: var(--rds-color-primitive-brand-400);
+  --qipper-brand-500: var(--rds-color-primitive-brand-500);
+  --qipper-brand-600: var(--rds-color-primitive-brand-600);
+  --qipper-brand-700: var(--rds-color-primitive-brand-700);
+  --qipper-brand-800: var(--rds-color-primitive-brand-800);
+  --qipper-brand-900: var(--rds-color-primitive-brand-900);
+
+  --qipper-slate-50: var(--rds-color-primitive-neutral-25);
+  --qipper-slate-100: var(--rds-color-primitive-neutral-50);
+  --qipper-slate-200: var(--rds-color-primitive-neutral-100);
+  --qipper-slate-300: var(--rds-color-primitive-neutral-200);
+  --qipper-slate-400: var(--rds-color-primitive-neutral-400);
+  --qipper-slate-500: var(--rds-color-primitive-neutral-500);
+  --qipper-slate-600: var(--rds-color-primitive-neutral-600);
+  --qipper-slate-700: var(--rds-color-primitive-neutral-700);
+  --qipper-slate-800: var(--rds-color-primitive-neutral-800);
+  --qipper-slate-900: var(--rds-color-primitive-neutral-900);
+  --qipper-slate-950: var(--rds-color-primitive-neutral-950);
+  --qipper-neutral-100: var(--rds-color-primitive-neutral-50);
+  --qipper-neutral-200: var(--rds-color-primitive-neutral-200);
+  --qipper-neutral-300: var(--rds-color-primitive-neutral-300);
+  --qipper-neutral-400: var(--rds-color-primitive-neutral-400);
+  --qipper-neutral-500: var(--rds-color-primitive-neutral-500);
+  --qipper-neutral-600: var(--rds-color-primitive-neutral-600);
+  --qipper-neutral-700: var(--rds-color-primitive-neutral-700);
+  --qipper-neutral-800: var(--rds-color-primitive-neutral-800);
+  --qipper-neutral-900: var(--rds-color-primitive-neutral-900);
+
+  --qipper-bg-body: var(--rds-color-bg-canvas);
+  --qipper-bg-surface: var(--rds-color-bg-surface);
+  --qipper-bg-muted: var(--rds-color-bg-surface-subtle);
+  --qipper-bg-elevated: var(--rds-color-bg-surface-raised);
+  --qipper-fg: var(--rds-color-fg-primary);
+  --qipper-fg-muted: var(--rds-color-fg-secondary);
+  --qipper-fg-subtle: var(--rds-color-fg-tertiary);
+  --qipper-fg-on-primary: var(--rds-color-fg-on-brand);
+  --qipper-border: var(--rds-color-border-default);
+  --qipper-border-subtle: var(--rds-color-border-subtle);
+  --qipper-overlay: var(--rds-color-bg-scrim);
+  --qipper-error-50: var(--rds-color-status-error-surface);
+  --qipper-error-100: var(--rds-color-status-error-border);
+  --qipper-error: var(--rds-color-status-error-foreground);
+  --qipper-error-subtle: var(--rds-color-status-error-border);
+  --qipper-success-50: var(--rds-color-status-success-surface);
+  --qipper-success-100: var(--rds-color-status-success-border);
+  --qipper-success: var(--rds-color-status-success-foreground);
+  --qipper-success-subtle: var(--rds-color-status-success-border);
+  --qipper-warning-50: var(--rds-color-status-warning-surface);
+  --qipper-warning-100: var(--rds-color-status-warning-border);
+  --qipper-warning: var(--rds-color-status-warning-foreground);
+}
+
+:root.dark[data-product='rahino'] {
+  /* Dark utility scales keep small fills dark and text steps light. */
+  --qipper-brand-50: var(--rds-color-brand-surface);
+  --qipper-brand-100: var(--rds-color-brand-surface-hover);
+  --qipper-brand-200: var(--rds-color-primitive-brand-750);
+  --qipper-brand-600: var(--rds-color-brand-foreground);
+  --qipper-brand-700: var(--rds-color-primitive-brand-300);
+  --qipper-brand-800: var(--rds-color-primitive-brand-200);
+  --qipper-brand-900: var(--rds-color-primitive-brand-100);
+
+  --qipper-slate-50: var(--rds-color-primitive-neutral-950);
+  --qipper-slate-100: var(--rds-color-primitive-neutral-925);
+  --qipper-slate-200: var(--rds-color-primitive-neutral-850);
+  --qipper-slate-300: var(--rds-color-primitive-neutral-750);
+  --qipper-slate-400: var(--rds-color-primitive-neutral-650);
+  --qipper-slate-500: var(--rds-color-primitive-neutral-450);
+  --qipper-slate-600: var(--rds-color-primitive-neutral-350);
+  --qipper-slate-700: var(--rds-color-primitive-neutral-300);
+  --qipper-slate-800: var(--rds-color-primitive-neutral-100);
+  --qipper-slate-900: var(--rds-color-primitive-neutral-inverse-light);
+  --qipper-slate-950: var(--rds-color-primitive-neutral-0);
+  --qipper-neutral-100: var(--rds-color-primitive-neutral-925);
+  --qipper-neutral-200: var(--rds-color-primitive-neutral-850);
+  --qipper-neutral-300: var(--rds-color-primitive-neutral-750);
+  --qipper-neutral-400: var(--rds-color-primitive-neutral-650);
+  --qipper-neutral-500: var(--rds-color-primitive-neutral-450);
+  --qipper-neutral-600: var(--rds-color-primitive-neutral-350);
+  --qipper-neutral-700: var(--rds-color-primitive-neutral-300);
+  --qipper-neutral-800: var(--rds-color-primitive-neutral-200);
+  --qipper-neutral-900: var(--rds-color-primitive-neutral-inverse-light);
+}

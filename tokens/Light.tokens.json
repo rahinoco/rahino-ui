@@ -1,0 +1,1900 @@
+{
+  "bg": {
+    "canvas": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.95686274766922,
+          0.9490196108818054,
+          0.9529411792755127
+        ],
+        "alpha": 1,
+        "hex": "#F4F2F3"
+      },
+      "$description": "Application canvas and page background.",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:7:96",
+        "com.figma.scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "com.figma.codeSyntax": {
+          "WEB": "var(--rds-color-bg-canvas)"
+        },
+        "com.figma.aliasData": {
+          "targetVariableId": "VariableID:b3ba23152fd9305162f5717531d6639db5efba77/-1:-1",
+          "targetVariableName": "neutral/50",
+          "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+          "targetVariableSetName": "RDS / Color Primitives"
+        }
+      }
+    },
+    "surface": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          1,
+          1,
+          1
+        ],
+        "alpha": 1,
+        "hex": "#FFFFFF"
+      },
+      "$description": "Default content surface.",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:7:97",
+        "com.figma.scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "com.figma.codeSyntax": {
+          "WEB": "var(--rds-color-bg-surface)"
+        },
+        "com.figma.aliasData": {
+          "targetVariableId": "VariableID:cbdebc0ad37f84c6e12c40b5c36b851ec8bff860/-1:-1",
+          "targetVariableName": "neutral/0",
+          "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+          "targetVariableSetName": "RDS / Color Primitives"
+        }
+      }
+    },
+    "surface-subtle": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9725490212440491,
+          0.9647058844566345,
+          0.9686274528503418
+        ],
+        "alpha": 1,
+        "hex": "#F8F6F7"
+      },
+      "$description": "Subtle grouped surface.",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:7:98",
+        "com.figma.scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "com.figma.codeSyntax": {
+          "WEB": "var(--rds-color-bg-surface-subtle)"
+        },
+        "com.figma.aliasData": {
+          "targetVariableId": "VariableID:d1013ad9cebd6cc877d0478f744d1847b909ee67/-1:-1",
+          "targetVariableName": "neutral/25",
+          "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+          "targetVariableSetName": "RDS / Color Primitives"
+        }
+      }
+    },
+    "surface-raised": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          1,
+          1,
+          1
+        ],
+        "alpha": 1,
+        "hex": "#FFFFFF"
+      },
+      "$description": "Raised surface; pair with a Lift style when elevation is needed.",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:7:99",
+        "com.figma.scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "com.figma.codeSyntax": {
+          "WEB": "var(--rds-color-bg-surface-raised)"
+        },
+        "com.figma.aliasData": {
+          "targetVariableId": "VariableID:cbdebc0ad37f84c6e12c40b5c36b851ec8bff860/-1:-1",
+          "targetVariableName": "neutral/0",
+          "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+          "targetVariableSetName": "RDS / Color Primitives"
+        }
+      }
+    },
+    "surface-sunken": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9254902005195618,
+          0.9098039269447327,
+          0.9176470637321472
+        ],
+        "alpha": 1,
+        "hex": "#ECE8EA"
+      },
+      "$description": "Recessed or inset surface.",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:7:100",
+        "com.figma.scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "com.figma.codeSyntax": {
+          "WEB": "var(--rds-color-bg-surface-sunken)"
+        },
+        "com.figma.aliasData": {
+          "targetVariableId": "VariableID:a68dd33a377cfabc80c815e5904c2fe06debca8c/-1:-1",
+          "targetVariableName": "neutral/100",
+          "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+          "targetVariableSetName": "RDS / Color Primitives"
+        }
+      }
+    },
+    "scrim": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.0784313753247261,
+          0.0470588244497776,
+          0.06666667014360428
+        ],
+        "alpha": 0.5199999809265137,
+        "hex": "#140C11"
+      },
+      "$description": "Modal scrim behind overlays.",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:7:101",
+        "com.figma.scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "com.figma.codeSyntax": {
+          "WEB": "var(--rds-color-bg-scrim)"
+        },
+        "com.figma.aliasData": {
+          "targetVariableId": "VariableID:423188312ee90f8340e0eae3a17885355649dfe4/-1:-1",
+          "targetVariableName": "black-alpha/52",
+          "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+          "targetVariableSetName": "RDS / Color Primitives"
+        }
+      }
+    }
+  },
+  "fg": {
+    "primary": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.12941177189350128,
+          0.11372549086809158,
+          0.125490203499794
+        ],
+        "alpha": 1,
+        "hex": "#211D20"
+      },
+      "$description": "Primary text.",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:7:102",
+        "com.figma.scopes": [
+          "TEXT_FILL"
+        ],
+        "com.figma.codeSyntax": {
+          "WEB": "var(--rds-color-fg-primary)"
+        },
+        "com.figma.aliasData": {
+          "targetVariableId": "VariableID:8d2cdffd23e6625948cacfb7c80aee1a4d740d73/-1:-1",
+          "targetVariableName": "neutral/900",
+          "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+          "targetVariableSetName": "RDS / Color Primitives"
+        }
+      }
+    },
+    "secondary": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.3843137323856354,
+          0.35686275362968445,
+          0.3764705955982208
+        ],
+        "alpha": 1,
+        "hex": "#625B60"
+      },
+      "$description": "Secondary text.",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:7:103",
+        "com.figma.scopes": [
+          "TEXT_FILL"
+        ],
+        "com.figma.codeSyntax": {
+          "WEB": "var(--rds-color-fg-secondary)"
+        },
+        "com.figma.aliasData": {
+          "targetVariableId": "VariableID:07de17720441b62507c2e11afe8d9002c379a681/-1:-1",
+          "targetVariableName": "neutral/600",
+          "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+          "targetVariableSetName": "RDS / Color Primitives"
+        }
+      }
+    },
+    "tertiary": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.4627451002597809,
+          0.4313725531101227,
+          0.45098039507865906
+        ],
+        "alpha": 1,
+        "hex": "#766E73"
+      },
+      "$description": "Tertiary and low-emphasis text.",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:7:104",
+        "com.figma.scopes": [
+          "TEXT_FILL"
+        ],
+        "com.figma.codeSyntax": {
+          "WEB": "var(--rds-color-fg-tertiary)"
+        },
+        "com.figma.aliasData": {
+          "targetVariableId": "VariableID:4a94dee11b11437d534f3fbab8290e57c35d92f5/-1:-1",
+          "targetVariableName": "neutral/500",
+          "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+          "targetVariableSetName": "RDS / Color Primitives"
+        }
+      }
+    },
+    "disabled": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.6666666865348816,
+          0.6392157077789307,
+          0.6549019813537598
+        ],
+        "alpha": 1,
+        "hex": "#AAA3A7"
+      },
+      "$description": "Disabled text.",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:7:105",
+        "com.figma.scopes": [
+          "TEXT_FILL"
+        ],
+        "com.figma.codeSyntax": {
+          "WEB": "var(--rds-color-fg-disabled)"
+        },
+        "com.figma.aliasData": {
+          "targetVariableId": "VariableID:beec74da69eb6a4d9d952b1a2da726c944351847/-1:-1",
+          "targetVariableName": "neutral/400",
+          "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+          "targetVariableSetName": "RDS / Color Primitives"
+        }
+      }
+    },
+    "on-brand": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          1,
+          1,
+          1
+        ],
+        "alpha": 1,
+        "hex": "#FFFFFF"
+      },
+      "$description": "Text on brand-colored surfaces.",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:7:106",
+        "com.figma.scopes": [
+          "TEXT_FILL"
+        ],
+        "com.figma.codeSyntax": {
+          "WEB": "var(--rds-color-fg-on-brand)"
+        },
+        "com.figma.aliasData": {
+          "targetVariableId": "VariableID:cbdebc0ad37f84c6e12c40b5c36b851ec8bff860/-1:-1",
+          "targetVariableName": "neutral/0",
+          "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+          "targetVariableSetName": "RDS / Color Primitives"
+        }
+      }
+    },
+    "inverse": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9333333373069763,
+          0.9333333373069763,
+          0.9411764740943909
+        ],
+        "alpha": 1,
+        "hex": "#EEEEF0"
+      },
+      "$description": "Text on intentionally inverse surfaces such as tooltips.",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:7:107",
+        "com.figma.scopes": [
+          "TEXT_FILL"
+        ],
+        "com.figma.codeSyntax": {
+          "WEB": "var(--rds-color-fg-inverse)"
+        },
+        "com.figma.aliasData": {
+          "targetVariableId": "VariableID:f90aa21e6e3abd5a626117198e64beb2cd236cd1/-1:-1",
+          "targetVariableName": "neutral/inverse-light",
+          "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+          "targetVariableSetName": "RDS / Color Primitives"
+        }
+      }
+    }
+  },
+  "border": {
+    "subtle": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.8901960849761963,
+          0.8745098114013672,
+          0.886274516582489
+        ],
+        "alpha": 1,
+        "hex": "#E3DFE2"
+      },
+      "$description": "Dividers and decorative boundaries.",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:7:108",
+        "com.figma.scopes": [
+          "STROKE"
+        ],
+        "com.figma.codeSyntax": {
+          "WEB": "var(--rds-color-border-subtle)"
+        },
+        "com.figma.aliasData": {
+          "targetVariableId": "VariableID:cbbd09523c0ac3e72b4465202816cb4e968d4d53/-1:-1",
+          "targetVariableName": "neutral/200",
+          "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+          "targetVariableSetName": "RDS / Color Primitives"
+        }
+      }
+    },
+    "default": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.8156862854957581,
+          0.7882353067398071,
+          0.8039215803146362
+        ],
+        "alpha": 1,
+        "hex": "#D0C9CD"
+      },
+      "$description": "Inputs and standard containers.",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:7:109",
+        "com.figma.scopes": [
+          "STROKE"
+        ],
+        "com.figma.codeSyntax": {
+          "WEB": "var(--rds-color-border-default)"
+        },
+        "com.figma.aliasData": {
+          "targetVariableId": "VariableID:5d47a00bfb3bc29800622a0096ec973db282f8da/-1:-1",
+          "targetVariableName": "neutral/300",
+          "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+          "targetVariableSetName": "RDS / Color Primitives"
+        }
+      }
+    },
+    "strong": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.6666666865348816,
+          0.6392157077789307,
+          0.6549019813537598
+        ],
+        "alpha": 1,
+        "hex": "#AAA3A7"
+      },
+      "$description": "High-emphasis structural boundary.",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:7:110",
+        "com.figma.scopes": [
+          "STROKE"
+        ],
+        "com.figma.codeSyntax": {
+          "WEB": "var(--rds-color-border-strong)"
+        },
+        "com.figma.aliasData": {
+          "targetVariableId": "VariableID:beec74da69eb6a4d9d952b1a2da726c944351847/-1:-1",
+          "targetVariableName": "neutral/400",
+          "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+          "targetVariableSetName": "RDS / Color Primitives"
+        }
+      }
+    },
+    "disabled": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9254902005195618,
+          0.9098039269447327,
+          0.9176470637321472
+        ],
+        "alpha": 1,
+        "hex": "#ECE8EA"
+      },
+      "$description": "Disabled control boundary.",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:7:111",
+        "com.figma.scopes": [
+          "STROKE"
+        ],
+        "com.figma.codeSyntax": {
+          "WEB": "var(--rds-color-border-disabled)"
+        },
+        "com.figma.aliasData": {
+          "targetVariableId": "VariableID:a68dd33a377cfabc80c815e5904c2fe06debca8c/-1:-1",
+          "targetVariableName": "neutral/100",
+          "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+          "targetVariableSetName": "RDS / Color Primitives"
+        }
+      }
+    },
+    "focus": {
+      "$type": "color",
+      "$value": "{focus.ring}",
+      "$description": "Focus-only border alias.",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:7:160",
+        "com.figma.scopes": [
+          "STROKE"
+        ],
+        "com.figma.codeSyntax": {
+          "WEB": "var(--rds-color-border-focus)"
+        }
+      }
+    }
+  },
+  "brand": {
+    "seed": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.38823530077934265,
+          0.07058823853731155,
+          0.2666666805744171
+        ],
+        "alpha": 1,
+        "hex": "#631244"
+      },
+      "$description": "Core brand seed. Avoid direct component usage when an action or surface token exists.",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:7:112",
+        "com.figma.scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "com.figma.codeSyntax": {
+          "WEB": "var(--rds-color-brand-seed)"
+        },
+        "com.figma.aliasData": {
+          "targetVariableId": "VariableID:87b50145ca0d77641f65b15f69c21ef2d4b75f59/-1:-1",
+          "targetVariableName": "brand/500",
+          "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+          "targetVariableSetName": "RDS / Color Primitives"
+        }
+      }
+    },
+    "surface": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9529411792755127,
+          0.9254902005195618,
+          0.9411764740943909
+        ],
+        "alpha": 1,
+        "hex": "#F3ECF0"
+      },
+      "$description": "Subtle brand surface.",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:7:118",
+        "com.figma.scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "com.figma.codeSyntax": {
+          "WEB": "var(--rds-color-brand-surface)"
+        },
+        "com.figma.aliasData": {
+          "targetVariableId": "VariableID:b256cf5a1580a5995d7d1dd3a4741c044a4e3b51/-1:-1",
+          "targetVariableName": "brand/50",
+          "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+          "targetVariableSetName": "RDS / Color Primitives"
+        }
+      }
+    },
+    "surface-hover": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9176470637321472,
+          0.8627451062202454,
+          0.8941176533699036
+        ],
+        "alpha": 1,
+        "hex": "#EADCE4"
+      },
+      "$description": "Hover state for subtle brand surfaces.",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:7:119",
+        "com.figma.scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "com.figma.codeSyntax": {
+          "WEB": "var(--rds-color-brand-surface-hover)"
+        },
+        "com.figma.aliasData": {
+          "targetVariableId": "VariableID:b955a670853dd1f3fa8d3ed235d7c5df7fedcc2e/-1:-1",
+          "targetVariableName": "brand/100",
+          "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+          "targetVariableSetName": "RDS / Color Primitives"
+        }
+      }
+    },
+    "foreground": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.38823530077934265,
+          0.07058823853731155,
+          0.2666666805744171
+        ],
+        "alpha": 1,
+        "hex": "#631244"
+      },
+      "$description": "Brand-colored foreground.",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:7:120",
+        "com.figma.scopes": [
+          "SHAPE_FILL",
+          "TEXT_FILL"
+        ],
+        "com.figma.codeSyntax": {
+          "WEB": "var(--rds-color-brand-foreground)"
+        },
+        "com.figma.aliasData": {
+          "targetVariableId": "VariableID:87b50145ca0d77641f65b15f69c21ef2d4b75f59/-1:-1",
+          "targetVariableName": "brand/500",
+          "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+          "targetVariableSetName": "RDS / Color Primitives"
+        }
+      }
+    }
+  },
+  "action": {
+    "primary": {
+      "default": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.38823530077934265,
+            0.07058823853731155,
+            0.2666666805744171
+          ],
+          "alpha": 1,
+          "hex": "#631244"
+        },
+        "$description": "Primary action default surface.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:7:113",
+          "com.figma.scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--rds-color-action-primary-default)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:87b50145ca0d77641f65b15f69c21ef2d4b75f59/-1:-1",
+            "targetVariableName": "brand/500",
+            "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+            "targetVariableSetName": "RDS / Color Primitives"
+          }
+        }
+      },
+      "hover": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.250980406999588,
+            0.0470588244497776,
+            0.1725490242242813
+          ],
+          "alpha": 1,
+          "hex": "#400C2C"
+        },
+        "$description": "Primary action hover surface.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:7:114",
+          "com.figma.scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--rds-color-action-primary-hover)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:822a00419e68dc9dadeac6733459a92d095f50d3/-1:-1",
+            "targetVariableName": "brand/800",
+            "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+            "targetVariableSetName": "RDS / Color Primitives"
+          }
+        }
+      },
+      "pressed": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.11764705926179886,
+            0.019607843831181526,
+            0.08235294371843338
+          ],
+          "alpha": 1,
+          "hex": "#1E0515"
+        },
+        "$description": "Primary action pressed surface.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:7:115",
+          "com.figma.scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--rds-color-action-primary-pressed)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:b2ce864ceee432a8bf41d2d5e238747a6c2c6528/-1:-1",
+            "targetVariableName": "brand/950",
+            "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+            "targetVariableSetName": "RDS / Color Primitives"
+          }
+        }
+      },
+      "disabled": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.6980392336845398,
+            0.5529412031173706,
+            0.6431372761726379
+          ],
+          "alpha": 1,
+          "hex": "#B28DA4"
+        },
+        "$description": "Primary action disabled surface.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:7:116",
+          "com.figma.scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--rds-color-action-primary-disabled)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:ef9a92d156810838b1ffdbf1bbeec62d7ae47b1a/-1:-1",
+            "targetVariableName": "brand/300",
+            "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+            "targetVariableSetName": "RDS / Color Primitives"
+          }
+        }
+      },
+      "foreground": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 1,
+          "hex": "#FFFFFF"
+        },
+        "$description": "Foreground on primary actions.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:7:117",
+          "com.figma.scopes": [
+            "SHAPE_FILL",
+            "TEXT_FILL"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--rds-color-action-primary-foreground)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:cbdebc0ad37f84c6e12c40b5c36b851ec8bff860/-1:-1",
+            "targetVariableName": "neutral/0",
+            "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+            "targetVariableSetName": "RDS / Color Primitives"
+          }
+        }
+      }
+    }
+  },
+  "focus": {
+    "ring": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.3529411852359772,
+          0.062745101749897,
+          0.24313725531101227
+        ],
+        "alpha": 1,
+        "hex": "#5A103E"
+      },
+      "$description": "Accessible focus indicator.",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:7:121",
+        "com.figma.scopes": [
+          "STROKE"
+        ],
+        "com.figma.codeSyntax": {
+          "WEB": "var(--rds-color-focus-ring)"
+        },
+        "com.figma.aliasData": {
+          "targetVariableId": "VariableID:b3f0d818182b4446975fafeab7d7e2d7c6289aca/-1:-1",
+          "targetVariableName": "brand/600",
+          "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+          "targetVariableSetName": "RDS / Color Primitives"
+        }
+      }
+    }
+  },
+  "interaction": {
+    "neutral": {
+      "hover": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.12941177189350128,
+            0.11372549086809158,
+            0.125490203499794
+          ],
+          "alpha": 0.05999999865889549,
+          "hex": "#211D20"
+        },
+        "$description": "Neutral hover overlay for rows, menus and ghost controls.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:7:122",
+          "com.figma.scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--rds-color-interaction-neutral-hover)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:b9e3bd20db77bf438aaccd2d056c87d04433d860/-1:-1",
+            "targetVariableName": "black-alpha/06",
+            "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+            "targetVariableSetName": "RDS / Color Primitives"
+          }
+        }
+      },
+      "pressed": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.12941177189350128,
+            0.11372549086809158,
+            0.125490203499794
+          ],
+          "alpha": 0.10000000149011612,
+          "hex": "#211D20"
+        },
+        "$description": "Neutral pressed overlay.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:7:123",
+          "com.figma.scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--rds-color-interaction-neutral-pressed)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:9a4514553f48bea77ef9161deb11834d67aaad4c/-1:-1",
+            "targetVariableName": "black-alpha/10",
+            "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+            "targetVariableSetName": "RDS / Color Primitives"
+          }
+        }
+      }
+    },
+    "selected": {
+      "surface": {
+        "$type": "color",
+        "$value": "{brand.surface}",
+        "$description": "Selected neutral item surface.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:7:161",
+          "com.figma.scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--rds-color-interaction-selected-surface)"
+          }
+        }
+      }
+    }
+  },
+  "status": {
+    "success": {
+      "surface": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.9176470637321472,
+            0.9607843160629272,
+            0.9333333373069763
+          ],
+          "alpha": 1,
+          "hex": "#EAF5EE"
+        },
+        "$description": "success surface role.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:7:124",
+          "com.figma.scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--rds-color-status-success-surface)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:472c5543107f72f844aa147566b67af6624a0e6f/-1:-1",
+            "targetVariableName": "green/50",
+            "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+            "targetVariableSetName": "RDS / Color Primitives"
+          }
+        }
+      },
+      "border": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.6784313917160034,
+            0.843137264251709,
+            0.7372549176216125
+          ],
+          "alpha": 1,
+          "hex": "#ADD7BC"
+        },
+        "$description": "success border role.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:7:125",
+          "com.figma.scopes": [
+            "STROKE"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--rds-color-status-success-border)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:65fa75a6be18f0a2a991c66539a0fbced5144628/-1:-1",
+            "targetVariableName": "green/200",
+            "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+            "targetVariableSetName": "RDS / Color Primitives"
+          }
+        }
+      },
+      "foreground": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.12941177189350128,
+            0.4313725531101227,
+            0.26274511218070984
+          ],
+          "alpha": 1,
+          "hex": "#216E43"
+        },
+        "$description": "success foreground role.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:7:126",
+          "com.figma.scopes": [
+            "SHAPE_FILL",
+            "TEXT_FILL"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--rds-color-status-success-foreground)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:a5ef48749c4316148d856396874c3fefd7b1e74b/-1:-1",
+            "targetVariableName": "green/700",
+            "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+            "targetVariableSetName": "RDS / Color Primitives"
+          }
+        }
+      },
+      "solid": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.18431372940540314,
+            0.4901960790157318,
+            0.3137255012989044
+          ],
+          "alpha": 1,
+          "hex": "#2F7D50"
+        },
+        "$description": "success solid role.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:7:127",
+          "com.figma.scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--rds-color-status-success-solid)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:b1ae116157345c4ab199c66bdb682598b9f90727/-1:-1",
+            "targetVariableName": "green/650",
+            "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+            "targetVariableSetName": "RDS / Color Primitives"
+          }
+        }
+      },
+      "on-solid": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 1,
+          "hex": "#FFFFFF"
+        },
+        "$description": "success on-solid role.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:7:128",
+          "com.figma.scopes": [
+            "SHAPE_FILL",
+            "TEXT_FILL"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--rds-color-status-success-on-solid)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:cbdebc0ad37f84c6e12c40b5c36b851ec8bff860/-1:-1",
+            "targetVariableName": "neutral/0",
+            "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+            "targetVariableSetName": "RDS / Color Primitives"
+          }
+        }
+      }
+    },
+    "warning": {
+      "surface": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.9843137264251709,
+            0.9490196108818054,
+            0.886274516582489
+          ],
+          "alpha": 1,
+          "hex": "#FBF2E2"
+        },
+        "$description": "warning surface role.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:7:129",
+          "com.figma.scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--rds-color-status-warning-surface)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:f9efec97c1bb4a8f531f34a23230963f3973f2d7/-1:-1",
+            "targetVariableName": "amber/50",
+            "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+            "targetVariableSetName": "RDS / Color Primitives"
+          }
+        }
+      },
+      "border": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.9098039269447327,
+            0.7882353067398071,
+            0.5490196347236633
+          ],
+          "alpha": 1,
+          "hex": "#E8C98C"
+        },
+        "$description": "warning border role.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:7:130",
+          "com.figma.scopes": [
+            "STROKE"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--rds-color-status-warning-border)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:8b425b76e4c13f0469913ad04dd22af779277194/-1:-1",
+            "targetVariableName": "amber/200",
+            "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+            "targetVariableSetName": "RDS / Color Primitives"
+          }
+        }
+      },
+      "foreground": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.5411764979362488,
+            0.3529411852359772,
+            0.07058823853731155
+          ],
+          "alpha": 1,
+          "hex": "#8A5A12"
+        },
+        "$description": "warning foreground role.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:7:131",
+          "com.figma.scopes": [
+            "SHAPE_FILL",
+            "TEXT_FILL"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--rds-color-status-warning-foreground)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:6f430971e96ed454649ce9b5f7de166fb6a01350/-1:-1",
+            "targetVariableName": "amber/700",
+            "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+            "targetVariableSetName": "RDS / Color Primitives"
+          }
+        }
+      },
+      "solid": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.6196078658103943,
+            0.4156862795352936,
+            0.09803921729326248
+          ],
+          "alpha": 1,
+          "hex": "#9E6A19"
+        },
+        "$description": "warning solid role.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:7:132",
+          "com.figma.scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--rds-color-status-warning-solid)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:1129f2933c23d64360f851465ea4e1dc0da49bf7/-1:-1",
+            "targetVariableName": "amber/600",
+            "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+            "targetVariableSetName": "RDS / Color Primitives"
+          }
+        }
+      },
+      "on-solid": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 1,
+          "hex": "#FFFFFF"
+        },
+        "$description": "warning on-solid role.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:7:133",
+          "com.figma.scopes": [
+            "SHAPE_FILL",
+            "TEXT_FILL"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--rds-color-status-warning-on-solid)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:cbdebc0ad37f84c6e12c40b5c36b851ec8bff860/-1:-1",
+            "targetVariableName": "neutral/0",
+            "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+            "targetVariableSetName": "RDS / Color Primitives"
+          }
+        }
+      }
+    },
+    "error": {
+      "surface": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.9843137264251709,
+            0.9176470637321472,
+            0.9254902005195618
+          ],
+          "alpha": 1,
+          "hex": "#FBEAEC"
+        },
+        "$description": "error surface role.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:7:134",
+          "com.figma.scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--rds-color-status-error-surface)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:458304f42b2444587901e7361acf6bc92d6f4eff/-1:-1",
+            "targetVariableName": "red/50",
+            "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+            "targetVariableSetName": "RDS / Color Primitives"
+          }
+        }
+      },
+      "border": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.929411768913269,
+            0.7019608020782471,
+            0.7215686440467834
+          ],
+          "alpha": 1,
+          "hex": "#EDB3B8"
+        },
+        "$description": "error border role.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:7:135",
+          "com.figma.scopes": [
+            "STROKE"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--rds-color-status-error-border)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:c054d89f6b4cdc878ab331c0d3ebfd4d9d704a25/-1:-1",
+            "targetVariableName": "red/200",
+            "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+            "targetVariableSetName": "RDS / Color Primitives"
+          }
+        }
+      },
+      "foreground": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.6392157077789307,
+            0.22745098173618317,
+            0.26274511218070984
+          ],
+          "alpha": 1,
+          "hex": "#A33A43"
+        },
+        "$description": "error foreground role.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:7:136",
+          "com.figma.scopes": [
+            "SHAPE_FILL",
+            "TEXT_FILL"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--rds-color-status-error-foreground)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:d678104fa03b8fb15696b22200084e868bef86a9/-1:-1",
+            "targetVariableName": "red/700",
+            "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+            "targetVariableSetName": "RDS / Color Primitives"
+          }
+        }
+      },
+      "solid": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.7098039388656616,
+            0.27450981736183167,
+            0.3137255012989044
+          ],
+          "alpha": 1,
+          "hex": "#B54650"
+        },
+        "$description": "error solid role.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:7:137",
+          "com.figma.scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--rds-color-status-error-solid)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:1e0314093d70b265aae343231bee6dddbc973334/-1:-1",
+            "targetVariableName": "red/600",
+            "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+            "targetVariableSetName": "RDS / Color Primitives"
+          }
+        }
+      },
+      "on-solid": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 1,
+          "hex": "#FFFFFF"
+        },
+        "$description": "error on-solid role.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:7:138",
+          "com.figma.scopes": [
+            "SHAPE_FILL",
+            "TEXT_FILL"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--rds-color-status-error-on-solid)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:cbdebc0ad37f84c6e12c40b5c36b851ec8bff860/-1:-1",
+            "targetVariableName": "neutral/0",
+            "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+            "targetVariableSetName": "RDS / Color Primitives"
+          }
+        }
+      }
+    },
+    "info": {
+      "surface": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.9176470637321472,
+            0.9450980424880981,
+            0.9764705896377563
+          ],
+          "alpha": 1,
+          "hex": "#EAF1F9"
+        },
+        "$description": "info surface role.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:7:139",
+          "com.figma.scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--rds-color-status-info-surface)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:8858b2682d4786025f118f0aae81ed27489c6739/-1:-1",
+            "targetVariableName": "blue/50",
+            "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+            "targetVariableSetName": "RDS / Color Primitives"
+          }
+        }
+      },
+      "border": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.7137255072593689,
+            0.800000011920929,
+            0.9019607901573181
+          ],
+          "alpha": 1,
+          "hex": "#B6CCE6"
+        },
+        "$description": "info border role.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:7:140",
+          "com.figma.scopes": [
+            "STROKE"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--rds-color-status-info-border)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:84a98756ee20f046af57ddd33d723bd1a5e940a1/-1:-1",
+            "targetVariableName": "blue/200",
+            "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+            "targetVariableSetName": "RDS / Color Primitives"
+          }
+        }
+      },
+      "foreground": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.20392157137393951,
+            0.3686274588108063,
+            0.5686274766921997
+          ],
+          "alpha": 1,
+          "hex": "#345E91"
+        },
+        "$description": "info foreground role.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:7:141",
+          "com.figma.scopes": [
+            "SHAPE_FILL",
+            "TEXT_FILL"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--rds-color-status-info-foreground)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:7b7a4e5a39adba3fe46af9f9036556eafa097427/-1:-1",
+            "targetVariableName": "blue/700",
+            "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+            "targetVariableSetName": "RDS / Color Primitives"
+          }
+        }
+      },
+      "solid": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.2549019753932953,
+            0.43529412150382996,
+            0.658823549747467
+          ],
+          "alpha": 1,
+          "hex": "#416FA8"
+        },
+        "$description": "info solid role.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:7:142",
+          "com.figma.scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--rds-color-status-info-solid)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:2e20c6ebf82d408f1bd6913c9a88aac9d3653158/-1:-1",
+            "targetVariableName": "blue/600",
+            "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+            "targetVariableSetName": "RDS / Color Primitives"
+          }
+        }
+      },
+      "on-solid": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 1,
+          "hex": "#FFFFFF"
+        },
+        "$description": "info on-solid role.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:7:143",
+          "com.figma.scopes": [
+            "SHAPE_FILL",
+            "TEXT_FILL"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--rds-color-status-info-on-solid)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:cbdebc0ad37f84c6e12c40b5c36b851ec8bff860/-1:-1",
+            "targetVariableName": "neutral/0",
+            "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+            "targetVariableSetName": "RDS / Color Primitives"
+          }
+        }
+      }
+    }
+  },
+  "veil": {
+    "trace": {
+      "fill": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 0.03999999910593033,
+          "hex": "#FFFFFF"
+        },
+        "$description": "Veil material color role; combine with the matching Veil effect style.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:7:144",
+          "com.figma.scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--rds-color-veil-trace-fill)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:3cc3c2e495ea9cdda2229f83d730c5f67f2bf7f9/-1:-1",
+            "targetVariableName": "white-alpha/04",
+            "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+            "targetVariableSetName": "RDS / Color Primitives"
+          }
+        }
+      },
+      "edge": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 0.2800000011920929,
+          "hex": "#FFFFFF"
+        },
+        "$description": "Veil material color role; combine with the matching Veil effect style.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:7:145",
+          "com.figma.scopes": [
+            "STROKE"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--rds-color-veil-trace-edge)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:929965c14c12d80aa04371e039b33c2a5b00a2da/-1:-1",
+            "targetVariableName": "white-alpha/28",
+            "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+            "targetVariableSetName": "RDS / Color Primitives"
+          }
+        }
+      }
+    },
+    "air": {
+      "fill": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 0.18000000715255737,
+          "hex": "#FFFFFF"
+        },
+        "$description": "Veil material color role; combine with the matching Veil effect style.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:7:146",
+          "com.figma.scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--rds-color-veil-air-fill)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:b027c5d9acb8a691cd1ea2e7908bc38fe0e4a4f7/-1:-1",
+            "targetVariableName": "white-alpha/18",
+            "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+            "targetVariableSetName": "RDS / Color Primitives"
+          }
+        }
+      },
+      "edge": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 0.4000000059604645,
+          "hex": "#FFFFFF"
+        },
+        "$description": "Veil material color role; combine with the matching Veil effect style.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:7:147",
+          "com.figma.scopes": [
+            "STROKE"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--rds-color-veil-air-edge)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:0439e84a2f1e5fed500b43ec51bbcd717fbf94c2/-1:-1",
+            "targetVariableName": "white-alpha/40",
+            "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+            "targetVariableSetName": "RDS / Color Primitives"
+          }
+        }
+      }
+    },
+    "core": {
+      "fill": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 0.5199999809265137,
+          "hex": "#FFFFFF"
+        },
+        "$description": "Veil material color role; combine with the matching Veil effect style.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:7:148",
+          "com.figma.scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--rds-color-veil-core-fill)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:1b00c33182894195989e1ee1d72acc31ac0189b9/-1:-1",
+            "targetVariableName": "white-alpha/52",
+            "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+            "targetVariableSetName": "RDS / Color Primitives"
+          }
+        }
+      },
+      "edge": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 0.6399999856948853,
+          "hex": "#FFFFFF"
+        },
+        "$description": "Veil material color role; combine with the matching Veil effect style.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:7:149",
+          "com.figma.scopes": [
+            "STROKE"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--rds-color-veil-core-edge)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:5b07771d9ed2a88b26b536107e1de62505dc99d6/-1:-1",
+            "targetVariableName": "white-alpha/64",
+            "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+            "targetVariableSetName": "RDS / Color Primitives"
+          }
+        }
+      }
+    },
+    "shelter": {
+      "fill": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.9725490212440491,
+            0.9647058844566345,
+            0.9686274528503418
+          ],
+          "alpha": 0.7200000286102295,
+          "hex": "#F8F6F7"
+        },
+        "$description": "Veil material color role; combine with the matching Veil effect style.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:7:150",
+          "com.figma.scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--rds-color-veil-shelter-fill)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:32bca13d1df29bdd643de2419be1d63f2ddc2de8/-1:-1",
+            "targetVariableName": "neutral-alpha/light-72",
+            "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+            "targetVariableSetName": "RDS / Color Primitives"
+          }
+        }
+      },
+      "edge": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 0.800000011920929,
+          "hex": "#FFFFFF"
+        },
+        "$description": "Veil material color role; combine with the matching Veil effect style.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:7:151",
+          "com.figma.scopes": [
+            "STROKE"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--rds-color-veil-shelter-edge)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:83501acb88c25dee9d6bdf908c3e41b5100b9c77/-1:-1",
+            "targetVariableName": "white-alpha/80",
+            "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+            "targetVariableSetName": "RDS / Color Primitives"
+          }
+        }
+      }
+    },
+    "solid": {
+      "fill": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 0.9200000166893005,
+          "hex": "#FFFFFF"
+        },
+        "$description": "Veil material color role; combine with the matching Veil effect style.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:7:152",
+          "com.figma.scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--rds-color-veil-solid-fill)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:1eff9d9be0b5021d30478662c8696450ae1f6161/-1:-1",
+            "targetVariableName": "white-alpha/92",
+            "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+            "targetVariableSetName": "RDS / Color Primitives"
+          }
+        }
+      },
+      "edge": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.8901960849761963,
+            0.8745098114013672,
+            0.886274516582489
+          ],
+          "alpha": 0.800000011920929,
+          "hex": "#E3DFE2"
+        },
+        "$description": "Veil material color role; combine with the matching Veil effect style.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:7:153",
+          "com.figma.scopes": [
+            "STROKE"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--rds-color-veil-solid-edge)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:408a4c0878c5828a2c733eb9b9bcf0e19f5473d5/-1:-1",
+            "targetVariableName": "neutral-alpha/border-light-80",
+            "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+            "targetVariableSetName": "RDS / Color Primitives"
+          }
+        }
+      }
+    },
+    "opaque": {
+      "fill": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 1,
+          "hex": "#FFFFFF"
+        },
+        "$description": "Veil material color role; combine with the matching Veil effect style.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:7:154",
+          "com.figma.scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--rds-color-veil-opaque-fill)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:cbdebc0ad37f84c6e12c40b5c36b851ec8bff860/-1:-1",
+            "targetVariableName": "neutral/0",
+            "targetVariableSetId": "VariableCollectionId:58e4b825fb354352a9541096351f8f5cf06fd691/-1:-1",
+            "targetVariableSetName": "RDS / Color Primitives"
+          }
+        }
+      }
+    }
+  },
+  "icon": {
+    "primary": {
+      "$type": "color",
+      "$value": "{fg.primary}",
+      "$description": "Primary icon color.",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:7:155",
+        "com.figma.scopes": [
+          "SHAPE_FILL"
+        ],
+        "com.figma.codeSyntax": {
+          "WEB": "var(--rds-color-icon-primary)"
+        }
+      }
+    },
+    "secondary": {
+      "$type": "color",
+      "$value": "{fg.secondary}",
+      "$description": "Secondary icon color.",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:7:156",
+        "com.figma.scopes": [
+          "SHAPE_FILL"
+        ],
+        "com.figma.codeSyntax": {
+          "WEB": "var(--rds-color-icon-secondary)"
+        }
+      }
+    },
+    "tertiary": {
+      "$type": "color",
+      "$value": "{fg.tertiary}",
+      "$description": "Tertiary icon color.",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:7:157",
+        "com.figma.scopes": [
+          "SHAPE_FILL"
+        ],
+        "com.figma.codeSyntax": {
+          "WEB": "var(--rds-color-icon-tertiary)"
+        }
+      }
+    },
+    "disabled": {
+      "$type": "color",
+      "$value": "{fg.disabled}",
+      "$description": "Disabled icon color.",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:7:158",
+        "com.figma.scopes": [
+          "SHAPE_FILL"
+        ],
+        "com.figma.codeSyntax": {
+          "WEB": "var(--rds-color-icon-disabled)"
+        }
+      }
+    },
+    "on-brand": {
+      "$type": "color",
+      "$value": "{fg.on-brand}",
+      "$description": "Icon on brand-colored surfaces.",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:7:159",
+        "com.figma.scopes": [
+          "SHAPE_FILL"
+        ],
+        "com.figma.codeSyntax": {
+          "WEB": "var(--rds-color-icon-on-brand)"
+        }
+      }
+    }
+  },
+  "$extensions": {
+    "com.figma.modeName": "Light"
+  }
+}
