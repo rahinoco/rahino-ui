@@ -3,8 +3,9 @@
  */
 
 import { clsx } from 'clsx';
-import type { LucideIcon } from 'lucide-react';
 import type { ReactNode } from 'react';
+
+import type { UiIcon } from '@/types/icon';
 
 type SectionColor =
   | 'primary'
@@ -30,7 +31,7 @@ const COLOR_MAP: Record<SectionColor, string> = {
 };
 
 export interface SectionHeaderProps {
-  icon?: LucideIcon;
+  icon?: UiIcon;
   title: ReactNode;
   subtitle?: ReactNode;
   color?: SectionColor;

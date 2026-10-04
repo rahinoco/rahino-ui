@@ -1,10 +1,10 @@
 /**
  * @fileoverview StatCard — backward-compatible alias for MetricCard.
  */
-import type { LucideIcon } from 'lucide-react';
 import type { ReactNode } from 'react';
 
 import { MetricCard, normalizeMetricTone } from '@/components/MetricCard';
+import type { UiIcon } from '@/types/icon';
 
 type DashboardColor = 'blue' | 'emerald' | 'primary' | 'rose';
 type CompactColor = 'primary' | 'success' | 'error';
@@ -14,7 +14,7 @@ type StatCardProps =
       variant?: 'dashboard';
       title: string;
       value: number;
-      icon: LucideIcon;
+      icon: UiIcon;
       color?: DashboardColor;
       isAlert?: boolean;
     }

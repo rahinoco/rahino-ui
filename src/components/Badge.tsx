@@ -3,8 +3,9 @@
  */
 
 import { clsx } from 'clsx';
-import type { LucideIcon } from 'lucide-react';
 import type { ComponentPropsWithoutRef, ReactNode } from 'react';
+
+import type { UiIcon } from '@/types/icon';
 
 type BadgeVariant =
   | 'emerald'
@@ -23,18 +24,18 @@ type BadgeVariant =
 type BadgeSize = 'sm' | 'md' | 'lg';
 
 const VARIANTS: Record<BadgeVariant, string> = {
-  emerald: 'bg-success-100 text-success-700 border-success-200/60',
-  success: 'bg-success-100 text-success-700 border-success-200/60',
-  blue: 'bg-primary-100 text-primary-700 border-primary-200/60',
-  primary: 'bg-primary-100 text-primary-700 border-primary-200/60',
-  rose: 'bg-error-100 text-error-700 border-error-200/60',
-  error: 'bg-error-100 text-error-700 border-error-200/60',
-  danger: 'bg-error-100 text-error-700 border-error-200/60',
-  amber: 'bg-warning-50 text-warning-700 border-warning-200/50',
-  warning: 'bg-warning-50 text-warning-700 border-warning-200/50',
-  purple: 'bg-primary-100 text-primary-700 border-primary-200/60',
-  slate: 'bg-slate-100 text-slate-600 border-slate-200',
-  outline: 'bg-bg-surface border-slate-200 text-slate-500 hover:border-slate-300',
+  emerald: 'bg-success-100 text-success-700',
+  success: 'bg-success-100 text-success-700',
+  blue: 'bg-primary-100 text-primary-700',
+  primary: 'bg-primary-100 text-primary-700',
+  rose: 'bg-error-100 text-error-700',
+  error: 'bg-error-100 text-error-700',
+  danger: 'bg-error-100 text-error-700',
+  amber: 'bg-warning-50 text-warning-700',
+  warning: 'bg-warning-50 text-warning-700',
+  purple: 'bg-primary-100 text-primary-700',
+  slate: 'bg-slate-100 text-slate-600',
+  outline: 'bg-bg-muted text-fg-muted',
 };
 
 const SIZES: Record<BadgeSize, string> = {
@@ -47,7 +48,7 @@ export interface BadgeProps extends ComponentPropsWithoutRef<'span'> {
   children?: ReactNode;
   variant?: BadgeVariant;
   size?: BadgeSize;
-  icon?: LucideIcon;
+  icon?: UiIcon;
   className?: string;
 }
 
@@ -62,7 +63,7 @@ export default function Badge({
   return (
     <span
       className={clsx(
-        'inline-flex items-center gap-1.5 font-black border transition-colors shadow-sm tabular-nums font-sans',
+        'inline-flex items-center gap-1.5 border-0 font-black shadow-sm tabular-nums font-sans transition-colors',
         VARIANTS[variant] || VARIANTS.slate,
         SIZES[size],
         className

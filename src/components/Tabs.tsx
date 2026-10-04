@@ -4,14 +4,15 @@
 
 import { clsx } from 'clsx';
 import { motion } from 'framer-motion';
-import type { LucideIcon } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { twMerge } from 'tailwind-merge';
+
+import type { UiIcon } from '@/types/icon';
 
 export interface TabItem {
   id: string;
   label: ReactNode;
-  icon?: LucideIcon;
+  icon?: UiIcon;
   badge?: string | number;
   disabled?: boolean;
 }

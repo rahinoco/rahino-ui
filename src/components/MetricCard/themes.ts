@@ -59,11 +59,11 @@ export interface MetricToneTheme {
 /** Shared minimal surface — cards look uniform; tone only nudges accent text */
 const MINIMAL: MetricToneTheme = {
   icon: 'bg-bg-muted text-fg-muted',
-  iconSoft: 'bg-bg-muted text-fg-muted border border-border',
+  iconSoft: 'bg-bg-muted text-fg-muted',
   glow: '',
   mesh: '',
-  ring: 'ring-border',
-  border: 'border-border hover:border-border',
+  ring: '',
+  border: '',
   accent: 'text-fg',
   signal: 'bg-fg-muted',
 };
@@ -106,6 +106,6 @@ export const METRIC_TONE: Record<MetricTone, MetricToneTheme> = {
 
 /** Card shell shared across layouts */
 export const METRIC_CARD_SHELL =
-  'bg-bg-surface border border-border rounded-2xl shadow-light transition-colors duration-200';
+  'bg-bg-surface rounded-2xl shadow-light transition-colors duration-200';
 
-export const METRIC_CARD_HOVER = 'hover:border-border hover:shadow-heavy';
+export const METRIC_CARD_HOVER = 'hover:shadow-heavy';

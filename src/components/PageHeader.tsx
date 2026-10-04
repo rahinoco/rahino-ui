@@ -4,14 +4,15 @@
  */
 
 import { clsx } from 'clsx';
-import type { LucideIcon } from 'lucide-react';
 import { ChevronRight } from 'lucide-react';
 import type { ReactNode } from 'react';
+
+import type { UiIcon } from '@/types/icon';
 
 export interface PageHeaderProps {
   title: ReactNode;
   subtitle?: ReactNode;
-  icon?: LucideIcon;
+  icon?: UiIcon;
   iconColorClass?: string;
   showBackButton?: boolean;
   onBack?: () => void;

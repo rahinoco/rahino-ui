@@ -5,7 +5,7 @@
 import { clsx } from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Clock } from 'lucide-react';
-import { type ReactNode, useEffect, useId, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { twMerge } from 'tailwind-merge';
 

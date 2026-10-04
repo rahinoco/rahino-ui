@@ -5,10 +5,12 @@
 
 import { clsx } from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
-import { X, type LucideIcon } from 'lucide-react';
+import { X } from 'lucide-react';
 import { type ReactNode, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { twMerge } from 'tailwind-merge';
+
+import type { UiIcon } from '@/types/icon';
 
 const SIZES = {
   sm: 'max-w-md',
@@ -20,7 +22,7 @@ const SIZES = {
 
 export type ModalSize = keyof typeof SIZES;
 
-type IconComponent = LucideIcon;
+type IconComponent = UiIcon;
 
 export interface ModalProps {
   isOpen: boolean;

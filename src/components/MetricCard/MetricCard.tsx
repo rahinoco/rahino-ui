@@ -3,7 +3,6 @@
  */
 import { clsx } from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
-import type { LucideIcon } from 'lucide-react';
 import { ChevronDown, TrendingDown, TrendingUp } from 'lucide-react';
 import { isValidElement, type ReactNode } from 'react';
 import { twMerge } from 'tailwind-merge';
@@ -16,6 +15,7 @@ import {
   type MetricTone,
   normalizeMetricTone,
 } from '@/components/MetricCard/themes';
+import type { UiIcon } from '@/types/icon';
 import { formatMoney } from '@/utils/currency';
 import { toPersianDigits } from '@/utils/persianDigits';
 
@@ -36,7 +36,7 @@ export interface MetricCardProps {
   value: ReactNode;
   suffix?: string;
   unit?: string;
-  icon?: LucideIcon | ReactNode;
+  icon?: UiIcon | ReactNode;
   trend?: number;
   /** Pulse alert dot when value > 0 */
   alert?: boolean;
@@ -71,10 +71,10 @@ function loadingPlaceholder(value: ReactNode) {
   return value === '...' || value === '—';
 }
 
-function renderIcon(icon: LucideIcon | ReactNode | undefined, iconClass: string, size = 20) {
+function renderIcon(icon: UiIcon | ReactNode | undefined, iconClass: string, size = 20) {
   if (!icon) return null;
   if (isValidElement(icon)) return icon;
-  const Icon = icon as LucideIcon;
+  const Icon = icon as UiIcon;
   return <Icon size={size} strokeWidth={2.25} className={iconClass} />;
 }
 
@@ -297,7 +297,7 @@ export function MetricCard({
           METRIC_CARD_SHELL,
           'p-4 sm:p-5',
           isExpanded
-            ? 'ring-2 ring-slate-200/60 border-slate-200/90 shadow-[0_4px_20px_rgba(15,23,42,0.06)]'
+            ? 'shadow-[0_4px_20px_rgba(15,23,42,0.06)]'
             : clsx(theme.border, METRIC_CARD_HOVER)
         )}
       >
@@ -308,7 +308,7 @@ export function MetricCard({
 
           <div className="flex items-center gap-2 shrink-0">
             {trend !== undefined && trend !== 0 ? (
-              <div className="flex items-center gap-1 text-[10px] font-semibold px-2 py-1 rounded-lg bg-slate-50 text-slate-600 border border-slate-100/90">
+              <div className="flex items-center gap-1 text-[10px] font-semibold px-2 py-1 rounded-lg bg-slate-50 text-slate-600">
                 {isPositive ? (
                   <TrendingUp size={12} className="text-slate-500" />
                 ) : (
@@ -320,7 +320,7 @@ export function MetricCard({
             {onToggle ? (
               <div
                 className={clsx(
-                  'w-7 h-7 rounded-lg flex items-center justify-center transition-colors border border-slate-100/90',
+                  'w-7 h-7 rounded-lg flex items-center justify-center transition-colors bg-bg-muted',
                   isExpanded ? 'bg-slate-100 text-slate-700' : 'bg-slate-50 text-slate-400'
                 )}
               >
@@ -356,7 +356,7 @@ export function MetricCard({
               animate="expanded"
               exit="collapsed"
               variants={expandVariant}
-              className="border-t border-slate-100 pt-4 mt-4"
+              className="pt-4 mt-4"
             >
               {drillContent}
             </motion.div>

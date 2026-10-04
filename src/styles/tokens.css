@@ -64,6 +64,7 @@
   --qipper-fg: #1e293b;
   --qipper-fg-muted: #64748b;
   --qipper-fg-subtle: #94a3b8;
+  --qipper-fg-on-primary: #ffffff;
   --qipper-border: #e8ecf2;
   --qipper-border-subtle: #f1f4f8;
   --qipper-overlay: rgb(15 23 42 / 0.42);
@@ -89,6 +90,7 @@
   --qipper-fg: #eef1f6;
   --qipper-fg-muted: #9aa3b5;
   --qipper-fg-subtle: #6f788c;
+  --qipper-fg-on-primary: #ffffff;
   --qipper-border: rgb(255 255 255 / 0.1);
   --qipper-border-subtle: rgb(255 255 255 / 0.06);
   --qipper-overlay: rgb(0 0 0 / 0.62);
@@ -130,10 +132,10 @@
   --qipper-brand-800: color-mix(in srgb, var(--qipper-brand-500) 48%, white);
   --qipper-brand-900: color-mix(in srgb, var(--qipper-brand-500) 35%, white);
 
-  --qipper-error-50: color-mix(in srgb, #fe2a2a 18%, #12151d);
-  --qipper-error-100: color-mix(in srgb, #fe2a2a 28%, #12151d);
-  --qipper-success-50: color-mix(in srgb, #53b816 18%, #12151d);
-  --qipper-success-100: color-mix(in srgb, #53b816 28%, #12151d);
+  --qipper-error-50: color-mix(in srgb, var(--qipper-brand-500) 18%, #12151d);
+  --qipper-error-100: color-mix(in srgb, var(--qipper-brand-500) 28%, #12151d);
+  --qipper-success-50: color-mix(in srgb, var(--qipper-brand-500) 18%, #12151d);
+  --qipper-success-100: color-mix(in srgb, var(--qipper-brand-500) 28%, #12151d);
   --qipper-warning-50: color-mix(in srgb, #f59e0b 18%, #12151d);
   --qipper-warning-100: color-mix(in srgb, #f59e0b 28%, #12151d);
 }
@@ -204,6 +206,7 @@
   --rahino-fg: var(--qipper-fg);
   --rahino-fg-muted: var(--qipper-fg-muted);
   --rahino-fg-subtle: var(--qipper-fg-subtle);
+  --rahino-fg-on-primary: var(--qipper-fg-on-primary);
   --rahino-border: var(--qipper-border);
   --rahino-border-subtle: var(--qipper-border-subtle);
   --rahino-overlay: var(--qipper-overlay);

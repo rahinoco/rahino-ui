@@ -2,6 +2,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 @import "./tokens.css";
 @import "./rds-colors.css";
+@import "./fluid-scale.css";
 @import "./products.css";
 @import "../qippo/qippo.css";
 @import "../rahino/rahino.css";
@@ -34,6 +35,7 @@
   --color-fg: var(--qipper-fg);
   --color-fg-muted: var(--qipper-fg-muted);
   --color-fg-subtle: var(--qipper-fg-subtle);
+  --color-fg-on-primary: var(--qipper-fg-on-primary, #ffffff);
   --color-border: var(--qipper-border);
   --color-border-subtle: var(--qipper-border-subtle);
   --color-overlay: var(--qipper-overlay);
@@ -62,25 +64,25 @@
 
   --color-error-50: var(--qipper-error-50);
   --color-error-100: var(--qipper-error-100);
-  --color-error-200: #ffaaaa;
-  --color-error-300: #ff7f7f;
-  --color-error-400: #ff5555;
-  --color-error-500: #fe2a2a;
-  --color-error-600: #cb2222;
-  --color-error-700: #981919;
-  --color-error-800: #661111;
-  --color-error-900: #330808;
+  --color-error-200: var(--qipper-error-subtle, #ffaaaa);
+  --color-error-300: var(--qipper-error, #ff7f7f);
+  --color-error-400: var(--qipper-error, #ff5555);
+  --color-error-500: var(--qipper-error, #fe2a2a);
+  --color-error-600: var(--qipper-error, #cb2222);
+  --color-error-700: var(--qipper-error, #981919);
+  --color-error-800: var(--qipper-error, #661111);
+  --color-error-900: var(--qipper-error, #330808);
 
   --color-success-50: var(--qipper-success-50);
   --color-success-100: var(--qipper-success-100);
-  --color-success-200: #b9e2a0;
-  --color-success-300: #96d471;
-  --color-success-400: #74c643;
-  --color-success-500: #53b816;
-  --color-success-600: #429312;
-  --color-success-700: #326e0d;
-  --color-success-800: #214a09;
-  --color-success-900: #112504;
+  --color-success-200: var(--qipper-success-subtle, #b9e2a0);
+  --color-success-300: var(--qipper-success, #96d471);
+  --color-success-400: var(--qipper-success, #74c643);
+  --color-success-500: var(--qipper-success, #53b816);
+  --color-success-600: var(--qipper-success, #429312);
+  --color-success-700: var(--qipper-success, #326e0d);
+  --color-success-800: var(--qipper-success, #214a09);
+  --color-success-900: var(--qipper-success, #112504);
 
   --color-warning-50: var(--qipper-warning-50);
   --color-warning-100: var(--qipper-warning-100);
