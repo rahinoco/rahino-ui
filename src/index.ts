@@ -146,6 +146,12 @@ export {
 } from '@/inventory/catalog';
 export { inventoryWithQippo } from '@/inventory/withQippo';
 export { DECISIONS, getDecision, type DecisionOutcome, type DecisionStatus, type DesignDecision } from '@/decisions';
+export { RELEASE, RELEASE_NOTE } from '@/contracts/release';
+export { anchorsOf, pageByPath, type ContractBlock, type ContractPage, type ContractSection } from '@/contracts/blocks';
+export { BUTTON_LIMITS, BUTTON_PROPS, CONFIRMATION_PROPS, MODAL_LIMITS, MODAL_PROPS } from '@/contracts/componentApi';
+export { CONTENT_PAGES } from '@/content/pages';
+export { DEVELOP_PAGES } from '@/development/guide';
+export { GOVERNANCE_PAGES } from '@/governance/guide';
 export {
   COMPARISON_REGISTRY,
   comparisonReviewQueue,
@@ -166,6 +172,37 @@ export {
   type QippoPresence,
 } from '@/qippo/catalog';
 export { QIPPO_FIGMA, QIPPO_KIT_SECTIONS, qippoFigmaUrl } from '@/qippo/figma';
+export { VeilPanel } from '@/foundations/VeilPanel';
+export {
+  CONTROL_SIZE,
+  CONTRAST_REFERENCE,
+  DENSITY,
+  FONT_FAMILY,
+  FONT_FILES,
+  FOUNDATION_MANIFEST,
+  INK,
+  LIFT,
+  MOTION_DURATION,
+  MOTION_EASING,
+  RADIUS,
+  SPACE_REF,
+  SPACE_ROLE,
+  STATUS,
+  SURFACE,
+  TYPE_ROLES,
+  VEIL_TIER,
+  contrastRatio,
+  formatGrouped,
+  formatMoneyDisplay,
+  formatPercent,
+  liftShadow,
+  readVeilEnvironment,
+  resolveVeil,
+  type TypeRole,
+  type VeilEnvironment,
+  type VeilRequest,
+  type VeilResolution,
+} from '@/foundations';
 export { QIPPO_OBSERVED_TOKENS } from '@/qippo/tokens';
 export {
   QippoButton,

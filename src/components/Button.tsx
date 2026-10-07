@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Qipper Button — borderless, soft-fill, minimal motion.
  */
 

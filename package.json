@@ -28,9 +28,8 @@
     "prebuild": "npm run tokens:check",
     "build": "vite build",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "tokens:build": "node scripts/generate-color-tokens.mjs",
-    "tokens:sync": "node scripts/generate-color-tokens.mjs --sync",
-    "tokens:check": "node scripts/generate-color-tokens.mjs --check"
+    "tokens:build": "node scripts/generate-foundations.ts",
+    "tokens:check": "node scripts/generate-foundations.ts --check"
   },
   "peerDependencies": {
     "react": "^19.0.0",
