@@ -75,11 +75,11 @@ export default class ErrorBoundary extends Component<ErrorBoundaryProps, State> 
           )}
         </div>
         <div className="flex items-center gap-2 flex-wrap justify-center">
-          <Button variant="secondary" onClick={this.handleReset}>
+          <Button onClick={this.handleReset}>
             <RefreshCw size={16} /> تلاش مجدد
           </Button>
           {!inset && (
-            <Button variant="primary" onClick={this.handleReload}>
+            <Button appearance="solid" intent="brand" onClick={this.handleReload}>
               بارگذاری مجدد
             </Button>
           )}

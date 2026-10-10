@@ -6,6 +6,8 @@
 @import "./products.css";
 @import "../qippo/qippo.css";
 @import "../rahino/rahino.css";
+@import "./fonts.css";
+@import "../components/button.css";
 
 /*
  * Tailwind v4 must scan library components AND the workbench stories.
@@ -95,7 +97,7 @@
   --color-warning-800: #92400e;
   --color-warning-900: #78350f;
 
-  --font-sans: "IRANYekanX", sans-serif;
+  --font-sans: var(--rds-font-family-fa);
 
   --breakpoint-sm: 40rem;
   --breakpoint-md: 48rem;
@@ -120,49 +122,6 @@
   --shadow-glow: var(--qipper-shadow-glow);
 
   --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-@font-face {
-  font-family: "IRANYekanX";
-  src: url("./fonts/IRANYekanX-Light.woff2") format("woff2");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "IRANYekanX";
-  src: url("./fonts/IRANYekanX-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "IRANYekanX";
-  src: url("./fonts/IRANYekanX-Medium.woff2") format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "IRANYekanX";
-  src: url("./fonts/IRANYekanX-Bold.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "IRANYekanX";
-  src: url("./fonts/IRANYekanX-Bold.woff2") format("woff2");
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "IRANYekanX";
-  src: url("./fonts/IRANYekanX-Bold.woff2") format("woff2");
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
 }
 
 body {
@@ -254,8 +213,30 @@ option,
 table,
 th,
 td {
-  font-family: var(--font-sans), sans-serif;
-  font-variant-numeric: tabular-nums;
+  font-family: var(--rds-font-family-fa);
+  font-synthesis: none;
+}
+
+.rds-fa {
+  font-family: var(--rds-font-family-fa);
+  font-synthesis: none;
+}
+
+.rds-latin {
+  font-family: var(--rds-font-family-latin);
+  font-synthesis: none;
+}
+
+.rds-weight-structure {
+  font-weight: var(--rds-font-weight-structure);
+}
+
+.rds-weight-emphasis {
+  font-weight: var(--rds-font-weight-emphasis);
+}
+
+.rds-weight-control {
+  font-weight: var(--rds-font-weight-control);
 }
 
 .dark .bg-white {
@@ -319,7 +300,8 @@ td {
 }
 
 .rahino-ui {
-  font-family: var(--font-sans);
+  font-family: var(--rds-font-family-fa);
+  font-synthesis: none;
   color: var(--color-fg);
 }
 

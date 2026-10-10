@@ -161,7 +161,7 @@ export const QIPPO_CATALOG: QippoComponentRef[] = [
     sizes: ['Sm 32px', 'Md 40px', 'Lg 48px'],
     states: ['Default', 'hover', 'selected', 'enable=off'],
     summary:
-      'LIVE React (qippo/Button.tsx). Axes: Type, size, shape, enable, state, icon status. No Danger/loading in Figma names.',
+      'مرجع کیپو از مسیر فعال کتابخانه برداشته شد و در آرشیو ۲۰۲۶-۱۰-۱۰ مانده است. دکمهٔ مشترک خانوادهٔ Button است، نه دو پیاده‌سازی هم‌زمان.',
     differences: [
       'Qippo Stroke + Text Only; Qipper has danger and outline/soft aliases',
       'Qippo icon status is a variant; Qipper icons are children',
@@ -187,7 +187,7 @@ export const QIPPO_CATALOG: QippoComponentRef[] = [
     sizes: ['48', '56'],
     states: ['Default', 'Hover', 'Selected'],
     summary:
-      'LIVE React (qippo/IconButton.tsx). Qipper fakes this with Button + !w-10 !px-0.',
+      'مرجع کیپو از مسیر فعال برداشته شد. IconButton مشترک در کتابخانه است. سابقهٔ گرهٔ فیگما حفظ شده است.',
     differences: ['Shared Icon Button primitive in Qippo; Qipper has no extracted IconButton'],
     mappedInventoryId: 'icon-button',
   }),

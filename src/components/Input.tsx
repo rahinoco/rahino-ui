@@ -78,7 +78,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
                   : [hasIcon && 'pl-11', hasEndAdornment && 'pr-11'],
                 isLtr && 'text-start',
                 error ? FIELD.controlError : FIELD.controlOk,
-                mono && 'tabular-nums tracking-wide',
+                mono && '[font-family:var(--rds-font-family-mono)]',
                 inputClassName
               )
             )}

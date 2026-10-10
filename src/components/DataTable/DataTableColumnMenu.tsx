@@ -139,9 +139,10 @@ export function DataTableColumnMenu<T>({
               <div className="flex items-center gap-2 px-1 pt-1 border-t border-slate-100">
                 <Button
                   type="button"
-                  variant="primary"
+                  appearance="solid"
+                  intent="brand"
                   size="sm"
-                  className="flex-1 !text-[10px]"
+                  className="flex-1"
                   onClick={() => {
                     onApplyFilter(draft);
                     setOpen(false);
@@ -152,9 +153,9 @@ export function DataTableColumnMenu<T>({
                 {hasFilter ? (
                   <Button
                     type="button"
-                    variant="ghost"
+                    appearance="ghost"
+                    intent="danger"
                     size="sm"
-                    className="!text-[10px] !text-error-500"
                     onClick={() => {
                       onClearFilter();
                       setOpen(false);

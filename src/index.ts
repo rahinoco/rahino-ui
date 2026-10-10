@@ -37,7 +37,10 @@ export {
 export { default as AppearanceControls } from '@/components/AppearanceControls';
 export { default as AuthShell, type AuthShellProps } from '@/components/AuthShell';
 export { default as Badge, type BadgeProps } from '@/components/Badge';
-export { default as Button, type ButtonProps, type ButtonSize, type ButtonVariant } from '@/components/Button';
+export { default as Button, type ButtonProps } from '@/components/Button';
+export type { ButtonAppearance, ButtonIntent, ButtonSize } from '@/components/Button';
+export { default as IconButton, type IconButtonProps } from '@/components/IconButton';
+export { default as ToggleButton, type ToggleButtonProps } from '@/components/ToggleButton';
 export { default as Card, type CardProps } from '@/components/Card';
 export { default as Checkbox, type CheckboxProps } from '@/components/Checkbox';
 export { default as ConfirmationModal, type ConfirmationModalProps } from '@/components/ConfirmationModal';
@@ -149,6 +152,7 @@ export { DECISIONS, getDecision, type DecisionOutcome, type DecisionStatus, type
 export { RELEASE, RELEASE_NOTE } from '@/contracts/release';
 export { anchorsOf, pageByPath, type ContractBlock, type ContractPage, type ContractSection } from '@/contracts/blocks';
 export { BUTTON_LIMITS, BUTTON_PROPS, CONFIRMATION_PROPS, MODAL_LIMITS, MODAL_PROPS } from '@/contracts/componentApi';
+export { BUTTON_DOC_PAGE, COMPONENT_DOC_PAGES, COMPONENT_INDEX_PAGE, DIALOG_DOC_PAGE } from '@/contracts/componentGuide';
 export { CONTENT_PAGES } from '@/content/pages';
 export { DEVELOP_PAGES } from '@/development/guide';
 export { GOVERNANCE_PAGES } from '@/governance/guide';
@@ -205,15 +209,6 @@ export {
 } from '@/foundations';
 export { QIPPO_OBSERVED_TOKENS } from '@/qippo/tokens';
 export {
-  QippoButton,
-  type QippoButtonProps,
-  type QippoButtonShape,
-  type QippoButtonSize,
-  type QippoButtonType,
-  type QippoForceState,
-  type QippoIconStatus,
-} from '@/qippo/Button';
-export {
   QippoSelect,
   type QippoSelectOption,
   type QippoSelectProps,
@@ -246,12 +241,6 @@ export {
   type QippoAvatarType,
 } from '@/qippo/Avatar';
 export { QippoCard, type QippoCardProps } from '@/qippo/Card';
-export {
-  QippoIconButton,
-  type QippoIconButtonForce,
-  type QippoIconButtonProps,
-  type QippoIconButtonSize,
-} from '@/qippo/IconButton';
 export { QippoOtp, type QippoOtpProps, type QippoOtpTone } from '@/qippo/Otp';
 export {
   QippoSnackbar,

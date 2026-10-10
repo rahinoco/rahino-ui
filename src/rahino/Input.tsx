@@ -117,7 +117,7 @@ const RahinoInput = forwardRef<HTMLInputElement, RahinoInputProps>(
                   : [hasIcon && 'pl-11', hasEndAdornment && 'pr-11'],
                 isLtr && 'text-start',
                 error ? FIELD.controlError : FIELD.controlOk,
-                mono && 'tabular-nums tracking-wide',
+                mono && '[font-family:var(--rds-font-family-mono)]',
                 showFloating && 'placeholder:text-transparent',
                 inputClassName
               )

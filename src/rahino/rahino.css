@@ -6,6 +6,8 @@
 .rahino-float {
   position: relative;
   width: 100%;
+  font-family: var(--rds-font-family-fa);
+  font-synthesis: none;
 }
 
 .rahino-float__label {
@@ -22,7 +24,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   font-size: 0.875rem;
-  font-weight: 600;
+  font-weight: var(--rds-font-weight-structure);
   line-height: 1.25;
   text-align: start;
   color: var(--qipper-fg-subtle);

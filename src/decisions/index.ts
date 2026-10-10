@@ -41,7 +41,7 @@ export const DECISIONS: DesignDecision[] = [
     outcome: 'undecided',
     sources: {
       qipper: 'src/shared/ui/Button.tsx → src/components/Button.tsx',
-      qippo: '2230:6522 → rahino-ui/src/qippo/Button.tsx (live)',
+      qippo: '2230:6522 → archived 2026-10-10 from rahino-ui/src/qippo/Button.tsx',
     },
     productDifferences:
       'Qippo: Primary/Secondary/Stroke/Ghost/Text Only, Sm32/Md40/Lg48, curved|square, icon as variant, named hover/selected. No Danger, no loading. Pill radius-xl 24. Qipper: primary/secondary/ghost/danger, icons as children, CSS hover, frequent !h-12.',
@@ -128,7 +128,7 @@ export const DECISIONS: DesignDecision[] = [
     outcome: 'undecided',
     sources: {
       qipper: 'Button + !w-10 !px-0 (not a primitive)',
-      qippo: '2039:3836 → rahino-ui/src/qippo/IconButton.tsx (live)',
+      qippo: '2039:3836 → archived 2026-10-10 from rahino-ui/src/qippo/IconButton.tsx',
     },
     productDifferences: 'Qippo dedicated 48/56 icon-button with badge. Qipper composes Button.',
   },

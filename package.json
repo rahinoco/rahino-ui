@@ -16,6 +16,7 @@
       "import": "./src/index.ts"
     },
     "./styles.css": "./src/styles/index.css",
+    "./fonts.css": "./src/styles/fonts.css",
     "./inventory": "./src/inventory/catalog.ts",
     "./qippo": "./src/qippo/catalog.ts"
   },

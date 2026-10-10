@@ -23,11 +23,13 @@ export { compositeOver, contrastRatio, luminance, parseColor } from './contrast.
 export { renderFoundationsCss } from './css.ts';
 export { formatGrouped, formatMoneyDisplay, formatPercent, toPersianDigits, type MoneyUnit } from './format.ts';
 export {
+  BUTTON_FOCUS,
   CONTROL_SIZE,
   DENSITY,
   EDGE_WIDTH,
   FOCUS,
   ICON_SIZE,
+  ICON_STROKE,
   LAYER,
   LAYOUT,
   LIFT,
@@ -37,6 +39,7 @@ export {
   RADIUS,
   SPACE_REF,
   SPACE_ROLE,
+  TOUCH_MIN,
   VEIL_EDGE,
   VEIL_FLOOR,
   VEIL_TIER,

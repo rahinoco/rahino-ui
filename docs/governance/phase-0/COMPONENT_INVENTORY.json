@@ -1,0 +1,4043 @@
+{
+  "schemaVersion": 1,
+  "phase": 0,
+  "title": "Rahino Design System — Component Inventory Baseline",
+  "scopeStatus": "PROVISIONAL",
+  "sources": {
+    "rahinoUiCommit": "3738983346c7573ddcd5d0c4f73f0bf29fb1caf5",
+    "rahinoUiFrontendCommit": "c9bb1801ec82565ab5996735ee1f26c880c3a75a",
+    "qipperAppFrontendCommit": "28f3d3e43e38de2f058844d018935f01952833d8",
+    "qippoFigma": {
+      "file": "qippo app",
+      "fileKey": "X3QxAzFoH4KzwUDY1FggbE",
+      "page": "Ui Kit",
+      "pageNodeId": "1:3",
+      "url": "https://www.figma.com/design/X3QxAzFoH4KzwUDY1FggbE/qippo-app?node-id=1-3&m=dev",
+      "access": "mcp-verified-sets",
+      "limitation": "componentPropertyDefinitions failed on some sets; variants listed by count/name only"
+    }
+  },
+  "notes": [
+    "No item is canonical. Package default exports are Qipper extractions, not approved RDS.",
+    "Names were not auto-matched. See mapping.relationship.",
+    "Screenshots were not used as inventory evidence."
+  ],
+  "items": [
+    {
+      "id": "accessibility",
+      "name": "Accessibility",
+      "kind": "foundation",
+      "category": "foundations",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "partial",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/ui/Button.tsx",
+              "symbol": "Button"
+            },
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/ui/Modal.tsx",
+              "symbol": "Modal"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "unknown",
+          "fidelity": "unknown",
+          "evidence": []
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "present",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "unknown",
+        "notes": [
+          "Docs page /foundations/a11y exists on rahino-ui-frontend.",
+          "No dedicated a11y token set or audit in either product."
+        ]
+      },
+      "scope": {
+        "rds": "required",
+        "products": {
+          "qipper": "used",
+          "qippo": "used",
+          "digix": "unknown"
+        }
+      },
+      "status": "partial",
+      "openQuestions": [
+        "Q-A11Y-01"
+      ]
+    },
+    {
+      "id": "appearance-controls",
+      "name": "Appearance controls",
+      "kind": "product-specific",
+      "category": "theme",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/ui/AppearanceControls.tsx",
+              "symbol": "AppearanceControls"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "missing",
+          "fidelity": "not-applicable",
+          "evidence": []
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "unknown",
+        "notes": [
+          "Product theme/brand switcher, not a DS primitive."
+        ]
+      },
+      "scope": {
+        "rds": "out-of-scope",
+        "products": {
+          "qipper": "used",
+          "qippo": "unused",
+          "digix": "unknown"
+        }
+      },
+      "status": "verified",
+      "openQuestions": []
+    },
+    {
+      "id": "auth-shell",
+      "name": "Auth shell",
+      "kind": "layout",
+      "category": "layout",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/pages/auth/AuthGlassShell.tsx",
+              "symbol": "AuthGlassShell"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "present",
+          "fidelity": "figma-verified",
+          "evidence": [
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Login",
+              "nodeId": "3663:19593",
+              "name": "Login"
+            }
+          ]
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "conceptual-match",
+        "notes": [
+          "rahino-ui AuthShell adapted from Qipper auth page chrome.",
+          "Qippo Login section is a product auth module."
+        ]
+      },
+      "scope": {
+        "rds": "product-specific",
+        "products": {
+          "qipper": "used",
+          "qippo": "used",
+          "digix": "unknown"
+        }
+      },
+      "status": "needs-review",
+      "openQuestions": [
+        "Q-AUTH-01"
+      ]
+    },
+    {
+      "id": "avatar",
+      "name": "Avatar",
+      "kind": "primitive",
+      "category": "display",
+      "aliases": [
+        "persian-avatar"
+      ],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/widgets/dashboard/components/PersianAvatar.tsx",
+              "symbol": "PersianAvatar"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "present",
+          "fidelity": "figma-verified",
+          "evidence": [
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Other-Component",
+              "nodeId": "2066:1223",
+              "name": "Avatar"
+            },
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Card-Component",
+              "nodeId": "2021:5611",
+              "name": "Avatar"
+            }
+          ]
+        }
+      },
+      "implementation": {
+        "rahinoUi": "reconstructed",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "live",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "partial-match",
+        "notes": [
+          "Qipper PersianAvatar is dashboard widget, not shared/ui.",
+          "Two Figma Avatar sets with the same name.",
+          "rahino-ui has QippoAvatar only; no extracted Qipper avatar."
+        ]
+      },
+      "scope": {
+        "rds": "candidate",
+        "products": {
+          "qipper": "used",
+          "qippo": "used",
+          "digix": "unknown"
+        }
+      },
+      "status": "duplicate",
+      "openQuestions": [
+        "Q-AVATAR-01"
+      ]
+    },
+    {
+      "id": "badge",
+      "name": "Badge",
+      "kind": "primitive",
+      "category": "display",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/ui/Badge.tsx",
+              "symbol": "Badge"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "partial",
+          "fidelity": "figma-observed",
+          "evidence": [
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Other-Component",
+              "nodeId": "2023:3412",
+              "name": "Other-Component"
+            }
+          ]
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "placeholder",
+        "docs": "missing",
+        "storybook": "present",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "unknown",
+        "notes": [
+          "In COMPARISON_REGISTRY but not LIVE_IDS.",
+          "Qippo Magicoon Badge overlays are not a status Badge set.",
+          "Qipper also has StatusBadge/PriorityBadge in features/tasks."
+        ]
+      },
+      "scope": {
+        "rds": "candidate",
+        "products": {
+          "qipper": "used",
+          "qippo": "unused",
+          "digix": "unknown"
+        }
+      },
+      "status": "needs-review",
+      "openQuestions": [
+        "Q-BADGE-01"
+      ]
+    },
+    {
+      "id": "border",
+      "name": "Border",
+      "kind": "foundation",
+      "category": "foundations",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "partial",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/app/styles/tokens.css",
+              "symbol": "--qipper-*"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "unknown",
+          "fidelity": "unknown",
+          "evidence": []
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "missing",
+        "storybook": "partial",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "unknown",
+        "notes": [
+          "Qipper tokens.css copied to rahino-ui/src/styles/tokens.css.",
+          "No named border-width scale documented separately from color."
+        ]
+      },
+      "scope": {
+        "rds": "candidate",
+        "products": {
+          "qipper": "used",
+          "qippo": "unused",
+          "digix": "unknown"
+        }
+      },
+      "status": "partial",
+      "openQuestions": []
+    },
+    {
+      "id": "brand",
+      "name": "Brand",
+      "kind": "foundation",
+      "category": "foundations",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/ui/QipperLogo.tsx",
+              "symbol": "QipperLogo"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "partial",
+          "fidelity": "figma-observed",
+          "evidence": [
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Login",
+              "nodeId": "3663:19593",
+              "name": "Login"
+            }
+          ]
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "present",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "not-equivalent",
+        "notes": [
+          "Product logos are not a shared Rahino mark.",
+          "Docs: /foundations/brand."
+        ]
+      },
+      "scope": {
+        "rds": "needs-review",
+        "products": {
+          "qipper": "used",
+          "qippo": "used",
+          "digix": "unknown"
+        }
+      },
+      "status": "needs-review",
+      "openQuestions": [
+        "Q-BRAND-01"
+      ]
+    },
+    {
+      "id": "breakpoints",
+      "name": "Breakpoints",
+      "kind": "foundation",
+      "category": "foundations",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/hooks/useMediaQuery.ts",
+              "symbol": "useMediaQuery"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "unknown",
+          "fidelity": "unknown",
+          "evidence": []
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "present",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "unknown",
+        "notes": [
+          "Docs: /foundations/breakpoints."
+        ]
+      },
+      "scope": {
+        "rds": "candidate",
+        "products": {
+          "qipper": "used",
+          "qippo": "unused",
+          "digix": "unknown"
+        }
+      },
+      "status": "partial",
+      "openQuestions": []
+    },
+    {
+      "id": "button",
+      "name": "Button",
+      "kind": "component",
+      "category": "actions",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/ui/Button.tsx",
+              "symbol": "Button"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "present",
+          "fidelity": "figma-verified",
+          "evidence": [
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Button-Component",
+              "nodeId": "2230:6522",
+              "name": "button"
+            }
+          ]
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "live",
+        "docs": "present",
+        "storybook": "present",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "partial-match",
+        "notes": [
+          "Default package export is Qipper Button, not a Rahino canonical.",
+          "Qippo reconstruction: src/qippo/Button.tsx from set 2230:6522 (456 variants listed).",
+          "Icon-only Qipper usage is not Icon Button."
+        ]
+      },
+      "scope": {
+        "rds": "required",
+        "products": {
+          "qipper": "used",
+          "qippo": "used",
+          "digix": "unknown"
+        }
+      },
+      "status": "partial",
+      "openQuestions": [
+        "Q-BTN-01"
+      ]
+    },
+    {
+      "id": "card",
+      "name": "Card",
+      "kind": "component",
+      "category": "surfaces",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/ui/Card.tsx",
+              "symbol": "Card"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "present",
+          "fidelity": "figma-verified",
+          "evidence": [
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Card-Component",
+              "nodeId": "2073:4138",
+              "name": "Card-Component"
+            },
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Card-Component",
+              "nodeId": "2325:1506",
+              "name": "Landing Info Card"
+            }
+          ]
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "live",
+        "docs": "missing",
+        "storybook": "partial",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "not-equivalent",
+        "notes": [
+          "Qipper Card is a padded surface primitive.",
+          "Qippo Landing Info Card and Module Components are product modules.",
+          "Lab Qippo column uses a fair-lab chrome, not a product card."
+        ]
+      },
+      "scope": {
+        "rds": "candidate",
+        "products": {
+          "qipper": "used",
+          "qippo": "used",
+          "digix": "unknown"
+        }
+      },
+      "status": "ambiguous",
+      "openQuestions": [
+        "Q-CARD-01"
+      ]
+    },
+    {
+      "id": "checkbox",
+      "name": "Checkbox",
+      "kind": "primitive",
+      "category": "selection",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/ui/Checkbox.tsx",
+              "symbol": "Checkbox"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "present",
+          "fidelity": "figma-verified",
+          "evidence": [
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Other-Component",
+              "nodeId": "2896:22985",
+              "name": "Checkbox"
+            }
+          ]
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "live",
+        "docs": "missing",
+        "storybook": "present",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "partial-match",
+        "notes": [
+          "Qippo set includes simple / Item / Item+Desc types. Qipper is a single control."
+        ]
+      },
+      "scope": {
+        "rds": "required",
+        "products": {
+          "qipper": "used",
+          "qippo": "used",
+          "digix": "unknown"
+        }
+      },
+      "status": "partial",
+      "openQuestions": []
+    },
+    {
+      "id": "color",
+      "name": "Color",
+      "kind": "foundation",
+      "category": "foundations",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/app/styles/tokens.css",
+              "symbol": "--qipper-brand-500"
+            },
+            {
+              "repo": "rahino-ui",
+              "path": "src/styles/tokens.css",
+              "symbol": "--qipper-brand-500"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "partial",
+          "fidelity": "figma-observed",
+          "evidence": [
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Button-Component",
+              "nodeId": "2230:6522",
+              "name": "button"
+            }
+          ]
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "present",
+        "storybook": "partial",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "conflict",
+        "notes": [
+          "Qipper live primary #4179f0 in tokens.css.",
+          "Qippo fills observed on components; no dedicated Ui Kit color page verified.",
+          "src/styles/products.css is product labels, not palettes."
+        ]
+      },
+      "scope": {
+        "rds": "required",
+        "products": {
+          "qipper": "used",
+          "qippo": "used",
+          "digix": "unknown"
+        }
+      },
+      "status": "ambiguous",
+      "openQuestions": [
+        "Q-COLOR-01"
+      ]
+    },
+    {
+      "id": "command-palette",
+      "name": "Command palette",
+      "kind": "product-specific",
+      "category": "navigation",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/widgets/layout/header/CommandPalette.tsx",
+              "symbol": "CommandPalette"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "unknown",
+          "fidelity": "unknown",
+          "evidence": []
+        }
+      },
+      "implementation": {
+        "rahinoUi": "missing",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "unknown",
+        "notes": [
+          "Qipper widget. Not extracted."
+        ]
+      },
+      "scope": {
+        "rds": "out-of-scope",
+        "products": {
+          "qipper": "used",
+          "qippo": "unused",
+          "digix": "unknown"
+        }
+      },
+      "status": "verified",
+      "openQuestions": []
+    },
+    {
+      "id": "confirmation",
+      "name": "Confirmation modal",
+      "kind": "composite",
+      "category": "overlays",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/ui/ConfirmationModal.tsx",
+              "symbol": "ConfirmationModal"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "missing",
+          "fidelity": "not-applicable",
+          "evidence": []
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "unknown",
+        "notes": [
+          "Specialized Modal usage."
+        ]
+      },
+      "scope": {
+        "rds": "candidate",
+        "products": {
+          "qipper": "used",
+          "qippo": "unused",
+          "digix": "unknown"
+        }
+      },
+      "status": "partial",
+      "openQuestions": []
+    },
+    {
+      "id": "data-state",
+      "name": "Data state",
+      "kind": "pattern",
+      "category": "feedback",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/ui/DataState.tsx",
+              "symbol": "DataEmptyState"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "unknown",
+          "fidelity": "unknown",
+          "evidence": []
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "missing",
+        "storybook": "partial",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "unknown",
+        "notes": [
+          "Empty/error/loading. Storybook Data.stories covers some states."
+        ]
+      },
+      "scope": {
+        "rds": "candidate",
+        "products": {
+          "qipper": "used",
+          "qippo": "unused",
+          "digix": "unknown"
+        }
+      },
+      "status": "partial",
+      "openQuestions": []
+    },
+    {
+      "id": "data-table",
+      "name": "Data table",
+      "kind": "composite",
+      "category": "data-display",
+      "aliases": [
+        "qipper-table"
+      ],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/ui/QipperTable/QipperTable.tsx",
+              "symbol": "QipperTable"
+            },
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/ui/Table.tsx",
+              "symbol": "Table"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "missing",
+          "fidelity": "not-applicable",
+          "evidence": []
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "partial",
+        "docs": "present",
+        "storybook": "present",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "unknown",
+        "notes": [
+          "No named Table on Ui Kit.",
+          "QipperTable aliased as DataTable in rahino-ui.",
+          "Primitive Table.tsx also exists — overlapping table implementations."
+        ]
+      },
+      "scope": {
+        "rds": "candidate",
+        "products": {
+          "qipper": "used",
+          "qippo": "unused",
+          "digix": "unknown"
+        }
+      },
+      "status": "duplicate",
+      "openQuestions": [
+        "Q-TABLE-01"
+      ]
+    },
+    {
+      "id": "date-picker",
+      "name": "Date picker",
+      "kind": "component",
+      "category": "forms",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/ui/DatePicker.tsx",
+              "symbol": "DatePicker"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "present",
+          "fidelity": "figma-verified",
+          "evidence": [
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Other-Component",
+              "nodeId": "7453:49460",
+              "name": "Date picker"
+            },
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Other-Component",
+              "nodeId": "3296:54851",
+              "name": "Date picker"
+            }
+          ]
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "placeholder",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "unknown",
+        "notes": [
+          "Qipper DatePicker uses Jalali/persian-date-kit.",
+          "Two Figma Date picker sets; calendar behavior not verified from properties."
+        ]
+      },
+      "scope": {
+        "rds": "candidate",
+        "products": {
+          "qipper": "used",
+          "qippo": "used",
+          "digix": "unknown"
+        }
+      },
+      "status": "needs-review",
+      "openQuestions": [
+        "Q-DATE-01"
+      ]
+    },
+    {
+      "id": "date-time",
+      "name": "Date time",
+      "kind": "component",
+      "category": "forms",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/ui/DateTimePicker.tsx",
+              "symbol": "DateTimePicker"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "present",
+          "fidelity": "figma-verified",
+          "evidence": [
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Other-Component",
+              "nodeId": "3296:54884",
+              "name": "Date time"
+            }
+          ]
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "unknown",
+        "notes": [
+          "Names align; behavior not compared."
+        ]
+      },
+      "scope": {
+        "rds": "candidate",
+        "products": {
+          "qipper": "used",
+          "qippo": "used",
+          "digix": "unknown"
+        }
+      },
+      "status": "needs-review",
+      "openQuestions": [
+        "Q-DATETIME-01"
+      ]
+    },
+    {
+      "id": "definition-row",
+      "name": "Definition row",
+      "kind": "pattern",
+      "category": "data-display",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "partial",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/features/inventory/components/product-details/InfoRow.tsx",
+              "symbol": "SpecRow"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "unknown",
+          "fidelity": "unknown",
+          "evidence": []
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "conceptual-match",
+        "notes": [
+          "rahino-ui DefinitionRow/SpecRow. Qipper SpecRow is feature-local."
+        ]
+      },
+      "scope": {
+        "rds": "candidate",
+        "products": {
+          "qipper": "used",
+          "qippo": "unused",
+          "digix": "unknown"
+        }
+      },
+      "status": "partial",
+      "openQuestions": []
+    },
+    {
+      "id": "dialog",
+      "name": "Dialog / Modal",
+      "kind": "component",
+      "category": "overlays",
+      "aliases": [
+        "modal"
+      ],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/ui/Modal.tsx",
+              "symbol": "Modal"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "missing",
+          "fidelity": "not-applicable",
+          "evidence": []
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "partial",
+        "docs": "present",
+        "storybook": "present",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "unknown",
+        "notes": [
+          "No named Modal/Dialog on Ui Kit (MCP list).",
+          "Lab shows Qipper-only note, not two live columns.",
+          "Package default export name is Modal."
+        ]
+      },
+      "scope": {
+        "rds": "required",
+        "products": {
+          "qipper": "used",
+          "qippo": "unused",
+          "digix": "unknown"
+        }
+      },
+      "status": "partial",
+      "openQuestions": [
+        "Q-DIALOG-01"
+      ]
+    },
+    {
+      "id": "eldora-devices",
+      "name": "Eldora device mocks",
+      "kind": "product-specific",
+      "category": "marketing",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/ui/eldoraui/iphone-17-pro.tsx",
+              "symbol": "Iphone17Pro"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "missing",
+          "fidelity": "not-applicable",
+          "evidence": []
+        }
+      },
+      "implementation": {
+        "rahinoUi": "missing",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "unknown",
+        "notes": [
+          "Third-party device frames in shared/ui/eldoraui."
+        ]
+      },
+      "scope": {
+        "rds": "out-of-scope",
+        "products": {
+          "qipper": "used",
+          "qippo": "unused",
+          "digix": "unknown"
+        }
+      },
+      "status": "verified",
+      "openQuestions": []
+    },
+    {
+      "id": "error-boundary",
+      "name": "Error boundary",
+      "kind": "utility",
+      "category": "runtime",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/ui/ErrorBoundary.tsx",
+              "symbol": "ErrorBoundary"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "missing",
+          "fidelity": "not-applicable",
+          "evidence": []
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "unknown",
+        "notes": []
+      },
+      "scope": {
+        "rds": "deferred",
+        "products": {
+          "qipper": "used",
+          "qippo": "unused",
+          "digix": "unknown"
+        }
+      },
+      "status": "verified",
+      "openQuestions": []
+    },
+    {
+      "id": "field-tokens",
+      "name": "Field tokens",
+      "kind": "utility",
+      "category": "foundations",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/ui/fieldTokens.ts",
+              "symbol": "FIELD"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "unknown",
+          "fidelity": "unknown",
+          "evidence": []
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "unknown",
+        "notes": [
+          "Shared control geometry constants."
+        ]
+      },
+      "scope": {
+        "rds": "candidate",
+        "products": {
+          "qipper": "used",
+          "qippo": "unused",
+          "digix": "unknown"
+        }
+      },
+      "status": "partial",
+      "openQuestions": []
+    },
+    {
+      "id": "file-upload-modal",
+      "name": "File upload modal",
+      "kind": "product-specific",
+      "category": "overlays",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/features/knowledge/modals/FileUploadModal.tsx",
+              "symbol": "FileUploadModal"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "unknown",
+          "fidelity": "unknown",
+          "evidence": []
+        }
+      },
+      "implementation": {
+        "rahinoUi": "missing",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "unknown",
+        "notes": []
+      },
+      "scope": {
+        "rds": "out-of-scope",
+        "products": {
+          "qipper": "used",
+          "qippo": "unused",
+          "digix": "unknown"
+        }
+      },
+      "status": "verified",
+      "openQuestions": []
+    },
+    {
+      "id": "form-field",
+      "name": "Form field",
+      "kind": "composite",
+      "category": "forms",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/ui/FormField.tsx",
+              "symbol": "FormField"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "unknown",
+          "fidelity": "unknown",
+          "evidence": []
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "unknown",
+        "notes": [
+          "Label/error/row helpers around inputs."
+        ]
+      },
+      "scope": {
+        "rds": "candidate",
+        "products": {
+          "qipper": "used",
+          "qippo": "unused",
+          "digix": "unknown"
+        }
+      },
+      "status": "partial",
+      "openQuestions": []
+    },
+    {
+      "id": "format-utils",
+      "name": "Format utilities",
+      "kind": "utility",
+      "category": "runtime",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/utils/currency.ts",
+              "symbol": "formatMoney"
+            },
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/utils/date.ts",
+              "symbol": "formatJalaliDate"
+            },
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/utils/persianDigits.ts",
+              "symbol": "toPersianDigits"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "missing",
+          "fidelity": "not-applicable",
+          "evidence": []
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "unknown",
+        "notes": [
+          "Product locale helpers exported from package."
+        ]
+      },
+      "scope": {
+        "rds": "candidate",
+        "products": {
+          "qipper": "used",
+          "qippo": "unused",
+          "digix": "unknown"
+        }
+      },
+      "status": "verified",
+      "openQuestions": []
+    },
+    {
+      "id": "icon-button",
+      "name": "Icon Button",
+      "kind": "primitive",
+      "category": "actions",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "missing",
+          "fidelity": "not-applicable",
+          "evidence": []
+        },
+        "qippo": {
+          "presence": "present",
+          "fidelity": "figma-verified",
+          "evidence": [
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Button-Component",
+              "nodeId": "2039:3836",
+              "name": "icon-Button"
+            }
+          ]
+        }
+      },
+      "implementation": {
+        "rahinoUi": "reconstructed",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "live",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "not-equivalent",
+        "notes": [
+          "Qipper uses Button + className width overrides, not a primitive.",
+          "Qippo has a dedicated icon-Button set."
+        ]
+      },
+      "scope": {
+        "rds": "candidate",
+        "products": {
+          "qipper": "unused",
+          "qippo": "used",
+          "digix": "unknown"
+        }
+      },
+      "status": "needs-review",
+      "openQuestions": [
+        "Q-ICONBTN-01"
+      ]
+    },
+    {
+      "id": "iconography",
+      "name": "Iconography",
+      "kind": "foundation",
+      "category": "foundations",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "package.json",
+              "symbol": "lucide-react"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "present",
+          "fidelity": "figma-verified",
+          "evidence": [
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Magicoon - regular",
+              "nodeId": "2024:6267",
+              "name": "Magicoon - regular"
+            },
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Magicoon - filled",
+              "nodeId": "2024:10873",
+              "name": "Magicoon - filled"
+            },
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Other Icons",
+              "nodeId": "2024:15446",
+              "name": "Other Icons"
+            }
+          ]
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "present",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "not-equivalent",
+        "notes": [
+          "Qipper uses lucide-react in product code.",
+          "Qippo Ui Kit ships Magicoon sets plus Other Icons (bank logos)."
+        ]
+      },
+      "scope": {
+        "rds": "required",
+        "products": {
+          "qipper": "used",
+          "qippo": "used",
+          "digix": "unknown"
+        }
+      },
+      "status": "ambiguous",
+      "openQuestions": [
+        "Q-ICON-01"
+      ]
+    },
+    {
+      "id": "inline-notice",
+      "name": "Inline notice",
+      "kind": "pattern",
+      "category": "feedback",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/features/tasks/components/duties/DutyNotice.tsx",
+              "symbol": "DutyNotice"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "missing",
+          "fidelity": "not-applicable",
+          "evidence": []
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "conceptual-match",
+        "notes": [
+          "rahino-ui InlineNotice extracted as a shared pattern.",
+          "Qipper origin is feature DutyNotice, not shared/ui."
+        ]
+      },
+      "scope": {
+        "rds": "candidate",
+        "products": {
+          "qipper": "used",
+          "qippo": "unused",
+          "digix": "unknown"
+        }
+      },
+      "status": "partial",
+      "openQuestions": []
+    },
+    {
+      "id": "input",
+      "name": "Input",
+      "kind": "primitive",
+      "category": "forms",
+      "aliases": [
+        "text-input",
+        "rahino-input"
+      ],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/ui/Input.tsx",
+              "symbol": "Input"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "present",
+          "fidelity": "figma-verified",
+          "evidence": [
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Other-Component",
+              "nodeId": "7130:57816",
+              "name": "Text input"
+            },
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Other-Component",
+              "nodeId": "7878:50634",
+              "name": "Text input"
+            },
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Other-Component",
+              "nodeId": "2397:9197",
+              "name": "Input"
+            }
+          ]
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "present",
+        "canonical": "missing",
+        "lab": "live",
+        "docs": "present",
+        "storybook": "present",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "partial-match",
+        "notes": [
+          "Default export Input is Qipper extracted.",
+          "RahinoInput in src/rahino is experimental (Qipper geometry + floating label). Not canonical.",
+          "Three Figma input-related sets; which maps to production is unresolved."
+        ]
+      },
+      "scope": {
+        "rds": "required",
+        "products": {
+          "qipper": "used",
+          "qippo": "used",
+          "digix": "unknown"
+        }
+      },
+      "status": "ambiguous",
+      "openQuestions": [
+        "Q-INPUT-01",
+        "Q-INPUT-FIGMA-01"
+      ]
+    },
+    {
+      "id": "kanban",
+      "name": "Kanban board",
+      "kind": "product-specific",
+      "category": "data-display",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/widgets/tasks/project-workspace/components/KanbanColumn.tsx",
+              "symbol": "KanbanColumn"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "unknown",
+          "fidelity": "unknown",
+          "evidence": []
+        }
+      },
+      "implementation": {
+        "rahinoUi": "missing",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "unknown",
+        "notes": []
+      },
+      "scope": {
+        "rds": "out-of-scope",
+        "products": {
+          "qipper": "used",
+          "qippo": "unused",
+          "digix": "unknown"
+        }
+      },
+      "status": "verified",
+      "openQuestions": []
+    },
+    {
+      "id": "landing-info-card",
+      "name": "Landing info card",
+      "kind": "product-specific",
+      "category": "surfaces",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "missing",
+          "fidelity": "not-applicable",
+          "evidence": []
+        },
+        "qippo": {
+          "presence": "present",
+          "fidelity": "figma-verified",
+          "evidence": [
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Card-Component",
+              "nodeId": "2325:1506",
+              "name": "Landing Info Card"
+            }
+          ]
+        }
+      },
+      "implementation": {
+        "rahinoUi": "reconstructed",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "live",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "not-equivalent",
+        "notes": [
+          "Lab card column uses this as Qippo card chrome (fair-lab), not a generic Card."
+        ]
+      },
+      "scope": {
+        "rds": "product-specific",
+        "products": {
+          "qipper": "unused",
+          "qippo": "used",
+          "digix": "unknown"
+        }
+      },
+      "status": "needs-review",
+      "openQuestions": []
+    },
+    {
+      "id": "login-screens",
+      "name": "Login screens",
+      "kind": "product-specific",
+      "category": "auth",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "missing",
+          "fidelity": "not-applicable",
+          "evidence": []
+        },
+        "qippo": {
+          "presence": "present",
+          "fidelity": "figma-verified",
+          "evidence": [
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Login",
+              "nodeId": "3663:19593",
+              "name": "Login"
+            }
+          ]
+        }
+      },
+      "implementation": {
+        "rahinoUi": "missing",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "conceptual-match",
+        "notes": [
+          "Product auth flows. Nested Login-Light/Dark names observed; property dump incomplete."
+        ]
+      },
+      "scope": {
+        "rds": "out-of-scope",
+        "products": {
+          "qipper": "unused",
+          "qippo": "used",
+          "digix": "unknown"
+        }
+      },
+      "status": "partial",
+      "openQuestions": []
+    },
+    {
+      "id": "magicoon",
+      "name": "Magicoon icon library",
+      "kind": "product-specific",
+      "category": "foundations",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "missing",
+          "fidelity": "not-applicable",
+          "evidence": []
+        },
+        "qippo": {
+          "presence": "present",
+          "fidelity": "figma-verified",
+          "evidence": [
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Magicoon - regular",
+              "nodeId": "2024:6267",
+              "name": "Magicoon - regular"
+            },
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Magicoon - filled",
+              "nodeId": "2024:10873",
+              "name": "Magicoon - filled"
+            }
+          ]
+        }
+      },
+      "implementation": {
+        "rahinoUi": "missing",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "not-equivalent",
+        "notes": [
+          "Thousands of COMPONENT instances. Not imported into rahino-ui."
+        ]
+      },
+      "scope": {
+        "rds": "needs-review",
+        "products": {
+          "qipper": "unused",
+          "qippo": "used",
+          "digix": "unknown"
+        }
+      },
+      "status": "partial",
+      "openQuestions": [
+        "Q-ICON-01"
+      ]
+    },
+    {
+      "id": "menu-item",
+      "name": "Menu item",
+      "kind": "component",
+      "category": "navigation",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "unknown",
+          "fidelity": "unknown",
+          "evidence": []
+        },
+        "qippo": {
+          "presence": "present",
+          "fidelity": "figma-verified",
+          "evidence": [
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Other-Component",
+              "nodeId": "7336:54313",
+              "name": "Menu item"
+            }
+          ]
+        }
+      },
+      "implementation": {
+        "rahinoUi": "missing",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "unknown",
+        "notes": [
+          "Qipper HeaderProfileDropdown / PortalMenu are product chrome, not this set."
+        ]
+      },
+      "scope": {
+        "rds": "deferred",
+        "products": {
+          "qipper": "unused",
+          "qippo": "used",
+          "digix": "unknown"
+        }
+      },
+      "status": "missing",
+      "openQuestions": [
+        "Q-MENU-01"
+      ]
+    },
+    {
+      "id": "metric-card",
+      "name": "Metric card",
+      "kind": "composite",
+      "category": "data-display",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/ui/MetricCard/MetricCard.tsx",
+              "symbol": "MetricCard"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "unknown",
+          "fidelity": "unknown",
+          "evidence": []
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "placeholder",
+        "docs": "present",
+        "storybook": "present",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "unknown",
+        "notes": [
+          "In COMPARISON_REGISTRY, not LIVE_IDS.",
+          "Not auto-mapped to Landing Info Card."
+        ]
+      },
+      "scope": {
+        "rds": "candidate",
+        "products": {
+          "qipper": "used",
+          "qippo": "unused",
+          "digix": "unknown"
+        }
+      },
+      "status": "partial",
+      "openQuestions": [
+        "Q-METRIC-01"
+      ]
+    },
+    {
+      "id": "mobile-bottom-nav",
+      "name": "Mobile bottom nav",
+      "kind": "product-specific",
+      "category": "navigation",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/widgets/layout/mobile/MobileBottomNav.tsx",
+              "symbol": "MobileBottomNav"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "partial",
+          "fidelity": "figma-observed",
+          "evidence": [
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Tab",
+              "nodeId": "2047:933",
+              "name": "Tab"
+            }
+          ]
+        }
+      },
+      "implementation": {
+        "rahinoUi": "missing",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "unknown",
+        "notes": [
+          "Do not equate Tab bar with Qipper MobileBottomNav without property dump."
+        ]
+      },
+      "scope": {
+        "rds": "out-of-scope",
+        "products": {
+          "qipper": "used",
+          "qippo": "unused",
+          "digix": "unknown"
+        }
+      },
+      "status": "needs-review",
+      "openQuestions": []
+    },
+    {
+      "id": "module-components",
+      "name": "Module components",
+      "kind": "product-specific",
+      "category": "surfaces",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "missing",
+          "fidelity": "not-applicable",
+          "evidence": []
+        },
+        "qippo": {
+          "presence": "present",
+          "fidelity": "figma-verified",
+          "evidence": [
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Module Components",
+              "nodeId": "3189:45067",
+              "name": "Module Components"
+            }
+          ]
+        }
+      },
+      "implementation": {
+        "rahinoUi": "missing",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "unknown",
+        "notes": [
+          "Section contains product modules (cards/charts). Individual nested sets not fully inventoried."
+        ]
+      },
+      "scope": {
+        "rds": "out-of-scope",
+        "products": {
+          "qipper": "unused",
+          "qippo": "used",
+          "digix": "unknown"
+        }
+      },
+      "status": "partial",
+      "openQuestions": [
+        "Q-MODULE-01"
+      ]
+    },
+    {
+      "id": "motion",
+      "name": "Motion",
+      "kind": "foundation",
+      "category": "foundations",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "partial",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/ui/Modal.tsx",
+              "symbol": "Modal"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "unknown",
+          "fidelity": "unknown",
+          "evidence": []
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "present",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "unknown",
+        "notes": [
+          "No shared motion token scale found. Docs page exists."
+        ]
+      },
+      "scope": {
+        "rds": "candidate",
+        "products": {
+          "qipper": "used",
+          "qippo": "unused",
+          "digix": "unknown"
+        }
+      },
+      "status": "partial",
+      "openQuestions": []
+    },
+    {
+      "id": "notification-drawer",
+      "name": "Notification drawer",
+      "kind": "product-specific",
+      "category": "overlays",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/widgets/layout/header/NotificationDrawer.tsx",
+              "symbol": "NotificationDrawer"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "unknown",
+          "fidelity": "unknown",
+          "evidence": []
+        }
+      },
+      "implementation": {
+        "rahinoUi": "missing",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "unknown",
+        "notes": []
+      },
+      "scope": {
+        "rds": "out-of-scope",
+        "products": {
+          "qipper": "used",
+          "qippo": "unused",
+          "digix": "unknown"
+        }
+      },
+      "status": "verified",
+      "openQuestions": []
+    },
+    {
+      "id": "otp",
+      "name": "OTP / Login code",
+      "kind": "component",
+      "category": "forms",
+      "aliases": [
+        "login-code"
+      ],
+      "references": {
+        "qipper": {
+          "presence": "missing",
+          "fidelity": "not-applicable",
+          "evidence": []
+        },
+        "qippo": {
+          "presence": "present",
+          "fidelity": "figma-verified",
+          "evidence": [
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Other-Component",
+              "nodeId": "2187:3585",
+              "name": "Login Code"
+            }
+          ]
+        }
+      },
+      "implementation": {
+        "rahinoUi": "reconstructed",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "live",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "unknown",
+        "notes": [
+          "Qippo-only in this inventory. Qipper auth uses different fields."
+        ]
+      },
+      "scope": {
+        "rds": "product-specific",
+        "products": {
+          "qipper": "unused",
+          "qippo": "used",
+          "digix": "unknown"
+        }
+      },
+      "status": "needs-review",
+      "openQuestions": [
+        "Q-OTP-01"
+      ]
+    },
+    {
+      "id": "page-header",
+      "name": "Page header",
+      "kind": "layout",
+      "category": "layout",
+      "aliases": [
+        "app-chrome",
+        "header"
+      ],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/ui/PageHeader.tsx",
+              "symbol": "PageHeader"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "present",
+          "fidelity": "figma-verified",
+          "evidence": [
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Header-Component",
+              "nodeId": "2009:10320",
+              "name": "Header-Component"
+            },
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Header-Component",
+              "nodeId": "2287:6171",
+              "name": "Header"
+            }
+          ]
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "placeholder",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "not-equivalent",
+        "notes": [
+          "Qipper PageHeader is in-app page chrome.",
+          "Qippo Header set is product app header, not the same layout primitive.",
+          "Lab id app-chrome is registry-only."
+        ]
+      },
+      "scope": {
+        "rds": "product-specific",
+        "products": {
+          "qipper": "used",
+          "qippo": "used",
+          "digix": "unknown"
+        }
+      },
+      "status": "needs-review",
+      "openQuestions": [
+        "Q-HEADER-01"
+      ]
+    },
+    {
+      "id": "page-shell",
+      "name": "Page shell",
+      "kind": "layout",
+      "category": "layout",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/ui/PageShell.tsx",
+              "symbol": "PageShell"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "missing",
+          "fidelity": "not-applicable",
+          "evidence": []
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "unknown",
+        "notes": [
+          "Qipper layout shell. RDS extraction exists."
+        ]
+      },
+      "scope": {
+        "rds": "product-specific",
+        "products": {
+          "qipper": "used",
+          "qippo": "unused",
+          "digix": "unknown"
+        }
+      },
+      "status": "partial",
+      "openQuestions": []
+    },
+    {
+      "id": "prototyping-components",
+      "name": "Prototyping components",
+      "kind": "product-specific",
+      "category": "meta",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "missing",
+          "fidelity": "not-applicable",
+          "evidence": []
+        },
+        "qippo": {
+          "presence": "present",
+          "fidelity": "figma-observed",
+          "evidence": [
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Prototyping components",
+              "nodeId": "3121:44468",
+              "name": "Prototyping components"
+            }
+          ]
+        }
+      },
+      "implementation": {
+        "rahinoUi": "missing",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "unknown",
+        "notes": [
+          "Marked non-canonical in kit section list. Out of RDS."
+        ]
+      },
+      "scope": {
+        "rds": "out-of-scope",
+        "products": {
+          "qipper": "unused",
+          "qippo": "used",
+          "digix": "unknown"
+        }
+      },
+      "status": "verified",
+      "openQuestions": []
+    },
+    {
+      "id": "qipper-logo",
+      "name": "Qipper logo",
+      "kind": "product-specific",
+      "category": "brand",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/ui/QipperLogo.tsx",
+              "symbol": "QipperLogo"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "missing",
+          "fidelity": "not-applicable",
+          "evidence": []
+        }
+      },
+      "implementation": {
+        "rahinoUi": "missing",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "present",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "not-equivalent",
+        "notes": [
+          "Site docs brand page. Not exported from rahino-ui package components."
+        ]
+      },
+      "scope": {
+        "rds": "out-of-scope",
+        "products": {
+          "qipper": "used",
+          "qippo": "unused",
+          "digix": "unknown"
+        }
+      },
+      "status": "verified",
+      "openQuestions": []
+    },
+    {
+      "id": "radio",
+      "name": "Radio",
+      "kind": "primitive",
+      "category": "selection",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/ui/RadioGroup.tsx",
+              "symbol": "RadioGroup"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "present",
+          "fidelity": "figma-verified",
+          "evidence": [
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Other-Component",
+              "nodeId": "2858:4242",
+              "name": "Radio button"
+            }
+          ]
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "live",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "conflict",
+        "notes": [
+          "Qipper RadioGroup/RadioPills render segmented pills, not circular radios.",
+          "Qippo Radio button is a circular radio set.",
+          "Not equivalent to Segmented control."
+        ]
+      },
+      "scope": {
+        "rds": "required",
+        "products": {
+          "qipper": "used",
+          "qippo": "used",
+          "digix": "unknown"
+        }
+      },
+      "status": "ambiguous",
+      "openQuestions": [
+        "Q-RADIO-01"
+      ]
+    },
+    {
+      "id": "radius",
+      "name": "Radius",
+      "kind": "foundation",
+      "category": "foundations",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "rahino-ui",
+              "path": "src/styles/tokens.css",
+              "symbol": "--qipper-radius-sm"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "partial",
+          "fidelity": "figma-observed",
+          "evidence": [
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Button-Component",
+              "nodeId": "2230:6522",
+              "name": "button"
+            }
+          ]
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "present",
+        "storybook": "partial",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "partial-match",
+        "notes": [
+          "Qipper radius tokens extracted; Qippo radii not tokenized as a page."
+        ]
+      },
+      "scope": {
+        "rds": "required",
+        "products": {
+          "qipper": "used",
+          "qippo": "used",
+          "digix": "unknown"
+        }
+      },
+      "status": "partial",
+      "openQuestions": []
+    },
+    {
+      "id": "rahino-input",
+      "name": "Rahino Input (candidate)",
+      "kind": "primitive",
+      "category": "forms",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "extracted-unverified",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/ui/Input.tsx",
+              "symbol": "Input"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "partial",
+          "fidelity": "figma-observed",
+          "evidence": [
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Other-Component",
+              "nodeId": "7130:57816",
+              "name": "Text input"
+            }
+          ]
+        }
+      },
+      "implementation": {
+        "rahinoUi": "experimental",
+        "candidate": "present",
+        "canonical": "missing",
+        "lab": "live",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "partial-match",
+        "notes": [
+          "src/rahino/Input.tsx RahinoInput. Experimental hybrid. Decision records still pending."
+        ]
+      },
+      "scope": {
+        "rds": "candidate",
+        "products": {
+          "qipper": "used",
+          "qippo": "used",
+          "digix": "unknown"
+        }
+      },
+      "status": "needs-review",
+      "openQuestions": [
+        "Q-INPUT-01"
+      ]
+    },
+    {
+      "id": "rahino-select",
+      "name": "Rahino Select (candidate)",
+      "kind": "component",
+      "category": "forms",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "extracted-unverified",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/ui/Select.tsx",
+              "symbol": "Select"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "partial",
+          "fidelity": "figma-observed",
+          "evidence": [
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Other-Component",
+              "nodeId": "7347:24406",
+              "name": "Select"
+            }
+          ]
+        }
+      },
+      "implementation": {
+        "rahinoUi": "experimental",
+        "candidate": "present",
+        "canonical": "missing",
+        "lab": "live",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "partial-match",
+        "notes": [
+          "src/rahino/Select.tsx RahinoSelect. Experimental hybrid. Decision records still pending."
+        ]
+      },
+      "scope": {
+        "rds": "candidate",
+        "products": {
+          "qipper": "used",
+          "qippo": "used",
+          "digix": "unknown"
+        }
+      },
+      "status": "needs-review",
+      "openQuestions": [
+        "Q-SELECT-01"
+      ]
+    },
+    {
+      "id": "range-slider",
+      "name": "Range slider",
+      "kind": "component",
+      "category": "forms",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "unknown",
+          "fidelity": "unknown",
+          "evidence": []
+        },
+        "qippo": {
+          "presence": "present",
+          "fidelity": "figma-verified",
+          "evidence": [
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Other-Component",
+              "nodeId": "2858:7100",
+              "name": "Range slider"
+            }
+          ]
+        }
+      },
+      "implementation": {
+        "rahinoUi": "missing",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "unknown",
+        "notes": [
+          "Figma set present. No rahino-ui or shared Qipper slider found in this pass."
+        ]
+      },
+      "scope": {
+        "rds": "deferred",
+        "products": {
+          "qipper": "unused",
+          "qippo": "used",
+          "digix": "unknown"
+        }
+      },
+      "status": "missing",
+      "openQuestions": [
+        "Q-SLIDER-01"
+      ]
+    },
+    {
+      "id": "rtl",
+      "name": "RTL",
+      "kind": "foundation",
+      "category": "foundations",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/ui/Input.tsx",
+              "symbol": "Input"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "partial",
+          "fidelity": "figma-observed",
+          "evidence": [
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Button-Component",
+              "nodeId": "2230:6522",
+              "name": "button"
+            }
+          ]
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "present",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "conceptual-match",
+        "notes": [
+          "Both products are RTL-first. No shared dir primitive."
+        ]
+      },
+      "scope": {
+        "rds": "required",
+        "products": {
+          "qipper": "used",
+          "qippo": "used",
+          "digix": "unknown"
+        }
+      },
+      "status": "partial",
+      "openQuestions": []
+    },
+    {
+      "id": "section-header",
+      "name": "Section header",
+      "kind": "layout",
+      "category": "layout",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/ui/SectionHeader.tsx",
+              "symbol": "SectionHeader"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "unknown",
+          "fidelity": "unknown",
+          "evidence": []
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "unknown",
+        "notes": []
+      },
+      "scope": {
+        "rds": "candidate",
+        "products": {
+          "qipper": "used",
+          "qippo": "unused",
+          "digix": "unknown"
+        }
+      },
+      "status": "partial",
+      "openQuestions": []
+    },
+    {
+      "id": "segmented-pills",
+      "name": "Segmented control",
+      "kind": "component",
+      "category": "selection",
+      "aliases": [
+        "segmented-control",
+        "radio-pills"
+      ],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/ui/RadioGroup.tsx",
+              "symbol": "RadioPills"
+            },
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/features/logistics/components/operation-form/SegmentedPills.tsx",
+              "symbol": "SegmentedPills"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "present",
+          "fidelity": "figma-verified",
+          "evidence": [
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Other-Component",
+              "nodeId": "7506:49134",
+              "name": "Segmented control"
+            }
+          ]
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "live",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "partial-match",
+        "notes": [
+          "Not equivalent to circular Radio.",
+          "rahino-ui copies SegmentedPills; Qipper source lives in logistics features.",
+          "Qipper Tabs also has layout=segmented / SegmentedTabs."
+        ]
+      },
+      "scope": {
+        "rds": "required",
+        "products": {
+          "qipper": "used",
+          "qippo": "used",
+          "digix": "unknown"
+        }
+      },
+      "status": "duplicate",
+      "openQuestions": [
+        "Q-SEG-01"
+      ]
+    },
+    {
+      "id": "select",
+      "name": "Select",
+      "kind": "component",
+      "category": "forms",
+      "aliases": [
+        "rahino-select",
+        "combobox"
+      ],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/ui/Select.tsx",
+              "symbol": "Select"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "present",
+          "fidelity": "figma-verified",
+          "evidence": [
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Other-Component",
+              "nodeId": "7347:24406",
+              "name": "Select"
+            }
+          ]
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "present",
+        "canonical": "missing",
+        "lab": "live",
+        "docs": "present",
+        "storybook": "present",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "not-equivalent",
+        "notes": [
+          "Qipper Select is searchable by default (combobox behavior).",
+          "Qippo Select is a closed/open menu, not a combobox.",
+          "RahinoSelect in src/rahino is experimental. Not canonical."
+        ]
+      },
+      "scope": {
+        "rds": "required",
+        "products": {
+          "qipper": "used",
+          "qippo": "used",
+          "digix": "unknown"
+        }
+      },
+      "status": "ambiguous",
+      "openQuestions": [
+        "Q-SELECT-01"
+      ]
+    },
+    {
+      "id": "shadow",
+      "name": "Shadow",
+      "kind": "foundation",
+      "category": "foundations",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "rahino-ui",
+              "path": "src/styles/tokens.css",
+              "symbol": "--qipper-shadow-light"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "partial",
+          "fidelity": "figma-observed",
+          "evidence": [
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Card-Component",
+              "nodeId": "2073:4138",
+              "name": "Card-Component"
+            }
+          ]
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "present",
+        "storybook": "partial",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "partial-match",
+        "notes": [
+          "Qipper shadow-light extracted. Qippo elevation scale not verified as variables."
+        ]
+      },
+      "scope": {
+        "rds": "required",
+        "products": {
+          "qipper": "used",
+          "qippo": "used",
+          "digix": "unknown"
+        }
+      },
+      "status": "partial",
+      "openQuestions": []
+    },
+    {
+      "id": "sidebar",
+      "name": "Sidebar",
+      "kind": "product-specific",
+      "category": "navigation",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/widgets/layout/Sidebar.tsx",
+              "symbol": "Sidebar"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "unknown",
+          "fidelity": "unknown",
+          "evidence": []
+        }
+      },
+      "implementation": {
+        "rahinoUi": "missing",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "unknown",
+        "notes": []
+      },
+      "scope": {
+        "rds": "out-of-scope",
+        "products": {
+          "qipper": "used",
+          "qippo": "unused",
+          "digix": "unknown"
+        }
+      },
+      "status": "verified",
+      "openQuestions": []
+    },
+    {
+      "id": "sizing",
+      "name": "Sizing",
+      "kind": "foundation",
+      "category": "foundations",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "partial",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "rahino-ui",
+              "path": "src/tokens/fieldTokens.ts",
+              "symbol": "FIELD"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "partial",
+          "fidelity": "figma-verified",
+          "evidence": [
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Button-Component",
+              "nodeId": "2230:6522",
+              "name": "button"
+            }
+          ]
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "partial-match",
+        "notes": [
+          "FIELD control heights extracted from Qipper.",
+          "Figma button set reports 456 variants including sizes; property table not dumped."
+        ]
+      },
+      "scope": {
+        "rds": "candidate",
+        "products": {
+          "qipper": "used",
+          "qippo": "used",
+          "digix": "unknown"
+        }
+      },
+      "status": "partial",
+      "openQuestions": [
+        "Q-SIZE-01"
+      ]
+    },
+    {
+      "id": "skeleton",
+      "name": "Skeleton",
+      "kind": "primitive",
+      "category": "feedback",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/widgets/inventory/inventory-list/components/InventoryListUi.tsx",
+              "symbol": "SkeletonRow"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "unknown",
+          "fidelity": "unknown",
+          "evidence": []
+        }
+      },
+      "implementation": {
+        "rahinoUi": "missing",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "unknown",
+        "notes": [
+          "Local skeleton, not a DS primitive."
+        ]
+      },
+      "scope": {
+        "rds": "deferred",
+        "products": {
+          "qipper": "used",
+          "qippo": "unused",
+          "digix": "unknown"
+        }
+      },
+      "status": "missing",
+      "openQuestions": []
+    },
+    {
+      "id": "spacing",
+      "name": "Spacing",
+      "kind": "foundation",
+      "category": "foundations",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "rahino-ui",
+              "path": "src/styles/tokens.css",
+              "symbol": "--qipper-space-1"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "unknown",
+          "fidelity": "unknown",
+          "evidence": []
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "present",
+        "storybook": "partial",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "unknown",
+        "notes": [
+          "Qipper space tokens extracted. Qippo spacing variables not verified."
+        ]
+      },
+      "scope": {
+        "rds": "required",
+        "products": {
+          "qipper": "used",
+          "qippo": "unused",
+          "digix": "unknown"
+        }
+      },
+      "status": "partial",
+      "openQuestions": []
+    },
+    {
+      "id": "stat-card",
+      "name": "Stat card",
+      "kind": "composite",
+      "category": "data-display",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/ui/StatCard.tsx",
+              "symbol": "StatCard"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "unknown",
+          "fidelity": "unknown",
+          "evidence": []
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "unknown",
+        "notes": [
+          "Overlaps MetricCard conceptually; APIs differ."
+        ]
+      },
+      "scope": {
+        "rds": "needs-review",
+        "products": {
+          "qipper": "used",
+          "qippo": "unused",
+          "digix": "unknown"
+        }
+      },
+      "status": "duplicate",
+      "openQuestions": [
+        "Q-STAT-01"
+      ]
+    },
+    {
+      "id": "status-badge",
+      "name": "Status / priority badge",
+      "kind": "product-specific",
+      "category": "display",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/features/tasks/components/task-details/StatusBadge.tsx",
+              "symbol": "StatusBadge"
+            },
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/features/tasks/components/task-details/PriorityBadge.tsx",
+              "symbol": "PriorityBadge"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "unknown",
+          "fidelity": "unknown",
+          "evidence": []
+        }
+      },
+      "implementation": {
+        "rahinoUi": "missing",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "not-equivalent",
+        "notes": [
+          "Task-domain badges. Not the shared Badge primitive."
+        ]
+      },
+      "scope": {
+        "rds": "product-specific",
+        "products": {
+          "qipper": "used",
+          "qippo": "unused",
+          "digix": "unknown"
+        }
+      },
+      "status": "verified",
+      "openQuestions": []
+    },
+    {
+      "id": "switch",
+      "name": "Switch",
+      "kind": "primitive",
+      "category": "selection",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "missing",
+          "fidelity": "not-applicable",
+          "evidence": []
+        },
+        "qippo": {
+          "presence": "present",
+          "fidelity": "figma-verified",
+          "evidence": [
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Other-Component",
+              "nodeId": "2014:3071",
+              "name": "Switch-Button"
+            },
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Other-Component",
+              "nodeId": "7124:55551",
+              "name": "Switch kits"
+            }
+          ]
+        }
+      },
+      "implementation": {
+        "rahinoUi": "reconstructed",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "live",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "unknown",
+        "notes": [
+          "No Qipper shared Switch found.",
+          "Two Figma switch sets."
+        ]
+      },
+      "scope": {
+        "rds": "candidate",
+        "products": {
+          "qipper": "unused",
+          "qippo": "used",
+          "digix": "unknown"
+        }
+      },
+      "status": "needs-review",
+      "openQuestions": [
+        "Q-SWITCH-01"
+      ]
+    },
+    {
+      "id": "table",
+      "name": "Table (primitive)",
+      "kind": "primitive",
+      "category": "data-display",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/ui/Table.tsx",
+              "symbol": "Table"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "missing",
+          "fidelity": "not-applicable",
+          "evidence": []
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "not-equivalent",
+        "notes": [
+          "Lightweight table markup vs QipperTable pipeline."
+        ]
+      },
+      "scope": {
+        "rds": "needs-review",
+        "products": {
+          "qipper": "used",
+          "qippo": "unused",
+          "digix": "unknown"
+        }
+      },
+      "status": "duplicate",
+      "openQuestions": []
+    },
+    {
+      "id": "tabs",
+      "name": "Tabs",
+      "kind": "component",
+      "category": "navigation",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/ui/Tabs.tsx",
+              "symbol": "Tabs"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "present",
+          "fidelity": "figma-verified",
+          "evidence": [
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Tab",
+              "nodeId": "2047:933",
+              "name": "Tab"
+            },
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Tab",
+              "nodeId": "2035:4098",
+              "name": "Horizental Tabs"
+            }
+          ]
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "live",
+        "docs": "missing",
+        "storybook": "present",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "partial-match",
+        "notes": [
+          "Qipper Tabs includes segmented and underline layouts in one module.",
+          "Qippo Segmented control is a separate set.",
+          "Tab / Tab bar / Tab-Button names exist; extra node IDs not all captured."
+        ]
+      },
+      "scope": {
+        "rds": "required",
+        "products": {
+          "qipper": "used",
+          "qippo": "used",
+          "digix": "unknown"
+        }
+      },
+      "status": "partial",
+      "openQuestions": [
+        "Q-TABS-01"
+      ]
+    },
+    {
+      "id": "textarea",
+      "name": "Textarea",
+      "kind": "primitive",
+      "category": "forms",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/ui/Textarea.tsx",
+              "symbol": "Textarea"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "unknown",
+          "fidelity": "unknown",
+          "evidence": []
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "missing",
+        "storybook": "partial",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "unknown",
+        "notes": [
+          "No named Textarea set confirmed on Ui Kit in this pass."
+        ]
+      },
+      "scope": {
+        "rds": "candidate",
+        "products": {
+          "qipper": "used",
+          "qippo": "unused",
+          "digix": "unknown"
+        }
+      },
+      "status": "partial",
+      "openQuestions": [
+        "Q-TEXTAREA-01"
+      ]
+    },
+    {
+      "id": "theme-provider",
+      "name": "Theme provider",
+      "kind": "utility",
+      "category": "theme",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "missing",
+          "fidelity": "not-applicable",
+          "evidence": []
+        },
+        "qippo": {
+          "presence": "missing",
+          "fidelity": "not-applicable",
+          "evidence": []
+        }
+      },
+      "implementation": {
+        "rahinoUi": "experimental",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "unknown",
+        "notes": [
+          "ThemeProvider lives in rahino-ui, not Qipper shared UI.",
+          "data-product is labeling. Playground mutates --qipper-* on documentElement."
+        ]
+      },
+      "scope": {
+        "rds": "needs-review",
+        "products": {
+          "qipper": "used",
+          "qippo": "unused",
+          "digix": "unknown"
+        }
+      },
+      "status": "partial",
+      "openQuestions": [
+        "Q-THEME-01"
+      ]
+    },
+    {
+      "id": "time-picker",
+      "name": "Time picker",
+      "kind": "component",
+      "category": "forms",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/ui/TimePicker.tsx",
+              "symbol": "TimePicker"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "unknown",
+          "fidelity": "unknown",
+          "evidence": []
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "unknown",
+        "notes": [
+          "No named Time picker set confirmed on Ui Kit."
+        ]
+      },
+      "scope": {
+        "rds": "candidate",
+        "products": {
+          "qipper": "used",
+          "qippo": "unused",
+          "digix": "unknown"
+        }
+      },
+      "status": "partial",
+      "openQuestions": []
+    },
+    {
+      "id": "toast",
+      "name": "Snackbar / Toast",
+      "kind": "component",
+      "category": "feedback",
+      "aliases": [
+        "snackbar",
+        "inline-notice"
+      ],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "rahino-ui",
+              "path": "src/components/InlineNotice.tsx",
+              "symbol": "InlineNotice"
+            },
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/features/tasks/components/duties/DutyNotice.tsx",
+              "symbol": "DutyNotice"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "present",
+          "fidelity": "figma-verified",
+          "evidence": [
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Other-Component",
+              "nodeId": "2302:1232",
+              "name": "Snackbar"
+            }
+          ]
+        }
+      },
+      "implementation": {
+        "rahinoUi": "reconstructed",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "live",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "not-equivalent",
+        "notes": [
+          "Qippo Snackbar is a toast-like overlay.",
+          "Qipper DutyNotice / InlineNotice are inline banners, not snackbars."
+        ]
+      },
+      "scope": {
+        "rds": "candidate",
+        "products": {
+          "qipper": "used",
+          "qippo": "used",
+          "digix": "unknown"
+        }
+      },
+      "status": "ambiguous",
+      "openQuestions": [
+        "Q-TOAST-01"
+      ]
+    },
+    {
+      "id": "tooltip",
+      "name": "Tooltip",
+      "kind": "component",
+      "category": "overlays",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/widgets/layout/sidebar/SidebarTooltip.tsx",
+              "symbol": "SidebarTooltip"
+            },
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/widgets/tasks/project-workspace/components/PremiumTooltip.tsx",
+              "symbol": "PremiumTooltip"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "unknown",
+          "fidelity": "unknown",
+          "evidence": []
+        }
+      },
+      "implementation": {
+        "rahinoUi": "missing",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "unknown",
+        "notes": [
+          "Duplicate product tooltips. No shared Tooltip primitive."
+        ]
+      },
+      "scope": {
+        "rds": "deferred",
+        "products": {
+          "qipper": "used",
+          "qippo": "unused",
+          "digix": "unknown"
+        }
+      },
+      "status": "duplicate",
+      "openQuestions": []
+    },
+    {
+      "id": "typography",
+      "name": "Typography",
+      "kind": "foundation",
+      "category": "foundations",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "present",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "rahino-ui",
+              "path": "src/styles/index.css",
+              "symbol": "IRANYekanX"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "partial",
+          "fidelity": "figma-observed",
+          "evidence": [
+            {
+              "file": "qippo app",
+              "page": "Ui Kit",
+              "section": "Other-Component",
+              "nodeId": "7130:57816",
+              "name": "Text input"
+            }
+          ]
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "present",
+        "storybook": "partial",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "conflict",
+        "notes": [
+          "Qipper live face is IRANYekanX.",
+          "Ui Kit mixes faces on components; type page not verified."
+        ]
+      },
+      "scope": {
+        "rds": "required",
+        "products": {
+          "qipper": "used",
+          "qippo": "used",
+          "digix": "unknown"
+        }
+      },
+      "status": "ambiguous",
+      "openQuestions": [
+        "Q-TYPE-01"
+      ]
+    },
+    {
+      "id": "z-index",
+      "name": "Z-index",
+      "kind": "foundation",
+      "category": "foundations",
+      "aliases": [],
+      "references": {
+        "qipper": {
+          "presence": "partial",
+          "fidelity": "source",
+          "evidence": [
+            {
+              "repo": "qipper-app-frontend",
+              "path": "src/shared/ui/Modal.tsx",
+              "symbol": "Modal"
+            }
+          ]
+        },
+        "qippo": {
+          "presence": "missing",
+          "fidelity": "not-applicable",
+          "evidence": []
+        }
+      },
+      "implementation": {
+        "rahinoUi": "extracted",
+        "candidate": "missing",
+        "canonical": "missing",
+        "lab": "missing",
+        "docs": "missing",
+        "storybook": "missing",
+        "tests": "missing"
+      },
+      "mapping": {
+        "relationship": "unknown",
+        "notes": [
+          "Overlay z-index lives in component CSS, not a token scale."
+        ]
+      },
+      "scope": {
+        "rds": "candidate",
+        "products": {
+          "qipper": "used",
+          "qippo": "unused",
+          "digix": "unknown"
+        }
+      },
+      "status": "partial",
+      "openQuestions": []
+    }
+  ]
+}

@@ -25,6 +25,8 @@ import { Button, ThemeProvider } from '@rahinoco/rahino-ui';
 import '@rahinoco/rahino-ui/styles.css';
 ```
 
+`styles.css` imports `@rahinoco/rahino-ui/fonts.css`. That entry is the font loading path (`src/styles/fonts.css`). A package consumer does not use the docs site `/public/fonts` path. Put class `rahino-ui` on the app root for `font-synthesis: none`. Font redistribution license is unknown.
+
 ## Rahino color palette
 
 The official RDS colors live in `tokens/Value.tokens.json`, `tokens/Light.tokens.json`, and `tokens/Dark.tokens.json`. `src/styles/rds-colors.css` is generated from those files and loaded by the package's base stylesheet. It exposes every primitive plus light, dark, and appearance-aware semantic CSS variables using the Figma `--rds-color-*` names. The `rahino` product skin maps older `--qipper-*` variables to those RDS colors; the `qipper` skin keeps its existing palette.

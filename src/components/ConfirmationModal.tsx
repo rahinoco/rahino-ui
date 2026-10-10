@@ -10,22 +10,22 @@ type ConfirmationVariant = 'danger' | 'warning' | 'info';
 
 const VARIANT_META: Record<
   ConfirmationVariant,
-  { icon: typeof AlertTriangle; iconClass: string; confirmVariant: 'danger' | 'primary' }
+  { icon: typeof AlertTriangle; iconClass: string; intent: 'danger' | 'brand' }
 > = {
   danger: {
     icon: AlertTriangle,
     iconClass: 'bg-error-100 text-error-600 border-error-200',
-    confirmVariant: 'danger',
+    intent: 'danger',
   },
   warning: {
     icon: AlertCircle,
     iconClass: 'bg-warning-50 text-warning-600 border-warning-100',
-    confirmVariant: 'primary',
+    intent: 'brand',
   },
   info: {
     icon: Info,
     iconClass: 'bg-primary-100 text-primary-600 border-primary-200',
-    confirmVariant: 'primary',
+    intent: 'brand',
   },
 };
 
@@ -65,10 +65,10 @@ export default function ConfirmationModal({
       bodyClassName="bg-bg-surface"
       footer={
         <>
-          <Button variant="ghost" onClick={onClose} disabled={isLoading}>
+          <Button appearance="ghost" onClick={onClose} disabled={isLoading}>
             {cancelText}
           </Button>
-          <Button variant={meta.confirmVariant} onClick={onConfirm} isLoading={isLoading}>
+          <Button appearance="solid" intent={meta.intent} onClick={onConfirm} loading={isLoading}>
             {confirmText}
           </Button>
         </>

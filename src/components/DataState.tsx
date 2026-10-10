@@ -99,7 +99,7 @@ export function DataErrorState({
       </div>
       <p className="text-sm font-bold text-slate-600 max-w-sm">{message}</p>
       {onRetry && (
-        <Button variant="secondary" onClick={onRetry}>
+        <Button onClick={onRetry}>
           <RefreshCw size={16} /> تلاش مجدد
         </Button>
       )}

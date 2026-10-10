@@ -1,0 +1,41 @@
+Temp archive of package font files whose filenames did not match name-table metadata.
+Files were moved, not deleted. Internal font names and weight metadata were not edited.
+public/fonts remains on disk and is not the runtime source.
+
+old path → evidence → new runtime path
+rahino-ui/src/styles/fonts/IRANYekanX-Bold.woff2
+  bytes 28744, sha256 c99b73a9f47358cb7ffba1c151f12f4f1a91ff9513fb59518efb1657cfb9083c
+  name table: IRANYekanX DemiBold, usWeightClass 600
+  → rahino-ui/src/styles/fonts/IRANYekanX-DemiBold.woff2 (same bytes, weight 600)
+  The filename IRANYekanX-Bold.woff2 is now the public file with usWeightClass 700.
+
+rahino-ui/src/styles/fonts/IRANYekanX-Medium.woff2
+  bytes 26292, sha256 f8b0d2709e643391cc9890c7447fc904e54b882213a3d16c3be7ac0a65821a86
+  name table: IRANYekanX Regular, usWeightClass 400
+  → rahino-ui/src/styles/fonts/IRANYekanX-Regular.woff2 (same bytes, weight 400)
+
+rahino-ui/src/styles/fonts/IRANYekanX-Regular.woff2
+  bytes 28184, sha256 01b2838fca5fe4bca2a972a01040b5eb2629b5300ee097190b4b4769ace3dd62
+  name table: IRANYekanX Light, usWeightClass 300
+  → not registered. Product faces do not include weight 300.
+  Honest file remains at rahino-ui-frontend/public/fonts/IRANYekanX-Light.woff2
+
+rahino-ui/src/styles/fonts/IRANYekanX-Light.woff2
+  bytes 28016, sha256 12c73d55d62ef8ee607793dcef3e57d989c0c092b4dc7652fb214b0d8192dd7b
+  name table: IRANYekanX UltraLight, usWeightClass 200
+  → not registered. Honest file remains at rahino-ui-frontend/public/fonts/IRANYekanX-UltraLight.woff2
+
+Runtime copies (from public/fonts, metadata checked, bytes unchanged):
+IRANYekanX-Regular.woff2 weight 400
+IRANYekanX-Medium.woff2 weight 500
+IRANYekanX-DemiBold.woff2 weight 600
+IRANYekanX-Bold.woff2 weight 700
+IRANYekanX-ExtraBold.woff2 weight 800
+RobotoCondensed-Variable.woff2 wght axis 100–900
+
+Not registered, left in public/fonts:
+IRANYekanX-Thin.woff2 usWeightClass 100
+IRANYekanX-UltraLight.woff2 usWeightClass 200
+IRANYekanX-Light.woff2 usWeightClass 300
+IRANYekanX-Black.woff2, IRANYekanX-ExtraBlack.woff2, IRANYekanX-Heavy.woff2 all usWeightClass 900
+roboto-condensed static files (variable file is the only Latin face; the file named 200 has usWeightClass 250)

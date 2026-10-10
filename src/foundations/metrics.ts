@@ -57,6 +57,9 @@ export const RADIUS = {
 } as const;
 
 export const FOCUS = { width: '2px', offset: '2px' } as const;
+export const BUTTON_FOCUS = { width: '5px', gap: '2px', core: '1px', soft: '40%' } as const;
+export const TOUCH_MIN = '44px';
+export const ICON_STROKE = '2';
 export const EDGE_WIDTH = { thin: '1px' } as const;
 
 export const LAYOUT = {

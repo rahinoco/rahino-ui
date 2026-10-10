@@ -1,15 +1,20 @@
 export const FONT_FAMILY = {
   fa: 'IRANYekanX, sans-serif',
-  latin: 'Roboto, sans-serif',
+  latin: '"Roboto Condensed", sans-serif',
   mono: 'ui-monospace, SFMono-Regular, Consolas, monospace',
 } as const;
 
-/** Weights that have their own file in this package. */
+/**
+ * Faces registered in fonts.css. Each row matches the file's own name table.
+ * The Latin row is one variable file; its weight is the real wght axis range.
+ */
 export const FONT_FILES = [
-  { weight: 300, file: 'IRANYekanX-Light.woff2' },
-  { weight: 400, file: 'IRANYekanX-Regular.woff2' },
-  { weight: 500, file: 'IRANYekanX-Medium.woff2' },
-  { weight: 700, file: 'IRANYekanX-Bold.woff2' },
+  { family: 'IRANYekanX', weight: 400, file: 'IRANYekanX-Regular.woff2' },
+  { family: 'IRANYekanX', weight: 500, file: 'IRANYekanX-Medium.woff2' },
+  { family: 'IRANYekanX', weight: 600, file: 'IRANYekanX-DemiBold.woff2' },
+  { family: 'IRANYekanX', weight: 700, file: 'IRANYekanX-Bold.woff2' },
+  { family: 'IRANYekanX', weight: 800, file: 'IRANYekanX-ExtraBold.woff2' },
+  { family: 'Roboto Condensed', weight: '100 900', file: 'RobotoCondensed-Variable.woff2' },
 ] as const;
 
 export const FONT_WEIGHT = {

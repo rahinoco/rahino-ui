@@ -7,7 +7,7 @@ export const FIELD = {
     'flex items-center gap-1 h-[18px] mb-2 text-[11px] font-semibold text-fg-muted tracking-wide',
   control: 'h-11',
   controlClass:
-    'w-full h-11 px-4 rounded-2xl border-0 text-sm font-semibold outline-none transition-all duration-200 shadow-none ring-0 tabular-nums',
+    'rds-fa rds-weight-structure w-full h-11 px-4 rounded-2xl border-0 text-sm outline-none transition-all duration-200 shadow-none ring-0',
   controlOk:
     'bg-bg-muted text-fg placeholder:text-fg-subtle ' +
     'hover:bg-bg-muted ' +

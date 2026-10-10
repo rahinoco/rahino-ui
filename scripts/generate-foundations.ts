@@ -4,13 +4,15 @@ import { fileURLToPath } from 'node:url';
 
 import { CONTRAST_REFERENCE, INK, SURFACE } from '../src/foundations/color.ts';
 import { contrastRatio } from '../src/foundations/contrast.ts';
-import { renderFoundationsCss } from '../src/foundations/css.ts';
+import { renderFontsCss, renderFoundationsCss } from '../src/foundations/css.ts';
 import { resolveVeil } from '../src/foundations/resolveVeil.ts';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const output = path.join(root, 'src/styles/rds-foundations.css');
+const fontsOutput = path.join(root, 'src/styles/fonts.css');
 const check = process.argv.includes('--check');
 const css = renderFoundationsCss();
+const fontsCss = renderFontsCss();
 const failures: string[] = [];
 
 for (const appearance of ['light', 'dark'] as const) {
@@ -48,12 +50,15 @@ if (failures.length) {
 
 if (check) {
   const current = await readFile(output, 'utf8').catch(() => '');
-  if (current !== css) {
-    console.error('rds-foundations.css is out of date. Run npm run tokens:build.');
+  const currentFonts = await readFile(fontsOutput, 'utf8').catch(() => '');
+  if (current !== css || currentFonts !== fontsCss) {
+    console.error('foundations CSS is out of date. Run npm run tokens:build.');
     process.exit(1);
   }
   console.log('foundations css and contrast checks passed');
 } else {
   await writeFile(output, css);
+  await writeFile(fontsOutput, fontsCss);
   console.log('wrote', output);
+  console.log('wrote', fontsOutput);
 }

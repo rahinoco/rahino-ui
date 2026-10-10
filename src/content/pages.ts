@@ -182,7 +182,7 @@ const CORE_CONTENT_PAGES: ContractPage[] = [
         title: 'متن انگلیسی و فنی',
         blocks: [
           { kind: 'p', text: 'متن انگلیسی جمله‌بندی طبیعی و sentence case دارد؛ نام خاص، مخفف و syntax فنی شکل معتبر خود را حفظ می‌کند. این قواعد به متن فارسی تحمیل نمی‌شوند. برای تأکید، متن انگلیسی به ALL CAPS تبدیل نمی‌شود.' },
-          { kind: 'p', text: 'طبق قرارداد جاری، اعداد کاربری در همهٔ سرویس‌ها فارسی‌اند؛ تغییر زبان یا واحد پول خودکار آن‌ها را لاتین نمی‌کند. literal فنی، کد، نسخه، URL، رمز و مقدار قابل تبادل استثناهای صریح‌اند. Roboto انتخاب قطعی متن لاتین است؛ نبود فایل آن کمبود اجراست، نه تصمیم باز.' },
+          { kind: 'p', text: 'طبق قرارداد جاری، اعداد کاربری در همهٔ سرویس‌ها فارسی‌اند؛ تغییر زبان یا واحد پول خودکار آن‌ها را لاتین نمی‌کند. literal فنی، کد، نسخه، URL، رمز و مقدار قابل تبادل استثناهای صریح‌اند. متن لاتین Roboto Condensed است و ارقام کاربری با IRANYekanX می‌مانند.' },
           { kind: 'links', items: [{ title: 'اعداد', path: '/foundations/numbers' }, { title: 'تایپوگرافی و فایل قلم', path: '/foundations/typography' }] },
         ],
       },
@@ -190,4 +190,65 @@ const CORE_CONTENT_PAGES: ContractPage[] = [
   },
 ];
 
-export const CONTENT_PAGES: ContractPage[] = [...CORE_CONTENT_PAGES, ...MORE_CONTENT_PAGES];
+const CONTENT_MAP_PAGE: ContractPage = {
+  id: 'content-map',
+  docId: 'C00',
+  path: '/content',
+  title: 'محتوا در دیزاین سیستم راهی‌نو',
+  lede: 'محتوای رابط به کاربر کمک می‌کند بفهمد کجاست، چه کاری می‌تواند انجام دهد و نتیجهٔ کارش چیست. متن بخشی از رفتار محصول است.',
+  sections: [
+    {
+      id: 'scope',
+      title: 'دامنه و راه استفاده',
+      blocks: [
+        { kind: 'p', text: '«ذخیره شد» باید همان چیزی را بیان کند که سیستم واقعاً انجام داده است. «انصراف» باید همان کاری را متوقف کند که کاربر انتظار دارد.' },
+        { kind: 'p', text: 'این راهنما برای نویسنده، طراح، توسعه‌دهنده و مدیر محصول است. متن‌های نمونه الگوهای قابل استفاده‌اند، به شرط آنکه رفتار و دادهٔ محصول با آن‌ها منطبق باشد. نمونهٔ «درخواست دسترسی» وجود چنین قابلیتی را ثابت نمی‌کند و نمونهٔ پرداخت، قاعدهٔ حسابداری ایجاد نمی‌کند.' },
+        { kind: 'p', text: 'قواعد تایپوگرافی، جهت، ارقام، قالب مبلغ و تاریخ از قرارداد بنیان‌ها مصرف می‌شوند. این سند مقادیر آن‌ها را دوباره تعریف نمی‌کند. هر اختلاف اجرایی در همان مرجع اصلاح می‌شود. روایت برند و لوگو در بخش هویت برند باقی می‌ماند؛ اینجا قواعد نوشتار رابط است.' },
+        { kind: 'links', items: [{ title: 'تایپوگرافی', path: '/foundations/typography' }, { title: 'جهت و زبان', path: '/foundations/direction' }, { title: 'اعداد و مبلغ', path: '/foundations/numbers' }, { title: 'نگارش بنیان‌ها', path: '/foundations/writing' }] },
+      ],
+    },
+    {
+      id: 'map',
+      title: 'مسئولیت صفحه‌ها',
+      blocks: [
+        { kind: 'p', text: 'هر صفحه با مسئلهٔ کاربر و یک نمونهٔ روشن آغاز می‌شود؛ سپس قواعد، مقایسهٔ درست و نادرست و جزئیات اجرایی را ارائه می‌کند. متن مرجع کامل باقی می‌ماند. جابه‌جایی جزئیات به بخش بازشونده به معنی حذف آن‌ها نیست.' },
+        {
+          kind: 'table',
+          headers: ['شناسه', 'صفحه', 'مسئولیت', 'ارجاع مرتبط'],
+          rows: [
+            ['C01', '/content/voice', 'صدای مشترک، تفاوت محصولات و لحن موقعیت‌ها', 'D11، F20'],
+            ['C02', '/content/writing', 'رسم‌الخط و نوشتن عنوان، دکمه، فیلد و راهنما', 'F04، F08'],
+            ['C03', '/content/inclusive', 'نگارش فراگیر، افراد، خوانایی و ارتباط متن با تصویر', 'F03، F17'],
+            ['C04', '/content/glossary', 'واژه‌نامهٔ مشترک و مرز اصطلاحات محصولات', 'F20'],
+            ['C05', '/content/errors', 'خطا، نتیجه نامعلوم، بازیابی و محل نمایش پیام', 'F14، F16'],
+            ['C06', '/content/guidance', 'شروع کار، حالت خالی، راهنمایی و پیشرفت', 'الگوهای فرم و چندمرحله‌ای'],
+            ['C07', '/content/sensitive', 'پول، دسترسی، حذف، حریم خصوصی و ادعاهای حساس', 'F09، F14'],
+          ],
+        },
+      ],
+    },
+    {
+      id: 'anchors',
+      title: 'لنگرهای پایدار',
+      blocks: [
+        { kind: 'p', text: 'عنوان فارسی در رابط و anchor فنی پایدار جدا نگهداری می‌شوند. شناسه از عنوان فارسی ساخته نمی‌شود. این لنگرها پیشنهاد قرارداد صفحه‌اند. اگر لنگر قدیمی دیگری باشد، با همین شناسه‌ها نگاشت می‌شود و بدون جایگزین حذف نمی‌شود.' },
+        {
+          kind: 'table',
+          headers: ['صفحه', 'anchorها'],
+          rows: [
+            ['/content/voice', 'family، products، situations، examples'],
+            ['/content/writing', 'orthography، headings، actions، fields، technical'],
+            ['/content/inclusive', 'inclusive-writing، people، readability، visuals، direction'],
+            ['/content/glossary', 'terms، products، maintenance'],
+            ['/content/errors', 'placement، anatomy، unknown-outcome، recovery'],
+            ['/content/guidance', 'first-use، empty-states، contextual-help، progress'],
+            ['/content/sensitive', 'money، destructive-actions، access، time، ai-output'],
+          ],
+        },
+        { kind: 'note', text: 'سند محتوا ۱.۰.۰ برای بررسی است. نسخهٔ سند با نسخهٔ بستهٔ ۰.۱.۰ یکی نیست. پیوست تحقیق و یادداشت تحویل در این صفحات نیست.' },
+      ],
+    },
+  ],
+};
+
+export const CONTENT_PAGES: ContractPage[] = [CONTENT_MAP_PAGE, ...CORE_CONTENT_PAGES, ...MORE_CONTENT_PAGES];

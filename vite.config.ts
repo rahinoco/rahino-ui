@@ -1,3 +1,4 @@
+import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -6,8 +7,24 @@ import { defineConfig } from 'vite';
 
 const root = path.dirname(fileURLToPath(import.meta.url));
 
+function copyFontBuild() {
+  return {
+    name: 'copy-font-build',
+    closeBundle() {
+      const fromDir = path.resolve(root, 'src/styles/fonts');
+      const toDir = path.resolve(root, 'dist/fonts');
+      fs.mkdirSync(toDir, { recursive: true });
+      for (const name of fs.readdirSync(fromDir)) {
+        if (!name.endsWith('.woff2')) continue;
+        fs.copyFileSync(path.join(fromDir, name), path.join(toDir, name));
+      }
+      fs.copyFileSync(path.resolve(root, 'src/styles/fonts.css'), path.resolve(root, 'dist/fonts.css'));
+    },
+  };
+}
+
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), copyFontBuild()],
   resolve: {
     alias: {
       '@': path.resolve(root, 'src'),

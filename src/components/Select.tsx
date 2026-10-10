@@ -83,7 +83,7 @@ export default function Select({
       className={fieldClassName}
       dense={unlabeled && !error}
     >
-      <div ref={containerRef} className="relative w-full h-11">
+      <div ref={containerRef} className="rds-fa relative w-full h-11">
         <input
           id={id}
           type={searchable ? 'text' : 'button'}

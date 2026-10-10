@@ -22,8 +22,11 @@ import {
   CONTROL_SIZE,
   DENSITY,
   EDGE_WIDTH,
+  BUTTON_FOCUS,
   FOCUS,
   ICON_SIZE,
+  ICON_STROKE,
+  TOUCH_MIN,
   LAYER,
   LAYOUT,
   MOTION_DURATION,
@@ -36,7 +39,7 @@ import {
   VEIL_TIER,
   liftShadow,
 } from './metrics.ts';
-import { FONT_FAMILY, FONT_WEIGHT, TYPE_ROLES } from './type.ts';
+import { FONT_FAMILY, FONT_FILES, FONT_WEIGHT, TYPE_ROLES } from './type.ts';
 
 function hexChannels(hex: string) {
   const h = hex.replace('#', '');
@@ -47,6 +50,55 @@ function filmColor(base: string, alpha: number) {
   if (base.startsWith('rgb')) return base;
   const [r, g, b] = hexChannels(base);
   return `rgb(${r} ${g} ${b} / ${alpha})`;
+}
+
+/** Aliases only. Missing hover/pressed roles are mixes of semantic tokens, not new hex. */
+function buttonRecipe(_appearance: AppearanceName) {
+  const mix = (base: string, amount: string, withColor: string) =>
+    `color-mix(in srgb, var(${base}) ${amount}, var(${withColor}))`;
+  const rows: Array<[string, string]> = [
+    ['--rds-button-solid-neutral-bg', 'var(--rds-color-surface-inverse)'],
+    ['--rds-button-solid-neutral-bg-hover', mix('--rds-color-surface-inverse', '86%', '--rds-color-ink-primary')],
+    ['--rds-button-solid-neutral-bg-pressed', mix('--rds-color-surface-inverse', '72%', '--rds-color-ink-primary')],
+    ['--rds-button-solid-neutral-fg', 'var(--rds-color-ink-inverse)'],
+    ['--rds-button-solid-brand-bg', 'var(--rds-color-action-primary-bg-default)'],
+    ['--rds-button-solid-brand-bg-hover', 'var(--rds-color-action-primary-bg-hover)'],
+    ['--rds-button-solid-brand-bg-pressed', 'var(--rds-color-action-primary-bg-pressed)'],
+    ['--rds-button-solid-brand-fg', 'var(--rds-color-action-primary-fg)'],
+    ['--rds-button-solid-brand-bg-disabled', 'var(--rds-color-action-primary-bg-disabled)'],
+    ['--rds-button-solid-danger-bg', 'var(--rds-color-status-error-fill)'],
+    ['--rds-button-solid-danger-bg-hover', mix('--rds-color-status-error-fill', '82%', '--rds-color-ink-primary')],
+    ['--rds-button-solid-danger-bg-pressed', mix('--rds-color-status-error-fill', '68%', '--rds-color-ink-primary')],
+    ['--rds-button-solid-danger-fg', 'var(--rds-color-status-error-on-fill)'],
+    ['--rds-button-soft-neutral-bg', 'var(--rds-color-surface-subtle)'],
+    ['--rds-button-soft-neutral-bg-hover', mix('--rds-color-surface-subtle', '72%', '--rds-color-ink-primary')],
+    ['--rds-button-soft-neutral-bg-pressed', mix('--rds-color-surface-subtle', '58%', '--rds-color-ink-primary')],
+    ['--rds-button-soft-neutral-fg', 'var(--rds-color-ink-primary)'],
+    ['--rds-button-soft-brand-bg', 'var(--rds-color-brand-bg)'],
+    ['--rds-button-soft-brand-bg-hover', 'var(--rds-color-brand-bg-hover)'],
+    ['--rds-button-soft-brand-bg-pressed', mix('--rds-color-brand-bg-hover', '72%', '--rds-color-brand-seed')],
+    ['--rds-button-soft-brand-fg', 'var(--rds-color-brand-fg)'],
+    ['--rds-button-soft-danger-bg', 'var(--rds-color-status-error-bg)'],
+    ['--rds-button-soft-danger-bg-hover', mix('--rds-color-status-error-bg', '78%', '--rds-color-status-error-fill')],
+    ['--rds-button-soft-danger-bg-pressed', mix('--rds-color-status-error-bg', '62%', '--rds-color-status-error-fill')],
+    ['--rds-button-soft-danger-fg', 'var(--rds-color-status-error-fg)'],
+    ['--rds-button-bg-disabled', 'var(--rds-color-surface-subtle)'],
+    ['--rds-button-fg-disabled', 'var(--rds-color-ink-disabled)'],
+    ['--rds-button-selected-neutral-bg', 'var(--rds-color-interaction-selected-bg)'],
+    ['--rds-button-selected-neutral-bg-hover', mix('--rds-color-interaction-selected-bg', '82%', '--rds-color-ink-primary')],
+    ['--rds-button-selected-neutral-bg-pressed', mix('--rds-color-interaction-selected-bg', '68%', '--rds-color-ink-primary')],
+    ['--rds-button-selected-neutral-fg', 'var(--rds-color-interaction-selected-fg)'],
+    ['--rds-button-selected-brand-bg', 'var(--rds-color-interaction-selected-emphasis-bg)'],
+    ['--rds-button-selected-brand-bg-hover', 'var(--rds-color-brand-bg-hover)'],
+    ['--rds-button-selected-brand-bg-pressed', mix('--rds-color-brand-bg-hover', '72%', '--rds-color-brand-seed')],
+    ['--rds-button-selected-brand-fg', 'var(--rds-color-interaction-selected-emphasis-fg)'],
+    ['--rds-button-selected-danger-bg', 'var(--rds-color-status-error-bg)'],
+    ['--rds-button-selected-danger-bg-hover', mix('--rds-color-status-error-bg', '78%', '--rds-color-status-error-fill')],
+    ['--rds-button-selected-danger-bg-pressed', mix('--rds-color-status-error-bg', '62%', '--rds-color-status-error-fill')],
+    ['--rds-button-selected-danger-fg', 'var(--rds-color-status-error-fg)'],
+    ['--rds-button-focus-soft', `color-mix(in srgb, var(--rds-color-focus-ring) ${BUTTON_FOCUS.soft}, transparent)`],
+  ];
+  return rows.map(([name, value]) => `  ${name}: ${value};`);
 }
 
 function modeColors(appearance: AppearanceName, contrast: 'standard' | 'more') {
@@ -105,6 +157,7 @@ function modeColors(appearance: AppearanceName, contrast: 'standard' | 'more') {
   DATA_SEQUENTIAL.forEach((value, index) => set(`--rds-data-sequential-${String(index + 1).padStart(2, '0')}`, value[appearance]));
   DATA_DIVERGING.forEach((value, index) => set(`--rds-data-diverging-${String(index + 1).padStart(2, '0')}`, value[appearance]));
   set('--rds-data-on-fill', DATA_ON_FILL[appearance]);
+  for (const line of buttonRecipe(appearance)) lines.push(line);
 
   const alias: Array<[string, string]> = [
     ['--rds-color-bg-canvas', '--rds-color-surface-canvas'],
@@ -170,12 +223,18 @@ function staticTokens() {
     set(`--rds-size-control-${size}-min-height`, spec.minHeight);
     set(`--rds-size-control-${size}-padding-inline`, spec.paddingInline);
     set(`--rds-size-control-${size}-padding-block`, spec.paddingBlock);
+    set(`--rds-size-control-${size}-label`, spec.label);
     set(`--rds-size-icon-${size === 'sm' ? 'sm' : size === 'md' ? 'md' : 'lg'}`, spec.icon);
   }
   set('--rds-size-icon-display', ICON_SIZE.display);
   for (const [key, value] of Object.entries(RADIUS)) set(`--rds-radius-${key}`, value);
   set('--rds-focus-width', FOCUS.width);
   set('--rds-focus-offset', FOCUS.offset);
+  set('--rds-button-focus-width', BUTTON_FOCUS.width);
+  set('--rds-button-focus-gap', BUTTON_FOCUS.gap);
+  set('--rds-button-focus-core', BUTTON_FOCUS.core);
+  set('--rds-size-touch-min', TOUCH_MIN);
+  set('--rds-icon-stroke', ICON_STROKE);
   set('--rds-edge-width-thin', EDGE_WIDTH.thin);
   set('--rds-layout-reading', LAYOUT.reading);
   set('--rds-layout-reading-wide', LAYOUT.readingWide);
@@ -315,5 +374,21 @@ ${densityBlocks()}
     transition: none;
   }
 }
+`;
+}
+
+/** @font-face only. One file per registered weight; Latin is the variable axis. */
+export function renderFontsCss() {
+  const faces = FONT_FILES.map(
+    (file) => `@font-face {
+  font-family: "${file.family}";
+  src: url("./fonts/${file.file}") format("woff2");
+  font-weight: ${file.weight};
+  font-style: normal;
+  font-display: swap;
+}`,
+  );
+  return `/* Generated from src/foundations/type.ts. Do not edit by hand. Redistribution license: unknown. */
+${faces.join('\n')}
 `;
 }
