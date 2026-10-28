@@ -1,0 +1,7 @@
+/* Fixed colors retained solely for existing Brand Book artwork. These retired palette names are not foundation tokens and must not be used by new components. */
+:root {
+  --rds-color-primitive-brand-600: #5A103E;
+  --rds-color-primitive-neutral-300: #D0C9CD;
+  --rds-color-primitive-neutral-200: #E3DFE2;
+  --rds-color-primitive-neutral-50: #F4F2F3;
+}

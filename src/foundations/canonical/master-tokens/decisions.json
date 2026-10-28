@@ -1,0 +1,803 @@
+{
+  "status": "draft-with-explicit-approved-resolutions",
+  "items": [
+    {
+      "id": "canonical-migration",
+      "status": "resolved",
+      "title": "Adopt the canonical source after review",
+      "currentEvidence": "The user approved local adoption and synchronization of all foundation files and documents. The master is now authoritative; TypeScript APIs, raw references, CSS and marked documentation tables are generated from it. Consumer application validation and explicitly deferred work remain separate.",
+      "nextStep": "Edit the canonical collection, rebuild and validate. Test consuming applications before product launch.",
+      "resolution": {
+        "approval": "canonical-master-adoption",
+        "adoptedOn": "2026-10-26",
+        "baselineFile": "adoption-baseline.json",
+        "build": "scripts/build.mjs",
+        "externalPublication": false
+      }
+    },
+    {
+      "id": "spacing-paths",
+      "status": "resolved",
+      "title": "Shared spacing names and reference layer",
+      "currentEvidence": "User approved ref.space.<px> references and rds.space.<Spectrum index> shared aliases for the entire spacing scale. All 16 positive mappings match the linked Spectrum table; zero preserves Rahino's existing reset.",
+      "nextStep": "All 17 reference/shared pairs are applied. Migrate old public token/CSS names using Spacing-Migration.md before release.",
+      "resolution": {
+        "approval": "spacing-spectrum-full-scale",
+        "approvalHistory": [
+          "spacing-reference-and-shared-alias",
+          "spacing-spectrum-full-scale"
+        ],
+        "supersedes": "spacing-reference-and-shared-alias",
+        "referenceFamily": "ref.space",
+        "sharedFamily": "rds.space",
+        "approvedMapping": {
+          "rds.space.0": "{ref.space.0}",
+          "rds.space.25": "{ref.space.1}",
+          "rds.space.50": "{ref.space.2}",
+          "rds.space.75": "{ref.space.4}",
+          "rds.space.85": "{ref.space.6}",
+          "rds.space.100": "{ref.space.8}",
+          "rds.space.200": "{ref.space.12}",
+          "rds.space.300": "{ref.space.16}",
+          "rds.space.350": "{ref.space.20}",
+          "rds.space.400": "{ref.space.24}",
+          "rds.space.500": "{ref.space.32}",
+          "rds.space.600": "{ref.space.40}",
+          "rds.space.700": "{ref.space.48}",
+          "rds.space.750": "{ref.space.56}",
+          "rds.space.800": "{ref.space.64}",
+          "rds.space.900": "{ref.space.80}",
+          "rds.space.1000": "{ref.space.96}"
+        },
+        "spectrumSource": "https://spectrum.adobe.com/foundations/layout-and-structure/spacing/layout-spacing",
+        "verifiedOn": "2026-10-23",
+        "migration": [
+          {
+            "oldReference": "rds.space.0",
+            "newReference": "ref.space.0",
+            "newShared": "rds.space.0",
+            "value": "0px",
+            "origin": "Rahino reset extension"
+          },
+          {
+            "oldReference": "rds.space.1",
+            "newReference": "ref.space.1",
+            "newShared": "rds.space.25",
+            "value": "1px",
+            "origin": "Adobe Spectrum"
+          },
+          {
+            "oldReference": "rds.space.2",
+            "newReference": "ref.space.2",
+            "newShared": "rds.space.50",
+            "value": "2px",
+            "origin": "Adobe Spectrum"
+          },
+          {
+            "oldReference": "rds.space.4",
+            "newReference": "ref.space.4",
+            "newShared": "rds.space.75",
+            "value": "4px",
+            "origin": "Adobe Spectrum"
+          },
+          {
+            "oldReference": "rds.space.6",
+            "newReference": "ref.space.6",
+            "newShared": "rds.space.85",
+            "value": "6px",
+            "origin": "Adobe Spectrum"
+          },
+          {
+            "oldReference": "rds.space.8",
+            "newReference": "ref.space.8",
+            "newShared": "rds.space.100",
+            "value": "8px",
+            "origin": "Adobe Spectrum"
+          },
+          {
+            "oldReference": "rds.space.12",
+            "newReference": "ref.space.12",
+            "newShared": "rds.space.200",
+            "value": "12px",
+            "origin": "Adobe Spectrum"
+          },
+          {
+            "oldReference": "rds.space.16",
+            "newReference": "ref.space.16",
+            "newShared": "rds.space.300",
+            "value": "16px",
+            "origin": "Adobe Spectrum"
+          },
+          {
+            "oldReference": "rds.space.20",
+            "newReference": "ref.space.20",
+            "newShared": "rds.space.350",
+            "value": "20px",
+            "origin": "Adobe Spectrum"
+          },
+          {
+            "oldReference": "rds.space.24",
+            "newReference": "ref.space.24",
+            "newShared": "rds.space.400",
+            "value": "24px",
+            "origin": "Adobe Spectrum"
+          },
+          {
+            "oldReference": "rds.space.32",
+            "newReference": "ref.space.32",
+            "newShared": "rds.space.500",
+            "value": "32px",
+            "origin": "Adobe Spectrum"
+          },
+          {
+            "oldReference": "rds.space.40",
+            "newReference": "ref.space.40",
+            "newShared": "rds.space.600",
+            "value": "40px",
+            "origin": "Adobe Spectrum"
+          },
+          {
+            "oldReference": "rds.space.48",
+            "newReference": "ref.space.48",
+            "newShared": "rds.space.700",
+            "value": "48px",
+            "origin": "Adobe Spectrum"
+          },
+          {
+            "oldReference": "rds.space.56",
+            "newReference": "ref.space.56",
+            "newShared": "rds.space.750",
+            "value": "56px",
+            "origin": "Adobe Spectrum"
+          },
+          {
+            "oldReference": "rds.space.64",
+            "newReference": "ref.space.64",
+            "newShared": "rds.space.800",
+            "value": "64px",
+            "origin": "Adobe Spectrum"
+          },
+          {
+            "oldReference": "rds.space.80",
+            "newReference": "ref.space.80",
+            "newShared": "rds.space.900",
+            "value": "80px",
+            "origin": "Adobe Spectrum"
+          },
+          {
+            "oldReference": "rds.space.96",
+            "newReference": "ref.space.96",
+            "newShared": "rds.space.1000",
+            "value": "96px",
+            "origin": "Adobe Spectrum"
+          }
+        ],
+        "additionalMigration": {
+          "old": "rds.spacing.300",
+          "new": "rds.space.300"
+        }
+      }
+    },
+    {
+      "id": "veil-paths",
+      "status": "resolved",
+      "title": "Veil group and leaf declarations",
+      "currentEvidence": "All six veil names are groups, each containing a .color token and a .blur token. TypeScript leaf annotations, Markdown paths and master groups agree.",
+      "nextStep": "Group/leaf contract applied. All six treatment values and existing exports remain unchanged.",
+      "resolution": {
+        "approval": "veil-group-leaf-contract",
+        "groupFamily": "rds.veil",
+        "leafTokens": [
+          "color",
+          "blur"
+        ],
+        "valuesChanged": false
+      }
+    },
+    {
+      "id": "chart-paths",
+      "status": "resolved",
+      "title": "Chart slot public paths",
+      "currentEvidence": "All 18 chart colors now have stable public leaf names: categorical.01–08, sequential.01–05 and diverging.01–05. Existing zero-based arrays are derived in that exact order.",
+      "nextStep": "Naming and comments aligned. Palette values, theme pairs, series order and existing array exports are preserved.",
+      "resolution": {
+        "approval": "chart-public-slots-01",
+        "publicSlotConvention": "01 onward",
+        "legacyArrays": "Retained as derived ordered projections; index 0 maps to public slot 01.",
+        "valuesChanged": false
+      }
+    },
+    {
+      "id": "contrast",
+      "status": "resolved",
+      "title": "Dark control-boundary contrast",
+      "currentEvidence": "The user approved reusing #7A8493 / ref.color.gray-cool.450 for the dark control boundary. It exceeds 3:1 on all six defined dark surfaces; raised is about 3.807:1. The light boundary and focus ring are unchanged.",
+      "nextStep": "Use the approved boundary where it is needed to identify a control. Validate actual component adjacency during component work.",
+      "reviewOwner": "user",
+      "followUp": "contrast-snapshot",
+      "resolvedSubissues": [
+        "focus-ring-contrast"
+      ],
+      "resolution": {
+        "approval": "dark-control-boundary-existing-gray",
+        "publicPath": "rds.color.edge.control",
+        "previousDark": "#667085",
+        "dark": "#7A8493",
+        "reference": "ref.color.gray-cool.450",
+        "minimum": 3,
+        "ratios": {
+          "canvas": 4.975633871359854,
+          "base": 4.629072829025411,
+          "subtle": 4.181897678753853,
+          "raised": 3.806689151274322,
+          "sunken": 5.123380245116465,
+          "inverse": 3.2658848010973682
+        },
+        "retiredReference": "ref.color.gray-cool.525"
+      }
+    },
+    {
+      "id": "identifying-cues",
+      "status": "deferred",
+      "title": "Control and state identifying cues",
+      "currentEvidence": "The user assigned identification and state cues to each component and excluded this from foundation decision blockers.",
+      "nextStep": "Specify and test the identifying cue during component design; preserve the general rule against communicating a state through color alone.",
+      "disposition": "component-scope",
+      "deferral": {
+        "requestedOn": "2026-10-26",
+        "resumeWhen": "Each affected control, selection or feedback component is designed.",
+        "foundationBlocker": false
+      }
+    },
+    {
+      "id": "contrast-snapshot",
+      "status": "resolved",
+      "title": "Calculated contrast references stay synchronized",
+      "currentEvidence": "All 30 light/dark INK/SURFACE reference figures are recomputed from the source colors. The three stale light-canvas entries are corrected to 14.19, 5.88 and 4.80. Color.ts now calculates the reference export automatically; the master reference is synchronized.",
+      "nextStep": "Recompute and synchronize the master derived reference after any approved palette change; the checker rejects stale figures. Remaining control-boundary decisions do not prevent accurate current calculations.",
+      "userInstruction": "User will review the dark-mode contrast problem; update the contrasts after it is resolved.",
+      "resolution": {
+        "approval": "dark-focus-ring-and-contrast-reference",
+        "checkedReferencePairs": 30,
+        "source": "INK and SURFACE",
+        "runtimeDerived": true,
+        "unrelatedPaletteValuesChanged": false
+      }
+    },
+    {
+      "id": "reading-width",
+      "status": "resolved",
+      "title": "Reading width conflict",
+      "currentEvidence": "Layout, Typography and TypeScript now use one 42rem reading cap (672px at a 16px root). The 48rem preset is retired; its old name is a deprecated alias to reading.",
+      "nextStep": "Use the canonical reading token for all long-form text. Retain the deprecated wide alias only until external consumers migrate, then remove it in the next breaking release.",
+      "resolution": {
+        "approval": "reading-measure-single-42rem",
+        "canonicalToken": "rds.type.layout.measure.reading",
+        "value": "42rem",
+        "defaultRootEquivalent": "672px at a 16px root",
+        "rationale": "Preserve Rahino's existing default measure, follow rem typography units, allow browser-default text resizing and container reflow. No universal standard mandates exactly 42rem.",
+        "sources": [
+          "https://www.w3.org/WAI/WCAG22/Understanding/visual-presentation.html",
+          "https://designsystem.digital.gov/design-tokens/typesetting/measure/"
+        ],
+        "compatibilityAlias": {
+          "token": "rds.type.layout.measure.wide",
+          "target": "rds.type.layout.measure.reading",
+          "removalPlan": "Use rds.type.layout.measure.reading. Remove this compatibility alias in the next breaking release after external consumer migration is verified; no new usage."
+        }
+      }
+    },
+    {
+      "id": "typography-representation",
+      "status": "resolved",
+      "title": "Typography bundles and fluid sizes",
+      "currentEvidence": "The user authorized a simple resolution. All 16 roles use their existing property bindings and Persian/English font bindings as style recipes. The two clamp() sizes remain exact CSS expressions. Letter spacing is omitted, preserving current inherited behavior; no new spacing value is introduced.",
+      "nextStep": "Use the recipe assembler for complete styles. Integrate platform outputs during canonical adoption; retain the existing Typography.ts APIs and appearance.",
+      "resolution": {
+        "approval": "typography-property-recipes",
+        "representation": "property-recipes",
+        "letterSpacing": "omit-preserve-existing-inheritance",
+        "fluidSizes": "preserved-css-expressions",
+        "recipeCount": 16,
+        "resolver": "scripts/typography.mjs",
+        "metricsChanged": false,
+        "completeDtcgTypographyRequired": false
+      }
+    },
+    {
+      "id": "relative-spacing",
+      "status": "resolved",
+      "title": "Reading-paragraph spacing recipe",
+      "currentEvidence": "The existing 1em gap is approved for consecutive reading paragraphs only. It follows paragraph font size; interface-element gaps use the shared spacing scale. Documentation, TypeScript annotations and master recipe metadata agree.",
+      "nextStep": "Keep the existing value and public export. Retain the rule outside ordinary DTCG dimensions and generate the same CSS during canonical adoption; verify actual-font readability and user spacing overrides in consumers.",
+      "resolution": {
+        "approval": "reading-paragraph-relative-spacing",
+        "publicPath": "rds.type.layout.gap.paragraph",
+        "value": "1em",
+        "representation": "CSS recipe outside ordinary DTCG dimension tokens",
+        "scope": "consecutive reading paragraphs in articles, reports and multi-paragraph help text",
+        "valuesChanged": false,
+        "sources": [
+          "https://designsystem.digital.gov/components/typography/#whitespace",
+          "https://www.w3.org/WAI/WCAG22/Understanding/text-spacing"
+        ]
+      }
+    },
+    {
+      "id": "presentation-representation",
+      "status": "deferred",
+      "title": "Presentation artwork representation",
+      "currentEvidence": "Three preserved CSS recipes now use rds.color.presentation.gradient.* names. Brand light/dark remain approved variants of one theme-following background; final gradient representation, the theme-neutral role and output generation remain deferred to design.",
+      "nextStep": "During presentation design work, preserve complete gradient instructions and implement the approved theme-following brand role. Keep current artwork and exports until that migration; separately review the atmosphere recipe without inferring new theme behavior.",
+      "disposition": "deferred-to-design",
+      "deferral": {
+        "requestedOn": "2026-10-24",
+        "userInstruction": "Mark this to be completed later down the road while designing.",
+        "resumeWhen": "Presentation backgrounds are designed or revised.",
+        "scope": "Complete gradient instructions alongside their colors",
+        "valuesChanged": false
+      }
+    },
+    {
+      "id": "context-resolution",
+      "status": "resolved",
+      "title": "Resolver rules",
+      "currentEvidence": "System appearance is the default, explicit app selection overrides it, and light is the fallback if the system preference is unavailable. Contrast is independent; native forced colors override custom palettes. The ten existing enhanced-contrast fields have explicit semantic targets. Content script remains explicit.",
+      "nextStep": "Use context-policy.json and scripts/context.mjs for selection. Applications subscribe to preferences and implement forced-color CSS; output integration follows canonical adoption.",
+      "resolution": {
+        "approval": "context-selection-and-contrast-policy",
+        "policyFile": "context-policy.json",
+        "resolver": "scripts/context.mjs",
+        "applicationIntegration": "pending-canonical-adoption",
+        "densityOrMotionChanged": false
+      }
+    },
+    {
+      "id": "layout-export",
+      "status": "resolved",
+      "title": "Shared layout token exports",
+      "currentEvidence": "Twelve approved shared layout paths are stored in the master collection and generated into layout.ts. Existing breakpoints, columns, gutters, margins and the 1600px cap are preserved; spacing values alias shared tokens.",
+      "nextStep": "Use the generated layout exports and existing typography reading token. Keep responsive composition and number formatting as documented rules; regenerate layout.ts after master changes.",
+      "resolution": {
+        "approval": "layout-token-exports",
+        "file": "layout.ts",
+        "masterFile": "shared.tokens.json",
+        "generator": "scripts/layout.mjs",
+        "publicPaths": [
+          "rds.layout.breakpoint.medium",
+          "rds.layout.breakpoint.wide",
+          "rds.layout.grid.narrow.columns",
+          "rds.layout.grid.narrow.gutter",
+          "rds.layout.grid.narrow.margin",
+          "rds.layout.grid.medium.columns",
+          "rds.layout.grid.medium.gutter",
+          "rds.layout.grid.medium.margin",
+          "rds.layout.grid.wide.columns",
+          "rds.layout.grid.wide.gutter",
+          "rds.layout.grid.wide.margin",
+          "rds.layout.content.max"
+        ],
+        "readingToken": "rds.type.layout.measure.reading",
+        "valuesChanged": false
+      }
+    },
+    {
+      "id": "number-profiles",
+      "status": "deferred",
+      "title": "Number profile configuration contract",
+      "currentEvidence": "Six profiles are named; precise product configuration and required fields are not defined here.",
+      "nextStep": "Define profile configuration and product defaults during number-formatting implementation; preserve existing Numbers.md rules.",
+      "disposition": "product-formatting-work",
+      "deferral": {
+        "requestedOn": "2026-10-26",
+        "resumeWhen": "Product number-formatting behavior is implemented.",
+        "foundationBlocker": false
+      }
+    },
+    {
+      "id": "motion-status",
+      "status": "resolved",
+      "title": "Motion validation phase is explicit",
+      "currentEvidence": "The foundation owner confirmed phase one visual testing in Figma is completed. Motion.md, Motion.ts and master metadata now agree. Qipper implementation testing remains pending.",
+      "nextStep": "Complete implementation, accessibility and performance checks in real Qipper components before release; do not infer those results from Figma validation.",
+      "resolution": {
+        "approval": "motion-phase-one-figma-validation",
+        "phaseOne": {
+          "status": "completed",
+          "environment": "Figma",
+          "evidence": "Direct foundation owner confirmation"
+        },
+        "implementation": {
+          "status": "pending",
+          "environment": "Qipper"
+        },
+        "valuesChanged": false
+      }
+    },
+    {
+      "id": "external-references",
+      "status": "resolved",
+      "title": "Color references use the approved local source set",
+      "currentEvidence": "Color.ts now points to Rahino-Tokenization.md, Border.ts, Veil.ts and the actual local master collection. Claims about an unavailable comparison table, external repository, Light/Dark token files, css.ts migration, icon aliases and nonexistent edge.focus alias are removed or replaced. Color values and all runtime exports are unchanged.",
+      "nextStep": "Use the approved local definitions and recorded master review status. Do not restore unverified external migration claims. Existing real aliases and deferred presentation artwork remain intact.",
+      "resolution": {
+        "approval": "color-local-source-reference-cleanup",
+        "sourcePolicy": "Approved foundation files in the current folder",
+        "valuesChanged": false,
+        "exportsChanged": false
+      }
+    },
+    {
+      "id": "documentation-cleanup",
+      "status": "resolved",
+      "title": "Mechanical documentation defects",
+      "currentEvidence": "Completed the scheduled cleanup after foundation decisions were resolved or explicitly deferred: repaired malformed Border tables, removed stale draft/source claims, linked Numbers typography locally, clarified unchanged letter spacing, and generated foundation value tables.",
+      "nextStep": "Maintain guidance in the Markdown files and regenerate marked value tables from the master.",
+      "disposition": "after-decision-review",
+      "scheduling": {
+        "requestedOn": "2026-10-26",
+        "trigger": "Remaining decision discussions are completed; do not perform the cleanup during those discussions."
+      },
+      "resolution": {
+        "approval": "foundation-documentation-cleanup",
+        "valuesChanged": false
+      }
+    },
+    {
+      "id": "font-family-binding",
+      "status": "resolved",
+      "title": "Explicit font binding for every typography role",
+      "currentEvidence": "The font policy already existed, but 15 base roles delegated font selection to consumers. TYPOGRAPHY_BY_SCRIPT now derives complete Persian and English styles for all 16 roles, reusing the approved font tokens and retaining the code override.",
+      "nextStep": "Use the resolved style exports where a complete style is needed. Applications still load the fonts and choose script/direction per text run. Existing base exports and metrics remain unchanged; final DTCG typography representation is still open.",
+      "resolution": {
+        "approval": "typography-script-font-bindings",
+        "exportName": "TYPOGRAPHY_BY_SCRIPT",
+        "scripts": [
+          "fa",
+          "latin"
+        ],
+        "roleCount": 16,
+        "existingExportsChanged": false,
+        "metricsChanged": false,
+        "letterSpacingChanged": false
+      }
+    },
+    {
+      "id": "presentation-theme-selection",
+      "status": "resolved",
+      "title": "Brand background follows the active theme",
+      "currentEvidence": "The user confirmed one brand background that automatically changes with the theme, rather than two independently selected artworks.",
+      "nextStep": "Implement one theme-neutral brand background role and map the preserved light/dark artwork to the active appearance during the deferred presentation design work. Keep the atmosphere recipe separate; no new atmosphere behavior is implied.",
+      "resolution": {
+        "approval": "presentation-brand-follows-appearance",
+        "selection": "active-appearance",
+        "logicalRole": "brand-background",
+        "variants": {
+          "light": "rds.color.presentation.gradient.brand-light",
+          "dark": "rds.color.presentation.gradient.brand-dark"
+        },
+        "implementation": "deferred-to-design",
+        "valuesChanged": false,
+        "publicPathNamingApproval": "data-and-presentation-color-category"
+      }
+    },
+    {
+      "id": "shadow-scale",
+      "status": "resolved",
+      "title": "Three shadow levels; lg is the modal shadow",
+      "currentEvidence": "The owner confirmed the Veil & Shadow document edits and explicitly requested removal of xlg and use of lg for modals. Shadow.ts and both master appearances contain only sm, md and lg; specifications agree.",
+      "nextStep": "Use lg for modal and confirmation dialogs. Replace any former xlg reference with lg using Shadow-Migration.md. All approved local source references have been checked; no compatibility alias is retained because removal was explicitly requested.",
+      "resolution": {
+        "approval": "shadow-three-level-scale",
+        "levels": [
+          "sm",
+          "md",
+          "lg"
+        ],
+        "removedToken": "rds.shadow.xlg",
+        "replacementToken": "rds.shadow.lg",
+        "remainingValuesChanged": false,
+        "modalShadow": "rds.shadow.lg",
+        "ownerDocumentEditAcknowledged": true,
+        "migrationGuide": "Shadow-Migration.md",
+        "retiredDefinitions": {
+          "light": {
+            "$type": "shadow",
+            "$value": {
+              "color": {
+                "colorSpace": "srgb",
+                "components": [
+                  0,
+                  0,
+                  0
+                ],
+                "alpha": 0.18
+              },
+              "offsetX": {
+                "value": 0,
+                "unit": "px"
+              },
+              "offsetY": {
+                "value": 24,
+                "unit": "px"
+              },
+              "blur": {
+                "value": 56,
+                "unit": "px"
+              },
+              "spread": {
+                "value": 0,
+                "unit": "px"
+              }
+            },
+            "$description": "Modal experiences requiring more pronounced separation from their backdrop. Use only when lg is insufficient.",
+            "$extensions": {
+              "rahino": {
+                "status": "captured-not-adopted",
+                "source": {
+                  "file": "Shadow.ts",
+                  "exportPath": [
+                    "SHADOW",
+                    "xlg",
+                    "light"
+                  ],
+                  "line": 81
+                },
+                "sourceDocuments": [
+                  "Veil & Shadow.md"
+                ],
+                "sourceAnnotations": {
+                  "token": "rds.shadow.xlg",
+                  "role": "Strong modal elevation",
+                  "usage": "Modal experiences requiring more pronounced separation from their backdrop. Use only when lg is insufficient.",
+                  "avoid": "All non-modal elements, including large flyouts, drawers, dropdowns, and expanded contextual panels."
+                },
+                "reviewIssues": []
+              }
+            }
+          },
+          "dark": {
+            "$type": "shadow",
+            "$value": {
+              "color": {
+                "colorSpace": "srgb",
+                "components": [
+                  0,
+                  0,
+                  0
+                ],
+                "alpha": 0.34
+              },
+              "offsetX": {
+                "value": 0,
+                "unit": "px"
+              },
+              "offsetY": {
+                "value": 24,
+                "unit": "px"
+              },
+              "blur": {
+                "value": 56,
+                "unit": "px"
+              },
+              "spread": {
+                "value": 0,
+                "unit": "px"
+              }
+            },
+            "$description": "Modal experiences requiring more pronounced separation from their backdrop. Use only when lg is insufficient.",
+            "$extensions": {
+              "rahino": {
+                "status": "captured-not-adopted",
+                "source": {
+                  "file": "Shadow.ts",
+                  "exportPath": [
+                    "SHADOW",
+                    "xlg",
+                    "dark"
+                  ],
+                  "line": 81
+                },
+                "sourceDocuments": [
+                  "Veil & Shadow.md"
+                ],
+                "sourceAnnotations": {
+                  "token": "rds.shadow.xlg",
+                  "role": "Strong modal elevation",
+                  "usage": "Modal experiences requiring more pronounced separation from their backdrop. Use only when lg is insufficient.",
+                  "avoid": "All non-modal elements, including large flyouts, drawers, dropdowns, and expanded contextual panels."
+                },
+                "reviewIssues": []
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "focus-ring-contrast",
+      "status": "resolved",
+      "title": "Lighter dark focus ring",
+      "currentEvidence": "The user approved #A9638B for the dark focus ring. The light ring remains #99507A. Full-precision checks exceed 3:1 against all six defined dark appearance surfaces.",
+      "nextStep": "Use the new dark ring with the existing focus geometry. Validate adjacent colors in each component; do not infer suitability for every arbitrary fill.",
+      "resolution": {
+        "approval": "dark-focus-ring-and-contrast-reference",
+        "publicPath": "rds.color.focus.ring",
+        "previousDark": "#99507A",
+        "dark": "#A9638B",
+        "light": "#99507A",
+        "minimum": 3,
+        "ratios": {
+          "canvas": 4.3437137839677735,
+          "base": 4.041167009929727,
+          "subtle": 3.6507844146059356,
+          "raised": 3.3232284700143646,
+          "sunken": 4.472695935148935,
+          "inverse": 3.7410031702079487
+        },
+        "otherColorValuesChanged": false
+      }
+    },
+    {
+      "id": "reference-layer-structure",
+      "status": "resolved",
+      "title": "Explicit raw references beneath shared roles",
+      "currentEvidence": "The user approved the nine-file plan and requested implementation in the master collection first. Added 176 raw reference paths and updated 194 shared definitions. All 246 pre-existing typed definitions resolve to identical values; foundation files are unchanged.",
+      "nextStep": "Synchronize foundation TypeScript and Markdown from the approved master structure in the next stage. Keep unresolved fluid/letter-spacing/context decisions and deferred gradient work separate.",
+      "resolution": {
+        "approval": "reference-layer-master-collection",
+        "scope": "master-collection-only",
+        "newReferenceCountsByFamily": {
+          "ref.radius": 6,
+          "ref.stroke.width": 2,
+          "ref.motion.duration": 5,
+          "ref.motion.easing": 4,
+          "ref.motion.distance": 3,
+          "ref.motion.scale": 2,
+          "ref.font.family": 3,
+          "ref.font.weight": 4,
+          "ref.font.line-height": 4,
+          "ref.blur": 5,
+          "ref.color": 124,
+          "ref.shadow.offset": 4,
+          "ref.shadow.blur": 3,
+          "ref.shadow.spread": 1,
+          "ref.font.size": 6
+        },
+        "existingPublicPathsRemoved": 0,
+        "existingValuesChanged": 0,
+        "foundationFilesChanged": 0,
+        "baselineFile": "reference-layer-baseline.json",
+        "inventoryFile": "reference-layer-inventory.json"
+      }
+    },
+    {
+      "id": "color-reference-naming",
+      "status": "resolved",
+      "title": "Color references use hue families and numbered steps",
+      "currentEvidence": "The user approved the proposed color-family/index names and requested alignment with Spectrum. All 124 raw color values are preserved; 123 paths are renamed and white retains its endpoint name. Shared roles, themes, chart ordering, contrast and the three shadow levels are unchanged.",
+      "nextStep": "Use the new references. Keep the historical inventory unchanged and apply its recorded rename mapping during validation. Add colors only for real requirements or a reviewed scale; keep existing step IDs stable.",
+      "resolution": {
+        "approval": "color-reference-family-step-naming",
+        "migrationFile": "color-reference-migration.json",
+        "migrationGuide": "Color-Reference-Migration.md",
+        "referencePathsRenamed": 123,
+        "rawColorValuesChanged": 0,
+        "semanticPathsChanged": 0,
+        "foundationFilesChanged": 0,
+        "namingSources": [
+          "https://spectrum.adobe.com/foundations/design-data/design-tokens",
+          "https://spectrum.adobe.com/foundations/color/grays"
+        ]
+      }
+    },
+    {
+      "id": "semantic-color-category",
+      "status": "resolved",
+      "title": "Chart colors and presentation backgrounds belong to Colors",
+      "currentEvidence": "The user approved both naming and document grouping corrections. Nineteen chart color paths use rds.color.data.* and three presentation recipe paths use rds.color.presentation.gradient.*. All values, exports, chart order and deferred presentation behavior are preserved.",
+      "nextStep": "Use the new public paths and group interface colors, chart palettes and presentation backgrounds under Colors. The migration guide records every previous name.",
+      "resolution": {
+        "approval": "data-and-presentation-color-category",
+        "migrationFile": "semantic-color-migration.json",
+        "migrationGuide": "Semantic-Color-Migration.md",
+        "typedPathsRenamed": 19,
+        "recipePathsRenamed": 3,
+        "valuesChanged": 0,
+        "runtimeExportsChanged": false,
+        "presentationImplementation": "deferred-to-design"
+      }
+    },
+    {
+      "id": "semantic-text-styles-and-readable-guides",
+      "status": "resolved",
+      "title": "Semantic text styles and readable foundation guides",
+      "currentEvidence": "User approved moving the 16 text styles to a typography source, treating them as semantic styles, displaying reference tokens in Markdown, and removing repeated TypeScript guidance.",
+      "nextStep": "Edit typography.json for role definitions, typed token JSON for reference values, and Markdown for guidance. Rebuild generated outputs.",
+      "resolution": {
+        "approval": "semantic-text-styles-and-readable-guides",
+        "source": "typography.json",
+        "representation": "semantic-text-styles",
+        "textStyleCount": 16,
+        "publicNamesChanged": false,
+        "runtimeValuesChanged": false,
+        "letterSpacingChanged": false
+      }
+    },
+    {
+      "id": "separate-color-state-segments",
+      "status": "resolved",
+      "title": "Separate color state names from properties",
+      "currentEvidence": "User requested the action.primary.bg.hover naming pattern everywhere, with document changes only where necessary.",
+      "nextStep": "Use separate terminal state segments for state families. Preserve established runtime exports and legacy CSS variables during repository migration.",
+      "resolution": {
+        "approval": "separate-color-state-segments",
+        "migrationFile": "state-name-migration.json",
+        "renamedPaths": 3,
+        "valuesChanged": false,
+        "typeScriptApiChanged": false
+      }
+    },
+    {
+      "id": "audit-state-contrast-and-material-default",
+      "status": "resolved",
+      "title": "Branded forced colors, interactive ink and opaque overlay defaults",
+      "currentEvidence": "User authorized minimal fixes for audit follow-up items 1, 2 and 4. Branded hover backgrounds use Canvas in forced colors; neutral hover/pressed content uses existing secondary/primary ink; opaque raised surfaces are the default and glass is opt-in.",
+      "nextStep": "Apply the ink and material guidance in consuming components. Validate final combinations on their actual backgrounds.",
+      "resolution": {
+        "approval": "audit-state-contrast-and-material-default",
+        "paletteValuesChanged": false,
+        "publicPathsChanged": false,
+        "typeScriptApiChanged": false,
+        "forcedColorBackground": "Canvas",
+        "ordinaryInteractiveTextMinimum": 4.5,
+        "glass": "explicit-component-choice"
+      }
+    },
+    {
+      "id": "chart-mark-visibility",
+      "status": "deferred",
+      "title": "Chart mark visibility guidance",
+      "currentEvidence": "The diverging midpoint can have insufficient contrast against the plot when used as an essential mark. User explicitly deferred this audit follow-up item.",
+      "nextStep": "During chart design, validate essential marks against plot backgrounds and choose suitable outlines, labels or other redundant encoding without recoloring the palette by default.",
+      "deferral": {
+        "requestedOn": "2026-10-28",
+        "resumeWhen": "Chart components and plot backgrounds are designed or reviewed.",
+        "foundationBlocker": false
+      }
+    },
+    {
+      "id": "shared-color-resolver",
+      "status": "resolved",
+      "title": "Shared generated color resolver",
+      "currentEvidence": "User authorized a framework-independent resolver and interference checks. It shares appearance/contrast precedence and forced-color mapping with existing selectors and CSS; browser preference handling is opt-in.",
+      "nextStep": "Import the generated module and tokens.css in consuming applications. Apply saved preferences before rendering; dispose browser subscriptions on teardown.",
+      "resolution": {
+        "approval": "shared-color-resolver",
+        "generator": "scripts/color-resolver.mjs",
+        "publicApi": [
+          "resolveColorContext",
+          "resolveColor",
+          "applyColorPreferences"
+        ],
+        "paletteValuesChanged": false,
+        "existingExportsChanged": false,
+        "preferenceStorage": "application-responsibility"
+      }
+    },
+    {
+      "id": "primary-fill-on-brand-foreground",
+      "status": "resolved",
+      "title": "Primary fills use on-brand ink",
+      "currentEvidence": "User requested rds.color.ink.on-brand for primary fills and excluded ordinary ink.primary from that role. Primary-action foreground aliases on-brand in both themes; standard color values remain unchanged.",
+      "nextStep": "Use ink.on-brand on enabled solid primary fills. Keep ink.primary on neutral surfaces and brand.fg on soft brand tints.",
+      "resolution": {
+        "approval": "primary-fill-on-brand-foreground",
+        "foreground": "rds.color.ink.on-brand",
+        "compatibilityAlias": "rds.color.action.primary.fg",
+        "paletteValuesChanged": false,
+        "publicTokensRemoved": 0
+      }
+    }
+  ]
+}

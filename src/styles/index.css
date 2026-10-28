@@ -2,6 +2,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 @import "./tokens.css";
 @import "./rds-legacy-bridge.css";
+@import "./brandbook-legacy-palette.css";
 @import "./rds-foundations.css";
 @import "./products.css";
 @import "../qippo/qippo.css";
@@ -310,3 +311,6 @@ td {
 .rahino-ui *::after {
   box-sizing: border-box;
 }
+
+/* Floating date-picker contents use the opaque raised surface, matching their popup container. */
+.qipper-pdp-popover, .rahino-pdp-popover { --dvx-pdp-bg: var(--rds-color-surface-raised); }

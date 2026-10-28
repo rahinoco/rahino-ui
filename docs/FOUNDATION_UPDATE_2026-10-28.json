@@ -1,0 +1,723 @@
+{
+  "source": "C:/Home/RAHINO/foundation",
+  "previousSnapshot": "2026-10-26",
+  "updatedSnapshot": "2026-10-28",
+  "changedOrAddedFiles": [
+    {
+      "file": "Border.md",
+      "status": "changed",
+      "beforeBytes": 5164,
+      "afterBytes": 6805
+    },
+    {
+      "file": "Color.md",
+      "status": "changed",
+      "beforeBytes": 23256,
+      "afterBytes": 29452
+    },
+    {
+      "file": "Color.ts",
+      "status": "changed",
+      "beforeBytes": 12861,
+      "afterBytes": 12872
+    },
+    {
+      "file": "master-tokens/Color-Reference-Migration.md",
+      "status": "changed",
+      "beforeBytes": 8318,
+      "afterBytes": 8749
+    },
+    {
+      "file": "master-tokens/dark.tokens.json",
+      "status": "changed",
+      "beforeBytes": 121302,
+      "afterBytes": 123228
+    },
+    {
+      "file": "master-tokens/decisions.json",
+      "status": "changed",
+      "beforeBytes": 33780,
+      "afterBytes": 37830
+    },
+    {
+      "file": "master-tokens/export-map.json",
+      "status": "changed",
+      "beforeBytes": 42729,
+      "afterBytes": 42745
+    },
+    {
+      "file": "master-tokens/generated/color-resolver.d.mts",
+      "status": "added",
+      "afterBytes": 7198
+    },
+    {
+      "file": "master-tokens/generated/color-resolver.mjs",
+      "status": "added",
+      "afterBytes": 25390
+    },
+    {
+      "file": "master-tokens/generated/design-map.json",
+      "status": "changed",
+      "beforeBytes": 188661,
+      "afterBytes": 188616
+    },
+    {
+      "file": "master-tokens/generated/reference.ts",
+      "status": "changed",
+      "beforeBytes": 14314,
+      "afterBytes": 14314
+    },
+    {
+      "file": "master-tokens/generated/tokens.css",
+      "status": "changed",
+      "beforeBytes": 39969,
+      "afterBytes": 40192
+    },
+    {
+      "file": "master-tokens/light.tokens.json",
+      "status": "changed",
+      "beforeBytes": 120790,
+      "afterBytes": 122716
+    },
+    {
+      "file": "master-tokens/manifest.json",
+      "status": "changed",
+      "beforeBytes": 42738,
+      "afterBytes": 48281
+    },
+    {
+      "file": "master-tokens/Master-Token-List.md",
+      "status": "changed",
+      "beforeBytes": 55580,
+      "afterBytes": 57112
+    },
+    {
+      "file": "master-tokens/README.md",
+      "status": "changed",
+      "beforeBytes": 6732,
+      "afterBytes": 9000
+    },
+    {
+      "file": "master-tokens/recipes.json",
+      "status": "changed",
+      "beforeBytes": 16632,
+      "afterBytes": 16632
+    },
+    {
+      "file": "master-tokens/scripts/browser-check.cjs",
+      "status": "changed",
+      "beforeBytes": 5248,
+      "afterBytes": 11448
+    },
+    {
+      "file": "master-tokens/scripts/build.mjs",
+      "status": "changed",
+      "beforeBytes": 5064,
+      "afterBytes": 5435
+    },
+    {
+      "file": "master-tokens/scripts/check.mjs",
+      "status": "changed",
+      "beforeBytes": 45924,
+      "afterBytes": 48834
+    },
+    {
+      "file": "master-tokens/scripts/color-policy.mjs",
+      "status": "added",
+      "afterBytes": 2189
+    },
+    {
+      "file": "master-tokens/scripts/color-resolver-browser-check.cjs",
+      "status": "added",
+      "afterBytes": 6237
+    },
+    {
+      "file": "master-tokens/scripts/color-resolver-check.mjs",
+      "status": "added",
+      "afterBytes": 3248
+    },
+    {
+      "file": "master-tokens/scripts/color-resolver-runtime.mjs",
+      "status": "added",
+      "afterBytes": 5308
+    },
+    {
+      "file": "master-tokens/scripts/color-resolver.mjs",
+      "status": "added",
+      "afterBytes": 3643
+    },
+    {
+      "file": "master-tokens/scripts/color-review.mjs",
+      "status": "added",
+      "afterBytes": 7290
+    },
+    {
+      "file": "master-tokens/scripts/context.mjs",
+      "status": "changed",
+      "beforeBytes": 1475,
+      "afterBytes": 326
+    },
+    {
+      "file": "master-tokens/scripts/css.mjs",
+      "status": "changed",
+      "beforeBytes": 4671,
+      "afterBytes": 4208
+    },
+    {
+      "file": "master-tokens/scripts/docs.mjs",
+      "status": "changed",
+      "beforeBytes": 10526,
+      "afterBytes": 11742
+    },
+    {
+      "file": "master-tokens/scripts/foundations.mjs",
+      "status": "changed",
+      "beforeBytes": 10755,
+      "afterBytes": 10880
+    },
+    {
+      "file": "master-tokens/scripts/lib.mjs",
+      "status": "changed",
+      "beforeBytes": 17461,
+      "afterBytes": 18130
+    },
+    {
+      "file": "master-tokens/Semantic-Color-Migration.md",
+      "status": "changed",
+      "beforeBytes": 2306,
+      "afterBytes": 2667
+    },
+    {
+      "file": "master-tokens/shared.tokens.json",
+      "status": "changed",
+      "beforeBytes": 508237,
+      "afterBytes": 508955
+    },
+    {
+      "file": "master-tokens/state-name-migration.json",
+      "status": "added",
+      "afterBytes": 3435
+    },
+    {
+      "file": "master-tokens/supplementary-decisions.json",
+      "status": "changed",
+      "beforeBytes": 12151,
+      "afterBytes": 12150
+    },
+    {
+      "file": "Rahino-Resolver.md",
+      "status": "changed",
+      "beforeBytes": 1914,
+      "afterBytes": 4624
+    },
+    {
+      "file": "Rahino-Tokenization.md",
+      "status": "changed",
+      "beforeBytes": 5389,
+      "afterBytes": 6279
+    },
+    {
+      "file": "Typography.md",
+      "status": "changed",
+      "beforeBytes": 18153,
+      "afterBytes": 18604
+    },
+    {
+      "file": "Veil & Shadow.md",
+      "status": "changed",
+      "beforeBytes": 7402,
+      "afterBytes": 8343
+    }
+  ],
+  "rawColorChanges": [
+    {
+      "path": "ref.color.gray-warm.25",
+      "before": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9725490196078431,
+          0.9647058823529412,
+          0.9686274509803922
+        ],
+        "alpha": 1
+      },
+      "after": {
+        "colorSpace": "srgb",
+        "components": [
+          0.984313725490196,
+          0.9764705882352941,
+          0.9803921568627451
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "path": "ref.color.gray-warm.75",
+      "before": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9372549019607843,
+          0.9254901960784314,
+          0.9294117647058824
+        ],
+        "alpha": 1
+      },
+      "after": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9529411764705882,
+          0.9450980392156862,
+          0.9490196078431372
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "path": "ref.color.gray-warm.100",
+      "before": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9254901960784314,
+          0.9098039215686274,
+          0.9176470588235294
+        ],
+        "alpha": 1
+      },
+      "after": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9098039215686274,
+          0.8901960784313725,
+          0.8980392156862745
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "path": "ref.color.gray.850",
+      "before": {
+        "colorSpace": "srgb",
+        "components": [
+          0.16862745098039217,
+          0.1607843137254902,
+          0.17647058823529413
+        ],
+        "alpha": 1
+      },
+      "after": {
+        "colorSpace": "srgb",
+        "components": [
+          0.2,
+          0.19215686274509805,
+          0.20784313725490197
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "path": "ref.color.gray.900",
+      "before": {
+        "colorSpace": "srgb",
+        "components": [
+          0.13725490196078433,
+          0.13333333333333333,
+          0.1450980392156863
+        ],
+        "alpha": 1
+      },
+      "after": {
+        "colorSpace": "srgb",
+        "components": [
+          0.17647058823529413,
+          0.17254901960784313,
+          0.18823529411764706
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "path": "ref.color.gray.925",
+      "before": {
+        "colorSpace": "srgb",
+        "components": [
+          0.10196078431372549,
+          0.09803921568627451,
+          0.10588235294117647
+        ],
+        "alpha": 1
+      },
+      "after": {
+        "colorSpace": "srgb",
+        "components": [
+          0.14901960784313725,
+          0.1411764705882353,
+          0.1607843137254902
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "path": "ref.color.gray.950",
+      "before": {
+        "colorSpace": "srgb",
+        "components": [
+          0.07058823529411765,
+          0.06666666666666667,
+          0.07450980392156863
+        ],
+        "alpha": 1
+      },
+      "after": {
+        "colorSpace": "srgb",
+        "components": [
+          0.10196078431372549,
+          0.09411764705882353,
+          0.10588235294117647
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "path": "ref.color.gray.975",
+      "before": {
+        "colorSpace": "srgb",
+        "components": [
+          0.054901960784313725,
+          0.050980392156862744,
+          0.058823529411764705
+        ],
+        "alpha": 1
+      },
+      "after": {
+        "colorSpace": "srgb",
+        "components": [
+          0.011764705882352941,
+          0.00784313725490196,
+          0.011764705882352941
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "path": "ref.color.plum.50",
+      "before": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9529411764705882,
+          0.9254901960784314,
+          0.9411764705882353
+        ],
+        "alpha": 1
+      },
+      "after": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9411764705882353,
+          0.8980392156862745,
+          0.9215686274509803
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "path": "ref.color.plum.100",
+      "before": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9176470588235294,
+          0.8627450980392157,
+          0.8941176470588236
+        ],
+        "alpha": 1
+      },
+      "after": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9098039215686274,
+          0.8509803921568627,
+          0.8823529411764706
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "path": "ref.color.plum.375",
+      "before": {
+        "colorSpace": "srgb",
+        "components": [
+          0.6980392156862745,
+          0.5529411764705883,
+          0.6431372549019608
+        ],
+        "alpha": 1
+      },
+      "after": {
+        "colorSpace": "srgb",
+        "components": [
+          0.8627450980392157,
+          0.7803921568627451,
+          0.8313725490196079
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "path": "ref.color.green.50",
+      "before": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9176470588235294,
+          0.9607843137254902,
+          0.9333333333333333
+        ],
+        "alpha": 1
+      },
+      "after": {
+        "colorSpace": "srgb",
+        "components": [
+          0.8549019607843137,
+          0.984313725490196,
+          0.9098039215686274
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "path": "ref.color.amber.50",
+      "before": {
+        "colorSpace": "srgb",
+        "components": [
+          0.984313725490196,
+          0.9490196078431372,
+          0.8862745098039215
+        ],
+        "alpha": 1
+      },
+      "after": {
+        "colorSpace": "srgb",
+        "components": [
+          0.996078431372549,
+          0.9529411764705882,
+          0.8745098039215686
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "path": "ref.color.red.50",
+      "before": {
+        "colorSpace": "srgb",
+        "components": [
+          0.984313725490196,
+          0.9176470588235294,
+          0.9254901960784314
+        ],
+        "alpha": 1
+      },
+      "after": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9882352941176471,
+          0.9137254901960784,
+          0.9215686274509803
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "path": "ref.color.blue.50",
+      "before": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9176470588235294,
+          0.9450980392156862,
+          0.9764705882352941
+        ],
+        "alpha": 1
+      },
+      "after": {
+        "colorSpace": "srgb",
+        "components": [
+          0.8862745098039215,
+          0.9254901960784314,
+          0.9725490196078431
+        ],
+        "alpha": 1
+      }
+    }
+  ],
+  "stateNaming": [
+    {
+      "from": "rds.color.brand.bg",
+      "to": "rds.color.brand.bg.default"
+    },
+    {
+      "from": "rds.color.brand.bg-hover",
+      "to": "rds.color.brand.bg.hover"
+    },
+    {
+      "from": "rds.color.interaction.selected.surface",
+      "to": "rds.color.interaction.surface.selected"
+    }
+  ],
+  "sourceReport": "../src/foundations/canonical/output/color-value-update/Changes.md",
+  "sourceHashes": {
+    "Border.md": "62bfa08b6a095ad3923ee3a0fa65ee7e360fc24bc596747a8765f9acefe1b7b1",
+    "Border.ts": "b031c168f271ebbfa425135ef172e9bfae5a904e1af0861a0f62e0ce53f0b2cb",
+    "Color.md": "79393e5da529fb31e2a9224df813aa94e8265dc85e3eb8d3c964ebde4dbf5a00",
+    "Color.ts": "002f8a8c075ae50631107e044945e9e3b4cba684785a8a873317b7871b7a7114",
+    "Layout.md": "a05d3d8c652aa599751f3d2921b2d0a40fc613795e26059182f009056d008ab0",
+    "layout.ts": "a01eea0e919364bba603e3ca0a19f2dfc56d61458e7d10ad5e79da4e81070a16",
+    "master-tokens/adoption-baseline.json": "0994cbfb57e63539e4d42509af393273d136d30e5f417d1a9768ea9eb10c0642",
+    "master-tokens/color-reference-migration.json": "f7456182b011764323884b47f142708cb217fff9eb9e8e10d797ad52c50c0de2",
+    "master-tokens/Color-Reference-Migration.md": "f4844ba3230a990a8b16b0d2a6f496919577082e457839ab991cec15e9bebc3a",
+    "master-tokens/context-policy.json": "1ce5a7423fbed939d697edb16494aed218cf50b9e5d3d93821eb60278d2135c1",
+    "master-tokens/dark.tokens.json": "0aa07f1aa709281d9b24c40a2fbc3a7a71147047f188ab9e49ccf8d0a1c1f627",
+    "master-tokens/decisions.json": "d24c83960c46a240d93754365e4dc28dffdc43e772521f8b3fc5975276429b84",
+    "master-tokens/export-map.json": "46b442c73f0bdd78ba00b1d1bd464140b3a2acc8cdc128d3afee79d3f9b3fdd4",
+    "master-tokens/generated/color-resolver.d.mts": "d39ba94b8a4aaa256906e588ee28947571231997231357568f8cb62b0069f7cf",
+    "master-tokens/generated/color-resolver.mjs": "431982ba83f1a9481564b0b7b0f080084b483e21a46815a574e5eae3b6324e5c",
+    "master-tokens/generated/design-map.json": "43b5a6fabf20bf28c3ae6c2e20a99fc63227bfb56be9a56bc081786a6766f196",
+    "master-tokens/generated/reference.ts": "87676e958ad816e4b1912b9845b28db883e5c3c78c257a9ed3a0db4e00dbb607",
+    "master-tokens/generated/tokens.css": "1e0d369ecd93e07cfaa4b16f568caef96c4181875893236ff8a4bf61440305dc",
+    "master-tokens/light.tokens.json": "6c8aecf05f05adb95d883c7a578a79235740dc3adf501c5d34e134480337d2bc",
+    "master-tokens/manifest.json": "14e9c80a70b59360047a5c9319749e4ae1beb8211d9805b8357c34faab576bf3",
+    "master-tokens/Master-Token-List.md": "7572719925361f6e6b2d994de44a84018ea2f8f4b155c7ac73cd4879850af073",
+    "master-tokens/README.md": "800d4b80b2ce8836587561c441be54e68d6a8e0db9fa9ee1cbb25cca619b64ab",
+    "master-tokens/recipes.json": "54212b58c0da4d356e70c4382f09c04c59597bc331f1e1a9bf0b26c08e8490ce",
+    "master-tokens/reference-layer-baseline.json": "f22b35c9147e1102d5612e5f8071be0372c3cf83cb63375b3acf16dcfdf8e441",
+    "master-tokens/reference-layer-inventory.json": "9ecafd713c0a08382fdbea3a34837c61cf9249c3598e88c4d750f9d90126bcd0",
+    "master-tokens/scripts/browser-check.cjs": "188c44c8b7664b20827480833e24086f094e0bf4068e287fae13a124b0080af2",
+    "master-tokens/scripts/build.mjs": "d5a3a2441dd0ed32d10e79947944bfa331eeeaca73c8229330576d56b587b3fa",
+    "master-tokens/scripts/check.mjs": "7a13132df1a08b5cd736cc1c143a73ce863658601cdbefcd3382c3c449f8d2db",
+    "master-tokens/scripts/color-policy.mjs": "52911f741c3ca3e70d6bb62327154b6c7cd0d20269215df63740d7f79ac8f2b7",
+    "master-tokens/scripts/color-resolver-browser-check.cjs": "7b481ef977899e1b7e11b0dca61f16c490fefb2494cb6fd4156b2a9b29b83baa",
+    "master-tokens/scripts/color-resolver-check.mjs": "7f01a982dcf8325a965fe85888fd7ce3cff0cb7537ee1327828f40083285b2e0",
+    "master-tokens/scripts/color-resolver-runtime.mjs": "c7715df8baedd2324f72acf83632697de608e91cf855e6fd8b8b17bb0af399b8",
+    "master-tokens/scripts/color-resolver.mjs": "352d72b10487bcd2780a002cb533ee5ef0f4239d1ce7bcdb201b3b653766b89e",
+    "master-tokens/scripts/color-review.mjs": "d7755bad33960811673b0f30442eff2771effce88ca3a612a33b42659122d1e0",
+    "master-tokens/scripts/context.mjs": "8daabac3e34c68cfa3950ee917893ee3e65513f6441a29846de5051a06174c5e",
+    "master-tokens/scripts/css.mjs": "ccda24a3ccdc2544336445f9ea893e523443ea693937ed1e7e66eaf83bcd5172",
+    "master-tokens/scripts/docs.mjs": "d936c307f833c189fc98a76244f95ce914c4a054f0c3ca457a0b667d010762f1",
+    "master-tokens/scripts/foundations.mjs": "b0bf0b99623d06cf7da1f2616212bc1d7c26de27dfb3ed391990c0c03b5674d9",
+    "master-tokens/scripts/layout.mjs": "468bed50e2f9cafe2150a851d0930fe7c8f2a5ef70b984632f7f54f230705e2f",
+    "master-tokens/scripts/lib.mjs": "5856533cfe452eb995ef8fdbc1b52689a2cb2bcda9d4cd6518c8ad2cb51deac1",
+    "master-tokens/scripts/render.mjs": "7bd109a92f10317cc04506b3c67d133f4dd4a4e885bf21a94ddb981064b46e9c",
+    "master-tokens/scripts/typography.mjs": "3329f36b8c045b444150b01f5bee6a894d78c875e2730417e1444979aa12406c",
+    "master-tokens/semantic-color-migration.json": "d0bed8e8d41a2cd08d499e0a70f212294e4f3a1f089846e87c9a0d716b431a4d",
+    "master-tokens/Semantic-Color-Migration.md": "f030fa6cc26ad1e73a6501354f58c6c2e38ab050a9e7b815eb80f02805991dba",
+    "master-tokens/Shadow-Migration.md": "33bd5ec4e16d0d5bc7ccb5729f361976f7b91f5fa7756faf4990376fbd8b864c",
+    "master-tokens/shared.tokens.json": "33a33354df3b059f0ee4dd16a2927d17c03937836ac312a73288ab265df541ff",
+    "master-tokens/Spacing-Migration.md": "f6d703870f88e89eded61514b6a5eb19c961489027ff5bf5cdff59940709b06a",
+    "master-tokens/state-name-migration.json": "5f8ace18dcfd6fcc672397f2f4d76ea13416a5af9078424b6742c798e3ba3861",
+    "master-tokens/supplementary-decisions.json": "c7983ca3fba1c6bb0fe74c02fa68039e71e4a7b9cde80cc3c23dc57c1897b5b4",
+    "master-tokens/typography.json": "abbc52a6378ccafc874599eb7b07163bb88ddfcb96cdad90225da030234b8c78",
+    "Motion.md": "575186783f8efbcb2feb54b1761a56207d24dc127c16cd85b6600b50d3f1db50",
+    "Motion.ts": "dd5f89efbc4e715e78c2561dc9f24423ec19a4af6b9cc6579927ce2258ff0a0a",
+    "Numbers.md": "e14dc6a6cf3bb87c6c363f3fac7e9e493d248c866563bd9dfb36006ee0dce1a5",
+    "Radius.md": "bd7480caf0a05da790970f4de3e191715a7b2d71bae6a0d94734340871e201ba",
+    "Radius.ts": "8c9090a88c70cb45f78abbde316f5dc62a9d6cd8a1927d6dabb84322ab831a21",
+    "Rahino-Resolver.md": "2ac76ec2423436c22870fa9aede902ea01027b90537d371afc352b91521fc8d1",
+    "Rahino-Tokenization.md": "c7bdf2f96e7c5d216808adad9d133c322d722e400aef37abbb6e5ff7a0ebd99a",
+    "Shadow.ts": "1d6204ca92e6438f8280f2d2947a5c44eaee5f8e317544a7390703512467b363",
+    "Spacing.md": "3105901a0d48db9e0995eca8963439e4b64142c3ec77111ce19e51f593ce9685",
+    "Spacing.ts": "f2332e5867dfb4ac6001814f3c392654b1012bbde0698217c9bd61a247391d7e",
+    "Typography.md": "41d66902d3ed31cf419f6148637213dd85991ad5d141586a812152356a5daa4f",
+    "Typography.ts": "22cdd6881a0d29d9cee73bd377cd8f6281c52b688f2699b32ea95f565d7b0641",
+    "Veil & Shadow.md": "89e473d1ae4e91d321007b2ff0ee25af7a16ea3f0f296045f52ae3a163ed4c6d",
+    "Veil.ts": "99adc9044c4803d210f133c75e0372bb63e2dd2cb0d242e5fedfa2ea43bd5d79",
+    "output/color-value-update/changes.json": "23fb28bf6828f0055fa40e583ac773fbb093e5ff854637687e0f33313932c6cb",
+    "output/color-value-update/Changes.md": "bb920c462c4fe4b9462c421df5ada30111faef389ae27b2a12c9304d5ebb9408",
+    "output/contrast-review/archive/before-color-update-2026-10-28/Contrast-Review.md": "0efb15ec12334f5f97815dafcc9fd2a7851aaf677b97d63d5f44fb8baa203714",
+    "output/contrast-review/archive/before-color-update-2026-10-28/README.md": "9952fada4e2d28bb99664cadfd16345f767f903b0a79f50f27ad2b78dcf44d82",
+    "output/contrast-review/archive/before-color-update-2026-10-28/results.json": "5b34a2fda948441f35c16985525dead6f37dc858fd2cb2e3dbdda3b9865f9cf0",
+    "output/contrast-review/Contrast-Review.md": "171ba58ed0bea1618af0c577c8942571838a3be653dbb784e46dc729d7343461",
+    "output/contrast-review/results.json": "4aea0a623b0677c06cf86367f2fcbeecfe93c9d3ca0c6383f0eac1fdc7ebbe31"
+  },
+  "contrast": {
+    "contextPairFailures": 11,
+    "newDistinctPairs": [
+      {
+        "foreground": "rds.color.focus.ring",
+        "background": "rds.color.surface.raised",
+        "appearance": "dark",
+        "ratio": 2.9693966325649535,
+        "minimum": 3
+      },
+      {
+        "foreground": "rds.color.ink.tertiary",
+        "background": "rds.color.surface.sunken",
+        "appearance": "light",
+        "ratio": 4.44418041922724,
+        "minimum": 4.5
+      },
+      {
+        "foreground": "rds.color.edge.control",
+        "background": "rds.color.surface.sunken",
+        "appearance": "light",
+        "ratio": 2.982378278160552,
+        "minimum": 3
+      }
+    ],
+    "policy": "Preserve supplied values, diagnostics, thresholds and strict validation gate."
+  },
+  "addedSourceReports": [
+    "output/color-value-update/changes.json",
+    "output/color-value-update/Changes.md",
+    "output/contrast-review/archive/before-color-update-2026-10-28/Contrast-Review.md",
+    "output/contrast-review/archive/before-color-update-2026-10-28/README.md",
+    "output/contrast-review/archive/before-color-update-2026-10-28/results.json",
+    "output/contrast-review/Contrast-Review.md",
+    "output/contrast-review/results.json"
+  ],
+  "interactionContrast": {
+    "scope": "Integration calculations for primary/secondary text on neutral hover/pressed composites; native forced colors and actual component adjacency require browser checks.",
+    "checkedPairs": 80,
+    "failures": [
+      {
+        "appearance": "light",
+        "contrast": "standard",
+        "foreground": "rds.color.ink.secondary",
+        "background": "rds.color.surface.sunken + rds.color.interaction.neutral.pressed",
+        "ratio": 4.496113030464314,
+        "threshold": 4.5,
+        "passes": false
+      }
+    ]
+  },
+  "verification": {
+    "allNineSuppliedModuleValuesAndExportsPreserved": true,
+    "generatedOutputsCurrent": true,
+    "typechecksBothRepos": true,
+    "frontendProductionBuild": true,
+    "libraryAssetCompilation": true,
+    "legacyContextCases": 288,
+    "colorResolverContexts": 72,
+    "colorValuesChecked": 14184,
+    "resolverBrowserCssParityAndLifecycle": true,
+    "applicationRoutes": {
+      "topics": 10,
+      "viewports": [
+        1440,
+        390,
+        320
+      ],
+      "runtimeErrors": 0,
+      "systemTheme": true,
+      "savedThemeOverride": true,
+      "nativeForcedColors": true,
+      "reducedMotion": true,
+      "keyboardFocus": true,
+      "fonts": true
+    },
+    "strictSourceValidation": {
+      "passed": false,
+      "reason": "Dark focus contrast below 3:1 on raised; supplied values and gate preserved."
+    },
+    "fullSourceBrowserContrast": {
+      "passed": false,
+      "reason": "Light secondary text on sunken + neutral pressed is 4.496113030464314:1, below 4.5:1."
+    },
+    "externalSourceUnchanged": true
+  }
+}

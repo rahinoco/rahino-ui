@@ -1,0 +1,1668 @@
+{
+  "purpose": "Output API structure and bindings only; values come from the canonical collection.",
+  "files": {
+    "Border.ts": {
+      "BORDER_WIDTH": {
+        "default": {
+          "$binding": "token",
+          "path": "rds.border.width.default",
+          "set": "shared"
+        },
+        "strong": {
+          "$binding": "token",
+          "path": "rds.border.width.strong",
+          "set": "shared"
+        }
+      },
+      "FOCUS_RING_GEOMETRY": {
+        "width": {
+          "$binding": "token",
+          "path": "rds.focus.ring.width",
+          "set": "shared"
+        }
+      }
+    },
+    "Color.ts": {
+      "SURFACE": {
+        "canvas": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.surface.canvas",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.surface.canvas",
+            "set": "dark"
+          }
+        },
+        "base": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.surface.base",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.surface.base",
+            "set": "dark"
+          }
+        },
+        "subtle": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.surface.subtle",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.surface.subtle",
+            "set": "dark"
+          }
+        },
+        "raised": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.surface.raised",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.surface.raised",
+            "set": "dark"
+          }
+        },
+        "sunken": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.surface.sunken",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.surface.sunken",
+            "set": "dark"
+          }
+        },
+        "inverse": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.surface.inverse",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.surface.inverse",
+            "set": "dark"
+          }
+        }
+      },
+      "SCRIM": {
+        "modal": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.scrim.modal",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.scrim.modal",
+            "set": "dark"
+          }
+        }
+      },
+      "INK": {
+        "primary": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.ink.primary",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.ink.primary",
+            "set": "dark"
+          }
+        },
+        "secondary": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.ink.secondary",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.ink.secondary",
+            "set": "dark"
+          }
+        },
+        "tertiary": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.ink.tertiary",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.ink.tertiary",
+            "set": "dark"
+          }
+        },
+        "disabled": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.ink.disabled",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.ink.disabled",
+            "set": "dark"
+          }
+        },
+        "on-brand": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.ink.on-brand",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.ink.on-brand",
+            "set": "dark"
+          }
+        },
+        "inverse": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.ink.inverse",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.ink.inverse",
+            "set": "dark"
+          }
+        }
+      },
+      "BRAND": {
+        "seed": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.brand.seed",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.brand.seed",
+            "set": "dark"
+          }
+        },
+        "bg": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.brand.bg.default",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.brand.bg.default",
+            "set": "dark"
+          }
+        },
+        "bg-hover": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.brand.bg.hover",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.brand.bg.hover",
+            "set": "dark"
+          }
+        },
+        "fg": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.brand.fg",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.brand.fg",
+            "set": "dark"
+          }
+        }
+      },
+      "LINK_FG": {
+        "light": {
+          "$binding": "token",
+          "path": "rds.color.link.fg",
+          "set": "light"
+        },
+        "dark": {
+          "$binding": "token",
+          "path": "rds.color.link.fg",
+          "set": "dark"
+        }
+      },
+      "ACTION_PRIMARY_BG": {
+        "default": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.action.primary.bg.default",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.action.primary.bg.default",
+            "set": "dark"
+          }
+        },
+        "hover": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.action.primary.bg.hover",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.action.primary.bg.hover",
+            "set": "dark"
+          }
+        },
+        "pressed": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.action.primary.bg.pressed",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.action.primary.bg.pressed",
+            "set": "dark"
+          }
+        },
+        "disabled": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.action.primary.bg.disabled",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.action.primary.bg.disabled",
+            "set": "dark"
+          }
+        }
+      },
+      "ACTION_PRIMARY_FG": {
+        "light": {
+          "$binding": "token",
+          "path": "rds.color.action.primary.fg",
+          "set": "light"
+        },
+        "dark": {
+          "$binding": "token",
+          "path": "rds.color.action.primary.fg",
+          "set": "dark"
+        }
+      },
+      "FOCUS_RING": {
+        "light": {
+          "$binding": "token",
+          "path": "rds.color.focus.ring",
+          "set": "light"
+        },
+        "dark": {
+          "$binding": "token",
+          "path": "rds.color.focus.ring",
+          "set": "dark"
+        }
+      },
+      "INTERACTION": {
+        "neutral-hover": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.interaction.neutral.hover",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.interaction.neutral.hover",
+            "set": "dark"
+          }
+        },
+        "neutral-pressed": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.interaction.neutral.pressed",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.interaction.neutral.pressed",
+            "set": "dark"
+          }
+        }
+      },
+      "INTERACTION_SELECTED_SURFACE": {
+        "light": {
+          "$binding": "token",
+          "path": "rds.color.interaction.surface.selected",
+          "set": "light"
+        },
+        "dark": {
+          "$binding": "token",
+          "path": "rds.color.interaction.surface.selected",
+          "set": "dark"
+        }
+      },
+      "EDGE": {
+        "subtle": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.edge.subtle",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.edge.subtle",
+            "set": "dark"
+          }
+        },
+        "control": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.edge.control",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.edge.control",
+            "set": "dark"
+          }
+        }
+      },
+      "STATUS": {
+        "success": {
+          "bg": {
+            "light": {
+              "$binding": "token",
+              "path": "rds.color.status.success.bg",
+              "set": "light"
+            },
+            "dark": {
+              "$binding": "token",
+              "path": "rds.color.status.success.bg",
+              "set": "dark"
+            }
+          },
+          "edge": {
+            "light": {
+              "$binding": "token",
+              "path": "rds.color.status.success.edge",
+              "set": "light"
+            },
+            "dark": {
+              "$binding": "token",
+              "path": "rds.color.status.success.edge",
+              "set": "dark"
+            }
+          },
+          "fg": {
+            "light": {
+              "$binding": "token",
+              "path": "rds.color.status.success.fg",
+              "set": "light"
+            },
+            "dark": {
+              "$binding": "token",
+              "path": "rds.color.status.success.fg",
+              "set": "dark"
+            }
+          },
+          "fill": {
+            "light": {
+              "$binding": "token",
+              "path": "rds.color.status.success.fill",
+              "set": "light"
+            },
+            "dark": {
+              "$binding": "token",
+              "path": "rds.color.status.success.fill",
+              "set": "dark"
+            }
+          },
+          "on-fill": {
+            "light": {
+              "$binding": "token",
+              "path": "rds.color.status.success.on-fill",
+              "set": "light"
+            },
+            "dark": {
+              "$binding": "token",
+              "path": "rds.color.status.success.on-fill",
+              "set": "dark"
+            }
+          }
+        },
+        "warning": {
+          "bg": {
+            "light": {
+              "$binding": "token",
+              "path": "rds.color.status.warning.bg",
+              "set": "light"
+            },
+            "dark": {
+              "$binding": "token",
+              "path": "rds.color.status.warning.bg",
+              "set": "dark"
+            }
+          },
+          "edge": {
+            "light": {
+              "$binding": "token",
+              "path": "rds.color.status.warning.edge",
+              "set": "light"
+            },
+            "dark": {
+              "$binding": "token",
+              "path": "rds.color.status.warning.edge",
+              "set": "dark"
+            }
+          },
+          "fg": {
+            "light": {
+              "$binding": "token",
+              "path": "rds.color.status.warning.fg",
+              "set": "light"
+            },
+            "dark": {
+              "$binding": "token",
+              "path": "rds.color.status.warning.fg",
+              "set": "dark"
+            }
+          },
+          "fill": {
+            "light": {
+              "$binding": "token",
+              "path": "rds.color.status.warning.fill",
+              "set": "light"
+            },
+            "dark": {
+              "$binding": "token",
+              "path": "rds.color.status.warning.fill",
+              "set": "dark"
+            }
+          },
+          "on-fill": {
+            "light": {
+              "$binding": "token",
+              "path": "rds.color.status.warning.on-fill",
+              "set": "light"
+            },
+            "dark": {
+              "$binding": "token",
+              "path": "rds.color.status.warning.on-fill",
+              "set": "dark"
+            }
+          }
+        },
+        "error": {
+          "bg": {
+            "light": {
+              "$binding": "token",
+              "path": "rds.color.status.error.bg",
+              "set": "light"
+            },
+            "dark": {
+              "$binding": "token",
+              "path": "rds.color.status.error.bg",
+              "set": "dark"
+            }
+          },
+          "edge": {
+            "light": {
+              "$binding": "token",
+              "path": "rds.color.status.error.edge",
+              "set": "light"
+            },
+            "dark": {
+              "$binding": "token",
+              "path": "rds.color.status.error.edge",
+              "set": "dark"
+            }
+          },
+          "fg": {
+            "light": {
+              "$binding": "token",
+              "path": "rds.color.status.error.fg",
+              "set": "light"
+            },
+            "dark": {
+              "$binding": "token",
+              "path": "rds.color.status.error.fg",
+              "set": "dark"
+            }
+          },
+          "fill": {
+            "light": {
+              "$binding": "token",
+              "path": "rds.color.status.error.fill",
+              "set": "light"
+            },
+            "dark": {
+              "$binding": "token",
+              "path": "rds.color.status.error.fill",
+              "set": "dark"
+            }
+          },
+          "on-fill": {
+            "light": {
+              "$binding": "token",
+              "path": "rds.color.status.error.on-fill",
+              "set": "light"
+            },
+            "dark": {
+              "$binding": "token",
+              "path": "rds.color.status.error.on-fill",
+              "set": "dark"
+            }
+          }
+        },
+        "info": {
+          "bg": {
+            "light": {
+              "$binding": "token",
+              "path": "rds.color.status.info.bg",
+              "set": "light"
+            },
+            "dark": {
+              "$binding": "token",
+              "path": "rds.color.status.info.bg",
+              "set": "dark"
+            }
+          },
+          "edge": {
+            "light": {
+              "$binding": "token",
+              "path": "rds.color.status.info.edge",
+              "set": "light"
+            },
+            "dark": {
+              "$binding": "token",
+              "path": "rds.color.status.info.edge",
+              "set": "dark"
+            }
+          },
+          "fg": {
+            "light": {
+              "$binding": "token",
+              "path": "rds.color.status.info.fg",
+              "set": "light"
+            },
+            "dark": {
+              "$binding": "token",
+              "path": "rds.color.status.info.fg",
+              "set": "dark"
+            }
+          },
+          "fill": {
+            "light": {
+              "$binding": "token",
+              "path": "rds.color.status.info.fill",
+              "set": "light"
+            },
+            "dark": {
+              "$binding": "token",
+              "path": "rds.color.status.info.fill",
+              "set": "dark"
+            }
+          },
+          "on-fill": {
+            "light": {
+              "$binding": "token",
+              "path": "rds.color.status.info.on-fill",
+              "set": "light"
+            },
+            "dark": {
+              "$binding": "token",
+              "path": "rds.color.status.info.on-fill",
+              "set": "dark"
+            }
+          }
+        }
+      },
+      "HIGH_CONTRAST": {
+        "light": {
+          "canvas": {
+            "$binding": "recipe",
+            "id": "contrast-more-light-canvas"
+          },
+          "base": {
+            "$binding": "recipe",
+            "id": "contrast-more-light-base"
+          },
+          "primary": {
+            "$binding": "recipe",
+            "id": "contrast-more-light-primary"
+          },
+          "secondary": {
+            "$binding": "recipe",
+            "id": "contrast-more-light-secondary"
+          },
+          "tertiary": {
+            "$binding": "recipe",
+            "id": "contrast-more-light-tertiary"
+          }
+        },
+        "dark": {
+          "canvas": {
+            "$binding": "recipe",
+            "id": "contrast-more-dark-canvas"
+          },
+          "base": {
+            "$binding": "recipe",
+            "id": "contrast-more-dark-base"
+          },
+          "primary": {
+            "$binding": "recipe",
+            "id": "contrast-more-dark-primary"
+          },
+          "secondary": {
+            "$binding": "recipe",
+            "id": "contrast-more-dark-secondary"
+          },
+          "tertiary": {
+            "$binding": "recipe",
+            "id": "contrast-more-dark-tertiary"
+          }
+        }
+      },
+      "CONTRAST_REFERENCE": {
+        "$binding": "text-contrast"
+      },
+      "DATA_CATEGORICAL_TOKENS": {
+        "01": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.data.categorical.01",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.data.categorical.01",
+            "set": "dark"
+          }
+        },
+        "02": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.data.categorical.02",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.data.categorical.02",
+            "set": "dark"
+          }
+        },
+        "03": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.data.categorical.03",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.data.categorical.03",
+            "set": "dark"
+          }
+        },
+        "04": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.data.categorical.04",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.data.categorical.04",
+            "set": "dark"
+          }
+        },
+        "05": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.data.categorical.05",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.data.categorical.05",
+            "set": "dark"
+          }
+        },
+        "06": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.data.categorical.06",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.data.categorical.06",
+            "set": "dark"
+          }
+        },
+        "07": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.data.categorical.07",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.data.categorical.07",
+            "set": "dark"
+          }
+        },
+        "08": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.data.categorical.08",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.data.categorical.08",
+            "set": "dark"
+          }
+        }
+      },
+      "DATA_CATEGORICAL": {
+        "$binding": "projection",
+        "sourceExport": "DATA_CATEGORICAL_TOKENS",
+        "order": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08"
+        ]
+      },
+      "DATA_SEQUENTIAL_TOKENS": {
+        "01": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.data.sequential.01",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.data.sequential.01",
+            "set": "dark"
+          }
+        },
+        "02": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.data.sequential.02",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.data.sequential.02",
+            "set": "dark"
+          }
+        },
+        "03": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.data.sequential.03",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.data.sequential.03",
+            "set": "dark"
+          }
+        },
+        "04": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.data.sequential.04",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.data.sequential.04",
+            "set": "dark"
+          }
+        },
+        "05": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.data.sequential.05",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.data.sequential.05",
+            "set": "dark"
+          }
+        }
+      },
+      "DATA_SEQUENTIAL": {
+        "$binding": "projection",
+        "sourceExport": "DATA_SEQUENTIAL_TOKENS",
+        "order": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05"
+        ]
+      },
+      "DATA_DIVERGING_TOKENS": {
+        "01": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.data.diverging.01",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.data.diverging.01",
+            "set": "dark"
+          }
+        },
+        "02": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.data.diverging.02",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.data.diverging.02",
+            "set": "dark"
+          }
+        },
+        "03": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.data.diverging.03",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.data.diverging.03",
+            "set": "dark"
+          }
+        },
+        "04": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.data.diverging.04",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.data.diverging.04",
+            "set": "dark"
+          }
+        },
+        "05": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.data.diverging.05",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.data.diverging.05",
+            "set": "dark"
+          }
+        }
+      },
+      "DATA_DIVERGING": {
+        "$binding": "projection",
+        "sourceExport": "DATA_DIVERGING_TOKENS",
+        "order": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05"
+        ]
+      },
+      "DATA_ON_FILL": {
+        "light": {
+          "$binding": "token",
+          "path": "rds.color.data.on-fill",
+          "set": "light"
+        },
+        "dark": {
+          "$binding": "token",
+          "path": "rds.color.data.on-fill",
+          "set": "dark"
+        }
+      },
+      "PRESENTATION_GRADIENTS": {
+        "brand-dark": {
+          "$binding": "recipe",
+          "id": "presentation-brand-dark"
+        },
+        "brand-light": {
+          "$binding": "recipe",
+          "id": "presentation-brand-light"
+        },
+        "atmosphere": {
+          "$binding": "recipe",
+          "id": "presentation-atmosphere"
+        }
+      }
+    },
+    "Motion.ts": {
+      "DURATION": {
+        "none": {
+          "$binding": "token",
+          "path": "rds.motion.duration.none",
+          "set": "shared"
+        },
+        "dissolve": {
+          "$binding": "token",
+          "path": "rds.motion.duration.dissolve",
+          "set": "shared"
+        },
+        "feedback": {
+          "$binding": "token",
+          "path": "rds.motion.duration.feedback",
+          "set": "shared"
+        },
+        "overlay": {
+          "$binding": "token",
+          "path": "rds.motion.duration.overlay",
+          "set": "shared"
+        },
+        "reduced": {
+          "$binding": "token",
+          "path": "rds.motion.duration.reduced",
+          "set": "shared"
+        },
+        "presentation": {
+          "$binding": "token",
+          "path": "rds.motion.duration.presentation",
+          "set": "shared"
+        }
+      },
+      "EASING": {
+        "standard": {
+          "$binding": "token",
+          "path": "rds.motion.easing.standard",
+          "set": "shared"
+        },
+        "enter": {
+          "$binding": "token",
+          "path": "rds.motion.easing.enter",
+          "set": "shared"
+        },
+        "exit": {
+          "$binding": "token",
+          "path": "rds.motion.easing.exit",
+          "set": "shared"
+        },
+        "linear": {
+          "$binding": "token",
+          "path": "rds.motion.easing.linear",
+          "set": "shared"
+        }
+      },
+      "TRANSLATION": {
+        "popover-subtle": {
+          "$binding": "token",
+          "path": "rds.motion.translation.popover-subtle",
+          "set": "shared"
+        },
+        "popover-max": {
+          "$binding": "token",
+          "path": "rds.motion.translation.popover-max",
+          "set": "shared"
+        },
+        "dialog-max": {
+          "$binding": "token",
+          "path": "rds.motion.translation.dialog-max",
+          "set": "shared"
+        }
+      },
+      "SCALE": {
+        "subtle": {
+          "$binding": "token",
+          "path": "rds.motion.scale.subtle",
+          "set": "shared"
+        },
+        "rest": {
+          "$binding": "token",
+          "path": "rds.motion.scale.rest",
+          "set": "shared"
+        }
+      }
+    },
+    "Radius.ts": {
+      "RADIUS": {
+        "0": {
+          "$binding": "token",
+          "path": "rds.radius.0",
+          "set": "shared"
+        },
+        "4": {
+          "$binding": "token",
+          "path": "rds.radius.4",
+          "set": "shared"
+        },
+        "8": {
+          "$binding": "token",
+          "path": "rds.radius.8",
+          "set": "shared"
+        },
+        "12": {
+          "$binding": "token",
+          "path": "rds.radius.12",
+          "set": "shared"
+        },
+        "16": {
+          "$binding": "token",
+          "path": "rds.radius.16",
+          "set": "shared"
+        },
+        "24": {
+          "$binding": "token",
+          "path": "rds.radius.24",
+          "set": "shared"
+        }
+      },
+      "FULL_RADIUS_CSS": {
+        "$binding": "full-rounding"
+      }
+    },
+    "Shadow.ts": {
+      "SHADOW": {
+        "sm": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.shadow.sm",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.shadow.sm",
+            "set": "dark"
+          }
+        },
+        "md": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.shadow.md",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.shadow.md",
+            "set": "dark"
+          }
+        },
+        "lg": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.shadow.lg",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.shadow.lg",
+            "set": "dark"
+          }
+        }
+      }
+    },
+    "Spacing.ts": {
+      "SPACE": {
+        "0": {
+          "$binding": "token",
+          "path": "ref.space.0",
+          "set": "shared"
+        },
+        "1": {
+          "$binding": "token",
+          "path": "ref.space.1",
+          "set": "shared"
+        },
+        "2": {
+          "$binding": "token",
+          "path": "ref.space.2",
+          "set": "shared"
+        },
+        "4": {
+          "$binding": "token",
+          "path": "ref.space.4",
+          "set": "shared"
+        },
+        "6": {
+          "$binding": "token",
+          "path": "ref.space.6",
+          "set": "shared"
+        },
+        "8": {
+          "$binding": "token",
+          "path": "ref.space.8",
+          "set": "shared"
+        },
+        "12": {
+          "$binding": "token",
+          "path": "ref.space.12",
+          "set": "shared"
+        },
+        "16": {
+          "$binding": "token",
+          "path": "ref.space.16",
+          "set": "shared"
+        },
+        "20": {
+          "$binding": "token",
+          "path": "ref.space.20",
+          "set": "shared"
+        },
+        "24": {
+          "$binding": "token",
+          "path": "ref.space.24",
+          "set": "shared"
+        },
+        "32": {
+          "$binding": "token",
+          "path": "ref.space.32",
+          "set": "shared"
+        },
+        "40": {
+          "$binding": "token",
+          "path": "ref.space.40",
+          "set": "shared"
+        },
+        "48": {
+          "$binding": "token",
+          "path": "ref.space.48",
+          "set": "shared"
+        },
+        "56": {
+          "$binding": "token",
+          "path": "ref.space.56",
+          "set": "shared"
+        },
+        "64": {
+          "$binding": "token",
+          "path": "ref.space.64",
+          "set": "shared"
+        },
+        "80": {
+          "$binding": "token",
+          "path": "ref.space.80",
+          "set": "shared"
+        },
+        "96": {
+          "$binding": "token",
+          "path": "ref.space.96",
+          "set": "shared"
+        }
+      },
+      "SPACING": {
+        "0": {
+          "$binding": "token",
+          "path": "rds.space.0",
+          "set": "shared"
+        },
+        "25": {
+          "$binding": "token",
+          "path": "rds.space.25",
+          "set": "shared"
+        },
+        "50": {
+          "$binding": "token",
+          "path": "rds.space.50",
+          "set": "shared"
+        },
+        "75": {
+          "$binding": "token",
+          "path": "rds.space.75",
+          "set": "shared"
+        },
+        "85": {
+          "$binding": "token",
+          "path": "rds.space.85",
+          "set": "shared"
+        },
+        "100": {
+          "$binding": "token",
+          "path": "rds.space.100",
+          "set": "shared"
+        },
+        "200": {
+          "$binding": "token",
+          "path": "rds.space.200",
+          "set": "shared"
+        },
+        "300": {
+          "$binding": "token",
+          "path": "rds.space.300",
+          "set": "shared"
+        },
+        "350": {
+          "$binding": "token",
+          "path": "rds.space.350",
+          "set": "shared"
+        },
+        "400": {
+          "$binding": "token",
+          "path": "rds.space.400",
+          "set": "shared"
+        },
+        "500": {
+          "$binding": "token",
+          "path": "rds.space.500",
+          "set": "shared"
+        },
+        "600": {
+          "$binding": "token",
+          "path": "rds.space.600",
+          "set": "shared"
+        },
+        "700": {
+          "$binding": "token",
+          "path": "rds.space.700",
+          "set": "shared"
+        },
+        "750": {
+          "$binding": "token",
+          "path": "rds.space.750",
+          "set": "shared"
+        },
+        "800": {
+          "$binding": "token",
+          "path": "rds.space.800",
+          "set": "shared"
+        },
+        "900": {
+          "$binding": "token",
+          "path": "rds.space.900",
+          "set": "shared"
+        },
+        "1000": {
+          "$binding": "token",
+          "path": "rds.space.1000",
+          "set": "shared"
+        }
+      }
+    },
+    "Typography.ts": {
+      "FONT_FAMILY": {
+        "fa": {
+          "$binding": "token",
+          "path": "rds.font.family.fa",
+          "set": "shared"
+        },
+        "latin": {
+          "$binding": "token",
+          "path": "rds.font.family.latin",
+          "set": "shared"
+        },
+        "code": {
+          "$binding": "token",
+          "path": "rds.font.family.code",
+          "set": "shared"
+        }
+      },
+      "FONT_WEIGHT": {
+        "regular": {
+          "$binding": "token",
+          "path": "rds.font.weight.regular",
+          "set": "shared"
+        },
+        "medium": {
+          "$binding": "token",
+          "path": "rds.font.weight.medium",
+          "set": "shared"
+        },
+        "semibold": {
+          "$binding": "token",
+          "path": "rds.font.weight.semibold",
+          "set": "shared"
+        },
+        "bold": {
+          "$binding": "token",
+          "path": "rds.font.weight.bold",
+          "set": "shared"
+        }
+      },
+      "LINE_HEIGHT": {
+        "ui": {
+          "$binding": "token",
+          "path": "rds.type.line-height.ui",
+          "set": "shared"
+        },
+        "reading": {
+          "$binding": "token",
+          "path": "rds.type.line-height.reading",
+          "set": "shared"
+        },
+        "heading": {
+          "$binding": "token",
+          "path": "rds.type.line-height.heading",
+          "set": "shared"
+        },
+        "display": {
+          "$binding": "token",
+          "path": "rds.type.line-height.display",
+          "set": "shared"
+        },
+        "fixed": {
+          "$binding": "token",
+          "path": "rds.type.line-height.fixed",
+          "set": "shared"
+        }
+      },
+      "TYPOGRAPHY": {
+        "caption-sm": {
+          "$binding": "text-style",
+          "id": "typography-caption-sm"
+        },
+        "caption-md": {
+          "$binding": "text-style",
+          "id": "typography-caption-md"
+        },
+        "ui-sm": {
+          "$binding": "text-style",
+          "id": "typography-ui-sm"
+        },
+        "ui-md": {
+          "$binding": "text-style",
+          "id": "typography-ui-md"
+        },
+        "label-sm": {
+          "$binding": "text-style",
+          "id": "typography-label-sm"
+        },
+        "label-md": {
+          "$binding": "text-style",
+          "id": "typography-label-md"
+        },
+        "body-sm": {
+          "$binding": "text-style",
+          "id": "typography-body-sm"
+        },
+        "body-md": {
+          "$binding": "text-style",
+          "id": "typography-body-md"
+        },
+        "body-lg": {
+          "$binding": "text-style",
+          "id": "typography-body-lg"
+        },
+        "title-sm": {
+          "$binding": "text-style",
+          "id": "typography-title-sm"
+        },
+        "title-md": {
+          "$binding": "text-style",
+          "id": "typography-title-md"
+        },
+        "heading-section": {
+          "$binding": "text-style",
+          "id": "typography-heading-section"
+        },
+        "heading-page": {
+          "$binding": "text-style",
+          "id": "typography-heading-page"
+        },
+        "display": {
+          "$binding": "text-style",
+          "id": "typography-display"
+        },
+        "input-touch": {
+          "$binding": "text-style",
+          "id": "typography-input-touch"
+        },
+        "code": {
+          "$binding": "text-style",
+          "id": "typography-code"
+        }
+      },
+      "TYPOGRAPHY_BY_SCRIPT": {
+        "$binding": "script-styles"
+      },
+      "TEXT_LAYOUT": {
+        "measure": {
+          "reading": {
+            "$binding": "token",
+            "path": "rds.type.layout.measure.reading",
+            "set": "shared"
+          },
+          "wide": {
+            "$binding": "token",
+            "path": "rds.type.layout.measure.wide",
+            "set": "shared"
+          }
+        },
+        "gap": {
+          "paragraph": {
+            "$binding": "recipe",
+            "id": "paragraph-gap"
+          },
+          "title-description": {
+            "$binding": "token",
+            "path": "rds.type.layout.gap.title-description",
+            "set": "shared"
+          },
+          "section-content": {
+            "$binding": "token",
+            "path": "rds.type.layout.gap.section-content",
+            "set": "shared"
+          }
+        }
+      }
+    },
+    "Veil.ts": {
+      "VEIL": {
+        "100": {
+          "color": {
+            "light": {
+              "$binding": "token",
+              "path": "rds.veil.100.color",
+              "set": "light"
+            },
+            "dark": {
+              "$binding": "token",
+              "path": "rds.veil.100.color",
+              "set": "dark"
+            }
+          },
+          "blur": {
+            "$binding": "token",
+            "path": "rds.veil.100.blur",
+            "set": "shared"
+          }
+        },
+        "200": {
+          "color": {
+            "light": {
+              "$binding": "token",
+              "path": "rds.veil.200.color",
+              "set": "light"
+            },
+            "dark": {
+              "$binding": "token",
+              "path": "rds.veil.200.color",
+              "set": "dark"
+            }
+          },
+          "blur": {
+            "$binding": "token",
+            "path": "rds.veil.200.blur",
+            "set": "shared"
+          }
+        },
+        "300": {
+          "color": {
+            "light": {
+              "$binding": "token",
+              "path": "rds.veil.300.color",
+              "set": "light"
+            },
+            "dark": {
+              "$binding": "token",
+              "path": "rds.veil.300.color",
+              "set": "dark"
+            }
+          },
+          "blur": {
+            "$binding": "token",
+            "path": "rds.veil.300.blur",
+            "set": "shared"
+          }
+        },
+        "400": {
+          "color": {
+            "light": {
+              "$binding": "token",
+              "path": "rds.veil.400.color",
+              "set": "light"
+            },
+            "dark": {
+              "$binding": "token",
+              "path": "rds.veil.400.color",
+              "set": "dark"
+            }
+          },
+          "blur": {
+            "$binding": "token",
+            "path": "rds.veil.400.blur",
+            "set": "shared"
+          }
+        },
+        "500": {
+          "color": {
+            "light": {
+              "$binding": "token",
+              "path": "rds.veil.500.color",
+              "set": "light"
+            },
+            "dark": {
+              "$binding": "token",
+              "path": "rds.veil.500.color",
+              "set": "dark"
+            }
+          },
+          "blur": {
+            "$binding": "token",
+            "path": "rds.veil.500.blur",
+            "set": "shared"
+          }
+        },
+        "scrim": {
+          "color": {
+            "light": {
+              "$binding": "token",
+              "path": "rds.veil.scrim.color",
+              "set": "light"
+            },
+            "dark": {
+              "$binding": "token",
+              "path": "rds.veil.scrim.color",
+              "set": "dark"
+            }
+          },
+          "blur": {
+            "$binding": "token",
+            "path": "rds.veil.scrim.blur",
+            "set": "shared"
+          }
+        }
+      }
+    },
+    "layout.ts": {
+      "BREAKPOINTS": {
+        "medium": {
+          "$binding": "token",
+          "path": "rds.layout.breakpoint.medium",
+          "set": "shared"
+        },
+        "wide": {
+          "$binding": "token",
+          "path": "rds.layout.breakpoint.wide",
+          "set": "shared"
+        }
+      },
+      "PAGE_GRID": {
+        "narrow": {
+          "columns": {
+            "$binding": "token",
+            "path": "rds.layout.grid.narrow.columns",
+            "set": "shared"
+          },
+          "gutter": {
+            "$binding": "token",
+            "path": "rds.layout.grid.narrow.gutter",
+            "set": "shared"
+          },
+          "margin": {
+            "$binding": "token",
+            "path": "rds.layout.grid.narrow.margin",
+            "set": "shared"
+          }
+        },
+        "medium": {
+          "columns": {
+            "$binding": "token",
+            "path": "rds.layout.grid.medium.columns",
+            "set": "shared"
+          },
+          "gutter": {
+            "$binding": "token",
+            "path": "rds.layout.grid.medium.gutter",
+            "set": "shared"
+          },
+          "margin": {
+            "$binding": "token",
+            "path": "rds.layout.grid.medium.margin",
+            "set": "shared"
+          }
+        },
+        "wide": {
+          "columns": {
+            "$binding": "token",
+            "path": "rds.layout.grid.wide.columns",
+            "set": "shared"
+          },
+          "gutter": {
+            "$binding": "token",
+            "path": "rds.layout.grid.wide.gutter",
+            "set": "shared"
+          },
+          "margin": {
+            "$binding": "token",
+            "path": "rds.layout.grid.wide.margin",
+            "set": "shared"
+          }
+        }
+      },
+      "PAGE_MAX_WIDTH": {
+        "$binding": "token",
+        "path": "rds.layout.content.max",
+        "set": "shared"
+      }
+    }
+  }
+}

@@ -18,7 +18,11 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm install
+      - run: npm run tokens:check-generated
+      - run: npm run test:foundations
+      - run: npm run test:color-resolver
       - run: npm run typecheck
+      - run: npm run tokens:check
 
   dispatch-docs:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'

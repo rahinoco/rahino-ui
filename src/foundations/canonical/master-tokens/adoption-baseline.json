@@ -1,0 +1,1066 @@
+{
+  "approval": "canonical-master-adoption",
+  "capturedOn": "2026-10-26",
+  "files": {
+    "Border.md": {
+      "sha256": "e46f0ca251c05b3efc60e2472a9e2305f25e8303bf8364fe41bf74d3e101a312",
+      "text": "# RDS Border Strategy\n\n**Status:** Recommended decision — pending Rahino approval  \n**Scope:** Rahino Design System and Qipper (Inventory, Finance, Project & Task Management)\n\n## Decision\n\nAdopt a **mostly borderless, semantic-boundary approach**, not a strict no-borders policy.\n\n- **Spacing and typography** organize content.\n- **Surface contrast** separates groups and static containers.\n- **Borders** clarify controls, dense data, and interaction states.\n- **Shadows** indicate actual elevation (menus, popovers, dialogs), not decorative cards.\n\nThis aligns with the restrained visual direction of products such as Linear, Notion, and Figma, without losing the clarity needed in dense tools such as Airtable and GitHub. These observations are drawn from publicly shown product interfaces, not exhaustive authenticated in-app audits.\n\n## Component Rules\n\n| Context                                   | RDS rule                                                                          |\n| ----------------------------------------- | --------------------------------------------------------------------------------- | --- |\n| Page sections, standard cards, dashboards | Borderless by default; use spacing and surface contrast.                          |\n| Text inputs, selects, other form controls | Clear boundary: recognizable filled treatment.                                    |\n| Primary buttons                           | Filled; no border.                                                                |\n| Secondary buttons                         | Subtle fill by default; outline only when necessary to communicate affordance.    |\n| Toolbar / tertiary buttons                | Borderless but recognizably interactive.                                          |\n| Inventory and finance tables              | **1px separators** as needed for readability; avoid boxing every cell.            |\n| Task boards, selectable cards             | Surface-based cards; use an attention ring when selecting, dragging, or dropping. |\n| Sidebars, headers, adjacent panels        | Surface change first; a single separator only when separation is unclear.         |     |\n| Popovers, dropdowns, dialogs              | Raised surface plus existing RDS elevation token;                                 |\n| Keyboard focus                            | **Independent 2px focus ring**, not a border-color change.                        |\n\n**Constraints:** Avoid nested outlines and decorative card borders. A selected or invalid state must not be communicated through border color alone. Preserve functional controls and focus indicators on mobile even when outer card borders disappear.\n\n## Final Minimal Token Set (Proposed)\n\nThese are **recommended token roles and starting values**, not claims about already approved RDS color tokens. Keep RDS's existing surface, focus-color, radius, and shadow foundations; do not introduce a second foundation for them.\n\n| Token                      | Light                              | Dark                               | Meaning                                 |\n| -------------------------- | ---------------------------------- | ---------------------------------- | --------------------------------------- | --- |\n| `rds.border.width.default` | `1px`                              | `1px`                              | Functional boundaries and separators    |\n| `rds.border.width.strong`  | `2px`                              | `2px`                              | Emphasized selection / drop targets     |\n| `rds.color.edge.subtle`    | `rgba(15,23,42,0.12)`              | `rgba(255,255,255,0.10)`           | Optional decorative dividers only       |\n| `rds.color.edge.control`   | `#7A8493`                          | `#7A8493`                          | Recognizable form-control boundary      |\n| `rds.focus.ring.width`     | `2px`                              | `2px`                              | Keyboard focus indicator                |     |\n| `rds.color.focus.ring`     | **Alias existing RDS focus color** | **Alias existing RDS focus color** | Do not add unrelated blue accent colors |\n\nboundaries required to identify a control or state must meet **WCAG 2.2 non-text contrast ≥ 3:1**. Focus indicators must remain clearly visible.\n\n**No extra tokens:** Do not keep a large legacy `edge.*` family unless a documented component need justifies a distinct role. Do not copy research-proposed radius, surface, or shadow scales into RDS.\n\n## Validation Before Approval\n\nTest one representative **Inventory grid**, **Finance form**, **Task board**, and **Settings page**, each in light/dark mode, keyboard navigation, mobile, and RTL. Check scanning, control discoverability, focus, selected/error states, and excessive nested containers.\n\n## References\n\n- [Material 3 — Card variants](https://m3.material.io/components/cards/overview)\n- [Microsoft Fluent 2 — Elevation](https://fluent2.microsoft.design/elevation)\n- [NN/g — Recognizable clickable elements](https://www.nngroup.com/articles/clickable-elements/)\n- [W3C — Non-text contrast](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html)\n- [W3C — Focus visible](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html)\n"
+    },
+    "Border.ts": {
+      "sha256": "a37e7f0e242c5efc626e806fb97857957011e8b66ba196f4286d5f11ce348b24",
+      "text": "/**\n * Rahino Design System — Border foundations (proposed)\n *\n * Decision: mostly borderless. Structure comes from spacing and surfaces;\n * borders are opt-in affordances for controls, dense data, and states.\n *\n * Color sources remain in the canonical color foundation:\n *   rds.color.edge.subtle   — optional dividers\n *   rds.color.edge.control  — functional control boundary\n *   rds.color.focus.ring    — independent keyboard focus color\n *\n * Do not duplicate color, surface, radius, or elevation values here.\n * Status: pending Rahino approval and cross-surface contrast validation.\n */\n\n/** Widths for opt-in boundaries; do not draw these by default. */\nexport const BORDER_WIDTH = {\n  /**\n   * @token rds.border.width.default\n   * @usage Optional table/section separator or necessary control outline.\n   * @avoid Boxing every cell, default card borders, and keyboard focus.\n   */\n  default: \"1px\",\n\n  /**\n   * @token rds.border.width.strong\n   * @usage Selection and drop-target attention rings when the component\n   *        defines a distinct state color and non-color state cue.\n   * @avoid General structural borders and keyboard focus; focus has its\n   *        own geometry even when both widths are 2px.\n   */\n  strong: \"2px\",\n} as const;\n\n/** Focus is an independent outline; the color lives in rds.color.focus.ring. */\nexport const FOCUS_RING_GEOMETRY = {\n  /**\n   * @token rds.focus.ring.width\n   * @usage 2px visible keyboard-focus outline (:focus-visible).\n   * @avoid Treating the normal control border as the focus indicator.\n   */\n  width: \"2px\",\n} as const;\n"
+    },
+    "Color.ts": {
+      "sha256": "2aa4a734320d5718c26bf654646988df2a00f2fa61d8fd9e24d32d7596164e41",
+      "text": "/**\n * Rahino Design System — Color foundations (review-ready source)\n *\n * Canonical naming follows the APPROVED three-layer token convention:\n *   rds.color.ink.primary          -> --rds-color-ink-primary\n *   rds.color.action.primary.bg.hover -> --rds-color-action-primary-bg-hover\n *   rds.color.status.error.fg     -> --rds-color-status-error-fg\n *\n * Source policy: the approved foundation files are in this folder. Naming\n * follows Rahino-Tokenization.md. The typed review collection is stored in\n * master-tokens/shared.tokens.json, light.tokens.json and dark.tokens.json;\n * review status and remaining decisions are in master-tokens/decisions.json.\n * This TypeScript export remains a foundation contract while canonical\n * adoption and output generation are finalized.\n *\n * USAGE NOTE: JSDoc makes individual roles reviewable but is NOT by itself a\n * DTCG-conformant typed token registry. The local master collection records\n * typed values and aliases but remains a draft. Final publishing must resolve\n * appearances and generate CSS, documentation and Figma mappings from the\n * adopted canonical source; those outputs are not claimed to exist here.\n * Never maintain a second handwritten semantic-palette table.\n *\n * Floating UI rule: neutral popovers, menus, tooltips, selection toolbars,\n * and dialogs use surface.raised with the appropriate elevation shadow.\n * Do not switch to surface.inverse just to make a layer stand out.\n * Their content uses the standard ink hierarchy for the active appearance.\n *\n * Accessibility: a token is not universally accessible in isolation; validate\n * the foreground/background/state/context pair. 4.5:1 is WCAG AA for normal\n * text, 3:1 for large text and applicable non-text UI identification.\n */\n\nexport type AppearanceName = \"light\" | \"dark\";\n\n/** Light/dark value pair for appearance-aware foundation consumers. */\nexport interface Pair {\n  light: string;\n  dark: string;\n}\n\nconst pair = (light: string, dark: string): Pair => ({ light, dark });\n/**\n * @family rds.color.surface\n * Opaque, structural background roles. Different values can be equal today but\n * roles stay independent because they can evolve independently.\n * In product components, consume their CSS semantic variables, not raw HEX.\n */\n\nexport const SURFACE = {\n  /**\n   * @token rds.color.surface.canvas\n   * @usage Root application/page background. The lowest structural\n   *        surface, providing the backdrop for all other UI surfaces.\n   * @avoid Cards, modal interiors, inputs, and floating overlays.\n   */\n  canvas: pair(\"#EFECED\", \"#121113\"),\n\n  /**\n   * @token rds.color.surface.base\n   * @usage Default content surface for cards, panels, and sections\n   *        within the page. Provides a clean, solid background.\n   * @avoid Inputs, floating overlays, and components requiring\n   *        a visually recessed surface.\n   */\n  base: pair(\"#FFFFFF\", \"#1A191B\"),\n\n  /**\n   * @token rds.color.surface.subtle\n   * @usage Low-emphasis grouping within content surfaces,\n   *        including alternate sections, section headers,\n   *        list tracks, and secondary containers.\n   * @avoid Unfocused inputs, modals, and prominent floating\n   *        surfaces. Not intended to establish strong separation.\n   */\n  subtle: pair(\"#F8F6F7\", \"#232225\"),\n\n  /**\n   * @token rds.color.surface.raised\n   * @usage Neutral elevated containers: dialogs, popovers, dropdowns,\n   *        context menus, tooltips, and floating selection/action toolbars.\n   *        Pair with the appropriate shadow token to communicate elevation;\n   *        keep standard ink colors inside the container.\n   * @avoid Standard page content, cards, and input backgrounds.\n   *        Do not use inverse color as an elevation treatment.\n   */\n  raised: pair(\"#FFFFFF\", \"#2B292D\"),\n\n  /**\n   * @token rds.color.surface.sunken\n   * @usage Recessed surfaces within a parent container, including\n   *        unfocused text fields, selects, textareas, editable\n   *        regions, inset controls, and progress track s.\n   *        Provides background separation without borders.\n   * @avoid Modals, cards, and floating overlays.\n   *        Use ink.secondary for meaningful supporting text;\n   *        reserve ink.tertiary for nonessential metadata.\n   */\n  sunken: pair(\"#ECE8EA\", \"#0E0D0F\"),\n\n  /**\n   * @token rds.color.surface.inverse\n   * @usage Intentionally high-contrast, solid neutral controls only,\n   *        such as an explicitly emphasized neutral button.\n   * @pair rds.color.ink.inverse\n   * @avoid Popovers, tooltips, context menus, dropdowns, dialogs,\n   *        floating selection/action toolbars, and notification containers.\n   *        Never use inverse fill to signal elevation or floating position;\n   *        use surface.raised and an elevation shadow instead.\n   *        Also avoid general page surfaces, inputs, and brand actions.\n   */\n  inverse: pair(\"#211D20\", \"#EEEEF0\"),\n} as const;\n\n/** Overlay dimming, not a surface or a veil film. */\nexport const SCRIM = {\n  /**\n   * @token rds.color.scrim.modal\n   * @usage Backdrop dimming behind a modal/dialog that blocks the underlying UI.\n   * @avoid Hover states, glass panels, or ordinary in-flow content backgrounds.\n   * @a11y Check effective dimming in each mode; scrim alone must not carry text.\n   */\n  // Modal dimming is a distinct role from the veil recipes in Veil.ts.\n  modal: pair(\"rgb(20 12 17 / 0.52)\", \"rgb(0 0 0 / 0.72)\"),\n} as const;\n\n/** Foreground roles for text and icons; select by meaning and contrast context. */\nexport const INK = {\n  /**\n   * @token rds.color.ink.primary\n   * @usage Main body text, headings, values, field content and primary labels.\n   * @avoid Over branded solid controls; use on-brand there.\n   */\n  primary: pair(\"#211D20\", \"#EEEEF0\"),\n  /**\n   * @token rds.color.ink.secondary\n   * @usage Readable supporting text, including descriptions,\n   *        helper text, notification content, and meaningful\n   *        metadata. Provides clear hierarchy below primary\n   *        text without compromising readability.\n   * @avoid Disabled states, decorative labels, and reducing\n   *        contrast through additional opacity.\n   */\n  secondary: pair(\"#5F585D\", \"#C0BDC6\"),\n\n  /**\n   * @token rds.color.ink.tertiary\n   * @usage Low-emphasis but readable text, including timestamps,\n   *        placeholders, captions, and nonessential metadata.\n   *        Maintains visual hierarchy while meeting WCAG AA\n   *        for normal text on standard opaque RDS surfaces.\n   * @avoid Essential descriptions, instructions, error messages,\n   *        disabled states, and uncontrolled glass backgrounds.\n   *        Do not apply additional opacity.\n   */\n  tertiary: pair(\"#6D656B\", \"#AAA6B0\"),\n\n  /**\n   * @token rds.color.ink.disabled\n   * @usage Text/labels of genuinely disabled, noninteractive controls.\n   * @avoid Placeholder for an enabled input; not for text that remains actionable.\n   * @a11y Inactive controls can be exempt from WCAG text-contrast minimums,\n   *       but state must also be programmatically exposed.\n   */\n  disabled: pair(\"#AAA3A7\", \"#625F69\"),\n  /**\n   * @token rds.color.ink.on-brand\n   * @usage Text/icons on validated solid brand/action-primary fills.\n   * @avoid Text on light brand-tinted surfaces; use brand.fg there instead.\n   */\n  \"on-brand\": pair(\"#FFFFFF\", \"#FFFFFF\"),\n  /**\n   * @token rds.color.ink.inverse\n   * @usage Text/icons only on intentionally inverse neutral-solid controls.\n   * @pair rds.color.surface.inverse\n   * @avoid Text/icons in floating UI containers (popovers, toolbars, menus,\n   *        tooltips, dialogs); use ink.primary/secondary/tertiary on\n   *        surface.raised instead. Not a general foreground role.\n   */\n  inverse: pair(\"#EEEEF0\", \"#211D20\"),\n} as const;\n\n/** Brand expression. `seed` is an identity decision, not an interactive state. */\nexport const BRAND = {\n  /**\n   * @token rds.color.brand.seed\n   * @usage Immutable corporate identity reference, brand signatures and recipes\n   *        that explicitly require the original brand seed in either appearance.\n   * @avoid Applying raw seed indiscriminately to text or every clickable control.\n   */\n  seed: pair(\"#631244\", \"#631244\"),\n  /**\n   * @token rds.color.brand.bg\n   * @usage Selected/highlighted branded container, low-intensity emphasis panel,\n   *        or soft brand control at rest.\n   * @avoid Mistaking a tinted plate for a solid primary call-to-action.\n   */\n  bg: pair(\"#F3ECF0\", \"#291823\"),\n  /**\n   * @token rds.color.brand.bg-hover\n   * @usage Pointer-hover state ONLY for an interactive brand.bg surface.\n   * @avoid Applying persistent hover tint to static brand panels or touch-only UI.\n   */\n  \"bg-hover\": pair(\"#EADCE4\", \"#321A29\"),\n  /**\n   * @token rds.color.brand.fg\n   * @usage Branded text/icon emphasis on appropriate light/dark backgrounds,\n   *        especially on brand.bg, soft brand controls and toned badges.\n   * @avoid Solid brand action labels; those use action.primary.fg.\n   */\n  fg: pair(\"#631244\", \"#C7A4B6\"),\n} as const;\n\n/**\n * @token rds.color.link.fg\n * @usage Link-colored text where an actual interactive hyperlink is present.\n * @avoid Color-only identification of links inside a paragraph; supply underline,\n *        focus treatment and hover states per the link recipe.\n */\nexport const LINK_FG = BRAND.fg;\n\n/** Branded primary action state machine; keep states distinct from brand.seed. */\nexport const ACTION_PRIMARY_BG = {\n  /**\n   * @token rds.color.action.primary.bg.default\n   * @usage Primary high-priority button/action background in its rest state.\n   * @avoid Using for selected informational chips or static brand decoration.\n   */\n  default: pair(\"#631244\", \"#631244\"),\n  /**\n   * @token rds.color.action.primary.bg.hover\n   * @usage Pointer-hover state on a currently enabled primary action.\n   * @avoid Applying as persistent selection or during keyboard focus only.\n   */\n  hover: pair(\"#400C2C\", \"#741A52\"),\n  /**\n   * @token rds.color.action.primary.bg.pressed\n   * @usage Temporary active/pressed feedback for enabled primary actions.\n   * @avoid Treating `pressed` as a durable selected/toggled state.\n   */\n  pressed: pair(\"#1E0515\", \"#4A0D33\"),\n  /**\n   * @token rds.color.action.primary.bg.disabled\n   * @usage Inactive solid primary control fill; interaction must be disabled too.\n   * @avoid Using for secondary/neutral disabled controls or muted text alone.\n   */\n  disabled: pair(\"#B28DA4\", \"#4A3742\"),\n} as const;\n\n/**\n * @token rds.color.action.primary.fg\n * @usage Foreground of enabled solid primary action across rest/hover/pressed.\n * @avoid Presuming this foreground is AA compliant on the disabled fill; use\n *        the disabled component recipe and disabled semantic text behavior.\n */\nexport const ACTION_PRIMARY_FG = pair(\"#FFFFFF\", \"#FFFFFF\");\n\n/**\n * @token rds.color.focus.ring\n * @usage Visible keyboard focus ring, generally via :focus-visible and\n *        focus geometry tokens in Border.ts.\n * @avoid Hover decoration, validation error border, or a substitute for focus\n *        geometry / forced-colors treatment.\n */\nexport const FOCUS_RING = pair(\"#99507A\", \"#A9638B\");\n\n/** Neutral interaction overlays. Their RGBA is composited over a base surface. */\nexport const INTERACTION = {\n  /**\n   * @token rds.color.interaction.neutral.hover\n   * @usage Subtle pointer-hover overlay on otherwise neutral interactive rows,\n   *        list items or icon-button hit regions.\n   * @avoid Standalone text color, solid fill, or a universally fixed rendered\n   *        outcome regardless of the background color underneath.\n   */\n  \"neutral-hover\": pair(\"rgb(33 29 32 / 0.06)\", \"rgb(238 238 240 / 0.08)\"),\n  /**\n   * @token rds.color.interaction.neutral.pressed\n   * @usage Brief pressed/touch-down feedback on a neutral interactive surface.\n   * @avoid Permanent selected state, validation warning, or drag overlay.\n   */\n  \"neutral-pressed\": pair(\"rgb(33 29 32 / 0.10)\", \"rgb(238 238 240 / 0.12)\"),\n} as const;\n\n/**\n * @token rds.color.interaction.selected.surface\n * @usage Persistent BRANDED selection plate (e.g. active segmented option or\n *        selected category) when the component recipe specifies branded tone.\n * @alias rds.color.brand.bg (same value by explicit semantic reference).\n * @avoid Conflating this branded selection with neutral selection treatments.\n */\nexport const INTERACTION_SELECTED_SURFACE = BRAND.bg;\n\n/** Optional structural dividers and functional control boundaries only. */\nexport const EDGE = {\n  /**\n   * @token rds.color.edge.subtle\n   * @usage Optional 1px separators in dense tables or between adjacent panels\n   *        when spacing and surface contrast are insufficient.\n   * @avoid Default card borders, form-control identification, and focus rings.\n   *        Decorative only; not required to meet 3:1 non-text contrast.\n   */\n  subtle: pair(\"rgb(15 23 42 / 0.12)\", \"rgb(255 255 255 / 0.10)\"),\n\n  /**\n   * @token rds.color.edge.control\n   * @usage 1px boundary for enabled inputs, selects, or secondary controls\n   *        only when their filled treatment needs a clearer affordance.\n   * @avoid Decorative containers, default card frames, or indicating focus,\n   *        selection, or error by border color alone.\n   * @a11y Validate >=3:1 against adjacent surfaces wherever the boundary\n   *       is required for identification. The approved value is 3.81:1\n   *       against dark surface.raised; check actual component adjacency.\n   */\n  control: pair(\"#7A8493\", \"#7A8493\"),\n} as const;\n\n/**\n * Semantic feedback families. Each role is a separate decision:\n * bg = subtle panel; edge = feedback frame; fg = readable text/icon;\n * fill = solid feedback; on-fill = ink on THAT solid fill.\n * Not general substitutes for brand/action roles.\n */\nexport const STATUS = {\n  success: {\n    /**\n     * @token rds.color.status.success.bg\n     * @usage Positive alert/validation panel fill; not a primary action.\n     */\n    bg: pair(\"#EAF5EE\", \"#203B2A\"),\n    /**\n     * @token rds.color.status.success.edge\n     * @usage Border of positive feedback panel or field-success indication.\n     */\n    edge: pair(\"#ADD7BC\", \"#4F9166\"),\n    /**\n     * @token rds.color.status.success.fg\n     * @usage Success message, icon or state label on validated surfaces.\n     */\n    fg: pair(\"#216E43\", \"#87DCA4\"),\n    /**\n     * @token rds.color.status.success.fill\n     * @usage Solid positive badge/indicator or success-specific action recipe.\n     */\n    fill: pair(\"#2F7D50\", \"#348556\"),\n    /**\n     * @token rds.color.status.success.on-fill\n     * @usage Text/icons only on status.success.fill.\n     */\n    \"on-fill\": pair(\"#FFFFFF\", \"#FFFFFF\"),\n  },\n  warning: {\n    /**\n     * @token rds.color.status.warning.bg\n     * @usage Warning callout/banner background.\n     */\n    bg: pair(\"#FBF2E2\", \"#40341D\"),\n    /**\n     * @token rds.color.status.warning.edge\n     * @usage Warning field/alert border.\n     */\n    edge: pair(\"#E8C98C\", \"#9B7937\"),\n    /**\n     * @token rds.color.status.warning.fg\n     * @usage Warning text/icon; reserve for caution, not generic emphasis.\n     */\n    fg: pair(\"#8A5A12\", \"#F0C86F\"),\n    /**\n     * @token rds.color.status.warning.fill\n     * @usage Solid warning pill/badge or alert marker.\n     */\n    fill: pair(\"#9E6A19\", \"#BE882E\"),\n    /**\n     * @token rds.color.status.warning.on-fill\n     * @usage Text/icons on warning.fill; light/dark inks differ intentionally.\n     */\n    \"on-fill\": pair(\"#FFFFFF\", \"#1B1407\"),\n  },\n  error: {\n    /**\n     * @token rds.color.status.error.bg\n     * @usage Error callout/validation container background.\n     */\n    bg: pair(\"#FBEAEC\", \"#42262B\"),\n    /**\n     * @token rds.color.status.error.edge\n     * @usage Invalid field or error alert border.\n     */\n    edge: pair(\"#EDB3B8\", \"#AA5963\"),\n    /**\n     * @token rds.color.status.error.fg\n     * @usage Validation error text/icon; don't signal error with color alone.\n     */\n    fg: pair(\"#A33A43\", \"#F4979F\"),\n    /**\n     * @token rds.color.status.error.fill\n     * @usage Solid error badge; destructive button through a separate recipe.\n     */\n    fill: pair(\"#B54650\", \"#B94C57\"),\n    /**\n     * @token rds.color.status.error.on-fill\n     * @usage Text/icons on error.fill.\n     */\n    \"on-fill\": pair(\"#FFFFFF\", \"#FFFFFF\"),\n  },\n  info: {\n    /**\n     * @token rds.color.status.info.bg\n     * @usage Nonurgent informational banner/panel fill.\n     */\n    bg: pair(\"#EAF1F9\", \"#23354B\"),\n    /**\n     * @token rds.color.status.info.edge\n     * @usage Info border around a feedback block.\n     */\n    edge: pair(\"#B6CCE6\", \"#5A83AE\"),\n    /**\n     * @token rds.color.status.info.fg\n     * @usage Information label/icon; link styling also needs link affordance.\n     */\n    fg: pair(\"#345E91\", \"#86B9EE\"),\n    /**\n     * @token rds.color.status.info.fill\n     * @usage Solid informational badge/indicator.\n     */\n    fill: pair(\"#416FA8\", \"#4479B5\"),\n    /**\n     * @token rds.color.status.info.on-fill\n     * @usage Text/icons on info.fill.\n     */\n    \"on-fill\": pair(\"#FFFFFF\", \"#FFFFFF\"),\n  },\n} as const;\n\n/**\n * Appearance + accessibility resolution, NOT a third color theme. Intended\n * only for `prefers-contrast: more` / explicit enhanced contrast path; native\n * `forced-colors` should use system colors, not these custom HEX values.\n * All remaining semantic roles must still be checked in context.\n */\nexport const HIGH_CONTRAST = {\n  light: {\n    /** @usage High-contrast page backdrop. */\n    canvas: \"#FFFFFF\",\n    /** @usage High-contrast ordinary card background. */\n    base: \"#FFFFFF\",\n    /** @usage High-contrast essential foreground. */\n    primary: \"#211D20\",\n    /** @usage Higher-contrast supplemental foreground. */\n    secondary: \"#211D20\",\n    /** @usage More-legible low-emphasis foreground in high-contrast mode. */\n    tertiary: \"#625B60\",\n  },\n  dark: {\n    /** @usage High-contrast dark page backdrop. */\n    canvas: \"#0E0D0F\",\n    /** @usage High-contrast dark card background. */\n    base: \"#121113\",\n    /** @usage High-contrast dark essential foreground. */\n    primary: \"#FFFFFF\",\n    /** @usage High-contrast dark secondary foreground. */\n    secondary: \"#EEEEF0\",\n    /** @usage High-contrast dark tertiary foreground. */\n    tertiary: \"#B5B2BC\",\n  },\n} as const;\n\n/** Contrast references accept only opaque colors; translucent pairs need compositing. */\nconst referenceLuminance = (hex: string): number => {\n  if (!/^#[0-9a-f]{6}$/i.test(hex)) {\n    throw new Error(\"Contrast references require opaque six-digit hex colors.\");\n  }\n  const channels = [1, 3, 5].map(index => parseInt(hex.slice(index, index + 2), 16) / 255);\n  const linear = channels.map(value =>\n    value <= 0.04045 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4,\n  );\n  return linear[0] * 0.2126 + linear[1] * 0.7152 + linear[2] * 0.0722;\n};\n\nconst referenceContrast = (foreground: string, background: string): number => {\n  const a = referenceLuminance(foreground);\n  const b = referenceLuminance(background);\n  return (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05);\n};\n\ntype ReferenceInk = \"primary\" | \"secondary\" | \"tertiary\";\nconst contrastReferenceFor = (appearance: AppearanceName): Record<ReferenceInk, Record<string, number>> =>\n  Object.fromEntries(\n    ([\"primary\", \"secondary\", \"tertiary\"] as const).map(ink => [\n      ink,\n      Object.fromEntries(\n        ([\"canvas\", \"base\", \"subtle\", \"raised\", \"sunken\"] as const).map(surface => [\n          surface,\n          Number(referenceContrast(INK[ink][appearance], SURFACE[surface][appearance]).toFixed(2)),\n        ]),\n      ),\n    ]),\n  ) as Record<ReferenceInk, Record<string, number>>;\n\n/**\n * Derived reference table, not an independent palette or a usage permission.\n * Calculated automatically from the current INK/SURFACE pairs on module load.\n * Two-decimal figures are for reference; acceptance must compare full-precision\n * ratios against the role-specific minimum, including actual adjacent colors.\n */\nexport const CONTRAST_REFERENCE: Record<AppearanceName, Record<ReferenceInk, Record<string, number>>> = {\n  light: contrastReferenceFor(\"light\"),\n  dark: contrastReferenceFor(\"dark\"),\n};\n\n/**\n * @family rds.color.data.categorical\n * @usage Distinct, unordered data series in charts.\n *        Series 01 anchors the palette to Rahino Plum.\n *        Other colors provide controlled hue differentiation.\n * @rules Preserve series order across light/dark themes.\n *        Use solid colors for lines, points, and chart marks.\n *        Always provide labels or legends.\n * @avoid Status semantics, translucent line strokes,\n *        or relying on color alone to identify a series.\n */\n/** Public chart slots use 01 onward; their identity stays the same across appearances. */\nexport const DATA_CATEGORICAL_TOKENS = {\n  /** @token rds.color.data.categorical.01 @usage Plum — categorical chart slot 01. */\n  \"01\": pair(\"#631244\", \"#E18FBD\"),\n  /** @token rds.color.data.categorical.02 @usage Teal — categorical chart slot 02. */\n  \"02\": pair(\"#287569\", \"#74CCB4\"),\n  /** @token rds.color.data.categorical.03 @usage Blue — categorical chart slot 03. */\n  \"03\": pair(\"#386EAA\", \"#85B7ED\"),\n  /** @token rds.color.data.categorical.04 @usage Amber — categorical chart slot 04. */\n  \"04\": pair(\"#926119\", \"#E5B567\"),\n  /** @token rds.color.data.categorical.05 @usage Indigo — categorical chart slot 05. */\n  \"05\": pair(\"#654D91\", \"#B8A1E6\"),\n  /** @token rds.color.data.categorical.06 @usage Coral — categorical chart slot 06. */\n  \"06\": pair(\"#9B4D48\", \"#E9968D\"),\n  /** @token rds.color.data.categorical.07 @usage Slate — categorical chart slot 07. */\n  \"07\": pair(\"#526C7B\", \"#A4BECD\"),\n  /** @token rds.color.data.categorical.08 @usage Olive — categorical chart slot 08. */\n  \"08\": pair(\"#637437\", \"#BFCB7A\"),\n} as const;\n\n/** Compatibility array: index 0 maps to public slot 01, index 1 to 02, and so on. */\nexport const DATA_CATEGORICAL: Pair[] = Object.values(DATA_CATEGORICAL_TOKENS);\n\n/**\n * @family rds.color.data.sequential\n * @usage Five ordered intensity levels for one metric.\n *        Progresses from muted plum to strong plum.\n *        Suitable for heatmaps, intensity maps, and\n *        discretized magnitude visualizations.\n * @rules 01 = lowest intensity; 05 = highest intensity.\n *        Keep perceptual progression consistent.\n * @avoid Categorical series, status indicators,\n *        or interpreting low intensity as missing data.\n */\n/** Public chart slots use 01 onward; their identity stays the same across appearances. */\nexport const DATA_SEQUENTIAL_TOKENS = {\n  /** @token rds.color.data.sequential.01 @usage Lowest — sequential chart slot 01. */\n  \"01\": pair(\"#966883\", \"#A7839B\"),\n  /** @token rds.color.data.sequential.02 @usage Low — sequential chart slot 02. */\n  \"02\": pair(\"#8C5776\", \"#B48BA6\"),\n  /** @token rds.color.data.sequential.03 @usage Medium — sequential chart slot 03. */\n  \"03\": pair(\"#824465\", \"#C89CB6\"),\n  /** @token rds.color.data.sequential.04 @usage High — sequential chart slot 04. */\n  \"04\": pair(\"#752C55\", \"#D9A7C3\"),\n  /** @token rds.color.data.sequential.05 @usage Highest — sequential chart slot 05. */\n  \"05\": pair(\"#631244\", \"#E7B6D0\"),\n} as const;\n\n/** Compatibility array: index 0 maps to public slot 01, index 1 to 02, and so on. */\nexport const DATA_SEQUENTIAL: Pair[] = Object.values(DATA_SEQUENTIAL_TOKENS);\n\n/**\n * @family rds.color.data.diverging\n * @usage Five ordered levels around a meaningful midpoint.\n *        Teal represents one pole, plum the opposite.\n *        Neutral gray represents the center.\n * @rules 01/05 = opposite extremes; 03 = midpoint.\n *        Label the meaning of each pole explicitly.\n *        Use primarily for filled data visualizations.\n * @avoid Unordered categories, automatic success/error\n *        meanings, and using pale midpoint fills as\n *        standalone strokes or text colors.\n */\n/** Public chart slots use 01 onward; their identity stays the same across appearances. */\nexport const DATA_DIVERGING_TOKENS = {\n  /** @token rds.color.data.diverging.01 @usage First extreme — diverging chart slot 01. */\n  \"01\": pair(\"#246F67\", \"#8AD3BF\"),\n  /** @token rds.color.data.diverging.02 @usage First moderate — diverging chart slot 02. */\n  \"02\": pair(\"#64988D\", \"#58968A\"),\n  /** @token rds.color.data.diverging.03 @usage Neutral midpoint — diverging chart slot 03. */\n  \"03\": pair(\"#CAC2C7\", \"#5E585F\"),\n  /** @token rds.color.data.diverging.04 @usage Second moderate — diverging chart slot 04. */\n  \"04\": pair(\"#9B5878\", \"#A47891\"),\n  /** @token rds.color.data.diverging.05 @usage Second extreme — diverging chart slot 05. */\n  \"05\": pair(\"#631244\", \"#E18FBD\"),\n} as const;\n\n/** Compatibility array: index 0 maps to public slot 01, index 1 to 02, and so on. */\nexport const DATA_DIVERGING: Pair[] = Object.values(DATA_DIVERGING_TOKENS);\n\n/**\n * @token rds.color.data.on-fill\n * @usage Foreground for text/icons inside solid\n *        categorical chart marks only, after contrast\n *        validation against the selected series color.\n * @avoid Tooltip text, sequential/diverging marks,\n *        translucent fills, or arbitrary backgrounds.\n */\nexport const DATA_ON_FILL = pair(\"#FFFFFF\", \"#211D20\");\n\n/**\n * Presentation-only decorative recipes; do not use them for product controls.\n * Brand light/dark are approved variants of one background that follows the\n * active appearance. The theme-neutral role, gradient storage and generated\n * theme selection are deferred to presentation design work. Preserve these\n * exports and artwork until that migration. Atmosphere is a separate recipe.\n */\nexport const PRESENTATION_GRADIENTS = {\n  /**\n   * @token rds.color.presentation.gradient.brand-dark\n   * @usage Dark appearance of the theme-following brand hero background; not a form control.\n   */\n  \"brand-dark\":\n    \"linear-gradient(135deg, #121113 0%, #291823 65%, #631244 100%)\",\n  /**\n   * @token rds.color.presentation.gradient.brand-light\n   * @usage Light appearance of the theme-following brand hero background; not a content card.\n   */\n  \"brand-light\":\n    \"linear-gradient(135deg, #FFFFFF 0%, #F3ECF0 65%, #EADCE4 100%)\",\n  /**\n   * @token rds.color.presentation.gradient.atmosphere\n   * @usage Optional low-emphasis ambient hero decoration.\n   */\n  atmosphere:\n    \"radial-gradient(ellipse at 30% 20%, rgb(99 18 68 / 0.16), transparent 65%)\",\n} as const;\n"
+    },
+    "Layout.md": {
+      "sha256": "86f460caaddf6ca2d7e49fc525a8c70debc07b98c733f5434f6d868426e1c516",
+      "text": "# Rahino Design System — Layout & Responsiveness\n\n**Status:** Final foundation decisions.\n\nChange the layout structure as space changes. Keep the current task clear and preserve necessary information and actions.\n\n## 1. Units\n\n| Property | Unit |\n| --- | --- |\n| Breakpoints, typography sizes and reading measure | `rem` |\n| Spacing, gutters, margins and fixed dimensions | `px` |\n| Line-height | Unitless |\n| Flexible dimensions | `%`, `fr`, `auto`, `minmax()` |\n\nKeep the root font size at `100%`. Use existing spacing and typography tokens.\n\n## 2. Page grid\n\n| Range | Width | Columns | Gutter | Minimum page margin per side |\n| --- | --- | ---: | ---: | ---: |\n| Narrow | Below `48rem` | 4 | 16px | 16px |\n| Medium | `48rem` to below `64rem` | 8 | 24px | 24px |\n| Wide | `64rem` and above | 12 | 24px | 32px |\n\nAt a 16px browser default, the breakpoints equal **768px** and **1024px**.\n\n**Page margin** is the space between content and the edges of its available area. **Gutter** is the space between columns. Margins may grow when content reaches its maximum width.\n\nColumns guide alignment; they do not determine the number of cards or fields.\n\nPage margins apply to main content. The **sidebar, header and footer have 0px outer margin**. Their internal padding is defined separately.\n\n## 3. Content width\n\n| Content | Maximum width |\n| --- | ---: |\n| Reading | 42rem |\n| Marketing page | 1600px |\n| Dashboard | 1600px |\n| Tables and editors needing more space | Available width |\n| Forms | Defined by the form recipe; no universal cap |\n\nContent fills available space up to its cap. Caps exclude page margins and app navigation. Reading text keeps its own cap inside wider layouts.\n\n**Reading measure:** Use `rds.type.layout.measure.reading` as the single maximum for long-form text: `42rem`, equivalent to 672px when the root font size is 16px. Reading content fills its available width up to this cap and can shrink below it; never force a 42rem-wide column on a narrow container. The rem cap follows changes to the browser's default font size. A wider page, dashboard or marketing container does not increase the reading-text cap. There is no separate 48rem reading preset.\n\n## 4. Essential rules\n\n| Area | Decision |\n| --- | --- |\n| Hierarchy | Primary task → supporting information → readable secondary metadata. One dominant action per task region. |\n| Grouping | Use spacing, headings and surface contrast first; add shadows or borders only when needed. |\n| Nested layouts | Fit the container. Use only the columns and internal padding needed. |\n| Responsive structure | Stack columns and supporting panels when space is insufficient. Keep actions and navigation accessible. |\n| Queries | Viewport queries for the app shell; container queries for reusable components. No universal component thresholds. |\n| Spacing and density | Switch between existing spacing tokens. Regular is default; Spacious is optional. Width does not select density. |\n| Typography | Keep approved typography sizes; only designated headings are viewport-fluid. Allow text and controls to grow. |\n| Direction | Support RTL and LTR with reading order and alignment appropriate to the content. |\n| Reflow | Remain usable at 320px, 200% text resizing and 400% browser zoom. Wide tables may scroll locally. |\n\nExact navigation behavior, form layouts and component breakpoints belong in their recipes.\n\n**References:** [Spectrum spacing](https://spectrum.adobe.com/foundations/layout-and-structure/spacing/layout-spacing) · [Spectrum containers](https://spectrum.adobe.com/foundations/layout-and-structure/containers) · [USWDS typography](https://designsystem.digital.gov/components/typography/) · [WCAG reflow](https://www.w3.org/WAI/WCAG21/Understanding/reflow.html)\n\nThese references inform the principles; the numeric defaults above are RDS decisions.\n\n\n**Reading-width rationale:** The 42rem value preserves Rahino's existing 672px baseline at a 16px root while following the typography unit policy. Relative reading measures are used by [USWDS](https://designsystem.digital.gov/design-tokens/typesetting/measure/); [WCAG visual-presentation guidance](https://www.w3.org/WAI/WCAG22/Understanding/visual-presentation.html) emphasizes manageable line lengths and resizable columns. Neither source mandates 42rem. Check actual Persian, English and mixed-script line lengths using the approved fonts; this cap alone does not guarantee a particular character count.\n\n## 5. Shared layout tokens\n\nThe approved values above are exported from [layout.ts](layout.ts). That file is generated from the master token collection; update the master and regenerate rather than editing exported values separately.\n\n| Public token family | TypeScript export | Purpose |\n| --- | --- | --- |\n| `rds.layout.breakpoint.*` | `BREAKPOINTS` | Medium and wide inclusive lower bounds |\n| `rds.layout.grid.*` | `PAGE_GRID` | Columns, gutters and minimum page margins for each range |\n| `rds.layout.content.max` | `PAGE_MAX_WIDTH` | Shared marketing-page and dashboard cap |\n\nAll 12 token definitions and their values appear in the generated [master list](master-tokens/Master-Token-List.md).\n\nThe medium and wide breakpoint values are inclusive lower bounds: narrow is below 48rem, medium is 48rem to below 64rem, and wide starts at 64rem. These names identify the existing page-grid ranges, not device categories. In media queries, use the generated literal breakpoint values; CSS custom properties cannot be substituted into media-query conditions.\n\nGutter and margin values alias existing shared spacing. Reading width continues to use `rds.type.layout.measure.reading` through `TEXT_LAYOUT.measure.reading` in Typography.ts; no duplicate layout reading token is introduced. Available-width behavior, form recipes, zero outer margins on app chrome, and responsive composition remain documented rules.\n"
+    },
+    "Motion.md": {
+      "sha256": "bd048f221e68554e003f06a3d3792b9cde4ff4c8ca873cd444febf7ca41fa24b",
+      "text": "# Rahino Design System — Motion & Interaction\n\n**Status:** Phase one — visual motion testing in Figma completed (confirmed by the foundation owner). Qipper implementation testing remains pending.\n\n## 1. Design Principle\n\nMotion in Rahino must feel **natural, responsive, precise, and unobtrusive**.\n\nAnimation should provide feedback, clarify state changes, or preserve continuity not attract attention.\n\n**Interaction always takes priority over animation.**\n\n## 2. Motion Tokens\n\n| Token        | Duration | Usage                                          |\n| ------------ | -------- | ---------------------------------------------- |\n| Dissolve     | 150ms    | Immediate state update, Navigation transitions |\n| Feedback     | 150ms    | Hover, pressed, color changes, Toggles         |\n| Overlay      | 240ms    | Popovers, menus, Dialogs                       |\n| Reduced      | 0–80ms   | Reduced-motion feedback                        |\n| Presentation | 480ms    | Nonessential expressive motion                 |\n\nExits should generally take **75–85% of entry duration**. Adjust durations only when interaction scale or spatial distance justifies it.\n\n## 3. Easing\n\n| Token    | Value                            |\n| -------- | -------------------------------- |\n| Standard | `cubic-bezier(0, 0, 0.58, 1)`    |\n| Enter    | `cubic-bezier(0.2, 0.8, 0.2, 1)` |\n| Exit     | `cubic-bezier(0.3, 0, 0.56, 1)`  |\n| Linear   | `linear`                         |\n\nAvoid bounce, elastic, overshoot, and exaggerated spring effects in functional interfaces.\n\n## 4. Interaction Rules\n\n- **Immediate feedback:** Never delay interaction for animation.\n- **Buttons:** Use subtle color or elevation transitions. Press scaling is optional, with a minimum scale of 0.98.\n- **Popovers and menus:** Use opacity with a maximum 2–4px translation.\n- **Dialogs:** Use opacity with up to 8px translation or scale from 0.98. Avoid combining effects unnecessarily.\n- **Navigation:** Animate only when it improves orientation. Keep persistent UI stable.\n- **Tables and forms:** Prioritize stability. Avoid animated numbers, staggered rows, and unnecessary layout movement.\n- **Loading:** Never introduce artificial delays. Use meaningful progress indicators or stable placeholders when necessary.\n\n## 5. Motion Behavior\n\n- Motion must reinforce spatial relationships and interaction direction, including RTL.\n- Animations must be interruptible and reversible from their current state.\n- Repeated interactions must not queue animations or cause visual jumps.\n- Avoid unnecessary entrance animations, cascading reveals, parallax, and decorative movement.\n- Do not animate elements simply because they appear on screen.\n\n## 6. Accessibility & Performance\n\n- Respect `prefers-reduced-motion`: remove nonessential movement and scaling; allow up to 80ms opacity feedback when useful.\n- Never communicate essential information through motion alone.\n- Prefer `transform` and `opacity` for movement.\n- Avoid `transition: all`, expensive layout animations, and frequent blur effects.\n- Target smooth 60fps interactions on representative devices without compromising input responsiveness.\n- Use shared motion tokens consistently across components.\n\n## 7. Brand Consistency\n\nRahino's motion language should feel **calm, confident, fluid, and purposeful**.\n\nExpressive animations belong primarily in landing pages and presentation experiences, not everyday product workflows.\n\n## 8. Validation\n\n**Phase one — completed:** Visual motion testing in Figma. This status is based on the foundation owner's confirmation; it does not establish browser behavior, device performance or production accessibility.\n\n**Implementation testing — pending:** Verify the motion in Qipper components, particularly buttons, menus, dialogs, navigation and data tables. Include rapid repeated interactions, interrupted transitions, RTL, keyboard navigation, reduced motion and lower-powered devices before release.\n\n**Core rule: If motion doesn't improve usability, don't animate.**\n"
+    },
+    "Motion.ts": {
+      "sha256": "0d9ea5f5eb158b68d18a18f748614c9aeb5eec26e95f3a6e243c562afb826d86",
+      "text": "/**\n * Rahino Design System — Motion & interaction foundations\n *\n * Source: Motion.md.\n * Status: Phase one visual motion testing in Figma completed, as confirmed\n * by the foundation owner. Qipper implementation testing remains pending.\n * Figma validation does not establish production behavior or release approval.\n *\n * Naming follows the reference foundations pattern:\n *   rds.motion.duration.feedback -> --rds-motion-duration-feedback\n *   rds.motion.easing.enter      -> --rds-motion-easing-enter\n *   rds.motion.scale.subtle      -> --rds-motion-scale-subtle\n *\n * Scope: descriptive TypeScript contract, with CSS-ready durations/distances\n * and unitless scale values. Motion values are shared across light/dark modes.\n * JSDoc is not a DTCG-conformant typed registry; generate future platform\n * outputs from the canonical registry rather than maintaining duplicate tables.\n */\n\n/** @family rds.motion.duration */\nexport const DURATION = {\n  /**\n   * @token rds.motion.duration.none\n   * @usage No animated transition; the lower endpoint of the documented\n   *        reduced-motion range (0–80ms).\n   * @a11y Remove nonessential motion instead of merely shortening it.\n   */\n  none: \"0ms\",\n\n  /**\n   * @token rds.motion.duration.dissolve\n   * @usage Immediate state updates and navigation transitions when motion\n   *        improves orientation. Keep persistent navigation UI stable.\n   * @avoid Animating every route change or delaying an immediate update.\n   */\n  dissolve: \"150ms\",\n\n  /**\n   * @token rds.motion.duration.feedback\n   * @usage Hover, pressed, color changes, toggles, and subtle elevation\n   *        transitions. Separate from dissolve despite the equal value.\n   * @avoid Artificial interaction delays or mandatory press scaling.\n   */\n  feedback: \"150ms\",\n\n  /**\n   * @token rds.motion.duration.overlay\n   * @usage Entry timing for popovers, menus, and dialogs.\n   * @rules Exit timing generally uses 75–85% of entry duration.\n   * @avoid Applying the same full duration indiscriminately to every exit.\n   */\n  overlay: \"240ms\",\n\n  /**\n   * @token rds.motion.duration.reduced\n   * @usage Upper bound for useful opacity feedback under reduced motion.\n   *        Choose no transition or a duration within 0–80ms as appropriate.\n   * @a11y Remove nonessential movement and scaling entirely. This token\n   *       does not authorize translating/scaling an element for 80ms.\n   */\n  reduced: \"80ms\",\n\n  /**\n   * @token rds.motion.duration.presentation\n   * @usage Optional nonessential expressive motion, primarily in landing\n   *        pages and presentation experiences.\n   * @avoid Everyday product workflows and decorative product entrances.\n   * @a11y Remove this motion when prefers-reduced-motion is active.\n   */\n  presentation: \"480ms\",\n} as const;\n\n/** @family rds.motion.easing */\nexport const EASING = {\n  /**\n   * @token rds.motion.easing.standard\n   * @usage Standard easing for state transitions and interaction feedback.\n   * @avoid Bounce, elastic, overshoot, or exaggerated spring replacements.\n   */\n  standard: \"cubic-bezier(0, 0, 0.58, 1)\",\n\n  /**\n   * @token rds.motion.easing.enter\n   * @usage Elements entering a view or overlay becoming visible.\n   * @avoid Adding an entrance animation solely because content appears.\n   */\n  enter: \"cubic-bezier(0.2, 0.8, 0.2, 1)\",\n\n  /**\n   * @token rds.motion.easing.exit\n   * @usage Elements leaving a view or overlay being dismissed.\n   * @rules Select exit timing separately from the easing curve.\n   */\n  exit: \"cubic-bezier(0.3, 0, 0.56, 1)\",\n\n  /**\n   * @token rds.motion.easing.linear\n   * @usage Constant-rate animation when constant progression is intended.\n   * @avoid Treating linear as the default for every interaction.\n   */\n  linear: \"linear\",\n} as const;\n\n/**\n * @family rds.motion.translation\n * Unsigned magnitudes from the documented interaction limits, not mandatory\n * travel distances. Choose the axis/sign from the actual spatial relationship,\n * including RTL. Opacity-only transitions can use no translation at all.\n */\nexport const TRANSLATION = {\n  /**\n   * @token rds.motion.translation.popover-subtle\n   * @usage Optional 2px translation with opacity for popovers and menus.\n   * @rules Lower endpoint of the documented 2–4px translation guidance;\n   *        not a required minimum movement.\n   * @a11y Remove translation under reduced motion.\n   */\n  \"popover-subtle\": \"2px\",\n\n  /**\n   * @token rds.motion.translation.popover-max\n   * @usage Maximum optional translation for popovers and menus.\n   * @avoid Movement greater than 4px or unnecessary combined effects.\n   * @a11y Remove translation under reduced motion.\n   */\n  \"popover-max\": \"4px\",\n\n  /**\n   * @token rds.motion.translation.dialog-max\n   * @usage Maximum optional dialog translation, paired with opacity.\n   * @rules Use translation or subtle scale when helpful; avoid combining\n   *        effects unnecessarily.\n   * @avoid Treating 8px movement as mandatory for every dialog.\n   * @a11y Remove translation under reduced motion.\n   */\n  \"dialog-max\": \"8px\",\n} as const;\n\n/**\n * @family rds.motion.scale\n * Unitless transform factors. Scaling is an optional, explicit component\n * behavior, not a global button rule or a default entrance treatment.\n */\nexport const SCALE = {\n  /**\n   * @token rds.motion.scale.subtle\n   * @usage Opt-in press feedback for selected controls, or a dialog's\n   *        starting scale when subtle scaling improves the interaction.\n   * @rules 0.98 is the documented minimum scale; do not shrink further.\n   *        Buttons normally use subtle color/elevation feedback. Dialogs\n   *        may pair opacity with scale from 0.98 to 1 instead of translation.\n   * @avoid Applying scale to all buttons, table rows, forms, or persistent UI.\n   * @a11y Remove scaling under reduced motion; use rest scale directly.\n   */\n  subtle: 0.98,\n\n  /**\n   * @token rds.motion.scale.rest\n   * @usage Unscaled rest state and endpoint of optional subtle scaling.\n   * @rules Identity transform, not an additional expressive scale preset.\n   */\n  rest: 1,\n} as const;\n\nexport type DurationName = keyof typeof DURATION;\nexport type EasingName = keyof typeof EASING;\nexport type TranslationName = keyof typeof TRANSLATION;\nexport type ScaleName = keyof typeof SCALE;\n"
+    },
+    "Numbers.md": {
+      "sha256": "322ea2bb2ab96e90ac74b2d99135413965db2ade0f21ca2dc5e2a018d133f710",
+      "text": "# Numbers\n\n## Display & formatting\n\n- Use **Persian digits** (`۰۱۲۳۴۵۶۷۸۹`) and symbols: thousands `٬`, decimal `٫`, percent `٪`, minus `−`—regardless of currency. Identifiers such as `INV-1042` remain unchanged.\n- Isolate the numeric value with `<bdi dir=\"ltr\">`; keep its unit separate. **Right-align financial values** without changing the direction of the whole table.\n- Display dates in the **Solar Hijri calendar** when using the Persian date format. Timezone handling must preserve the intended calendar day.\n\n| Type | Example |\n| --- | --- |\n| Negative amount | −۱۲٬۵۰۰ تومان |\n| Foreign currency | ۱۲٬۵۰۰ دلار |\n| Percentage | ۱۸٪ |\n| Date | ۱۴۰۵/۰۷/۱۵ |\n\n## Precision & data integrity\n\n- Define decimal precision by profile: `money`, `quantity`, `rate`, `percent`, `metric`, `technical`. **Do not apply two decimal places globally.**\n- The `percent` profile must explicitly specify whether its input is a **0–1 ratio** or an **already-scaled percentage**.\n- **Qipper defaults to toman; Keeper Ledger defaults to rial.** Changing display units is not currency conversion; FX conversion is outside the formatter.\n- Store monetary values precisely. Display rounding must never change the stored value, and ambiguous input must not be guessed.\n- Distinguish **zero**, **missing data**, and **privacy-hidden values**. Show full amounts in financial reports (no compact notation).\n\n## Typography\n\nReuse the existing [Typography](https://design.rahino.co/foundations/typography) roles; do not create a separate numerical type scale.\n\n| Context | Token |\n| --- | --- |\n| Table values | `rds.type.ui-sm` |\n| Totals | `rds.type.title-sm` |\n| Standard KPI | `rds.type.title-md` |\n| Compact / narrow KPI | `rds.type.title-sm` |\n| Secondary numeric metadata | `rds.type.caption-md` |\n\nIRANYekanX has no Persian tabular figures (`tnum`). Do not assume equal-width digits; test alignment with real values. Do not use `display` for routine dashboard KPIs.\n"
+    },
+    "Radius.md": {
+      "sha256": "4322d9524e7795f56c7afa5da7c10cba0c17085b753f9c692869d73379c716e7",
+      "text": "# Radius & Rounding\n\nRahino uses restrained rounding for controls and softer corners for larger surfaces. Radius is independent of typography, color, borders, and elevation.\n\n## Radius tokens\n\nAll primitive values use `px`. Token names reflect their actual values and remain the same across themes, viewports, and density modes.\n\n| Token             |          Value | Usage                                |\n| ----------------- | -------------: | ------------------------------------ |\n| `rds.radius.0`    |            0px | Sharp and attached edges             |\n| `rds.radius.4`    |            4px | Checkboxes, tiny controls            |\n| `rds.radius.8`    |            8px | Buttons, inputs, regular controls    |\n| `rds.radius.12`   |           12px | Groups, small cards                  |\n| `rds.radius.16`   |           16px | Panels, popovers, larger cards       |\n| `rds.radius.24`   |           24px | Dialogs, sheets                      |\n| **Full (recipe)** | **Height ÷ 2** | Chips, pills, fully rounded controls |\n\n**Full** is a shape rule, not a fixed numeric primitive token. Use `border-radius: 9999px` for pills in CSS (the browser limits the effective radius to the shape); use half the component height in Figma. For a circle, use `50%` on an element with equal width and height.\n\n## Rounding rules\n\n- **Default:** Use 8px for regular controls. Do not make every button or input a pill.\n- **Nested corners:** Inner radius should generally be smaller than outer radius. Account for inset spacing and prioritize visual balance over rigid formulas.\n- **Attached edges:** Use 0px where a surface joins the viewport or an adjacent surface. A bottom sheet may have only its top corners rounded.\n- **Responsive:** Keep radius values stable across breakpoints. Change a component's radius only if its geometry or layout pattern changes.\n- **Density:** Regular and Spacious modes share the same radius tokens; increased spacing alone does not justify more rounding.\n- **Exceptions:** Sharp corners are appropriate for some data visualizations, precision elements, and connected layouts.\n\n## Implementation\n\nConsume numeric radius tokens through their CSS variables (for example, `--rds-radius-8`). Apply **Full** only in component recipes that call for chips, pills, or circles; do not create a separate numeric radius for every component, theme, viewport, or density mode.\n"
+    },
+    "Radius.ts": {
+      "sha256": "bf6654f3b3dfd9e8effd2e2f9f12beb26e8f2448cd50a48a5c51bf63a201bbb0",
+      "text": "/**\n * Rahino Design System — Radius foundations (review-ready source)\n *\n * Canonical numeric naming matches the actual pixel value:\n *   rds.radius.0  -> --rds-radius-0\n *   rds.radius.8  -> --rds-radius-8\n *   rds.radius.24 -> --rds-radius-24\n *\n * Scope: fixed-radius primitives for component recipes. Radius is independent\n * of appearance (light/dark), responsive breakpoints, and density modes.\n * Geometry-dependent full rounding is a recipe, not a numeric primitive.\n *\n * USAGE NOTE: JSDoc describes the contract but is NOT a DTCG-conformant token\n * registry. If RDS adopts a machine-readable SSOT, publish $type/$value and\n * generate CSS, documentation, and design-tool outputs from that source.\n * Avoid maintaining independent handwritten values across outputs.\n *\n * Focus ring width/offset and border widths belong to their own foundations,\n * not to rds.radius; these values are documented in rahino-radius.md.\n */\n\n/**\n * @family rds.radius\n * Fixed, theme-independent corner radii. Use primitive values in component\n * recipes; do not infer radius from elevation, density, or viewport width.\n */\nexport const RADIUS = {\n  /**\n   * @token rds.radius.0\n   * @usage Sharp corners, viewport-attached edges, adjoining surfaces,\n   *        and precision-oriented elements where rounding is inappropriate.\n   * @avoid Using sharp corners randomly among otherwise matching components.\n   */\n  \"0\": \"0px\",\n\n  /**\n   * @token rds.radius.4\n   * @usage Checkboxes and very small controls needing restrained rounding.\n   * @avoid Default buttons, cards, and large containers.\n   */\n  \"4\": \"4px\",\n\n  /**\n   * @token rds.radius.8\n   * @usage Default buttons, inputs, and regular interactive controls.\n   * @avoid Replacing the full-rounding recipe for chips and pills.\n   */\n  \"8\": \"8px\",\n\n  /**\n   * @token rds.radius.12\n   * @usage Grouped controls, compact cards, and smaller nested surfaces.\n   * @avoid Automatically applying to every small component.\n   */\n  \"12\": \"12px\",\n\n  /**\n   * @token rds.radius.16\n   * @usage Panels, popovers, and larger cards; pair floating surfaces with\n   *        their appropriate surface and elevation roles.\n   * @avoid Using radius alone to communicate elevation or separation.\n   */\n  \"16\": \"16px\",\n\n  /**\n   * @token rds.radius.24\n   * @usage Dialogs and sheets where geometry permits rounded outer corners.\n   * @avoid Rounding sheet edges that attach flush to the viewport.\n   */\n  \"24\": \"24px\",\n} as const;\n\n/**\n * @recipe full rounding — no rds.radius.full primitive\n * @usage Chips, pills, and fully rounded control variants. In Figma, use\n *        a radius equal to half the component height. For circles, ensure\n *        equal width and height and use 50% instead.\n * @avoid Using 50% for rectangular pills or treating 9999px as a literal\n *        visual radius; CSS normalizes the effective rounding to the box.\n *\n * CSS implementation shortcut, separate from the numeric token family.\n */\nexport const FULL_RADIUS_CSS = \"9999px\" as const;\n"
+    },
+    "Rahino-Tokenization.md": {
+      "sha256": "71f36342ee401cef983295dc4d6637a33f7655cc25ef84a82cccb616a04124c8",
+      "text": "# Rahino Design System — Tokenization Rules\n\n**Principle:** A token records a reusable design decision, not every possible value. Keep one source of truth and add tokens only when they have a clear purpose.\n\n## Token layers\n\n| Layer | Prefix | Responsibility |\n| --- | --- | --- |\n| Reference | `ref` | Raw values and scales, without usage meaning |\n| Shared | `rds` | Stable semantic roles and approved shared scales |\n| Component-specific | `recipe` | Decisions genuinely unique to one component |\n\n**Spacing contract:** `ref.space.*` is the raw reference layer; `rds.space.*` is the shared semantic layer. Shared tokens alias the reference values using Spectrum's global spacing indexes. No spacing prefix exception is used.\n\nComponents use shared tokens first. Following Spectrum's component-specific approach, introduce `recipe` tokens only where shared tokens cannot express a real component requirement. A component recipe (composition and behavior) is **not** itself a token; do not tokenize every CSS property.\n\n## Naming and values\n\n- Use lowercase English paths separated by dots; use kebab-case within a path segment. Names describe **roles**, not temporary values, products, or viewports.\n- Keep reference names tied to their actual value where that convention is defined. Shared tokens may provide a named scale rather than a new semantic role for each use.\n- **Spacing example:** `ref.space.16` stores `16px`; `rds.space.300` aliases `{ref.space.16}`. Likewise, `rds.space.25` aliases `{ref.space.1}`. Use the full Spectrum index mapping in [Spacing](Spacing.md); `rds.space.0` → `{ref.space.0}` preserves Rahino's existing zero reset. Do not create separate semantic tokens for every gap.\n- Use `px` for physical dimensions (spacing, radius, borders, focus, blur and shadow geometry); `rem` for typography dimensions and breakpoints; `ms` for time; unitless numbers for ratios, alpha and scale.\n- **Reading-paragraph recipe exception:** `rds.type.layout.gap.paragraph` retains the existing `1em` CSS behavior only between consecutive reading paragraphs. Record the proportional rule as a CSS recipe outside ordinary DTCG dimension tokens; `em` is not a supported DTCG dimension unit. Preserve its public export without converting it to a fixed 16px gap. General interface spacing continues to use the px-based shared spacing scale. See [Typography](Typography.md#reading-paragraph-spacing).\n- A token's meaning remains distinct even when its value equals another token's value.\n\n## Canonical format and publishing\n\n- Maintain **one canonical typed token source** using DTCG `$type`, `$value`, `$description`, and project metadata under `$extensions.rahino` when needed.\n- Represent dotted public paths as nested groups in DTCG files. Use typed aliases instead of repeating shared values.\n- Keep theme/context selection in manifests and the [Resolver rules](Rahino-Resolver.md), not in token names or a custom `$modes` field.\n- Generate CSS variables, TypeScript exports, Figma mappings and documentation *value tables* from the canonical source. Do not maintain parallel hand-edited values.\n- Keep public mapping consistent (for example, `rds.color.ink.primary` → `--rds-color-ink-primary` → `rds/color/ink/primary`).\n\n## Adding and changing tokens\n\n1. **Reuse** an existing token first; then consider a component-specific token; add a new shared role only for a distinct, recurring need.\n2. Record the token's purpose, owner, actual consumers and any usage constraints. Experimental raw values are allowed only with an explicit review plan.\n3. Before changing a public token, check affected components, aliases, modes, documentation and exported APIs. A value change must preserve its role; otherwise introduce a new role.\n4. For a rename, merge or removal, document the **old → new** mapping and update consumers. Keep temporary compatibility aliases only when needed, with an explicit removal plan. Flag breaking changes for release review.\n5. Remove unused or obsolete tokens only after checking real references and confirming that a migration is safe.\n\n## Validation and maintenance\n\n- Reject duplicate public names, missing or cyclic aliases, incompatible types, invalid units, and unsupported context combinations during build.\n- Keep token definitions, generated outputs and usage documentation synchronized; test affected consumers after changes.\n- Review token ownership and usage periodically. Prefer retiring redundancy over expanding the core without evidence.\n- Do not publish breaking token changes or alter established design decisions without review and approval.\n\n**References:** [Spectrum design tokens](https://spectrum.adobe.com/foundations/design-data/design-tokens) · [DTCG format](https://www.designtokens.org/tr/2025.10/format/)\n"
+    },
+    "Shadow.ts": {
+      "sha256": "f7d102c400812f489006eed32ffc15ab6fa4a5473ab4c9fc415a13895af6962f",
+      "text": "/**\n * Rahino Design System — Shadow foundations (review-ready source)\n *\n * Canonical token paths:\n *   rds.shadow.sm  -> --rds-shadow-sm\n *   rds.shadow.md  -> --rds-shadow-md\n *   rds.shadow.lg  -> --rds-shadow-lg\n *\n * Default surfaces do not receive a shadow. Choose elevation by behavior,\n * not component dimensions: a large static card can remain flat while a\n * small dropdown needs a contextual shadow.\n *\n * Shadow expresses visual elevation; z-index controls stacking order.\n * Coordinate them without treating them as interchangeable. Apply one\n * shadow token per surface rather than stacking multiple elevation tokens.\n *\n * JSDoc describes usage, but is not itself a DTCG token registry. Export\n * typed shadow values from one canonical source for CSS and Figma.\n */\n\nexport type AppearanceName = \"light\" | \"dark\";\n\n/** Light/Dark projection consumed by existing foundations CSS generation. */\nexport interface Pair {\n  light: string;\n  dark: string;\n}\n\nconst pair = (light: string, dark: string): Pair => ({ light, dark });\n\n/**\n * @family rds.shadow\n * Behavioral elevation scale. Use no shadow for ordinary page sections,\n * table rows, form controls, and standard layout containers. Rely on surface\n * contrast, spacing, and optional functional boundaries first.\n *\n * Use lg for modal and confirmation dialogs and other prominent floating\n * panels. The three-level scale ends at lg.\n */\nexport const SHADOW = {\n  /**\n   * @token rds.shadow.sm\n   * @role Subtle elevation\n   * @usage Raised cards when elevation is needed, interactive card hover,\n   *        sticky headers/toolbars above scrolling content, and buttons\n   *        whose elevation is explicitly part of their component recipe.\n   * @avoid Default shadows on every card, table row, or form control.\n   */\n  sm: pair(\n    \"0 2px 6px 0 rgba(0, 0, 0, 0.06)\",\n    \"0 2px 6px 0 rgba(0, 0, 0, 0.14)\",\n  ),\n\n  /**\n   * @token rds.shadow.md\n   * @role Contextual floating surfaces\n   * @usage Dropdown menus, select menus, popovers, date pickers,\n   *        autocomplete panels, floating tooltips, and toasts.\n   * @avoid Ordinary in-flow cards or permanently elevated page sections.\n   */\n  md: pair(\n    \"0 8px 20px 0 rgba(0, 0, 0, 0.10)\",\n    \"0 8px 20px 0 rgba(0, 0, 0, 0.20)\",\n  ),\n\n  /**\n   * @token rds.shadow.lg\n   * @role Modal elevation\n   * @usage Large navigation flyouts, modal and confirmation dialogs,\n   *        expanded contextual panels, and non-modal floating drawers.\n   * @avoid Static layout sections or elevating ordinary containers by default.\n   *        This is the maximum shadow level for modal and non-modal surfaces.\n   */\n  lg: pair(\n    \"0 16px 36px 0 rgba(0, 0, 0, 0.14)\",\n    \"0 16px 36px 0 rgba(0, 0, 0, 0.26)\",\n  ),\n} as const;\n"
+    },
+    "Spacing.md": {
+      "sha256": "57d71e886281e85c726f5ce3766d222cddb86bfc18ba4f23cf89365bf2363a1e",
+      "text": "# Rahino Design System — Spacing\n\n**Status:** Agreed foundation decisions  \n**Reference:** [Adobe Spectrum — Layout spacing](https://spectrum.adobe.com/foundations/layout-and-structure/spacing/layout-spacing)\n\n## 1. Reference and shared spacing scale\n\n- **Reference tokens:** `ref.space.<px>` stores the fixed raw value, using its actual size in the name: `ref.space.16` = `16px`.\n- **Shared semantic tokens:** `rds.space.<index>` aliases a reference token. Positive indexes match Spectrum's published global spacing numbers; indexes are labels, not pixel values.\n- Use the same shared scale for internal component spacing and page layouts. Typical uses are guidance, not predefined component recipes.\n\n| Reference token | Shared semantic token | Value | Typical use |\n| --- | --- | ---: | --- |\n| `ref.space.0` | `rds.space.0` | 0px | Remove spacing |\n| `ref.space.1` | `rds.space.25` | 1px | Exceptional optical adjustments |\n| `ref.space.2` | `rds.space.50` | 2px | Very small internal adjustments |\n| `ref.space.4` | `rds.space.75` | 4px | Tight label relationships |\n| `ref.space.6` | `rds.space.85` | 6px | Fine component spacing |\n| `ref.space.8` | `rds.space.100` | 8px | Icon-label gaps, related elements |\n| `ref.space.12` | `rds.space.200` | 12px | Small component and group gaps |\n| `ref.space.16` | `rds.space.300` | 16px | Fields, small containers |\n| `ref.space.20` | `rds.space.350` | 20px | Intermediate padding |\n| `ref.space.24` | `rds.space.400` | 24px | Standard containers, content groups |\n| `ref.space.32` | `rds.space.500` | 32px | Spacious containers, major groups |\n| `ref.space.40` | `rds.space.600` | 40px | Larger layout separation |\n| `ref.space.48` | `rds.space.700` | 48px | Page sections |\n| `ref.space.56` | `rds.space.750` | 56px | Larger section separation |\n| `ref.space.64` | `rds.space.800` | 64px | Major layout regions |\n| `ref.space.80` | `rds.space.900` | 80px | Large-scale composition |\n| `ref.space.96` | `rds.space.1000` | 96px | Exceptional large layouts |\n\nAll 16 positive mappings match Spectrum. The `0 → 0px` pair preserves Rahino's existing reset and is a Rahino extension; Spectrum's table begins at `25 → 1px`.\n\nUse **1–2px only for exceptional fine adjustments**, not normal layout gaps. Add new reference values only when a real use case justifies them.\n\nIn DTCG, `rds.space.300` aliases `{ref.space.16}`. In CSS, `--rds-space-300` references `var(--ref-space-16)`. In TypeScript, `SPACE[16]` remains the raw reference value and `SPACING[300]` references it. Components use shared `rds.space.*` tokens.\n\n## 2. Density\n\n- **Regular** is the default. **Spacious** is optional where useful. **Compact is removed as a named density**.\n- **One-step adjustment rule:** To make a component more compact, decrease each spacing token used in its recipe by **one step** on the listed scale (not by arithmetic on token indexes); to make it more spacious, increase each by **one step** (e.g. `12px → 16px`). Apply this when defining and reviewing component recipes, not as an automatic global change. Preserve touch targets and other usability requirements.\n- Density applies deliberately to eligible components, collections, or containers; it does **not** automatically affect nested controls.\n- Not every component needs both densities. Spacious does not automatically change component sizes, font sizes, or line-heights.\n\n## 3. Usage and responsive behavior\n\n- **Internal spacing:** Component specifications choose padding and gap values from the shared scale, which aliases the reference values.\n- **Layout spacing:** Smaller gaps group related content; larger gaps separate independent regions.\n- **Reading-paragraph exception:** Consecutive paragraphs in reading content use the text-relative `1em` recipe documented in [Typography](Typography.md#reading-paragraph-spacing). This does not change the fixed spacing scale or interface-element gaps.\n- **Responsive:** Primitive values stay fixed. A component or layout may switch between approved values based on available space; prefer container context when practical. Do not create separate mobile/desktop scales.\n- **Fluid spacing:** No global `rds.space.fluid` token. A documented layout recipe may use `clamp()` for exceptional page-level needs (e.g. gutters), with approved scale values as endpoints. Ordinary component spacing stays token-based.\n- **Accessibility:** Let content grow and reflow under text zoom; maintain usable touch targets and appropriate safe-area spacing.\n- **Rahino visual direction:** In mostly borderless interfaces, use spacing, typography, and subtle surface contrast for hierarchy without making data-heavy screens unnecessarily spacious.\n\n## 4. Token architecture\n\n- **Spacing foundation (`Spacing.ts`):** Defines **17 reference tokens** in `SPACE` and **17 shared aliases** in `SPACING`. All physical values are unchanged.\n- **Shared layer:** `rds.space.*` uses the Spectrum indexes above and explicitly aliases `ref.space.*`. Keep reference names tied to physical sizes and shared indexes tied to the approved scale.\n- **Component specifications:** Reuse the shared spacing layer first. Define component-specific aliases, density recipes, and component sizing rules **as each component is created and validated**, not in advance.\n\n## 5. Naming migration\n\nThe previous raw `rds.space.<px>` names move to `ref.space.<px>`. Shared tokens now use `rds.space.<Spectrum index>`; the earlier `rds.spacing.300` alias is superseded by `rds.space.300`. See the complete [old → new mapping](master-tokens/Spacing-Migration.md). These public token/CSS renames require consumer migration before release. The existing TypeScript `SPACE` and `SPACING` export names are retained.\n"
+    },
+    "Spacing.ts": {
+      "sha256": "bd06afb0d52cac192c054621c2542a5e5dee4304acfaf512b260aae77f8a289d",
+      "text": "/**\n * Rahino Design System — Spacing foundations\n *\n * Source: Spacing.md\n * Reference: Adobe Spectrum 2 layout spacing principles.\n *\n * Reference: ref.space.16 -> --ref-space-16 -> 16px.\n * Shared: rds.space.300 -> --rds-space-300 -> {ref.space.16}.\n * Reference and shared spacing use the standard ref and rds layer prefixes.\n * Reference names state their physical size; shared indexes are scale labels.\n *\n * This foundation defines 17 reference values and 17 shared aliases. Positive\n * indexes follow Spectrum; index 0 preserves Rahino's zero-spacing reset.\n * Components use shared aliases; component-specific aliases, density\n * recipes and sizing rules are defined when their components are approved.\n *\n * Supported density modes: Regular (default) and Spacious (opt-in where useful).\n * Compact is removed; not every component needs both modes. Density must not\n * automatically resize nested controls, typography, or line-height.\n *\n * Responsive components select different existing tokens when needed,\n * preferably based on container space. Don't scale all spacing automatically\n * or create mobile/desktop primitive scales. Exceptional fluid page-level\n * calculations may use clamp() in a documented layout recipe; no global\n * fluid-spacing token is defined.\n *\n * JSDoc documents the intended contract; this file is not a DTCG registry.\n */\n\n/**\n * @family ref.space\n * @layer reference\n * @usage Fixed spacing reference values used by shared aliases and recipes.\n * @rules Select an existing value by relationship and available space.\n *        1px and 2px are exceptional optical/fine adjustments, not standard\n *        layout gaps. Add values only when a real use case justifies them.\n * @avoid Arbitrary in-between values in ordinary component spacing.\n */\nexport const SPACE = {\n  /** @token ref.space.0  @usage No spacing / explicitly reset a gap. */\n  0: \"0px\",\n  /** @token ref.space.1  @usage Exceptional optical adjustment only. */\n  1: \"1px\",\n  /** @token ref.space.2  @usage Very small internal adjustment only. */\n  2: \"2px\",\n  /** @token ref.space.4  @usage Closely related labels and details. */\n  4: \"4px\",\n  /** @token ref.space.6  @usage Fine internal component spacing. */\n  6: \"6px\",\n  /** @token ref.space.8  @usage Icon–label and other related-element gaps. */\n  8: \"8px\",\n  /** @token ref.space.12 @usage Small component or group gaps. */\n  12: \"12px\",\n  /** @token ref.space.16 @usage Independent fields and small containers. */\n  16: \"16px\",\n  /** @token ref.space.20 @usage Intermediate internal padding. */\n  20: \"20px\",\n  /** @token ref.space.24 @usage Standard panels and content groups. */\n  24: \"24px\",\n  /** @token ref.space.32 @usage Spacious panels and major groups. */\n  32: \"32px\",\n  /** @token ref.space.40 @usage Larger layout separation. */\n  40: \"40px\",\n  /** @token ref.space.48 @usage Page sections. */\n  48: \"48px\",\n  /** @token ref.space.56 @usage Larger section separation. */\n  56: \"56px\",\n  /** @token ref.space.64 @usage Major layout regions. */\n  64: \"64px\",\n  /** @token ref.space.80 @usage Large-scale composition. */\n  80: \"80px\",\n  /** @token ref.space.96 @usage Exceptional large layouts. */\n  96: \"96px\",\n} as const;\n\n/**\n * @family rds.space\n * @layer shared\n * Spectrum global spacing indexes, backed by ref.space.<px> references.\n * Index 0 is Rahino's reset extension; it is not in Spectrum's positive scale.\n */\nexport const SPACING = {\n  /** @token rds.space.0 @layer shared @alias ref.space.0 @usage Remove spacing. */\n  0: SPACE[0],\n  /** @token rds.space.25 @layer shared @alias ref.space.1 @usage Exceptional optical adjustments. */\n  25: SPACE[1],\n  /** @token rds.space.50 @layer shared @alias ref.space.2 @usage Very small internal adjustments. */\n  50: SPACE[2],\n  /** @token rds.space.75 @layer shared @alias ref.space.4 @usage Tight label relationships. */\n  75: SPACE[4],\n  /** @token rds.space.85 @layer shared @alias ref.space.6 @usage Fine component spacing. */\n  85: SPACE[6],\n  /** @token rds.space.100 @layer shared @alias ref.space.8 @usage Icon-label gaps, related elements. */\n  100: SPACE[8],\n  /** @token rds.space.200 @layer shared @alias ref.space.12 @usage Small component and group gaps. */\n  200: SPACE[12],\n  /** @token rds.space.300 @layer shared @alias ref.space.16 @usage Fields, small containers. */\n  300: SPACE[16],\n  /** @token rds.space.350 @layer shared @alias ref.space.20 @usage Intermediate padding. */\n  350: SPACE[20],\n  /** @token rds.space.400 @layer shared @alias ref.space.24 @usage Standard containers, content groups. */\n  400: SPACE[24],\n  /** @token rds.space.500 @layer shared @alias ref.space.32 @usage Spacious containers, major groups. */\n  500: SPACE[32],\n  /** @token rds.space.600 @layer shared @alias ref.space.40 @usage Larger layout separation. */\n  600: SPACE[40],\n  /** @token rds.space.700 @layer shared @alias ref.space.48 @usage Page sections. */\n  700: SPACE[48],\n  /** @token rds.space.750 @layer shared @alias ref.space.56 @usage Larger section separation. */\n  750: SPACE[56],\n  /** @token rds.space.800 @layer shared @alias ref.space.64 @usage Major layout regions. */\n  800: SPACE[64],\n  /** @token rds.space.900 @layer shared @alias ref.space.80 @usage Large-scale composition. */\n  900: SPACE[80],\n  /** @token rds.space.1000 @layer shared @alias ref.space.96 @usage Exceptional large layouts. */\n  1000: SPACE[96],\n} as const;\n"
+    },
+    "Typography.md": {
+      "sha256": "f83f81ba668bfa8c88fa9722cce1d5f1122e97a817168a9599b0e8ba835a3ec5",
+      "text": "# Typography\n\nRahino uses one semantic typography scale across desktop, tablet, and mobile. Choose a **role based on content and available space**, not on the device. A role includes size, weight, and line-height; do not combine those values manually.\n\n## Fonts\n\n| Content        | Font                 | Decision                                                                            |\n| -------------- | -------------------- | ----------------------------------------------------------------------------------- |\n| Persian        | **IRANYekanX**       | Primary Persian typeface                                                            |\n| English        | **Roboto Condensed** | Same size, weight, and line-height as Persian. Its denser character is intentional. |\n| Technical text | System monospace     | Only for code and technical literals                                                |\n\n**Available fonts:** IRANYekanX supports weights 400–800 (600 = DemiBold); Roboto Condensed is variable (100–900). Use real font weights, not browser-synthesized bold.\n\n## Typography tokens\n\nAll line-heights are unitless multipliers, identical for Persian and English. For Figma, multiply by 100 (`1.8` = `180%`). Token names use the `rds.type` prefix.\n\n| Token             | Size          | Weight | Profile | Persian line-height | English line-height | Use for                                                                     | Avoid for                                                      |\n| ----------------- | ------------- | -----: | ------- | ------------------: | ------------------: | --------------------------------------------------------------------------- | -------------------------------------------------------------- |\n| `caption-sm`      | 12px          |    400 | UI      |                 1.8 |                 1.8 | Optional timestamps, update notes, minor chart metadata                     | Required information, errors, actions                          |\n| `caption-md`      | 14px          |    400 | UI      |                 1.8 |                 1.8 | Secondary metadata, card bylines, dates and status details                  | Main content or interactive labels                             |\n| `ui-sm`           | 14px          |    400 | UI      |                 1.8 |                 1.8 | Compact list details, table cells, filter values, short secondary UI text   | Paragraphs or primary mobile actions                           |\n| `ui-md`           | 16px          |    400 | UI      |                 1.8 |                 1.8 | Primary menu text, navigation items, list content and selection values      | Headings or long-form reading                                  |\n| `label-sm`        | 14px          |    500 | UI      |                 1.8 |                 1.8 | Compact buttons, chips, column labels, small/medium control labels          | Long explanations or prominent mobile CTAs                     |\n| `label-md`        | 16px          |    500 | UI      |                 1.8 |                 1.8 | Form labels, primary buttons, tabs and prominent touch controls             | Paragraphs and decorative headings                             |\n| `body-sm`         | 14px          |    400 | Reading |                1.95 |                1.95 | Multi-line help text, validation explanations, supporting descriptions      | Short table values or buttons                                  |\n| `body-md`         | 16px          |    400 | Reading |                1.95 |                1.95 | Default paragraphs, guides, reports and dialog explanations                 | Dense list rows or control labels                              |\n| `body-lg`         | 18px          |    400 | Reading |                1.95 |                1.95 | Short introductions, onboarding leads and prominent explanatory text        | Long mobile paragraphs or compact cards                        |\n| `title-sm`        | 16px          |    600 | Heading |                 1.7 |                 1.7 | Task/card titles, list-item names, small groups and compact mobile headings | Main page titles                                               |\n| `title-md`        | 20px          |    600 | Heading |                 1.7 |                 1.7 | Dialogs, sheets, panels, large cards and roomy KPI values                   | Repeated dense rows or narrow KPI columns                      |\n| `heading-section` | 24px          |    600 | Heading |                 1.7 |                 1.7 | Main page sections and substantial report sections                          | Small cards, mobile dialogs or every subsection                |\n| `heading-page`    | 24–32px fluid |    700 | Heading |                 1.7 |                 1.7 | Primary page title, normally once per page                                  | Card, sheet or nested section titles                           |\n| `display`         | 32–64px fluid |    700 | Display |                 1.6 |                 1.6 | Marketing heroes, welcome screens and expressive product moments            | Routine app screens, forms or dashboards                       |\n| `input-touch`     | 16px          |    400 | UI      |                 1.8 |                 1.8 | Editable input values and placeholders on touch devices                     | Input labels, hints or buttons                                 |\n| `code`            | 14px          |    400 | Fixed   |                 1.6 |                 1.6 | Standalone code, commands and technical snippets (LTR)                      | Regular UI copy; inline code should inherit parent line-height |\n\n**Profiles:** `UI` = short interface text and controls · `Reading` = multi-line prose · `Heading` = structural titles · `Display` = expressive large text · `Fixed` = code only.\n\n## Applying the approved fonts\n\nThe base `TYPOGRAPHY` export keeps the shared role metrics. Use `TYPOGRAPHY_BY_SCRIPT` from Typography.ts when a complete style with an explicit font family is needed:\n\n| Content | Complete-style selection | Font binding |\n| --- | --- | --- |\n| Persian | `TYPOGRAPHY_BY_SCRIPT.fa[role]` | `rds.font.family.fa` |\n| English | `TYPOGRAPHY_BY_SCRIPT.latin[role]` | `rds.font.family.latin` |\n| Standalone code in either context | `TYPOGRAPHY_BY_SCRIPT.fa.code` or `TYPOGRAPHY_BY_SCRIPT.latin.code` | `rds.font.family.code` |\n\nAll 16 roles are available in both selections. These styles are derived from the existing role definitions and font tokens, so font size, weight, line-height, profile and fluid-heading formulas stay the same. The existing explicit code-font override takes precedence over the surrounding language.\n\nChoose the content-script selection explicitly; these exports do not inspect text or choose RTL/LTR direction. For mixed text, apply the appropriate font to each language run while preserving its parent role metrics. Inline code continues to inherit its parent size and line-height; the standalone code role is not an inline-code reset. Font assets must still be loaded by the consuming application. No letter-spacing adjustment is introduced by this binding.\n\n## Direction and mixed-language text\n\nPersian and RTL are the default. Use logical `start`/`end` for placement and keep DOM, reading and keyboard order consistent. **Font selection follows the script, not text direction.**\n\n| Content            | Rule                                                                                                                      |\n| ------------------ | ------------------------------------------------------------------------------------------------------------------------- |\n| Persian            | RTL; align to `start`. No justification, manual Kashida or decorative letter spacing.                                     |\n| Standalone English | LTR; use Roboto Condensed.                                                                                                |\n| Mixed text         | Follow the main language's direction; isolate numbers, URLs, emails and technical identifiers where needed.               |\n| User input         | Use the appropriate direction (such as `dir=\"auto\"`); preserve what the user typed.                                       |\n| Numbers and tables | Display Persian digits except in technical literals. Right-align amount columns without switching the whole table to LTR. |\n| Icons and charts   | Mirror only direction-dependent icons; do not automatically flip logos, media controls or time axes.                      |\n\n## Responsive behavior\n\nThe **same tokens** apply at all widths. Only page and display headings change size fluidly; layout, wrapping, and role selection handle smaller screens.\n\n| Token          | CSS size                                              | Range   |\n| -------------- | ----------------------------------------------------- | ------- |\n| `heading-page` | `clamp(1.5rem, calc(1.357143rem + 0.714286vw), 2rem)` | 24–32px |\n| `display`      | `clamp(2rem, calc(1.428571rem + 2.857143vw), 4rem)`   | 32–64px |\n\n| Mobile situation                 | Recommended choice                                                             |\n| -------------------------------- | ------------------------------------------------------------------------------ |\n| Task or list card                | `title-sm` + `ui-sm`; `caption-md` for secondary metadata                      |\n| Form or bottom sheet             | `title-md` + `label-md` + `input-touch`; `body-sm` for help/error explanations |\n| Primary page header              | `heading-page`; allow wrapping and shorten the title where possible            |\n| Sections inside compact screens  | Prefer `title-md`; reserve `heading-section` for major sections                |\n| Two-column KPI with long numbers | Use `title-sm` or move to one column; do not shrink text arbitrarily           |\n| Long-form content                | `body-md` on every screen, with flexible text containers                       |\n| Marketing or onboarding          | `display` only where its height will not obstruct the main action              |\n\n## Usage rules\n\n- **Hierarchy:** Use the defined typography roles. Make text bold only when it needs emphasis. `caption-md` is for metadata; `ui-sm` is for short interface text.\n- **Legibility:** Keep essential UI text at **14px or larger**. Reserve 12px for optional metadata. Touch inputs remain 16px; touch-target size is controlled by the component, not the font size.\n- **Text behavior:** Wrap important text and allow components to grow. Never reduce font size to force a label into one line or clip required content inside a fixed-height control.\n- **Mixed-script typography:** Inline English inherits its parent size and line-height; code uses LTR direction.\n- **Reading width:** Use `rds.type.layout.measure.reading`, a maximum of `42rem` (672px at a 16px root). Let the text column fill available space and shrink below the cap on narrow containers. Wider page layouts use the same reading cap. The previous 48rem allowance is retired. The legacy `rds.type.layout.measure.wide` name temporarily aliases `reading`; it is not a separate wider preset.\n- **Reading paragraphs:** Use `1em` only between consecutive paragraphs in reading content, such as articles, reports and multi-paragraph help text. The gap follows the paragraph font size: 16px text gets a 16px gap; 18px text gets an 18px gap. This is paragraph separation, not line-height or a general interface-gap rule.\n- **Interface spacing:** Fields, cards, labels and sections use the existing shared spacing scale. Keep the approved text-layout relationships: `8px` (`rds.space.100`) between a title and its description, and `16px` (`rds.space.300`) between a section heading and its content. Apply spacing through the layout/text recipe, not implicit margins in every typography role.\n- **Accessibility:** Text must stay visible when the screen is narrow (320px), the text is doubled in size (200%), or users increase text spacing. Allow wrapping and growth; never clip or overlap content. Use heading levels (`h1`–`h6`) in the correct order.\n\n### Reading paragraph spacing\n\nKeep `rds.type.layout.gap.paragraph` / `TEXT_LAYOUT.gap.paragraph` as the existing `1em` CSS recipe. Apply the separation once between adjacent reading paragraphs, in the paragraphs' font-size context. A wrapper's `gap: 1em` follows the wrapper font size, so it represents this rule only when that matches the paragraphs. Do not add the gap automatically after every text element, use it for interface-element gaps, or replace it with a fixed 16px value.\n\nThis is an explicit text-relative recipe exception to the px spacing-scale policy. Store its proportional rule outside ordinary DTCG dimension tokens; preserve the existing export name and CSS behavior. [USWDS typography guidance](https://designsystem.digital.gov/components/typography/#whitespace) supports em-based paragraph separation. Check the result with the approved Persian and English fonts; the unit alone does not establish readability.\n\nAllow users to override paragraph spacing to at least twice the font size without losing content or functionality. This is an adaptability check, not a requirement to set the default gap to `2em`. See [WCAG Text Spacing](https://www.w3.org/WAI/WCAG22/Understanding/text-spacing).\n\n## Responsive layout check\n\nA browser-based fixture tested task cards, financial KPIs, a form, reading content and headings with the current values. Fonts were **substitutes**, not the production IRANYekanX/Roboto Condensed, so this verifies layout behavior only—not final glyph rendering or readability with real users.\n\n| Test                      | Observation                                                                                     | Design implication                                                    |\n| ------------------------- | ----------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |\n| 320px viewport            | Sample task card ~211px high; long section heading 3 lines; narrow KPI value wraps              | Avoid large headings within compact cards; adapt KPI columns          |\n| 360–390px                 | Same task card ~158px; KPI fits one line in the tested fixture                                  | Reflow and component width matter as much as token choice             |\n| 200% text-size simulation | No document-level horizontal overflow in flexible fixtures; content became substantially taller | Do not use fixed-height text containers; validate each real component |\n\n**Experimental comparison (not adopted):** Changing UI line-height from `1.8` to `1.65` and heading from `1.7` to `1.5` reduced the sample 320px task card from ~211px to ~193px. This is a geometry result only; test the actual fonts and reading comfort before considering any value change.\n\n**Status:** The token roles and mobile usage guidance above are recommended. This is not a production-app audit or a human readability study. Before release, check real fonts at 320/360/390px in Persian, English and mixed text, including forms, tables, dialogs and text enlargement.\n\n## References\n\n- [Adobe Spectrum — Typography](https://spectrum.adobe.com/foundations/typography/typography-system)\n- [Atlassian — Applying typography](https://atlassian.design/foundations/typography/applying-typography)\n- [Material 3 — Type scale](https://developer.android.com/develop/ui/compose/designsystems/material3)\n- [WCAG — Reflow](https://www.w3.org/WAI/WCAG21/Understanding/reflow) and [Text Spacing](https://www.w3.org/WAI/WCAG22/Understanding/text-spacing)\n"
+    },
+    "Typography.ts": {
+      "sha256": "cd34c40191fd74af768343a019f51b8a9b1eee9493977ca0fd767a59b5066cf1",
+      "text": "/**\n * Rahino Design System — Typography foundations (review-ready source)\n *\n * Source: Rahino-Typography.md (current documented decisions).\n * Naming: rds.type.caption-sm -> --rds-type-caption-sm-* (size/weight/line-height).\n *\n * One semantic scale for desktop, tablet and phone. Only heading-page and\n * display use fluid font sizes. Choose a role for the content and available\n * space, not a separate mobile font-size set.\n *\n * Persian uses IRANYekanX; English uses Roboto Condensed. The English font\n * deliberately looks denser, but BOTH languages use the exact same size,\n * weight and line-height for each role. Mixed-script content inherits the\n * parent role's metrics; only the font family changes with the script.\n *\n * Scope: documented foundation values and usage contracts, not a CSS generator\n * or a DTCG-compliant token registry. Check the implementation against the\n * approved typography documentation before publication.\n */\n\n/** Language-specific font stacks. No language-specific typography scale. */\nexport const FONT_FAMILY = {\n  /**\n   * @token rds.font.family.fa\n   * @usage Persian interface text, paragraphs and headings.\n   */\n  fa: \"IRANYekanX, sans-serif\",\n\n  /**\n   * @token rds.font.family.latin\n   * @usage English text, with the same role metrics as Persian.\n   * @note Roboto Condensed's denser appearance is intentional.\n   */\n  latin: '\"Roboto Condensed\", sans-serif',\n\n  /**\n   * @token rds.font.family.code\n   * @usage Standalone code, commands and technical literals only.\n   * @avoid Regular interface text or decorative headlines.\n   */\n  code: \"ui-monospace, SFMono-Regular, Consolas, monospace\",\n} as const;\n\n/** Only the semantic weights used by the current typography roles. */\nexport const FONT_WEIGHT = {\n  /** @token rds.font.weight.regular @usage Body, UI text and captions. */\n  regular: 400,\n  /** @token rds.font.weight.medium @usage Labels and control text. */\n  medium: 500,\n  /** @token rds.font.weight.semibold @usage Titles and section headings. */\n  semibold: 600,\n  /** @token rds.font.weight.bold @usage Page headings and display text. */\n  bold: 700,\n} as const;\n\n/**\n * @family rds.type.line-height\n * Shared Persian/English unitless multipliers. In Figma, 1.8 means 180%.\n * A profile expresses text behavior; the complete semantic role is the token\n * that the component should consume.\n */\nexport const LINE_HEIGHT = {\n  /** @token rds.type.line-height.ui @usage Short interface text and controls. */\n  ui: 1.8,\n  /** @token rds.type.line-height.reading @usage Multi-line reading content. */\n  reading: 1.95,\n  /** @token rds.type.line-height.heading @usage Structural headings and titles. */\n  heading: 1.7,\n  /** @token rds.type.line-height.display @usage Expressive large text. */\n  display: 1.6,\n  /** @token rds.type.line-height.fixed @usage Standalone code only. */\n  fixed: 1.6,\n} as const;\n\nexport type TypographyProfile = keyof typeof LINE_HEIGHT;\n\nexport interface TypographyStyle {\n  fontSize: string; // rem or clamp(); responsive to root font size\n  fontWeight: number;\n  lineHeight: number; // unitless, identical in Persian and English\n  profile: TypographyProfile;\n  fontFamily?: string; // only overridden for standalone code\n}\n\nconst style = (\n  fontSize: string,\n  fontWeight: number,\n  profile: TypographyProfile,\n): TypographyStyle => ({\n  fontSize,\n  fontWeight,\n  lineHeight: LINE_HEIGHT[profile],\n  profile,\n});\n\n/**\n * @family rds.type\n * Each semantic token resolves size + weight + line-height together.\n * Base definitions retain their existing API. Use TYPOGRAPHY_BY_SCRIPT to\n * bind the approved font family to the content script; do not independently\n * change metrics for English or smaller screens.\n * @rules No fixed-height clipping. Keep essential UI text >=14px at a 16px\n *        root; 12px captions are for optional information only.\n */\nexport const TYPOGRAPHY = {\n  /**\n   * @token rds.type.caption-sm\n   * @usage Optional timestamps, update notes and minor chart metadata.\n   * @avoid Essential information, errors and interactive actions.\n   */\n  \"caption-sm\": style(\"0.75rem\", FONT_WEIGHT.regular, \"ui\"),\n\n  /**\n   * @token rds.type.caption-md\n   * @usage Secondary metadata, card bylines, dates and status details.\n   * @avoid Main content and interactive labels.\n   */\n  \"caption-md\": style(\"0.875rem\", FONT_WEIGHT.regular, \"ui\"),\n\n  /**\n   * @token rds.type.ui-sm\n   * @usage Compact lists, table cells, filter values and short secondary UI text.\n   * @avoid Paragraphs and primary mobile actions.\n   */\n  \"ui-sm\": style(\"0.875rem\", FONT_WEIGHT.regular, \"ui\"),\n\n  /**\n   * @token rds.type.ui-md\n   * @usage Main navigation, menu items, list content and selection values.\n   * @avoid Headings and long-form paragraphs.\n   */\n  \"ui-md\": style(\"1rem\", FONT_WEIGHT.regular, \"ui\"),\n\n  /**\n   * @token rds.type.label-sm\n   * @usage Compact buttons, chips, column labels and small/medium controls.\n   * @avoid Long descriptions and prominent mobile calls to action.\n   */\n  \"label-sm\": style(\"0.875rem\", FONT_WEIGHT.medium, \"ui\"),\n\n  /**\n   * @token rds.type.label-md\n   * @usage Form labels, primary buttons, tabs and prominent touch controls.\n   * @avoid Paragraphs and decorative headings.\n   */\n  \"label-md\": style(\"1rem\", FONT_WEIGHT.medium, \"ui\"),\n\n  /**\n   * @token rds.type.body-sm\n   * @usage Multi-line help, validation explanations and supporting descriptions.\n   * @avoid Short table values and control labels.\n   */\n  \"body-sm\": style(\"0.875rem\", FONT_WEIGHT.regular, \"reading\"),\n\n  /**\n   * @token rds.type.body-md\n   * @usage Default paragraphs, guides, reports and dialog explanations.\n   * @avoid Dense rows, menu labels and button text.\n   */\n  \"body-md\": style(\"1rem\", FONT_WEIGHT.regular, \"reading\"),\n\n  /**\n   * @token rds.type.body-lg\n   * @usage Short introductions, onboarding leads and prominent explanations.\n   * @avoid Long mobile paragraphs and compact cards.\n   */\n  \"body-lg\": style(\"1.125rem\", FONT_WEIGHT.regular, \"reading\"),\n\n  /**\n   * @token rds.type.title-sm\n   * @usage Task/card titles, list-item names and compact mobile group headings.\n   * @avoid The main page title.\n   */\n  \"title-sm\": style(\"1rem\", FONT_WEIGHT.semibold, \"heading\"),\n\n  /**\n   * @token rds.type.title-md\n   * @usage Dialogs, sheets, panels, large cards and roomy KPI values.\n   * @avoid Repeated dense rows and narrow KPI columns.\n   */\n  \"title-md\": style(\"1.25rem\", FONT_WEIGHT.semibold, \"heading\"),\n\n  /**\n   * @token rds.type.heading-section\n   * @usage Major page sections and substantial report sections.\n   * @avoid Small cards, mobile dialogs and minor subsections;\n   *        use title-md for compact section headers.\n   */\n  \"heading-section\": style(\"1.5rem\", FONT_WEIGHT.semibold, \"heading\"),\n\n  /**\n   * @token rds.type.heading-page\n   * @usage Primary page heading, normally once per page. Fluid 24–32px\n   *        at a 16px root; allow wrapping on small screens.\n   * @avoid Card, sheet and nested-section titles.\n   */\n  \"heading-page\": style(\n    \"clamp(1.5rem, calc(1.357143rem + 0.714286vw), 2rem)\",\n    FONT_WEIGHT.bold,\n    \"heading\",\n  ),\n\n  /**\n   * @token rds.type.display\n   * @usage Marketing heroes, welcome screens and expressive moments.\n   *        Fluid 32–64px at a 16px root.\n   * @avoid Everyday dashboards, forms and routine app pages.\n   */\n  display: style(\n    \"clamp(2rem, calc(1.428571rem + 2.857143vw), 4rem)\",\n    FONT_WEIGHT.bold,\n    \"display\",\n  ),\n\n  /**\n   * @token rds.type.input-touch\n   * @usage Editable field values and placeholders on touch devices;\n   *        remains 16px across screen sizes.\n   * @avoid Input labels, helper text and buttons.\n   */\n  \"input-touch\": style(\"1rem\", FONT_WEIGHT.regular, \"ui\"),\n\n  /**\n   * @token rds.type.code\n   * @usage Standalone code snippets, commands and technical literals in LTR.\n   * @avoid General copy. Inline code inherits parent line-height.\n   */\n  code: {\n    ...style(\"0.875rem\", FONT_WEIGHT.regular, \"fixed\"),\n    fontFamily: FONT_FAMILY.code,\n  },\n} as const satisfies Record<string, TypographyStyle>;\n\nexport type TypographyRole = keyof typeof TYPOGRAPHY;\n\ntype ResolvedTypographyStyles = Readonly<Record<\n  TypographyRole,\n  TypographyStyle & { fontFamily: string }\n>>;\n\n// Derive complete styles without copying metrics or language-specific scales.\n// Existing explicit font overrides (standalone code) take precedence.\nconst withFontFamily = (fontFamily: string): ResolvedTypographyStyles =>\n  Object.fromEntries(\n    Object.entries(TYPOGRAPHY).map(([role, definition]) => [\n      role,\n      { ...definition, fontFamily: definition.fontFamily ?? fontFamily },\n    ]),\n  ) as ResolvedTypographyStyles;\n\n/**\n * Complete styles bound to the approved content-script font selection.\n * Use TYPOGRAPHY_BY_SCRIPT.fa[role] for Persian and .latin[role] for English.\n * All role metrics are inherited unchanged from TYPOGRAPHY; code stays mono.\n * This does not detect scripts or change direction. Select the appropriate\n * style for each text run; inline language changes keep their parent metrics.\n */\nexport const TYPOGRAPHY_BY_SCRIPT = {\n  fa: withFontFamily(FONT_FAMILY.fa),\n  latin: withFontFamily(FONT_FAMILY.latin),\n} as const;\n\nconst READING_MEASURE = \"42rem\" as const;\n\n/**\n * @family rds.type.layout\n * Reading measure and approved text-layout relationships. Apply via reading\n * and interface recipes, not implicit margins inside TYPOGRAPHY roles.\n * The paragraph recipe applies only to consecutive reading paragraphs;\n * ordinary interface-element gaps use shared spacing tokens.\n */\nexport const TEXT_LAYOUT = {\n  measure: {\n    /** @token rds.type.layout.measure.reading @usage Single maximum for long-form text; shrink to available width. */\n    reading: READING_MEASURE,\n    /**\n     * @token rds.type.layout.measure.wide\n     * @alias rds.type.layout.measure.reading\n     * @usage Compatibility alias only; not a separate wider reading preset.\n     * @deprecated Use measure.reading. Remove in the next breaking release\n     *             after external consumer migration is verified; no new usage.\n     */\n    wide: READING_MEASURE,\n  },\n  gap: {\n    /**\n     * @token rds.type.layout.gap.paragraph\n     * @usage Between consecutive paragraphs in reading content only.\n     * @representation CSS recipe; 1em follows the paragraph font size.\n     * @rules Apply once between adjacent paragraphs, in their font-size context.\n     *        Use shared spacing tokens for interface-element gaps.\n     *        Preserve user spacing overrides; do not freeze this to 16px.\n     */\n    paragraph: \"1em\",\n    /** @token rds.type.layout.gap.title-description @usage Title to description. */\n    \"title-description\": \"8px\",\n    /** @token rds.type.layout.gap.section-content @usage Section title to its content. */\n    \"section-content\": \"16px\",\n  },\n} as const;\n\n/**\n * Implementation notes:\n * - Persian: letter-spacing: 0; text-align: start. Code: direction: ltr.\n * - Keep English and Persian at the SAME line-height and font size.\n * - On phone, select suitable roles and responsive layouts; do not shrink fonts.\n * - Use semantic HTML heading order independently of visual typography role.\n * - At 320 CSS px, with text at 200% and user text-spacing overrides, text\n *   must wrap or containers grow instead of clipping/overlapping content.\n * - Experimental tighter profile values are NOT adopted.\n */\n"
+    },
+    "Veil & Shadow.md": {
+      "sha256": "40be13b917f34a0179264883ba8e18855d98a5341a8d7ae4c2d1c2668e71f45a",
+      "text": "# RDS — Veil & Shadow Foundations\n\nVeil creates **translucency and background blur**. Shadow creates **visual elevation**. They are separate systems: a component may use either, both, or neither, depending on its behavior.\n\n## Veil tokens\n\nEach veil **group** contains two tokens: `.color` is a theme-specific fill with alpha already included; `.blur` is a backdrop-blur dimension. Higher levels are more opaque and use less blur. A group organizes the two settings; it is not itself a token.\n\n| Group            | Role        | Light           | Dark            | Blur | Recommended use                                                 |\n| ---------------- | ----------- | --------------- | --------------- | ---- | --------------------------------------------------------------- |\n| `rds.veil.100`   | Atmospheric | `#FFFFFF / 4%`  | `#2B2B2B / 4%`  | 64px | Decorative glass and background effects                         |\n| `rds.veil.200`   | Ambient     | `#FFFFFF / 18%` | `#252525 / 18%` | 48px | Atmospheric overlays and floating layers                        |\n| `rds.veil.300`   | Lightweight | `#FFFFFF / 52%` | `#1A1918 / 56%` | 36px | Short labels and simple panels on controlled backgrounds        |\n| `rds.veil.400`   | Functional  | `#FFFFFF / 72%` | `#1A191B / 76%` | 24px | Floating toolbars, flyouts, dropdowns, popovers                 |\n| `rds.veil.500`   | Focused     | `#FFFFFF / 92%` | `#1A191B / 92%` | 16px | Content-rich floating panels, expanded navigation, glass modals |\n| `rds.veil.scrim` | Scrim       | `#140C11 / 52%` | `#2B2529 / 52%` | 24px | Blurred backdrop **behind** floating modals                     |\n\n### Public token paths\n\n| Group            | Color token            | Blur token            |\n| ---------------- | ---------------------- | --------------------- |\n| `rds.veil.100`   | `rds.veil.100.color`   | `rds.veil.100.blur`   |\n| `rds.veil.200`   | `rds.veil.200.color`   | `rds.veil.200.blur`   |\n| `rds.veil.300`   | `rds.veil.300.color`   | `rds.veil.300.blur`   |\n| `rds.veil.400`   | `rds.veil.400.color`   | `rds.veil.400.blur`   |\n| `rds.veil.500`   | `rds.veil.500.color`   | `rds.veil.500.blur`   |\n| `rds.veil.scrim` | `rds.veil.scrim.color` | `rds.veil.scrim.blur` |\n\nFor example, `rds.veil.400` is the Functional group; apply `rds.veil.400.color` as `background-color` and `rds.veil.400.blur` as the `backdrop-filter` blur radius. CSS variable names are `--rds-veil-400-color` and `--rds-veil-400-blur`.\n\n**Veil rules**\n\n- Apply the color as `background-color` and blur as `backdrop-filter: blur(...)`. Opacity is already in the color; **do not** set CSS `opacity` on the whole component.\n- Use `100–200` mainly for decoration; use `300` only on controlled backgrounds. Check contrast for readable or interactive content on `400–500`.\n- Provide an opaque fallback when blur is unavailable or transparency is reduced. Validate text, icons and controls against the actual background.\n- `rds.veil.scrim` is a **group** for a blurred scrim treatment. Its `rds.veil.scrim.color` token is separate from `rds.color.scrim.modal`; keep the treatments distinct.\n\n## Shadow tokens\n\nAll shadows use black, with `x = 0` and `spread = 0`. Only offset, blur and opacity change by level and theme.\n\n| Token           | Role                | Y / Blur    | Light opacity | Dark opacity | Recommended use                                                                                                |\n| --------------- | ------------------- | ----------- | ------------- | ------------ | -------------------------------------------------------------------------------------------------------------- |\n| `rds.shadow.sm` | Subtle elevation    | 2px / 6px   | 6%            | 14%          | Raised or hover cards, sticky headers/toolbars, specified buttons                                              |\n| `rds.shadow.md` | Contextual floating | 8px / 20px  | 10%           | 20%          | Menus, popovers, date pickers, autocomplete, tooltips, toasts                                                  |\n| `rds.shadow.lg` | Modal elevation     | 16px / 36px | 14%           | 26%          | Large navigation flyouts, modal and confirmation dialogs, expanded contextual panels, non-modal floating drawers |\n\n**Shadow rules**\n\n- **No shadow by default.** Ordinary cards, table rows, inputs and layout containers primarily use surface contrast and spacing.\n- Choose elevation by **behavior**, not size. A small dropdown can need `md`; a large static card can need none.\n- Use `lg` for modal and confirmation dialogs. It is the maximum shadow level for modal and non-modal elements. The scale contains only `sm`, `md` and `lg`.\n- Use **one shadow token per surface**; do not stack shadow levels.\n- **Shadow ≠ z-index:** shadow shows elevation; z-index sets stacking order.\n\n## Extension guidelines\n\n- Keep **veil** (`color` + `blur`) and **shadow** (`box-shadow`) as independent foundations. Combine them only in component recipes that need both.\n- Use the existing token levels before adding new ones; introduce a token only for a distinct, repeatable purpose.\n- Preserve light/dark pairs and document every new token with its use cases, exclusions and accessibility considerations.\n- Treat the TypeScript token definitions as the current value reference; generate CSS/Figma exports from a single canonical registry when established.\n"
+    },
+    "Veil.ts": {
+      "sha256": "145cb219709f76ce848bc0b70536d205e7c059704c39ea723d768993d434ee3d",
+      "text": "/**\n * Rahino Design System — Veil foundations (review-ready source)\n *\n * Canonical token paths:\n *   rds.veil.100.color   -> --rds-veil-100-color\n *   rds.veil.100.blur    -> --rds-veil-100-blur\n *   rds.veil.scrim.color -> --rds-veil-scrim-color\n *   rds.veil.scrim.blur  -> --rds-veil-scrim-blur\n *\n *\n * These are presentation treatments, not opaque semantic surfaces.\n * Use semantic text colors only after checking effective contrast against\n * the actual composited backdrop. Provide an opaque fallback when blur\n * is unsupported, in forced-colors mode, or in reduced-transparency mode.\n *\n *\n * JSDoc describes usage; production DTCG exports should define typed\n * color/blur values and derive CSS and Figma values from one registry.\n */\n\nexport type AppearanceName = \"light\" | \"dark\";\n\n/** Light/Dark projection used by the existing RDS foundations pattern. */\nexport interface Pair {\n  light: string;\n  dark: string;\n}\n\nconst pair = (light: string, dark: string): Pair => ({ light, dark });\n\n/** A paired translucent fill and backdrop blur, applied to the same layer. */\nexport interface VeilTreatment {\n  color: Pair;\n  blur: string;\n}\n\n/**\n * @family rds.veil\n * Translucent glass treatments ordered from atmospheric (100) to focused (500).\n * Higher numbers increase background opacity while reducing blur radius.\n *\n * Apply with background-color + backdrop-filter: blur(...).\n * Never use CSS opacity on the whole component: it fades its children too.\n * Shadows, foreground colors, and borders remain separate design decisions.\n */\nexport const VEIL = {\n  /**\n   * @group rds.veil.100\n   * @role Atmospheric\n   * @usage Decorative glass, subtle background effects, non-interactive layers.\n   * @avoid Content-bearing controls, tooltips, or overlays requiring readability.\n   */\n  \"100\": {\n    /** @token rds.veil.100.color @usage Background fill with alpha already included. */\n    color: pair(\"rgb(255 255 255 / 0.04)\", \"rgb(43 43 43 / 0.04)\"),\n    /** @token rds.veil.100.blur @usage Backdrop blur applied to the same layer. */\n    blur: \"64px\",\n  },\n\n  /**\n   * @group rds.veil.200\n   * @role Ambient\n   * @usage Background overlays and atmospheric floating layers.\n   * @avoid Essential UI, text-heavy panels, and standalone interactive controls.\n   */\n  \"200\": {\n    /** @token rds.veil.200.color @usage Background fill with alpha already included. */\n    color: pair(\"rgb(255 255 255 / 0.18)\", \"rgb(37 37 37 / 0.18)\"),\n    /** @token rds.veil.200.blur @usage Backdrop blur applied to the same layer. */\n    blur: \"48px\",\n  },\n\n  /**\n   * @group rds.veil.300\n   * @role Lightweight\n   * @usage Short labels, decorative panels, and simple overlays on controlled\n   *        backgrounds.\n   * @avoid Dense text or unpredictable, high-detail backgrounds without\n   *        verifying effective contrast.\n   */\n  \"300\": {\n    /** @token rds.veil.300.color @usage Background fill with alpha already included. */\n    color: pair(\"rgb(255 255 255 / 0.52)\", \"rgb(26 25 24 / 0.56)\"),\n    /** @token rds.veil.300.blur @usage Backdrop blur applied to the same layer. */\n    blur: \"36px\",\n  },\n\n  /**\n   * @group rds.veil.400\n   * @role Functional\n   * @usage Floating toolbars, navigation flyouts, dropdowns, and popovers.\n   * @avoid Assuming contrast is sufficient solely because opacity is higher.\n   * @a11y Check text, icons, focus rings, and control boundaries in context.\n   */\n  \"400\": {\n    /** @token rds.veil.400.color @usage Background fill with alpha already included. */\n    color: pair(\"rgb(255 255 255 / 0.72)\", \"rgb(26 25 27 / 0.76)\"),\n    /** @token rds.veil.400.blur @usage Backdrop blur applied to the same layer. */\n    blur: \"24px\",\n  },\n\n  /**\n   * @group rds.veil.500\n   * @role Focused\n   * @usage Content-rich floating panels, expanded navigation, and glass modals.\n   * @avoid Treating glass as a substitute for structural surface separation\n   *        or modal focus management.\n   * @a11y Validate text and interactive states over representative backdrops.\n   */\n  \"500\": {\n    /** @token rds.veil.500.color @usage Background fill with alpha already included. */\n    color: pair(\"rgb(255 255 255 / 0.92)\", \"rgb(26 25 27 / 0.92)\"),\n    /** @token rds.veil.500.blur @usage Backdrop blur applied to the same layer. */\n    blur: \"16px\",\n  },\n\n  /**\n   * @group rds.veil.scrim\n   * @role Scrim\n   * @usage Blurred background overlay behind floating modals.\n   * @avoid Placing over the modal content, using as a glass panel fill, or\n   *        silently aliasing to rds.color.scrim.modal.\n   * @a11y The modal must remain distinct and keyboard focus contained.\n   */\n  scrim: {\n    /** @token rds.veil.scrim.color @usage Background fill with alpha already included. */\n    color: pair(\"rgb(20 12 17 / 0.52)\", \"rgb(43 37 41 / 0.52)\"),\n    /** @token rds.veil.scrim.blur @usage Backdrop blur applied to the same layer. */\n    blur: \"24px\",\n  },\n} as const satisfies Record<string, VeilTreatment>;\n"
+    },
+    "layout.ts": {
+      "sha256": "17757afdc4dcc56e6f8ff3df44d25d062bef3ca46e3a5ca41fb769097e13a910",
+      "text": "/**\n * Rahino Design System — Layout foundations\n * Generated from master-tokens/shared.tokens.json. Do not edit values here.\n * Regenerate: node master-tokens/scripts/layout.mjs\n * Usage and composition rules: Layout.md.\n * Keep the root font size at 100%; breakpoints use rem.\n */\nimport { SPACING } from \"./Spacing.ts\";\n\n/** Inclusive lower bounds. Narrow is below medium; medium is below wide.\n * These are page-grid ranges, not universal component thresholds. */\nexport const BREAKPOINTS = {\n  /** @token rds.layout.breakpoint.medium */\n  medium: \"48rem\",\n  /** @token rds.layout.breakpoint.wide */\n  wide: \"64rem\",\n} as const;\n\n/** Main-content grid presets. Margins are minimums per side.\n * Width does not select density or resize typography and controls. */\nexport const PAGE_GRID = {\n  narrow: {\n    /** @token rds.layout.grid.narrow.columns */\n    columns: 4,\n    /** @token rds.layout.grid.narrow.gutter @alias rds.space.300 */\n    gutter: SPACING[300],\n    /** @token rds.layout.grid.narrow.margin @alias rds.space.300 */\n    margin: SPACING[300],\n  },\n  medium: {\n    /** @token rds.layout.grid.medium.columns */\n    columns: 8,\n    /** @token rds.layout.grid.medium.gutter @alias rds.space.400 */\n    gutter: SPACING[400],\n    /** @token rds.layout.grid.medium.margin @alias rds.space.400 */\n    margin: SPACING[400],\n  },\n  wide: {\n    /** @token rds.layout.grid.wide.columns */\n    columns: 12,\n    /** @token rds.layout.grid.wide.gutter @alias rds.space.400 */\n    gutter: SPACING[400],\n    /** @token rds.layout.grid.wide.margin @alias rds.space.500 */\n    margin: SPACING[500],\n  },\n} as const;\n\n/** Shared marketing/dashboard cap; excludes page margins and navigation.\n * Reading uses TEXT_LAYOUT.measure.reading from Typography.ts (42rem).\n * Tables/editors may use available width; forms have no universal cap. */\n/** @token rds.layout.content.max */\nexport const PAGE_MAX_WIDTH = \"1600px\";\n"
+    },
+    "Rahino-Resolver.md": {
+      "sha256": "168bafa81c2e0a9002beb71fc14969198615f85587cfd8963fb3e85a3c2bdd6c",
+      "text": "# Context selection\n\n**Approved foundation rules.** The executable selector is [context.mjs](master-tokens/scripts/context.mjs); its settings and enhanced-contrast mappings live in [context-policy.json](master-tokens/context-policy.json).\n\n| Setting | Rule |\n| --- | --- |\n| Appearance | Follow the operating system by default. An explicit app choice of light or dark overrides it. Use light when no system preference is available. |\n| Contrast | Handle separately from appearance. Native forced colors take priority and use system colors; otherwise an explicit standard/more choice overrides the system contrast preference. |\n| Enhanced contrast | Apply the five approved overrides for the selected appearance after shared and appearance tokens. Other roles keep their theme values and require component testing. |\n| Language | Select Persian (`fa`) or English (`latin`) explicitly per content run. The code role keeps its monospace override. Fonts, direction and mixed-script segmentation remain application responsibilities. |\n\nThe enhanced overrides map `canvas` and `base` to their surface roles, and `primary`, `secondary` and `tertiary` to their ink roles. This is an accessibility override of light/dark, not a third appearance.\n\nApplications pass current preferences to the selector and rerun it when preferences change. When `useSystemColors` is true, component CSS must use native system colors; do not apply the custom enhanced palette. The selector returns this requirement and suppresses custom overrides. It does not add preference listeners or forced-color CSS to an application.\n\nThis policy does not choose density, reduced-motion behavior, number-formatting defaults or new presentation artwork. Publishing and application integration follow canonical adoption.\n"
+    }
+  },
+  "exports": {
+    "Border.ts": {
+      "BORDER_WIDTH": {
+        "default": "1px",
+        "strong": "2px"
+      },
+      "FOCUS_RING_GEOMETRY": {
+        "width": "2px"
+      }
+    },
+    "Color.ts": {
+      "ACTION_PRIMARY_BG": {
+        "default": {
+          "light": "#631244",
+          "dark": "#631244"
+        },
+        "hover": {
+          "light": "#400C2C",
+          "dark": "#741A52"
+        },
+        "pressed": {
+          "light": "#1E0515",
+          "dark": "#4A0D33"
+        },
+        "disabled": {
+          "light": "#B28DA4",
+          "dark": "#4A3742"
+        }
+      },
+      "ACTION_PRIMARY_FG": {
+        "light": "#FFFFFF",
+        "dark": "#FFFFFF"
+      },
+      "BRAND": {
+        "seed": {
+          "light": "#631244",
+          "dark": "#631244"
+        },
+        "bg": {
+          "light": "#F3ECF0",
+          "dark": "#291823"
+        },
+        "bg-hover": {
+          "light": "#EADCE4",
+          "dark": "#321A29"
+        },
+        "fg": {
+          "light": "#631244",
+          "dark": "#C7A4B6"
+        }
+      },
+      "CONTRAST_REFERENCE": {
+        "light": {
+          "primary": {
+            "canvas": 14.19,
+            "base": 16.65,
+            "subtle": 15.47,
+            "raised": 16.65,
+            "sunken": 13.71
+          },
+          "secondary": {
+            "canvas": 5.88,
+            "base": 6.91,
+            "subtle": 6.42,
+            "raised": 6.91,
+            "sunken": 5.69
+          },
+          "tertiary": {
+            "canvas": 4.8,
+            "base": 5.64,
+            "subtle": 5.24,
+            "raised": 5.64,
+            "sunken": 4.64
+          }
+        },
+        "dark": {
+          "primary": {
+            "canvas": 16.25,
+            "base": 15.12,
+            "subtle": 13.66,
+            "raised": 12.43,
+            "sunken": 16.73
+          },
+          "secondary": {
+            "canvas": 10.16,
+            "base": 9.46,
+            "subtle": 8.54,
+            "raised": 7.78,
+            "sunken": 10.47
+          },
+          "tertiary": {
+            "canvas": 7.88,
+            "base": 7.33,
+            "subtle": 6.62,
+            "raised": 6.03,
+            "sunken": 8.12
+          }
+        }
+      },
+      "DATA_CATEGORICAL": [
+        {
+          "light": "#631244",
+          "dark": "#E18FBD"
+        },
+        {
+          "light": "#287569",
+          "dark": "#74CCB4"
+        },
+        {
+          "light": "#386EAA",
+          "dark": "#85B7ED"
+        },
+        {
+          "light": "#926119",
+          "dark": "#E5B567"
+        },
+        {
+          "light": "#654D91",
+          "dark": "#B8A1E6"
+        },
+        {
+          "light": "#9B4D48",
+          "dark": "#E9968D"
+        },
+        {
+          "light": "#526C7B",
+          "dark": "#A4BECD"
+        },
+        {
+          "light": "#637437",
+          "dark": "#BFCB7A"
+        }
+      ],
+      "DATA_CATEGORICAL_TOKENS": {
+        "01": {
+          "light": "#631244",
+          "dark": "#E18FBD"
+        },
+        "02": {
+          "light": "#287569",
+          "dark": "#74CCB4"
+        },
+        "03": {
+          "light": "#386EAA",
+          "dark": "#85B7ED"
+        },
+        "04": {
+          "light": "#926119",
+          "dark": "#E5B567"
+        },
+        "05": {
+          "light": "#654D91",
+          "dark": "#B8A1E6"
+        },
+        "06": {
+          "light": "#9B4D48",
+          "dark": "#E9968D"
+        },
+        "07": {
+          "light": "#526C7B",
+          "dark": "#A4BECD"
+        },
+        "08": {
+          "light": "#637437",
+          "dark": "#BFCB7A"
+        }
+      },
+      "DATA_DIVERGING": [
+        {
+          "light": "#246F67",
+          "dark": "#8AD3BF"
+        },
+        {
+          "light": "#64988D",
+          "dark": "#58968A"
+        },
+        {
+          "light": "#CAC2C7",
+          "dark": "#5E585F"
+        },
+        {
+          "light": "#9B5878",
+          "dark": "#A47891"
+        },
+        {
+          "light": "#631244",
+          "dark": "#E18FBD"
+        }
+      ],
+      "DATA_DIVERGING_TOKENS": {
+        "01": {
+          "light": "#246F67",
+          "dark": "#8AD3BF"
+        },
+        "02": {
+          "light": "#64988D",
+          "dark": "#58968A"
+        },
+        "03": {
+          "light": "#CAC2C7",
+          "dark": "#5E585F"
+        },
+        "04": {
+          "light": "#9B5878",
+          "dark": "#A47891"
+        },
+        "05": {
+          "light": "#631244",
+          "dark": "#E18FBD"
+        }
+      },
+      "DATA_ON_FILL": {
+        "light": "#FFFFFF",
+        "dark": "#211D20"
+      },
+      "DATA_SEQUENTIAL": [
+        {
+          "light": "#966883",
+          "dark": "#A7839B"
+        },
+        {
+          "light": "#8C5776",
+          "dark": "#B48BA6"
+        },
+        {
+          "light": "#824465",
+          "dark": "#C89CB6"
+        },
+        {
+          "light": "#752C55",
+          "dark": "#D9A7C3"
+        },
+        {
+          "light": "#631244",
+          "dark": "#E7B6D0"
+        }
+      ],
+      "DATA_SEQUENTIAL_TOKENS": {
+        "01": {
+          "light": "#966883",
+          "dark": "#A7839B"
+        },
+        "02": {
+          "light": "#8C5776",
+          "dark": "#B48BA6"
+        },
+        "03": {
+          "light": "#824465",
+          "dark": "#C89CB6"
+        },
+        "04": {
+          "light": "#752C55",
+          "dark": "#D9A7C3"
+        },
+        "05": {
+          "light": "#631244",
+          "dark": "#E7B6D0"
+        }
+      },
+      "EDGE": {
+        "subtle": {
+          "light": "rgb(15 23 42 / 0.12)",
+          "dark": "rgb(255 255 255 / 0.10)"
+        },
+        "control": {
+          "light": "#7A8493",
+          "dark": "#7A8493"
+        }
+      },
+      "FOCUS_RING": {
+        "light": "#99507A",
+        "dark": "#A9638B"
+      },
+      "HIGH_CONTRAST": {
+        "light": {
+          "canvas": "#FFFFFF",
+          "base": "#FFFFFF",
+          "primary": "#211D20",
+          "secondary": "#211D20",
+          "tertiary": "#625B60"
+        },
+        "dark": {
+          "canvas": "#0E0D0F",
+          "base": "#121113",
+          "primary": "#FFFFFF",
+          "secondary": "#EEEEF0",
+          "tertiary": "#B5B2BC"
+        }
+      },
+      "INK": {
+        "primary": {
+          "light": "#211D20",
+          "dark": "#EEEEF0"
+        },
+        "secondary": {
+          "light": "#5F585D",
+          "dark": "#C0BDC6"
+        },
+        "tertiary": {
+          "light": "#6D656B",
+          "dark": "#AAA6B0"
+        },
+        "disabled": {
+          "light": "#AAA3A7",
+          "dark": "#625F69"
+        },
+        "on-brand": {
+          "light": "#FFFFFF",
+          "dark": "#FFFFFF"
+        },
+        "inverse": {
+          "light": "#EEEEF0",
+          "dark": "#211D20"
+        }
+      },
+      "INTERACTION": {
+        "neutral-hover": {
+          "light": "rgb(33 29 32 / 0.06)",
+          "dark": "rgb(238 238 240 / 0.08)"
+        },
+        "neutral-pressed": {
+          "light": "rgb(33 29 32 / 0.10)",
+          "dark": "rgb(238 238 240 / 0.12)"
+        }
+      },
+      "INTERACTION_SELECTED_SURFACE": {
+        "light": "#F3ECF0",
+        "dark": "#291823"
+      },
+      "LINK_FG": {
+        "light": "#631244",
+        "dark": "#C7A4B6"
+      },
+      "PRESENTATION_GRADIENTS": {
+        "brand-dark": "linear-gradient(135deg, #121113 0%, #291823 65%, #631244 100%)",
+        "brand-light": "linear-gradient(135deg, #FFFFFF 0%, #F3ECF0 65%, #EADCE4 100%)",
+        "atmosphere": "radial-gradient(ellipse at 30% 20%, rgb(99 18 68 / 0.16), transparent 65%)"
+      },
+      "SCRIM": {
+        "modal": {
+          "light": "rgb(20 12 17 / 0.52)",
+          "dark": "rgb(0 0 0 / 0.72)"
+        }
+      },
+      "STATUS": {
+        "success": {
+          "bg": {
+            "light": "#EAF5EE",
+            "dark": "#203B2A"
+          },
+          "edge": {
+            "light": "#ADD7BC",
+            "dark": "#4F9166"
+          },
+          "fg": {
+            "light": "#216E43",
+            "dark": "#87DCA4"
+          },
+          "fill": {
+            "light": "#2F7D50",
+            "dark": "#348556"
+          },
+          "on-fill": {
+            "light": "#FFFFFF",
+            "dark": "#FFFFFF"
+          }
+        },
+        "warning": {
+          "bg": {
+            "light": "#FBF2E2",
+            "dark": "#40341D"
+          },
+          "edge": {
+            "light": "#E8C98C",
+            "dark": "#9B7937"
+          },
+          "fg": {
+            "light": "#8A5A12",
+            "dark": "#F0C86F"
+          },
+          "fill": {
+            "light": "#9E6A19",
+            "dark": "#BE882E"
+          },
+          "on-fill": {
+            "light": "#FFFFFF",
+            "dark": "#1B1407"
+          }
+        },
+        "error": {
+          "bg": {
+            "light": "#FBEAEC",
+            "dark": "#42262B"
+          },
+          "edge": {
+            "light": "#EDB3B8",
+            "dark": "#AA5963"
+          },
+          "fg": {
+            "light": "#A33A43",
+            "dark": "#F4979F"
+          },
+          "fill": {
+            "light": "#B54650",
+            "dark": "#B94C57"
+          },
+          "on-fill": {
+            "light": "#FFFFFF",
+            "dark": "#FFFFFF"
+          }
+        },
+        "info": {
+          "bg": {
+            "light": "#EAF1F9",
+            "dark": "#23354B"
+          },
+          "edge": {
+            "light": "#B6CCE6",
+            "dark": "#5A83AE"
+          },
+          "fg": {
+            "light": "#345E91",
+            "dark": "#86B9EE"
+          },
+          "fill": {
+            "light": "#416FA8",
+            "dark": "#4479B5"
+          },
+          "on-fill": {
+            "light": "#FFFFFF",
+            "dark": "#FFFFFF"
+          }
+        }
+      },
+      "SURFACE": {
+        "canvas": {
+          "light": "#EFECED",
+          "dark": "#121113"
+        },
+        "base": {
+          "light": "#FFFFFF",
+          "dark": "#1A191B"
+        },
+        "subtle": {
+          "light": "#F8F6F7",
+          "dark": "#232225"
+        },
+        "raised": {
+          "light": "#FFFFFF",
+          "dark": "#2B292D"
+        },
+        "sunken": {
+          "light": "#ECE8EA",
+          "dark": "#0E0D0F"
+        },
+        "inverse": {
+          "light": "#211D20",
+          "dark": "#EEEEF0"
+        }
+      }
+    },
+    "Motion.ts": {
+      "DURATION": {
+        "none": "0ms",
+        "dissolve": "150ms",
+        "feedback": "150ms",
+        "overlay": "240ms",
+        "reduced": "80ms",
+        "presentation": "480ms"
+      },
+      "EASING": {
+        "standard": "cubic-bezier(0, 0, 0.58, 1)",
+        "enter": "cubic-bezier(0.2, 0.8, 0.2, 1)",
+        "exit": "cubic-bezier(0.3, 0, 0.56, 1)",
+        "linear": "linear"
+      },
+      "SCALE": {
+        "subtle": 0.98,
+        "rest": 1
+      },
+      "TRANSLATION": {
+        "popover-subtle": "2px",
+        "popover-max": "4px",
+        "dialog-max": "8px"
+      }
+    },
+    "Radius.ts": {
+      "FULL_RADIUS_CSS": "9999px",
+      "RADIUS": {
+        "0": "0px",
+        "4": "4px",
+        "8": "8px",
+        "12": "12px",
+        "16": "16px",
+        "24": "24px"
+      }
+    },
+    "Shadow.ts": {
+      "SHADOW": {
+        "sm": {
+          "light": "0 2px 6px 0 rgba(0, 0, 0, 0.06)",
+          "dark": "0 2px 6px 0 rgba(0, 0, 0, 0.14)"
+        },
+        "md": {
+          "light": "0 8px 20px 0 rgba(0, 0, 0, 0.10)",
+          "dark": "0 8px 20px 0 rgba(0, 0, 0, 0.20)"
+        },
+        "lg": {
+          "light": "0 16px 36px 0 rgba(0, 0, 0, 0.14)",
+          "dark": "0 16px 36px 0 rgba(0, 0, 0, 0.26)"
+        }
+      }
+    },
+    "Spacing.ts": {
+      "SPACE": {
+        "0": "0px",
+        "1": "1px",
+        "2": "2px",
+        "4": "4px",
+        "6": "6px",
+        "8": "8px",
+        "12": "12px",
+        "16": "16px",
+        "20": "20px",
+        "24": "24px",
+        "32": "32px",
+        "40": "40px",
+        "48": "48px",
+        "56": "56px",
+        "64": "64px",
+        "80": "80px",
+        "96": "96px"
+      },
+      "SPACING": {
+        "0": "0px",
+        "25": "1px",
+        "50": "2px",
+        "75": "4px",
+        "85": "6px",
+        "100": "8px",
+        "200": "12px",
+        "300": "16px",
+        "350": "20px",
+        "400": "24px",
+        "500": "32px",
+        "600": "40px",
+        "700": "48px",
+        "750": "56px",
+        "800": "64px",
+        "900": "80px",
+        "1000": "96px"
+      }
+    },
+    "Typography.ts": {
+      "FONT_FAMILY": {
+        "fa": "IRANYekanX, sans-serif",
+        "latin": "\"Roboto Condensed\", sans-serif",
+        "code": "ui-monospace, SFMono-Regular, Consolas, monospace"
+      },
+      "FONT_WEIGHT": {
+        "regular": 400,
+        "medium": 500,
+        "semibold": 600,
+        "bold": 700
+      },
+      "LINE_HEIGHT": {
+        "ui": 1.8,
+        "reading": 1.95,
+        "heading": 1.7,
+        "display": 1.6,
+        "fixed": 1.6
+      },
+      "TEXT_LAYOUT": {
+        "measure": {
+          "reading": "42rem",
+          "wide": "42rem"
+        },
+        "gap": {
+          "paragraph": "1em",
+          "title-description": "8px",
+          "section-content": "16px"
+        }
+      },
+      "TYPOGRAPHY": {
+        "caption-sm": {
+          "fontSize": "0.75rem",
+          "fontWeight": 400,
+          "lineHeight": 1.8,
+          "profile": "ui"
+        },
+        "caption-md": {
+          "fontSize": "0.875rem",
+          "fontWeight": 400,
+          "lineHeight": 1.8,
+          "profile": "ui"
+        },
+        "ui-sm": {
+          "fontSize": "0.875rem",
+          "fontWeight": 400,
+          "lineHeight": 1.8,
+          "profile": "ui"
+        },
+        "ui-md": {
+          "fontSize": "1rem",
+          "fontWeight": 400,
+          "lineHeight": 1.8,
+          "profile": "ui"
+        },
+        "label-sm": {
+          "fontSize": "0.875rem",
+          "fontWeight": 500,
+          "lineHeight": 1.8,
+          "profile": "ui"
+        },
+        "label-md": {
+          "fontSize": "1rem",
+          "fontWeight": 500,
+          "lineHeight": 1.8,
+          "profile": "ui"
+        },
+        "body-sm": {
+          "fontSize": "0.875rem",
+          "fontWeight": 400,
+          "lineHeight": 1.95,
+          "profile": "reading"
+        },
+        "body-md": {
+          "fontSize": "1rem",
+          "fontWeight": 400,
+          "lineHeight": 1.95,
+          "profile": "reading"
+        },
+        "body-lg": {
+          "fontSize": "1.125rem",
+          "fontWeight": 400,
+          "lineHeight": 1.95,
+          "profile": "reading"
+        },
+        "title-sm": {
+          "fontSize": "1rem",
+          "fontWeight": 600,
+          "lineHeight": 1.7,
+          "profile": "heading"
+        },
+        "title-md": {
+          "fontSize": "1.25rem",
+          "fontWeight": 600,
+          "lineHeight": 1.7,
+          "profile": "heading"
+        },
+        "heading-section": {
+          "fontSize": "1.5rem",
+          "fontWeight": 600,
+          "lineHeight": 1.7,
+          "profile": "heading"
+        },
+        "heading-page": {
+          "fontSize": "clamp(1.5rem, calc(1.357143rem + 0.714286vw), 2rem)",
+          "fontWeight": 700,
+          "lineHeight": 1.7,
+          "profile": "heading"
+        },
+        "display": {
+          "fontSize": "clamp(2rem, calc(1.428571rem + 2.857143vw), 4rem)",
+          "fontWeight": 700,
+          "lineHeight": 1.6,
+          "profile": "display"
+        },
+        "input-touch": {
+          "fontSize": "1rem",
+          "fontWeight": 400,
+          "lineHeight": 1.8,
+          "profile": "ui"
+        },
+        "code": {
+          "fontSize": "0.875rem",
+          "fontWeight": 400,
+          "lineHeight": 1.6,
+          "profile": "fixed",
+          "fontFamily": "ui-monospace, SFMono-Regular, Consolas, monospace"
+        }
+      },
+      "TYPOGRAPHY_BY_SCRIPT": {
+        "fa": {
+          "caption-sm": {
+            "fontSize": "0.75rem",
+            "fontWeight": 400,
+            "lineHeight": 1.8,
+            "profile": "ui",
+            "fontFamily": "IRANYekanX, sans-serif"
+          },
+          "caption-md": {
+            "fontSize": "0.875rem",
+            "fontWeight": 400,
+            "lineHeight": 1.8,
+            "profile": "ui",
+            "fontFamily": "IRANYekanX, sans-serif"
+          },
+          "ui-sm": {
+            "fontSize": "0.875rem",
+            "fontWeight": 400,
+            "lineHeight": 1.8,
+            "profile": "ui",
+            "fontFamily": "IRANYekanX, sans-serif"
+          },
+          "ui-md": {
+            "fontSize": "1rem",
+            "fontWeight": 400,
+            "lineHeight": 1.8,
+            "profile": "ui",
+            "fontFamily": "IRANYekanX, sans-serif"
+          },
+          "label-sm": {
+            "fontSize": "0.875rem",
+            "fontWeight": 500,
+            "lineHeight": 1.8,
+            "profile": "ui",
+            "fontFamily": "IRANYekanX, sans-serif"
+          },
+          "label-md": {
+            "fontSize": "1rem",
+            "fontWeight": 500,
+            "lineHeight": 1.8,
+            "profile": "ui",
+            "fontFamily": "IRANYekanX, sans-serif"
+          },
+          "body-sm": {
+            "fontSize": "0.875rem",
+            "fontWeight": 400,
+            "lineHeight": 1.95,
+            "profile": "reading",
+            "fontFamily": "IRANYekanX, sans-serif"
+          },
+          "body-md": {
+            "fontSize": "1rem",
+            "fontWeight": 400,
+            "lineHeight": 1.95,
+            "profile": "reading",
+            "fontFamily": "IRANYekanX, sans-serif"
+          },
+          "body-lg": {
+            "fontSize": "1.125rem",
+            "fontWeight": 400,
+            "lineHeight": 1.95,
+            "profile": "reading",
+            "fontFamily": "IRANYekanX, sans-serif"
+          },
+          "title-sm": {
+            "fontSize": "1rem",
+            "fontWeight": 600,
+            "lineHeight": 1.7,
+            "profile": "heading",
+            "fontFamily": "IRANYekanX, sans-serif"
+          },
+          "title-md": {
+            "fontSize": "1.25rem",
+            "fontWeight": 600,
+            "lineHeight": 1.7,
+            "profile": "heading",
+            "fontFamily": "IRANYekanX, sans-serif"
+          },
+          "heading-section": {
+            "fontSize": "1.5rem",
+            "fontWeight": 600,
+            "lineHeight": 1.7,
+            "profile": "heading",
+            "fontFamily": "IRANYekanX, sans-serif"
+          },
+          "heading-page": {
+            "fontSize": "clamp(1.5rem, calc(1.357143rem + 0.714286vw), 2rem)",
+            "fontWeight": 700,
+            "lineHeight": 1.7,
+            "profile": "heading",
+            "fontFamily": "IRANYekanX, sans-serif"
+          },
+          "display": {
+            "fontSize": "clamp(2rem, calc(1.428571rem + 2.857143vw), 4rem)",
+            "fontWeight": 700,
+            "lineHeight": 1.6,
+            "profile": "display",
+            "fontFamily": "IRANYekanX, sans-serif"
+          },
+          "input-touch": {
+            "fontSize": "1rem",
+            "fontWeight": 400,
+            "lineHeight": 1.8,
+            "profile": "ui",
+            "fontFamily": "IRANYekanX, sans-serif"
+          },
+          "code": {
+            "fontSize": "0.875rem",
+            "fontWeight": 400,
+            "lineHeight": 1.6,
+            "profile": "fixed",
+            "fontFamily": "ui-monospace, SFMono-Regular, Consolas, monospace"
+          }
+        },
+        "latin": {
+          "caption-sm": {
+            "fontSize": "0.75rem",
+            "fontWeight": 400,
+            "lineHeight": 1.8,
+            "profile": "ui",
+            "fontFamily": "\"Roboto Condensed\", sans-serif"
+          },
+          "caption-md": {
+            "fontSize": "0.875rem",
+            "fontWeight": 400,
+            "lineHeight": 1.8,
+            "profile": "ui",
+            "fontFamily": "\"Roboto Condensed\", sans-serif"
+          },
+          "ui-sm": {
+            "fontSize": "0.875rem",
+            "fontWeight": 400,
+            "lineHeight": 1.8,
+            "profile": "ui",
+            "fontFamily": "\"Roboto Condensed\", sans-serif"
+          },
+          "ui-md": {
+            "fontSize": "1rem",
+            "fontWeight": 400,
+            "lineHeight": 1.8,
+            "profile": "ui",
+            "fontFamily": "\"Roboto Condensed\", sans-serif"
+          },
+          "label-sm": {
+            "fontSize": "0.875rem",
+            "fontWeight": 500,
+            "lineHeight": 1.8,
+            "profile": "ui",
+            "fontFamily": "\"Roboto Condensed\", sans-serif"
+          },
+          "label-md": {
+            "fontSize": "1rem",
+            "fontWeight": 500,
+            "lineHeight": 1.8,
+            "profile": "ui",
+            "fontFamily": "\"Roboto Condensed\", sans-serif"
+          },
+          "body-sm": {
+            "fontSize": "0.875rem",
+            "fontWeight": 400,
+            "lineHeight": 1.95,
+            "profile": "reading",
+            "fontFamily": "\"Roboto Condensed\", sans-serif"
+          },
+          "body-md": {
+            "fontSize": "1rem",
+            "fontWeight": 400,
+            "lineHeight": 1.95,
+            "profile": "reading",
+            "fontFamily": "\"Roboto Condensed\", sans-serif"
+          },
+          "body-lg": {
+            "fontSize": "1.125rem",
+            "fontWeight": 400,
+            "lineHeight": 1.95,
+            "profile": "reading",
+            "fontFamily": "\"Roboto Condensed\", sans-serif"
+          },
+          "title-sm": {
+            "fontSize": "1rem",
+            "fontWeight": 600,
+            "lineHeight": 1.7,
+            "profile": "heading",
+            "fontFamily": "\"Roboto Condensed\", sans-serif"
+          },
+          "title-md": {
+            "fontSize": "1.25rem",
+            "fontWeight": 600,
+            "lineHeight": 1.7,
+            "profile": "heading",
+            "fontFamily": "\"Roboto Condensed\", sans-serif"
+          },
+          "heading-section": {
+            "fontSize": "1.5rem",
+            "fontWeight": 600,
+            "lineHeight": 1.7,
+            "profile": "heading",
+            "fontFamily": "\"Roboto Condensed\", sans-serif"
+          },
+          "heading-page": {
+            "fontSize": "clamp(1.5rem, calc(1.357143rem + 0.714286vw), 2rem)",
+            "fontWeight": 700,
+            "lineHeight": 1.7,
+            "profile": "heading",
+            "fontFamily": "\"Roboto Condensed\", sans-serif"
+          },
+          "display": {
+            "fontSize": "clamp(2rem, calc(1.428571rem + 2.857143vw), 4rem)",
+            "fontWeight": 700,
+            "lineHeight": 1.6,
+            "profile": "display",
+            "fontFamily": "\"Roboto Condensed\", sans-serif"
+          },
+          "input-touch": {
+            "fontSize": "1rem",
+            "fontWeight": 400,
+            "lineHeight": 1.8,
+            "profile": "ui",
+            "fontFamily": "\"Roboto Condensed\", sans-serif"
+          },
+          "code": {
+            "fontSize": "0.875rem",
+            "fontWeight": 400,
+            "lineHeight": 1.6,
+            "profile": "fixed",
+            "fontFamily": "ui-monospace, SFMono-Regular, Consolas, monospace"
+          }
+        }
+      }
+    },
+    "Veil.ts": {
+      "VEIL": {
+        "100": {
+          "color": {
+            "light": "rgb(255 255 255 / 0.04)",
+            "dark": "rgb(43 43 43 / 0.04)"
+          },
+          "blur": "64px"
+        },
+        "200": {
+          "color": {
+            "light": "rgb(255 255 255 / 0.18)",
+            "dark": "rgb(37 37 37 / 0.18)"
+          },
+          "blur": "48px"
+        },
+        "300": {
+          "color": {
+            "light": "rgb(255 255 255 / 0.52)",
+            "dark": "rgb(26 25 24 / 0.56)"
+          },
+          "blur": "36px"
+        },
+        "400": {
+          "color": {
+            "light": "rgb(255 255 255 / 0.72)",
+            "dark": "rgb(26 25 27 / 0.76)"
+          },
+          "blur": "24px"
+        },
+        "500": {
+          "color": {
+            "light": "rgb(255 255 255 / 0.92)",
+            "dark": "rgb(26 25 27 / 0.92)"
+          },
+          "blur": "16px"
+        },
+        "scrim": {
+          "color": {
+            "light": "rgb(20 12 17 / 0.52)",
+            "dark": "rgb(43 37 41 / 0.52)"
+          },
+          "blur": "24px"
+        }
+      }
+    },
+    "layout.ts": {
+      "BREAKPOINTS": {
+        "medium": "48rem",
+        "wide": "64rem"
+      },
+      "PAGE_GRID": {
+        "narrow": {
+          "columns": 4,
+          "gutter": "16px",
+          "margin": "16px"
+        },
+        "medium": {
+          "columns": 8,
+          "gutter": "24px",
+          "margin": "24px"
+        },
+        "wide": {
+          "columns": 12,
+          "gutter": "24px",
+          "margin": "32px"
+        }
+      },
+      "PAGE_MAX_WIDTH": "1600px"
+    }
+  }
+}

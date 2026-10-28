@@ -1,0 +1,49 @@
+{
+  "approval": "context-selection-and-contrast-policy",
+  "status": "approved-foundation-policy",
+  "appearance": {
+    "default": "system",
+    "fallback": "light",
+    "precedence": [
+      "explicit-app-setting",
+      "system-preference",
+      "light-fallback"
+    ]
+  },
+  "contrast": {
+    "default": "system",
+    "precedence": [
+      "native-forced-colors",
+      "explicit-app-setting",
+      "system-preference",
+      "standard-fallback"
+    ],
+    "enhancedOverrides": {
+      "light": {
+        "rds.color.surface.canvas": "{ref.color.white}",
+        "rds.color.surface.base": "{ref.color.white}",
+        "rds.color.ink.primary": "{ref.color.gray-warm.875}",
+        "rds.color.ink.secondary": "{ref.color.gray-warm.875}",
+        "rds.color.ink.tertiary": "{ref.color.gray-warm.600}"
+      },
+      "dark": {
+        "rds.color.surface.canvas": "{ref.color.gray.975}",
+        "rds.color.surface.base": "{ref.color.gray.950}",
+        "rds.color.ink.primary": "{ref.color.white}",
+        "rds.color.ink.secondary": "{ref.color.gray.50}",
+        "rds.color.ink.tertiary": "{ref.color.gray.275}"
+      }
+    },
+    "forcedColors": "Use native system colors through component CSS; do not apply custom enhanced-contrast aliases."
+  },
+  "language": {
+    "selection": "explicit-content-script",
+    "supportedScripts": [
+      "fa",
+      "latin"
+    ],
+    "automaticDetection": false,
+    "codeOverride": "rds.font.family.code"
+  },
+  "scope": "Foundation selection rules and alias mappings. Applications supply preference changes and implement native forced-color styling; density, reduced motion and presentation recipes are independent."
+}

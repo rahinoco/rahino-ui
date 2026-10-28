@@ -1,0 +1,132 @@
+{
+  "approval": "separate-color-state-segments",
+  "status": "approved-applied",
+  "appliedOn": "2026-10-28",
+  "renames": [
+    {
+      "from": "rds.color.brand.bg",
+      "to": "rds.color.brand.bg.default"
+    },
+    {
+      "from": "rds.color.brand.bg-hover",
+      "to": "rds.color.brand.bg.hover"
+    },
+    {
+      "from": "rds.color.interaction.selected.surface",
+      "to": "rds.color.interaction.surface.selected"
+    }
+  ],
+  "typedSnapshots": [
+    {
+      "set": "light",
+      "from": "rds.color.brand.bg",
+      "to": "rds.color.brand.bg.default",
+      "$type": "color",
+      "$value": "{ref.color.plum.50}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9529411764705882,
+          0.9254901960784314,
+          0.9411764705882353
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "light",
+      "from": "rds.color.brand.bg-hover",
+      "to": "rds.color.brand.bg.hover",
+      "$type": "color",
+      "$value": "{ref.color.plum.100}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9176470588235294,
+          0.8627450980392157,
+          0.8941176470588236
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "light",
+      "from": "rds.color.interaction.selected.surface",
+      "to": "rds.color.interaction.surface.selected",
+      "$type": "color",
+      "$value": "{rds.color.brand.bg}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9529411764705882,
+          0.9254901960784314,
+          0.9411764705882353
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "dark",
+      "from": "rds.color.brand.bg",
+      "to": "rds.color.brand.bg.default",
+      "$type": "color",
+      "$value": "{ref.color.plum.925}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.1607843137254902,
+          0.09411764705882353,
+          0.13725490196078433
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "dark",
+      "from": "rds.color.brand.bg-hover",
+      "to": "rds.color.brand.bg.hover",
+      "$type": "color",
+      "$value": "{ref.color.plum.875}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.19607843137254902,
+          0.10196078431372549,
+          0.1607843137254902
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "dark",
+      "from": "rds.color.interaction.selected.surface",
+      "to": "rds.color.interaction.surface.selected",
+      "$type": "color",
+      "$value": "{rds.color.brand.bg}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.1607843137254902,
+          0.09411764705882353,
+          0.13725490196078433
+        ],
+        "alpha": 1
+      }
+    }
+  ],
+  "cssCompatibility": [
+    {
+      "from": "--rds-color-brand-bg",
+      "to": "--rds-color-brand-bg-default"
+    },
+    {
+      "from": "--rds-color-interaction-selected-surface",
+      "to": "--rds-color-interaction-surface-selected"
+    }
+  ],
+  "compatibility": {
+    "typeScriptApi": "Existing export names and object keys are preserved.",
+    "tokenPaths": "Use the new paths in JSON and design tools. The former brand.bg leaf becomes a group, so it cannot also be a deprecated token.",
+    "css": "Old CSS variable names alias the current names; the hover CSS name is already identical."
+  }
+}

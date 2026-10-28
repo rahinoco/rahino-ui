@@ -1,8 +1,9 @@
 import pkg from '../../package.json';
+import { FOUNDATION_MANIFEST } from '../foundations/manifest';
 
 /** شماره‌های سند و بسته یکی نیستند. نسخهٔ بسته از package.json همین ریپو خوانده می‌شود. */
 export const RELEASE = {
-  foundations: { id: 'RAHINO_01', version: '2.0.0', date: '2026-10-07' },
+  foundations: { id: FOUNDATION_MANIFEST.document, version: FOUNDATION_MANIFEST.documentVersion, date: FOUNDATION_MANIFEST.documentDate },
   content: { id: 'RAHINO_04', version: '1.0.0', date: '2026-10-07' },
   components: { id: 'RAHINO_05', version: '1.0.0', date: '2026-10-07' },
   development: { id: 'RAHINO_06', version: '1.0.0', date: '2026-10-07' },
@@ -18,4 +19,4 @@ export const RELEASE = {
 } as const;
 
 export const RELEASE_NOTE =
-  'قرارداد بنیان‌ها ۲.۰.۰ است. بسته @rahinoco/rahino-ui نسخهٔ package.json و unpublished است. پذیرش سند، اجزا را canonical نمی‌کند.';
+  'بنیان‌ها از مجموعهٔ اصلی پذیرفته‌شده در ۲۰۲۶/۱۰/۲۸ تولید می‌شوند. بسته @rahinoco/rahino-ui نسخهٔ package.json و unpublished است. پذیرش سند، اجزا را canonical نمی‌کند.';

@@ -1,0 +1,503 @@
+{
+  "status": "approved-recipes-with-deferred-presentation",
+  "entries": [
+    {
+      "id": "paragraph-gap",
+      "kind": "approved-css-recipe",
+      "publicPath": "rds.type.layout.gap.paragraph",
+      "label": "rds.type.layout.gap.paragraph",
+      "value": "1em",
+      "source": {
+        "file": "Typography.ts",
+        "exportPath": [
+          "TEXT_LAYOUT",
+          "gap",
+          "paragraph"
+        ],
+        "line": 175
+      },
+      "sourceAnnotations": {
+        "token": "rds.type.layout.gap.paragraph",
+        "usage": "Between consecutive paragraphs in reading content only.",
+        "representation": "CSS recipe; 1em follows the paragraph font size."
+      },
+      "status": "approved-css-recipe",
+      "reviewIssues": [
+        "canonical-migration"
+      ],
+      "note": "Approved proportional reading-paragraph CSS recipe. Preserve the 1em value and existing public export; keep it outside ordinary DTCG dimensions. Scope and representation are resolved; output generation follows canonical adoption.",
+      "approval": "reading-paragraph-relative-spacing",
+      "resolvedReviewIssues": [
+        "relative-spacing"
+      ],
+      "recipe": {
+        "value": "1em",
+        "basis": "paragraph-font-size",
+        "scope": "consecutive reading paragraphs in articles, reports and multi-paragraph help text",
+        "application": "Apply once between adjacent reading paragraphs in their font-size context.",
+        "interfaceSpacing": "Use existing shared spacing tokens for fields, cards, labels and sections.",
+        "accessibility": "Allow user paragraph-spacing overrides to at least 2em without losing content or functionality; 2em is not the required default."
+      },
+      "capturedSource": {
+        "file": "Typography.ts",
+        "exportPath": [
+          "TEXT_LAYOUT",
+          "gap",
+          "paragraph"
+        ],
+        "line": 287
+      }
+    },
+    {
+      "id": "contrast-more-light-canvas",
+      "kind": "enhanced-contrast-field",
+      "publicPath": null,
+      "label": "HIGH_CONTRAST.light.canvas",
+      "value": "#FFFFFF",
+      "source": {
+        "file": "Color.ts",
+        "exportPath": [
+          "HIGH_CONTRAST",
+          "light",
+          "canvas"
+        ],
+        "line": 147
+      },
+      "sourceAnnotations": {},
+      "status": "approved-context-override",
+      "reviewIssues": [],
+      "note": "Approved override of the named semantic color in enhanced contrast. Native forced colors use system colors instead.",
+      "valueReference": "{ref.color.white}",
+      "valueType": "color",
+      "referenceLayerApproval": "reference-layer-master-collection",
+      "targetPath": "rds.color.surface.canvas",
+      "contextApproval": "context-selection-and-contrast-policy",
+      "capturedSource": {
+        "file": "Color.ts",
+        "exportPath": [
+          "HIGH_CONTRAST",
+          "light",
+          "canvas"
+        ],
+        "line": 440
+      }
+    },
+    {
+      "id": "contrast-more-light-base",
+      "kind": "enhanced-contrast-field",
+      "publicPath": null,
+      "label": "HIGH_CONTRAST.light.base",
+      "value": "#FFFFFF",
+      "source": {
+        "file": "Color.ts",
+        "exportPath": [
+          "HIGH_CONTRAST",
+          "light",
+          "base"
+        ],
+        "line": 147
+      },
+      "sourceAnnotations": {},
+      "status": "approved-context-override",
+      "reviewIssues": [],
+      "note": "Approved override of the named semantic color in enhanced contrast. Native forced colors use system colors instead.",
+      "valueReference": "{ref.color.white}",
+      "valueType": "color",
+      "referenceLayerApproval": "reference-layer-master-collection",
+      "targetPath": "rds.color.surface.base",
+      "contextApproval": "context-selection-and-contrast-policy",
+      "capturedSource": {
+        "file": "Color.ts",
+        "exportPath": [
+          "HIGH_CONTRAST",
+          "light",
+          "base"
+        ],
+        "line": 440
+      }
+    },
+    {
+      "id": "contrast-more-light-primary",
+      "kind": "enhanced-contrast-field",
+      "publicPath": null,
+      "label": "HIGH_CONTRAST.light.primary",
+      "value": "#211D20",
+      "source": {
+        "file": "Color.ts",
+        "exportPath": [
+          "HIGH_CONTRAST",
+          "light",
+          "primary"
+        ],
+        "line": 147
+      },
+      "sourceAnnotations": {},
+      "status": "approved-context-override",
+      "reviewIssues": [],
+      "note": "Approved override of the named semantic color in enhanced contrast. Native forced colors use system colors instead.",
+      "valueReference": "{ref.color.gray-warm.875}",
+      "valueType": "color",
+      "referenceLayerApproval": "reference-layer-master-collection",
+      "targetPath": "rds.color.ink.primary",
+      "contextApproval": "context-selection-and-contrast-policy",
+      "capturedSource": {
+        "file": "Color.ts",
+        "exportPath": [
+          "HIGH_CONTRAST",
+          "light",
+          "primary"
+        ],
+        "line": 440
+      }
+    },
+    {
+      "id": "contrast-more-light-secondary",
+      "kind": "enhanced-contrast-field",
+      "publicPath": null,
+      "label": "HIGH_CONTRAST.light.secondary",
+      "value": "#211D20",
+      "source": {
+        "file": "Color.ts",
+        "exportPath": [
+          "HIGH_CONTRAST",
+          "light",
+          "secondary"
+        ],
+        "line": 147
+      },
+      "sourceAnnotations": {},
+      "status": "approved-context-override",
+      "reviewIssues": [],
+      "note": "Approved override of the named semantic color in enhanced contrast. Native forced colors use system colors instead.",
+      "valueReference": "{ref.color.gray-warm.875}",
+      "valueType": "color",
+      "referenceLayerApproval": "reference-layer-master-collection",
+      "targetPath": "rds.color.ink.secondary",
+      "contextApproval": "context-selection-and-contrast-policy",
+      "capturedSource": {
+        "file": "Color.ts",
+        "exportPath": [
+          "HIGH_CONTRAST",
+          "light",
+          "secondary"
+        ],
+        "line": 440
+      }
+    },
+    {
+      "id": "contrast-more-light-tertiary",
+      "kind": "enhanced-contrast-field",
+      "publicPath": null,
+      "label": "HIGH_CONTRAST.light.tertiary",
+      "value": "#625B60",
+      "source": {
+        "file": "Color.ts",
+        "exportPath": [
+          "HIGH_CONTRAST",
+          "light",
+          "tertiary"
+        ],
+        "line": 147
+      },
+      "sourceAnnotations": {},
+      "status": "approved-context-override",
+      "reviewIssues": [],
+      "note": "Approved override of the named semantic color in enhanced contrast. Native forced colors use system colors instead.",
+      "valueReference": "{ref.color.gray-warm.600}",
+      "valueType": "color",
+      "referenceLayerApproval": "reference-layer-master-collection",
+      "targetPath": "rds.color.ink.tertiary",
+      "contextApproval": "context-selection-and-contrast-policy",
+      "capturedSource": {
+        "file": "Color.ts",
+        "exportPath": [
+          "HIGH_CONTRAST",
+          "light",
+          "tertiary"
+        ],
+        "line": 440
+      }
+    },
+    {
+      "id": "contrast-more-dark-canvas",
+      "kind": "enhanced-contrast-field",
+      "publicPath": null,
+      "label": "HIGH_CONTRAST.dark.canvas",
+      "value": "#030203",
+      "source": {
+        "file": "Color.ts",
+        "exportPath": [
+          "HIGH_CONTRAST",
+          "dark",
+          "canvas"
+        ],
+        "line": 147
+      },
+      "sourceAnnotations": {},
+      "status": "approved-context-override",
+      "reviewIssues": [],
+      "note": "Approved override of the named semantic color in enhanced contrast. Native forced colors use system colors instead.",
+      "valueReference": "{ref.color.gray.975}",
+      "valueType": "color",
+      "referenceLayerApproval": "reference-layer-master-collection",
+      "targetPath": "rds.color.surface.canvas",
+      "contextApproval": "context-selection-and-contrast-policy",
+      "capturedSource": {
+        "file": "Color.ts",
+        "exportPath": [
+          "HIGH_CONTRAST",
+          "dark",
+          "canvas"
+        ],
+        "line": 440
+      }
+    },
+    {
+      "id": "contrast-more-dark-base",
+      "kind": "enhanced-contrast-field",
+      "publicPath": null,
+      "label": "HIGH_CONTRAST.dark.base",
+      "value": "#1A181B",
+      "source": {
+        "file": "Color.ts",
+        "exportPath": [
+          "HIGH_CONTRAST",
+          "dark",
+          "base"
+        ],
+        "line": 147
+      },
+      "sourceAnnotations": {},
+      "status": "approved-context-override",
+      "reviewIssues": [],
+      "note": "Approved override of the named semantic color in enhanced contrast. Native forced colors use system colors instead.",
+      "valueReference": "{ref.color.gray.950}",
+      "valueType": "color",
+      "referenceLayerApproval": "reference-layer-master-collection",
+      "targetPath": "rds.color.surface.base",
+      "contextApproval": "context-selection-and-contrast-policy",
+      "capturedSource": {
+        "file": "Color.ts",
+        "exportPath": [
+          "HIGH_CONTRAST",
+          "dark",
+          "base"
+        ],
+        "line": 440
+      }
+    },
+    {
+      "id": "contrast-more-dark-primary",
+      "kind": "enhanced-contrast-field",
+      "publicPath": null,
+      "label": "HIGH_CONTRAST.dark.primary",
+      "value": "#FFFFFF",
+      "source": {
+        "file": "Color.ts",
+        "exportPath": [
+          "HIGH_CONTRAST",
+          "dark",
+          "primary"
+        ],
+        "line": 147
+      },
+      "sourceAnnotations": {},
+      "status": "approved-context-override",
+      "reviewIssues": [],
+      "note": "Approved override of the named semantic color in enhanced contrast. Native forced colors use system colors instead.",
+      "valueReference": "{ref.color.white}",
+      "valueType": "color",
+      "referenceLayerApproval": "reference-layer-master-collection",
+      "targetPath": "rds.color.ink.primary",
+      "contextApproval": "context-selection-and-contrast-policy",
+      "capturedSource": {
+        "file": "Color.ts",
+        "exportPath": [
+          "HIGH_CONTRAST",
+          "dark",
+          "primary"
+        ],
+        "line": 440
+      }
+    },
+    {
+      "id": "contrast-more-dark-secondary",
+      "kind": "enhanced-contrast-field",
+      "publicPath": null,
+      "label": "HIGH_CONTRAST.dark.secondary",
+      "value": "#EEEEF0",
+      "source": {
+        "file": "Color.ts",
+        "exportPath": [
+          "HIGH_CONTRAST",
+          "dark",
+          "secondary"
+        ],
+        "line": 147
+      },
+      "sourceAnnotations": {},
+      "status": "approved-context-override",
+      "reviewIssues": [],
+      "note": "Approved override of the named semantic color in enhanced contrast. Native forced colors use system colors instead.",
+      "valueReference": "{ref.color.gray.50}",
+      "valueType": "color",
+      "referenceLayerApproval": "reference-layer-master-collection",
+      "targetPath": "rds.color.ink.secondary",
+      "contextApproval": "context-selection-and-contrast-policy",
+      "capturedSource": {
+        "file": "Color.ts",
+        "exportPath": [
+          "HIGH_CONTRAST",
+          "dark",
+          "secondary"
+        ],
+        "line": 440
+      }
+    },
+    {
+      "id": "contrast-more-dark-tertiary",
+      "kind": "enhanced-contrast-field",
+      "publicPath": null,
+      "label": "HIGH_CONTRAST.dark.tertiary",
+      "value": "#B5B2BC",
+      "source": {
+        "file": "Color.ts",
+        "exportPath": [
+          "HIGH_CONTRAST",
+          "dark",
+          "tertiary"
+        ],
+        "line": 147
+      },
+      "sourceAnnotations": {},
+      "status": "approved-context-override",
+      "reviewIssues": [],
+      "note": "Approved override of the named semantic color in enhanced contrast. Native forced colors use system colors instead.",
+      "valueReference": "{ref.color.gray.275}",
+      "valueType": "color",
+      "referenceLayerApproval": "reference-layer-master-collection",
+      "targetPath": "rds.color.ink.tertiary",
+      "contextApproval": "context-selection-and-contrast-policy",
+      "capturedSource": {
+        "file": "Color.ts",
+        "exportPath": [
+          "HIGH_CONTRAST",
+          "dark",
+          "tertiary"
+        ],
+        "line": 440
+      }
+    },
+    {
+      "id": "presentation-brand-dark",
+      "kind": "presentation-recipe",
+      "publicPath": "rds.color.presentation.gradient.brand-dark",
+      "label": "rds.color.presentation.gradient.brand-dark",
+      "value": "linear-gradient(135deg, #121113 0%, #291823 65%, #631244 100%)",
+      "source": {
+        "file": "Color.ts",
+        "exportPath": [
+          "PRESENTATION_GRADIENTS",
+          "brand-dark"
+        ],
+        "line": 268
+      },
+      "sourceAnnotations": {
+        "token": "rds.color.presentation.gradient.brand-dark",
+        "usage": "Dark appearance of the theme-following brand hero background; not a form control."
+      },
+      "status": "preserved-awaiting-representation-or-path-decision",
+      "reviewIssues": [
+        "presentation-representation"
+      ],
+      "note": "Approved as the dark variant of one brand background selected automatically by the active theme. Preserve this exact artwork expression and existing export while gradient representation, neutral public naming and generation remain deferred to design.",
+      "themeBinding": {
+        "logicalRole": "brand-background",
+        "appearance": "dark",
+        "selection": "active-appearance",
+        "approval": "presentation-brand-follows-appearance"
+      },
+      "publicPathNamingApproval": "data-and-presentation-color-category",
+      "capturedSource": {
+        "file": "Color.ts",
+        "exportPath": [
+          "PRESENTATION_GRADIENTS",
+          "brand-dark"
+        ],
+        "line": 620
+      }
+    },
+    {
+      "id": "presentation-brand-light",
+      "kind": "presentation-recipe",
+      "publicPath": "rds.color.presentation.gradient.brand-light",
+      "label": "rds.color.presentation.gradient.brand-light",
+      "value": "linear-gradient(135deg, #FFFFFF 0%, #F3ECF0 65%, #EADCE4 100%)",
+      "source": {
+        "file": "Color.ts",
+        "exportPath": [
+          "PRESENTATION_GRADIENTS",
+          "brand-light"
+        ],
+        "line": 270
+      },
+      "sourceAnnotations": {
+        "token": "rds.color.presentation.gradient.brand-light",
+        "usage": "Light appearance of the theme-following brand hero background; not a content card."
+      },
+      "status": "preserved-awaiting-representation-or-path-decision",
+      "reviewIssues": [
+        "presentation-representation"
+      ],
+      "note": "Approved as the light variant of one brand background selected automatically by the active theme. Preserve this exact artwork expression and existing export while gradient representation, neutral public naming and generation remain deferred to design.",
+      "themeBinding": {
+        "logicalRole": "brand-background",
+        "appearance": "light",
+        "selection": "active-appearance",
+        "approval": "presentation-brand-follows-appearance"
+      },
+      "publicPathNamingApproval": "data-and-presentation-color-category",
+      "capturedSource": {
+        "file": "Color.ts",
+        "exportPath": [
+          "PRESENTATION_GRADIENTS",
+          "brand-light"
+        ],
+        "line": 626
+      }
+    },
+    {
+      "id": "presentation-atmosphere",
+      "kind": "presentation-recipe",
+      "publicPath": "rds.color.presentation.gradient.atmosphere",
+      "label": "rds.color.presentation.gradient.atmosphere",
+      "value": "radial-gradient(ellipse at 30% 20%, rgb(99 18 68 / 0.16), transparent 65%)",
+      "source": {
+        "file": "Color.ts",
+        "exportPath": [
+          "PRESENTATION_GRADIENTS",
+          "atmosphere"
+        ],
+        "line": 272
+      },
+      "sourceAnnotations": {
+        "token": "rds.color.presentation.gradient.atmosphere",
+        "usage": "Optional low-emphasis ambient hero decoration."
+      },
+      "status": "preserved-awaiting-representation-or-path-decision",
+      "reviewIssues": [
+        "presentation-representation"
+      ],
+      "note": "Color-category name approved. Preserve the exact CSS artwork; final recipe representation and atmosphere behavior remain deferred to design.",
+      "publicPathNamingApproval": "data-and-presentation-color-category",
+      "capturedSource": {
+        "file": "Color.ts",
+        "exportPath": [
+          "PRESENTATION_GRADIENTS",
+          "atmosphere"
+        ],
+        "line": 632
+      }
+    }
+  ]
+}

@@ -18,7 +18,15 @@
     "./styles.css": "./src/styles/index.css",
     "./fonts.css": "./src/styles/fonts.css",
     "./inventory": "./src/inventory/catalog.ts",
-    "./qippo": "./src/qippo/catalog.ts"
+    "./qippo": "./src/qippo/catalog.ts",
+    "./foundations": {
+      "types": "./src/foundations/index.ts",
+      "import": "./src/foundations/index.ts"
+    },
+    "./color-resolver": {
+      "types": "./src/foundations/canonical/master-tokens/generated/color-resolver.d.mts",
+      "import": "./src/foundations/canonical/master-tokens/generated/color-resolver.mjs"
+    }
   },
   "files": [
     "dist",
@@ -30,7 +38,11 @@
     "build": "vite build",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "tokens:build": "node scripts/generate-foundations.ts",
-    "tokens:check": "node scripts/generate-foundations.ts --check"
+    "tokens:check": "node scripts/generate-foundations.ts --check",
+    "test:foundations": "node scripts/foundations-behavior.mjs",
+    "tokens:check-generated": "node scripts/generate-foundations.ts --check-generated",
+    "test:color-resolver": "node scripts/check-color-resolver.mjs",
+    "test:color-resolver:browser": "node scripts/check-color-resolver-browser.cjs"
   },
   "peerDependencies": {
     "react": "^19.0.0",

@@ -1,0 +1,284 @@
+{
+  "date": "2026-10-28",
+  "sources": [
+    "RDS _ Color Reference.zip / Value.tokens.json",
+    "RDS _ Color Semantic.zip / Light.tokens.json",
+    "RDS _ Color Semantic.zip / Dark.tokens.json"
+  ],
+  "referenceChanges": [
+    {
+      "path": "ref.color.amber.50",
+      "before": "#FBF2E2",
+      "after": "#FEF3DF"
+    },
+    {
+      "path": "ref.color.blue.50",
+      "before": "#EAF1F9",
+      "after": "#E2ECF8"
+    },
+    {
+      "path": "ref.color.gray-warm.25",
+      "before": "#F8F6F7",
+      "after": "#FBF9FA"
+    },
+    {
+      "path": "ref.color.gray-warm.75",
+      "before": "#EFECED",
+      "after": "#F3F1F2"
+    },
+    {
+      "path": "ref.color.gray-warm.100",
+      "before": "#ECE8EA",
+      "after": "#E8E3E5"
+    },
+    {
+      "path": "ref.color.gray.850",
+      "before": "#2B292D",
+      "after": "#333135"
+    },
+    {
+      "path": "ref.color.gray.900",
+      "before": "#232225",
+      "after": "#2D2C30"
+    },
+    {
+      "path": "ref.color.gray.925",
+      "before": "#1A191B",
+      "after": "#262429"
+    },
+    {
+      "path": "ref.color.gray.950",
+      "before": "#121113",
+      "after": "#1A181B"
+    },
+    {
+      "path": "ref.color.gray.975",
+      "before": "#0E0D0F",
+      "after": "#030203"
+    },
+    {
+      "path": "ref.color.green.50",
+      "before": "#EAF5EE",
+      "after": "#DAFBE8"
+    },
+    {
+      "path": "ref.color.plum.50",
+      "before": "#F3ECF0",
+      "after": "#F0E5EB"
+    },
+    {
+      "path": "ref.color.plum.100",
+      "before": "#EADCE4",
+      "after": "#E8D9E1"
+    },
+    {
+      "path": "ref.color.plum.375",
+      "before": "#B28DA4",
+      "after": "#DCC7D4"
+    },
+    {
+      "path": "ref.color.red.50",
+      "before": "#FBEAEC",
+      "after": "#FCE9EB"
+    }
+  ],
+  "semanticChanges": [
+    {
+      "appearance": "dark",
+      "path": "rds.color.brand.bg.default",
+      "before": "{ref.color.plum.925}",
+      "after": "{ref.color.plum.875}"
+    },
+    {
+      "appearance": "dark",
+      "path": "rds.color.brand.bg.hover",
+      "before": "{ref.color.plum.875}",
+      "after": "{ref.color.plum.850}"
+    },
+    {
+      "appearance": "dark",
+      "path": "rds.color.brand.fg",
+      "before": "{ref.color.plum.300}",
+      "after": "{ref.color.plum.200}"
+    }
+  ],
+  "affectedSemanticValues": [
+    {
+      "appearance": "light",
+      "path": "rds.color.action.primary.bg.disabled",
+      "before": "#B28DA4",
+      "after": "#DCC7D4"
+    },
+    {
+      "appearance": "light",
+      "path": "rds.color.brand.bg.default",
+      "before": "#F3ECF0",
+      "after": "#F0E5EB"
+    },
+    {
+      "appearance": "light",
+      "path": "rds.color.brand.bg.hover",
+      "before": "#EADCE4",
+      "after": "#E8D9E1"
+    },
+    {
+      "appearance": "light",
+      "path": "rds.color.interaction.surface.selected",
+      "before": "#F3ECF0",
+      "after": "#F0E5EB"
+    },
+    {
+      "appearance": "light",
+      "path": "rds.color.status.error.bg",
+      "before": "#FBEAEC",
+      "after": "#FCE9EB"
+    },
+    {
+      "appearance": "light",
+      "path": "rds.color.status.info.bg",
+      "before": "#EAF1F9",
+      "after": "#E2ECF8"
+    },
+    {
+      "appearance": "light",
+      "path": "rds.color.status.success.bg",
+      "before": "#EAF5EE",
+      "after": "#DAFBE8"
+    },
+    {
+      "appearance": "light",
+      "path": "rds.color.status.warning.bg",
+      "before": "#FBF2E2",
+      "after": "#FEF3DF"
+    },
+    {
+      "appearance": "light",
+      "path": "rds.color.surface.subtle",
+      "before": "#F8F6F7",
+      "after": "#FBF9FA"
+    },
+    {
+      "appearance": "light",
+      "path": "rds.color.surface.canvas",
+      "before": "#EFECED",
+      "after": "#F3F1F2"
+    },
+    {
+      "appearance": "light",
+      "path": "rds.color.surface.sunken",
+      "before": "#ECE8EA",
+      "after": "#E8E3E5"
+    },
+    {
+      "appearance": "dark",
+      "path": "rds.color.brand.bg.default",
+      "before": "#291823",
+      "after": "#321A29"
+    },
+    {
+      "appearance": "dark",
+      "path": "rds.color.brand.bg.hover",
+      "before": "#321A29",
+      "after": "#4A0D33"
+    },
+    {
+      "appearance": "dark",
+      "path": "rds.color.brand.fg",
+      "before": "#C7A4B6",
+      "after": "#E7B6D0"
+    },
+    {
+      "appearance": "dark",
+      "path": "rds.color.interaction.surface.selected",
+      "before": "#291823",
+      "after": "#321A29"
+    },
+    {
+      "appearance": "dark",
+      "path": "rds.color.link.fg",
+      "before": "#C7A4B6",
+      "after": "#E7B6D0"
+    },
+    {
+      "appearance": "dark",
+      "path": "rds.color.surface.raised",
+      "before": "#2B292D",
+      "after": "#333135"
+    },
+    {
+      "appearance": "dark",
+      "path": "rds.color.surface.subtle",
+      "before": "#232225",
+      "after": "#2D2C30"
+    },
+    {
+      "appearance": "dark",
+      "path": "rds.color.surface.base",
+      "before": "#1A191B",
+      "after": "#262429"
+    },
+    {
+      "appearance": "dark",
+      "path": "rds.color.surface.canvas",
+      "before": "#121113",
+      "after": "#1A181B"
+    },
+    {
+      "appearance": "dark",
+      "path": "rds.color.surface.sunken",
+      "before": "#0E0D0F",
+      "after": "#030203"
+    }
+  ],
+  "preserved": [
+    "Token paths and TypeScript API",
+    "Usage descriptions and annotations",
+    "Primary foreground alias through on-brand ink",
+    "Non-color tokens",
+    "Historical adoption and migration receipts"
+  ],
+  "derivedRecipeChanges": [
+    {
+      "id": "contrast-more-dark-canvas",
+      "before": "#0E0D0F",
+      "after": "#030203"
+    },
+    {
+      "id": "contrast-more-dark-base",
+      "before": "#121113",
+      "after": "#1A181B"
+    }
+  ],
+  "verification": {
+    "exportValuesMatched": 271,
+    "canonicalValueChanges": 18,
+    "usageAndMetadataPreserved": true,
+    "unchangedHistoricalRecords": true,
+    "generatedOutputsCurrent": 23,
+    "colorResolverChecks": {
+      "contexts": 72,
+      "colorValuesChecked": 14184,
+      "serverImportSafe": true
+    },
+    "standardChecker": {
+      "status": "FAIL",
+      "reason": "Dark focus contrast below 3:1 on raised"
+    },
+    "contrastFindings": [
+      {
+        "pair": "Dark focus ring on raised surface",
+        "foreground": "#A9638B",
+        "background": "#333135",
+        "minimum": 3,
+        "ratio": 2.9693966325649535
+      },
+      {
+        "pair": "Light tertiary ink on sunken surface",
+        "foreground": "#6D656B",
+        "background": "#E8E3E5",
+        "minimum": 4.5,
+        "ratio": 4.44418041922724
+      }
+    ]
+  }
+}

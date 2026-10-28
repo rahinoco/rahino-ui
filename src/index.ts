@@ -254,3 +254,12 @@ export {
   type RahinoSelectOption,
   type RahinoSelectProps,
 } from '@/rahino';
+
+export { BORDER_WIDTH, FOCUS_RING_GEOMETRY, DURATION, EASING, SCALE, TRANSLATION, FULL_RADIUS_CSS, SHADOW, SPACE, SPACING, VEIL, BREAKPOINTS, PAGE_GRID, PAGE_MAX_WIDTH, LINE_HEIGHT, TEXT_LAYOUT, TYPOGRAPHY, TYPOGRAPHY_BY_SCRIPT, REFERENCE, FOUNDATION_GUIDES, resolveContext } from '@/foundations';
+export { ACTION_PRIMARY_BG, ACTION_PRIMARY_FG, BRAND, DATA_CATEGORICAL_TOKENS, DATA_SEQUENTIAL_TOKENS, DATA_DIVERGING_TOKENS, DATA_CATEGORICAL, DATA_SEQUENTIAL, DATA_DIVERGING, DATA_ON_FILL, EDGE, FOCUS_RING, HIGH_CONTRAST, INTERACTION, INTERACTION_SELECTED_SURFACE, LINK_FG, SCRIM } from '@/foundations/color';
+export type { TypographyRole, TypographyStyle, TypographyProfile, FoundationSettings, FoundationEnvironment } from '@/foundations';
+
+export { resolveColorContext, resolveColor, applyColorPreferences, FOUNDATION_CONTRAST_REVIEW } from '@/foundations';
+export type { ColorTokenName, ColorPreferences, ColorEnvironment, ColorContext, ColorPreferenceController } from '@/foundations';
+
+export { FOUNDATION_INTERACTION_CONTRAST_REVIEW } from '@/foundations';

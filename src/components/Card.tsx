@@ -14,8 +14,7 @@ export default function Card({ children, className, padding = true, ...props }: 
     <div
       className={twMerge(
         clsx(
-          'bg-bg-surface/90 w-full rounded-[1.75rem]',
-          'shadow-light',
+          'bg-bg-surface w-full rounded-[var(--rds-radius-16)]',
           padding && 'p-6',
           className
         )

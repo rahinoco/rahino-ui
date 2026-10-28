@@ -226,7 +226,7 @@ export const DEVELOP_PAGES: ContractPage[] = [
             headers: ['ورودی', 'نمونه'],
             rows: [
               ['هدف', 'کار مشخص با اجزای موجود'],
-              ['منابع', 'قرارداد ۲.۰.۰ و export واقعی ۰.۱.۰'],
+              ['منابع', 'مجموعهٔ اصلی ۲۰۲۶-۱۰-۲۸ و export واقعی ۰.۱.۰'],
               ['دامنه', 'فایل‌های مجاز'],
               ['خارج از دامنه', 'بازنویسی توکن، تعویض وابستگی، علامت canonical'],
               ['پذیرش', 'سناریو، typecheck و review انسانی'],
@@ -295,7 +295,7 @@ export const DEVELOP_PAGES: ContractPage[] = [
             headers: ['منبع', 'وضعیت فعلی'],
             rows: [
               ['package', `${RELEASE.package.name} ${RELEASE.package.version} ${RELEASE.package.status}؛ مجوز ${RELEASE.package.license}`],
-              ['توکن', 'قرارداد بنیان‌ها ۲.۰.۰ و CSS همان بسته'],
+              ['توکن', 'مجموعهٔ اصلی بنیان‌ها ۲۰۲۶-۱۰-۲۸ و CSS همان بسته'],
               ['aidesignrules.md', 'metadata پر شده؛ آمادهٔ بررسی، نه تصویب'],
               ['Figma', 'mirror هم‌نسخه در این ریپو به‌عنوان دانلود ثبت نشده'],
               ['لوگو', 'مجوز نامعلوم'],

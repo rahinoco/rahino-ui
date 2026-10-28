@@ -26,7 +26,6 @@
   font-weight: var(--rds-font-weight-control);
   font-synthesis: none;
   line-height: var(--rds-type-label-sm-line-height);
-  letter-spacing: var(--rds-type-label-sm-letter-spacing);
   text-align: center;
   text-decoration: none;
   white-space: normal;
@@ -34,9 +33,9 @@
   user-select: none;
   overflow: visible;
   transition:
-    background-color var(--rds-motion-duration-control) var(--rds-motion-easing-standard),
-    color var(--rds-motion-duration-control) var(--rds-motion-easing-standard),
-    box-shadow var(--rds-motion-duration-control) var(--rds-motion-easing-standard);
+    background-color var(--rds-motion-duration-feedback) var(--rds-motion-easing-standard),
+    color var(--rds-motion-duration-feedback) var(--rds-motion-easing-standard),
+    box-shadow var(--rds-motion-duration-feedback) var(--rds-motion-easing-standard);
 }
 
 .rds-button[data-size='sm'] {

@@ -1,0 +1,1231 @@
+{
+  "status": "canonical-local-foundation",
+  "adopted": true,
+  "capturedOn": "2026-10-23",
+  "purpose": "Canonical foundation tokens, semantic text styles and supporting rules. Generated outputs preserve existing APIs; deferred work is recorded separately.",
+  "tokenFormat": "DTCG 2025.10",
+  "sets": {
+    "shared": {
+      "file": "shared.tokens.json"
+    },
+    "light": {
+      "file": "light.tokens.json"
+    },
+    "dark": {
+      "file": "dark.tokens.json"
+    }
+  },
+  "capturedAppearances": {
+    "light": {
+      "setsInOrder": [
+        "shared",
+        "light"
+      ]
+    },
+    "dark": {
+      "setsInOrder": [
+        "shared",
+        "dark"
+      ]
+    }
+  },
+  "contextPolicy": {
+    "status": "approved-with-generated-css",
+    "applicationDefault": "system",
+    "enhancedContrast": "Five existing semantic color overrides per appearance; native forced colors take precedence and use system colors.",
+    "language": "Explicit fa/latin content-script selection. No automatic text detection; applications load fonts and manage mixed-script direction.",
+    "densityAndReducedMotion": "Existing source guidance retained; no new modes or global transformations introduced.",
+    "presentationBrand": {
+      "logicalRole": "brand-background",
+      "selection": "active-appearance",
+      "variants": {
+        "light": "presentation-brand-light",
+        "dark": "presentation-brand-dark"
+      },
+      "approval": "presentation-brand-follows-appearance",
+      "implementation": "deferred-to-design"
+    },
+    "approval": "context-selection-and-contrast-policy",
+    "policyFile": "context-policy.json",
+    "fallbackAppearance": "light"
+  },
+  "supplementaryFile": "supplementary-decisions.json",
+  "decisionsFile": "decisions.json",
+  "reviewFile": "Master-Token-List.md",
+  "sourceExports": {
+    "Border.ts": [
+      "BORDER_WIDTH",
+      "FOCUS_RING_GEOMETRY"
+    ],
+    "Color.ts": [
+      "ACTION_PRIMARY_BG",
+      "ACTION_PRIMARY_FG",
+      "BRAND",
+      "CONTRAST_REFERENCE",
+      "DATA_CATEGORICAL",
+      "DATA_DIVERGING",
+      "DATA_ON_FILL",
+      "DATA_SEQUENTIAL",
+      "EDGE",
+      "FOCUS_RING",
+      "HIGH_CONTRAST",
+      "INK",
+      "INTERACTION",
+      "INTERACTION_SELECTED_SURFACE",
+      "LINK_FG",
+      "PRESENTATION_GRADIENTS",
+      "SCRIM",
+      "STATUS",
+      "SURFACE"
+    ],
+    "Motion.ts": [
+      "DURATION",
+      "EASING",
+      "SCALE",
+      "TRANSLATION"
+    ],
+    "Radius.ts": [
+      "FULL_RADIUS_CSS",
+      "RADIUS"
+    ],
+    "Shadow.ts": [
+      "SHADOW"
+    ],
+    "Spacing.ts": [
+      "SPACE"
+    ],
+    "Typography.ts": [
+      "FONT_FAMILY",
+      "FONT_WEIGHT",
+      "LINE_HEIGHT",
+      "TEXT_LAYOUT",
+      "TYPOGRAPHY"
+    ],
+    "Veil.ts": [
+      "VEIL"
+    ],
+    "layout.ts": [
+      "BREAKPOINTS",
+      "PAGE_GRID",
+      "PAGE_MAX_WIDTH"
+    ],
+    "master-tokens/generated/reference.ts": [
+      "REFERENCE"
+    ]
+  },
+  "sources": [
+    {
+      "file": "Border.md",
+      "sha256": "5cb5ee435042b5d89c940d6a89cf2e1e133db7d0f6a6cc5897e0f3769a30b13f",
+      "lines": 62
+    },
+    {
+      "file": "Border.ts",
+      "sha256": "a37e7f0e242c5efc626e806fb97857957011e8b66ba196f4286d5f11ce348b24",
+      "lines": 44
+    },
+    {
+      "file": "Color.ts",
+      "sha256": "92a33cb4d97df71d3380e20db3017c4d7c375d1d34f8d71d0d31dc0b906a1809",
+      "lines": 625
+    },
+    {
+      "file": "Layout.md",
+      "sha256": "40a9e26ab0126324c8d9d844753c6f5a44dbce041dc0b79d5d8736b376e3cad5",
+      "lines": 66
+    },
+    {
+      "file": "Motion.md",
+      "sha256": "7f7d28af8ca3e6ab37f56a935503e74bea52644a33bd5fce7f7094942ec32e77",
+      "lines": 76
+    },
+    {
+      "file": "Motion.ts",
+      "sha256": "0654c90db4c485233899067990e91f42a38def48a02eceb79c2ec5f02af8efbb",
+      "lines": 168
+    },
+    {
+      "file": "Numbers.md",
+      "sha256": "322ea2bb2ab96e90ac74b2d99135413965db2ade0f21ca2dc5e2a018d133f710",
+      "lines": 37
+    },
+    {
+      "file": "Radius.md",
+      "sha256": "4322d9524e7795f56c7afa5da7c10cba0c17085b753f9c692869d73379c716e7",
+      "lines": 33
+    },
+    {
+      "file": "Radius.ts",
+      "sha256": "bf6654f3b3dfd9e8effd2e2f9f12beb26e8f2448cd50a48a5c51bf63a201bbb0",
+      "lines": 84
+    },
+    {
+      "file": "Rahino-Tokenization.md",
+      "sha256": "db218a31067b50150364272d4856cc3f0c9bceb4923d313aec9439708809d42f",
+      "lines": 47
+    },
+    {
+      "file": "Shadow.ts",
+      "sha256": "d78c7ce4976d54770a17b47e9deaecdafa3772325c66c31de20254f26f140126",
+      "lines": 93
+    },
+    {
+      "file": "Spacing.md",
+      "sha256": "b6aedd1b46e0ea87493bb3599f610a1f11794c8f9411e8750ee00f64c4de9e3f",
+      "lines": 54
+    },
+    {
+      "file": "Spacing.ts",
+      "sha256": "a2be4f2b38a4b51359c1033f5b271d816c4f8f6dffbd87452fd7931c097c72f5",
+      "lines": 71
+    },
+    {
+      "file": "Typography.md",
+      "sha256": "ef552f3fd8ee56e8579e8bc3134cbaefef27127b2d4ab55c19da7f648a4ce1eb",
+      "lines": 101
+    },
+    {
+      "file": "Typography.ts",
+      "sha256": "43215eaace45c934ff8fe55f1409f38fb15410e4f403a53b8cc11136a286fea3",
+      "lines": 268
+    },
+    {
+      "file": "Veil & Shadow.md",
+      "sha256": "45b44db21ab2154aea33ab5eac8627a14f995062d42219a96fa76c7279a6ad43",
+      "lines": 50
+    },
+    {
+      "file": "Veil.ts",
+      "sha256": "865e211e9960b3156fc0e3afcc7cae0c9449e0b0b7ddfca92a1a53eaf52c9259",
+      "lines": 120
+    }
+  ],
+  "approvedSourceChanges": [
+    {
+      "id": "spacing-reference-and-shared-alias",
+      "approvedOn": "2026-10-23",
+      "userInstruction": "it should be like this: e.g. `rds.space.16` as the ref token and `rds.spacing.300` as the semantic (rds) token. edit the files to match this.",
+      "scope": "Preserve all 17 reference values and existing public names; classify rds.space.* as reference and add the explicitly approved rds.spacing.300 alias.",
+      "changedFiles": [
+        {
+          "file": "Spacing.md",
+          "beforeSha256": "b6aedd1b46e0ea87493bb3599f610a1f11794c8f9411e8750ee00f64c4de9e3f",
+          "afterSha256": "4c18534bb27ebf3dea8633a5da62f693ba83d125eed792d506dbf5a5243133f5"
+        },
+        {
+          "file": "Spacing.ts",
+          "beforeSha256": "a2be4f2b38a4b51359c1033f5b271d816c4f8f6dffbd87452fd7931c097c72f5",
+          "afterSha256": "605a9ac5401cbcf5bbf800a3e308940b53706ffd0527fc6c51de2a57ef6415ee"
+        },
+        {
+          "file": "Rahino-Tokenization.md",
+          "beforeSha256": "db218a31067b50150364272d4856cc3f0c9bceb4923d313aec9439708809d42f",
+          "afterSha256": "87812a34496fb7556aefeb7411fb28c4cc4f971799d72a742cec4c0e46b00623"
+        }
+      ],
+      "sourceExportsAfter": {
+        "Spacing.ts": [
+          "SPACE",
+          "SPACING"
+        ]
+      },
+      "approvedNewPublicPaths": [
+        "rds.spacing.300"
+      ]
+    },
+    {
+      "id": "spacing-spectrum-full-scale",
+      "approvedOn": "2026-10-23",
+      "userInstruction": "Apply ref.space.<actual size> references and rds.space.<global index> aliases to all spacing values, using the numbers from the linked Spectrum table.",
+      "scope": "Supersede the earlier spacing prefix exception and single alias. Preserve every physical spacing value; apply the complete Spectrum scale plus the existing zero reset.",
+      "supersedes": "spacing-reference-and-shared-alias",
+      "changedFiles": [
+        {
+          "file": "Spacing.md",
+          "beforeSha256": "4c18534bb27ebf3dea8633a5da62f693ba83d125eed792d506dbf5a5243133f5",
+          "afterSha256": "2a73bf19462ca8921b97f617a2ed3d78326fd1909d5054d3931f4bbf45cc84f1"
+        },
+        {
+          "file": "Spacing.ts",
+          "beforeSha256": "605a9ac5401cbcf5bbf800a3e308940b53706ffd0527fc6c51de2a57ef6415ee",
+          "afterSha256": "bd06afb0d52cac192c054621c2542a5e5dee4304acfaf512b260aae77f8a289d"
+        },
+        {
+          "file": "Rahino-Tokenization.md",
+          "beforeSha256": "87812a34496fb7556aefeb7411fb28c4cc4f971799d72a742cec4c0e46b00623",
+          "afterSha256": "0cb2cbe56d68d30a049264cbf3d7159a53f8609683cdea4995ec07a44a31646c"
+        }
+      ],
+      "sourceExportsAfter": {
+        "Spacing.ts": [
+          "SPACE",
+          "SPACING"
+        ]
+      },
+      "approvedMapping": {
+        "rds.space.0": "{ref.space.0}",
+        "rds.space.25": "{ref.space.1}",
+        "rds.space.50": "{ref.space.2}",
+        "rds.space.75": "{ref.space.4}",
+        "rds.space.85": "{ref.space.6}",
+        "rds.space.100": "{ref.space.8}",
+        "rds.space.200": "{ref.space.12}",
+        "rds.space.300": "{ref.space.16}",
+        "rds.space.350": "{ref.space.20}",
+        "rds.space.400": "{ref.space.24}",
+        "rds.space.500": "{ref.space.32}",
+        "rds.space.600": "{ref.space.40}",
+        "rds.space.700": "{ref.space.48}",
+        "rds.space.750": "{ref.space.56}",
+        "rds.space.800": "{ref.space.64}",
+        "rds.space.900": "{ref.space.80}",
+        "rds.space.1000": "{ref.space.96}"
+      }
+    },
+    {
+      "id": "veil-group-leaf-contract",
+      "approvedOn": "2026-10-23",
+      "userInstruction": "Approved the explained veil structure: each rds.veil.<level> is a group containing separate .color and .blur tokens.",
+      "scope": "Clarify all six veil group/leaf declarations in documentation, TypeScript annotations and master metadata. Preserve all values and exports.",
+      "changedFiles": [
+        {
+          "file": "Veil.ts",
+          "beforeSha256": "865e211e9960b3156fc0e3afcc7cae0c9449e0b0b7ddfca92a1a53eaf52c9259",
+          "afterSha256": "145cb219709f76ce848bc0b70536d205e7c059704c39ea723d768993d434ee3d"
+        },
+        {
+          "file": "Veil & Shadow.md",
+          "beforeSha256": "45b44db21ab2154aea33ab5eac8627a14f995062d42219a96fa76c7279a6ad43",
+          "afterSha256": "e867ae236f1c49556c0fcce9867df6a1dab2f8f833cf401c0347ecd2f7a52986"
+        }
+      ],
+      "sourceExportsAfter": {
+        "Veil.ts": [
+          "VEIL"
+        ]
+      }
+    },
+    {
+      "id": "chart-public-slots-01",
+      "approvedOn": "2026-10-23",
+      "userInstruction": "Make chart naming match, choosing either 0 or 01 as the more suitable convention.",
+      "scope": "Use 01-based published slot names, expose named token maps and preserve existing array exports as derived projections. No palette or order change.",
+      "changedFiles": [
+        {
+          "file": "Color.ts",
+          "beforeSha256": "92a33cb4d97df71d3380e20db3017c4d7c375d1d34f8d71d0d31dc0b906a1809",
+          "afterSha256": "0c4afb941268e5ac4caafb841d7aac791cdb365c7b6a97fa6652ad5f95695b12"
+        }
+      ],
+      "sourceExportsAfter": {
+        "Color.ts": [
+          "ACTION_PRIMARY_BG",
+          "ACTION_PRIMARY_FG",
+          "BRAND",
+          "CONTRAST_REFERENCE",
+          "DATA_CATEGORICAL",
+          "DATA_CATEGORICAL_TOKENS",
+          "DATA_DIVERGING",
+          "DATA_DIVERGING_TOKENS",
+          "DATA_ON_FILL",
+          "DATA_SEQUENTIAL",
+          "DATA_SEQUENTIAL_TOKENS",
+          "EDGE",
+          "FOCUS_RING",
+          "HIGH_CONTRAST",
+          "INK",
+          "INTERACTION",
+          "INTERACTION_SELECTED_SURFACE",
+          "LINK_FG",
+          "PRESENTATION_GRADIENTS",
+          "SCRIM",
+          "STATUS",
+          "SURFACE"
+        ]
+      }
+    },
+    {
+      "id": "reading-measure-single-42rem",
+      "approvedOn": "2026-10-23",
+      "userInstruction": "Decide which reading-width rule is best and standard, and update the files.",
+      "scope": "Select one 42rem reading cap, retire the separate 48rem allowance, preserve other typography/layout values and retain the old wide API as a deprecated alias until consumers migrate.",
+      "changedFiles": [
+        {
+          "file": "Layout.md",
+          "beforeSha256": "40a9e26ab0126324c8d9d844753c6f5a44dbce041dc0b79d5d8736b376e3cad5",
+          "afterSha256": "17fce7824adcf708b6bb5ef8402c06ef94b532c9d347c970905fa5437e67d5a9"
+        },
+        {
+          "file": "Typography.md",
+          "beforeSha256": "ef552f3fd8ee56e8579e8bc3134cbaefef27127b2d4ab55c19da7f648a4ce1eb",
+          "afterSha256": "76980e8ba36ac7d4c16bdc7c0bc1938a026c0d2981ad09f8d1bb355926864db2"
+        },
+        {
+          "file": "Typography.ts",
+          "beforeSha256": "43215eaace45c934ff8fe55f1409f38fb15410e4f403a53b8cc11136a286fea3",
+          "afterSha256": "d42410121318b5cd7b94ade38557f5d5aa6bc97b4ec668d3998ca6a40486cd8a"
+        }
+      ],
+      "sourceExportsAfter": {
+        "Typography.ts": [
+          "FONT_FAMILY",
+          "FONT_WEIGHT",
+          "LINE_HEIGHT",
+          "TEXT_LAYOUT",
+          "TYPOGRAPHY"
+        ]
+      }
+    },
+    {
+      "id": "layout-token-exports",
+      "approvedOn": "2026-10-24",
+      "userInstruction": "Store needed layout tokens in a file named layout.ts; update the master token collection too.",
+      "scope": "Export existing breakpoints, page-grid columns/gutters/margins and shared page-width cap. Reuse existing spacing aliases and reading measure; preserve all numeric decisions.",
+      "changedFiles": [
+        {
+          "file": "Layout.md",
+          "beforeSha256": "17fce7824adcf708b6bb5ef8402c06ef94b532c9d347c970905fa5437e67d5a9",
+          "afterSha256": "7ba0ad9fc9f4119388ce96f8a8ddd65bbd02d317ac558d9bba801400ddc46858"
+        }
+      ],
+      "sourceExportsAfter": {
+        "layout.ts": [
+          "BREAKPOINTS",
+          "PAGE_GRID",
+          "PAGE_MAX_WIDTH"
+        ]
+      }
+    },
+    {
+      "id": "reading-paragraph-relative-spacing",
+      "approvedOn": "2026-10-24",
+      "userInstruction": "If anything needs changing, do it to match the explained reading-paragraph spacing practice.",
+      "scope": "Clarify the existing 1em paragraph recipe scope and storage exception; preserve runtime typography values, all other text gaps and public exports.",
+      "changedFiles": [
+        {
+          "file": "Typography.md",
+          "beforeSha256": "76980e8ba36ac7d4c16bdc7c0bc1938a026c0d2981ad09f8d1bb355926864db2",
+          "afterSha256": "2062da89665163d6a24f03c3237dba91e262b0a0536d171076ac991011c83ee6"
+        },
+        {
+          "file": "Typography.ts",
+          "beforeSha256": "d42410121318b5cd7b94ade38557f5d5aa6bc97b4ec668d3998ca6a40486cd8a",
+          "afterSha256": "f71586dba3f30241072c1d5a60e9c9dc794d23e57024a4bb23c6a8601ff9e53a"
+        },
+        {
+          "file": "Spacing.md",
+          "beforeSha256": "2a73bf19462ca8921b97f617a2ed3d78326fd1909d5054d3931f4bbf45cc84f1",
+          "afterSha256": "57d71e886281e85c726f5ce3766d222cddb86bfc18ba4f23cf89365bf2363a1e"
+        },
+        {
+          "file": "Rahino-Tokenization.md",
+          "beforeSha256": "0cb2cbe56d68d30a049264cbf3d7159a53f8609683cdea4995ec07a44a31646c",
+          "afterSha256": "71f36342ee401cef983295dc4d6637a33f7655cc25ef84a82cccb616a04124c8"
+        }
+      ],
+      "sourceExportsAfter": {}
+    },
+    {
+      "id": "typography-script-font-bindings",
+      "approvedOn": "2026-10-24",
+      "userInstruction": "Explicitly connect each style to the appropriate existing font selection if this has not already been done and is necessary.",
+      "scope": "Add derived complete Persian/English typography exports using existing font tokens; preserve every existing export, role metric, fluid expression, gap and letter-spacing behavior.",
+      "changedFiles": [
+        {
+          "file": "Typography.ts",
+          "beforeSha256": "f71586dba3f30241072c1d5a60e9c9dc794d23e57024a4bb23c6a8601ff9e53a",
+          "afterSha256": "cd34c40191fd74af768343a019f51b8a9b1eee9493977ca0fd767a59b5066cf1"
+        },
+        {
+          "file": "Typography.md",
+          "beforeSha256": "2062da89665163d6a24f03c3237dba91e262b0a0536d171076ac991011c83ee6",
+          "afterSha256": "f83f81ba668bfa8c88fa9722cce1d5f1122e97a817168a9599b0e8ba835a3ec5"
+        }
+      ],
+      "sourceExportsAfter": {
+        "Typography.ts": [
+          "FONT_FAMILY",
+          "FONT_WEIGHT",
+          "LINE_HEIGHT",
+          "TEXT_LAYOUT",
+          "TYPOGRAPHY",
+          "TYPOGRAPHY_BY_SCRIPT"
+        ]
+      }
+    },
+    {
+      "id": "color-local-source-reference-cleanup",
+      "approvedOn": "2026-10-24",
+      "userInstruction": "Only the files in this folder are approved; remove or update Color.ts references to absent sources.",
+      "scope": "Preserve an already present removal of the nonexistent edge.focus alias comment. The exact removed comment was verified against the previously approved file hash; all runtime values match the master.",
+      "observedExistingEdit": {
+        "origin": "already present when this cleanup started; author not inferred",
+        "removedComment": " * @alias rds.color.edge.focus, when exported as a focus-colored border.",
+        "previousLine": 264
+      },
+      "changedFiles": [
+        {
+          "file": "Color.ts",
+          "beforeSha256": "0c4afb941268e5ac4caafb841d7aac791cdb365c7b6a97fa6652ad5f95695b12",
+          "afterSha256": "ae3eee9f349b70bac180cf349e23a1b6389a135584db3e67a81e60b039a3189e"
+        }
+      ],
+      "sourceExportsAfter": {}
+    },
+    {
+      "id": "color-local-source-reference-cleanup",
+      "approvedOn": "2026-10-24",
+      "userInstruction": "All approved files are in this folder; delete or update Color.ts references to sources outside it.",
+      "scope": "Replace stale source and migration claims with verified local references; align the presentation comment with approved theme intent and design deferral; preserve all runtime values and exports.",
+      "changedFiles": [
+        {
+          "file": "Color.ts",
+          "beforeSha256": "ae3eee9f349b70bac180cf349e23a1b6389a135584db3e67a81e60b039a3189e",
+          "afterSha256": "cca30616b3ad68bc3e1ad74f877bd03081438e147b8c048a1a1b1de0ac97fb09"
+        }
+      ],
+      "sourceExportsAfter": {}
+    },
+    {
+      "id": "motion-phase-one-figma-validation",
+      "approvedOn": "2026-10-24",
+      "userInstruction": "Phase one of testing in Figma was done.",
+      "scope": "Synchronize the Figma-completed/Qipper-pending status in Motion documentation, TypeScript and master metadata; correct the source filename; preserve all motion values.",
+      "changedFiles": [
+        {
+          "file": "Motion.md",
+          "beforeSha256": "7f7d28af8ca3e6ab37f56a935503e74bea52644a33bd5fce7f7094942ec32e77",
+          "afterSha256": "bd048f221e68554e003f06a3d3792b9cde4ff4c8ca873cd444febf7ca41fa24b"
+        },
+        {
+          "file": "Motion.ts",
+          "beforeSha256": "0654c90db4c485233899067990e91f42a38def48a02eceb79c2ec5f02af8efbb",
+          "afterSha256": "0d9ea5f5eb158b68d18a18f748614c9aeb5eec26e95f3a6e243c562afb826d86"
+        }
+      ],
+      "sourceExportsAfter": {}
+    },
+    {
+      "id": "shadow-three-level-scale",
+      "approvedOn": "2026-10-24",
+      "userInstruction": "The owner confirmed intentionally editing Veil & Shadow.md, then instructed removal of xlg and use of lg for modals.",
+      "scope": "Record and preserve the owner-edited document as the input to the approved shadow correction. The original baseline hash is retained; this acknowledgement is not a claim that the agent authored the intervening edit.",
+      "observedExistingEdit": {
+        "author": "foundation owner, directly confirmed",
+        "acknowledgedOn": "2026-10-24",
+        "file": "Veil & Shadow.md"
+      },
+      "changedFiles": [
+        {
+          "file": "Veil & Shadow.md",
+          "beforeSha256": "e867ae236f1c49556c0fcce9867df6a1dab2f8f833cf401c0347ecd2f7a52986",
+          "afterSha256": "1ca03b7aa10755127c92cb7dc000a95834c21c4122ab60b703b3afd7e4fbfbf9"
+        }
+      ],
+      "sourceExportsAfter": {}
+    },
+    {
+      "id": "shadow-three-level-scale",
+      "approvedOn": "2026-10-24",
+      "userInstruction": "Remove xlg shadow; use lg for modals.",
+      "scope": "Remove xlg from TypeScript and both master appearances; use existing lg for modals, synchronize usage rules and replace the obsolete Lift term. Preserve remaining shadow values and all veil settings.",
+      "changedFiles": [
+        {
+          "file": "Shadow.ts",
+          "beforeSha256": "d78c7ce4976d54770a17b47e9deaecdafa3772325c66c31de20254f26f140126",
+          "afterSha256": "f7d102c400812f489006eed32ffc15ab6fa4a5473ab4c9fc415a13895af6962f"
+        },
+        {
+          "file": "Veil & Shadow.md",
+          "beforeSha256": "1ca03b7aa10755127c92cb7dc000a95834c21c4122ab60b703b3afd7e4fbfbf9",
+          "afterSha256": "40be13b917f34a0179264883ba8e18855d98a5341a8d7ae4c2d1c2668e71f45a"
+        },
+        {
+          "file": "Layout.md",
+          "beforeSha256": "7ba0ad9fc9f4119388ce96f8a8ddd65bbd02d317ac558d9bba801400ddc46858",
+          "afterSha256": "86f460caaddf6ca2d7e49fc525a8c70debc07b98c733f5434f6d868426e1c516"
+        }
+      ],
+      "sourceExportsAfter": {
+        "Shadow.ts": [
+          "SHADOW"
+        ]
+      }
+    },
+    {
+      "id": "dark-focus-ring-and-contrast-reference",
+      "approvedOn": "2026-10-24",
+      "userInstruction": "Change the dark focus ring to the recommended #A9638B. Earlier instruction: refresh contrast figures after resolving the dark-mode contrast issue.",
+      "scope": "Change only the dark focus-ring palette value; keep the light ring and other palette values. Derive the existing 30-pair text contrast export from current colors and synchronize master reference data. Keep the control-boundary issue open.",
+      "changedFiles": [
+        {
+          "file": "Color.ts",
+          "beforeSha256": "cca30616b3ad68bc3e1ad74f877bd03081438e147b8c048a1a1b1de0ac97fb09",
+          "afterSha256": "132031f20c4a76e5c8916669abc8182e6867cf1ad5e3580257191e8f7403ddd5"
+        }
+      ],
+      "sourceExportsAfter": {}
+    },
+    {
+      "id": "dark-control-boundary-existing-gray",
+      "approvedOn": "2026-10-26",
+      "userInstruction": "1 do your suggestion",
+      "scope": "Use existing #7A8493 for the dark control boundary and synchronize its value documentation. Other color values and documentation formatting are unchanged.",
+      "changedFiles": [
+        {
+          "file": "Color.ts",
+          "beforeSha256": "132031f20c4a76e5c8916669abc8182e6867cf1ad5e3580257191e8f7403ddd5",
+          "afterSha256": "7366419a90db22363df62c13f3b326053c3dda4eda03b73e02d2ab849eef4e28"
+        },
+        {
+          "file": "Border.md",
+          "beforeSha256": "5cb5ee435042b5d89c940d6a89cf2e1e133db7d0f6a6cc5897e0f3769a30b13f",
+          "afterSha256": "e46f0ca251c05b3efc60e2472a9e2305f25e8303bf8364fe41bf74d3e101a312"
+        }
+      ],
+      "sourceExportsAfter": {}
+    },
+    {
+      "id": "data-and-presentation-color-category",
+      "approvedOn": "2026-10-26",
+      "userInstruction": "go ahead and fix both data colors and Presentation backgrounds",
+      "scope": "Rename chart color and presentation recipe public paths under rds.color; update annotations only. Preserve all runtime exports, values, chart order and gradient artwork.",
+      "changedFiles": [
+        {
+          "file": "Color.ts",
+          "beforeSha256": "7366419a90db22363df62c13f3b326053c3dda4eda03b73e02d2ab849eef4e28",
+          "afterSha256": "2aa4a734320d5718c26bf654646988df2a00f2fa61d8fd9e24d32d7596164e41"
+        }
+      ],
+      "sourceExportsAfter": {}
+    },
+    {
+      "id": "canonical-master-adoption",
+      "approvedOn": "2026-10-26",
+      "userInstruction": "Ready to launch this and edit all the files and documents based on it.",
+      "scope": "Generate existing foundation APIs from the canonical master without changing runtime values.",
+      "changedFiles": [
+        {
+          "file": "Border.ts",
+          "beforeSha256": "a37e7f0e242c5efc626e806fb97857957011e8b66ba196f4286d5f11ce348b24",
+          "afterSha256": "81c29c82592532f26572a473216dcfd6ea99b0c92528404cd37358bbacca9f93"
+        },
+        {
+          "file": "Color.ts",
+          "beforeSha256": "2aa4a734320d5718c26bf654646988df2a00f2fa61d8fd9e24d32d7596164e41",
+          "afterSha256": "f863c501fa064a7219ec7381ef341cff05e71189dc851fc2e3adbb0673f69d79"
+        },
+        {
+          "file": "Motion.ts",
+          "beforeSha256": "0d9ea5f5eb158b68d18a18f748614c9aeb5eec26e95f3a6e243c562afb826d86",
+          "afterSha256": "ef2986efb54d33d6d33d94aff2add7160a9d9e804c8a5e107739ac49af4ff4b3"
+        },
+        {
+          "file": "Radius.ts",
+          "beforeSha256": "bf6654f3b3dfd9e8effd2e2f9f12beb26e8f2448cd50a48a5c51bf63a201bbb0",
+          "afterSha256": "5862b1c28c14b38103c3e174fffd077ffaab3ad4cce5ce9dbf26b3f968c86fa1"
+        },
+        {
+          "file": "Shadow.ts",
+          "beforeSha256": "f7d102c400812f489006eed32ffc15ab6fa4a5473ab4c9fc415a13895af6962f",
+          "afterSha256": "08ba7a7b08f9e681e2ee81dd180377ffc64f7aecdd1a63cc8d9728183034baa9"
+        },
+        {
+          "file": "Spacing.ts",
+          "beforeSha256": "bd06afb0d52cac192c054621c2542a5e5dee4304acfaf512b260aae77f8a289d",
+          "afterSha256": "ac15ebe7af04e54d19b79635905c8f23e2b5a054ca887505221df58d9bd96325"
+        },
+        {
+          "file": "Typography.ts",
+          "beforeSha256": "cd34c40191fd74af768343a019f51b8a9b1eee9493977ca0fd767a59b5066cf1",
+          "afterSha256": "4641d4e15efad887b1df5b055065cf765972ac456f16c4547d29e981a6764718"
+        },
+        {
+          "file": "Veil.ts",
+          "beforeSha256": "145cb219709f76ce848bc0b70536d205e7c059704c39ea723d768993d434ee3d",
+          "afterSha256": "228bf03ca61cea9807599a6900046d9e188f40093f761cfa1eb538d2f5c38910"
+        }
+      ],
+      "sourceExportsAfter": {}
+    },
+    {
+      "id": "foundation-documentation-cleanup",
+      "approvedOn": "2026-10-26",
+      "userInstruction": "Ready to launch this and edit all the files and documents based on it.",
+      "scope": "Complete scheduled documentation cleanup and synchronize generated value tables.",
+      "changedFiles": [
+        {
+          "file": "Border.md",
+          "beforeSha256": "e46f0ca251c05b3efc60e2472a9e2305f25e8303bf8364fe41bf74d3e101a312",
+          "afterSha256": "5adc109cc869313c0fbe3a260aa7fe1a3dcf5f32f5e7c29c75f1862f1a15f9f0"
+        },
+        {
+          "file": "Layout.md",
+          "beforeSha256": "86f460caaddf6ca2d7e49fc525a8c70debc07b98c733f5434f6d868426e1c516",
+          "afterSha256": "e1f53b1808b5d8d07e4176c99471e431dbff6edf9648dc525b656d51b218964b"
+        },
+        {
+          "file": "Motion.md",
+          "beforeSha256": "bd048f221e68554e003f06a3d3792b9cde4ff4c8ca873cd444febf7ca41fa24b",
+          "afterSha256": "5295f97f2dc0be455910b4fea23898f00def35f65438a90136e3cabae99ea529"
+        },
+        {
+          "file": "Numbers.md",
+          "beforeSha256": "322ea2bb2ab96e90ac74b2d99135413965db2ade0f21ca2dc5e2a018d133f710",
+          "afterSha256": "e14dc6a6cf3bb87c6c363f3fac7e9e493d248c866563bd9dfb36006ee0dce1a5"
+        },
+        {
+          "file": "Radius.md",
+          "beforeSha256": "4322d9524e7795f56c7afa5da7c10cba0c17085b753f9c692869d73379c716e7",
+          "afterSha256": "e2b5c90df23702288cc9919172a87e5718b2b8df259113c8d6b7153b56e1b8c2"
+        },
+        {
+          "file": "Rahino-Tokenization.md",
+          "beforeSha256": "71f36342ee401cef983295dc4d6637a33f7655cc25ef84a82cccb616a04124c8",
+          "afterSha256": "61837068b95cca06d4f50ddd2d9d801fe2c0b7591e20d3be346429c9c8ca886b"
+        },
+        {
+          "file": "Spacing.md",
+          "beforeSha256": "57d71e886281e85c726f5ce3766d222cddb86bfc18ba4f23cf89365bf2363a1e",
+          "afterSha256": "3105901a0d48db9e0995eca8963439e4b64142c3ec77111ce19e51f593ce9685"
+        },
+        {
+          "file": "Typography.md",
+          "beforeSha256": "f83f81ba668bfa8c88fa9722cce1d5f1122e97a817168a9599b0e8ba835a3ec5",
+          "afterSha256": "50be09e4da08e1742e8f4581f6275fc8a721552a734875266fa30ff722063104"
+        },
+        {
+          "file": "Veil & Shadow.md",
+          "beforeSha256": "40be13b917f34a0179264883ba8e18855d98a5341a8d7ae4c2d1c2668e71f45a",
+          "afterSha256": "687f81832bcff38a7f4b661238e18a7797604a9279d3b57b7a6d34f741ed032a"
+        },
+        {
+          "file": "Rahino-Resolver.md",
+          "beforeSha256": "168bafa81c2e0a9002beb71fc14969198615f85587cfd8963fb3e85a3c2bdd6c",
+          "afterSha256": "852ca693fde3d2f992ab83aa4d21ecf21edaa719616f181e5ccebac804dcfef8"
+        }
+      ],
+      "sourceExportsAfter": {}
+    },
+    {
+      "id": "canonical-master-adoption",
+      "approvedOn": "2026-10-26",
+      "userInstruction": "Adopt the master and synchronize all foundation files and documents.",
+      "scope": "Finalize generated canonical versus compatibility annotations; runtime values are unchanged.",
+      "changedFiles": [
+        {
+          "file": "Color.ts",
+          "beforeSha256": "f863c501fa064a7219ec7381ef341cff05e71189dc851fc2e3adbb0673f69d79",
+          "afterSha256": "442e74eff59f1bd102027941fa33c0d3c14072135204ba998fd5a510caa1347d"
+        },
+        {
+          "file": "Spacing.ts",
+          "beforeSha256": "ac15ebe7af04e54d19b79635905c8f23e2b5a054ca887505221df58d9bd96325",
+          "afterSha256": "997241bf08e26119e419c25b3a7294cfa7fb0ca170f3d7913bb79cb6dd891362"
+        }
+      ],
+      "sourceExportsAfter": {}
+    },
+    {
+      "id": "canonical-master-adoption",
+      "approvedOn": "2026-10-26",
+      "userInstruction": "Adopt the master and synchronize all foundation files and documents.",
+      "scope": "Finalize generated canonical versus compatibility annotations; runtime values are unchanged.",
+      "changedFiles": [
+        {
+          "file": "Typography.ts",
+          "beforeSha256": "4641d4e15efad887b1df5b055065cf765972ac456f16c4547d29e981a6764718",
+          "afterSha256": "837973f759cff984d87af9ecad2e3d92972bbfaa492a246fab6875fc5a541e79"
+        }
+      ],
+      "sourceExportsAfter": {}
+    },
+    {
+      "id": "canonical-master-adoption",
+      "approvedOn": "2026-10-26",
+      "userInstruction": "Synchronize all source files with the adopted master.",
+      "scope": "Document separate light/dark references in generated paired-color annotations; runtime values are unchanged.",
+      "changedFiles": [
+        {
+          "file": "Color.ts",
+          "beforeSha256": "442e74eff59f1bd102027941fa33c0d3c14072135204ba998fd5a510caa1347d",
+          "afterSha256": "0159c9af698992001df9d57d9144f59c769d3daa6d2419beb1a422954cb1a777"
+        },
+        {
+          "file": "Veil.ts",
+          "beforeSha256": "228bf03ca61cea9807599a6900046d9e188f40093f761cfa1eb538d2f5c38910",
+          "afterSha256": "039b68227d93a15ced74b4bf41028d97c2a2a258d2540858d81c72f151c82613"
+        }
+      ],
+      "sourceExportsAfter": {}
+    },
+    {
+      "id": "semantic-text-styles-and-readable-guides",
+      "approvedOn": "2026-10-27",
+      "userInstruction": "Apply the proposed semantic text style source and remove repeated explanations from TypeScript while keeping references visible in Markdown.",
+      "scope": "Reorganize typography source and generated documentation; preserve all token names, runtime values, style metrics and public exports.",
+      "changedFiles": [
+        {
+          "file": "Border.md",
+          "beforeSha256": "5adc109cc869313c0fbe3a260aa7fe1a3dcf5f32f5e7c29c75f1862f1a15f9f0",
+          "afterSha256": "bb3c1ac5e0fcdac94d763ae32243a400a0cb6e89596d639a295b2437196cca68"
+        },
+        {
+          "file": "Border.ts",
+          "beforeSha256": "81c29c82592532f26572a473216dcfd6ea99b0c92528404cd37358bbacca9f93",
+          "afterSha256": "b031c168f271ebbfa425135ef172e9bfae5a904e1af0861a0f62e0ce53f0b2cb"
+        },
+        {
+          "file": "Color.ts",
+          "beforeSha256": "0159c9af698992001df9d57d9144f59c769d3daa6d2419beb1a422954cb1a777",
+          "afterSha256": "354f15b1c178f7739e167d224b92b3944be8ebee2aa8e54cd0fe4f53b6d24145"
+        },
+        {
+          "file": "Layout.md",
+          "beforeSha256": "e1f53b1808b5d8d07e4176c99471e431dbff6edf9648dc525b656d51b218964b",
+          "afterSha256": "a05d3d8c652aa599751f3d2921b2d0a40fc613795e26059182f009056d008ab0"
+        },
+        {
+          "file": "Motion.md",
+          "beforeSha256": "5295f97f2dc0be455910b4fea23898f00def35f65438a90136e3cabae99ea529",
+          "afterSha256": "575186783f8efbcb2feb54b1761a56207d24dc127c16cd85b6600b50d3f1db50"
+        },
+        {
+          "file": "Motion.ts",
+          "beforeSha256": "ef2986efb54d33d6d33d94aff2add7160a9d9e804c8a5e107739ac49af4ff4b3",
+          "afterSha256": "dd5f89efbc4e715e78c2561dc9f24423ec19a4af6b9cc6579927ce2258ff0a0a"
+        },
+        {
+          "file": "Radius.md",
+          "beforeSha256": "e2b5c90df23702288cc9919172a87e5718b2b8df259113c8d6b7153b56e1b8c2",
+          "afterSha256": "bd7480caf0a05da790970f4de3e191715a7b2d71bae6a0d94734340871e201ba"
+        },
+        {
+          "file": "Radius.ts",
+          "beforeSha256": "5862b1c28c14b38103c3e174fffd077ffaab3ad4cce5ce9dbf26b3f968c86fa1",
+          "afterSha256": "8c9090a88c70cb45f78abbde316f5dc62a9d6cd8a1927d6dabb84322ab831a21"
+        },
+        {
+          "file": "Rahino-Tokenization.md",
+          "beforeSha256": "61837068b95cca06d4f50ddd2d9d801fe2c0b7591e20d3be346429c9c8ca886b",
+          "afterSha256": "31d54550d9743918844f8385344eeec77a07e7eeaac75a8672b652a2e8acdf92"
+        },
+        {
+          "file": "Shadow.ts",
+          "beforeSha256": "08ba7a7b08f9e681e2ee81dd180377ffc64f7aecdd1a63cc8d9728183034baa9",
+          "afterSha256": "1d6204ca92e6438f8280f2d2947a5c44eaee5f8e317544a7390703512467b363"
+        },
+        {
+          "file": "Spacing.ts",
+          "beforeSha256": "997241bf08e26119e419c25b3a7294cfa7fb0ca170f3d7913bb79cb6dd891362",
+          "afterSha256": "f2332e5867dfb4ac6001814f3c392654b1012bbde0698217c9bd61a247391d7e"
+        },
+        {
+          "file": "Typography.md",
+          "beforeSha256": "50be09e4da08e1742e8f4581f6275fc8a721552a734875266fa30ff722063104",
+          "afterSha256": "70bef0eb1024cc1cdc60ba8ddd3aa95ddce888937e285dd5c7791eb93ffd5be7"
+        },
+        {
+          "file": "Typography.ts",
+          "beforeSha256": "837973f759cff984d87af9ecad2e3d92972bbfaa492a246fab6875fc5a541e79",
+          "afterSha256": "22cdd6881a0d29d9cee73bd377cd8f6281c52b688f2699b32ea95f565d7b0641"
+        },
+        {
+          "file": "Veil & Shadow.md",
+          "beforeSha256": "687f81832bcff38a7f4b661238e18a7797604a9279d3b57b7a6d34f741ed032a",
+          "afterSha256": "7a0b2387008a58c5bcc53d9f5c6a74674618d13e8c6e5c2822f18844d7a9500e"
+        },
+        {
+          "file": "Veil.ts",
+          "beforeSha256": "039b68227d93a15ced74b4bf41028d97c2a2a258d2540858d81c72f151c82613",
+          "afterSha256": "99adc9044c4803d210f133c75e0372bb63e2dd2cb0d242e5fedfa2ea43bd5d79"
+        },
+        {
+          "file": "layout.ts",
+          "beforeSha256": "17757afdc4dcc56e6f8ff3df44d25d062bef3ca46e3a5ca41fb769097e13a910",
+          "afterSha256": "a01eea0e919364bba603e3ca0a19f2dfc56d61458e7d10ad5e79da4e81070a16"
+        }
+      ],
+      "sourceExportsAfter": {}
+    },
+    {
+      "id": "separate-color-state-segments",
+      "approvedOn": "2026-10-28",
+      "userInstruction": "Use the action.primary.bg.hover naming pattern everywhere; update documents only if necessary.",
+      "scope": "Rename the brand background state pair and selected-surface token, update references and generated outputs, and preserve TypeScript exports, CSS compatibility and all values.",
+      "changedFiles": [
+        {
+          "file": "Color.ts",
+          "beforeSha256": "354f15b1c178f7739e167d224b92b3944be8ebee2aa8e54cd0fe4f53b6d24145",
+          "afterSha256": "e4b68417a18d660a8937233e9d4fa630b4bc581eb62d64822630367d6fa9d805"
+        },
+        {
+          "file": "Rahino-Tokenization.md",
+          "beforeSha256": "31d54550d9743918844f8385344eeec77a07e7eeaac75a8672b652a2e8acdf92",
+          "afterSha256": "bc9433a9edcbf142d4d2e9369e3947976affc93a2877eda44ab77e40011828c6"
+        },
+        {
+          "file": "Color.md",
+          "beforeSha256": "f62ff4f1b81fae2962d7db108c5aeb9ccb2a8d2e505cbcf76d56fdcbd35616a9",
+          "afterSha256": "d5490581c8684cbe78a976d6d5b8a68f5d6a5abc2ef93b65810e3d69db16c498",
+          "observedBeforeSha256": "31358dfcf9c7935e5f16fbee91a4ec7bea149ad0e09bda162b1b676e564b18b9",
+          "note": "The incoming guide already had table alignment and whitespace edits. Those were preserved during this naming update."
+        }
+      ],
+      "sourceExportsAfter": {}
+    },
+    {
+      "id": "audit-state-contrast-and-material-default",
+      "approvedOn": "2026-10-28",
+      "userInstruction": "Do audit follow-ups 1 and 2 with minimal changes, do 4, and keep chart visibility for later.",
+      "scope": "Correct branded hover forced-color mapping, constrain interactive text to existing stronger ink, and clarify opaque raised surfaces as the default with opt-in glass. Preserve palette values and public APIs.",
+      "changedFiles": [
+        {
+          "file": "Veil & Shadow.md",
+          "beforeSha256": "7a0b2387008a58c5bcc53d9f5c6a74674618d13e8c6e5c2822f18844d7a9500e",
+          "afterSha256": "c7c556d9c52b13b40baa499daaa7af99b373d673bd4c0e47a1e80062d50210a8"
+        },
+        {
+          "file": "Color.md",
+          "beforeSha256": "d5490581c8684cbe78a976d6d5b8a68f5d6a5abc2ef93b65810e3d69db16c498",
+          "afterSha256": "77c026889591ac6160c32910f63571c33a54088dbfaf6a7e43f7edf75045ba78"
+        }
+      ],
+      "sourceExportsAfter": {}
+    },
+    {
+      "id": "shared-color-resolver",
+      "approvedOn": "2026-10-28",
+      "userInstruction": "Add the proposed color resolver and check whether it interferes with anything else.",
+      "scope": "Generate a shared browser/server color resolver and types from canonical colors and shared selection policy; document application integration and preserve existing foundation APIs and CSS behavior.",
+      "changedFiles": [
+        {
+          "file": "Rahino-Resolver.md",
+          "beforeSha256": "852ca693fde3d2f992ab83aa4d21ecf21edaa719616f181e5ccebac804dcfef8",
+          "afterSha256": "5ce54146f552f383710f7ef54aac509332dcb0dc6982484953c8690ad63fdddc"
+        }
+      ],
+      "sourceExportsAfter": {}
+    },
+    {
+      "id": "primary-fill-on-brand-foreground",
+      "approvedOn": "2026-10-28",
+      "userInstruction": "Update the palette so primary fills use rds.color.ink.on-brand instead of ink.primary.",
+      "scope": "Link the existing primary foreground to on-brand ink, clarify role guidance and keep standard palette values and existing API names unchanged.",
+      "changedFiles": [
+        {
+          "file": "Color.ts",
+          "beforeSha256": "e4b68417a18d660a8937233e9d4fa630b4bc581eb62d64822630367d6fa9d805",
+          "afterSha256": "f06e2179441a18b8711f734874397c5f5c52b049ae34fc42791747c292bff96c"
+        },
+        {
+          "file": "Color.md",
+          "beforeSha256": "77c026889591ac6160c32910f63571c33a54088dbfaf6a7e43f7edf75045ba78",
+          "afterSha256": "d6a8f8dda970729ea04666139955a8ae87936ea71e85efb4fdffdd0b59aab8fd"
+        }
+      ],
+      "sourceExportsAfter": {}
+    }
+  ],
+  "derivedExports": [
+    {
+      "file": "Color.ts",
+      "exportName": "DATA_CATEGORICAL",
+      "sourceExport": "DATA_CATEGORICAL_TOKENS",
+      "sourceOrder": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08"
+      ],
+      "purpose": "Preserve the existing zero-based array API as a projection of stable public token slots; no copied palette values.",
+      "approval": "chart-public-slots-01"
+    },
+    {
+      "file": "Color.ts",
+      "exportName": "DATA_SEQUENTIAL",
+      "sourceExport": "DATA_SEQUENTIAL_TOKENS",
+      "sourceOrder": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "purpose": "Preserve the existing zero-based array API as a projection of stable public token slots; no copied palette values.",
+      "approval": "chart-public-slots-01"
+    },
+    {
+      "file": "Color.ts",
+      "exportName": "DATA_DIVERGING",
+      "sourceExport": "DATA_DIVERGING_TOKENS",
+      "sourceOrder": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "purpose": "Preserve the existing zero-based array API as a projection of stable public token slots; no copied palette values.",
+      "approval": "chart-public-slots-01"
+    }
+  ],
+  "addedSources": [
+    {
+      "file": "layout.ts",
+      "sha256": "17757afdc4dcc56e6f8ff3df44d25d062bef3ca46e3a5ca41fb769097e13a910",
+      "lines": 53,
+      "approval": "layout-token-exports",
+      "generatedFrom": "shared.tokens.json",
+      "generator": "scripts/layout.mjs"
+    },
+    {
+      "file": "Rahino-Resolver.md",
+      "sha256": "168bafa81c2e0a9002beb71fc14969198615f85587cfd8963fb3e85a3c2bdd6c",
+      "lines": 17,
+      "approval": "context-selection-and-contrast-policy"
+    },
+    {
+      "file": "master-tokens/generated/reference.ts",
+      "sha256": "5ac86cfb0221f7995066d42acae53e94474df3f85335fc0b5dc7282885ff7e69",
+      "approval": "canonical-master-adoption",
+      "generatedFrom": "shared.tokens.json"
+    },
+    {
+      "file": "Color.md",
+      "sha256": "f62ff4f1b81fae2962d7db108c5aeb9ccb2a8d2e505cbcf76d56fdcbd35616a9",
+      "approval": "semantic-text-styles-and-readable-guides"
+    }
+  ],
+  "derivedTypographyExports": [
+    {
+      "file": "Typography.ts",
+      "exportName": "TYPOGRAPHY_BY_SCRIPT",
+      "sourceExport": "TYPOGRAPHY",
+      "fontFamilyExport": "FONT_FAMILY",
+      "scripts": [
+        "fa",
+        "latin"
+      ],
+      "approval": "typography-script-font-bindings",
+      "purpose": "Derive every complete style from existing role metrics plus approved font bindings; retain explicit code font overrides."
+    }
+  ],
+  "referenceLayer": {
+    "approval": "reference-layer-master-collection",
+    "implementedOn": "2026-10-24",
+    "status": "foundation-outputs-synchronized",
+    "baselineFile": "reference-layer-baseline.json",
+    "inventoryFile": "reference-layer-inventory.json",
+    "referencesSet": "shared",
+    "foundationFilesUnchanged": true,
+    "namingPolicy": {
+      "colors": "Spectrum-inspired hue-family and sparse numeric steps; fixed references run light to dark in both themes. White/black are endpoint names; -alpha-N records included opacity. No hex values in current reference names. See color-reference-migration.json for the stable mapping and conventions.",
+      "decimals": "Hyphens replace decimal points within path segments, e.g. rem-0-875 and 1-95.",
+      "easing": "curve-01/02/03 identify the three existing curves; IDs must not be renumbered. Linear retains its descriptive value name.",
+      "semanticNames": "Existing rds paths and shared scales are preserved. Equal values do not merge semantic roles.",
+      "domainSeparation": "Stroke, radius, motion, blur and shadow geometry have their own raw scales; matching numbers do not couple unrelated decisions.",
+      "layout": "Existing layout literals remain intentional; gutters/margins reuse shared spacing and reading reuses typography."
+    },
+    "colorNamingMigration": "color-reference-migration.json"
+  },
+  "approvedTokenChanges": [
+    {
+      "approval": "dark-control-boundary-existing-gray",
+      "set": "dark",
+      "publicPath": "rds.color.edge.control",
+      "beforeAlias": "{ref.color.gray-cool.525}",
+      "afterAlias": "{ref.color.gray-cool.450}",
+      "beforeValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.4,
+          0.4392156862745098,
+          0.5215686274509804
+        ],
+        "alpha": 1
+      },
+      "afterValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.47843137254901963,
+          0.5176470588235295,
+          0.5764705882352941
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "approval": "primary-fill-on-brand-foreground",
+      "set": "light",
+      "publicPath": "rds.color.action.primary.fg",
+      "beforeAlias": "{ref.color.white}",
+      "afterAlias": "{rds.color.ink.on-brand}",
+      "beforeValue": {
+        "colorSpace": "srgb",
+        "components": [
+          1,
+          1,
+          1
+        ],
+        "alpha": 1
+      },
+      "afterValue": {
+        "colorSpace": "srgb",
+        "components": [
+          1,
+          1,
+          1
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "approval": "primary-fill-on-brand-foreground",
+      "set": "dark",
+      "publicPath": "rds.color.action.primary.fg",
+      "beforeAlias": "{ref.color.white}",
+      "afterAlias": "{rds.color.ink.on-brand}",
+      "beforeValue": {
+        "colorSpace": "srgb",
+        "components": [
+          1,
+          1,
+          1
+        ],
+        "alpha": 1
+      },
+      "afterValue": {
+        "colorSpace": "srgb",
+        "components": [
+          1,
+          1,
+          1
+        ],
+        "alpha": 1
+      }
+    }
+  ],
+  "retiredReferences": [
+    {
+      "approval": "dark-control-boundary-existing-gray",
+      "publicPath": "ref.color.gray-cool.525",
+      "replacement": "ref.color.gray-cool.450",
+      "reason": "Its only consumer was the dark control boundary. That approved role now uses an existing lighter gray; no unused primitive is retained.",
+      "token": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.4,
+            0.4392156862745098,
+            0.5215686274509804
+          ],
+          "alpha": 1
+        },
+        "$description": "Raw color #667085; alpha is part of the color value.",
+        "$extensions": {
+          "rahino": {
+            "status": "captured-not-adopted",
+            "layer": "reference",
+            "approval": "reference-layer-master-collection",
+            "source": {
+              "file": "Color.ts",
+              "exportPath": [
+                "EDGE",
+                "control",
+                "dark"
+              ],
+              "line": 305
+            },
+            "sourceDocuments": [],
+            "sourceAnnotations": {},
+            "reviewIssues": [],
+            "provenance": [
+              {
+                "set": "dark",
+                "publicPath": "rds.color.edge.control",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "EDGE",
+                    "control",
+                    "dark"
+                  ],
+                  "line": 305
+                }
+              }
+            ],
+            "localTokenConsumers": [
+              {
+                "set": "dark",
+                "publicPath": "rds.color.edge.control"
+              }
+            ],
+            "namingApproval": "color-reference-family-step-naming"
+          }
+        }
+      }
+    }
+  ],
+  "reviewScope": {
+    "ownership": "Excluded from current foundation requirements at the user request on 2026-10-26."
+  },
+  "typographyRepresentation": {
+    "approval": "semantic-text-styles-and-readable-guides",
+    "representation": "semantic-text-styles",
+    "policyFile": "typography.json",
+    "policyKey": "policy",
+    "resolver": "scripts/typography.mjs",
+    "foundationAppearanceChanged": false
+  },
+  "semanticColorMigration": "semantic-color-migration.json",
+  "adoptedOn": "2026-10-26",
+  "adoption": {
+    "approval": "canonical-master-adoption",
+    "baselineFile": "adoption-baseline.json",
+    "exportMap": "export-map.json",
+    "generator": "scripts/build.mjs",
+    "scope": "Local canonical adoption and generated outputs; no external publication."
+  },
+  "generatedOutputs": [
+    "Border.ts",
+    "Color.ts",
+    "Motion.ts",
+    "Radius.ts",
+    "Shadow.ts",
+    "Spacing.ts",
+    "Typography.ts",
+    "Veil.ts",
+    "layout.ts",
+    "master-tokens/generated/reference.ts",
+    "Spacing.md",
+    "Radius.md",
+    "Motion.md",
+    "Layout.md",
+    "Border.md",
+    "Typography.md",
+    "Veil & Shadow.md",
+    "Color.md",
+    "Numbers.md",
+    "master-tokens/generated/tokens.css",
+    "master-tokens/generated/design-map.json",
+    "master-tokens/Master-Token-List.md",
+    "master-tokens/generated/color-resolver.mjs",
+    "master-tokens/generated/color-resolver.d.mts"
+  ],
+  "recipesFile": "recipes.json",
+  "typographyFile": "typography.json",
+  "stateNamingMigration": "state-name-migration.json",
+  "colorResolver": {
+    "approval": "shared-color-resolver",
+    "module": "generated/color-resolver.mjs",
+    "types": "generated/color-resolver.d.mts",
+    "generator": "scripts/color-resolver.mjs",
+    "sharedPolicy": "scripts/color-policy.mjs"
+  }
+}

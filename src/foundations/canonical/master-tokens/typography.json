@@ -1,0 +1,876 @@
+{
+  "status": "approved-semantic-text-styles",
+  "policy": {
+    "approval": "semantic-text-styles-and-readable-guides",
+    "representation": "semantic-text-styles",
+    "letterSpacing": "omit-preserve-existing-inheritance",
+    "resolver": "scripts/typography.mjs"
+  },
+  "entries": [
+    {
+      "id": "typography-caption-sm",
+      "kind": "semantic-text-style",
+      "publicPath": "rds.type.caption-sm",
+      "label": "rds.type.caption-sm",
+      "source": {
+        "file": "Typography.ts",
+        "exportPath": [
+          "TYPOGRAPHY",
+          "caption-sm"
+        ],
+        "line": 50
+      },
+      "sourceAnnotations": {
+        "token": "rds.type.caption-sm",
+        "usage": "Optional timestamps, update notes and minor chart metadata.",
+        "avoid": "Essential information, errors and interactive actions."
+      },
+      "status": "approved-semantic-text-style",
+      "reviewIssues": [],
+      "fontFamilyBinding": {
+        "fa": "{rds.font.family.fa}",
+        "latin": "{rds.font.family.latin}"
+      },
+      "fontBindingApproval": "typography-script-font-bindings",
+      "resolvedExports": {
+        "fa": [
+          "TYPOGRAPHY_BY_SCRIPT",
+          "fa",
+          "caption-sm"
+        ],
+        "latin": [
+          "TYPOGRAPHY_BY_SCRIPT",
+          "latin",
+          "caption-sm"
+        ]
+      },
+      "referenceLayerApproval": "reference-layer-master-collection",
+      "representationApproval": "semantic-text-styles-and-readable-guides",
+      "capturedSource": {
+        "file": "Typography.ts",
+        "exportPath": [
+          "TYPOGRAPHY",
+          "caption-sm"
+        ],
+        "line": 107
+      },
+      "properties": {
+        "fontSize": "{ref.font.size.rem-0-75}",
+        "fontWeight": "{rds.font.weight.regular}",
+        "lineHeight": "{rds.type.line-height.ui}"
+      },
+      "profile": "ui"
+    },
+    {
+      "id": "typography-caption-md",
+      "kind": "semantic-text-style",
+      "publicPath": "rds.type.caption-md",
+      "label": "rds.type.caption-md",
+      "source": {
+        "file": "Typography.ts",
+        "exportPath": [
+          "TYPOGRAPHY",
+          "caption-md"
+        ],
+        "line": 57
+      },
+      "sourceAnnotations": {
+        "token": "rds.type.caption-md",
+        "usage": "Secondary metadata, card bylines, dates and status details.",
+        "avoid": "Main content and interactive labels."
+      },
+      "status": "approved-semantic-text-style",
+      "reviewIssues": [],
+      "fontFamilyBinding": {
+        "fa": "{rds.font.family.fa}",
+        "latin": "{rds.font.family.latin}"
+      },
+      "fontBindingApproval": "typography-script-font-bindings",
+      "resolvedExports": {
+        "fa": [
+          "TYPOGRAPHY_BY_SCRIPT",
+          "fa",
+          "caption-md"
+        ],
+        "latin": [
+          "TYPOGRAPHY_BY_SCRIPT",
+          "latin",
+          "caption-md"
+        ]
+      },
+      "referenceLayerApproval": "reference-layer-master-collection",
+      "representationApproval": "semantic-text-styles-and-readable-guides",
+      "capturedSource": {
+        "file": "Typography.ts",
+        "exportPath": [
+          "TYPOGRAPHY",
+          "caption-md"
+        ],
+        "line": 114
+      },
+      "properties": {
+        "fontSize": "{ref.font.size.rem-0-875}",
+        "fontWeight": "{rds.font.weight.regular}",
+        "lineHeight": "{rds.type.line-height.ui}"
+      },
+      "profile": "ui"
+    },
+    {
+      "id": "typography-ui-sm",
+      "kind": "semantic-text-style",
+      "publicPath": "rds.type.ui-sm",
+      "label": "rds.type.ui-sm",
+      "source": {
+        "file": "Typography.ts",
+        "exportPath": [
+          "TYPOGRAPHY",
+          "ui-sm"
+        ],
+        "line": 64
+      },
+      "sourceAnnotations": {
+        "token": "rds.type.ui-sm",
+        "usage": "Compact lists, table cells, filter values and short secondary UI text.",
+        "avoid": "Paragraphs and primary mobile actions."
+      },
+      "status": "approved-semantic-text-style",
+      "reviewIssues": [],
+      "fontFamilyBinding": {
+        "fa": "{rds.font.family.fa}",
+        "latin": "{rds.font.family.latin}"
+      },
+      "fontBindingApproval": "typography-script-font-bindings",
+      "resolvedExports": {
+        "fa": [
+          "TYPOGRAPHY_BY_SCRIPT",
+          "fa",
+          "ui-sm"
+        ],
+        "latin": [
+          "TYPOGRAPHY_BY_SCRIPT",
+          "latin",
+          "ui-sm"
+        ]
+      },
+      "referenceLayerApproval": "reference-layer-master-collection",
+      "representationApproval": "semantic-text-styles-and-readable-guides",
+      "capturedSource": {
+        "file": "Typography.ts",
+        "exportPath": [
+          "TYPOGRAPHY",
+          "ui-sm"
+        ],
+        "line": 121
+      },
+      "properties": {
+        "fontSize": "{ref.font.size.rem-0-875}",
+        "fontWeight": "{rds.font.weight.regular}",
+        "lineHeight": "{rds.type.line-height.ui}"
+      },
+      "profile": "ui"
+    },
+    {
+      "id": "typography-ui-md",
+      "kind": "semantic-text-style",
+      "publicPath": "rds.type.ui-md",
+      "label": "rds.type.ui-md",
+      "source": {
+        "file": "Typography.ts",
+        "exportPath": [
+          "TYPOGRAPHY",
+          "ui-md"
+        ],
+        "line": 71
+      },
+      "sourceAnnotations": {
+        "token": "rds.type.ui-md",
+        "usage": "Main navigation, menu items, list content and selection values.",
+        "avoid": "Headings and long-form paragraphs."
+      },
+      "status": "approved-semantic-text-style",
+      "reviewIssues": [],
+      "fontFamilyBinding": {
+        "fa": "{rds.font.family.fa}",
+        "latin": "{rds.font.family.latin}"
+      },
+      "fontBindingApproval": "typography-script-font-bindings",
+      "resolvedExports": {
+        "fa": [
+          "TYPOGRAPHY_BY_SCRIPT",
+          "fa",
+          "ui-md"
+        ],
+        "latin": [
+          "TYPOGRAPHY_BY_SCRIPT",
+          "latin",
+          "ui-md"
+        ]
+      },
+      "referenceLayerApproval": "reference-layer-master-collection",
+      "representationApproval": "semantic-text-styles-and-readable-guides",
+      "capturedSource": {
+        "file": "Typography.ts",
+        "exportPath": [
+          "TYPOGRAPHY",
+          "ui-md"
+        ],
+        "line": 128
+      },
+      "properties": {
+        "fontSize": "{ref.font.size.rem-1}",
+        "fontWeight": "{rds.font.weight.regular}",
+        "lineHeight": "{rds.type.line-height.ui}"
+      },
+      "profile": "ui"
+    },
+    {
+      "id": "typography-label-sm",
+      "kind": "semantic-text-style",
+      "publicPath": "rds.type.label-sm",
+      "label": "rds.type.label-sm",
+      "source": {
+        "file": "Typography.ts",
+        "exportPath": [
+          "TYPOGRAPHY",
+          "label-sm"
+        ],
+        "line": 78
+      },
+      "sourceAnnotations": {
+        "token": "rds.type.label-sm",
+        "usage": "Compact buttons, chips, column labels and small/medium controls.",
+        "avoid": "Long descriptions and prominent mobile calls to action."
+      },
+      "status": "approved-semantic-text-style",
+      "reviewIssues": [],
+      "fontFamilyBinding": {
+        "fa": "{rds.font.family.fa}",
+        "latin": "{rds.font.family.latin}"
+      },
+      "fontBindingApproval": "typography-script-font-bindings",
+      "resolvedExports": {
+        "fa": [
+          "TYPOGRAPHY_BY_SCRIPT",
+          "fa",
+          "label-sm"
+        ],
+        "latin": [
+          "TYPOGRAPHY_BY_SCRIPT",
+          "latin",
+          "label-sm"
+        ]
+      },
+      "referenceLayerApproval": "reference-layer-master-collection",
+      "representationApproval": "semantic-text-styles-and-readable-guides",
+      "capturedSource": {
+        "file": "Typography.ts",
+        "exportPath": [
+          "TYPOGRAPHY",
+          "label-sm"
+        ],
+        "line": 135
+      },
+      "properties": {
+        "fontSize": "{ref.font.size.rem-0-875}",
+        "fontWeight": "{rds.font.weight.medium}",
+        "lineHeight": "{rds.type.line-height.ui}"
+      },
+      "profile": "ui"
+    },
+    {
+      "id": "typography-label-md",
+      "kind": "semantic-text-style",
+      "publicPath": "rds.type.label-md",
+      "label": "rds.type.label-md",
+      "source": {
+        "file": "Typography.ts",
+        "exportPath": [
+          "TYPOGRAPHY",
+          "label-md"
+        ],
+        "line": 85
+      },
+      "sourceAnnotations": {
+        "token": "rds.type.label-md",
+        "usage": "Form labels, primary buttons, tabs and prominent touch controls.",
+        "avoid": "Paragraphs and decorative headings."
+      },
+      "status": "approved-semantic-text-style",
+      "reviewIssues": [],
+      "fontFamilyBinding": {
+        "fa": "{rds.font.family.fa}",
+        "latin": "{rds.font.family.latin}"
+      },
+      "fontBindingApproval": "typography-script-font-bindings",
+      "resolvedExports": {
+        "fa": [
+          "TYPOGRAPHY_BY_SCRIPT",
+          "fa",
+          "label-md"
+        ],
+        "latin": [
+          "TYPOGRAPHY_BY_SCRIPT",
+          "latin",
+          "label-md"
+        ]
+      },
+      "referenceLayerApproval": "reference-layer-master-collection",
+      "representationApproval": "semantic-text-styles-and-readable-guides",
+      "capturedSource": {
+        "file": "Typography.ts",
+        "exportPath": [
+          "TYPOGRAPHY",
+          "label-md"
+        ],
+        "line": 142
+      },
+      "properties": {
+        "fontSize": "{ref.font.size.rem-1}",
+        "fontWeight": "{rds.font.weight.medium}",
+        "lineHeight": "{rds.type.line-height.ui}"
+      },
+      "profile": "ui"
+    },
+    {
+      "id": "typography-body-sm",
+      "kind": "semantic-text-style",
+      "publicPath": "rds.type.body-sm",
+      "label": "rds.type.body-sm",
+      "source": {
+        "file": "Typography.ts",
+        "exportPath": [
+          "TYPOGRAPHY",
+          "body-sm"
+        ],
+        "line": 92
+      },
+      "sourceAnnotations": {
+        "token": "rds.type.body-sm",
+        "usage": "Multi-line help, validation explanations and supporting descriptions.",
+        "avoid": "Short table values and control labels."
+      },
+      "status": "approved-semantic-text-style",
+      "reviewIssues": [],
+      "fontFamilyBinding": {
+        "fa": "{rds.font.family.fa}",
+        "latin": "{rds.font.family.latin}"
+      },
+      "fontBindingApproval": "typography-script-font-bindings",
+      "resolvedExports": {
+        "fa": [
+          "TYPOGRAPHY_BY_SCRIPT",
+          "fa",
+          "body-sm"
+        ],
+        "latin": [
+          "TYPOGRAPHY_BY_SCRIPT",
+          "latin",
+          "body-sm"
+        ]
+      },
+      "referenceLayerApproval": "reference-layer-master-collection",
+      "representationApproval": "semantic-text-styles-and-readable-guides",
+      "capturedSource": {
+        "file": "Typography.ts",
+        "exportPath": [
+          "TYPOGRAPHY",
+          "body-sm"
+        ],
+        "line": 149
+      },
+      "properties": {
+        "fontSize": "{ref.font.size.rem-0-875}",
+        "fontWeight": "{rds.font.weight.regular}",
+        "lineHeight": "{rds.type.line-height.reading}"
+      },
+      "profile": "reading"
+    },
+    {
+      "id": "typography-body-md",
+      "kind": "semantic-text-style",
+      "publicPath": "rds.type.body-md",
+      "label": "rds.type.body-md",
+      "source": {
+        "file": "Typography.ts",
+        "exportPath": [
+          "TYPOGRAPHY",
+          "body-md"
+        ],
+        "line": 99
+      },
+      "sourceAnnotations": {
+        "token": "rds.type.body-md",
+        "usage": "Default paragraphs, guides, reports and dialog explanations.",
+        "avoid": "Dense rows, menu labels and button text."
+      },
+      "status": "approved-semantic-text-style",
+      "reviewIssues": [],
+      "fontFamilyBinding": {
+        "fa": "{rds.font.family.fa}",
+        "latin": "{rds.font.family.latin}"
+      },
+      "fontBindingApproval": "typography-script-font-bindings",
+      "resolvedExports": {
+        "fa": [
+          "TYPOGRAPHY_BY_SCRIPT",
+          "fa",
+          "body-md"
+        ],
+        "latin": [
+          "TYPOGRAPHY_BY_SCRIPT",
+          "latin",
+          "body-md"
+        ]
+      },
+      "referenceLayerApproval": "reference-layer-master-collection",
+      "representationApproval": "semantic-text-styles-and-readable-guides",
+      "capturedSource": {
+        "file": "Typography.ts",
+        "exportPath": [
+          "TYPOGRAPHY",
+          "body-md"
+        ],
+        "line": 156
+      },
+      "properties": {
+        "fontSize": "{ref.font.size.rem-1}",
+        "fontWeight": "{rds.font.weight.regular}",
+        "lineHeight": "{rds.type.line-height.reading}"
+      },
+      "profile": "reading"
+    },
+    {
+      "id": "typography-body-lg",
+      "kind": "semantic-text-style",
+      "publicPath": "rds.type.body-lg",
+      "label": "rds.type.body-lg",
+      "source": {
+        "file": "Typography.ts",
+        "exportPath": [
+          "TYPOGRAPHY",
+          "body-lg"
+        ],
+        "line": 106
+      },
+      "sourceAnnotations": {
+        "token": "rds.type.body-lg",
+        "usage": "Short introductions, onboarding leads and prominent explanations.",
+        "avoid": "Long mobile paragraphs and compact cards."
+      },
+      "status": "approved-semantic-text-style",
+      "reviewIssues": [],
+      "fontFamilyBinding": {
+        "fa": "{rds.font.family.fa}",
+        "latin": "{rds.font.family.latin}"
+      },
+      "fontBindingApproval": "typography-script-font-bindings",
+      "resolvedExports": {
+        "fa": [
+          "TYPOGRAPHY_BY_SCRIPT",
+          "fa",
+          "body-lg"
+        ],
+        "latin": [
+          "TYPOGRAPHY_BY_SCRIPT",
+          "latin",
+          "body-lg"
+        ]
+      },
+      "referenceLayerApproval": "reference-layer-master-collection",
+      "representationApproval": "semantic-text-styles-and-readable-guides",
+      "capturedSource": {
+        "file": "Typography.ts",
+        "exportPath": [
+          "TYPOGRAPHY",
+          "body-lg"
+        ],
+        "line": 163
+      },
+      "properties": {
+        "fontSize": "{ref.font.size.rem-1-125}",
+        "fontWeight": "{rds.font.weight.regular}",
+        "lineHeight": "{rds.type.line-height.reading}"
+      },
+      "profile": "reading"
+    },
+    {
+      "id": "typography-title-sm",
+      "kind": "semantic-text-style",
+      "publicPath": "rds.type.title-sm",
+      "label": "rds.type.title-sm",
+      "source": {
+        "file": "Typography.ts",
+        "exportPath": [
+          "TYPOGRAPHY",
+          "title-sm"
+        ],
+        "line": 113
+      },
+      "sourceAnnotations": {
+        "token": "rds.type.title-sm",
+        "usage": "Task/card titles, list-item names and compact mobile group headings.",
+        "avoid": "The main page title."
+      },
+      "status": "approved-semantic-text-style",
+      "reviewIssues": [],
+      "fontFamilyBinding": {
+        "fa": "{rds.font.family.fa}",
+        "latin": "{rds.font.family.latin}"
+      },
+      "fontBindingApproval": "typography-script-font-bindings",
+      "resolvedExports": {
+        "fa": [
+          "TYPOGRAPHY_BY_SCRIPT",
+          "fa",
+          "title-sm"
+        ],
+        "latin": [
+          "TYPOGRAPHY_BY_SCRIPT",
+          "latin",
+          "title-sm"
+        ]
+      },
+      "referenceLayerApproval": "reference-layer-master-collection",
+      "representationApproval": "semantic-text-styles-and-readable-guides",
+      "capturedSource": {
+        "file": "Typography.ts",
+        "exportPath": [
+          "TYPOGRAPHY",
+          "title-sm"
+        ],
+        "line": 170
+      },
+      "properties": {
+        "fontSize": "{ref.font.size.rem-1}",
+        "fontWeight": "{rds.font.weight.semibold}",
+        "lineHeight": "{rds.type.line-height.heading}"
+      },
+      "profile": "heading"
+    },
+    {
+      "id": "typography-title-md",
+      "kind": "semantic-text-style",
+      "publicPath": "rds.type.title-md",
+      "label": "rds.type.title-md",
+      "source": {
+        "file": "Typography.ts",
+        "exportPath": [
+          "TYPOGRAPHY",
+          "title-md"
+        ],
+        "line": 120
+      },
+      "sourceAnnotations": {
+        "token": "rds.type.title-md",
+        "usage": "Dialogs, sheets, panels, large cards and roomy KPI values.",
+        "avoid": "Repeated dense rows and narrow KPI columns."
+      },
+      "status": "approved-semantic-text-style",
+      "reviewIssues": [],
+      "fontFamilyBinding": {
+        "fa": "{rds.font.family.fa}",
+        "latin": "{rds.font.family.latin}"
+      },
+      "fontBindingApproval": "typography-script-font-bindings",
+      "resolvedExports": {
+        "fa": [
+          "TYPOGRAPHY_BY_SCRIPT",
+          "fa",
+          "title-md"
+        ],
+        "latin": [
+          "TYPOGRAPHY_BY_SCRIPT",
+          "latin",
+          "title-md"
+        ]
+      },
+      "referenceLayerApproval": "reference-layer-master-collection",
+      "representationApproval": "semantic-text-styles-and-readable-guides",
+      "capturedSource": {
+        "file": "Typography.ts",
+        "exportPath": [
+          "TYPOGRAPHY",
+          "title-md"
+        ],
+        "line": 177
+      },
+      "properties": {
+        "fontSize": "{ref.font.size.rem-1-25}",
+        "fontWeight": "{rds.font.weight.semibold}",
+        "lineHeight": "{rds.type.line-height.heading}"
+      },
+      "profile": "heading"
+    },
+    {
+      "id": "typography-heading-section",
+      "kind": "semantic-text-style",
+      "publicPath": "rds.type.heading-section",
+      "label": "rds.type.heading-section",
+      "source": {
+        "file": "Typography.ts",
+        "exportPath": [
+          "TYPOGRAPHY",
+          "heading-section"
+        ],
+        "line": 127
+      },
+      "sourceAnnotations": {
+        "token": "rds.type.heading-section",
+        "usage": "Major page sections and substantial report sections.",
+        "avoid": "Small cards, mobile dialogs and minor subsections; use title-md for compact section headers."
+      },
+      "status": "approved-semantic-text-style",
+      "reviewIssues": [],
+      "fontFamilyBinding": {
+        "fa": "{rds.font.family.fa}",
+        "latin": "{rds.font.family.latin}"
+      },
+      "fontBindingApproval": "typography-script-font-bindings",
+      "resolvedExports": {
+        "fa": [
+          "TYPOGRAPHY_BY_SCRIPT",
+          "fa",
+          "heading-section"
+        ],
+        "latin": [
+          "TYPOGRAPHY_BY_SCRIPT",
+          "latin",
+          "heading-section"
+        ]
+      },
+      "referenceLayerApproval": "reference-layer-master-collection",
+      "representationApproval": "semantic-text-styles-and-readable-guides",
+      "capturedSource": {
+        "file": "Typography.ts",
+        "exportPath": [
+          "TYPOGRAPHY",
+          "heading-section"
+        ],
+        "line": 184
+      },
+      "properties": {
+        "fontSize": "{ref.font.size.rem-1-5}",
+        "fontWeight": "{rds.font.weight.semibold}",
+        "lineHeight": "{rds.type.line-height.heading}"
+      },
+      "profile": "heading"
+    },
+    {
+      "id": "typography-heading-page",
+      "kind": "semantic-text-style",
+      "publicPath": "rds.type.heading-page",
+      "label": "rds.type.heading-page",
+      "source": {
+        "file": "Typography.ts",
+        "exportPath": [
+          "TYPOGRAPHY",
+          "heading-page"
+        ],
+        "line": 134
+      },
+      "sourceAnnotations": {
+        "token": "rds.type.heading-page",
+        "usage": "Primary page heading, normally once per page. Fluid 24–32px at a 16px root; allow wrapping on small screens.",
+        "avoid": "Card, sheet and nested-section titles."
+      },
+      "status": "approved-semantic-text-style",
+      "reviewIssues": [],
+      "fontFamilyBinding": {
+        "fa": "{rds.font.family.fa}",
+        "latin": "{rds.font.family.latin}"
+      },
+      "fontBindingApproval": "typography-script-font-bindings",
+      "resolvedExports": {
+        "fa": [
+          "TYPOGRAPHY_BY_SCRIPT",
+          "fa",
+          "heading-page"
+        ],
+        "latin": [
+          "TYPOGRAPHY_BY_SCRIPT",
+          "latin",
+          "heading-page"
+        ]
+      },
+      "referenceLayerApproval": "reference-layer-master-collection",
+      "representationApproval": "semantic-text-styles-and-readable-guides",
+      "capturedSource": {
+        "file": "Typography.ts",
+        "exportPath": [
+          "TYPOGRAPHY",
+          "heading-page"
+        ],
+        "line": 192
+      },
+      "properties": {
+        "fontSize": "clamp(1.5rem, calc(1.357143rem + 0.714286vw), 2rem)",
+        "fontWeight": "{rds.font.weight.bold}",
+        "lineHeight": "{rds.type.line-height.heading}"
+      },
+      "profile": "heading"
+    },
+    {
+      "id": "typography-display",
+      "kind": "semantic-text-style",
+      "publicPath": "rds.type.display",
+      "label": "rds.type.display",
+      "source": {
+        "file": "Typography.ts",
+        "exportPath": [
+          "TYPOGRAPHY",
+          "display"
+        ],
+        "line": 141
+      },
+      "sourceAnnotations": {
+        "token": "rds.type.display",
+        "usage": "Marketing heroes, welcome screens and expressive moments. Fluid 32–64px at a 16px root.",
+        "avoid": "Everyday dashboards, forms and routine app pages."
+      },
+      "status": "approved-semantic-text-style",
+      "reviewIssues": [],
+      "fontFamilyBinding": {
+        "fa": "{rds.font.family.fa}",
+        "latin": "{rds.font.family.latin}"
+      },
+      "fontBindingApproval": "typography-script-font-bindings",
+      "resolvedExports": {
+        "fa": [
+          "TYPOGRAPHY_BY_SCRIPT",
+          "fa",
+          "display"
+        ],
+        "latin": [
+          "TYPOGRAPHY_BY_SCRIPT",
+          "latin",
+          "display"
+        ]
+      },
+      "referenceLayerApproval": "reference-layer-master-collection",
+      "representationApproval": "semantic-text-styles-and-readable-guides",
+      "capturedSource": {
+        "file": "Typography.ts",
+        "exportPath": [
+          "TYPOGRAPHY",
+          "display"
+        ],
+        "line": 204
+      },
+      "properties": {
+        "fontSize": "clamp(2rem, calc(1.428571rem + 2.857143vw), 4rem)",
+        "fontWeight": "{rds.font.weight.bold}",
+        "lineHeight": "{rds.type.line-height.display}"
+      },
+      "profile": "display"
+    },
+    {
+      "id": "typography-input-touch",
+      "kind": "semantic-text-style",
+      "publicPath": "rds.type.input-touch",
+      "label": "rds.type.input-touch",
+      "source": {
+        "file": "Typography.ts",
+        "exportPath": [
+          "TYPOGRAPHY",
+          "input-touch"
+        ],
+        "line": 148
+      },
+      "sourceAnnotations": {
+        "token": "rds.type.input-touch",
+        "usage": "Editable field values and placeholders on touch devices; remains 16px across screen sizes.",
+        "avoid": "Input labels, helper text and buttons."
+      },
+      "status": "approved-semantic-text-style",
+      "reviewIssues": [],
+      "fontFamilyBinding": {
+        "fa": "{rds.font.family.fa}",
+        "latin": "{rds.font.family.latin}"
+      },
+      "fontBindingApproval": "typography-script-font-bindings",
+      "resolvedExports": {
+        "fa": [
+          "TYPOGRAPHY_BY_SCRIPT",
+          "fa",
+          "input-touch"
+        ],
+        "latin": [
+          "TYPOGRAPHY_BY_SCRIPT",
+          "latin",
+          "input-touch"
+        ]
+      },
+      "referenceLayerApproval": "reference-layer-master-collection",
+      "representationApproval": "semantic-text-styles-and-readable-guides",
+      "capturedSource": {
+        "file": "Typography.ts",
+        "exportPath": [
+          "TYPOGRAPHY",
+          "input-touch"
+        ],
+        "line": 216
+      },
+      "properties": {
+        "fontSize": "{ref.font.size.rem-1}",
+        "fontWeight": "{rds.font.weight.regular}",
+        "lineHeight": "{rds.type.line-height.ui}"
+      },
+      "profile": "ui"
+    },
+    {
+      "id": "typography-code",
+      "kind": "semantic-text-style",
+      "publicPath": "rds.type.code",
+      "label": "rds.type.code",
+      "source": {
+        "file": "Typography.ts",
+        "exportPath": [
+          "TYPOGRAPHY",
+          "code"
+        ],
+        "line": 155
+      },
+      "sourceAnnotations": {
+        "token": "rds.type.code",
+        "usage": "Standalone code snippets, commands and technical literals in LTR.",
+        "avoid": "General copy. Inline code inherits parent line-height."
+      },
+      "status": "approved-semantic-text-style",
+      "reviewIssues": [],
+      "fontFamilyBinding": {
+        "fa": "{rds.font.family.code}",
+        "latin": "{rds.font.family.code}"
+      },
+      "fontBindingApproval": "typography-script-font-bindings",
+      "resolvedExports": {
+        "fa": [
+          "TYPOGRAPHY_BY_SCRIPT",
+          "fa",
+          "code"
+        ],
+        "latin": [
+          "TYPOGRAPHY_BY_SCRIPT",
+          "latin",
+          "code"
+        ]
+      },
+      "referenceLayerApproval": "reference-layer-master-collection",
+      "representationApproval": "semantic-text-styles-and-readable-guides",
+      "capturedSource": {
+        "file": "Typography.ts",
+        "exportPath": [
+          "TYPOGRAPHY",
+          "code"
+        ],
+        "line": 224
+      },
+      "properties": {
+        "fontSize": "{ref.font.size.rem-0-875}",
+        "fontWeight": "{rds.font.weight.regular}",
+        "lineHeight": "{rds.type.line-height.fixed}"
+      },
+      "profile": "fixed",
+      "fontOverride": "{rds.font.family.code}"
+    }
+  ]
+}

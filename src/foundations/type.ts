@@ -1,13 +1,13 @@
-export const FONT_FAMILY = {
-  fa: 'IRANYekanX, sans-serif',
-  latin: '"Roboto Condensed", sans-serif',
-  mono: 'ui-monospace, SFMono-Regular, Consolas, monospace',
-} as const;
+import { FONT_FAMILY as FAMILY, FONT_WEIGHT as WEIGHT, LINE_HEIGHT, TYPOGRAPHY_BY_SCRIPT } from './canonical/Typography.ts';
 
-/**
- * Faces registered in fonts.css. Each row matches the file's own name table.
- * The Latin row is one variable file; its weight is the real wght axis range.
- */
+export { LINE_HEIGHT, TEXT_LAYOUT, TYPOGRAPHY, TYPOGRAPHY_BY_SCRIPT } from './canonical/Typography.ts';
+export type { TypographyProfile, TypographyRole, TypographyStyle } from './canonical/Typography.ts';
+
+/** Legacy property names project canonical values rather than defining new tokens. */
+export const FONT_FAMILY = { ...FAMILY, mono: FAMILY.code } as const;
+export const FONT_WEIGHT = { ...WEIGHT, emphasis: WEIGHT.bold, structure: WEIGHT.semibold, control: WEIGHT.medium } as const;
+
+/** Installed assets; family selection and text metrics come from the master. */
 export const FONT_FILES = [
   { family: 'IRANYekanX', weight: 400, file: 'IRANYekanX-Regular.woff2' },
   { family: 'IRANYekanX', weight: 500, file: 'IRANYekanX-Medium.woff2' },
@@ -17,66 +17,15 @@ export const FONT_FILES = [
   { family: 'Roboto Condensed', weight: '100 900', file: 'RobotoCondensed-Variable.woff2' },
 ] as const;
 
-export const FONT_WEIGHT = {
-  emphasis: 700,
-  structure: 600,
-  control: 500,
-} as const;
-
-export const LINE_PROFILES = {
-  reading: { fa: 1.95, latin: 1.8 },
-  ui: { fa: 1.8, latin: 1.65 },
-  heading: { fa: 1.7, latin: 1.55 },
-  display: { fa: 1.6, latin: 1.45 },
-  code: { fa: 1.6, latin: 1.6 },
-} as const;
+/** Both scripts use identical metrics. Compatibility projection for workbench consumers. */
+export const LINE_PROFILES = Object.fromEntries(Object.entries(LINE_HEIGHT).map(([key, value]) => [key, { fa: value, latin: value }])) as Record<keyof typeof LINE_HEIGHT, { fa: number; latin: number }>;
+export const LATIN_LINE = LINE_PROFILES;
 
 export interface TypeRole {
-  id: string;
-  size: string;
-  weight: number;
-  lineHeight: number;
-  letterSpacing: string;
-  family: string;
-  fluid?: string;
+  id: string; size: string; weight: number; lineHeight: number; family: string; fluid?: string;
 }
-
-const fa = FONT_FAMILY.fa;
-const mono = FONT_FAMILY.mono;
-
-export const TYPE_ROLES: TypeRole[] = [
-  { id: 'caption-sm', size: '0.75rem', weight: 400, lineHeight: LINE_PROFILES.ui.fa, letterSpacing: '0', family: fa },
-  { id: 'caption-md', size: '0.875rem', weight: 400, lineHeight: LINE_PROFILES.ui.fa, letterSpacing: '0', family: fa },
-  { id: 'ui-sm', size: '0.875rem', weight: 400, lineHeight: LINE_PROFILES.ui.fa, letterSpacing: '0', family: fa },
-  { id: 'ui-md', size: '1rem', weight: 400, lineHeight: LINE_PROFILES.ui.fa, letterSpacing: '0', family: fa },
-  { id: 'label-sm', size: '0.875rem', weight: 500, lineHeight: LINE_PROFILES.ui.fa, letterSpacing: '0', family: fa },
-  { id: 'label-md', size: '1rem', weight: 500, lineHeight: LINE_PROFILES.ui.fa, letterSpacing: '0', family: fa },
-  { id: 'body-sm', size: '0.875rem', weight: 400, lineHeight: LINE_PROFILES.reading.fa, letterSpacing: '0', family: fa },
-  { id: 'body-md', size: '1rem', weight: 400, lineHeight: LINE_PROFILES.reading.fa, letterSpacing: '0', family: fa },
-  { id: 'body-lg', size: '1.125rem', weight: 400, lineHeight: LINE_PROFILES.reading.fa, letterSpacing: '0', family: fa },
-  { id: 'title-sm', size: '1rem', weight: 600, lineHeight: LINE_PROFILES.heading.fa, letterSpacing: '0', family: fa },
-  { id: 'title-md', size: '1.25rem', weight: 600, lineHeight: LINE_PROFILES.heading.fa, letterSpacing: '0', family: fa },
-  { id: 'heading-section', size: '1.5rem', weight: 600, lineHeight: LINE_PROFILES.heading.fa, letterSpacing: '0', family: fa },
-  {
-    id: 'heading-page',
-    size: 'clamp(1.5rem, calc(1.357143rem + 0.714286vw), 2rem)',
-    weight: 700,
-    lineHeight: LINE_PROFILES.heading.fa,
-    letterSpacing: '0',
-    family: fa,
-    fluid: 'clamp(1.5rem, calc(1.357143rem + 0.714286vw), 2rem)',
-  },
-  {
-    id: 'display',
-    size: 'clamp(2rem, calc(1.428571rem + 2.857143vw), 4rem)',
-    weight: 700,
-    lineHeight: LINE_PROFILES.display.fa,
-    letterSpacing: '0',
-    family: fa,
-    fluid: 'clamp(2rem, calc(1.428571rem + 2.857143vw), 4rem)',
-  },
-  { id: 'input-touch', size: '1rem', weight: 400, lineHeight: LINE_PROFILES.ui.fa, letterSpacing: '0', family: fa },
-  { id: 'code', size: '0.875rem', weight: 400, lineHeight: 1.6, letterSpacing: '0', family: mono },
-];
-
-export const LATIN_LINE = LINE_PROFILES;
+/** Legacy list derived from the complete Persian styles. Letter spacing remains inherited. */
+export const TYPE_ROLES: TypeRole[] = Object.entries(TYPOGRAPHY_BY_SCRIPT.fa).map(([id, style]) => ({
+  id, size: style.fontSize, weight: style.fontWeight, lineHeight: style.lineHeight, family: style.fontFamily,
+  ...(style.fontSize.startsWith('clamp(') ? { fluid: style.fontSize } : {}),
+}));

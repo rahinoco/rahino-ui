@@ -169,7 +169,7 @@ export default function TimePicker({
                             'w-full py-2 rounded-xl text-sm font-bold tabular-nums font-sans transition-all',
                             hour === item
                               ? 'bg-bg-surface text-primary-600 shadow-sm'
-                              : 'text-slate-500 hover:bg-bg-surface/80'
+                              : 'text-fg-muted hover:bg-bg-surface'
                           )}
                         >
                           {item}
@@ -192,7 +192,7 @@ export default function TimePicker({
                             'w-full py-2.5 rounded-xl text-sm font-bold tabular-nums font-sans transition-all',
                             minute === item
                               ? 'bg-bg-surface text-primary-600 shadow-sm'
-                              : 'text-slate-500 hover:bg-bg-surface/80'
+                              : 'text-fg-muted hover:bg-bg-surface'
                           )}
                         >
                           {item}

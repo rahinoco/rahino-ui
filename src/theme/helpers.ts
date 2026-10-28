@@ -1,3 +1,4 @@
+import { applyColorPreferences } from '../foundations/context.ts';
 /**
  * Theme helpers — document class / brand / product attribute sync.
  * Phase 1 candidate extracted from Qipper `shared/lib/theme.ts`.
@@ -31,6 +32,13 @@ export function applyDocumentTheme(
   brand: UiBrand,
   product: UiProduct = 'rahino'
 ) {
+  const controller = applyColorPreferences({ appearance: theme });
+  syncDocumentAppearance(theme, brand, product);
+  return controller;
+}
+
+/** Synchronize legacy product classes without replacing the controller's system preference. */
+export function syncDocumentAppearance(theme: UiTheme, brand: UiBrand, product: UiProduct = 'rahino') {
   const root = document.documentElement;
   root.classList.toggle('dark', theme === 'dark');
   root.dataset.brand = brand;

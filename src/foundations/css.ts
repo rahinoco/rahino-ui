@@ -1,56 +1,6 @@
-import { FOUNDATION_MANIFEST } from './manifest.ts';
-import {
-  ACTION_PRIMARY_BG,
-  ACTION_PRIMARY_FG,
-  BRAND,
-  DATA_CATEGORICAL,
-  DATA_DIVERGING,
-  DATA_ON_FILL,
-  DATA_SEQUENTIAL,
-  EDGE,
-  FOCUS_RING,
-  HIGH_CONTRAST,
-  INK,
-  INTERACTION,
-  PRESENTATION_GRADIENTS,
-  SCRIM,
-  STATUS,
-  SURFACE,
-  type AppearanceName,
-} from './color.ts';
-import {
-  CONTROL_SIZE,
-  DENSITY,
-  EDGE_WIDTH,
-  BUTTON_FOCUS,
-  FOCUS,
-  ICON_SIZE,
-  ICON_STROKE,
-  TOUCH_MIN,
-  LAYER,
-  LAYOUT,
-  MOTION_DURATION,
-  MOTION_EASING,
-  PRESENTATION_MOTION,
-  RADIUS,
-  SPACE_REF,
-  SPACE_ROLE,
-  VEIL_EDGE,
-  VEIL_TIER,
-  liftShadow,
-} from './metrics.ts';
-import { FONT_FAMILY, FONT_FILES, FONT_WEIGHT, TYPE_ROLES } from './type.ts';
-
-function hexChannels(hex: string) {
-  const h = hex.replace('#', '');
-  return [parseInt(h.slice(0, 2), 16), parseInt(h.slice(2, 4), 16), parseInt(h.slice(4, 6), 16)];
-}
-
-function filmColor(base: string, alpha: number) {
-  if (base.startsWith('rgb')) return base;
-  const [r, g, b] = hexChannels(base);
-  return `rgb(${r} ${g} ${b} / ${alpha})`;
-}
+import { HIGH_CONTRAST, type AppearanceName } from './color.ts';
+import { BUTTON_FOCUS, CONTROL_SIZE, DENSITY, FOCUS, ICON_SIZE, ICON_STROKE, LAYER, SPACE_ROLE, SPACING, TOUCH_MIN } from './metrics.ts';
+import { FONT_FILES, FONT_WEIGHT, TYPE_ROLES } from './type.ts';
 
 /** Aliases only. Missing hover/pressed roles are mixes of semantic tokens, not new hex. */
 function buttonRecipe(_appearance: AppearanceName) {
@@ -74,7 +24,7 @@ function buttonRecipe(_appearance: AppearanceName) {
     ['--rds-button-soft-neutral-bg-hover', mix('--rds-color-surface-subtle', '72%', '--rds-color-ink-primary')],
     ['--rds-button-soft-neutral-bg-pressed', mix('--rds-color-surface-subtle', '58%', '--rds-color-ink-primary')],
     ['--rds-button-soft-neutral-fg', 'var(--rds-color-ink-primary)'],
-    ['--rds-button-soft-brand-bg', 'var(--rds-color-brand-bg)'],
+    ['--rds-button-soft-brand-bg', 'var(--rds-color-brand-bg-default)'],
     ['--rds-button-soft-brand-bg-hover', 'var(--rds-color-brand-bg-hover)'],
     ['--rds-button-soft-brand-bg-pressed', mix('--rds-color-brand-bg-hover', '72%', '--rds-color-brand-seed')],
     ['--rds-button-soft-brand-fg', 'var(--rds-color-brand-fg)'],
@@ -101,294 +51,118 @@ function buttonRecipe(_appearance: AppearanceName) {
   return rows.map(([name, value]) => `  ${name}: ${value};`);
 }
 
-function modeColors(appearance: AppearanceName, contrast: 'standard' | 'more') {
-  const lines: string[] = [];
-  const set = (name: string, value: string) => lines.push(`  ${name}: ${value};`);
-  const hc = contrast === 'more' ? HIGH_CONTRAST[appearance] : null;
-  const surface = {
-    ...SURFACE,
-    canvas: { ...SURFACE.canvas, [appearance]: hc?.canvas ?? SURFACE.canvas[appearance] },
-    base: { ...SURFACE.base, [appearance]: hc?.base ?? SURFACE.base[appearance] },
-  };
-  const ink = {
-    ...INK,
-    primary: { ...INK.primary, [appearance]: hc?.primary ?? INK.primary[appearance] },
-    secondary: { ...INK.secondary, [appearance]: hc?.secondary ?? INK.secondary[appearance] },
-    tertiary: { ...INK.tertiary, [appearance]: hc?.tertiary ?? INK.tertiary[appearance] },
-  };
 
-  for (const [key, value] of Object.entries(surface)) set(`--rds-color-surface-${key}`, value[appearance]);
-  set('--rds-color-scrim-modal', SCRIM.modal[appearance]);
-  for (const [key, value] of Object.entries(ink)) set(`--rds-color-ink-${key}`, value[appearance]);
-  set('--rds-color-ink-quiet', ink.tertiary[appearance]);
-  for (const key of ['primary', 'secondary', 'tertiary', 'disabled', 'on-brand'] as const) {
-    set(`--rds-color-icon-${key}`, key === 'on-brand' ? ink['on-brand'][appearance] : ink[key][appearance]);
-  }
-  for (const [key, value] of Object.entries(BRAND)) set(`--rds-color-brand-${key}`, value[appearance]);
-  for (const [key, value] of Object.entries(ACTION_PRIMARY_BG)) set(`--rds-color-action-primary-bg-${key}`, value[appearance]);
-  set('--rds-color-action-primary-fg', ACTION_PRIMARY_FG[appearance]);
-  set('--rds-color-focus-ring', FOCUS_RING[appearance]);
-  set('--rds-color-link-fg', BRAND.fg[appearance]);
-  set('--rds-color-interaction-neutral-hover', INTERACTION['neutral-hover'][appearance]);
-  set('--rds-color-interaction-neutral-pressed', INTERACTION['neutral-pressed'][appearance]);
-  set('--rds-color-interaction-selected-bg', appearance === 'light' ? SURFACE.sunken.light : SURFACE.raised.dark);
-  set('--rds-color-interaction-selected-fg', ink.primary[appearance]);
-  set('--rds-color-interaction-selected-emphasis-bg', BRAND.bg[appearance]);
-  set('--rds-color-interaction-selected-emphasis-fg', BRAND.fg[appearance]);
-  for (const [key, value] of Object.entries(EDGE)) set(`--rds-color-edge-${key}`, value[appearance]);
-  set('--rds-color-edge-functional', ink.tertiary[appearance]);
-  set('--rds-color-edge-focus', FOCUS_RING[appearance]);
-  for (const [name, roles] of Object.entries(STATUS)) {
-    for (const [role, value] of Object.entries(roles)) set(`--rds-color-status-${name}-${role}`, value[appearance]);
-  }
-  set('--rds-color-veil-film', SURFACE.base[appearance]);
-  for (const [tier, spec] of Object.entries(VEIL_TIER)) {
-    set(`--rds-veil-${tier}-film-alpha`, String(spec.alpha));
-    set(`--rds-veil-${tier}-blur`, spec.blur);
-    set(`--rds-veil-${tier}-saturation`, String(spec.saturation));
-    set(`--rds-color-veil-${tier}-fill`, filmColor(SURFACE.base[appearance], spec.alpha));
-  }
-  set('--rds-veil-edge', VEIL_EDGE[appearance]);
-  set('--rds-lift-rest', liftShadow('rest', appearance));
-  set('--rds-lift-float', liftShadow('float', appearance));
-  set('--rds-lift-raise', liftShadow('raise', appearance));
-  set('--rds-lift-modal', liftShadow('modal', appearance));
-  DATA_CATEGORICAL.forEach((value, index) => set(`--rds-data-categorical-${String(index + 1).padStart(2, '0')}`, value[appearance]));
-  DATA_SEQUENTIAL.forEach((value, index) => set(`--rds-data-sequential-${String(index + 1).padStart(2, '0')}`, value[appearance]));
-  DATA_DIVERGING.forEach((value, index) => set(`--rds-data-diverging-${String(index + 1).padStart(2, '0')}`, value[appearance]));
-  set('--rds-data-on-fill', DATA_ON_FILL[appearance]);
-  for (const line of buttonRecipe(appearance)) lines.push(line);
-
-  const alias: Array<[string, string]> = [
-    ['--rds-color-bg-canvas', '--rds-color-surface-canvas'],
-    ['--rds-color-bg-surface', '--rds-color-surface-base'],
-    ['--rds-color-bg-surface-subtle', '--rds-color-surface-subtle'],
-    ['--rds-color-bg-surface-raised', '--rds-color-surface-raised'],
-    ['--rds-color-bg-surface-sunken', '--rds-color-surface-sunken'],
-    ['--rds-color-bg-scrim', '--rds-color-scrim-modal'],
-    ['--rds-color-fg-primary', '--rds-color-ink-primary'],
-    ['--rds-color-fg-secondary', '--rds-color-ink-secondary'],
-    ['--rds-color-fg-tertiary', '--rds-color-ink-tertiary'],
-    ['--rds-color-fg-disabled', '--rds-color-ink-disabled'],
-    ['--rds-color-fg-on-brand', '--rds-color-ink-on-brand'],
-    ['--rds-color-fg-inverse', '--rds-color-ink-inverse'],
-    ['--rds-color-border-subtle', '--rds-color-edge-subtle'],
-    ['--rds-color-border-default', '--rds-color-edge-default'],
-    ['--rds-color-border-strong', '--rds-color-edge-strong'],
-    ['--rds-color-border-disabled', '--rds-color-edge-disabled'],
-    ['--rds-color-border-focus', '--rds-color-focus-ring'],
-    ['--rds-color-brand-surface', '--rds-color-brand-bg'],
-    ['--rds-color-brand-surface-hover', '--rds-color-brand-bg-hover'],
-    ['--rds-color-brand-foreground', '--rds-color-brand-fg'],
-    ['--rds-color-action-primary-default', '--rds-color-action-primary-bg-default'],
-    ['--rds-color-action-primary-hover', '--rds-color-action-primary-bg-hover'],
-    ['--rds-color-action-primary-pressed', '--rds-color-action-primary-bg-pressed'],
-    ['--rds-color-action-primary-disabled', '--rds-color-action-primary-bg-disabled'],
-    ['--rds-color-action-primary-foreground', '--rds-color-action-primary-fg'],
-    ['--rds-color-interaction-selected-surface', '--rds-color-interaction-selected-bg'],
+function compatibilityAliases() {
+  const pairs: Array<[string, string]> = [
+    ['font-family-mono', 'font-family-code'],
+    ['motion-duration-control', 'motion-duration-feedback'], ['motion-duration-panel', 'motion-duration-overlay'],
+    ['motion-duration-route', 'motion-duration-dissolve'], ['motion-easing-gentle', 'motion-easing-enter'],
+    ['color-bg-canvas', 'color-surface-canvas'], ['color-bg-surface', 'color-surface-base'],
+    ['color-bg-surface-subtle', 'color-surface-subtle'], ['color-bg-surface-raised', 'color-surface-raised'],
+    ['color-bg-surface-sunken', 'color-surface-sunken'], ['color-bg-scrim', 'color-scrim-modal'],
+    ['color-fg-primary', 'color-ink-primary'], ['color-fg-secondary', 'color-ink-secondary'],
+    ['color-fg-tertiary', 'color-ink-tertiary'], ['color-fg-disabled', 'color-ink-disabled'],
+    ['color-fg-on-brand', 'color-ink-on-brand'], ['color-fg-inverse', 'color-ink-inverse'],
+    ['color-border-subtle', 'color-edge-subtle'], ['color-border-default', 'color-edge-control'],
+    ['color-border-strong', 'color-edge-control'], ['color-border-disabled', 'color-ink-disabled'],
+    ['color-border-focus', 'color-focus-ring'], ['color-edge-default', 'color-edge-control'],
+    ['color-edge-strong', 'color-edge-control'], ['color-edge-disabled', 'color-ink-disabled'],
+    ['color-edge-functional', 'color-edge-control'], ['color-edge-focus', 'color-focus-ring'],
+    ['color-brand-surface', 'color-brand-bg-default'], ['color-brand-surface-hover', 'color-brand-bg-hover'],
+    ['color-brand-foreground', 'color-brand-fg'], ['color-ink-quiet', 'color-ink-tertiary'],
+    ['color-interaction-selected-bg', 'color-interaction-surface-selected'],
+    ['color-interaction-selected-fg', 'color-brand-fg'],
+    ['color-interaction-selected-emphasis-bg', 'color-interaction-surface-selected'],
+    ['color-interaction-selected-emphasis-fg', 'color-brand-fg'],
+    ['radius-none', 'radius-0'], ['radius-small', 'radius-4'], ['radius-control', 'radius-8'],
+    ['radius-group', 'radius-12'], ['radius-panel', 'radius-16'], ['radius-dialog', 'radius-24'], ['radius-sheet', 'radius-24'],
+    ['focus-width', 'focus-ring-width'], ['edge-width-thin', 'border-width-default'],
+    ['layout-reading', 'type-layout-measure-reading'], ['layout-reading-wide', 'type-layout-measure-reading'],
+    ['layout-web', 'layout-content-max'], ['layout-dashboard', 'layout-content-max'],
+    ['lift-rest', 'shadow-sm'], ['lift-float', 'shadow-md'], ['lift-raise', 'shadow-lg'], ['lift-modal', 'shadow-lg'],
   ];
+  for (const key of ['primary', 'secondary', 'tertiary', 'disabled', 'on-brand']) pairs.push(['color-icon-' + key, 'color-ink-' + key]);
   for (const name of ['success', 'warning', 'error', 'info']) {
-    alias.push(
-      [`--rds-color-status-${name}-surface`, `--rds-color-status-${name}-bg`],
-      [`--rds-color-status-${name}-border`, `--rds-color-status-${name}-edge`],
-      [`--rds-color-status-${name}-foreground`, `--rds-color-status-${name}-fg`],
-      [`--rds-color-status-${name}-solid`, `--rds-color-status-${name}-fill`],
-      [`--rds-color-status-${name}-on-solid`, `--rds-color-status-${name}-on-fill`],
-    );
+    for (const [old, next] of [['surface', 'bg'], ['border', 'edge'], ['foreground', 'fg'], ['solid', 'fill'], ['on-solid', 'on-fill']]) {
+      pairs.push(['color-status-' + name + '-' + old, 'color-status-' + name + '-' + next]);
+    }
   }
-  for (const [oldName, next] of alias) set(oldName, `var(${next})`);
-  return lines.join('\n');
+  for (const [old, next] of [['default','bg-default'],['hover','bg-hover'],['pressed','bg-pressed'],['disabled','bg-disabled'],['foreground','fg']]) pairs.push(['color-action-primary-' + old, 'color-action-primary-' + next]);
+  for (const [name, level] of Object.entries({ trace: '100', air: '200', core: '300', shelter: '400', opaque: '500' })) {
+    pairs.push(['color-veil-' + name + '-fill', 'veil-' + level + '-color'], ['veil-' + name + '-blur', 'veil-' + level + '-blur']);
+  }
+  return pairs.map(([old, next]) => '  --rds-' + old + ': var(--rds-' + next + ');').join('\n');
 }
 
 function staticTokens() {
   const lines: string[] = [];
-  const set = (name: string, value: string | number) => lines.push(`  ${name}: ${value};`);
-  set('--rds-font-family-fa', FONT_FAMILY.fa);
-  set('--rds-font-family-latin', FONT_FAMILY.latin);
-  set('--rds-font-family-mono', FONT_FAMILY.mono);
+  const set = (name: string, value: string | number) => lines.push('  ' + name + ': ' + value + ';');
   set('--rds-font-weight-emphasis', FONT_WEIGHT.emphasis);
   set('--rds-font-weight-structure', FONT_WEIGHT.structure);
   set('--rds-font-weight-control', FONT_WEIGHT.control);
-  for (const role of TYPE_ROLES) {
-    const id = role.id;
-    set(`--rds-type-${id}-font-family`, role.family);
-    set(`--rds-type-${id}-font-size`, role.size);
-    set(`--rds-type-${id}-font-weight`, role.weight);
-    set(`--rds-type-${id}-line-height`, role.lineHeight);
-    set(`--rds-type-${id}-letter-spacing`, role.letterSpacing);
+  for (const role of TYPE_ROLES) set('--rds-type-' + role.id + '-font-family', role.id === 'code' ? 'var(--rds-font-family-code)' : 'var(--rds-font-family-content, var(--rds-font-family-fa))');
+  // Compatibility recipe names are aliases of the approved shared spacing scale.
+  for (const [key, value] of Object.entries(SPACE_ROLE)) {
+    const index = Object.entries(SPACING).find(([, size]) => size === value)?.[0];
+    if (index) set('--rds-space-' + key, 'var(--rds-space-' + index + ')');
   }
-  for (const [key, value] of Object.entries(SPACE_REF)) set(`--ref-space-${key}`, value);
-  for (const [key, value] of Object.entries(SPACE_ROLE)) set(`--rds-space-${key}`, value);
   for (const [size, spec] of Object.entries(CONTROL_SIZE)) {
-    set(`--rds-size-control-${size}-min-height`, spec.minHeight);
-    set(`--rds-size-control-${size}-padding-inline`, spec.paddingInline);
-    set(`--rds-size-control-${size}-padding-block`, spec.paddingBlock);
-    set(`--rds-size-control-${size}-label`, spec.label);
-    set(`--rds-size-icon-${size === 'sm' ? 'sm' : size === 'md' ? 'md' : 'lg'}`, spec.icon);
+    set('--rds-size-control-' + size + '-min-height', spec.minHeight);
+    set('--rds-size-control-' + size + '-padding-inline', spec.paddingInline);
+    set('--rds-size-control-' + size + '-padding-block', spec.paddingBlock);
+    set('--rds-size-control-' + size + '-label', spec.label);
+    set('--rds-size-icon-' + size, spec.icon);
   }
   set('--rds-size-icon-display', ICON_SIZE.display);
-  for (const [key, value] of Object.entries(RADIUS)) set(`--rds-radius-${key}`, value);
-  set('--rds-focus-width', FOCUS.width);
   set('--rds-focus-offset', FOCUS.offset);
   set('--rds-button-focus-width', BUTTON_FOCUS.width);
   set('--rds-button-focus-gap', BUTTON_FOCUS.gap);
   set('--rds-button-focus-core', BUTTON_FOCUS.core);
   set('--rds-size-touch-min', TOUCH_MIN);
   set('--rds-icon-stroke', ICON_STROKE);
-  set('--rds-edge-width-thin', EDGE_WIDTH.thin);
-  set('--rds-layout-reading', LAYOUT.reading);
-  set('--rds-layout-reading-wide', LAYOUT.readingWide);
-  set('--rds-layout-web', LAYOUT.web);
-  set('--rds-layout-dashboard', LAYOUT.dashboard);
-  set('--rds-layout-page-gutter', LAYOUT.pageGutter);
-  for (const [key, value] of Object.entries(LAYER)) set(`--rds-layer-${key}`, value);
-  for (const [key, value] of Object.entries(MOTION_DURATION)) set(`--rds-motion-duration-${key}`, value);
-  for (const [key, value] of Object.entries(MOTION_EASING)) set(`--rds-motion-easing-${key}`, value);
-  set('--rds-presentation-motion-base', PRESENTATION_MOTION.base);
-  for (const [key, value] of Object.entries(PRESENTATION_GRADIENTS)) set(`--rds-presentation-gradient-${key}`, value);
+  for (const [key, value] of Object.entries(LAYER)) set('--rds-layer-' + key, value);
   set('--rds-lift-none', 'none');
-  const regular = DENSITY.regular;
-  set('--rds-density-padding', regular.padding);
-  set('--rds-density-group-gap', regular.groupGap);
-  set('--rds-density-row-min', regular.rowMin);
-  set('--rds-density-cell-block', regular.cellBlock);
-  set('--rds-density-action-gap', regular.actionGap);
   return lines.join('\n');
 }
 
-function densityBlocks() {
-  return (Object.entries(DENSITY) as Array<[keyof typeof DENSITY, (typeof DENSITY)['regular']]>)
-    .map(([name, spec]) => `:root[data-density='${name}'],
-.rds-stage[data-density='${name}'] {
-  --rds-density-padding: ${spec.padding};
-  --rds-density-group-gap: ${spec.groupGap};
-  --rds-density-row-min: ${spec.rowMin};
-  --rds-density-cell-block: ${spec.cellBlock};
-  --rds-density-action-gap: ${spec.actionGap};
-}`)
-    .join('\n\n');
+export function renderFoundationsCss(canonicalCss = '', modes: Record<'light' | 'dark', string> = { light: '', dark: '' }) {
+  const aliases = compatibilityAliases();
+  const shared = staticTokens();
+  const recipes = buttonRecipe('light').join('\n');
+  const stage = (appearance: 'light' | 'dark', more = false) => {
+    const high = more ? Object.entries(HIGH_CONTRAST[appearance]).map(([key, value]) => '  --rds-color-' + (key === 'canvas' || key === 'base' ? 'surface-' : 'ink-') + key + ': ' + value + ';').join('\n') : '';
+    return [modes[appearance], high, shared, aliases, recipes].filter(Boolean).join('\n');
+  };
+  const rule = (selector: string, content: string) => selector + ' {\n' + content + '\n}';
+  return [
+    '/* Generated from the adopted master plus component compatibility recipes. Do not edit. */',
+    canonicalCss,
+    canonicalCss.match(/@media \(forced-colors: active\) \{[\s\S]*?\n\}\n\}/)?.[0].replace(':root', '.rds-stage') ?? '',
+    'html { font-size: 100%; }',
+    rule(':root', shared + '\n' + aliases + '\n' + recipes),
+    rule('.rds-stage[data-appearance="light"], .rds-stage[data-rds-theme="light"]', stage('light')),
+    rule('.rds-stage[data-appearance="dark"], .rds-stage[data-rds-theme="dark"]', stage('dark')),
+    rule('.rds-stage[data-appearance="light"][data-contrast="more"]', stage('light', true)),
+    rule('.rds-stage[data-appearance="dark"][data-contrast="more"]', stage('dark', true)),
+    ...Object.entries(DENSITY).map(([name, spec]) => rule(':root[data-density="' + name + '"], .rds-stage[data-density="' + name + '"]',
+      Object.entries(spec).map(([key, value]) => '  --rds-density-' + key.replace(/[A-Z]/g, letter => '-' + letter.toLowerCase()) + ': ' + value + ';').join('\n'))),
+    ':root { --rds-density-padding: ' + DENSITY.regular.padding + '; --rds-density-group-gap: ' + DENSITY.regular.groupGap + '; --rds-density-row-min: ' + DENSITY.regular.rowMin + '; --rds-density-cell-block: ' + DENSITY.regular.cellBlock + '; --rds-density-action-gap: ' + DENSITY.regular.actionGap + '; --rds-layout-page-gutter: var(--rds-layout-grid-narrow-margin); }',
+    '@media (min-width: 48rem) { :root { --rds-layout-page-gutter: var(--rds-layout-grid-medium-margin); } }',
+    '@media (min-width: 64rem) { :root { --rds-layout-page-gutter: var(--rds-layout-grid-wide-margin); } }',
+    '.rds-focus:focus-visible { outline: var(--rds-focus-ring-width) solid var(--rds-color-focus-ring); outline-offset: var(--rds-focus-offset); }',
+    '.rds-scroll { scrollbar-width: auto; scrollbar-color: var(--rds-color-ink-tertiary) transparent; }',
+    '.rds-scroll:hover { scrollbar-color: var(--rds-color-ink-secondary) transparent; }',
+    '.rds-scroll-thin { scrollbar-width: thin; }',
+    '.rds-presentation, .rds-presentation-strong { background-color: var(--rds-color-surface-canvas); }',
+    '@media (prefers-reduced-motion: reduce) { .rds-motion { animation: none; transition: none; } }',
+    '@media (forced-colors: active) { .rds-stage { color: CanvasText; background: Canvas; } .rds-focus:focus-visible { outline-color: Highlight; } }',
+    '',
+  ].join('\n\n').trimEnd() + '\n';
 }
 
-export function renderFoundationsCss() {
-  return `/* Generated from the foundations contract ${FOUNDATION_MANIFEST.documentVersion}. Source: src/foundations. Do not edit by hand. */
-html {
-  font-size: 100%;
-}
-
-:root {
-${staticTokens()}
-${modeColors('light', 'standard')}
-}
-
-:root.dark {
-${modeColors('dark', 'standard')}
-}
-
-.rds-stage[data-appearance='light'] {
-${modeColors('light', 'standard')}
-}
-
-.rds-stage[data-appearance='dark'] {
-${modeColors('dark', 'standard')}
-}
-
-:root[data-contrast='more']:not(.dark),
-.rds-stage[data-appearance='light'][data-contrast='more'] {
-${modeColors('light', 'more')}
-}
-
-:root.dark[data-contrast='more'],
-.rds-stage[data-appearance='dark'][data-contrast='more'] {
-${modeColors('dark', 'more')}
-}
-
-@media (prefers-contrast: more) {
-  :root:not(.dark):not([data-contrast='standard']) {
-${modeColors('light', 'more')}
-  }
-  :root.dark:not([data-contrast='standard']) {
-${modeColors('dark', 'more')}
-  }
-}
-
-${densityBlocks()}
-
-.rds-focus:focus-visible {
-  outline: var(--rds-focus-width) solid var(--rds-color-focus-ring);
-  outline-offset: var(--rds-focus-offset);
-}
-
-.rds-scroll {
-  scrollbar-width: auto;
-  scrollbar-color: var(--rds-color-ink-tertiary) transparent;
-}
-
-.rds-scroll:hover {
-  scrollbar-color: var(--rds-color-ink-secondary) transparent;
-}
-
-.rds-scroll-thin {
-  scrollbar-width: thin;
-}
-
-.rds-presentation {
-  background-color: var(--rds-color-surface-canvas);
-  background-image: var(--rds-presentation-gradient-atmosphere);
-}
-
-.rds-presentation-strong {
-  background-color: var(--rds-color-surface-canvas);
-  background-image: var(--rds-presentation-gradient-brand-dark);
-  color: #eeeef0;
-}
-
-:root:not(.dark) .rds-presentation-strong,
-.rds-stage[data-appearance='light'] .rds-presentation-strong {
-  background-image: var(--rds-presentation-gradient-brand-light);
-  color: #211d20;
-}
-
-:is(
-  :root[data-contrast='more'],
-  .rds-stage[data-contrast='more'],
-  .rds-stage[data-reduce-transparency='on']
-) :is(.rds-presentation, .rds-presentation-strong) {
-  background-image: none;
-}
-
-@media (prefers-contrast: more) {
-  :root:not([data-contrast='standard']) :is(.rds-presentation, .rds-presentation-strong) {
-    background-image: none;
-  }
-}
-
-@media (prefers-reduced-transparency: reduce) {
-  :root:not([data-reduce-transparency='off']) :is(.rds-presentation, .rds-presentation-strong) {
-    background-image: none;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .rds-motion {
-    animation: none;
-    transition: none;
-  }
-}
-`;
-}
-
-/** @font-face only. One file per registered weight; Latin is the variable axis. */
+/** Asset registration is separate from generated font selection and typography. */
 export function renderFontsCss() {
-  const faces = FONT_FILES.map(
-    (file) => `@font-face {
-  font-family: "${file.family}";
-  src: url("./fonts/${file.file}") format("woff2");
-  font-weight: ${file.weight};
-  font-style: normal;
-  font-display: swap;
-}`,
-  );
-  return `/* Generated from src/foundations/type.ts. Do not edit by hand. Redistribution license: unknown. */
-${faces.join('\n')}
-`;
+  return '/* Generated font asset registration. Redistribution license: unknown. */\n' + FONT_FILES.map(file =>
+    '@font-face {\n  font-family: "' + file.family + '";\n  src: url("./fonts/' + file.file + '") format("woff2");\n  font-weight: ' + file.weight + ';\n  font-style: normal;\n  font-display: swap;\n}\n'
+  ).join('\n');
 }

@@ -1,0 +1,15 @@
+{
+  "scope": "Integration calculations for primary/secondary text on neutral hover/pressed composites; native forced colors and actual component adjacency require browser checks.",
+  "checkedPairs": 80,
+  "failures": [
+    {
+      "appearance": "light",
+      "contrast": "standard",
+      "foreground": "rds.color.ink.secondary",
+      "background": "rds.color.surface.sunken + rds.color.interaction.neutral.pressed",
+      "ratio": 4.496113030464314,
+      "threshold": 4.5,
+      "passes": false
+    }
+  ]
+}

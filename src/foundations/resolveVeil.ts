@@ -1,177 +1,88 @@
-import { SURFACE } from './color.ts';
-import { VEIL_FLOOR, VEIL_TIER, type LiftLevel, type VeilTier } from './metrics.ts';
+import { resolveColor, resolveColorContext } from './context.ts';
+import { parseColor } from './contrast.ts';
+import { VEIL, type LiftLevel, type LegacyLiftLevel, type VeilTier } from './metrics.ts';
 
 export type VeilContent = 'decoration' | 'short' | 'long' | 'form' | 'modal';
 export type VeilForeground = 'primary' | 'secondary' | 'tertiary';
 export type VeilBackground = 'controlled' | 'unknown';
 export type RenderPath = 'veil' | 'plain';
+/** Compatibility at the component boundary only; new consumers request numbered levels. */
+export type LegacyVeilTier = 'trace' | 'air' | 'core' | 'shelter' | 'opaque';
+const LEGACY_LEVELS: Record<LegacyVeilTier, VeilTier> = { trace: '100', air: '200', core: '300', shelter: '400', opaque: '500' };
 
 export interface VeilRequest {
-  tier: VeilTier;
+  tier: VeilTier | LegacyVeilTier;
   content: VeilContent;
   foreground: VeilForeground;
   background: VeilBackground;
-  lift: LiftLevel;
+  lift: LiftLevel | LegacyLiftLevel;
 }
-
 export interface VeilEnvironment {
-  appearance: 'light' | 'dark';
-  contrast: 'standard' | 'more';
-  reduceTransparency: boolean;
-  reduceMotion: boolean;
-  forcedColors: boolean;
-  backdropFilter: boolean;
+  appearance: 'light' | 'dark'; contrast: 'standard' | 'more';
+  reduceTransparency: boolean; reduceMotion: boolean; forcedColors: boolean; backdropFilter: boolean;
 }
-
-export interface VeilReason {
-  code: string;
-  text: string;
-}
-
+export interface VeilReason { code: string; text: string; }
 export interface VeilResolution {
-  requestedTier: VeilTier;
-  resolvedTier: VeilTier;
-  renderPath: RenderPath;
-  baseAlpha: number;
-  protectAlpha: number;
-  effectiveAlpha: number;
-  blur: string;
-  saturation: number;
-  film: string;
-  foreground: VeilForeground;
-  lift: LiftLevel;
-  reasons: VeilReason[];
+  requestedTier: VeilRequest['tier']; resolvedTier: VeilTier; renderPath: RenderPath;
+  baseAlpha: number; protectAlpha: number; effectiveAlpha: number;
+  blur: string; saturation: number; film: string; foreground: VeilForeground;
+  lift: VeilRequest['lift']; reasons: VeilReason[];
 }
 
-const ORDER: VeilTier[] = ['trace', 'air', 'core', 'shelter', 'opaque'];
-
-function higher(a: VeilTier, b: VeilTier): VeilTier {
-  return ORDER[Math.max(ORDER.indexOf(a), ORDER.indexOf(b))];
-}
-
-function ceil2(value: number) {
-  return Math.ceil((value - 1e-9) * 100) / 100;
-}
-
-const ESSENTIAL: VeilContent[] = ['short', 'long', 'form', 'modal'];
-
+/** Veil colors already include opacity. Never synthesize a second protective-film palette. */
 export function resolveVeil(request: VeilRequest, environment: VeilEnvironment): VeilResolution {
+  const tier = request.tier in LEGACY_LEVELS ? LEGACY_LEVELS[request.tier as LegacyVeilTier] : request.tier as VeilTier;
+  const treatment = VEIL[tier];
+  if (!treatment) throw new TypeError('Unknown Veil level.');
   const reasons: VeilReason[] = [];
-  let tier = request.tier;
-  let foreground = request.foreground;
-  const essential = ESSENTIAL.includes(request.content);
-
-  if (environment.forcedColors) {
-    reasons.push({ code: 'forced-colors', text: 'رنگ سیستم حفظ شد و افکت وابسته به رنگ پروژه خاموش است.' });
-    return plain(request, environment, foreground, reasons);
-  }
-
-  const plainBecause =
-    environment.contrast === 'more'
-      ? { code: 'high-contrast', text: 'کنتراست بالا مسیر plain با سطح عادی را انتخاب کرد.' }
+  const essential = request.content !== 'decoration';
+  const fallback = environment.forcedColors
+    ? { code: 'forced-colors', text: 'رنگ‌های بومی سیستم و سطح بدون شفافیت استفاده می‌شوند.' }
+    : environment.contrast === 'more'
+      ? { code: 'high-contrast', text: 'برای کنتراست بیشتر، سطح بدون شفافیت استفاده می‌شود.' }
       : environment.reduceTransparency
-        ? { code: 'reduce-transparency', text: 'کاهش شفافیت مسیر plain را انتخاب کرد.' }
+        ? { code: 'reduce-transparency', text: 'کاهش شفافیت، سطح بدون افکت را انتخاب کرد.' }
         : !environment.backdropFilter
-          ? { code: 'no-backdrop-filter', text: 'نبود backdrop-filter مسیر plain را انتخاب کرد.' }
-          : null;
-
-  if (plainBecause) {
-    reasons.push(plainBecause);
-    return plain(request, environment, foreground, reasons);
-  }
-
-  if (request.content === 'form' || request.content === 'modal' || request.content === 'long') {
-    const next = higher(tier, 'shelter');
-    if (next !== tier) {
-      reasons.push({ code: 'role-minimum', text: 'فرم، دیالوگ یا متن طولانی حداقل shelter می‌خواهد.' });
-      tier = next;
-    }
-  }
-
-  if (essential && tier === 'trace') {
-    reasons.push({ code: 'essential-trace', text: 'trace حامل متن ضروری به core ارتقا یافت.' });
-    tier = higher(tier, 'core');
-  }
-
-  if (essential && request.background === 'unknown' && tier === 'air') {
-    reasons.push({ code: 'unknown-air', text: 'air روی زمینهٔ ناشناخته با متن ضروری حداقل core است.' });
-    tier = higher(tier, 'core');
-  }
-
-  if (essential && foreground === 'tertiary') {
-    reasons.push({ code: 'tertiary-upgrade', text: 'tertiary ضروری روی زمینهٔ نیازمند محافظت به secondary ارتقا یافت.' });
-    foreground = 'secondary';
-  }
-
-  const film = SURFACE.base[environment.appearance];
-  const spec = VEIL_TIER[tier];
-  let protectAlpha = 0;
-  if (essential && request.background === 'unknown') {
-    const required = VEIL_FLOOR[environment.appearance][foreground === 'primary' ? 'primary' : 'secondary'];
-    if (spec.alpha >= required) {
-      reasons.push({ code: 'base-sufficient', text: 'آلفای پایه از کف محافظ بالاتر است و کاهش پیدا نکرد.' });
-    } else {
-      protectAlpha = ceil2((required - spec.alpha) / (1 - spec.alpha));
-      reasons.push({ code: 'protective-film', text: 'Film محافظ برای رسیدن به کف خوانایی زمینهٔ ناشناخته اضافه شد.' });
-    }
-  } else if (request.background === 'controlled') {
-    reasons.push({ code: 'controlled-background', text: 'زمینهٔ کنترل‌شده از کف ناشناخته استفاده نمی‌کند.' });
-  } else {
-    reasons.push({ code: 'decoration', text: 'بدون متن ضروری، Film محافظ لازم نیست.' });
-  }
-
-  const effectiveAlpha = 1 - (1 - spec.alpha) * (1 - protectAlpha);
+          ? { code: 'no-backdrop-filter', text: 'بدون پشتیبانی blur، سطح بدون شفافیت استفاده می‌شود.' }
+          : essential && request.background === 'unknown'
+            ? { code: 'unvalidated-background', text: 'خوانایی روی زمینهٔ ناشناخته تضمین نیست؛ این recipe سطح بدون شفافیت را انتخاب می‌کند.' }
+            : essential && (tier === '100' || tier === '200')
+              ? { code: 'decorative-level', text: 'درجه‌های ۱۰۰ و ۲۰۰ برای تزئین‌اند؛ محتوای ضروری سطح بدون شفافیت می‌گیرد.' }
+              : null;
+  if (fallback) reasons.push(fallback);
+  else reasons.push({ code: 'validate-contrast', text: 'رنگ و blur از مجموعهٔ اصلی‌اند؛ خوانایی باید روی زمینهٔ واقعی بررسی شود.' });
+  const colorContext = resolveColorContext({ appearance: environment.appearance, contrast: environment.contrast }, { forcedColors: environment.forcedColors });
+  const film = fallback ? resolveColor('rds.color.surface.raised', colorContext) : treatment.color[environment.appearance];
+  const alpha = fallback ? 1 : parseColor(film)[3];
   return {
-    requestedTier: request.tier,
-    resolvedTier: tier,
-    renderPath: 'veil',
-    baseAlpha: spec.alpha,
-    protectAlpha,
-    effectiveAlpha,
-    blur: spec.blur,
-    saturation: spec.saturation,
-    film,
-    foreground,
-    lift: request.lift,
-    reasons,
-  };
-}
-
-function plain(
-  request: VeilRequest,
-  environment: VeilEnvironment,
-  foreground: VeilForeground,
-  reasons: VeilReason[],
-): VeilResolution {
-  return {
-    requestedTier: request.tier,
-    resolvedTier: request.tier,
-    renderPath: 'plain',
-    baseAlpha: 1,
-    protectAlpha: 0,
-    effectiveAlpha: 1,
-    blur: '0',
-    saturation: 1,
-    film: SURFACE.base[environment.appearance],
-    foreground,
-    lift: request.lift,
-    reasons,
+    requestedTier: request.tier, resolvedTier: tier, renderPath: fallback ? 'plain' : 'veil',
+    baseAlpha: alpha, protectAlpha: 0, effectiveAlpha: alpha,
+    blur: fallback ? '0px' : treatment.blur, saturation: 1, film,
+    foreground: request.foreground, lift: request.lift, reasons,
   };
 }
 
 export function readVeilEnvironment(root?: HTMLElement | null): VeilEnvironment {
   const el = root ?? (typeof document === 'undefined' ? null : document.documentElement);
-  const appearance = el?.classList.contains('dark') ? 'dark' : 'light';
-  const contrastAttr = el?.getAttribute('data-contrast');
-  const systemMore = typeof matchMedia === 'function' && matchMedia('(prefers-contrast: more)').matches;
-  const contrast = contrastAttr === 'more' || contrastAttr === 'standard' ? contrastAttr : systemMore ? 'more' : 'standard';
-  const reduceTransparency =
-    el?.getAttribute('data-reduce-transparency') === 'on' ||
-    (typeof matchMedia === 'function' && matchMedia('(prefers-reduced-transparency: reduce)').matches);
-  const reduceMotion =
-    el?.getAttribute('data-reduce-motion') === 'on' ||
-    (typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches);
-  const forcedColors = typeof matchMedia === 'function' && matchMedia('(forced-colors: active)').matches;
-  const backdropFilter = typeof CSS !== 'undefined' && CSS.supports('backdrop-filter', 'blur(1px)');
-  return { appearance, contrast, reduceTransparency, reduceMotion, forcedColors, backdropFilter };
+  const media = (query: string) => typeof matchMedia === 'function' && matchMedia(query).matches;
+  const explicit = el?.getAttribute('data-rds-theme') ?? el?.getAttribute('data-appearance');
+  const contrastAttr = el?.getAttribute('data-rds-contrast') ?? el?.getAttribute('data-contrast');
+  const forcedColors = media('(forced-colors: active)');
+  const selected = resolveColorContext({
+    appearance: explicit === 'light' || explicit === 'dark' || explicit === 'system' ? explicit : el?.classList.contains('dark') ? 'dark' : 'system',
+    contrast: contrastAttr === 'more' || contrastAttr === 'standard' ? contrastAttr : 'system',
+  }, { appearance: media('(prefers-color-scheme: dark)') ? 'dark' : 'light', contrast: media('(prefers-contrast: more)') ? 'more' : 'standard', forcedColors });
+  const appearance = selected.appearance;
+  const contrast = selected.contrast === 'more' ? 'more' : 'standard';
+  const preference = (attribute: string, query: string) => {
+    const value = el?.getAttribute(attribute);
+    return value === 'on' || (value !== 'off' && media(query));
+  };
+  return {
+    appearance, contrast,
+    reduceTransparency: preference('data-reduce-transparency', '(prefers-reduced-transparency: reduce)'),
+    reduceMotion: preference('data-reduce-motion', '(prefers-reduced-motion: reduce)'),
+    forcedColors,
+    backdropFilter: typeof CSS !== 'undefined' && CSS.supports('backdrop-filter', 'blur(1px)'),
+  };
 }

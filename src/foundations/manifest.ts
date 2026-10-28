@@ -1,20 +1,23 @@
-/** Foundations contract registered in code. Package version stays independent. */
+import pkg from '../../package.json';
+import master from './canonical/master-tokens/manifest.json';
+
+/** Dated source snapshot, not a new semantic release version. Package release stays independent. */
 export const FOUNDATION_MANIFEST = {
-  document: 'RAHINO_01_FOUNDATIONS_REFERENCE_FA',
-  documentVersion: '2.0.0',
-  documentDate: '2026-10-07',
-  tokenVersion: '2.0.0',
-  packageVersion: '0.1.0',
-  status: 'contract-accepted',
+  document: 'RAHINO_FOUNDATIONS_MASTER',
+  documentVersion: '2026-10-28',
+  documentDate: '2026-10-28',
+  tokenVersion: '2026-10-28',
+  packageVersion: pkg.version,
+  status: master.status,
   packageRelease: 'unpublished',
-  platforms: ['web'],
-  runtime: 'React 19 + Vite',
-  language: 'fa',
-  direction: 'rtl',
+  platforms: ['web'], runtime: 'React 19 + Vite', language: 'fa', direction: 'rtl',
   owner: 'design-and-product',
+  adoptedOn: '2026-10-26',
+  source: 'src/foundations/canonical/master-tokens',
   notes: [
-    'این نسخه قرارداد بنیان‌هاست، نه ادعای canonical بودن همهٔ کامپوننت‌های استخراج‌شده.',
-    'نصب از registry تا پیش از انتشار مسیر آماده نیست.',
-    'فونت‌های ثبت‌شده: IRANYekanX در ۴۰۰، ۵۰۰، ۶۰۰ (DemiBold)، ۷۰۰ (Bold) و ۸۰۰ (ExtraBold). لاتین Roboto Condensed با فایل متغیر و محور wght از ۱۰۰ تا ۹۰۰ است. وزن ۹۰۰ ثبت نشده چون چند فایل usWeightClass یکسان دارند. مجوز توزیع فونت نامعلوم است.',
+    'بنیان‌ها از مجموعهٔ اصلی پذیرفته‌شده در ۲۰۲۶/۱۰/۲۸ تولید می‌شوند؛ این تاریخ شمارهٔ انتشار بسته نیست.',
+    'پذیرش بنیان‌ها به معنی تأیید همهٔ اجزای محصول نیست.',
+    'پروفایل‌های دقت عدد، نشانه‌های تشخیص اجزا و طراحی presentation در منبع به کار بعدی موکول شده‌اند.',
+    'فونت فارسی IRANYekanX و فونت لاتین Roboto Condensed است. مجوز توزیع فونت نامعلوم است.',
   ],
 } as const;

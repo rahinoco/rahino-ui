@@ -1,0 +1,423 @@
+{
+  "status": "source-decisions-preserved-no-new-public-tokens",
+  "entries": [
+    {
+      "id": "full-rounding",
+      "title": "Full rounding recipe",
+      "source": {
+        "file": "Radius.ts",
+        "exportPath": [
+          "FULL_RADIUS_CSS"
+        ],
+        "line": 83
+      },
+      "note": "A geometry rule and CSS shortcut, not a new rds.radius.full token.",
+      "value": {
+        "cssShortcut": "9999px",
+        "figma": "Height ÷ 2",
+        "circle": "50% on equal width and height"
+      },
+      "sourceValue": "9999px",
+      "capturedSourceValue": "9999px"
+    },
+    {
+      "id": "layout-grid",
+      "title": "Page grid",
+      "source": {
+        "file": "Layout.md",
+        "line": 18
+      },
+      "note": "Documentation snapshot of the approved grid. Canonical numeric values and spacing aliases now live in shared.tokens.json and generate layout.ts; this table is not an independent token source.",
+      "value": [
+        [
+          "Narrow",
+          "Below `48rem`",
+          "4",
+          "16px",
+          "16px"
+        ],
+        [
+          "Medium",
+          "`48rem` to below `64rem`",
+          "8",
+          "24px",
+          "24px"
+        ],
+        [
+          "Wide",
+          "`64rem` and above",
+          "12",
+          "24px",
+          "32px"
+        ]
+      ],
+      "reviewIssues": [],
+      "canonicalTokens": [
+        "rds.layout.breakpoint.medium",
+        "rds.layout.breakpoint.wide",
+        "rds.layout.grid.narrow.columns",
+        "rds.layout.grid.narrow.gutter",
+        "rds.layout.grid.narrow.margin",
+        "rds.layout.grid.medium.columns",
+        "rds.layout.grid.medium.gutter",
+        "rds.layout.grid.medium.margin",
+        "rds.layout.grid.wide.columns",
+        "rds.layout.grid.wide.gutter",
+        "rds.layout.grid.wide.margin"
+      ],
+      "approval": "layout-token-exports",
+      "capturedValue": [
+        [
+          "Narrow",
+          "Below `48rem`",
+          "4",
+          "16px",
+          "16px"
+        ],
+        [
+          "Medium",
+          "`48rem` to below `64rem`",
+          "8",
+          "24px",
+          "24px"
+        ],
+        [
+          "Wide",
+          "`64rem` and above",
+          "12",
+          "24px",
+          "32px"
+        ]
+      ]
+    },
+    {
+      "id": "layout-content-width",
+      "title": "Content width caps",
+      "source": {
+        "file": "Layout.md",
+        "line": 34
+      },
+      "note": "Documentation snapshot: reading reuses rds.type.layout.measure.reading (42rem); marketing/dashboard share rds.layout.content.max (1600px). Available-width and form behavior remain rules, not new tokens.",
+      "value": [
+        [
+          "Reading",
+          "42rem"
+        ],
+        [
+          "Marketing page",
+          "1600px"
+        ],
+        [
+          "Dashboard",
+          "1600px"
+        ],
+        [
+          "Tables and editors needing more space",
+          "Available width"
+        ],
+        [
+          "Forms",
+          "Defined by the form recipe; no universal cap"
+        ]
+      ],
+      "reviewIssues": [],
+      "canonicalReadingToken": "rds.type.layout.measure.reading",
+      "approval": "reading-measure-single-42rem",
+      "canonicalPageToken": "rds.layout.content.max",
+      "layoutApproval": "layout-token-exports",
+      "capturedValue": [
+        [
+          "Reading",
+          "42rem"
+        ],
+        [
+          "Marketing page",
+          "1600px"
+        ],
+        [
+          "Dashboard",
+          "1600px"
+        ],
+        [
+          "Tables and editors needing more space",
+          "Available width"
+        ],
+        [
+          "Forms",
+          "Defined by the form recipe; no universal cap"
+        ]
+      ]
+    },
+    {
+      "id": "layout-outer-margin",
+      "title": "App chrome outer margins",
+      "source": {
+        "file": "Layout.md",
+        "line": 32
+      },
+      "note": "This is a layout rule, not a new zero-spacing token.",
+      "value": "Page margins apply to main content. The **sidebar, header and footer have 0px outer margin**. Their internal padding is defined separately.",
+      "reviewIssues": []
+    },
+    {
+      "id": "number-formatting",
+      "title": "Number-formatting and precision rules",
+      "source": {
+        "file": "Numbers.md",
+        "line": 3
+      },
+      "note": "Exact source bullet text and role table. Product precision, rounding, missing-value and privacy representations have not been guessed.",
+      "value": {
+        "rules": [
+          "Use **Persian digits** (`۰۱۲۳۴۵۶۷۸۹`) and symbols: thousands `٬`, decimal `٫`, percent `٪`, minus `−`—regardless of currency. Identifiers such as `INV-1042` remain unchanged.",
+          "Isolate the numeric value with `<bdi dir=\"ltr\">`; keep its unit separate. **Right-align financial values** without changing the direction of the whole table.",
+          "Display dates in the **Solar Hijri calendar** when using the Persian date format. Timezone handling must preserve the intended calendar day.",
+          "Define decimal precision by profile: `money`, `quantity`, `rate`, `percent`, `metric`, `technical`. **Do not apply two decimal places globally.**",
+          "The `percent` profile must explicitly specify whether its input is a **0–1 ratio** or an **already-scaled percentage**.",
+          "**Qipper defaults to toman; Keeper Ledger defaults to rial.** Changing display units is not currency conversion; FX conversion is outside the formatter.",
+          "Store monetary values precisely. Display rounding must never change the stored value, and ambiguous input must not be guessed.",
+          "Distinguish **zero**, **missing data**, and **privacy-hidden values**. Show full amounts in financial reports (no compact notation)."
+        ],
+        "typographyRoles": [
+          [
+            "Table values",
+            "`rds.type.ui-sm`"
+          ],
+          [
+            "Totals",
+            "`rds.type.title-sm`"
+          ],
+          [
+            "Standard KPI",
+            "`rds.type.title-md`"
+          ],
+          [
+            "Compact / narrow KPI",
+            "`rds.type.title-sm`"
+          ],
+          [
+            "Secondary numeric metadata",
+            "`rds.type.caption-md`"
+          ]
+        ],
+        "formattingExamples": [
+          [
+            "Negative amount",
+            "−۱۲٬۵۰۰ تومان"
+          ],
+          [
+            "Foreign currency",
+            "۱۲٬۵۰۰ دلار"
+          ],
+          [
+            "Percentage",
+            "۱۸٪"
+          ],
+          [
+            "Date",
+            "۱۴۰۵/۰۷/۱۵"
+          ]
+        ]
+      },
+      "reviewIssues": [
+        "number-profiles"
+      ]
+    },
+    {
+      "id": "contrast-reference-snapshot",
+      "title": "Calculated text contrast reference",
+      "source": {
+        "file": "Color.ts",
+        "exportPath": [
+          "CONTRAST_REFERENCE"
+        ],
+        "line": 505
+      },
+      "note": "Derived from current INK/SURFACE pairs at runtime; all 30 stored reference figures were independently recomputed. Reference rounding is not used for threshold acceptance. This is calculated data, not a token palette.",
+      "value": {
+        "light": {
+          "primary": {
+            "canvas": 14.81,
+            "base": 16.65,
+            "subtle": 15.88,
+            "raised": 16.65,
+            "sunken": 13.12
+          },
+          "secondary": {
+            "canvas": 6.14,
+            "base": 6.91,
+            "subtle": 6.59,
+            "raised": 6.91,
+            "sunken": 5.44
+          },
+          "tertiary": {
+            "canvas": 5.01,
+            "base": 5.64,
+            "subtle": 5.38,
+            "raised": 5.64,
+            "sunken": 4.44
+          }
+        },
+        "dark": {
+          "primary": {
+            "canvas": 15.22,
+            "base": 13.26,
+            "subtle": 11.97,
+            "raised": 11.11,
+            "sunken": 17.88
+          },
+          "secondary": {
+            "canvas": 9.52,
+            "base": 8.29,
+            "subtle": 7.48,
+            "raised": 6.95,
+            "sunken": 11.18
+          },
+          "tertiary": {
+            "canvas": 7.38,
+            "base": 6.43,
+            "subtle": 5.8,
+            "raised": 5.39,
+            "sunken": 8.67
+          }
+        }
+      },
+      "reviewIssues": [],
+      "resolvedReviewIssues": [
+        "contrast-snapshot"
+      ],
+      "approval": "dark-focus-ring-and-contrast-reference",
+      "capturedValue": {
+        "light": {
+          "primary": {
+            "canvas": 14.19,
+            "base": 16.65,
+            "subtle": 15.47,
+            "raised": 16.65,
+            "sunken": 13.71
+          },
+          "secondary": {
+            "canvas": 5.88,
+            "base": 6.91,
+            "subtle": 6.42,
+            "raised": 6.91,
+            "sunken": 5.69
+          },
+          "tertiary": {
+            "canvas": 4.8,
+            "base": 5.64,
+            "subtle": 5.24,
+            "raised": 5.64,
+            "sunken": 4.64
+          }
+        },
+        "dark": {
+          "primary": {
+            "canvas": 16.25,
+            "base": 15.12,
+            "subtle": 13.66,
+            "raised": 12.43,
+            "sunken": 16.73
+          },
+          "secondary": {
+            "canvas": 10.16,
+            "base": 9.46,
+            "subtle": 8.54,
+            "raised": 7.78,
+            "sunken": 10.47
+          },
+          "tertiary": {
+            "canvas": 7.88,
+            "base": 7.33,
+            "subtle": 6.62,
+            "raised": 6.03,
+            "sunken": 8.12
+          }
+        }
+      }
+    },
+    {
+      "id": "dark-focus-contrast-validation",
+      "title": "Dark focus-ring contrast against defined surfaces",
+      "source": {
+        "file": "Color.ts",
+        "exportPath": [
+          "FOCUS_RING"
+        ],
+        "line": 258
+      },
+      "sourceValue": {
+        "light": "#99507A",
+        "dark": "#A9638B"
+      },
+      "note": "Approved dark focus ring #A9638B; light ring remains #99507A. All six ratios are calculated from opaque source colors. Scope is the defined dark surfaces; component-specific adjacent fills still require their own checks.",
+      "value": {
+        "minimum": 3,
+        "ratios": {
+          "canvas": 4.069678896935265,
+          "base": 3.5444938384537883,
+          "subtle": 3.1987174168184778,
+          "raised": 2.9693966325649535,
+          "sunken": 4.778280752946999,
+          "inverse": 3.7410031702079487
+        }
+      },
+      "reviewIssues": [],
+      "approval": "dark-focus-ring-and-contrast-reference",
+      "capturedValue": {
+        "minimum": 3,
+        "ratios": {
+          "canvas": 4.3437137839677735,
+          "base": 4.041167009929727,
+          "subtle": 3.6507844146059356,
+          "raised": 3.3232284700143646,
+          "sunken": 4.472695935148935,
+          "inverse": 3.7410031702079487
+        }
+      },
+      "capturedSourceValue": {
+        "light": "#99507A",
+        "dark": "#A9638B"
+      }
+    },
+    {
+      "id": "dark-control-contrast-validation",
+      "title": "Dark control boundary contrast",
+      "source": {
+        "file": "Color.ts",
+        "exportPath": [
+          "EDGE",
+          "control",
+          "dark"
+        ],
+        "line": 305
+      },
+      "note": "Approved existing gray; actual component adjacency remains a component check.",
+      "sourceValue": "#7A8493",
+      "approval": "dark-control-boundary-existing-gray",
+      "value": {
+        "minimum": 3,
+        "ratios": {
+          "canvas": 4.661732603075154,
+          "base": 4.060144032631736,
+          "subtle": 3.6640643273444544,
+          "raised": 3.4013821345742907,
+          "sunken": 5.4734213034434,
+          "inverse": 3.2658848010973682
+        }
+      },
+      "capturedValue": {
+        "minimum": 3,
+        "ratios": {
+          "canvas": 4.975633871359854,
+          "base": 4.629072829025411,
+          "subtle": 4.181897678753853,
+          "raised": 3.806689151274322,
+          "sunken": 5.123380245116465,
+          "inverse": 3.2658848010973682
+        }
+      },
+      "capturedSourceValue": "#7A8493"
+    }
+  ]
+}

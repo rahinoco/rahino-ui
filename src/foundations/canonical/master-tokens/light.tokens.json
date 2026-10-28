@@ -1,0 +1,3329 @@
+{
+  "$extensions": {
+    "rahino": {
+      "status": "canonical",
+      "adopted": true,
+      "reviewIssues": [],
+      "targetFormat": "DTCG 2025.10"
+    }
+  },
+  "rds": {
+    "color": {
+      "surface": {
+        "canvas": {
+          "$type": "color",
+          "$value": "{ref.color.gray-warm.75}",
+          "$description": "Root application/page background. The lowest structural surface, providing the backdrop for all other UI surfaces.",
+          "$extensions": {
+            "rahino": {
+              "status": "adopted",
+              "source": {
+                "file": "Color.ts",
+                "exportPath": [
+                  "SURFACE",
+                  "canvas",
+                  "light"
+                ],
+                "line": 14
+              },
+              "sourceDocuments": [],
+              "sourceAnnotations": {
+                "token": "rds.color.surface.canvas",
+                "usage": "Root application/page background. The lowest structural surface, providing the backdrop for all other UI surfaces.",
+                "avoid": "Cards, modal interiors, inputs, and floating overlays."
+              },
+              "reviewIssues": [],
+              "layer": "shared",
+              "referenceLayerApproval": "reference-layer-master-collection",
+              "adoptionApproval": "canonical-master-adoption",
+              "capturedSource": {
+                "file": "Color.ts",
+                "exportPath": [
+                  "SURFACE",
+                  "canvas",
+                  "light"
+                ],
+                "line": 51
+              }
+            }
+          }
+        },
+        "base": {
+          "$type": "color",
+          "$value": "{ref.color.white}",
+          "$description": "Default content surface for cards, panels, and sections within the page. Provides a clean, solid background.",
+          "$extensions": {
+            "rahino": {
+              "status": "adopted",
+              "source": {
+                "file": "Color.ts",
+                "exportPath": [
+                  "SURFACE",
+                  "base",
+                  "light"
+                ],
+                "line": 16
+              },
+              "sourceDocuments": [],
+              "sourceAnnotations": {
+                "token": "rds.color.surface.base",
+                "usage": "Default content surface for cards, panels, and sections within the page. Provides a clean, solid background.",
+                "avoid": "Inputs, floating overlays, and components requiring a visually recessed surface."
+              },
+              "reviewIssues": [],
+              "layer": "shared",
+              "referenceLayerApproval": "reference-layer-master-collection",
+              "adoptionApproval": "canonical-master-adoption",
+              "capturedSource": {
+                "file": "Color.ts",
+                "exportPath": [
+                  "SURFACE",
+                  "base",
+                  "light"
+                ],
+                "line": 59
+              }
+            }
+          }
+        },
+        "subtle": {
+          "$type": "color",
+          "$value": "{ref.color.gray-warm.25}",
+          "$description": "Low-emphasis grouping within content surfaces, including alternate sections, section headers, list tracks, and secondary containers.",
+          "$extensions": {
+            "rahino": {
+              "status": "adopted",
+              "source": {
+                "file": "Color.ts",
+                "exportPath": [
+                  "SURFACE",
+                  "subtle",
+                  "light"
+                ],
+                "line": 18
+              },
+              "sourceDocuments": [],
+              "sourceAnnotations": {
+                "token": "rds.color.surface.subtle",
+                "usage": "Low-emphasis grouping within content surfaces, including alternate sections, section headers, list tracks, and secondary containers.",
+                "avoid": "Unfocused inputs, modals, and prominent floating surfaces. Not intended to establish strong separation."
+              },
+              "reviewIssues": [],
+              "layer": "shared",
+              "referenceLayerApproval": "reference-layer-master-collection",
+              "adoptionApproval": "canonical-master-adoption",
+              "capturedSource": {
+                "file": "Color.ts",
+                "exportPath": [
+                  "SURFACE",
+                  "subtle",
+                  "light"
+                ],
+                "line": 68
+              }
+            }
+          }
+        },
+        "raised": {
+          "$type": "color",
+          "$value": "{ref.color.white}",
+          "$description": "Default opaque surface for dialogs, menus, popovers and floating toolbars; glass requires an explicit component choice and validated backdrop.",
+          "$extensions": {
+            "rahino": {
+              "status": "adopted",
+              "source": {
+                "file": "Color.ts",
+                "exportPath": [
+                  "SURFACE",
+                  "raised",
+                  "light"
+                ],
+                "line": 20
+              },
+              "sourceDocuments": [],
+              "sourceAnnotations": {
+                "token": "rds.color.surface.raised",
+                "usage": "Default opaque surface for dialogs, menus, popovers and floating toolbars; glass requires an explicit component choice and validated backdrop.",
+                "avoid": "Standard page content, cards, and input backgrounds. Do not use inverse color as an elevation treatment."
+              },
+              "reviewIssues": [],
+              "layer": "shared",
+              "referenceLayerApproval": "reference-layer-master-collection",
+              "adoptionApproval": "canonical-master-adoption",
+              "capturedSource": {
+                "file": "Color.ts",
+                "exportPath": [
+                  "SURFACE",
+                  "raised",
+                  "light"
+                ],
+                "line": 78
+              },
+              "usageApproval": "audit-state-contrast-and-material-default"
+            }
+          }
+        },
+        "sunken": {
+          "$type": "color",
+          "$value": "{ref.color.gray-warm.100}",
+          "$description": "Recessed surfaces within a parent container, including unfocused text fields, selects, textareas, editable regions, inset controls, and progress track s. Provides background separation without borders.",
+          "$extensions": {
+            "rahino": {
+              "status": "adopted",
+              "source": {
+                "file": "Color.ts",
+                "exportPath": [
+                  "SURFACE",
+                  "sunken",
+                  "light"
+                ],
+                "line": 22
+              },
+              "sourceDocuments": [],
+              "sourceAnnotations": {
+                "token": "rds.color.surface.sunken",
+                "usage": "Recessed surfaces within a parent container, including unfocused text fields, selects, textareas, editable regions, inset controls, and progress track s. Provides background separation without borders.",
+                "avoid": "Modals, cards, and floating overlays. Use ink.secondary for meaningful supporting text; reserve ink.tertiary for nonessential metadata."
+              },
+              "reviewIssues": [],
+              "layer": "shared",
+              "referenceLayerApproval": "reference-layer-master-collection",
+              "adoptionApproval": "canonical-master-adoption",
+              "capturedSource": {
+                "file": "Color.ts",
+                "exportPath": [
+                  "SURFACE",
+                  "sunken",
+                  "light"
+                ],
+                "line": 89
+              }
+            }
+          }
+        },
+        "inverse": {
+          "$type": "color",
+          "$value": "{ref.color.gray-warm.875}",
+          "$description": "Intentionally high-contrast, solid neutral controls only, such as an explicitly emphasized neutral button.",
+          "$extensions": {
+            "rahino": {
+              "status": "adopted",
+              "source": {
+                "file": "Color.ts",
+                "exportPath": [
+                  "SURFACE",
+                  "inverse",
+                  "light"
+                ],
+                "line": 24
+              },
+              "sourceDocuments": [],
+              "sourceAnnotations": {
+                "token": "rds.color.surface.inverse",
+                "usage": "Intentionally high-contrast, solid neutral controls only, such as an explicitly emphasized neutral button.",
+                "pair": "rds.color.ink.inverse",
+                "avoid": "Popovers, tooltips, context menus, dropdowns, dialogs, floating selection/action toolbars, and notification containers. Never use inverse fill to signal elevation or floating position; use surface.raised and an elevation shadow instead. Also avoid general page surfaces, inputs, and brand actions."
+              },
+              "reviewIssues": [],
+              "layer": "shared",
+              "referenceLayerApproval": "reference-layer-master-collection",
+              "adoptionApproval": "canonical-master-adoption",
+              "capturedSource": {
+                "file": "Color.ts",
+                "exportPath": [
+                  "SURFACE",
+                  "inverse",
+                  "light"
+                ],
+                "line": 101
+              }
+            }
+          }
+        }
+      },
+      "scrim": {
+        "modal": {
+          "$type": "color",
+          "$value": "{ref.color.gray-warm.950-alpha-52}",
+          "$description": "Backdrop dimming behind a modal/dialog that blocks the underlying UI.",
+          "$extensions": {
+            "rahino": {
+              "status": "adopted",
+              "source": {
+                "file": "Color.ts",
+                "exportPath": [
+                  "SCRIM",
+                  "modal",
+                  "light"
+                ],
+                "line": 29
+              },
+              "sourceDocuments": [],
+              "sourceAnnotations": {
+                "token": "rds.color.scrim.modal",
+                "usage": "Backdrop dimming behind a modal/dialog that blocks the underlying UI.",
+                "avoid": "Hover states, glass panels, or ordinary in-flow content backgrounds. @a11y Check effective dimming in each mode; scrim alone must not carry text."
+              },
+              "reviewIssues": [],
+              "layer": "shared",
+              "referenceLayerApproval": "reference-layer-master-collection",
+              "adoptionApproval": "canonical-master-adoption",
+              "capturedSource": {
+                "file": "Color.ts",
+                "exportPath": [
+                  "SCRIM",
+                  "modal",
+                  "light"
+                ],
+                "line": 117
+              }
+            }
+          }
+        }
+      },
+      "ink": {
+        "primary": {
+          "$type": "color",
+          "$value": "{ref.color.gray-warm.875}",
+          "$description": "Main text, values and labels on neutral surfaces; solid primary fills use rds.color.ink.on-brand.",
+          "$extensions": {
+            "rahino": {
+              "status": "adopted",
+              "source": {
+                "file": "Color.ts",
+                "exportPath": [
+                  "INK",
+                  "primary",
+                  "light"
+                ],
+                "line": 34
+              },
+              "sourceDocuments": [],
+              "sourceAnnotations": {
+                "token": "rds.color.ink.primary",
+                "usage": "Main text, values and labels on neutral surfaces; solid primary fills use rds.color.ink.on-brand.",
+                "avoid": "Do not use on solid primary or brand fills; use rds.color.ink.on-brand there."
+              },
+              "reviewIssues": [],
+              "layer": "shared",
+              "referenceLayerApproval": "reference-layer-master-collection",
+              "adoptionApproval": "canonical-master-adoption",
+              "capturedSource": {
+                "file": "Color.ts",
+                "exportPath": [
+                  "INK",
+                  "primary",
+                  "light"
+                ],
+                "line": 129
+              },
+              "usageApproval": "primary-fill-on-brand-foreground"
+            }
+          }
+        },
+        "secondary": {
+          "$type": "color",
+          "$value": "{ref.color.gray-warm.625}",
+          "$description": "Readable supporting text, including descriptions, helper text, notification content, and meaningful metadata. Provides clear hierarchy below primary text without compromising readability.",
+          "$extensions": {
+            "rahino": {
+              "status": "adopted",
+              "source": {
+                "file": "Color.ts",
+                "exportPath": [
+                  "INK",
+                  "secondary",
+                  "light"
+                ],
+                "line": 36
+              },
+              "sourceDocuments": [],
+              "sourceAnnotations": {
+                "token": "rds.color.ink.secondary",
+                "usage": "Readable supporting text, including descriptions, helper text, notification content, and meaningful metadata. Provides clear hierarchy below primary text without compromising readability.",
+                "avoid": "Disabled states, decorative labels, and reducing contrast through additional opacity."
+              },
+              "reviewIssues": [],
+              "layer": "shared",
+              "referenceLayerApproval": "reference-layer-master-collection",
+              "adoptionApproval": "canonical-master-adoption",
+              "capturedSource": {
+                "file": "Color.ts",
+                "exportPath": [
+                  "INK",
+                  "secondary",
+                  "light"
+                ],
+                "line": 135
+              }
+            }
+          }
+        },
+        "tertiary": {
+          "$type": "color",
+          "$value": "{ref.color.gray-warm.575}",
+          "$description": "Low-emphasis text at full opacity on approved resting opaque surfaces; use secondary or primary ink on neutral hover/pressed overlays unless the complete treatment is separately validated.",
+          "$extensions": {
+            "rahino": {
+              "status": "adopted",
+              "source": {
+                "file": "Color.ts",
+                "exportPath": [
+                  "INK",
+                  "tertiary",
+                  "light"
+                ],
+                "line": 38
+              },
+              "sourceDocuments": [],
+              "sourceAnnotations": {
+                "token": "rds.color.ink.tertiary",
+                "usage": "Low-emphasis text at full opacity on approved resting opaque surfaces; use secondary or primary ink on neutral hover/pressed overlays unless the complete treatment is separately validated.",
+                "avoid": "Essential descriptions, instructions, error messages, disabled states, and uncontrolled glass backgrounds. Do not apply additional opacity."
+              },
+              "reviewIssues": [],
+              "layer": "shared",
+              "referenceLayerApproval": "reference-layer-master-collection",
+              "adoptionApproval": "canonical-master-adoption",
+              "capturedSource": {
+                "file": "Color.ts",
+                "exportPath": [
+                  "INK",
+                  "tertiary",
+                  "light"
+                ],
+                "line": 146
+              },
+              "usageApproval": "audit-state-contrast-and-material-default"
+            }
+          }
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "{ref.color.gray-warm.325}",
+          "$description": "Text/labels of genuinely disabled, noninteractive controls.",
+          "$extensions": {
+            "rahino": {
+              "status": "adopted",
+              "source": {
+                "file": "Color.ts",
+                "exportPath": [
+                  "INK",
+                  "disabled",
+                  "light"
+                ],
+                "line": 40
+              },
+              "sourceDocuments": [],
+              "sourceAnnotations": {
+                "token": "rds.color.ink.disabled",
+                "usage": "Text/labels of genuinely disabled, noninteractive controls.",
+                "avoid": "Placeholder for an enabled input; not for text that remains actionable. @a11y Inactive controls can be exempt from WCAG text-contrast minimums, but state must also be programmatically exposed."
+              },
+              "reviewIssues": [],
+              "layer": "shared",
+              "referenceLayerApproval": "reference-layer-master-collection",
+              "adoptionApproval": "canonical-master-adoption",
+              "capturedSource": {
+                "file": "Color.ts",
+                "exportPath": [
+                  "INK",
+                  "disabled",
+                  "light"
+                ],
+                "line": 158
+              }
+            }
+          }
+        },
+        "on-brand": {
+          "$type": "color",
+          "$value": "{ref.color.white}",
+          "$description": "Text and icons on enabled solid primary fills across default, hover and pressed states.",
+          "$extensions": {
+            "rahino": {
+              "status": "adopted",
+              "source": {
+                "file": "Color.ts",
+                "exportPath": [
+                  "INK",
+                  "on-brand",
+                  "light"
+                ],
+                "line": 42
+              },
+              "sourceDocuments": [],
+              "sourceAnnotations": {
+                "token": "rds.color.ink.on-brand",
+                "usage": "Text and icons on enabled solid primary fills across default, hover and pressed states.",
+                "avoid": "Do not use on soft brand-tinted backgrounds; use rds.color.brand.fg there. Disabled controls require their own validated treatment."
+              },
+              "reviewIssues": [],
+              "layer": "shared",
+              "referenceLayerApproval": "reference-layer-master-collection",
+              "adoptionApproval": "canonical-master-adoption",
+              "capturedSource": {
+                "file": "Color.ts",
+                "exportPath": [
+                  "INK",
+                  "on-brand",
+                  "light"
+                ],
+                "line": 166
+              },
+              "usageApproval": "primary-fill-on-brand-foreground"
+            }
+          }
+        },
+        "inverse": {
+          "$type": "color",
+          "$value": "{ref.color.gray.50}",
+          "$description": "Text/icons only on intentionally inverse neutral-solid controls.",
+          "$extensions": {
+            "rahino": {
+              "status": "adopted",
+              "source": {
+                "file": "Color.ts",
+                "exportPath": [
+                  "INK",
+                  "inverse",
+                  "light"
+                ],
+                "line": 44
+              },
+              "sourceDocuments": [],
+              "sourceAnnotations": {
+                "token": "rds.color.ink.inverse",
+                "usage": "Text/icons only on intentionally inverse neutral-solid controls.",
+                "pair": "rds.color.surface.inverse",
+                "avoid": "Text/icons in floating UI containers (popovers, toolbars, menus, tooltips, dialogs); use ink.primary/secondary/tertiary on surface.raised instead. Not a general foreground role."
+              },
+              "reviewIssues": [],
+              "layer": "shared",
+              "referenceLayerApproval": "reference-layer-master-collection",
+              "adoptionApproval": "canonical-master-adoption",
+              "capturedSource": {
+                "file": "Color.ts",
+                "exportPath": [
+                  "INK",
+                  "inverse",
+                  "light"
+                ],
+                "line": 172
+              }
+            }
+          }
+        }
+      },
+      "brand": {
+        "seed": {
+          "$type": "color",
+          "$value": "{ref.color.plum.775}",
+          "$description": "Immutable corporate identity reference, brand signatures and recipes that explicitly require the original brand seed in either appearance.",
+          "$extensions": {
+            "rahino": {
+              "status": "adopted",
+              "source": {
+                "file": "Color.ts",
+                "exportPath": [
+                  "BRAND",
+                  "seed",
+                  "light"
+                ],
+                "line": 49
+              },
+              "sourceDocuments": [],
+              "sourceAnnotations": {
+                "token": "rds.color.brand.seed",
+                "usage": "Immutable corporate identity reference, brand signatures and recipes that explicitly require the original brand seed in either appearance.",
+                "avoid": "Applying raw seed indiscriminately to text or every clickable control."
+              },
+              "reviewIssues": [],
+              "layer": "shared",
+              "referenceLayerApproval": "reference-layer-master-collection",
+              "adoptionApproval": "canonical-master-adoption",
+              "capturedSource": {
+                "file": "Color.ts",
+                "exportPath": [
+                  "BRAND",
+                  "seed",
+                  "light"
+                ],
+                "line": 185
+              }
+            }
+          }
+        },
+        "bg": {
+          "default": {
+            "$type": "color",
+            "$value": "{ref.color.plum.50}",
+            "$description": "Selected/highlighted branded container, low-intensity emphasis panel, or soft brand control at rest.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "BRAND",
+                    "bg",
+                    "light"
+                  ],
+                  "line": 51
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.brand.bg.default",
+                  "usage": "Selected/highlighted branded container, low-intensity emphasis panel, or soft brand control at rest.",
+                  "avoid": "Mistaking a tinted plate for a solid primary call-to-action."
+                },
+                "reviewIssues": [],
+                "layer": "shared",
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "BRAND",
+                    "bg",
+                    "light"
+                  ],
+                  "line": 192
+                },
+                "stateNamingApproval": "separate-color-state-segments"
+              }
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{ref.color.plum.100}",
+            "$description": "Pointer-hover state ONLY for an interactive brand.bg.default surface.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "BRAND",
+                    "bg-hover",
+                    "light"
+                  ],
+                  "line": 53
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.brand.bg.hover",
+                  "usage": "Pointer-hover state ONLY for an interactive brand.bg.default surface.",
+                  "avoid": "Applying persistent hover tint to static brand panels or touch-only UI."
+                },
+                "reviewIssues": [],
+                "layer": "shared",
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "BRAND",
+                    "bg-hover",
+                    "light"
+                  ],
+                  "line": 199
+                },
+                "stateNamingApproval": "separate-color-state-segments"
+              }
+            }
+          }
+        },
+        "fg": {
+          "$type": "color",
+          "$value": "{ref.color.plum.775}",
+          "$description": "Branded text/icon emphasis on appropriate light/dark backgrounds, especially on brand.bg.default, soft brand controls and toned badges.",
+          "$extensions": {
+            "rahino": {
+              "status": "adopted",
+              "source": {
+                "file": "Color.ts",
+                "exportPath": [
+                  "BRAND",
+                  "fg",
+                  "light"
+                ],
+                "line": 55
+              },
+              "sourceDocuments": [],
+              "sourceAnnotations": {
+                "token": "rds.color.brand.fg",
+                "usage": "Branded text/icon emphasis on appropriate light/dark backgrounds, especially on brand.bg.default, soft brand controls and toned badges.",
+                "avoid": "Solid brand action labels; those use action.primary.fg."
+              },
+              "reviewIssues": [],
+              "layer": "shared",
+              "referenceLayerApproval": "reference-layer-master-collection",
+              "adoptionApproval": "canonical-master-adoption",
+              "capturedSource": {
+                "file": "Color.ts",
+                "exportPath": [
+                  "BRAND",
+                  "fg",
+                  "light"
+                ],
+                "line": 205
+              }
+            }
+          }
+        }
+      },
+      "action": {
+        "primary": {
+          "bg": {
+            "default": {
+              "$type": "color",
+              "$value": "{ref.color.plum.775}",
+              "$description": "Primary high-priority button/action background in its rest state.",
+              "$extensions": {
+                "rahino": {
+                  "status": "adopted",
+                  "source": {
+                    "file": "Color.ts",
+                    "exportPath": [
+                      "ACTION_PRIMARY_BG",
+                      "default",
+                      "light"
+                    ],
+                    "line": 63
+                  },
+                  "sourceDocuments": [],
+                  "sourceAnnotations": {
+                    "token": "rds.color.action.primary.bg.default",
+                    "usage": "Primary high-priority button/action background in its rest state.",
+                    "avoid": "Using for selected informational chips or static brand decoration."
+                  },
+                  "reviewIssues": [],
+                  "layer": "shared",
+                  "referenceLayerApproval": "reference-layer-master-collection",
+                  "adoptionApproval": "canonical-master-adoption",
+                  "capturedSource": {
+                    "file": "Color.ts",
+                    "exportPath": [
+                      "ACTION_PRIMARY_BG",
+                      "default",
+                      "light"
+                    ],
+                    "line": 224
+                  }
+                }
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{ref.color.plum.900}",
+              "$description": "Pointer-hover state on a currently enabled primary action.",
+              "$extensions": {
+                "rahino": {
+                  "status": "adopted",
+                  "source": {
+                    "file": "Color.ts",
+                    "exportPath": [
+                      "ACTION_PRIMARY_BG",
+                      "hover",
+                      "light"
+                    ],
+                    "line": 65
+                  },
+                  "sourceDocuments": [],
+                  "sourceAnnotations": {
+                    "token": "rds.color.action.primary.bg.hover",
+                    "usage": "Pointer-hover state on a currently enabled primary action.",
+                    "avoid": "Applying as persistent selection or during keyboard focus only."
+                  },
+                  "reviewIssues": [],
+                  "layer": "shared",
+                  "referenceLayerApproval": "reference-layer-master-collection",
+                  "adoptionApproval": "canonical-master-adoption",
+                  "capturedSource": {
+                    "file": "Color.ts",
+                    "exportPath": [
+                      "ACTION_PRIMARY_BG",
+                      "hover",
+                      "light"
+                    ],
+                    "line": 230
+                  }
+                }
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{ref.color.plum.950}",
+              "$description": "Temporary active/pressed feedback for enabled primary actions.",
+              "$extensions": {
+                "rahino": {
+                  "status": "adopted",
+                  "source": {
+                    "file": "Color.ts",
+                    "exportPath": [
+                      "ACTION_PRIMARY_BG",
+                      "pressed",
+                      "light"
+                    ],
+                    "line": 67
+                  },
+                  "sourceDocuments": [],
+                  "sourceAnnotations": {
+                    "token": "rds.color.action.primary.bg.pressed",
+                    "usage": "Temporary active/pressed feedback for enabled primary actions.",
+                    "avoid": "Treating `pressed` as a durable selected/toggled state."
+                  },
+                  "reviewIssues": [],
+                  "layer": "shared",
+                  "referenceLayerApproval": "reference-layer-master-collection",
+                  "adoptionApproval": "canonical-master-adoption",
+                  "capturedSource": {
+                    "file": "Color.ts",
+                    "exportPath": [
+                      "ACTION_PRIMARY_BG",
+                      "pressed",
+                      "light"
+                    ],
+                    "line": 236
+                  }
+                }
+              }
+            },
+            "disabled": {
+              "$type": "color",
+              "$value": "{ref.color.plum.375}",
+              "$description": "Inactive solid primary control fill; interaction must be disabled too.",
+              "$extensions": {
+                "rahino": {
+                  "status": "adopted",
+                  "source": {
+                    "file": "Color.ts",
+                    "exportPath": [
+                      "ACTION_PRIMARY_BG",
+                      "disabled",
+                      "light"
+                    ],
+                    "line": 69
+                  },
+                  "sourceDocuments": [],
+                  "sourceAnnotations": {
+                    "token": "rds.color.action.primary.bg.disabled",
+                    "usage": "Inactive solid primary control fill; interaction must be disabled too.",
+                    "avoid": "Using for secondary/neutral disabled controls or muted text alone."
+                  },
+                  "reviewIssues": [],
+                  "layer": "shared",
+                  "referenceLayerApproval": "reference-layer-master-collection",
+                  "adoptionApproval": "canonical-master-adoption",
+                  "capturedSource": {
+                    "file": "Color.ts",
+                    "exportPath": [
+                      "ACTION_PRIMARY_BG",
+                      "disabled",
+                      "light"
+                    ],
+                    "line": 242
+                  }
+                }
+              }
+            }
+          },
+          "fg": {
+            "$type": "color",
+            "$value": "{rds.color.ink.on-brand}",
+            "$description": "Primary-action foreground alias of rds.color.ink.on-brand across enabled default, hover and pressed states.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "ACTION_PRIMARY_FG",
+                    "light"
+                  ],
+                  "line": 73
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.action.primary.fg",
+                  "usage": "Primary-action foreground alias of rds.color.ink.on-brand across enabled default, hover and pressed states.",
+                  "avoid": "Presuming this foreground is AA compliant on the disabled fill; use the disabled component recipe and disabled semantic text behavior."
+                },
+                "reviewIssues": [],
+                "layer": "shared",
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "ACTION_PRIMARY_FG",
+                    "light"
+                  ],
+                  "line": 250
+                },
+                "usageApproval": "primary-fill-on-brand-foreground"
+              }
+            }
+          }
+        }
+      },
+      "edge": {
+        "subtle": {
+          "$type": "color",
+          "$value": "{ref.color.gray-cool.925-alpha-12}",
+          "$description": "Optional 1px separators in dense tables or between adjacent panels when spacing and surface contrast are insufficient.",
+          "$extensions": {
+            "rahino": {
+              "status": "adopted",
+              "source": {
+                "file": "Color.ts",
+                "exportPath": [
+                  "EDGE",
+                  "subtle",
+                  "light"
+                ],
+                "line": 90
+              },
+              "sourceDocuments": [],
+              "sourceAnnotations": {
+                "token": "rds.color.edge.subtle",
+                "usage": "Optional 1px separators in dense tables or between adjacent panels when spacing and surface contrast are insufficient.",
+                "avoid": "Default card borders, form-control identification, and focus rings. Decorative only; not required to meet 3:1 non-text contrast."
+              },
+              "reviewIssues": [],
+              "layer": "shared",
+              "referenceLayerApproval": "reference-layer-master-collection",
+              "adoptionApproval": "canonical-master-adoption",
+              "capturedSource": {
+                "file": "Color.ts",
+                "exportPath": [
+                  "EDGE",
+                  "subtle",
+                  "light"
+                ],
+                "line": 296
+              }
+            }
+          }
+        },
+        "control": {
+          "$type": "color",
+          "$value": "{ref.color.gray-cool.450}",
+          "$description": "1px boundary for enabled inputs, selects, or secondary controls only when their filled treatment needs a clearer affordance.",
+          "$extensions": {
+            "rahino": {
+              "status": "adopted",
+              "source": {
+                "file": "Color.ts",
+                "exportPath": [
+                  "EDGE",
+                  "control",
+                  "light"
+                ],
+                "line": 92
+              },
+              "sourceDocuments": [],
+              "sourceAnnotations": {
+                "token": "rds.color.edge.control",
+                "usage": "1px boundary for enabled inputs, selects, or secondary controls only when their filled treatment needs a clearer affordance.",
+                "avoid": "Decorative containers, default card frames, or indicating focus, selection, or error by border color alone. @a11y Validate >=3:1 against actual adjacent surfaces wherever the boundary is required for identification."
+              },
+              "reviewIssues": [],
+              "layer": "shared",
+              "referenceLayerApproval": "reference-layer-master-collection",
+              "approval": "dark-control-boundary-existing-gray",
+              "adoptionApproval": "canonical-master-adoption",
+              "capturedSource": {
+                "file": "Color.ts",
+                "exportPath": [
+                  "EDGE",
+                  "control",
+                  "light"
+                ],
+                "line": 305
+              }
+            }
+          }
+        }
+      },
+      "link": {
+        "fg": {
+          "$type": "color",
+          "$value": "{rds.color.brand.fg}",
+          "$description": "Link-colored text where an actual interactive hyperlink is present.",
+          "$extensions": {
+            "rahino": {
+              "status": "adopted",
+              "source": {
+                "file": "Color.ts",
+                "exportPath": [
+                  "LINK_FG",
+                  "light"
+                ],
+                "line": 59
+              },
+              "sourceDocuments": [],
+              "sourceAnnotations": {
+                "token": "rds.color.link.fg",
+                "usage": "Link-colored text where an actual interactive hyperlink is present.",
+                "avoid": "Color-only identification of links inside a paragraph; supply underline, focus treatment and hover states per the link recipe."
+              },
+              "reviewIssues": [],
+              "aliasEvidence": "Actual TypeScript object reference; not inferred from equal values.",
+              "adoptionApproval": "canonical-master-adoption",
+              "capturedSource": {
+                "file": "Color.ts",
+                "exportPath": [
+                  "LINK_FG",
+                  "light"
+                ],
+                "line": 214
+              }
+            }
+          }
+        }
+      },
+      "focus": {
+        "ring": {
+          "$type": "color",
+          "$value": "{ref.color.plum.575}",
+          "$description": "Visible keyboard focus ring, generally via :focus-visible and focus geometry tokens (width) defined elsewhere.",
+          "$extensions": {
+            "rahino": {
+              "status": "adopted",
+              "source": {
+                "file": "Color.ts",
+                "exportPath": [
+                  "FOCUS_RING",
+                  "light"
+                ],
+                "line": 76
+              },
+              "sourceDocuments": [],
+              "sourceAnnotations": {
+                "token": "rds.color.focus.ring",
+                "usage": "Visible keyboard focus ring, generally via :focus-visible and focus geometry tokens in Border.ts.",
+                "avoid": "Hover decoration, validation error border, or a substitute for focus geometry / forced-colors treatment."
+              },
+              "reviewIssues": [],
+              "resolvedReviewIssues": [
+                "external-references",
+                "focus-ring-contrast"
+              ],
+              "layer": "shared",
+              "referenceLayerApproval": "reference-layer-master-collection",
+              "adoptionApproval": "canonical-master-adoption",
+              "capturedSource": {
+                "file": "Color.ts",
+                "exportPath": [
+                  "FOCUS_RING",
+                  "light"
+                ],
+                "line": 258
+              }
+            }
+          }
+        }
+      },
+      "interaction": {
+        "neutral": {
+          "hover": {
+            "$type": "color",
+            "$value": "{ref.color.gray-warm.875-alpha-6}",
+            "$description": "Pointer-hover overlay behind neutral interactive content; use secondary or primary ink at full opacity and validate the final composite.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "INTERACTION",
+                    "neutral-hover",
+                    "light"
+                  ],
+                  "line": 80
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.interaction.neutral.hover",
+                  "usage": "Pointer-hover overlay behind neutral interactive content; use secondary or primary ink at full opacity and validate the final composite.",
+                  "avoid": "Standalone text color, solid fill, or a universally fixed rendered outcome regardless of the background color underneath."
+                },
+                "reviewIssues": [],
+                "layer": "shared",
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "INTERACTION",
+                    "neutral-hover",
+                    "light"
+                  ],
+                  "line": 269
+                },
+                "usageApproval": "audit-state-contrast-and-material-default"
+              }
+            }
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{ref.color.gray-warm.875-alpha-10}",
+            "$description": "Pressed overlay behind neutral interactive content; use secondary or primary ink at full opacity and validate the final composite.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "INTERACTION",
+                    "neutral-pressed",
+                    "light"
+                  ],
+                  "line": 82
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.interaction.neutral.pressed",
+                  "usage": "Pressed overlay behind neutral interactive content; use secondary or primary ink at full opacity and validate the final composite.",
+                  "avoid": "Permanent selected state, validation warning, or drag overlay."
+                },
+                "reviewIssues": [],
+                "layer": "shared",
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "INTERACTION",
+                    "neutral-pressed",
+                    "light"
+                  ],
+                  "line": 277
+                },
+                "usageApproval": "audit-state-contrast-and-material-default"
+              }
+            }
+          }
+        },
+        "surface": {
+          "selected": {
+            "$type": "color",
+            "$value": "{rds.color.brand.bg.default}",
+            "$description": "Persistent BRANDED selection plate (e.g. active segmented option or selected category) when the component recipe specifies branded tone.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "INTERACTION_SELECTED_SURFACE",
+                    "light"
+                  ],
+                  "line": 86
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.interaction.surface.selected",
+                  "usage": "Persistent BRANDED selection plate (e.g. active segmented option or selected category) when the component recipe specifies branded tone.",
+                  "alias": "rds.color.brand.bg.default (same value by explicit semantic reference).",
+                  "avoid": "Conflating this branded selection with neutral selection treatments."
+                },
+                "reviewIssues": [],
+                "aliasEvidence": "Actual TypeScript object reference; not inferred from equal values.",
+                "resolvedReviewIssues": [
+                  "external-references"
+                ],
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "INTERACTION_SELECTED_SURFACE",
+                    "light"
+                  ],
+                  "line": 285
+                },
+                "stateNamingApproval": "separate-color-state-segments"
+              }
+            }
+          }
+        }
+      },
+      "status": {
+        "success": {
+          "bg": {
+            "$type": "color",
+            "$value": "{ref.color.green.50}",
+            "$description": "Positive alert/validation panel fill; not a primary action.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "STATUS",
+                    "success",
+                    "bg",
+                    "light"
+                  ],
+                  "line": 98
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.status.success.bg",
+                  "usage": "Positive alert/validation panel fill; not a primary action."
+                },
+                "reviewIssues": [],
+                "layer": "shared",
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "STATUS",
+                    "success",
+                    "bg",
+                    "light"
+                  ],
+                  "line": 326
+                }
+              }
+            }
+          },
+          "edge": {
+            "$type": "color",
+            "$value": "{ref.color.green.175}",
+            "$description": "Border of positive feedback panel or field-success indication.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "STATUS",
+                    "success",
+                    "edge",
+                    "light"
+                  ],
+                  "line": 100
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.status.success.edge",
+                  "usage": "Border of positive feedback panel or field-success indication."
+                },
+                "reviewIssues": [],
+                "layer": "shared",
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "STATUS",
+                    "success",
+                    "edge",
+                    "light"
+                  ],
+                  "line": 331
+                }
+              }
+            }
+          },
+          "fg": {
+            "$type": "color",
+            "$value": "{ref.color.green.600}",
+            "$description": "Success message, icon or state label on validated surfaces.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "STATUS",
+                    "success",
+                    "fg",
+                    "light"
+                  ],
+                  "line": 102
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.status.success.fg",
+                  "usage": "Success message, icon or state label on validated surfaces."
+                },
+                "reviewIssues": [],
+                "layer": "shared",
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "STATUS",
+                    "success",
+                    "fg",
+                    "light"
+                  ],
+                  "line": 336
+                }
+              }
+            }
+          },
+          "fill": {
+            "$type": "color",
+            "$value": "{ref.color.green.525}",
+            "$description": "Solid positive badge/indicator or success-specific action recipe.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "STATUS",
+                    "success",
+                    "fill",
+                    "light"
+                  ],
+                  "line": 104
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.status.success.fill",
+                  "usage": "Solid positive badge/indicator or success-specific action recipe."
+                },
+                "reviewIssues": [],
+                "layer": "shared",
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "STATUS",
+                    "success",
+                    "fill",
+                    "light"
+                  ],
+                  "line": 341
+                }
+              }
+            }
+          },
+          "on-fill": {
+            "$type": "color",
+            "$value": "{ref.color.white}",
+            "$description": "Text/icons only on status.success.fill.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "STATUS",
+                    "success",
+                    "on-fill",
+                    "light"
+                  ],
+                  "line": 106
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.status.success.on-fill",
+                  "usage": "Text/icons only on status.success.fill."
+                },
+                "reviewIssues": [],
+                "layer": "shared",
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "STATUS",
+                    "success",
+                    "on-fill",
+                    "light"
+                  ],
+                  "line": 346
+                }
+              }
+            }
+          }
+        },
+        "warning": {
+          "bg": {
+            "$type": "color",
+            "$value": "{ref.color.amber.50}",
+            "$description": "Warning callout/banner background.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "STATUS",
+                    "warning",
+                    "bg",
+                    "light"
+                  ],
+                  "line": 110
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.status.warning.bg",
+                  "usage": "Warning callout/banner background."
+                },
+                "reviewIssues": [],
+                "layer": "shared",
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "STATUS",
+                    "warning",
+                    "bg",
+                    "light"
+                  ],
+                  "line": 353
+                }
+              }
+            }
+          },
+          "edge": {
+            "$type": "color",
+            "$value": "{ref.color.amber.200}",
+            "$description": "Warning field/alert border.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "STATUS",
+                    "warning",
+                    "edge",
+                    "light"
+                  ],
+                  "line": 112
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.status.warning.edge",
+                  "usage": "Warning field/alert border."
+                },
+                "reviewIssues": [],
+                "layer": "shared",
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "STATUS",
+                    "warning",
+                    "edge",
+                    "light"
+                  ],
+                  "line": 358
+                }
+              }
+            }
+          },
+          "fg": {
+            "$type": "color",
+            "$value": "{ref.color.amber.575}",
+            "$description": "Warning text/icon; reserve for caution, not generic emphasis.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "STATUS",
+                    "warning",
+                    "fg",
+                    "light"
+                  ],
+                  "line": 114
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.status.warning.fg",
+                  "usage": "Warning text/icon; reserve for caution, not generic emphasis."
+                },
+                "reviewIssues": [],
+                "layer": "shared",
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "STATUS",
+                    "warning",
+                    "fg",
+                    "light"
+                  ],
+                  "line": 363
+                }
+              }
+            }
+          },
+          "fill": {
+            "$type": "color",
+            "$value": "{ref.color.amber.500}",
+            "$description": "Solid warning pill/badge or alert marker.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "STATUS",
+                    "warning",
+                    "fill",
+                    "light"
+                  ],
+                  "line": 116
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.status.warning.fill",
+                  "usage": "Solid warning pill/badge or alert marker."
+                },
+                "reviewIssues": [],
+                "layer": "shared",
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "STATUS",
+                    "warning",
+                    "fill",
+                    "light"
+                  ],
+                  "line": 368
+                }
+              }
+            }
+          },
+          "on-fill": {
+            "$type": "color",
+            "$value": "{ref.color.white}",
+            "$description": "Text/icons on warning.fill; light/dark inks differ intentionally.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "STATUS",
+                    "warning",
+                    "on-fill",
+                    "light"
+                  ],
+                  "line": 118
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.status.warning.on-fill",
+                  "usage": "Text/icons on warning.fill; light/dark inks differ intentionally."
+                },
+                "reviewIssues": [],
+                "layer": "shared",
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "STATUS",
+                    "warning",
+                    "on-fill",
+                    "light"
+                  ],
+                  "line": 373
+                }
+              }
+            }
+          }
+        },
+        "error": {
+          "bg": {
+            "$type": "color",
+            "$value": "{ref.color.red.50}",
+            "$description": "Error callout/validation container background.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "STATUS",
+                    "error",
+                    "bg",
+                    "light"
+                  ],
+                  "line": 122
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.status.error.bg",
+                  "usage": "Error callout/validation container background."
+                },
+                "reviewIssues": [],
+                "layer": "shared",
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "STATUS",
+                    "error",
+                    "bg",
+                    "light"
+                  ],
+                  "line": 380
+                }
+              }
+            }
+          },
+          "edge": {
+            "$type": "color",
+            "$value": "{ref.color.red.225}",
+            "$description": "Invalid field or error alert border.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "STATUS",
+                    "error",
+                    "edge",
+                    "light"
+                  ],
+                  "line": 124
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.status.error.edge",
+                  "usage": "Invalid field or error alert border."
+                },
+                "reviewIssues": [],
+                "layer": "shared",
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "STATUS",
+                    "error",
+                    "edge",
+                    "light"
+                  ],
+                  "line": 385
+                }
+              }
+            }
+          },
+          "fg": {
+            "$type": "color",
+            "$value": "{ref.color.red.625}",
+            "$description": "Validation error text/icon; don't signal error with color alone.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "STATUS",
+                    "error",
+                    "fg",
+                    "light"
+                  ],
+                  "line": 126
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.status.error.fg",
+                  "usage": "Validation error text/icon; don't signal error with color alone."
+                },
+                "reviewIssues": [],
+                "layer": "shared",
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "STATUS",
+                    "error",
+                    "fg",
+                    "light"
+                  ],
+                  "line": 390
+                }
+              }
+            }
+          },
+          "fill": {
+            "$type": "color",
+            "$value": "{ref.color.red.575}",
+            "$description": "Solid error badge; destructive button through a separate recipe.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "STATUS",
+                    "error",
+                    "fill",
+                    "light"
+                  ],
+                  "line": 128
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.status.error.fill",
+                  "usage": "Solid error badge; destructive button through a separate recipe."
+                },
+                "reviewIssues": [],
+                "layer": "shared",
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "STATUS",
+                    "error",
+                    "fill",
+                    "light"
+                  ],
+                  "line": 395
+                }
+              }
+            }
+          },
+          "on-fill": {
+            "$type": "color",
+            "$value": "{ref.color.white}",
+            "$description": "Text/icons on error.fill.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "STATUS",
+                    "error",
+                    "on-fill",
+                    "light"
+                  ],
+                  "line": 130
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.status.error.on-fill",
+                  "usage": "Text/icons on error.fill."
+                },
+                "reviewIssues": [],
+                "layer": "shared",
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "STATUS",
+                    "error",
+                    "on-fill",
+                    "light"
+                  ],
+                  "line": 400
+                }
+              }
+            }
+          }
+        },
+        "info": {
+          "bg": {
+            "$type": "color",
+            "$value": "{ref.color.blue.50}",
+            "$description": "Nonurgent informational banner/panel fill.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "STATUS",
+                    "info",
+                    "bg",
+                    "light"
+                  ],
+                  "line": 134
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.status.info.bg",
+                  "usage": "Nonurgent informational banner/panel fill."
+                },
+                "reviewIssues": [],
+                "layer": "shared",
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "STATUS",
+                    "info",
+                    "bg",
+                    "light"
+                  ],
+                  "line": 407
+                }
+              }
+            }
+          },
+          "edge": {
+            "$type": "color",
+            "$value": "{ref.color.blue.200}",
+            "$description": "Info border around a feedback block.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "STATUS",
+                    "info",
+                    "edge",
+                    "light"
+                  ],
+                  "line": 136
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.status.info.edge",
+                  "usage": "Info border around a feedback block."
+                },
+                "reviewIssues": [],
+                "layer": "shared",
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "STATUS",
+                    "info",
+                    "edge",
+                    "light"
+                  ],
+                  "line": 412
+                }
+              }
+            }
+          },
+          "fg": {
+            "$type": "color",
+            "$value": "{ref.color.blue.600}",
+            "$description": "Information label/icon; link styling also needs link affordance.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "STATUS",
+                    "info",
+                    "fg",
+                    "light"
+                  ],
+                  "line": 138
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.status.info.fg",
+                  "usage": "Information label/icon; link styling also needs link affordance."
+                },
+                "reviewIssues": [],
+                "layer": "shared",
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "STATUS",
+                    "info",
+                    "fg",
+                    "light"
+                  ],
+                  "line": 417
+                }
+              }
+            }
+          },
+          "fill": {
+            "$type": "color",
+            "$value": "{ref.color.blue.550}",
+            "$description": "Solid informational badge/indicator.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "STATUS",
+                    "info",
+                    "fill",
+                    "light"
+                  ],
+                  "line": 140
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.status.info.fill",
+                  "usage": "Solid informational badge/indicator."
+                },
+                "reviewIssues": [],
+                "layer": "shared",
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "STATUS",
+                    "info",
+                    "fill",
+                    "light"
+                  ],
+                  "line": 422
+                }
+              }
+            }
+          },
+          "on-fill": {
+            "$type": "color",
+            "$value": "{ref.color.white}",
+            "$description": "Text/icons on info.fill.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "STATUS",
+                    "info",
+                    "on-fill",
+                    "light"
+                  ],
+                  "line": 142
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.status.info.on-fill",
+                  "usage": "Text/icons on info.fill."
+                },
+                "reviewIssues": [],
+                "layer": "shared",
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "STATUS",
+                    "info",
+                    "on-fill",
+                    "light"
+                  ],
+                  "line": 427
+                }
+              }
+            }
+          }
+        }
+      },
+      "data": {
+        "on-fill": {
+          "$type": "color",
+          "$value": "{ref.color.white}",
+          "$description": "Foreground for text/icons inside solid categorical chart marks only, after contrast validation against the selected series color.",
+          "$extensions": {
+            "rahino": {
+              "status": "adopted",
+              "source": {
+                "file": "Color.ts",
+                "exportPath": [
+                  "DATA_ON_FILL",
+                  "light"
+                ],
+                "line": 264
+              },
+              "sourceDocuments": [],
+              "sourceAnnotations": {
+                "token": "rds.color.data.on-fill",
+                "usage": "Foreground for text/icons inside solid categorical chart marks only, after contrast validation against the selected series color.",
+                "avoid": "Tooltip text, sequential/diverging marks, translucent fills, or arbitrary backgrounds."
+              },
+              "reviewIssues": [],
+              "layer": "shared",
+              "referenceLayerApproval": "reference-layer-master-collection",
+              "publicPathNamingApproval": "data-and-presentation-color-category",
+              "adoptionApproval": "canonical-master-adoption",
+              "capturedSource": {
+                "file": "Color.ts",
+                "exportPath": [
+                  "DATA_ON_FILL",
+                  "light"
+                ],
+                "line": 602
+              }
+            }
+          }
+        },
+        "categorical": {
+          "01": {
+            "$type": "color",
+            "$value": "{ref.color.plum.775}",
+            "$description": "categorical chart slot 01; retain the existing series order and family usage constraints.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "layer": "shared",
+                "approval": "chart-public-slots-01",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_CATEGORICAL_TOKENS",
+                    "01",
+                    "light"
+                  ],
+                  "line": 214
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.data.categorical.01"
+                },
+                "reviewIssues": [],
+                "chartFamily": "categorical",
+                "publicSlot": "01",
+                "compatibilityArrayIndex": 0,
+                "previousSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_CATEGORICAL",
+                    "0"
+                  ],
+                  "line": 539
+                },
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "publicPathNamingApproval": "data-and-presentation-color-category",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_CATEGORICAL_TOKENS",
+                    "01",
+                    "light"
+                  ],
+                  "line": 523
+                }
+              }
+            }
+          },
+          "02": {
+            "$type": "color",
+            "$value": "{ref.color.teal.550}",
+            "$description": "categorical chart slot 02; retain the existing series order and family usage constraints.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "layer": "shared",
+                "approval": "chart-public-slots-01",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_CATEGORICAL_TOKENS",
+                    "02",
+                    "light"
+                  ],
+                  "line": 216
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.data.categorical.02"
+                },
+                "reviewIssues": [],
+                "chartFamily": "categorical",
+                "publicSlot": "02",
+                "compatibilityArrayIndex": 1,
+                "previousSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_CATEGORICAL",
+                    "1"
+                  ],
+                  "line": 539
+                },
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "publicPathNamingApproval": "data-and-presentation-color-category",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_CATEGORICAL_TOKENS",
+                    "02",
+                    "light"
+                  ],
+                  "line": 525
+                }
+              }
+            }
+          },
+          "03": {
+            "$type": "color",
+            "$value": "{ref.color.blue.575}",
+            "$description": "categorical chart slot 03; retain the existing series order and family usage constraints.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "layer": "shared",
+                "approval": "chart-public-slots-01",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_CATEGORICAL_TOKENS",
+                    "03",
+                    "light"
+                  ],
+                  "line": 218
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.data.categorical.03"
+                },
+                "reviewIssues": [],
+                "chartFamily": "categorical",
+                "publicSlot": "03",
+                "compatibilityArrayIndex": 2,
+                "previousSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_CATEGORICAL",
+                    "2"
+                  ],
+                  "line": 539
+                },
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "publicPathNamingApproval": "data-and-presentation-color-category",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_CATEGORICAL_TOKENS",
+                    "03",
+                    "light"
+                  ],
+                  "line": 527
+                }
+              }
+            }
+          },
+          "04": {
+            "$type": "color",
+            "$value": "{ref.color.amber.550}",
+            "$description": "categorical chart slot 04; retain the existing series order and family usage constraints.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "layer": "shared",
+                "approval": "chart-public-slots-01",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_CATEGORICAL_TOKENS",
+                    "04",
+                    "light"
+                  ],
+                  "line": 220
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.data.categorical.04"
+                },
+                "reviewIssues": [],
+                "chartFamily": "categorical",
+                "publicSlot": "04",
+                "compatibilityArrayIndex": 3,
+                "previousSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_CATEGORICAL",
+                    "3"
+                  ],
+                  "line": 539
+                },
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "publicPathNamingApproval": "data-and-presentation-color-category",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_CATEGORICAL_TOKENS",
+                    "04",
+                    "light"
+                  ],
+                  "line": 529
+                }
+              }
+            }
+          },
+          "05": {
+            "$type": "color",
+            "$value": "{ref.color.purple.625}",
+            "$description": "categorical chart slot 05; retain the existing series order and family usage constraints.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "layer": "shared",
+                "approval": "chart-public-slots-01",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_CATEGORICAL_TOKENS",
+                    "05",
+                    "light"
+                  ],
+                  "line": 222
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.data.categorical.05"
+                },
+                "reviewIssues": [],
+                "chartFamily": "categorical",
+                "publicSlot": "05",
+                "compatibilityArrayIndex": 4,
+                "previousSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_CATEGORICAL",
+                    "4"
+                  ],
+                  "line": 539
+                },
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "publicPathNamingApproval": "data-and-presentation-color-category",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_CATEGORICAL_TOKENS",
+                    "05",
+                    "light"
+                  ],
+                  "line": 531
+                }
+              }
+            }
+          },
+          "06": {
+            "$type": "color",
+            "$value": "{ref.color.red.600}",
+            "$description": "categorical chart slot 06; retain the existing series order and family usage constraints.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "layer": "shared",
+                "approval": "chart-public-slots-01",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_CATEGORICAL_TOKENS",
+                    "06",
+                    "light"
+                  ],
+                  "line": 224
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.data.categorical.06"
+                },
+                "reviewIssues": [],
+                "chartFamily": "categorical",
+                "publicSlot": "06",
+                "compatibilityArrayIndex": 5,
+                "previousSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_CATEGORICAL",
+                    "5"
+                  ],
+                  "line": 539
+                },
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "publicPathNamingApproval": "data-and-presentation-color-category",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_CATEGORICAL_TOKENS",
+                    "06",
+                    "light"
+                  ],
+                  "line": 533
+                }
+              }
+            }
+          },
+          "07": {
+            "$type": "color",
+            "$value": "{ref.color.gray-cool.550}",
+            "$description": "categorical chart slot 07; retain the existing series order and family usage constraints.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "layer": "shared",
+                "approval": "chart-public-slots-01",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_CATEGORICAL_TOKENS",
+                    "07",
+                    "light"
+                  ],
+                  "line": 226
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.data.categorical.07"
+                },
+                "reviewIssues": [],
+                "chartFamily": "categorical",
+                "publicSlot": "07",
+                "compatibilityArrayIndex": 6,
+                "previousSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_CATEGORICAL",
+                    "6"
+                  ],
+                  "line": 539
+                },
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "publicPathNamingApproval": "data-and-presentation-color-category",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_CATEGORICAL_TOKENS",
+                    "07",
+                    "light"
+                  ],
+                  "line": 535
+                }
+              }
+            }
+          },
+          "08": {
+            "$type": "color",
+            "$value": "{ref.color.olive.550}",
+            "$description": "categorical chart slot 08; retain the existing series order and family usage constraints.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "layer": "shared",
+                "approval": "chart-public-slots-01",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_CATEGORICAL_TOKENS",
+                    "08",
+                    "light"
+                  ],
+                  "line": 228
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.data.categorical.08"
+                },
+                "reviewIssues": [],
+                "chartFamily": "categorical",
+                "publicSlot": "08",
+                "compatibilityArrayIndex": 7,
+                "previousSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_CATEGORICAL",
+                    "7"
+                  ],
+                  "line": 539
+                },
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "publicPathNamingApproval": "data-and-presentation-color-category",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_CATEGORICAL_TOKENS",
+                    "08",
+                    "light"
+                  ],
+                  "line": 537
+                }
+              }
+            }
+          }
+        },
+        "sequential": {
+          "01": {
+            "$type": "color",
+            "$value": "{ref.color.plum.525}",
+            "$description": "sequential chart slot 01; retain the existing series order and family usage constraints.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "layer": "shared",
+                "approval": "chart-public-slots-01",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_SEQUENTIAL_TOKENS",
+                    "01",
+                    "light"
+                  ],
+                  "line": 235
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.data.sequential.01"
+                },
+                "reviewIssues": [],
+                "chartFamily": "sequential",
+                "publicSlot": "01",
+                "compatibilityArrayIndex": 0,
+                "previousSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_SEQUENTIAL",
+                    "0"
+                  ],
+                  "line": 561
+                },
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "publicPathNamingApproval": "data-and-presentation-color-category",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_SEQUENTIAL_TOKENS",
+                    "01",
+                    "light"
+                  ],
+                  "line": 557
+                }
+              }
+            }
+          },
+          "02": {
+            "$type": "color",
+            "$value": "{ref.color.plum.600}",
+            "$description": "sequential chart slot 02; retain the existing series order and family usage constraints.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "layer": "shared",
+                "approval": "chart-public-slots-01",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_SEQUENTIAL_TOKENS",
+                    "02",
+                    "light"
+                  ],
+                  "line": 237
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.data.sequential.02"
+                },
+                "reviewIssues": [],
+                "chartFamily": "sequential",
+                "publicSlot": "02",
+                "compatibilityArrayIndex": 1,
+                "previousSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_SEQUENTIAL",
+                    "1"
+                  ],
+                  "line": 561
+                },
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "publicPathNamingApproval": "data-and-presentation-color-category",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_SEQUENTIAL_TOKENS",
+                    "02",
+                    "light"
+                  ],
+                  "line": 559
+                }
+              }
+            }
+          },
+          "03": {
+            "$type": "color",
+            "$value": "{ref.color.plum.625}",
+            "$description": "sequential chart slot 03; retain the existing series order and family usage constraints.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "layer": "shared",
+                "approval": "chart-public-slots-01",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_SEQUENTIAL_TOKENS",
+                    "03",
+                    "light"
+                  ],
+                  "line": 239
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.data.sequential.03"
+                },
+                "reviewIssues": [],
+                "chartFamily": "sequential",
+                "publicSlot": "03",
+                "compatibilityArrayIndex": 2,
+                "previousSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_SEQUENTIAL",
+                    "2"
+                  ],
+                  "line": 561
+                },
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "publicPathNamingApproval": "data-and-presentation-color-category",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_SEQUENTIAL_TOKENS",
+                    "03",
+                    "light"
+                  ],
+                  "line": 561
+                }
+              }
+            }
+          },
+          "04": {
+            "$type": "color",
+            "$value": "{ref.color.plum.700}",
+            "$description": "sequential chart slot 04; retain the existing series order and family usage constraints.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "layer": "shared",
+                "approval": "chart-public-slots-01",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_SEQUENTIAL_TOKENS",
+                    "04",
+                    "light"
+                  ],
+                  "line": 241
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.data.sequential.04"
+                },
+                "reviewIssues": [],
+                "chartFamily": "sequential",
+                "publicSlot": "04",
+                "compatibilityArrayIndex": 3,
+                "previousSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_SEQUENTIAL",
+                    "3"
+                  ],
+                  "line": 561
+                },
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "publicPathNamingApproval": "data-and-presentation-color-category",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_SEQUENTIAL_TOKENS",
+                    "04",
+                    "light"
+                  ],
+                  "line": 563
+                }
+              }
+            }
+          },
+          "05": {
+            "$type": "color",
+            "$value": "{ref.color.plum.775}",
+            "$description": "sequential chart slot 05; retain the existing series order and family usage constraints.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "layer": "shared",
+                "approval": "chart-public-slots-01",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_SEQUENTIAL_TOKENS",
+                    "05",
+                    "light"
+                  ],
+                  "line": 243
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.data.sequential.05"
+                },
+                "reviewIssues": [],
+                "chartFamily": "sequential",
+                "publicSlot": "05",
+                "compatibilityArrayIndex": 4,
+                "previousSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_SEQUENTIAL",
+                    "4"
+                  ],
+                  "line": 561
+                },
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "publicPathNamingApproval": "data-and-presentation-color-category",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_SEQUENTIAL_TOKENS",
+                    "05",
+                    "light"
+                  ],
+                  "line": 565
+                }
+              }
+            }
+          }
+        },
+        "diverging": {
+          "01": {
+            "$type": "color",
+            "$value": "{ref.color.teal.575}",
+            "$description": "diverging chart slot 01; retain the existing series order and family usage constraints.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "layer": "shared",
+                "approval": "chart-public-slots-01",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_DIVERGING_TOKENS",
+                    "01",
+                    "light"
+                  ],
+                  "line": 250
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.data.diverging.01"
+                },
+                "reviewIssues": [],
+                "chartFamily": "diverging",
+                "publicSlot": "01",
+                "compatibilityArrayIndex": 0,
+                "previousSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_DIVERGING",
+                    "0"
+                  ],
+                  "line": 581
+                },
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "publicPathNamingApproval": "data-and-presentation-color-category",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_DIVERGING_TOKENS",
+                    "01",
+                    "light"
+                  ],
+                  "line": 586
+                }
+              }
+            }
+          },
+          "02": {
+            "$type": "color",
+            "$value": "{ref.color.teal.400}",
+            "$description": "diverging chart slot 02; retain the existing series order and family usage constraints.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "layer": "shared",
+                "approval": "chart-public-slots-01",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_DIVERGING_TOKENS",
+                    "02",
+                    "light"
+                  ],
+                  "line": 252
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.data.diverging.02"
+                },
+                "reviewIssues": [],
+                "chartFamily": "diverging",
+                "publicSlot": "02",
+                "compatibilityArrayIndex": 1,
+                "previousSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_DIVERGING",
+                    "1"
+                  ],
+                  "line": 581
+                },
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "publicPathNamingApproval": "data-and-presentation-color-category",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_DIVERGING_TOKENS",
+                    "02",
+                    "light"
+                  ],
+                  "line": 588
+                }
+              }
+            }
+          },
+          "03": {
+            "$type": "color",
+            "$value": "{ref.color.gray-warm.200}",
+            "$description": "diverging chart slot 03; retain the existing series order and family usage constraints.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "layer": "shared",
+                "approval": "chart-public-slots-01",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_DIVERGING_TOKENS",
+                    "03",
+                    "light"
+                  ],
+                  "line": 254
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.data.diverging.03"
+                },
+                "reviewIssues": [],
+                "chartFamily": "diverging",
+                "publicSlot": "03",
+                "compatibilityArrayIndex": 2,
+                "previousSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_DIVERGING",
+                    "2"
+                  ],
+                  "line": 581
+                },
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "publicPathNamingApproval": "data-and-presentation-color-category",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_DIVERGING_TOKENS",
+                    "03",
+                    "light"
+                  ],
+                  "line": 590
+                }
+              }
+            }
+          },
+          "04": {
+            "$type": "color",
+            "$value": "{ref.color.plum.550}",
+            "$description": "diverging chart slot 04; retain the existing series order and family usage constraints.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "layer": "shared",
+                "approval": "chart-public-slots-01",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_DIVERGING_TOKENS",
+                    "04",
+                    "light"
+                  ],
+                  "line": 256
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.data.diverging.04"
+                },
+                "reviewIssues": [],
+                "chartFamily": "diverging",
+                "publicSlot": "04",
+                "compatibilityArrayIndex": 3,
+                "previousSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_DIVERGING",
+                    "3"
+                  ],
+                  "line": 581
+                },
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "publicPathNamingApproval": "data-and-presentation-color-category",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_DIVERGING_TOKENS",
+                    "04",
+                    "light"
+                  ],
+                  "line": 592
+                }
+              }
+            }
+          },
+          "05": {
+            "$type": "color",
+            "$value": "{ref.color.plum.775}",
+            "$description": "diverging chart slot 05; retain the existing series order and family usage constraints.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "layer": "shared",
+                "approval": "chart-public-slots-01",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_DIVERGING_TOKENS",
+                    "05",
+                    "light"
+                  ],
+                  "line": 258
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.data.diverging.05"
+                },
+                "reviewIssues": [],
+                "chartFamily": "diverging",
+                "publicSlot": "05",
+                "compatibilityArrayIndex": 4,
+                "previousSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_DIVERGING",
+                    "4"
+                  ],
+                  "line": 581
+                },
+                "referenceLayerApproval": "reference-layer-master-collection",
+                "publicPathNamingApproval": "data-and-presentation-color-category",
+                "adoptionApproval": "canonical-master-adoption",
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "DATA_DIVERGING_TOKENS",
+                    "05",
+                    "light"
+                  ],
+                  "line": 594
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "veil": {
+      "100": {
+        "color": {
+          "$type": "color",
+          "$value": "{ref.color.white-alpha-4}",
+          "$description": "Decorative glass, subtle background effects, non-interactive layers.",
+          "$extensions": {
+            "rahino": {
+              "status": "adopted",
+              "source": {
+                "file": "Veil.ts",
+                "exportPath": [
+                  "VEIL",
+                  "100",
+                  "color",
+                  "light"
+                ],
+                "line": 15
+              },
+              "sourceDocuments": [
+                "Veil & Shadow.md"
+              ],
+              "sourceAnnotations": {
+                "token": "rds.veil.100.color",
+                "usage": "Background fill with alpha already included."
+              },
+              "reviewIssues": [],
+              "groupAnnotations": {
+                "role": "Atmospheric",
+                "usage": "Decorative glass, subtle background effects, non-interactive layers.",
+                "avoid": "Content-bearing controls, tooltips, or overlays requiring readability.",
+                "group": "rds.veil.100"
+              },
+              "groupPath": "rds.veil.100",
+              "approval": "veil-group-leaf-contract",
+              "layer": "shared",
+              "referenceLayerApproval": "reference-layer-master-collection",
+              "adoptionApproval": "canonical-master-adoption",
+              "capturedSource": {
+                "file": "Veil.ts",
+                "exportPath": [
+                  "VEIL",
+                  "100",
+                  "color",
+                  "light"
+                ],
+                "line": 54
+              }
+            }
+          }
+        }
+      },
+      "200": {
+        "color": {
+          "$type": "color",
+          "$value": "{ref.color.white-alpha-18}",
+          "$description": "Background overlays and atmospheric floating layers.",
+          "$extensions": {
+            "rahino": {
+              "status": "adopted",
+              "source": {
+                "file": "Veil.ts",
+                "exportPath": [
+                  "VEIL",
+                  "200",
+                  "color",
+                  "light"
+                ],
+                "line": 21
+              },
+              "sourceDocuments": [
+                "Veil & Shadow.md"
+              ],
+              "sourceAnnotations": {
+                "token": "rds.veil.200.color",
+                "usage": "Background fill with alpha already included."
+              },
+              "reviewIssues": [],
+              "groupAnnotations": {
+                "role": "Ambient",
+                "usage": "Background overlays and atmospheric floating layers.",
+                "avoid": "Essential UI, text-heavy panels, and standalone interactive controls.",
+                "group": "rds.veil.200"
+              },
+              "groupPath": "rds.veil.200",
+              "approval": "veil-group-leaf-contract",
+              "layer": "shared",
+              "referenceLayerApproval": "reference-layer-master-collection",
+              "adoptionApproval": "canonical-master-adoption",
+              "capturedSource": {
+                "file": "Veil.ts",
+                "exportPath": [
+                  "VEIL",
+                  "200",
+                  "color",
+                  "light"
+                ],
+                "line": 67
+              }
+            }
+          }
+        }
+      },
+      "300": {
+        "color": {
+          "$type": "color",
+          "$value": "{ref.color.white-alpha-52}",
+          "$description": "Opt-in glass for short labels and simple overlays on controlled backdrops; validate final contrast and provide an opaque fallback.",
+          "$extensions": {
+            "rahino": {
+              "status": "adopted",
+              "source": {
+                "file": "Veil.ts",
+                "exportPath": [
+                  "VEIL",
+                  "300",
+                  "color",
+                  "light"
+                ],
+                "line": 27
+              },
+              "sourceDocuments": [
+                "Veil & Shadow.md"
+              ],
+              "sourceAnnotations": {
+                "token": "rds.veil.300.color",
+                "usage": "Opt-in glass for short labels and simple overlays on controlled backdrops; validate final contrast and provide an opaque fallback."
+              },
+              "reviewIssues": [],
+              "groupAnnotations": {
+                "role": "Lightweight",
+                "usage": "Short labels, decorative panels, and simple overlays on controlled backgrounds.",
+                "avoid": "Dense text or unpredictable, high-detail backgrounds without verifying effective contrast.",
+                "group": "rds.veil.300"
+              },
+              "groupPath": "rds.veil.300",
+              "approval": "veil-group-leaf-contract",
+              "layer": "shared",
+              "referenceLayerApproval": "reference-layer-master-collection",
+              "adoptionApproval": "canonical-master-adoption",
+              "capturedSource": {
+                "file": "Veil.ts",
+                "exportPath": [
+                  "VEIL",
+                  "300",
+                  "color",
+                  "light"
+                ],
+                "line": 82
+              },
+              "usageApproval": "audit-state-contrast-and-material-default"
+            }
+          }
+        }
+      },
+      "400": {
+        "color": {
+          "$type": "color",
+          "$value": "{ref.color.white-alpha-72}",
+          "$description": "Opt-in glass for toolbars, navigation flyouts, dropdowns and popovers on controlled backdrops; opaque raised surfaces remain the default.",
+          "$extensions": {
+            "rahino": {
+              "status": "adopted",
+              "source": {
+                "file": "Veil.ts",
+                "exportPath": [
+                  "VEIL",
+                  "400",
+                  "color",
+                  "light"
+                ],
+                "line": 33
+              },
+              "sourceDocuments": [
+                "Veil & Shadow.md"
+              ],
+              "sourceAnnotations": {
+                "token": "rds.veil.400.color",
+                "usage": "Opt-in glass for toolbars, navigation flyouts, dropdowns and popovers on controlled backdrops; opaque raised surfaces remain the default."
+              },
+              "reviewIssues": [],
+              "groupAnnotations": {
+                "role": "Functional",
+                "usage": "Floating toolbars, navigation flyouts, dropdowns, and popovers.",
+                "avoid": "Assuming contrast is sufficient solely because opacity is higher. @a11y Check text, icons, focus rings, and control boundaries in context.",
+                "group": "rds.veil.400"
+              },
+              "groupPath": "rds.veil.400",
+              "approval": "veil-group-leaf-contract",
+              "layer": "shared",
+              "referenceLayerApproval": "reference-layer-master-collection",
+              "adoptionApproval": "canonical-master-adoption",
+              "capturedSource": {
+                "file": "Veil.ts",
+                "exportPath": [
+                  "VEIL",
+                  "400",
+                  "color",
+                  "light"
+                ],
+                "line": 96
+              },
+              "usageApproval": "audit-state-contrast-and-material-default"
+            }
+          }
+        }
+      },
+      "500": {
+        "color": {
+          "$type": "color",
+          "$value": "{ref.color.white-alpha-92}",
+          "$description": "Opt-in glass for content-rich panels, expanded navigation and modals on controlled backdrops; opaque raised surfaces remain the default.",
+          "$extensions": {
+            "rahino": {
+              "status": "adopted",
+              "source": {
+                "file": "Veil.ts",
+                "exportPath": [
+                  "VEIL",
+                  "500",
+                  "color",
+                  "light"
+                ],
+                "line": 39
+              },
+              "sourceDocuments": [
+                "Veil & Shadow.md"
+              ],
+              "sourceAnnotations": {
+                "token": "rds.veil.500.color",
+                "usage": "Opt-in glass for content-rich panels, expanded navigation and modals on controlled backdrops; opaque raised surfaces remain the default."
+              },
+              "reviewIssues": [],
+              "groupAnnotations": {
+                "role": "Focused",
+                "usage": "Content-rich floating panels, expanded navigation, and glass modals.",
+                "avoid": "Treating glass as a substitute for structural surface separation or modal focus management. @a11y Validate text and interactive states over representative backdrops.",
+                "group": "rds.veil.500"
+              },
+              "groupPath": "rds.veil.500",
+              "approval": "veil-group-leaf-contract",
+              "layer": "shared",
+              "referenceLayerApproval": "reference-layer-master-collection",
+              "adoptionApproval": "canonical-master-adoption",
+              "capturedSource": {
+                "file": "Veil.ts",
+                "exportPath": [
+                  "VEIL",
+                  "500",
+                  "color",
+                  "light"
+                ],
+                "line": 111
+              },
+              "usageApproval": "audit-state-contrast-and-material-default"
+            }
+          }
+        }
+      },
+      "scrim": {
+        "color": {
+          "$type": "color",
+          "$value": "{ref.color.gray-warm.950-alpha-52}",
+          "$description": "Blurred background overlay behind floating modals.",
+          "$extensions": {
+            "rahino": {
+              "status": "adopted",
+              "source": {
+                "file": "Veil.ts",
+                "exportPath": [
+                  "VEIL",
+                  "scrim",
+                  "color",
+                  "light"
+                ],
+                "line": 45
+              },
+              "sourceDocuments": [
+                "Veil & Shadow.md"
+              ],
+              "sourceAnnotations": {
+                "token": "rds.veil.scrim.color",
+                "usage": "Background fill with alpha already included."
+              },
+              "reviewIssues": [],
+              "groupAnnotations": {
+                "role": "Scrim",
+                "usage": "Blurred background overlay behind floating modals.",
+                "avoid": "Placing over the modal content, using as a glass panel fill, or silently aliasing to rds.color.scrim.modal. @a11y The modal must remain distinct and keyboard focus contained.",
+                "group": "rds.veil.scrim"
+              },
+              "groupPath": "rds.veil.scrim",
+              "approval": "veil-group-leaf-contract",
+              "layer": "shared",
+              "referenceLayerApproval": "reference-layer-master-collection",
+              "adoptionApproval": "canonical-master-adoption",
+              "capturedSource": {
+                "file": "Veil.ts",
+                "exportPath": [
+                  "VEIL",
+                  "scrim",
+                  "color",
+                  "light"
+                ],
+                "line": 126
+              }
+            }
+          }
+        }
+      }
+    },
+    "shadow": {
+      "sm": {
+        "$type": "shadow",
+        "$value": {
+          "color": "{ref.color.black-alpha-6}",
+          "offsetX": "{ref.shadow.offset.0}",
+          "offsetY": "{ref.shadow.offset.2}",
+          "blur": "{ref.shadow.blur.6}",
+          "spread": "{ref.shadow.spread.0}"
+        },
+        "$description": "Raised cards when elevation is needed, interactive card hover, sticky headers/toolbars above scrolling content, and buttons whose elevation is explicitly part of their component recipe.",
+        "$extensions": {
+          "rahino": {
+            "status": "adopted",
+            "source": {
+              "file": "Shadow.ts",
+              "exportPath": [
+                "SHADOW",
+                "sm",
+                "light"
+              ],
+              "line": 13
+            },
+            "sourceDocuments": [
+              "Veil & Shadow.md"
+            ],
+            "sourceAnnotations": {
+              "token": "rds.shadow.sm",
+              "role": "Subtle elevation",
+              "usage": "Raised cards when elevation is needed, interactive card hover, sticky headers/toolbars above scrolling content, and buttons whose elevation is explicitly part of their component recipe.",
+              "avoid": "Default shadows on every card, table row, or form control."
+            },
+            "reviewIssues": [],
+            "approval": "shadow-three-level-scale",
+            "layer": "shared",
+            "referenceLayerApproval": "reference-layer-master-collection",
+            "adoptionApproval": "canonical-master-adoption",
+            "capturedSource": {
+              "file": "Shadow.ts",
+              "exportPath": [
+                "SHADOW",
+                "sm",
+                "light"
+              ],
+              "line": 42
+            }
+          }
+        }
+      },
+      "md": {
+        "$type": "shadow",
+        "$value": {
+          "color": "{ref.color.black-alpha-10}",
+          "offsetX": "{ref.shadow.offset.0}",
+          "offsetY": "{ref.shadow.offset.8}",
+          "blur": "{ref.shadow.blur.20}",
+          "spread": "{ref.shadow.spread.0}"
+        },
+        "$description": "Dropdown menus, select menus, popovers, date pickers, autocomplete panels, floating tooltips, and toasts.",
+        "$extensions": {
+          "rahino": {
+            "status": "adopted",
+            "source": {
+              "file": "Shadow.ts",
+              "exportPath": [
+                "SHADOW",
+                "md",
+                "light"
+              ],
+              "line": 15
+            },
+            "sourceDocuments": [
+              "Veil & Shadow.md"
+            ],
+            "sourceAnnotations": {
+              "token": "rds.shadow.md",
+              "role": "Contextual floating surfaces",
+              "usage": "Dropdown menus, select menus, popovers, date pickers, autocomplete panels, floating tooltips, and toasts.",
+              "avoid": "Ordinary in-flow cards or permanently elevated page sections."
+            },
+            "reviewIssues": [],
+            "approval": "shadow-three-level-scale",
+            "layer": "shared",
+            "referenceLayerApproval": "reference-layer-master-collection",
+            "adoptionApproval": "canonical-master-adoption",
+            "capturedSource": {
+              "file": "Shadow.ts",
+              "exportPath": [
+                "SHADOW",
+                "md",
+                "light"
+              ],
+              "line": 55
+            }
+          }
+        }
+      },
+      "lg": {
+        "$type": "shadow",
+        "$value": {
+          "color": "{ref.color.black-alpha-14}",
+          "offsetX": "{ref.shadow.offset.0}",
+          "offsetY": "{ref.shadow.offset.16}",
+          "blur": "{ref.shadow.blur.36}",
+          "spread": "{ref.shadow.spread.0}"
+        },
+        "$description": "Large navigation flyouts, modal and confirmation dialogs, expanded contextual panels, and non-modal floating drawers.",
+        "$extensions": {
+          "rahino": {
+            "status": "adopted",
+            "source": {
+              "file": "Shadow.ts",
+              "exportPath": [
+                "SHADOW",
+                "lg",
+                "light"
+              ],
+              "line": 17
+            },
+            "sourceDocuments": [
+              "Veil & Shadow.md"
+            ],
+            "sourceAnnotations": {
+              "token": "rds.shadow.lg",
+              "role": "Modal elevation",
+              "usage": "Large navigation flyouts, modal and confirmation dialogs, expanded contextual panels, and non-modal floating drawers.",
+              "avoid": "Static layout sections or elevating ordinary containers by default. This is the maximum shadow level for modal and non-modal surfaces."
+            },
+            "reviewIssues": [],
+            "approval": "shadow-three-level-scale",
+            "layer": "shared",
+            "referenceLayerApproval": "reference-layer-master-collection",
+            "adoptionApproval": "canonical-master-adoption",
+            "capturedSource": {
+              "file": "Shadow.ts",
+              "exportPath": [
+                "SHADOW",
+                "lg",
+                "light"
+              ],
+              "line": 67
+            }
+          }
+        }
+      }
+    }
+  }
+}

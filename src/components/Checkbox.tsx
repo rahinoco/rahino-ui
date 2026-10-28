@@ -1,4 +1,4 @@
-﻿import { clsx } from 'clsx';
+import { clsx } from 'clsx';
 import { Check } from 'lucide-react';
 
 export interface CheckboxProps {
@@ -26,7 +26,7 @@ export default function Checkbox({
       disabled={disabled}
       onClick={() => !disabled && onChange?.(!checked)}
       className={clsx(
-        'w-5 h-5 rounded-md flex items-center justify-center transition-all duration-200 border outline-none focus-visible:ring-2 focus-visible:ring-primary-400 focus-visible:ring-offset-1',
+        'w-5 h-5 rounded-[var(--rds-radius-4)] flex items-center justify-center transition-all duration-200 border outline-none focus-visible:ring-2 focus-visible:ring-primary-400 focus-visible:ring-offset-1',
         checked
           ? 'bg-primary-500 border-primary-500 text-white'
           : 'bg-bg-surface border-slate-300 hover:border-primary-400',

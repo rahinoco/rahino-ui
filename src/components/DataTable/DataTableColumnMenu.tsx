@@ -81,7 +81,7 @@ export function DataTableColumnMenu<T>({
       </button>
 
       {open ? (
-        <div className="absolute top-full start-0 mt-1.5 z-50 min-w-[220px] max-w-[min(280px,calc(100vw-2rem))] bg-bg-surface border border-slate-200/90 rounded-2xl shadow-[0_12px_40px_rgba(15,23,42,0.08)] p-1.5">
+        <div className="absolute top-full start-0 mt-1.5 z-50 min-w-[220px] max-w-[min(280px,calc(100vw-2rem))] bg-[var(--rds-color-surface-raised)] border border-slate-200/90 rounded-[var(--rds-radius-16)] shadow-[var(--rds-shadow-md)] p-1.5">
           {sortable ? (
             <div className="flex flex-col gap-0.5 pb-1.5 mb-1.5 border-b border-slate-100">
               <MenuItem

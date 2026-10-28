@@ -40,8 +40,6 @@ export {
   SPACE_REF,
   SPACE_ROLE,
   TOUCH_MIN,
-  VEIL_EDGE,
-  VEIL_FLOOR,
   VEIL_TIER,
   liftShadow,
   type LiftLevel,
@@ -61,3 +59,16 @@ export {
 } from './resolveVeil.ts';
 export { FONT_FAMILY, FONT_FILES, FONT_WEIGHT, LATIN_LINE, LINE_PROFILES, TYPE_ROLES, type TypeRole } from './type.ts';
 export { VeilPanel } from './VeilPanel.tsx';
+
+export { BORDER_WIDTH, FOCUS_RING_GEOMETRY, DURATION, EASING, SCALE, TRANSLATION, FULL_RADIUS_CSS, SHADOW, SPACE, SPACING, VEIL, BREAKPOINTS, PAGE_GRID, PAGE_MAX_WIDTH } from './metrics.ts';
+export { LINE_HEIGHT, TEXT_LAYOUT, TYPOGRAPHY, TYPOGRAPHY_BY_SCRIPT } from './type.ts';
+export type { TypographyProfile, TypographyRole, TypographyStyle } from './type.ts';
+export { REFERENCE } from './canonical/master-tokens/generated/reference.ts';
+export { resolveContext, type FoundationSettings, type FoundationEnvironment } from './context.ts';
+export { FOUNDATION_GUIDES } from './guides.ts';
+
+export { resolveColorContext, resolveColor, applyColorPreferences } from './context.ts';
+export type { ColorTokenName, ColorPreferences, ColorEnvironment, ColorContext, ColorPreferenceController } from './context.ts';
+export { default as FOUNDATION_CONTRAST_REVIEW } from './canonical/output/contrast-review/results.json' with { type: 'json' };
+
+export { default as FOUNDATION_INTERACTION_CONTRAST_REVIEW } from './interaction-contrast.json' with { type: 'json' };

@@ -1,0 +1,768 @@
+{
+  "approval": "data-and-presentation-color-category",
+  "appliedOn": "2026-10-26",
+  "status": "approved-applied",
+  "renames": [
+    {
+      "from": "rds.data.on-fill",
+      "to": "rds.color.data.on-fill"
+    },
+    {
+      "from": "rds.data.categorical.01",
+      "to": "rds.color.data.categorical.01"
+    },
+    {
+      "from": "rds.data.categorical.02",
+      "to": "rds.color.data.categorical.02"
+    },
+    {
+      "from": "rds.data.categorical.03",
+      "to": "rds.color.data.categorical.03"
+    },
+    {
+      "from": "rds.data.categorical.04",
+      "to": "rds.color.data.categorical.04"
+    },
+    {
+      "from": "rds.data.categorical.05",
+      "to": "rds.color.data.categorical.05"
+    },
+    {
+      "from": "rds.data.categorical.06",
+      "to": "rds.color.data.categorical.06"
+    },
+    {
+      "from": "rds.data.categorical.07",
+      "to": "rds.color.data.categorical.07"
+    },
+    {
+      "from": "rds.data.categorical.08",
+      "to": "rds.color.data.categorical.08"
+    },
+    {
+      "from": "rds.data.sequential.01",
+      "to": "rds.color.data.sequential.01"
+    },
+    {
+      "from": "rds.data.sequential.02",
+      "to": "rds.color.data.sequential.02"
+    },
+    {
+      "from": "rds.data.sequential.03",
+      "to": "rds.color.data.sequential.03"
+    },
+    {
+      "from": "rds.data.sequential.04",
+      "to": "rds.color.data.sequential.04"
+    },
+    {
+      "from": "rds.data.sequential.05",
+      "to": "rds.color.data.sequential.05"
+    },
+    {
+      "from": "rds.data.diverging.01",
+      "to": "rds.color.data.diverging.01"
+    },
+    {
+      "from": "rds.data.diverging.02",
+      "to": "rds.color.data.diverging.02"
+    },
+    {
+      "from": "rds.data.diverging.03",
+      "to": "rds.color.data.diverging.03"
+    },
+    {
+      "from": "rds.data.diverging.04",
+      "to": "rds.color.data.diverging.04"
+    },
+    {
+      "from": "rds.data.diverging.05",
+      "to": "rds.color.data.diverging.05"
+    },
+    {
+      "from": "rds.presentation.gradient.brand-dark",
+      "to": "rds.color.presentation.gradient.brand-dark"
+    },
+    {
+      "from": "rds.presentation.gradient.brand-light",
+      "to": "rds.color.presentation.gradient.brand-light"
+    },
+    {
+      "from": "rds.presentation.gradient.atmosphere",
+      "to": "rds.color.presentation.gradient.atmosphere"
+    }
+  ],
+  "typedSnapshots": [
+    {
+      "set": "light",
+      "from": "rds.data.on-fill",
+      "to": "rds.color.data.on-fill",
+      "$type": "color",
+      "$value": "{ref.color.white}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          1,
+          1,
+          1
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "light",
+      "from": "rds.data.categorical.01",
+      "to": "rds.color.data.categorical.01",
+      "$type": "color",
+      "$value": "{ref.color.plum.775}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.38823529411764707,
+          0.07058823529411765,
+          0.26666666666666666
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "light",
+      "from": "rds.data.categorical.02",
+      "to": "rds.color.data.categorical.02",
+      "$type": "color",
+      "$value": "{ref.color.teal.550}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.1568627450980392,
+          0.4588235294117647,
+          0.4117647058823529
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "light",
+      "from": "rds.data.categorical.03",
+      "to": "rds.color.data.categorical.03",
+      "$type": "color",
+      "$value": "{ref.color.blue.575}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.2196078431372549,
+          0.43137254901960786,
+          0.6666666666666666
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "light",
+      "from": "rds.data.categorical.04",
+      "to": "rds.color.data.categorical.04",
+      "$type": "color",
+      "$value": "{ref.color.amber.550}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.5725490196078431,
+          0.3803921568627451,
+          0.09803921568627451
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "light",
+      "from": "rds.data.categorical.05",
+      "to": "rds.color.data.categorical.05",
+      "$type": "color",
+      "$value": "{ref.color.purple.625}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.396078431372549,
+          0.30196078431372547,
+          0.5686274509803921
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "light",
+      "from": "rds.data.categorical.06",
+      "to": "rds.color.data.categorical.06",
+      "$type": "color",
+      "$value": "{ref.color.red.600}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.6078431372549019,
+          0.30196078431372547,
+          0.2823529411764706
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "light",
+      "from": "rds.data.categorical.07",
+      "to": "rds.color.data.categorical.07",
+      "$type": "color",
+      "$value": "{ref.color.gray-cool.550}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.3215686274509804,
+          0.4235294117647059,
+          0.4823529411764706
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "light",
+      "from": "rds.data.categorical.08",
+      "to": "rds.color.data.categorical.08",
+      "$type": "color",
+      "$value": "{ref.color.olive.550}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.38823529411764707,
+          0.4549019607843137,
+          0.21568627450980393
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "light",
+      "from": "rds.data.sequential.01",
+      "to": "rds.color.data.sequential.01",
+      "$type": "color",
+      "$value": "{ref.color.plum.525}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.5882352941176471,
+          0.40784313725490196,
+          0.5137254901960784
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "light",
+      "from": "rds.data.sequential.02",
+      "to": "rds.color.data.sequential.02",
+      "$type": "color",
+      "$value": "{ref.color.plum.600}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.5490196078431373,
+          0.3411764705882353,
+          0.4627450980392157
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "light",
+      "from": "rds.data.sequential.03",
+      "to": "rds.color.data.sequential.03",
+      "$type": "color",
+      "$value": "{ref.color.plum.625}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.5098039215686274,
+          0.26666666666666666,
+          0.396078431372549
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "light",
+      "from": "rds.data.sequential.04",
+      "to": "rds.color.data.sequential.04",
+      "$type": "color",
+      "$value": "{ref.color.plum.700}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.4588235294117647,
+          0.17254901960784313,
+          0.3333333333333333
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "light",
+      "from": "rds.data.sequential.05",
+      "to": "rds.color.data.sequential.05",
+      "$type": "color",
+      "$value": "{ref.color.plum.775}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.38823529411764707,
+          0.07058823529411765,
+          0.26666666666666666
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "light",
+      "from": "rds.data.diverging.01",
+      "to": "rds.color.data.diverging.01",
+      "$type": "color",
+      "$value": "{ref.color.teal.575}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.1411764705882353,
+          0.43529411764705883,
+          0.403921568627451
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "light",
+      "from": "rds.data.diverging.02",
+      "to": "rds.color.data.diverging.02",
+      "$type": "color",
+      "$value": "{ref.color.teal.400}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.39215686274509803,
+          0.596078431372549,
+          0.5529411764705883
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "light",
+      "from": "rds.data.diverging.03",
+      "to": "rds.color.data.diverging.03",
+      "$type": "color",
+      "$value": "{ref.color.gray-warm.200}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.792156862745098,
+          0.7607843137254902,
+          0.7803921568627451
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "light",
+      "from": "rds.data.diverging.04",
+      "to": "rds.color.data.diverging.04",
+      "$type": "color",
+      "$value": "{ref.color.plum.550}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.6078431372549019,
+          0.34509803921568627,
+          0.47058823529411764
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "light",
+      "from": "rds.data.diverging.05",
+      "to": "rds.color.data.diverging.05",
+      "$type": "color",
+      "$value": "{ref.color.plum.775}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.38823529411764707,
+          0.07058823529411765,
+          0.26666666666666666
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "dark",
+      "from": "rds.data.on-fill",
+      "to": "rds.color.data.on-fill",
+      "$type": "color",
+      "$value": "{ref.color.gray-warm.875}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.12941176470588237,
+          0.11372549019607843,
+          0.12549019607843137
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "dark",
+      "from": "rds.data.categorical.01",
+      "to": "rds.color.data.categorical.01",
+      "$type": "color",
+      "$value": "{ref.color.plum.350}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.8823529411764706,
+          0.5607843137254902,
+          0.7411764705882353
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "dark",
+      "from": "rds.data.categorical.02",
+      "to": "rds.color.data.categorical.02",
+      "$type": "color",
+      "$value": "{ref.color.teal.250}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.4549019607843137,
+          0.8,
+          0.7058823529411765
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "dark",
+      "from": "rds.data.categorical.03",
+      "to": "rds.color.data.categorical.03",
+      "$type": "color",
+      "$value": "{ref.color.blue.300}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.5215686274509804,
+          0.7176470588235294,
+          0.9294117647058824
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "dark",
+      "from": "rds.data.categorical.04",
+      "to": "rds.color.data.categorical.04",
+      "$type": "color",
+      "$value": "{ref.color.amber.225}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.8980392156862745,
+          0.7098039215686275,
+          0.403921568627451
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "dark",
+      "from": "rds.data.categorical.05",
+      "to": "rds.color.data.categorical.05",
+      "$type": "color",
+      "$value": "{ref.color.purple.300}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.7215686274509804,
+          0.6313725490196078,
+          0.9019607843137255
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "dark",
+      "from": "rds.data.categorical.06",
+      "to": "rds.color.data.categorical.06",
+      "$type": "color",
+      "$value": "{ref.color.red.300}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9137254901960784,
+          0.5882352941176471,
+          0.5529411764705883
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "dark",
+      "from": "rds.data.categorical.07",
+      "to": "rds.color.data.categorical.07",
+      "$type": "color",
+      "$value": "{ref.color.gray-cool.250}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.6431372549019608,
+          0.7450980392156863,
+          0.803921568627451
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "dark",
+      "from": "rds.data.categorical.08",
+      "to": "rds.color.data.categorical.08",
+      "$type": "color",
+      "$value": "{ref.color.olive.200}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.7490196078431373,
+          0.796078431372549,
+          0.47843137254901963
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "dark",
+      "from": "rds.data.sequential.01",
+      "to": "rds.color.data.sequential.01",
+      "$type": "color",
+      "$value": "{ref.color.plum.425}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.6549019607843137,
+          0.5137254901960784,
+          0.6078431372549019
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "dark",
+      "from": "rds.data.sequential.02",
+      "to": "rds.color.data.sequential.02",
+      "$type": "color",
+      "$value": "{ref.color.plum.400}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.7058823529411765,
+          0.5450980392156862,
+          0.6509803921568628
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "dark",
+      "from": "rds.data.sequential.03",
+      "to": "rds.color.data.sequential.03",
+      "$type": "color",
+      "$value": "{ref.color.plum.325}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.7843137254901961,
+          0.611764705882353,
+          0.7137254901960784
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "dark",
+      "from": "rds.data.sequential.04",
+      "to": "rds.color.data.sequential.04",
+      "$type": "color",
+      "$value": "{ref.color.plum.250}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.8509803921568627,
+          0.6549019607843137,
+          0.7647058823529411
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "dark",
+      "from": "rds.data.sequential.05",
+      "to": "rds.color.data.sequential.05",
+      "$type": "color",
+      "$value": "{ref.color.plum.200}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9058823529411765,
+          0.7137254901960784,
+          0.8156862745098039
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "dark",
+      "from": "rds.data.diverging.01",
+      "to": "rds.color.data.diverging.01",
+      "$type": "color",
+      "$value": "{ref.color.teal.200}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.5411764705882353,
+          0.8274509803921568,
+          0.7490196078431373
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "dark",
+      "from": "rds.data.diverging.02",
+      "to": "rds.color.data.diverging.02",
+      "$type": "color",
+      "$value": "{ref.color.teal.425}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.34509803921568627,
+          0.5882352941176471,
+          0.5411764705882353
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "dark",
+      "from": "rds.data.diverging.03",
+      "to": "rds.color.data.diverging.03",
+      "$type": "color",
+      "$value": "{ref.color.gray-warm.650}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.3686274509803922,
+          0.34509803921568627,
+          0.37254901960784315
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "dark",
+      "from": "rds.data.diverging.04",
+      "to": "rds.color.data.diverging.04",
+      "$type": "color",
+      "$value": "{ref.color.plum.450}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.6431372549019608,
+          0.47058823529411764,
+          0.5686274509803921
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "set": "dark",
+      "from": "rds.data.diverging.05",
+      "to": "rds.color.data.diverging.05",
+      "$type": "color",
+      "$value": "{ref.color.plum.350}",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.8823529411764706,
+          0.5607843137254902,
+          0.7411764705882353
+        ],
+        "alpha": 1
+      }
+    }
+  ],
+  "recipeSnapshots": [
+    {
+      "from": "rds.presentation.gradient.brand-dark",
+      "to": "rds.color.presentation.gradient.brand-dark",
+      "value": "linear-gradient(135deg, #121113 0%, #291823 65%, #631244 100%)",
+      "source": {
+        "file": "Color.ts",
+        "exportPath": [
+          "PRESENTATION_GRADIENTS",
+          "brand-dark"
+        ],
+        "line": 620
+      },
+      "status": "preserved-awaiting-representation-or-path-decision",
+      "themeBinding": {
+        "logicalRole": "brand-background",
+        "appearance": "dark",
+        "selection": "active-appearance",
+        "approval": "presentation-brand-follows-appearance"
+      }
+    },
+    {
+      "from": "rds.presentation.gradient.brand-light",
+      "to": "rds.color.presentation.gradient.brand-light",
+      "value": "linear-gradient(135deg, #FFFFFF 0%, #F3ECF0 65%, #EADCE4 100%)",
+      "source": {
+        "file": "Color.ts",
+        "exportPath": [
+          "PRESENTATION_GRADIENTS",
+          "brand-light"
+        ],
+        "line": 626
+      },
+      "status": "preserved-awaiting-representation-or-path-decision",
+      "themeBinding": {
+        "logicalRole": "brand-background",
+        "appearance": "light",
+        "selection": "active-appearance",
+        "approval": "presentation-brand-follows-appearance"
+      }
+    },
+    {
+      "from": "rds.presentation.gradient.atmosphere",
+      "to": "rds.color.presentation.gradient.atmosphere",
+      "value": "radial-gradient(ellipse at 30% 20%, rgb(99 18 68 / 0.16), transparent 65%)",
+      "source": {
+        "file": "Color.ts",
+        "exportPath": [
+          "PRESENTATION_GRADIENTS",
+          "atmosphere"
+        ],
+        "line": 632
+      },
+      "status": "preserved-awaiting-representation-or-path-decision",
+      "themeBinding": null
+    }
+  ],
+  "sourceChange": {
+    "file": "Color.ts",
+    "beforeSha256": "7366419a90db22363df62c13f3b326053c3dda4eda03b73e02d2ab849eef4e28",
+    "afterSha256": "2aa4a734320d5718c26bf654646988df2a00f2fa61d8fd9e24d32d7596164e41"
+  },
+  "preservation": "Names and grouping only; runtime exports, exact values, series order and deferred presentation decisions are unchanged."
+}

@@ -29,10 +29,10 @@
   text-align: start;
   color: var(--qipper-fg-subtle);
   transition:
-    top 260ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
-    font-size 260ms cubic-bezier(0.22, 1, 0.36, 1),
-    color 260ms cubic-bezier(0.22, 1, 0.36, 1);
+    top var(--rds-motion-duration-feedback) var(--rds-motion-easing-standard),
+    transform var(--rds-motion-duration-feedback) var(--rds-motion-easing-standard),
+    font-size var(--rds-motion-duration-feedback) var(--rds-motion-easing-standard),
+    color var(--rds-motion-duration-feedback) var(--rds-motion-easing-standard);
 }
 
 /* Qipper default: icon on physical left (pl-11) */
@@ -65,7 +65,7 @@
 
 .rahino-float__control {
   padding-block: 0;
-  transition: padding-block 260ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: padding-block var(--rds-motion-duration-feedback) var(--rds-motion-easing-standard);
 }
 
 .rahino-float[data-floated='true'] .rahino-float__control {

@@ -4,13 +4,21 @@
  */
 
 import { clsx } from 'clsx';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import { DURATION, EASING, SCALE } from '@/foundations/metrics';
 import { X } from 'lucide-react';
 import { type ReactNode, useEffect, useId, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { twMerge } from 'tailwind-merge';
 
 import type { UiIcon } from '@/types/icon';
+
+function motionEase(value: string): [number, number, number, number] {
+  const [a,b,c,d] = value.slice(value.indexOf('(') + 1, -1).split(',').map(Number);
+  return [a,b,c,d];
+}
+const ENTER_EASE = motionEase(EASING.enter);
+const EXIT_EASE = motionEase(EASING.exit);
 
 const SIZES = {
   sm: 'max-w-md',
@@ -149,6 +157,8 @@ export default function Modal({
   closeOnEscape = true,
   onDismissBlocked,
 }: ModalProps) {
+  const reducedMotion = useReducedMotion();
+  const motionDuration = parseFloat(reducedMotion ? DURATION.reduced : DURATION.overlay) / 1000;
   const [mounted, setMounted] = useState(false);
   const portalRef = useRef<HTMLElement | null>(null);
   const rootRef = useRef<HTMLDivElement>(null);
@@ -264,7 +274,8 @@ export default function Modal({
               if (closeOnBackdrop) onClose();
               else onDismissBlocked?.();
             }}
-            className="absolute inset-0 bg-overlay backdrop-blur-sm"
+            transition={{ duration: motionDuration }}
+            className="absolute inset-0 bg-overlay"
             aria-hidden="true"
           />
 
@@ -275,14 +286,14 @@ export default function Modal({
             aria-labelledby={title ? titleId : undefined}
             aria-describedby={subtitle ? subtitleId : undefined}
             tabIndex={-1}
-            initial={{ opacity: 0, scale: 0.96, y: 16 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.96, y: 8 }}
-            transition={{ type: 'spring', stiffness: 400, damping: 32 }}
+            initial={{ opacity: 0, scale: reducedMotion ? 1 : SCALE.subtle }}
+            animate={{ opacity: 1, scale: SCALE.rest }}
+            exit={{ opacity: 0, scale: reducedMotion ? 1 : SCALE.subtle, transition: { duration: motionDuration * 0.8, ease: EXIT_EASE } }}
+            transition={{ duration: motionDuration, ease: ENTER_EASE }}
             className={twMerge(
               clsx(
                 'relative w-full flex flex-col overflow-hidden max-h-[90vh] outline-none',
-                'bg-bg-surface rounded-[2rem] shadow-heavy',
+                'bg-[var(--rds-color-surface-raised)] rounded-[var(--rds-radius-24)] shadow-[var(--rds-shadow-lg)]',
                 SIZES[size],
                 className
               )

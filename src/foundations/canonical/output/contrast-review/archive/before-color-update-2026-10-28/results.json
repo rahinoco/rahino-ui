@@ -1,0 +1,4907 @@
+{
+  "scope": {
+    "textMinimum": 4.5,
+    "fillMinimumWhenUsedToIdentifyAControl": 3,
+    "parents": [
+      "surface.canvas",
+      "surface.base",
+      "surface.subtle",
+      "surface.raised",
+      "surface.sunken",
+      "brand.bg.default",
+      "brand.bg.hover",
+      "status.success.bg",
+      "status.warning.bg",
+      "status.error.bg",
+      "status.info.bg"
+    ],
+    "notes": [
+      "Thresholds are checked unrounded.",
+      "A labeled button does not automatically require a 3:1 fill.",
+      "Chart changes remain deferred; glass requires actual backdrop tests.",
+      "Candidate values are not applied to canonical tokens."
+    ]
+  },
+  "fieldProposal": {
+    "light": {
+      "bg": "#6D656B",
+      "fg": "#FFFFFF"
+    },
+    "dark": {
+      "bg": "#7A8493",
+      "fg": "#000000"
+    }
+  },
+  "optionalDarkPrimaryProposal": {
+    "default": "#A7839B",
+    "hover": "#B48BA6",
+    "pressed": "#A47891",
+    "fg": "#000000"
+  },
+  "current": [
+    {
+      "appearance": "light",
+      "contrast": "standard",
+      "tests": [
+        {
+          "family": "rest text",
+          "foreground": "ink.primary",
+          "background": "surface.canvas",
+          "ratio": 14.185082007691287,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.primary",
+          "background": "surface.canvas + hover",
+          "ratio": 12.650448049976992,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.primary",
+          "background": "surface.canvas + pressed",
+          "ratio": 11.687391750372278,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.secondary",
+          "background": "surface.canvas",
+          "ratio": 5.884238154480488,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.secondary",
+          "background": "surface.canvas + hover",
+          "ratio": 5.247643196323206,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.secondary",
+          "background": "surface.canvas + pressed",
+          "ratio": 4.848149374576231,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.tertiary",
+          "background": "surface.canvas",
+          "ratio": 4.804271489838311,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.canvas + hover",
+          "ratio": 4.284514313504264,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.canvas + pressed",
+          "ratio": 3.9583417950238333,
+          "threshold": 4.5
+        },
+        {
+          "family": "field identification",
+          "foreground": "surface.sunken",
+          "background": "surface.canvas",
+          "ratio": 1.0343341813869533,
+          "threshold": 3
+        },
+        {
+          "family": "focus on parent",
+          "foreground": "focus.ring",
+          "background": "surface.canvas",
+          "ratio": 4.729429308522641,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.default",
+          "background": "surface.canvas",
+          "ratio": 10.521002742354057,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.hover",
+          "background": "surface.canvas",
+          "ratio": 13.68921835107692,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.pressed",
+          "background": "surface.canvas",
+          "ratio": 16.448047212786932,
+          "threshold": 3
+        },
+        {
+          "family": "selected fill identification",
+          "foreground": "interaction.surface.selected",
+          "background": "surface.canvas",
+          "ratio": 1.0098462869766194,
+          "threshold": 3
+        },
+        {
+          "family": "brand content",
+          "foreground": "brand.fg",
+          "background": "surface.canvas",
+          "ratio": 10.521002742354057,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.primary",
+          "background": "surface.base",
+          "ratio": 16.64989199382394,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.primary",
+          "background": "surface.base + hover",
+          "ratio": 14.80731473315667,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.primary",
+          "background": "surface.base + pressed",
+          "ratio": 13.652076671826626,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.secondary",
+          "background": "surface.base",
+          "ratio": 6.9066875810035295,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.secondary",
+          "background": "surface.base + hover",
+          "ratio": 6.14235196321029,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.secondary",
+          "background": "surface.base + pressed",
+          "ratio": 5.6631375410236195,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.tertiary",
+          "background": "surface.base",
+          "ratio": 5.639065136982912,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.base + hover",
+          "ratio": 5.015012248430813,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.base + pressed",
+          "ratio": 4.623750690759543,
+          "threshold": 4.5
+        },
+        {
+          "family": "field identification",
+          "foreground": "surface.sunken",
+          "background": "surface.base",
+          "ratio": 1.214060827866584,
+          "threshold": 3
+        },
+        {
+          "family": "focus on parent",
+          "foreground": "focus.ring",
+          "background": "surface.base",
+          "ratio": 5.551218324760575,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.default",
+          "background": "surface.base",
+          "ratio": 12.349139697038039,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.hover",
+          "background": "surface.base",
+          "ratio": 16.067866713898503,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.pressed",
+          "background": "surface.base",
+          "ratio": 19.306071650042682,
+          "threshold": 3
+        },
+        {
+          "family": "selected fill identification",
+          "foreground": "interaction.surface.selected",
+          "background": "surface.base",
+          "ratio": 1.1623162155709814,
+          "threshold": 3
+        },
+        {
+          "family": "brand content",
+          "foreground": "brand.fg",
+          "background": "surface.base",
+          "ratio": 12.349139697038039,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.primary",
+          "background": "surface.subtle",
+          "ratio": 15.473837710403522,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.primary",
+          "background": "surface.subtle + hover",
+          "ratio": 13.778492990443759,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.primary",
+          "background": "surface.subtle + pressed",
+          "ratio": 12.715124727865822,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.secondary",
+          "background": "surface.subtle",
+          "ratio": 6.41883819934395,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.secondary",
+          "background": "surface.subtle + hover",
+          "ratio": 5.715577401783858,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.secondary",
+          "background": "surface.subtle + pressed",
+          "ratio": 5.274472295762473,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.tertiary",
+          "background": "surface.subtle",
+          "ratio": 5.240753441549963,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.subtle + hover",
+          "ratio": 4.666565974806072,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.subtle + pressed",
+          "ratio": 4.30641932043128,
+          "threshold": 4.5
+        },
+        {
+          "family": "field identification",
+          "foreground": "surface.sunken",
+          "background": "surface.subtle",
+          "ratio": 1.1283064315332592,
+          "threshold": 3
+        },
+        {
+          "family": "focus on parent",
+          "foreground": "focus.ring",
+          "background": "surface.subtle",
+          "ratio": 5.159111631728678,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.default",
+          "background": "surface.subtle",
+          "ratio": 11.476866252703031,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.hover",
+          "background": "surface.subtle",
+          "ratio": 14.93292340728017,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.pressed",
+          "background": "surface.subtle",
+          "ratio": 17.942399845536304,
+          "threshold": 3
+        },
+        {
+          "family": "selected fill identification",
+          "foreground": "interaction.surface.selected",
+          "background": "surface.subtle",
+          "ratio": 1.0802167662461264,
+          "threshold": 3
+        },
+        {
+          "family": "brand content",
+          "foreground": "brand.fg",
+          "background": "surface.subtle",
+          "ratio": 11.476866252703031,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.primary",
+          "background": "surface.raised",
+          "ratio": 16.64989199382394,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.primary",
+          "background": "surface.raised + hover",
+          "ratio": 14.80731473315667,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.primary",
+          "background": "surface.raised + pressed",
+          "ratio": 13.652076671826626,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.secondary",
+          "background": "surface.raised",
+          "ratio": 6.9066875810035295,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.secondary",
+          "background": "surface.raised + hover",
+          "ratio": 6.14235196321029,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.secondary",
+          "background": "surface.raised + pressed",
+          "ratio": 5.6631375410236195,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.tertiary",
+          "background": "surface.raised",
+          "ratio": 5.639065136982912,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.raised + hover",
+          "ratio": 5.015012248430813,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.raised + pressed",
+          "ratio": 4.623750690759543,
+          "threshold": 4.5
+        },
+        {
+          "family": "field identification",
+          "foreground": "surface.sunken",
+          "background": "surface.raised",
+          "ratio": 1.214060827866584,
+          "threshold": 3
+        },
+        {
+          "family": "focus on parent",
+          "foreground": "focus.ring",
+          "background": "surface.raised",
+          "ratio": 5.551218324760575,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.default",
+          "background": "surface.raised",
+          "ratio": 12.349139697038039,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.hover",
+          "background": "surface.raised",
+          "ratio": 16.067866713898503,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.pressed",
+          "background": "surface.raised",
+          "ratio": 19.306071650042682,
+          "threshold": 3
+        },
+        {
+          "family": "selected fill identification",
+          "foreground": "interaction.surface.selected",
+          "background": "surface.raised",
+          "ratio": 1.1623162155709814,
+          "threshold": 3
+        },
+        {
+          "family": "brand content",
+          "foreground": "brand.fg",
+          "background": "surface.raised",
+          "ratio": 12.349139697038039,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.primary",
+          "background": "surface.sunken",
+          "ratio": 13.714215640316857,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.primary",
+          "background": "surface.sunken + hover",
+          "ratio": 12.238146737747817,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.primary",
+          "background": "surface.sunken + pressed",
+          "ratio": 11.311653185267406,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.secondary",
+          "background": "surface.sunken",
+          "ratio": 5.688913950992348,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.secondary",
+          "background": "surface.sunken + hover",
+          "ratio": 5.076612876495245,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.secondary",
+          "background": "surface.sunken + pressed",
+          "ratio": 4.692285968238428,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.tertiary",
+          "background": "surface.sunken",
+          "ratio": 4.644796214117371,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.sunken + hover",
+          "ratio": 4.144874131058259,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.sunken + pressed",
+          "ratio": 3.8310848588293633,
+          "threshold": 4.5
+        },
+        {
+          "family": "field identification",
+          "foreground": "surface.sunken",
+          "background": "surface.sunken",
+          "ratio": 1,
+          "threshold": 3
+        },
+        {
+          "family": "focus on parent",
+          "foreground": "focus.ring",
+          "background": "surface.sunken",
+          "ratio": 4.572438379809592,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.default",
+          "background": "surface.sunken",
+          "ratio": 10.17176356701883,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.hover",
+          "background": "surface.sunken",
+          "ratio": 13.234811918060037,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.pressed",
+          "background": "surface.sunken",
+          "ratio": 15.902062900726643,
+          "threshold": 3
+        },
+        {
+          "family": "selected fill identification",
+          "foreground": "interaction.surface.selected",
+          "background": "surface.sunken",
+          "ratio": 1.044518532566616,
+          "threshold": 3
+        },
+        {
+          "family": "brand content",
+          "foreground": "brand.fg",
+          "background": "surface.sunken",
+          "ratio": 10.17176356701883,
+          "threshold": 4.5
+        },
+        {
+          "family": "primary label",
+          "foreground": "action.primary.fg",
+          "background": "action.primary.bg.default",
+          "ratio": 12.349139697038039,
+          "threshold": 4.5
+        },
+        {
+          "family": "primary label",
+          "foreground": "action.primary.fg",
+          "background": "action.primary.bg.hover",
+          "ratio": 16.067866713898503,
+          "threshold": 4.5
+        },
+        {
+          "family": "primary label",
+          "foreground": "action.primary.fg",
+          "background": "action.primary.bg.pressed",
+          "ratio": 19.306071650042682,
+          "threshold": 4.5
+        },
+        {
+          "family": "toned brand text",
+          "foreground": "brand.fg",
+          "background": "brand.bg.default",
+          "ratio": 10.624595554637075,
+          "threshold": 4.5
+        },
+        {
+          "family": "toned brand text",
+          "foreground": "brand.fg",
+          "background": "brand.bg.hover",
+          "ratio": 9.324219187971407,
+          "threshold": 4.5
+        },
+        {
+          "family": "status text",
+          "foreground": "status.success.fg",
+          "background": "status.success.bg",
+          "ratio": 5.566814582821914,
+          "threshold": 4.5
+        },
+        {
+          "family": "solid status label",
+          "foreground": "status.success.on-fill",
+          "background": "status.success.fill",
+          "ratio": 5.035788647504453,
+          "threshold": 4.5
+        },
+        {
+          "family": "functional status edge",
+          "foreground": "status.success.edge",
+          "background": "status.success.bg",
+          "ratio": 1.4212951835177552,
+          "threshold": 3
+        },
+        {
+          "family": "status text",
+          "foreground": "status.warning.fg",
+          "background": "status.warning.bg",
+          "ratio": 5.321415358521669,
+          "threshold": 4.5
+        },
+        {
+          "family": "solid status label",
+          "foreground": "status.warning.on-fill",
+          "background": "status.warning.fill",
+          "ratio": 4.636302778297268,
+          "threshold": 4.5
+        },
+        {
+          "family": "functional status edge",
+          "foreground": "status.warning.edge",
+          "background": "status.warning.bg",
+          "ratio": 1.4357463774656545,
+          "threshold": 3
+        },
+        {
+          "family": "status text",
+          "foreground": "status.error.fg",
+          "background": "status.error.bg",
+          "ratio": 5.574769333542248,
+          "threshold": 4.5
+        },
+        {
+          "family": "solid status label",
+          "foreground": "status.error.on-fill",
+          "background": "status.error.fill",
+          "ratio": 5.307517054397497,
+          "threshold": 4.5
+        },
+        {
+          "family": "functional status edge",
+          "foreground": "status.error.edge",
+          "background": "status.error.bg",
+          "ratio": 1.5400792992971293,
+          "threshold": 3
+        },
+        {
+          "family": "status text",
+          "foreground": "status.info.fg",
+          "background": "status.info.bg",
+          "ratio": 5.845608966735326,
+          "threshold": 4.5
+        },
+        {
+          "family": "solid status label",
+          "foreground": "status.info.on-fill",
+          "background": "status.info.fill",
+          "ratio": 5.167361089235222,
+          "threshold": 4.5
+        },
+        {
+          "family": "functional status edge",
+          "foreground": "status.info.edge",
+          "background": "status.info.bg",
+          "ratio": 1.4448122379119785,
+          "threshold": 3
+        }
+      ],
+      "failures": [
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.canvas + hover",
+          "ratio": 4.284514313504264,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.canvas + pressed",
+          "ratio": 3.9583417950238333,
+          "threshold": 4.5
+        },
+        {
+          "family": "field identification",
+          "foreground": "surface.sunken",
+          "background": "surface.canvas",
+          "ratio": 1.0343341813869533,
+          "threshold": 3
+        },
+        {
+          "family": "selected fill identification",
+          "foreground": "interaction.surface.selected",
+          "background": "surface.canvas",
+          "ratio": 1.0098462869766194,
+          "threshold": 3
+        },
+        {
+          "family": "field identification",
+          "foreground": "surface.sunken",
+          "background": "surface.base",
+          "ratio": 1.214060827866584,
+          "threshold": 3
+        },
+        {
+          "family": "selected fill identification",
+          "foreground": "interaction.surface.selected",
+          "background": "surface.base",
+          "ratio": 1.1623162155709814,
+          "threshold": 3
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.subtle + pressed",
+          "ratio": 4.30641932043128,
+          "threshold": 4.5
+        },
+        {
+          "family": "field identification",
+          "foreground": "surface.sunken",
+          "background": "surface.subtle",
+          "ratio": 1.1283064315332592,
+          "threshold": 3
+        },
+        {
+          "family": "selected fill identification",
+          "foreground": "interaction.surface.selected",
+          "background": "surface.subtle",
+          "ratio": 1.0802167662461264,
+          "threshold": 3
+        },
+        {
+          "family": "field identification",
+          "foreground": "surface.sunken",
+          "background": "surface.raised",
+          "ratio": 1.214060827866584,
+          "threshold": 3
+        },
+        {
+          "family": "selected fill identification",
+          "foreground": "interaction.surface.selected",
+          "background": "surface.raised",
+          "ratio": 1.1623162155709814,
+          "threshold": 3
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.sunken + hover",
+          "ratio": 4.144874131058259,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.sunken + pressed",
+          "ratio": 3.8310848588293633,
+          "threshold": 4.5
+        },
+        {
+          "family": "field identification",
+          "foreground": "surface.sunken",
+          "background": "surface.sunken",
+          "ratio": 1,
+          "threshold": 3
+        },
+        {
+          "family": "selected fill identification",
+          "foreground": "interaction.surface.selected",
+          "background": "surface.sunken",
+          "ratio": 1.044518532566616,
+          "threshold": 3
+        },
+        {
+          "family": "functional status edge",
+          "foreground": "status.success.edge",
+          "background": "status.success.bg",
+          "ratio": 1.4212951835177552,
+          "threshold": 3
+        },
+        {
+          "family": "functional status edge",
+          "foreground": "status.warning.edge",
+          "background": "status.warning.bg",
+          "ratio": 1.4357463774656545,
+          "threshold": 3
+        },
+        {
+          "family": "functional status edge",
+          "foreground": "status.error.edge",
+          "background": "status.error.bg",
+          "ratio": 1.5400792992971293,
+          "threshold": 3
+        },
+        {
+          "family": "functional status edge",
+          "foreground": "status.info.edge",
+          "background": "status.info.bg",
+          "ratio": 1.4448122379119785,
+          "threshold": 3
+        }
+      ]
+    },
+    {
+      "appearance": "light",
+      "contrast": "more",
+      "tests": [
+        {
+          "family": "rest text",
+          "foreground": "ink.primary",
+          "background": "surface.canvas",
+          "ratio": 16.64989199382394,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.primary",
+          "background": "surface.canvas + hover",
+          "ratio": 14.80731473315667,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.primary",
+          "background": "surface.canvas + pressed",
+          "ratio": 13.652076671826626,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.secondary",
+          "background": "surface.canvas",
+          "ratio": 16.64989199382394,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.secondary",
+          "background": "surface.canvas + hover",
+          "ratio": 14.80731473315667,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.secondary",
+          "background": "surface.canvas + pressed",
+          "ratio": 13.652076671826626,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.tertiary",
+          "background": "surface.canvas",
+          "ratio": 6.594081752425566,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.canvas + hover",
+          "ratio": 5.864340977139622,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.canvas + pressed",
+          "ratio": 5.406816434472941,
+          "threshold": 4.5
+        },
+        {
+          "family": "field identification",
+          "foreground": "surface.sunken",
+          "background": "surface.canvas",
+          "ratio": 1.214060827866584,
+          "threshold": 3
+        },
+        {
+          "family": "focus on parent",
+          "foreground": "focus.ring",
+          "background": "surface.canvas",
+          "ratio": 5.551218324760575,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.default",
+          "background": "surface.canvas",
+          "ratio": 12.349139697038039,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.hover",
+          "background": "surface.canvas",
+          "ratio": 16.067866713898503,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.pressed",
+          "background": "surface.canvas",
+          "ratio": 19.306071650042682,
+          "threshold": 3
+        },
+        {
+          "family": "selected fill identification",
+          "foreground": "interaction.surface.selected",
+          "background": "surface.canvas",
+          "ratio": 1.1623162155709814,
+          "threshold": 3
+        },
+        {
+          "family": "brand content",
+          "foreground": "brand.fg",
+          "background": "surface.canvas",
+          "ratio": 12.349139697038039,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.primary",
+          "background": "surface.base",
+          "ratio": 16.64989199382394,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.primary",
+          "background": "surface.base + hover",
+          "ratio": 14.80731473315667,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.primary",
+          "background": "surface.base + pressed",
+          "ratio": 13.652076671826626,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.secondary",
+          "background": "surface.base",
+          "ratio": 16.64989199382394,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.secondary",
+          "background": "surface.base + hover",
+          "ratio": 14.80731473315667,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.secondary",
+          "background": "surface.base + pressed",
+          "ratio": 13.652076671826626,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.tertiary",
+          "background": "surface.base",
+          "ratio": 6.594081752425566,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.base + hover",
+          "ratio": 5.864340977139622,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.base + pressed",
+          "ratio": 5.406816434472941,
+          "threshold": 4.5
+        },
+        {
+          "family": "field identification",
+          "foreground": "surface.sunken",
+          "background": "surface.base",
+          "ratio": 1.214060827866584,
+          "threshold": 3
+        },
+        {
+          "family": "focus on parent",
+          "foreground": "focus.ring",
+          "background": "surface.base",
+          "ratio": 5.551218324760575,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.default",
+          "background": "surface.base",
+          "ratio": 12.349139697038039,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.hover",
+          "background": "surface.base",
+          "ratio": 16.067866713898503,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.pressed",
+          "background": "surface.base",
+          "ratio": 19.306071650042682,
+          "threshold": 3
+        },
+        {
+          "family": "selected fill identification",
+          "foreground": "interaction.surface.selected",
+          "background": "surface.base",
+          "ratio": 1.1623162155709814,
+          "threshold": 3
+        },
+        {
+          "family": "brand content",
+          "foreground": "brand.fg",
+          "background": "surface.base",
+          "ratio": 12.349139697038039,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.primary",
+          "background": "surface.subtle",
+          "ratio": 15.473837710403522,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.primary",
+          "background": "surface.subtle + hover",
+          "ratio": 13.778492990443759,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.primary",
+          "background": "surface.subtle + pressed",
+          "ratio": 12.715124727865822,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.secondary",
+          "background": "surface.subtle",
+          "ratio": 15.473837710403522,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.secondary",
+          "background": "surface.subtle + hover",
+          "ratio": 13.778492990443759,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.secondary",
+          "background": "surface.subtle + pressed",
+          "ratio": 12.715124727865822,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.tertiary",
+          "background": "surface.subtle",
+          "ratio": 6.128313079989667,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.subtle + hover",
+          "ratio": 5.456882797672851,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.subtle + pressed",
+          "ratio": 5.035742693041863,
+          "threshold": 4.5
+        },
+        {
+          "family": "field identification",
+          "foreground": "surface.sunken",
+          "background": "surface.subtle",
+          "ratio": 1.1283064315332592,
+          "threshold": 3
+        },
+        {
+          "family": "focus on parent",
+          "foreground": "focus.ring",
+          "background": "surface.subtle",
+          "ratio": 5.159111631728678,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.default",
+          "background": "surface.subtle",
+          "ratio": 11.476866252703031,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.hover",
+          "background": "surface.subtle",
+          "ratio": 14.93292340728017,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.pressed",
+          "background": "surface.subtle",
+          "ratio": 17.942399845536304,
+          "threshold": 3
+        },
+        {
+          "family": "selected fill identification",
+          "foreground": "interaction.surface.selected",
+          "background": "surface.subtle",
+          "ratio": 1.0802167662461264,
+          "threshold": 3
+        },
+        {
+          "family": "brand content",
+          "foreground": "brand.fg",
+          "background": "surface.subtle",
+          "ratio": 11.476866252703031,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.primary",
+          "background": "surface.raised",
+          "ratio": 16.64989199382394,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.primary",
+          "background": "surface.raised + hover",
+          "ratio": 14.80731473315667,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.primary",
+          "background": "surface.raised + pressed",
+          "ratio": 13.652076671826626,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.secondary",
+          "background": "surface.raised",
+          "ratio": 16.64989199382394,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.secondary",
+          "background": "surface.raised + hover",
+          "ratio": 14.80731473315667,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.secondary",
+          "background": "surface.raised + pressed",
+          "ratio": 13.652076671826626,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.tertiary",
+          "background": "surface.raised",
+          "ratio": 6.594081752425566,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.raised + hover",
+          "ratio": 5.864340977139622,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.raised + pressed",
+          "ratio": 5.406816434472941,
+          "threshold": 4.5
+        },
+        {
+          "family": "field identification",
+          "foreground": "surface.sunken",
+          "background": "surface.raised",
+          "ratio": 1.214060827866584,
+          "threshold": 3
+        },
+        {
+          "family": "focus on parent",
+          "foreground": "focus.ring",
+          "background": "surface.raised",
+          "ratio": 5.551218324760575,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.default",
+          "background": "surface.raised",
+          "ratio": 12.349139697038039,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.hover",
+          "background": "surface.raised",
+          "ratio": 16.067866713898503,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.pressed",
+          "background": "surface.raised",
+          "ratio": 19.306071650042682,
+          "threshold": 3
+        },
+        {
+          "family": "selected fill identification",
+          "foreground": "interaction.surface.selected",
+          "background": "surface.raised",
+          "ratio": 1.1623162155709814,
+          "threshold": 3
+        },
+        {
+          "family": "brand content",
+          "foreground": "brand.fg",
+          "background": "surface.raised",
+          "ratio": 12.349139697038039,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.primary",
+          "background": "surface.sunken",
+          "ratio": 13.714215640316857,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.primary",
+          "background": "surface.sunken + hover",
+          "ratio": 12.238146737747817,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.primary",
+          "background": "surface.sunken + pressed",
+          "ratio": 11.311653185267406,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.secondary",
+          "background": "surface.sunken",
+          "ratio": 13.714215640316857,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.secondary",
+          "background": "surface.sunken + hover",
+          "ratio": 12.238146737747817,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.secondary",
+          "background": "surface.sunken + pressed",
+          "ratio": 11.311653185267406,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.tertiary",
+          "background": "surface.sunken",
+          "ratio": 5.4314261699828155,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.sunken + hover",
+          "ratio": 4.846838653177073,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.sunken + pressed",
+          "ratio": 4.479906889870908,
+          "threshold": 4.5
+        },
+        {
+          "family": "field identification",
+          "foreground": "surface.sunken",
+          "background": "surface.sunken",
+          "ratio": 1,
+          "threshold": 3
+        },
+        {
+          "family": "focus on parent",
+          "foreground": "focus.ring",
+          "background": "surface.sunken",
+          "ratio": 4.572438379809592,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.default",
+          "background": "surface.sunken",
+          "ratio": 10.17176356701883,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.hover",
+          "background": "surface.sunken",
+          "ratio": 13.234811918060037,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.pressed",
+          "background": "surface.sunken",
+          "ratio": 15.902062900726643,
+          "threshold": 3
+        },
+        {
+          "family": "selected fill identification",
+          "foreground": "interaction.surface.selected",
+          "background": "surface.sunken",
+          "ratio": 1.044518532566616,
+          "threshold": 3
+        },
+        {
+          "family": "brand content",
+          "foreground": "brand.fg",
+          "background": "surface.sunken",
+          "ratio": 10.17176356701883,
+          "threshold": 4.5
+        },
+        {
+          "family": "primary label",
+          "foreground": "action.primary.fg",
+          "background": "action.primary.bg.default",
+          "ratio": 12.349139697038039,
+          "threshold": 4.5
+        },
+        {
+          "family": "primary label",
+          "foreground": "action.primary.fg",
+          "background": "action.primary.bg.hover",
+          "ratio": 16.067866713898503,
+          "threshold": 4.5
+        },
+        {
+          "family": "primary label",
+          "foreground": "action.primary.fg",
+          "background": "action.primary.bg.pressed",
+          "ratio": 19.306071650042682,
+          "threshold": 4.5
+        },
+        {
+          "family": "toned brand text",
+          "foreground": "brand.fg",
+          "background": "brand.bg.default",
+          "ratio": 10.624595554637075,
+          "threshold": 4.5
+        },
+        {
+          "family": "toned brand text",
+          "foreground": "brand.fg",
+          "background": "brand.bg.hover",
+          "ratio": 9.324219187971407,
+          "threshold": 4.5
+        },
+        {
+          "family": "status text",
+          "foreground": "status.success.fg",
+          "background": "status.success.bg",
+          "ratio": 5.566814582821914,
+          "threshold": 4.5
+        },
+        {
+          "family": "solid status label",
+          "foreground": "status.success.on-fill",
+          "background": "status.success.fill",
+          "ratio": 5.035788647504453,
+          "threshold": 4.5
+        },
+        {
+          "family": "functional status edge",
+          "foreground": "status.success.edge",
+          "background": "status.success.bg",
+          "ratio": 1.4212951835177552,
+          "threshold": 3
+        },
+        {
+          "family": "status text",
+          "foreground": "status.warning.fg",
+          "background": "status.warning.bg",
+          "ratio": 5.321415358521669,
+          "threshold": 4.5
+        },
+        {
+          "family": "solid status label",
+          "foreground": "status.warning.on-fill",
+          "background": "status.warning.fill",
+          "ratio": 4.636302778297268,
+          "threshold": 4.5
+        },
+        {
+          "family": "functional status edge",
+          "foreground": "status.warning.edge",
+          "background": "status.warning.bg",
+          "ratio": 1.4357463774656545,
+          "threshold": 3
+        },
+        {
+          "family": "status text",
+          "foreground": "status.error.fg",
+          "background": "status.error.bg",
+          "ratio": 5.574769333542248,
+          "threshold": 4.5
+        },
+        {
+          "family": "solid status label",
+          "foreground": "status.error.on-fill",
+          "background": "status.error.fill",
+          "ratio": 5.307517054397497,
+          "threshold": 4.5
+        },
+        {
+          "family": "functional status edge",
+          "foreground": "status.error.edge",
+          "background": "status.error.bg",
+          "ratio": 1.5400792992971293,
+          "threshold": 3
+        },
+        {
+          "family": "status text",
+          "foreground": "status.info.fg",
+          "background": "status.info.bg",
+          "ratio": 5.845608966735326,
+          "threshold": 4.5
+        },
+        {
+          "family": "solid status label",
+          "foreground": "status.info.on-fill",
+          "background": "status.info.fill",
+          "ratio": 5.167361089235222,
+          "threshold": 4.5
+        },
+        {
+          "family": "functional status edge",
+          "foreground": "status.info.edge",
+          "background": "status.info.bg",
+          "ratio": 1.4448122379119785,
+          "threshold": 3
+        }
+      ],
+      "failures": [
+        {
+          "family": "field identification",
+          "foreground": "surface.sunken",
+          "background": "surface.canvas",
+          "ratio": 1.214060827866584,
+          "threshold": 3
+        },
+        {
+          "family": "selected fill identification",
+          "foreground": "interaction.surface.selected",
+          "background": "surface.canvas",
+          "ratio": 1.1623162155709814,
+          "threshold": 3
+        },
+        {
+          "family": "field identification",
+          "foreground": "surface.sunken",
+          "background": "surface.base",
+          "ratio": 1.214060827866584,
+          "threshold": 3
+        },
+        {
+          "family": "selected fill identification",
+          "foreground": "interaction.surface.selected",
+          "background": "surface.base",
+          "ratio": 1.1623162155709814,
+          "threshold": 3
+        },
+        {
+          "family": "field identification",
+          "foreground": "surface.sunken",
+          "background": "surface.subtle",
+          "ratio": 1.1283064315332592,
+          "threshold": 3
+        },
+        {
+          "family": "selected fill identification",
+          "foreground": "interaction.surface.selected",
+          "background": "surface.subtle",
+          "ratio": 1.0802167662461264,
+          "threshold": 3
+        },
+        {
+          "family": "field identification",
+          "foreground": "surface.sunken",
+          "background": "surface.raised",
+          "ratio": 1.214060827866584,
+          "threshold": 3
+        },
+        {
+          "family": "selected fill identification",
+          "foreground": "interaction.surface.selected",
+          "background": "surface.raised",
+          "ratio": 1.1623162155709814,
+          "threshold": 3
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.sunken + pressed",
+          "ratio": 4.479906889870908,
+          "threshold": 4.5
+        },
+        {
+          "family": "field identification",
+          "foreground": "surface.sunken",
+          "background": "surface.sunken",
+          "ratio": 1,
+          "threshold": 3
+        },
+        {
+          "family": "selected fill identification",
+          "foreground": "interaction.surface.selected",
+          "background": "surface.sunken",
+          "ratio": 1.044518532566616,
+          "threshold": 3
+        },
+        {
+          "family": "functional status edge",
+          "foreground": "status.success.edge",
+          "background": "status.success.bg",
+          "ratio": 1.4212951835177552,
+          "threshold": 3
+        },
+        {
+          "family": "functional status edge",
+          "foreground": "status.warning.edge",
+          "background": "status.warning.bg",
+          "ratio": 1.4357463774656545,
+          "threshold": 3
+        },
+        {
+          "family": "functional status edge",
+          "foreground": "status.error.edge",
+          "background": "status.error.bg",
+          "ratio": 1.5400792992971293,
+          "threshold": 3
+        },
+        {
+          "family": "functional status edge",
+          "foreground": "status.info.edge",
+          "background": "status.info.bg",
+          "ratio": 1.4448122379119785,
+          "threshold": 3
+        }
+      ]
+    },
+    {
+      "appearance": "dark",
+      "contrast": "standard",
+      "tests": [
+        {
+          "family": "rest text",
+          "foreground": "ink.primary",
+          "background": "surface.canvas",
+          "ratio": 16.249847036299403,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.primary",
+          "background": "surface.canvas + hover",
+          "ratio": 13.559809942245225,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.primary",
+          "background": "surface.canvas + pressed",
+          "ratio": 12.07641464503647,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.secondary",
+          "background": "surface.canvas",
+          "ratio": 10.163856114068539,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.secondary",
+          "background": "surface.canvas + hover",
+          "ratio": 8.48130797042151,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.secondary",
+          "background": "surface.canvas + pressed",
+          "ratio": 7.553482845210409,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.tertiary",
+          "background": "surface.canvas",
+          "ratio": 7.881820134702668,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.canvas + hover",
+          "ratio": 6.577045481522811,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.canvas + pressed",
+          "ratio": 5.857539944323254,
+          "threshold": 4.5
+        },
+        {
+          "family": "field identification",
+          "foreground": "surface.sunken",
+          "background": "surface.canvas",
+          "ratio": 1.0296939802196965,
+          "threshold": 3
+        },
+        {
+          "family": "focus on parent",
+          "foreground": "focus.ring",
+          "background": "surface.canvas",
+          "ratio": 4.3437137839677735,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.default",
+          "background": "surface.canvas",
+          "ratio": 1.5247192001445409,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.hover",
+          "background": "surface.canvas",
+          "ratio": 1.8041720375364183,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.pressed",
+          "background": "surface.canvas",
+          "ratio": 1.25216420159025,
+          "threshold": 3
+        },
+        {
+          "family": "selected fill identification",
+          "foreground": "interaction.surface.selected",
+          "background": "surface.canvas",
+          "ratio": 1.1200608366057274,
+          "threshold": 3
+        },
+        {
+          "family": "brand content",
+          "foreground": "brand.fg",
+          "background": "surface.canvas",
+          "ratio": 8.44083587571137,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.primary",
+          "background": "surface.base",
+          "ratio": 15.118018595486884,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.primary",
+          "background": "surface.base + hover",
+          "ratio": 12.32279865523193,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.primary",
+          "background": "surface.base + pressed",
+          "ratio": 10.920813907749622,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.secondary",
+          "background": "surface.base",
+          "ratio": 9.455926901410008,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.secondary",
+          "background": "surface.base + hover",
+          "ratio": 7.7075896268213295,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.secondary",
+          "background": "surface.base + pressed",
+          "ratio": 6.8306846802272005,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.tertiary",
+          "background": "surface.base",
+          "ratio": 7.332838462820001,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.base + hover",
+          "ratio": 5.977045958631535,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.base + pressed",
+          "ratio": 5.29702776605607,
+          "threshold": 4.5
+        },
+        {
+          "family": "field identification",
+          "foreground": "surface.sunken",
+          "background": "surface.base",
+          "ratio": 1.1067832445822903,
+          "threshold": 3
+        },
+        {
+          "family": "focus on parent",
+          "foreground": "focus.ring",
+          "background": "surface.base",
+          "ratio": 4.041167009929727,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.default",
+          "background": "surface.base",
+          "ratio": 1.4185200124770174,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.hover",
+          "background": "surface.base",
+          "ratio": 1.6785085023880024,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.pressed",
+          "background": "surface.base",
+          "ratio": 1.1649489156394788,
+          "threshold": 3
+        },
+        {
+          "family": "selected fill identification",
+          "foreground": "interaction.surface.selected",
+          "background": "surface.base",
+          "ratio": 1.0420467662284025,
+          "threshold": 3
+        },
+        {
+          "family": "brand content",
+          "foreground": "brand.fg",
+          "background": "surface.base",
+          "ratio": 7.8529178425742145,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.primary",
+          "background": "surface.subtle",
+          "ratio": 13.657596068786575,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.primary",
+          "background": "surface.subtle + hover",
+          "ratio": 10.946814293347686,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.primary",
+          "background": "surface.subtle + pressed",
+          "ratio": 9.685080389248498,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.secondary",
+          "background": "surface.subtle",
+          "ratio": 8.54247064585459,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.secondary",
+          "background": "surface.subtle + hover",
+          "ratio": 6.846947244270954,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.secondary",
+          "background": "surface.subtle + pressed",
+          "ratio": 6.057765547553485,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.tertiary",
+          "background": "surface.subtle",
+          "ratio": 6.624475630209534,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.subtle + hover",
+          "ratio": 5.309638984011481,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.subtle + pressed",
+          "ratio": 4.69764801155795,
+          "threshold": 4.5
+        },
+        {
+          "family": "field identification",
+          "foreground": "surface.sunken",
+          "background": "surface.subtle",
+          "ratio": 1.225132855628156,
+          "threshold": 3
+        },
+        {
+          "family": "focus on parent",
+          "foreground": "focus.ring",
+          "background": "surface.subtle",
+          "ratio": 3.6507844146059356,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.default",
+          "background": "surface.subtle",
+          "ratio": 1.2814889215498586,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.hover",
+          "background": "surface.subtle",
+          "ratio": 1.5163621461930694,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.pressed",
+          "background": "surface.subtle",
+          "ratio": 1.0524131605000533,
+          "threshold": 3
+        },
+        {
+          "family": "selected fill identification",
+          "foreground": "interaction.surface.selected",
+          "background": "surface.subtle",
+          "ratio": 1.062266292844962,
+          "threshold": 3
+        },
+        {
+          "family": "brand content",
+          "foreground": "brand.fg",
+          "background": "surface.subtle",
+          "ratio": 7.094314587446202,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.primary",
+          "background": "surface.raised",
+          "ratio": 12.432208241649048,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.primary",
+          "background": "surface.raised + hover",
+          "ratio": 9.900481020327122,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.primary",
+          "background": "surface.raised + pressed",
+          "ratio": 8.769002742470727,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.secondary",
+          "background": "surface.raised",
+          "ratio": 7.776022473688089,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.secondary",
+          "background": "surface.raised + hover",
+          "ratio": 6.192493032450553,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.secondary",
+          "background": "surface.raised + pressed",
+          "ratio": 5.484782837601519,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.tertiary",
+          "background": "surface.raised",
+          "ratio": 6.030113946239394,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.raised + hover",
+          "ratio": 4.802125858473721,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.raised + pressed",
+          "ratio": 4.253314029509073,
+          "threshold": 4.5
+        },
+        {
+          "family": "field identification",
+          "foreground": "surface.sunken",
+          "background": "surface.raised",
+          "ratio": 1.3458887872158853,
+          "threshold": 3
+        },
+        {
+          "family": "focus on parent",
+          "foreground": "focus.ring",
+          "background": "surface.raised",
+          "ratio": 3.3232284700143646,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.default",
+          "background": "surface.raised",
+          "ratio": 1.166511079390092,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.hover",
+          "background": "surface.raised",
+          "ratio": 1.3803109915009384,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.pressed",
+          "background": "surface.raised",
+          "ratio": 1.043853898950063,
+          "threshold": 3
+        },
+        {
+          "family": "selected fill identification",
+          "foreground": "interaction.surface.selected",
+          "background": "surface.raised",
+          "ratio": 1.1669691870637016,
+          "threshold": 3
+        },
+        {
+          "family": "brand content",
+          "foreground": "brand.fg",
+          "background": "surface.raised",
+          "ratio": 6.4577979784062975,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.primary",
+          "background": "surface.sunken",
+          "ratio": 16.73236967276837,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.primary",
+          "background": "surface.sunken + hover",
+          "ratio": 14.16877812658322,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.primary",
+          "background": "surface.sunken + pressed",
+          "ratio": 12.667211781759681,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.secondary",
+          "background": "surface.sunken",
+          "ratio": 10.46566145647553,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.secondary",
+          "background": "surface.sunken + hover",
+          "ratio": 8.862201709902918,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.secondary",
+          "background": "surface.sunken + pressed",
+          "ratio": 7.923011067651195,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.tertiary",
+          "background": "surface.sunken",
+          "ratio": 8.115862745877735,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.sunken + hover",
+          "ratio": 6.872419197102203,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.sunken + pressed",
+          "ratio": 6.144099981309925,
+          "threshold": 4.5
+        },
+        {
+          "family": "field identification",
+          "foreground": "surface.sunken",
+          "background": "surface.sunken",
+          "ratio": 1,
+          "threshold": 3
+        },
+        {
+          "family": "focus on parent",
+          "foreground": "focus.ring",
+          "background": "surface.sunken",
+          "ratio": 4.472695935148935,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.default",
+          "background": "surface.sunken",
+          "ratio": 1.5699941819142242,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.hover",
+          "background": "surface.sunken",
+          "ratio": 1.8577450863319542,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.pressed",
+          "background": "surface.sunken",
+          "ratio": 1.289345940624083,
+          "threshold": 3
+        },
+        {
+          "family": "selected fill identification",
+          "foreground": "interaction.surface.selected",
+          "background": "surface.sunken",
+          "ratio": 1.1533199009327546,
+          "threshold": 3
+        },
+        {
+          "family": "brand content",
+          "foreground": "brand.fg",
+          "background": "surface.sunken",
+          "ratio": 8.691477889242448,
+          "threshold": 4.5
+        },
+        {
+          "family": "primary label",
+          "foreground": "action.primary.fg",
+          "background": "action.primary.bg.default",
+          "ratio": 12.349139697038039,
+          "threshold": 4.5
+        },
+        {
+          "family": "primary label",
+          "foreground": "action.primary.fg",
+          "background": "action.primary.bg.hover",
+          "ratio": 10.436349754678515,
+          "threshold": 4.5
+        },
+        {
+          "family": "primary label",
+          "foreground": "action.primary.fg",
+          "background": "action.primary.bg.pressed",
+          "ratio": 15.037141596468114,
+          "threshold": 4.5
+        },
+        {
+          "family": "toned brand text",
+          "foreground": "brand.fg",
+          "background": "brand.bg.default",
+          "ratio": 7.536051257082412,
+          "threshold": 4.5
+        },
+        {
+          "family": "toned brand text",
+          "foreground": "brand.fg",
+          "background": "brand.bg.hover",
+          "ratio": 7.156830521723709,
+          "threshold": 4.5
+        },
+        {
+          "family": "status text",
+          "foreground": "status.success.fg",
+          "background": "status.success.bg",
+          "ratio": 7.442030522140857,
+          "threshold": 4.5
+        },
+        {
+          "family": "solid status label",
+          "foreground": "status.success.on-fill",
+          "background": "status.success.fill",
+          "ratio": 4.530351874061277,
+          "threshold": 4.5
+        },
+        {
+          "family": "functional status edge",
+          "foreground": "status.success.edge",
+          "background": "status.success.bg",
+          "ratio": 3.2401548679355185,
+          "threshold": 3
+        },
+        {
+          "family": "status text",
+          "foreground": "status.warning.fg",
+          "background": "status.warning.bg",
+          "ratio": 7.641454508131621,
+          "threshold": 4.5
+        },
+        {
+          "family": "solid status label",
+          "foreground": "status.warning.on-fill",
+          "background": "status.warning.fill",
+          "ratio": 5.871403808485186,
+          "threshold": 4.5
+        },
+        {
+          "family": "functional status edge",
+          "foreground": "status.warning.edge",
+          "background": "status.warning.bg",
+          "ratio": 3.0017489860938116,
+          "threshold": 3
+        },
+        {
+          "family": "status text",
+          "foreground": "status.error.fg",
+          "background": "status.error.bg",
+          "ratio": 6.33115435572916,
+          "threshold": 4.5
+        },
+        {
+          "family": "solid status label",
+          "foreground": "status.error.on-fill",
+          "background": "status.error.fill",
+          "ratio": 4.9595465386692625,
+          "threshold": 4.5
+        },
+        {
+          "family": "functional status edge",
+          "foreground": "status.error.edge",
+          "background": "status.error.bg",
+          "ratio": 2.797247079728058,
+          "threshold": 3
+        },
+        {
+          "family": "status text",
+          "foreground": "status.info.fg",
+          "background": "status.info.bg",
+          "ratio": 6.055889747241381,
+          "threshold": 4.5
+        },
+        {
+          "family": "solid status label",
+          "foreground": "status.info.on-fill",
+          "background": "status.info.fill",
+          "ratio": 4.518094892658851,
+          "threshold": 4.5
+        },
+        {
+          "family": "functional status edge",
+          "foreground": "status.info.edge",
+          "background": "status.info.bg",
+          "ratio": 3.1459495205275183,
+          "threshold": 3
+        }
+      ],
+      "failures": [
+        {
+          "family": "field identification",
+          "foreground": "surface.sunken",
+          "background": "surface.canvas",
+          "ratio": 1.0296939802196965,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.default",
+          "background": "surface.canvas",
+          "ratio": 1.5247192001445409,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.hover",
+          "background": "surface.canvas",
+          "ratio": 1.8041720375364183,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.pressed",
+          "background": "surface.canvas",
+          "ratio": 1.25216420159025,
+          "threshold": 3
+        },
+        {
+          "family": "selected fill identification",
+          "foreground": "interaction.surface.selected",
+          "background": "surface.canvas",
+          "ratio": 1.1200608366057274,
+          "threshold": 3
+        },
+        {
+          "family": "field identification",
+          "foreground": "surface.sunken",
+          "background": "surface.base",
+          "ratio": 1.1067832445822903,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.default",
+          "background": "surface.base",
+          "ratio": 1.4185200124770174,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.hover",
+          "background": "surface.base",
+          "ratio": 1.6785085023880024,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.pressed",
+          "background": "surface.base",
+          "ratio": 1.1649489156394788,
+          "threshold": 3
+        },
+        {
+          "family": "selected fill identification",
+          "foreground": "interaction.surface.selected",
+          "background": "surface.base",
+          "ratio": 1.0420467662284025,
+          "threshold": 3
+        },
+        {
+          "family": "field identification",
+          "foreground": "surface.sunken",
+          "background": "surface.subtle",
+          "ratio": 1.225132855628156,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.default",
+          "background": "surface.subtle",
+          "ratio": 1.2814889215498586,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.hover",
+          "background": "surface.subtle",
+          "ratio": 1.5163621461930694,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.pressed",
+          "background": "surface.subtle",
+          "ratio": 1.0524131605000533,
+          "threshold": 3
+        },
+        {
+          "family": "selected fill identification",
+          "foreground": "interaction.surface.selected",
+          "background": "surface.subtle",
+          "ratio": 1.062266292844962,
+          "threshold": 3
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.raised + pressed",
+          "ratio": 4.253314029509073,
+          "threshold": 4.5
+        },
+        {
+          "family": "field identification",
+          "foreground": "surface.sunken",
+          "background": "surface.raised",
+          "ratio": 1.3458887872158853,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.default",
+          "background": "surface.raised",
+          "ratio": 1.166511079390092,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.hover",
+          "background": "surface.raised",
+          "ratio": 1.3803109915009384,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.pressed",
+          "background": "surface.raised",
+          "ratio": 1.043853898950063,
+          "threshold": 3
+        },
+        {
+          "family": "selected fill identification",
+          "foreground": "interaction.surface.selected",
+          "background": "surface.raised",
+          "ratio": 1.1669691870637016,
+          "threshold": 3
+        },
+        {
+          "family": "field identification",
+          "foreground": "surface.sunken",
+          "background": "surface.sunken",
+          "ratio": 1,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.default",
+          "background": "surface.sunken",
+          "ratio": 1.5699941819142242,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.hover",
+          "background": "surface.sunken",
+          "ratio": 1.8577450863319542,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.pressed",
+          "background": "surface.sunken",
+          "ratio": 1.289345940624083,
+          "threshold": 3
+        },
+        {
+          "family": "selected fill identification",
+          "foreground": "interaction.surface.selected",
+          "background": "surface.sunken",
+          "ratio": 1.1533199009327546,
+          "threshold": 3
+        },
+        {
+          "family": "functional status edge",
+          "foreground": "status.error.edge",
+          "background": "status.error.bg",
+          "ratio": 2.797247079728058,
+          "threshold": 3
+        }
+      ]
+    },
+    {
+      "appearance": "dark",
+      "contrast": "more",
+      "tests": [
+        {
+          "family": "rest text",
+          "foreground": "ink.primary",
+          "background": "surface.canvas",
+          "ratio": 19.388077475995708,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.primary",
+          "background": "surface.canvas + hover",
+          "ratio": 16.417600939421437,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.primary",
+          "background": "surface.canvas + pressed",
+          "ratio": 14.677710822352932,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.secondary",
+          "background": "surface.canvas",
+          "ratio": 16.73236967276837,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.secondary",
+          "background": "surface.canvas + hover",
+          "ratio": 14.16877812658322,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.secondary",
+          "background": "surface.canvas + pressed",
+          "ratio": 12.667211781759681,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.tertiary",
+          "background": "surface.canvas",
+          "ratio": 9.286960509249568,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.canvas + hover",
+          "ratio": 7.864091309197491,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.canvas + pressed",
+          "ratio": 7.030677535828042,
+          "threshold": 4.5
+        },
+        {
+          "family": "field identification",
+          "foreground": "surface.sunken",
+          "background": "surface.canvas",
+          "ratio": 1,
+          "threshold": 3
+        },
+        {
+          "family": "focus on parent",
+          "foreground": "focus.ring",
+          "background": "surface.canvas",
+          "ratio": 4.472695935148935,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.default",
+          "background": "surface.canvas",
+          "ratio": 1.5699941819142242,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.hover",
+          "background": "surface.canvas",
+          "ratio": 1.8577450863319542,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.pressed",
+          "background": "surface.canvas",
+          "ratio": 1.289345940624083,
+          "threshold": 3
+        },
+        {
+          "family": "selected fill identification",
+          "foreground": "interaction.surface.selected",
+          "background": "surface.canvas",
+          "ratio": 1.1533199009327546,
+          "threshold": 3
+        },
+        {
+          "family": "brand content",
+          "foreground": "brand.fg",
+          "background": "surface.canvas",
+          "ratio": 8.691477889242448,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.primary",
+          "background": "surface.base",
+          "ratio": 18.828970401341035,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.primary",
+          "background": "surface.base + hover",
+          "ratio": 15.711979286944041,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.primary",
+          "background": "surface.base + pressed",
+          "ratio": 13.993144267621123,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.secondary",
+          "background": "surface.base",
+          "ratio": 16.249847036299403,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.secondary",
+          "background": "surface.base + hover",
+          "ratio": 13.559809942245225,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.secondary",
+          "background": "surface.base + pressed",
+          "ratio": 12.07641464503647,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.tertiary",
+          "background": "surface.base",
+          "ratio": 9.019146161530529,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.base + hover",
+          "ratio": 7.526095939148949,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.base + pressed",
+          "ratio": 6.702767635136827,
+          "threshold": 4.5
+        },
+        {
+          "family": "field identification",
+          "foreground": "surface.sunken",
+          "background": "surface.base",
+          "ratio": 1.0296939802196965,
+          "threshold": 3
+        },
+        {
+          "family": "focus on parent",
+          "foreground": "focus.ring",
+          "background": "surface.base",
+          "ratio": 4.3437137839677735,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.default",
+          "background": "surface.base",
+          "ratio": 1.5247192001445409,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.hover",
+          "background": "surface.base",
+          "ratio": 1.8041720375364183,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.pressed",
+          "background": "surface.base",
+          "ratio": 1.25216420159025,
+          "threshold": 3
+        },
+        {
+          "family": "selected fill identification",
+          "foreground": "interaction.surface.selected",
+          "background": "surface.base",
+          "ratio": 1.1200608366057274,
+          "threshold": 3
+        },
+        {
+          "family": "brand content",
+          "foreground": "brand.fg",
+          "background": "surface.base",
+          "ratio": 8.44083587571137,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.primary",
+          "background": "surface.subtle",
+          "ratio": 15.825285712425826,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.primary",
+          "background": "surface.subtle + hover",
+          "ratio": 12.68425738765353,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.primary",
+          "background": "surface.subtle + pressed",
+          "ratio": 11.222265143567624,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.secondary",
+          "background": "surface.subtle",
+          "ratio": 13.657596068786575,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.secondary",
+          "background": "surface.subtle + hover",
+          "ratio": 10.946814293347686,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.secondary",
+          "background": "surface.subtle + pressed",
+          "ratio": 9.685080389248498,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.tertiary",
+          "background": "surface.subtle",
+          "ratio": 7.580370134215292,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.subtle + hover",
+          "ratio": 6.075805999544866,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.subtle + pressed",
+          "ratio": 5.375506330716683,
+          "threshold": 4.5
+        },
+        {
+          "family": "field identification",
+          "foreground": "surface.sunken",
+          "background": "surface.subtle",
+          "ratio": 1.225132855628156,
+          "threshold": 3
+        },
+        {
+          "family": "focus on parent",
+          "foreground": "focus.ring",
+          "background": "surface.subtle",
+          "ratio": 3.6507844146059356,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.default",
+          "background": "surface.subtle",
+          "ratio": 1.2814889215498586,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.hover",
+          "background": "surface.subtle",
+          "ratio": 1.5163621461930694,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.pressed",
+          "background": "surface.subtle",
+          "ratio": 1.0524131605000533,
+          "threshold": 3
+        },
+        {
+          "family": "selected fill identification",
+          "foreground": "interaction.surface.selected",
+          "background": "surface.subtle",
+          "ratio": 1.062266292844962,
+          "threshold": 3
+        },
+        {
+          "family": "brand content",
+          "foreground": "brand.fg",
+          "background": "surface.subtle",
+          "ratio": 7.094314587446202,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.primary",
+          "background": "surface.raised",
+          "ratio": 14.405408277530876,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.primary",
+          "background": "surface.raised + hover",
+          "ratio": 11.471853468796144,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.primary",
+          "background": "surface.raised + pressed",
+          "ratio": 10.160790604270247,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.secondary",
+          "background": "surface.raised",
+          "ratio": 12.432208241649048,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.secondary",
+          "background": "surface.raised + hover",
+          "ratio": 9.900481020327122,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.secondary",
+          "background": "surface.raised + pressed",
+          "ratio": 8.769002742470727,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.tertiary",
+          "background": "surface.raised",
+          "ratio": 6.90024361408095,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.raised + hover",
+          "ratio": 5.495060057631423,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.raised + pressed",
+          "ratio": 4.867056117422785,
+          "threshold": 4.5
+        },
+        {
+          "family": "field identification",
+          "foreground": "surface.sunken",
+          "background": "surface.raised",
+          "ratio": 1.3458887872158853,
+          "threshold": 3
+        },
+        {
+          "family": "focus on parent",
+          "foreground": "focus.ring",
+          "background": "surface.raised",
+          "ratio": 3.3232284700143646,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.default",
+          "background": "surface.raised",
+          "ratio": 1.166511079390092,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.hover",
+          "background": "surface.raised",
+          "ratio": 1.3803109915009384,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.pressed",
+          "background": "surface.raised",
+          "ratio": 1.043853898950063,
+          "threshold": 3
+        },
+        {
+          "family": "selected fill identification",
+          "foreground": "interaction.surface.selected",
+          "background": "surface.raised",
+          "ratio": 1.1669691870637016,
+          "threshold": 3
+        },
+        {
+          "family": "brand content",
+          "foreground": "brand.fg",
+          "background": "surface.raised",
+          "ratio": 6.4577979784062975,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.primary",
+          "background": "surface.sunken",
+          "ratio": 19.388077475995708,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.primary",
+          "background": "surface.sunken + hover",
+          "ratio": 16.417600939421437,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.primary",
+          "background": "surface.sunken + pressed",
+          "ratio": 14.677710822352932,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.secondary",
+          "background": "surface.sunken",
+          "ratio": 16.73236967276837,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.secondary",
+          "background": "surface.sunken + hover",
+          "ratio": 14.16877812658322,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.secondary",
+          "background": "surface.sunken + pressed",
+          "ratio": 12.667211781759681,
+          "threshold": 4.5
+        },
+        {
+          "family": "rest text",
+          "foreground": "ink.tertiary",
+          "background": "surface.sunken",
+          "ratio": 9.286960509249568,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.sunken + hover",
+          "ratio": 7.864091309197491,
+          "threshold": 4.5
+        },
+        {
+          "family": "interactive text",
+          "foreground": "ink.tertiary",
+          "background": "surface.sunken + pressed",
+          "ratio": 7.030677535828042,
+          "threshold": 4.5
+        },
+        {
+          "family": "field identification",
+          "foreground": "surface.sunken",
+          "background": "surface.sunken",
+          "ratio": 1,
+          "threshold": 3
+        },
+        {
+          "family": "focus on parent",
+          "foreground": "focus.ring",
+          "background": "surface.sunken",
+          "ratio": 4.472695935148935,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.default",
+          "background": "surface.sunken",
+          "ratio": 1.5699941819142242,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.hover",
+          "background": "surface.sunken",
+          "ratio": 1.8577450863319542,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.pressed",
+          "background": "surface.sunken",
+          "ratio": 1.289345940624083,
+          "threshold": 3
+        },
+        {
+          "family": "selected fill identification",
+          "foreground": "interaction.surface.selected",
+          "background": "surface.sunken",
+          "ratio": 1.1533199009327546,
+          "threshold": 3
+        },
+        {
+          "family": "brand content",
+          "foreground": "brand.fg",
+          "background": "surface.sunken",
+          "ratio": 8.691477889242448,
+          "threshold": 4.5
+        },
+        {
+          "family": "primary label",
+          "foreground": "action.primary.fg",
+          "background": "action.primary.bg.default",
+          "ratio": 12.349139697038039,
+          "threshold": 4.5
+        },
+        {
+          "family": "primary label",
+          "foreground": "action.primary.fg",
+          "background": "action.primary.bg.hover",
+          "ratio": 10.436349754678515,
+          "threshold": 4.5
+        },
+        {
+          "family": "primary label",
+          "foreground": "action.primary.fg",
+          "background": "action.primary.bg.pressed",
+          "ratio": 15.037141596468114,
+          "threshold": 4.5
+        },
+        {
+          "family": "toned brand text",
+          "foreground": "brand.fg",
+          "background": "brand.bg.default",
+          "ratio": 7.536051257082412,
+          "threshold": 4.5
+        },
+        {
+          "family": "toned brand text",
+          "foreground": "brand.fg",
+          "background": "brand.bg.hover",
+          "ratio": 7.156830521723709,
+          "threshold": 4.5
+        },
+        {
+          "family": "status text",
+          "foreground": "status.success.fg",
+          "background": "status.success.bg",
+          "ratio": 7.442030522140857,
+          "threshold": 4.5
+        },
+        {
+          "family": "solid status label",
+          "foreground": "status.success.on-fill",
+          "background": "status.success.fill",
+          "ratio": 4.530351874061277,
+          "threshold": 4.5
+        },
+        {
+          "family": "functional status edge",
+          "foreground": "status.success.edge",
+          "background": "status.success.bg",
+          "ratio": 3.2401548679355185,
+          "threshold": 3
+        },
+        {
+          "family": "status text",
+          "foreground": "status.warning.fg",
+          "background": "status.warning.bg",
+          "ratio": 7.641454508131621,
+          "threshold": 4.5
+        },
+        {
+          "family": "solid status label",
+          "foreground": "status.warning.on-fill",
+          "background": "status.warning.fill",
+          "ratio": 5.871403808485186,
+          "threshold": 4.5
+        },
+        {
+          "family": "functional status edge",
+          "foreground": "status.warning.edge",
+          "background": "status.warning.bg",
+          "ratio": 3.0017489860938116,
+          "threshold": 3
+        },
+        {
+          "family": "status text",
+          "foreground": "status.error.fg",
+          "background": "status.error.bg",
+          "ratio": 6.33115435572916,
+          "threshold": 4.5
+        },
+        {
+          "family": "solid status label",
+          "foreground": "status.error.on-fill",
+          "background": "status.error.fill",
+          "ratio": 4.9595465386692625,
+          "threshold": 4.5
+        },
+        {
+          "family": "functional status edge",
+          "foreground": "status.error.edge",
+          "background": "status.error.bg",
+          "ratio": 2.797247079728058,
+          "threshold": 3
+        },
+        {
+          "family": "status text",
+          "foreground": "status.info.fg",
+          "background": "status.info.bg",
+          "ratio": 6.055889747241381,
+          "threshold": 4.5
+        },
+        {
+          "family": "solid status label",
+          "foreground": "status.info.on-fill",
+          "background": "status.info.fill",
+          "ratio": 4.518094892658851,
+          "threshold": 4.5
+        },
+        {
+          "family": "functional status edge",
+          "foreground": "status.info.edge",
+          "background": "status.info.bg",
+          "ratio": 3.1459495205275183,
+          "threshold": 3
+        }
+      ],
+      "failures": [
+        {
+          "family": "field identification",
+          "foreground": "surface.sunken",
+          "background": "surface.canvas",
+          "ratio": 1,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.default",
+          "background": "surface.canvas",
+          "ratio": 1.5699941819142242,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.hover",
+          "background": "surface.canvas",
+          "ratio": 1.8577450863319542,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.pressed",
+          "background": "surface.canvas",
+          "ratio": 1.289345940624083,
+          "threshold": 3
+        },
+        {
+          "family": "selected fill identification",
+          "foreground": "interaction.surface.selected",
+          "background": "surface.canvas",
+          "ratio": 1.1533199009327546,
+          "threshold": 3
+        },
+        {
+          "family": "field identification",
+          "foreground": "surface.sunken",
+          "background": "surface.base",
+          "ratio": 1.0296939802196965,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.default",
+          "background": "surface.base",
+          "ratio": 1.5247192001445409,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.hover",
+          "background": "surface.base",
+          "ratio": 1.8041720375364183,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.pressed",
+          "background": "surface.base",
+          "ratio": 1.25216420159025,
+          "threshold": 3
+        },
+        {
+          "family": "selected fill identification",
+          "foreground": "interaction.surface.selected",
+          "background": "surface.base",
+          "ratio": 1.1200608366057274,
+          "threshold": 3
+        },
+        {
+          "family": "field identification",
+          "foreground": "surface.sunken",
+          "background": "surface.subtle",
+          "ratio": 1.225132855628156,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.default",
+          "background": "surface.subtle",
+          "ratio": 1.2814889215498586,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.hover",
+          "background": "surface.subtle",
+          "ratio": 1.5163621461930694,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.pressed",
+          "background": "surface.subtle",
+          "ratio": 1.0524131605000533,
+          "threshold": 3
+        },
+        {
+          "family": "selected fill identification",
+          "foreground": "interaction.surface.selected",
+          "background": "surface.subtle",
+          "ratio": 1.062266292844962,
+          "threshold": 3
+        },
+        {
+          "family": "field identification",
+          "foreground": "surface.sunken",
+          "background": "surface.raised",
+          "ratio": 1.3458887872158853,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.default",
+          "background": "surface.raised",
+          "ratio": 1.166511079390092,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.hover",
+          "background": "surface.raised",
+          "ratio": 1.3803109915009384,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.pressed",
+          "background": "surface.raised",
+          "ratio": 1.043853898950063,
+          "threshold": 3
+        },
+        {
+          "family": "selected fill identification",
+          "foreground": "interaction.surface.selected",
+          "background": "surface.raised",
+          "ratio": 1.1669691870637016,
+          "threshold": 3
+        },
+        {
+          "family": "field identification",
+          "foreground": "surface.sunken",
+          "background": "surface.sunken",
+          "ratio": 1,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.default",
+          "background": "surface.sunken",
+          "ratio": 1.5699941819142242,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.hover",
+          "background": "surface.sunken",
+          "ratio": 1.8577450863319542,
+          "threshold": 3
+        },
+        {
+          "family": "primary fill identification",
+          "foreground": "action.primary.bg.pressed",
+          "background": "surface.sunken",
+          "ratio": 1.289345940624083,
+          "threshold": 3
+        },
+        {
+          "family": "selected fill identification",
+          "foreground": "interaction.surface.selected",
+          "background": "surface.sunken",
+          "ratio": 1.1533199009327546,
+          "threshold": 3
+        },
+        {
+          "family": "functional status edge",
+          "foreground": "status.error.edge",
+          "background": "status.error.bg",
+          "ratio": 2.797247079728058,
+          "threshold": 3
+        }
+      ]
+    }
+  ],
+  "proposed": [
+    {
+      "appearance": "light",
+      "contrast": "standard",
+      "field": {
+        "minimumText": 5.639065136982912,
+        "minimumFill": 4.257776706914089,
+        "cases": 33,
+        "failures": []
+      },
+      "focus": [
+        {
+          "parent": "surface.canvas",
+          "current": 4.729429308522641,
+          "proposed": 4.729429308522641
+        },
+        {
+          "parent": "surface.base",
+          "current": 5.551218324760575,
+          "proposed": 5.551218324760575
+        },
+        {
+          "parent": "surface.subtle",
+          "current": 5.159111631728678,
+          "proposed": 5.159111631728678
+        },
+        {
+          "parent": "surface.raised",
+          "current": 5.551218324760575,
+          "proposed": 5.551218324760575
+        },
+        {
+          "parent": "surface.sunken",
+          "current": 4.572438379809592,
+          "proposed": 4.572438379809592
+        },
+        {
+          "parent": "brand.bg.default",
+          "current": 4.77599662672999,
+          "proposed": 4.77599662672999
+        },
+        {
+          "parent": "brand.bg.hover",
+          "current": 4.191447962384452,
+          "proposed": 4.191447962384452
+        },
+        {
+          "parent": "status.success.bg",
+          "current": 4.968091248521246,
+          "proposed": 4.968091248521246
+        },
+        {
+          "parent": "status.warning.bg",
+          "current": 4.996333235616352,
+          "proposed": 4.996333235616352
+        },
+        {
+          "parent": "status.error.bg",
+          "current": 4.7799159600852,
+          "proposed": 4.7799159600852
+        },
+        {
+          "parent": "status.info.bg",
+          "current": 4.876749113263101,
+          "proposed": 4.876749113263101
+        }
+      ],
+      "action": [
+        {
+          "state": "default",
+          "background": "#A7839B",
+          "text": 6.3629293807446246,
+          "fill": 2.718452474628377
+        },
+        {
+          "state": "hover",
+          "background": "#B48BA6",
+          "text": 7.18434195926216,
+          "fill": 2.4076416767259903
+        },
+        {
+          "state": "pressed",
+          "background": "#A47891",
+          "text": 5.673957725545887,
+          "fill": 3.0485459986938257
+        }
+      ],
+      "statusSolid": [
+        {
+          "status": "success",
+          "text": 5.035788647504453,
+          "fill": 4.147888253963044
+        },
+        {
+          "status": "warning",
+          "text": 4.636302778297268,
+          "fill": 3.8188389509646234
+        },
+        {
+          "status": "error",
+          "text": 5.307517054397497,
+          "fill": 4.3717060402353685
+        },
+        {
+          "status": "info",
+          "text": 5.167361089235222,
+          "fill": 4.256262100405299
+        }
+      ],
+      "selectedMarker": [
+        {
+          "parent": "surface.canvas",
+          "ratio": 10.521002742354057
+        },
+        {
+          "parent": "surface.base",
+          "ratio": 12.349139697038039
+        },
+        {
+          "parent": "surface.subtle",
+          "ratio": 11.476866252703031
+        },
+        {
+          "parent": "surface.raised",
+          "ratio": 12.349139697038039
+        },
+        {
+          "parent": "surface.sunken",
+          "ratio": 10.17176356701883
+        }
+      ],
+      "fieldCases": [
+        {
+          "parent": "surface.canvas",
+          "state": "default",
+          "background": "#6D656B",
+          "textContrast": 5.639065136982912,
+          "fillContrast": 4.804271489838311
+        },
+        {
+          "parent": "surface.canvas",
+          "state": "hover",
+          "background": "#686167",
+          "textContrast": 6.02441209464825,
+          "fillContrast": 5.132572610225445
+        },
+        {
+          "parent": "surface.canvas",
+          "state": "pressed",
+          "background": "#655E64",
+          "textContrast": 6.298673281000009,
+          "fillContrast": 5.366232829845458
+        },
+        {
+          "parent": "surface.base",
+          "state": "default",
+          "background": "#6D656B",
+          "textContrast": 5.639065136982912,
+          "fillContrast": 5.639065136982912
+        },
+        {
+          "parent": "surface.base",
+          "state": "hover",
+          "background": "#686167",
+          "textContrast": 6.02441209464825,
+          "fillContrast": 6.02441209464825
+        },
+        {
+          "parent": "surface.base",
+          "state": "pressed",
+          "background": "#655E64",
+          "textContrast": 6.298673281000009,
+          "fillContrast": 6.298673281000009
+        },
+        {
+          "parent": "surface.subtle",
+          "state": "default",
+          "background": "#6D656B",
+          "textContrast": 5.639065136982912,
+          "fillContrast": 5.240753441549963
+        },
+        {
+          "parent": "surface.subtle",
+          "state": "hover",
+          "background": "#686167",
+          "textContrast": 6.02441209464825,
+          "fillContrast": 5.598881667686385
+        },
+        {
+          "parent": "surface.subtle",
+          "state": "pressed",
+          "background": "#655E64",
+          "textContrast": 6.298673281000009,
+          "fillContrast": 5.853770593659243
+        },
+        {
+          "parent": "surface.raised",
+          "state": "default",
+          "background": "#6D656B",
+          "textContrast": 5.639065136982912,
+          "fillContrast": 5.639065136982912
+        },
+        {
+          "parent": "surface.raised",
+          "state": "hover",
+          "background": "#686167",
+          "textContrast": 6.02441209464825,
+          "fillContrast": 6.02441209464825
+        },
+        {
+          "parent": "surface.raised",
+          "state": "pressed",
+          "background": "#655E64",
+          "textContrast": 6.298673281000009,
+          "fillContrast": 6.298673281000009
+        },
+        {
+          "parent": "surface.sunken",
+          "state": "default",
+          "background": "#6D656B",
+          "textContrast": 5.639065136982912,
+          "fillContrast": 4.644796214117371
+        },
+        {
+          "parent": "surface.sunken",
+          "state": "hover",
+          "background": "#686167",
+          "textContrast": 6.02441209464825,
+          "fillContrast": 4.962199550771015
+        },
+        {
+          "parent": "surface.sunken",
+          "state": "pressed",
+          "background": "#655E64",
+          "textContrast": 6.298673281000009,
+          "fillContrast": 5.188103541787434
+        },
+        {
+          "parent": "brand.bg.default",
+          "state": "default",
+          "background": "#6D656B",
+          "textContrast": 5.639065136982912,
+          "fillContrast": 4.85157572564085
+        },
+        {
+          "parent": "brand.bg.default",
+          "state": "hover",
+          "background": "#686167",
+          "textContrast": 6.02441209464825,
+          "fillContrast": 5.183109393074061
+        },
+        {
+          "parent": "brand.bg.default",
+          "state": "pressed",
+          "background": "#655E64",
+          "textContrast": 6.298673281000009,
+          "fillContrast": 5.419070298271474
+        },
+        {
+          "parent": "brand.bg.hover",
+          "state": "default",
+          "background": "#6D656B",
+          "textContrast": 5.639065136982912,
+          "fillContrast": 4.257776706914089
+        },
+        {
+          "parent": "brand.bg.hover",
+          "state": "hover",
+          "background": "#686167",
+          "textContrast": 6.02441209464825,
+          "fillContrast": 4.548732966608143
+        },
+        {
+          "parent": "brand.bg.hover",
+          "state": "pressed",
+          "background": "#655E64",
+          "textContrast": 6.298673281000009,
+          "fillContrast": 4.755813903340136
+        },
+        {
+          "parent": "status.success.bg",
+          "state": "default",
+          "background": "#6D656B",
+          "textContrast": 5.639065136982912,
+          "fillContrast": 5.046710202682285
+        },
+        {
+          "parent": "status.success.bg",
+          "state": "hover",
+          "background": "#686167",
+          "textContrast": 6.02441209464825,
+          "fillContrast": 5.391578434486882
+        },
+        {
+          "parent": "status.success.bg",
+          "state": "pressed",
+          "background": "#655E64",
+          "textContrast": 6.298673281000009,
+          "fillContrast": 5.637029886764612
+        },
+        {
+          "parent": "status.warning.bg",
+          "state": "default",
+          "background": "#6D656B",
+          "textContrast": 5.639065136982912,
+          "fillContrast": 5.075399113027746
+        },
+        {
+          "parent": "status.warning.bg",
+          "state": "hover",
+          "background": "#686167",
+          "textContrast": 6.02441209464825,
+          "fillContrast": 5.4222278088546245
+        },
+        {
+          "parent": "status.warning.bg",
+          "state": "pressed",
+          "background": "#655E64",
+          "textContrast": 6.298673281000009,
+          "fillContrast": 5.669074573013908
+        },
+        {
+          "parent": "status.error.bg",
+          "state": "default",
+          "background": "#6D656B",
+          "textContrast": 5.639065136982912,
+          "fillContrast": 4.855557081586625
+        },
+        {
+          "parent": "status.error.bg",
+          "state": "hover",
+          "background": "#686167",
+          "textContrast": 6.02441209464825,
+          "fillContrast": 5.1873628159961545
+        },
+        {
+          "parent": "status.error.bg",
+          "state": "pressed",
+          "background": "#655E64",
+          "textContrast": 6.298673281000009,
+          "fillContrast": 5.4235173581490645
+        },
+        {
+          "parent": "status.info.bg",
+          "state": "default",
+          "background": "#6D656B",
+          "textContrast": 5.639065136982912,
+          "fillContrast": 4.953922598171344
+        },
+        {
+          "parent": "status.info.bg",
+          "state": "hover",
+          "background": "#686167",
+          "textContrast": 6.02441209464825,
+          "fillContrast": 5.292450165302136
+        },
+        {
+          "parent": "status.info.bg",
+          "state": "pressed",
+          "background": "#655E64",
+          "textContrast": 6.298673281000009,
+          "fillContrast": 5.533388805992533
+        }
+      ]
+    },
+    {
+      "appearance": "light",
+      "contrast": "more",
+      "field": {
+        "minimumText": 5.639065136982912,
+        "minimumFill": 4.257776706914089,
+        "cases": 33,
+        "failures": []
+      },
+      "focus": [
+        {
+          "parent": "surface.canvas",
+          "current": 5.551218324760575,
+          "proposed": 5.551218324760575
+        },
+        {
+          "parent": "surface.base",
+          "current": 5.551218324760575,
+          "proposed": 5.551218324760575
+        },
+        {
+          "parent": "surface.subtle",
+          "current": 5.159111631728678,
+          "proposed": 5.159111631728678
+        },
+        {
+          "parent": "surface.raised",
+          "current": 5.551218324760575,
+          "proposed": 5.551218324760575
+        },
+        {
+          "parent": "surface.sunken",
+          "current": 4.572438379809592,
+          "proposed": 4.572438379809592
+        },
+        {
+          "parent": "brand.bg.default",
+          "current": 4.77599662672999,
+          "proposed": 4.77599662672999
+        },
+        {
+          "parent": "brand.bg.hover",
+          "current": 4.191447962384452,
+          "proposed": 4.191447962384452
+        },
+        {
+          "parent": "status.success.bg",
+          "current": 4.968091248521246,
+          "proposed": 4.968091248521246
+        },
+        {
+          "parent": "status.warning.bg",
+          "current": 4.996333235616352,
+          "proposed": 4.996333235616352
+        },
+        {
+          "parent": "status.error.bg",
+          "current": 4.7799159600852,
+          "proposed": 4.7799159600852
+        },
+        {
+          "parent": "status.info.bg",
+          "current": 4.876749113263101,
+          "proposed": 4.876749113263101
+        }
+      ],
+      "action": [
+        {
+          "state": "default",
+          "background": "#A7839B",
+          "text": 6.3629293807446246,
+          "fill": 2.718452474628377
+        },
+        {
+          "state": "hover",
+          "background": "#B48BA6",
+          "text": 7.18434195926216,
+          "fill": 2.4076416767259903
+        },
+        {
+          "state": "pressed",
+          "background": "#A47891",
+          "text": 5.673957725545887,
+          "fill": 3.0485459986938257
+        }
+      ],
+      "statusSolid": [
+        {
+          "status": "success",
+          "text": 5.035788647504453,
+          "fill": 4.147888253963044
+        },
+        {
+          "status": "warning",
+          "text": 4.636302778297268,
+          "fill": 3.8188389509646234
+        },
+        {
+          "status": "error",
+          "text": 5.307517054397497,
+          "fill": 4.3717060402353685
+        },
+        {
+          "status": "info",
+          "text": 5.167361089235222,
+          "fill": 4.256262100405299
+        }
+      ],
+      "selectedMarker": [
+        {
+          "parent": "surface.canvas",
+          "ratio": 12.349139697038039
+        },
+        {
+          "parent": "surface.base",
+          "ratio": 12.349139697038039
+        },
+        {
+          "parent": "surface.subtle",
+          "ratio": 11.476866252703031
+        },
+        {
+          "parent": "surface.raised",
+          "ratio": 12.349139697038039
+        },
+        {
+          "parent": "surface.sunken",
+          "ratio": 10.17176356701883
+        }
+      ],
+      "fieldCases": [
+        {
+          "parent": "surface.canvas",
+          "state": "default",
+          "background": "#6D656B",
+          "textContrast": 5.639065136982912,
+          "fillContrast": 5.639065136982912
+        },
+        {
+          "parent": "surface.canvas",
+          "state": "hover",
+          "background": "#686167",
+          "textContrast": 6.02441209464825,
+          "fillContrast": 6.02441209464825
+        },
+        {
+          "parent": "surface.canvas",
+          "state": "pressed",
+          "background": "#655E64",
+          "textContrast": 6.298673281000009,
+          "fillContrast": 6.298673281000009
+        },
+        {
+          "parent": "surface.base",
+          "state": "default",
+          "background": "#6D656B",
+          "textContrast": 5.639065136982912,
+          "fillContrast": 5.639065136982912
+        },
+        {
+          "parent": "surface.base",
+          "state": "hover",
+          "background": "#686167",
+          "textContrast": 6.02441209464825,
+          "fillContrast": 6.02441209464825
+        },
+        {
+          "parent": "surface.base",
+          "state": "pressed",
+          "background": "#655E64",
+          "textContrast": 6.298673281000009,
+          "fillContrast": 6.298673281000009
+        },
+        {
+          "parent": "surface.subtle",
+          "state": "default",
+          "background": "#6D656B",
+          "textContrast": 5.639065136982912,
+          "fillContrast": 5.240753441549963
+        },
+        {
+          "parent": "surface.subtle",
+          "state": "hover",
+          "background": "#686167",
+          "textContrast": 6.02441209464825,
+          "fillContrast": 5.598881667686385
+        },
+        {
+          "parent": "surface.subtle",
+          "state": "pressed",
+          "background": "#655E64",
+          "textContrast": 6.298673281000009,
+          "fillContrast": 5.853770593659243
+        },
+        {
+          "parent": "surface.raised",
+          "state": "default",
+          "background": "#6D656B",
+          "textContrast": 5.639065136982912,
+          "fillContrast": 5.639065136982912
+        },
+        {
+          "parent": "surface.raised",
+          "state": "hover",
+          "background": "#686167",
+          "textContrast": 6.02441209464825,
+          "fillContrast": 6.02441209464825
+        },
+        {
+          "parent": "surface.raised",
+          "state": "pressed",
+          "background": "#655E64",
+          "textContrast": 6.298673281000009,
+          "fillContrast": 6.298673281000009
+        },
+        {
+          "parent": "surface.sunken",
+          "state": "default",
+          "background": "#6D656B",
+          "textContrast": 5.639065136982912,
+          "fillContrast": 4.644796214117371
+        },
+        {
+          "parent": "surface.sunken",
+          "state": "hover",
+          "background": "#686167",
+          "textContrast": 6.02441209464825,
+          "fillContrast": 4.962199550771015
+        },
+        {
+          "parent": "surface.sunken",
+          "state": "pressed",
+          "background": "#655E64",
+          "textContrast": 6.298673281000009,
+          "fillContrast": 5.188103541787434
+        },
+        {
+          "parent": "brand.bg.default",
+          "state": "default",
+          "background": "#6D656B",
+          "textContrast": 5.639065136982912,
+          "fillContrast": 4.85157572564085
+        },
+        {
+          "parent": "brand.bg.default",
+          "state": "hover",
+          "background": "#686167",
+          "textContrast": 6.02441209464825,
+          "fillContrast": 5.183109393074061
+        },
+        {
+          "parent": "brand.bg.default",
+          "state": "pressed",
+          "background": "#655E64",
+          "textContrast": 6.298673281000009,
+          "fillContrast": 5.419070298271474
+        },
+        {
+          "parent": "brand.bg.hover",
+          "state": "default",
+          "background": "#6D656B",
+          "textContrast": 5.639065136982912,
+          "fillContrast": 4.257776706914089
+        },
+        {
+          "parent": "brand.bg.hover",
+          "state": "hover",
+          "background": "#686167",
+          "textContrast": 6.02441209464825,
+          "fillContrast": 4.548732966608143
+        },
+        {
+          "parent": "brand.bg.hover",
+          "state": "pressed",
+          "background": "#655E64",
+          "textContrast": 6.298673281000009,
+          "fillContrast": 4.755813903340136
+        },
+        {
+          "parent": "status.success.bg",
+          "state": "default",
+          "background": "#6D656B",
+          "textContrast": 5.639065136982912,
+          "fillContrast": 5.046710202682285
+        },
+        {
+          "parent": "status.success.bg",
+          "state": "hover",
+          "background": "#686167",
+          "textContrast": 6.02441209464825,
+          "fillContrast": 5.391578434486882
+        },
+        {
+          "parent": "status.success.bg",
+          "state": "pressed",
+          "background": "#655E64",
+          "textContrast": 6.298673281000009,
+          "fillContrast": 5.637029886764612
+        },
+        {
+          "parent": "status.warning.bg",
+          "state": "default",
+          "background": "#6D656B",
+          "textContrast": 5.639065136982912,
+          "fillContrast": 5.075399113027746
+        },
+        {
+          "parent": "status.warning.bg",
+          "state": "hover",
+          "background": "#686167",
+          "textContrast": 6.02441209464825,
+          "fillContrast": 5.4222278088546245
+        },
+        {
+          "parent": "status.warning.bg",
+          "state": "pressed",
+          "background": "#655E64",
+          "textContrast": 6.298673281000009,
+          "fillContrast": 5.669074573013908
+        },
+        {
+          "parent": "status.error.bg",
+          "state": "default",
+          "background": "#6D656B",
+          "textContrast": 5.639065136982912,
+          "fillContrast": 4.855557081586625
+        },
+        {
+          "parent": "status.error.bg",
+          "state": "hover",
+          "background": "#686167",
+          "textContrast": 6.02441209464825,
+          "fillContrast": 5.1873628159961545
+        },
+        {
+          "parent": "status.error.bg",
+          "state": "pressed",
+          "background": "#655E64",
+          "textContrast": 6.298673281000009,
+          "fillContrast": 5.4235173581490645
+        },
+        {
+          "parent": "status.info.bg",
+          "state": "default",
+          "background": "#6D656B",
+          "textContrast": 5.639065136982912,
+          "fillContrast": 4.953922598171344
+        },
+        {
+          "parent": "status.info.bg",
+          "state": "hover",
+          "background": "#686167",
+          "textContrast": 6.02441209464825,
+          "fillContrast": 5.292450165302136
+        },
+        {
+          "parent": "status.info.bg",
+          "state": "pressed",
+          "background": "#655E64",
+          "textContrast": 6.298673281000009,
+          "fillContrast": 5.533388805992533
+        }
+      ]
+    },
+    {
+      "appearance": "dark",
+      "contrast": "standard",
+      "field": {
+        "minimumText": 5.549337487466392,
+        "minimumFill": 3.2134007364768515,
+        "cases": 33,
+        "failures": []
+      },
+      "focus": [
+        {
+          "parent": "surface.canvas",
+          "current": 4.3437137839677735,
+          "proposed": 5.087370574893515
+        },
+        {
+          "parent": "surface.base",
+          "current": 4.041167009929727,
+          "proposed": 4.73302688828805
+        },
+        {
+          "parent": "surface.subtle",
+          "current": 3.6507844146059356,
+          "proposed": 4.275809625094736
+        },
+        {
+          "parent": "surface.raised",
+          "current": 3.3232284700143646,
+          "proposed": 3.8921751231399515
+        },
+        {
+          "parent": "surface.sunken",
+          "current": 4.472695935148935,
+          "proposed": 5.238434856114669
+        },
+        {
+          "parent": "brand.bg.default",
+          "current": 3.8781052260796116,
+          "proposed": 4.542048439360192
+        },
+        {
+          "parent": "brand.bg.hover",
+          "current": 3.6829555561181433,
+          "proposed": 4.313488562250775
+        },
+        {
+          "parent": "status.success.bg",
+          "current": 2.8158905440219657,
+          "proposed": 3.2979794268794125
+        },
+        {
+          "parent": "status.warning.bg",
+          "current": 2.805289423080463,
+          "proposed": 3.2855633623270593
+        },
+        {
+          "parent": "status.error.bg",
+          "current": 3.138114463923291,
+          "proposed": 3.675369045570046
+        },
+        {
+          "parent": "status.info.bg",
+          "current": 2.879710904712643,
+          "proposed": 3.3727260241932586
+        }
+      ],
+      "action": [
+        {
+          "state": "default",
+          "background": "#A7839B",
+          "text": 6.3629293807446246,
+          "fill": 4.364790265272525
+        },
+        {
+          "state": "hover",
+          "background": "#B48BA6",
+          "text": 7.18434195926216,
+          "fill": 4.928256148979406
+        },
+        {
+          "state": "pressed",
+          "background": "#A47891",
+          "text": 5.673957725545887,
+          "fill": 3.8921751231399515
+        }
+      ],
+      "statusSolid": [
+        {
+          "status": "success",
+          "text": 4.530351874061277,
+          "fill": 3.179754835382579
+        },
+        {
+          "status": "warning",
+          "text": 5.871403808485186,
+          "fill": 4.630683697878384
+        },
+        {
+          "status": "error",
+          "text": 4.9595465386692625,
+          "fill": 2.904581732465427
+        },
+        {
+          "status": "info",
+          "text": 4.518094892658851,
+          "fill": 3.1883810809147137
+        }
+      ],
+      "selectedMarker": [
+        {
+          "parent": "surface.canvas",
+          "ratio": 8.44083587571137
+        },
+        {
+          "parent": "surface.base",
+          "ratio": 7.8529178425742145
+        },
+        {
+          "parent": "surface.subtle",
+          "ratio": 7.094314587446202
+        },
+        {
+          "parent": "surface.raised",
+          "ratio": 6.4577979784062975
+        },
+        {
+          "parent": "surface.sunken",
+          "ratio": 8.691477889242448
+        }
+      ],
+      "fieldCases": [
+        {
+          "parent": "surface.canvas",
+          "state": "default",
+          "background": "#7A8493",
+          "textContrast": 5.549337487466392,
+          "fillContrast": 4.975633871359854
+        },
+        {
+          "parent": "surface.canvas",
+          "state": "hover",
+          "background": "#838C9A",
+          "textContrast": 6.218444739730837,
+          "fillContrast": 5.575567235560324
+        },
+        {
+          "parent": "surface.canvas",
+          "state": "pressed",
+          "background": "#88919E",
+          "textContrast": 6.5734017624875385,
+          "fillContrast": 5.893827962952422
+        },
+        {
+          "parent": "surface.base",
+          "state": "default",
+          "background": "#7A8493",
+          "textContrast": 5.549337487466392,
+          "fillContrast": 4.629072829025411
+        },
+        {
+          "parent": "surface.base",
+          "state": "hover",
+          "background": "#838C9A",
+          "textContrast": 6.218444739730837,
+          "fillContrast": 5.1872198525497115
+        },
+        {
+          "parent": "surface.base",
+          "state": "pressed",
+          "background": "#88919E",
+          "textContrast": 6.5734017624875385,
+          "fillContrast": 5.483313199408849
+        },
+        {
+          "parent": "surface.subtle",
+          "state": "default",
+          "background": "#7A8493",
+          "textContrast": 5.549337487466392,
+          "fillContrast": 4.181897678753853
+        },
+        {
+          "parent": "surface.subtle",
+          "state": "hover",
+          "background": "#838C9A",
+          "textContrast": 6.218444739730837,
+          "fillContrast": 4.686126890151045
+        },
+        {
+          "parent": "surface.subtle",
+          "state": "pressed",
+          "background": "#88919E",
+          "textContrast": 6.5734017624875385,
+          "fillContrast": 4.953617190187084
+        },
+        {
+          "parent": "surface.raised",
+          "state": "default",
+          "background": "#7A8493",
+          "textContrast": 5.549337487466392,
+          "fillContrast": 3.806689151274322
+        },
+        {
+          "parent": "surface.raised",
+          "state": "hover",
+          "background": "#838C9A",
+          "textContrast": 6.218444739730837,
+          "fillContrast": 4.265677872718426
+        },
+        {
+          "parent": "surface.raised",
+          "state": "pressed",
+          "background": "#88919E",
+          "textContrast": 6.5734017624875385,
+          "fillContrast": 4.509168388613049
+        },
+        {
+          "parent": "surface.sunken",
+          "state": "default",
+          "background": "#7A8493",
+          "textContrast": 5.549337487466392,
+          "fillContrast": 5.123380245116465
+        },
+        {
+          "parent": "surface.sunken",
+          "state": "hover",
+          "background": "#838C9A",
+          "textContrast": 6.218444739730837,
+          "fillContrast": 5.74112801876664
+        },
+        {
+          "parent": "surface.sunken",
+          "state": "pressed",
+          "background": "#88919E",
+          "textContrast": 6.5734017624875385,
+          "fillContrast": 6.068839173902625
+        },
+        {
+          "parent": "brand.bg.default",
+          "state": "default",
+          "background": "#7A8493",
+          "textContrast": 5.549337487466392,
+          "fillContrast": 4.442288944266807
+        },
+        {
+          "parent": "brand.bg.default",
+          "state": "hover",
+          "background": "#838C9A",
+          "textContrast": 6.218444739730837,
+          "fillContrast": 4.977914639401841
+        },
+        {
+          "parent": "brand.bg.default",
+          "state": "pressed",
+          "background": "#88919E",
+          "textContrast": 6.5734017624875385,
+          "fillContrast": 5.262060568793111
+        },
+        {
+          "parent": "brand.bg.hover",
+          "state": "default",
+          "background": "#7A8493",
+          "textContrast": 5.549337487466392,
+          "fillContrast": 4.218749052796789
+        },
+        {
+          "parent": "brand.bg.hover",
+          "state": "hover",
+          "background": "#838C9A",
+          "textContrast": 6.218444739730837,
+          "fillContrast": 4.727421591290906
+        },
+        {
+          "parent": "brand.bg.hover",
+          "state": "pressed",
+          "background": "#88919E",
+          "textContrast": 6.5734017624875385,
+          "fillContrast": 4.997269047301747
+        },
+        {
+          "parent": "status.success.bg",
+          "state": "default",
+          "background": "#7A8493",
+          "textContrast": 5.549337487466392,
+          "fillContrast": 3.225544100209888
+        },
+        {
+          "parent": "status.success.bg",
+          "state": "hover",
+          "background": "#838C9A",
+          "textContrast": 6.218444739730837,
+          "fillContrast": 3.6144616880883995
+        },
+        {
+          "parent": "status.success.bg",
+          "state": "pressed",
+          "background": "#88919E",
+          "textContrast": 6.5734017624875385,
+          "fillContrast": 3.820779925745932
+        },
+        {
+          "parent": "status.warning.bg",
+          "state": "default",
+          "background": "#7A8493",
+          "textContrast": 5.549337487466392,
+          "fillContrast": 3.2134007364768515
+        },
+        {
+          "parent": "status.warning.bg",
+          "state": "hover",
+          "background": "#838C9A",
+          "textContrast": 6.218444739730837,
+          "fillContrast": 3.6008541472785476
+        },
+        {
+          "parent": "status.warning.bg",
+          "state": "pressed",
+          "background": "#88919E",
+          "textContrast": 6.5734017624875385,
+          "fillContrast": 3.806395648569502
+        },
+        {
+          "parent": "status.error.bg",
+          "state": "default",
+          "background": "#7A8493",
+          "textContrast": 5.549337487466392,
+          "fillContrast": 3.5946449042133395
+        },
+        {
+          "parent": "status.error.bg",
+          "state": "hover",
+          "background": "#838C9A",
+          "textContrast": 6.218444739730837,
+          "fillContrast": 4.028066547816186
+        },
+        {
+          "parent": "status.error.bg",
+          "state": "pressed",
+          "background": "#88919E",
+          "textContrast": 6.5734017624875385,
+          "fillContrast": 4.257993896071529
+        },
+        {
+          "parent": "status.info.bg",
+          "state": "default",
+          "background": "#7A8493",
+          "textContrast": 5.549337487466392,
+          "fillContrast": 3.2986489971087054
+        },
+        {
+          "parent": "status.info.bg",
+          "state": "hover",
+          "background": "#838C9A",
+          "textContrast": 6.218444739730837,
+          "fillContrast": 3.6963811537175424
+        },
+        {
+          "parent": "status.info.bg",
+          "state": "pressed",
+          "background": "#88919E",
+          "textContrast": 6.5734017624875385,
+          "fillContrast": 3.9073754624575683
+        }
+      ]
+    },
+    {
+      "appearance": "dark",
+      "contrast": "more",
+      "field": {
+        "minimumText": 5.549337487466392,
+        "minimumFill": 3.2134007364768515,
+        "cases": 33,
+        "failures": []
+      },
+      "focus": [
+        {
+          "parent": "surface.canvas",
+          "current": 4.472695935148935,
+          "proposed": 5.238434856114669
+        },
+        {
+          "parent": "surface.base",
+          "current": 4.3437137839677735,
+          "proposed": 5.087370574893515
+        },
+        {
+          "parent": "surface.subtle",
+          "current": 3.6507844146059356,
+          "proposed": 4.275809625094736
+        },
+        {
+          "parent": "surface.raised",
+          "current": 3.3232284700143646,
+          "proposed": 3.8921751231399515
+        },
+        {
+          "parent": "surface.sunken",
+          "current": 4.472695935148935,
+          "proposed": 5.238434856114669
+        },
+        {
+          "parent": "brand.bg.default",
+          "current": 3.8781052260796116,
+          "proposed": 4.542048439360192
+        },
+        {
+          "parent": "brand.bg.hover",
+          "current": 3.6829555561181433,
+          "proposed": 4.313488562250775
+        },
+        {
+          "parent": "status.success.bg",
+          "current": 2.8158905440219657,
+          "proposed": 3.2979794268794125
+        },
+        {
+          "parent": "status.warning.bg",
+          "current": 2.805289423080463,
+          "proposed": 3.2855633623270593
+        },
+        {
+          "parent": "status.error.bg",
+          "current": 3.138114463923291,
+          "proposed": 3.675369045570046
+        },
+        {
+          "parent": "status.info.bg",
+          "current": 2.879710904712643,
+          "proposed": 3.3727260241932586
+        }
+      ],
+      "action": [
+        {
+          "state": "default",
+          "background": "#A7839B",
+          "text": 6.3629293807446246,
+          "fill": 4.364790265272525
+        },
+        {
+          "state": "hover",
+          "background": "#B48BA6",
+          "text": 7.18434195926216,
+          "fill": 4.928256148979406
+        },
+        {
+          "state": "pressed",
+          "background": "#A47891",
+          "text": 5.673957725545887,
+          "fill": 3.8921751231399515
+        }
+      ],
+      "statusSolid": [
+        {
+          "status": "success",
+          "text": 4.530351874061277,
+          "fill": 3.179754835382579
+        },
+        {
+          "status": "warning",
+          "text": 5.871403808485186,
+          "fill": 4.630683697878384
+        },
+        {
+          "status": "error",
+          "text": 4.9595465386692625,
+          "fill": 2.904581732465427
+        },
+        {
+          "status": "info",
+          "text": 4.518094892658851,
+          "fill": 3.1883810809147137
+        }
+      ],
+      "selectedMarker": [
+        {
+          "parent": "surface.canvas",
+          "ratio": 8.691477889242448
+        },
+        {
+          "parent": "surface.base",
+          "ratio": 8.44083587571137
+        },
+        {
+          "parent": "surface.subtle",
+          "ratio": 7.094314587446202
+        },
+        {
+          "parent": "surface.raised",
+          "ratio": 6.4577979784062975
+        },
+        {
+          "parent": "surface.sunken",
+          "ratio": 8.691477889242448
+        }
+      ],
+      "fieldCases": [
+        {
+          "parent": "surface.canvas",
+          "state": "default",
+          "background": "#7A8493",
+          "textContrast": 5.549337487466392,
+          "fillContrast": 5.123380245116465
+        },
+        {
+          "parent": "surface.canvas",
+          "state": "hover",
+          "background": "#838C9A",
+          "textContrast": 6.218444739730837,
+          "fillContrast": 5.74112801876664
+        },
+        {
+          "parent": "surface.canvas",
+          "state": "pressed",
+          "background": "#88919E",
+          "textContrast": 6.5734017624875385,
+          "fillContrast": 6.068839173902625
+        },
+        {
+          "parent": "surface.base",
+          "state": "default",
+          "background": "#7A8493",
+          "textContrast": 5.549337487466392,
+          "fillContrast": 4.975633871359854
+        },
+        {
+          "parent": "surface.base",
+          "state": "hover",
+          "background": "#838C9A",
+          "textContrast": 6.218444739730837,
+          "fillContrast": 5.575567235560324
+        },
+        {
+          "parent": "surface.base",
+          "state": "pressed",
+          "background": "#88919E",
+          "textContrast": 6.5734017624875385,
+          "fillContrast": 5.893827962952422
+        },
+        {
+          "parent": "surface.subtle",
+          "state": "default",
+          "background": "#7A8493",
+          "textContrast": 5.549337487466392,
+          "fillContrast": 4.181897678753853
+        },
+        {
+          "parent": "surface.subtle",
+          "state": "hover",
+          "background": "#838C9A",
+          "textContrast": 6.218444739730837,
+          "fillContrast": 4.686126890151045
+        },
+        {
+          "parent": "surface.subtle",
+          "state": "pressed",
+          "background": "#88919E",
+          "textContrast": 6.5734017624875385,
+          "fillContrast": 4.953617190187084
+        },
+        {
+          "parent": "surface.raised",
+          "state": "default",
+          "background": "#7A8493",
+          "textContrast": 5.549337487466392,
+          "fillContrast": 3.806689151274322
+        },
+        {
+          "parent": "surface.raised",
+          "state": "hover",
+          "background": "#838C9A",
+          "textContrast": 6.218444739730837,
+          "fillContrast": 4.265677872718426
+        },
+        {
+          "parent": "surface.raised",
+          "state": "pressed",
+          "background": "#88919E",
+          "textContrast": 6.5734017624875385,
+          "fillContrast": 4.509168388613049
+        },
+        {
+          "parent": "surface.sunken",
+          "state": "default",
+          "background": "#7A8493",
+          "textContrast": 5.549337487466392,
+          "fillContrast": 5.123380245116465
+        },
+        {
+          "parent": "surface.sunken",
+          "state": "hover",
+          "background": "#838C9A",
+          "textContrast": 6.218444739730837,
+          "fillContrast": 5.74112801876664
+        },
+        {
+          "parent": "surface.sunken",
+          "state": "pressed",
+          "background": "#88919E",
+          "textContrast": 6.5734017624875385,
+          "fillContrast": 6.068839173902625
+        },
+        {
+          "parent": "brand.bg.default",
+          "state": "default",
+          "background": "#7A8493",
+          "textContrast": 5.549337487466392,
+          "fillContrast": 4.442288944266807
+        },
+        {
+          "parent": "brand.bg.default",
+          "state": "hover",
+          "background": "#838C9A",
+          "textContrast": 6.218444739730837,
+          "fillContrast": 4.977914639401841
+        },
+        {
+          "parent": "brand.bg.default",
+          "state": "pressed",
+          "background": "#88919E",
+          "textContrast": 6.5734017624875385,
+          "fillContrast": 5.262060568793111
+        },
+        {
+          "parent": "brand.bg.hover",
+          "state": "default",
+          "background": "#7A8493",
+          "textContrast": 5.549337487466392,
+          "fillContrast": 4.218749052796789
+        },
+        {
+          "parent": "brand.bg.hover",
+          "state": "hover",
+          "background": "#838C9A",
+          "textContrast": 6.218444739730837,
+          "fillContrast": 4.727421591290906
+        },
+        {
+          "parent": "brand.bg.hover",
+          "state": "pressed",
+          "background": "#88919E",
+          "textContrast": 6.5734017624875385,
+          "fillContrast": 4.997269047301747
+        },
+        {
+          "parent": "status.success.bg",
+          "state": "default",
+          "background": "#7A8493",
+          "textContrast": 5.549337487466392,
+          "fillContrast": 3.225544100209888
+        },
+        {
+          "parent": "status.success.bg",
+          "state": "hover",
+          "background": "#838C9A",
+          "textContrast": 6.218444739730837,
+          "fillContrast": 3.6144616880883995
+        },
+        {
+          "parent": "status.success.bg",
+          "state": "pressed",
+          "background": "#88919E",
+          "textContrast": 6.5734017624875385,
+          "fillContrast": 3.820779925745932
+        },
+        {
+          "parent": "status.warning.bg",
+          "state": "default",
+          "background": "#7A8493",
+          "textContrast": 5.549337487466392,
+          "fillContrast": 3.2134007364768515
+        },
+        {
+          "parent": "status.warning.bg",
+          "state": "hover",
+          "background": "#838C9A",
+          "textContrast": 6.218444739730837,
+          "fillContrast": 3.6008541472785476
+        },
+        {
+          "parent": "status.warning.bg",
+          "state": "pressed",
+          "background": "#88919E",
+          "textContrast": 6.5734017624875385,
+          "fillContrast": 3.806395648569502
+        },
+        {
+          "parent": "status.error.bg",
+          "state": "default",
+          "background": "#7A8493",
+          "textContrast": 5.549337487466392,
+          "fillContrast": 3.5946449042133395
+        },
+        {
+          "parent": "status.error.bg",
+          "state": "hover",
+          "background": "#838C9A",
+          "textContrast": 6.218444739730837,
+          "fillContrast": 4.028066547816186
+        },
+        {
+          "parent": "status.error.bg",
+          "state": "pressed",
+          "background": "#88919E",
+          "textContrast": 6.5734017624875385,
+          "fillContrast": 4.257993896071529
+        },
+        {
+          "parent": "status.info.bg",
+          "state": "default",
+          "background": "#7A8493",
+          "textContrast": 5.549337487466392,
+          "fillContrast": 3.2986489971087054
+        },
+        {
+          "parent": "status.info.bg",
+          "state": "hover",
+          "background": "#838C9A",
+          "textContrast": 6.218444739730837,
+          "fillContrast": 3.6963811537175424
+        },
+        {
+          "parent": "status.info.bg",
+          "state": "pressed",
+          "background": "#88919E",
+          "textContrast": 6.5734017624875385,
+          "fillContrast": 3.9073754624575683
+        }
+      ]
+    }
+  ],
+  "browserVerification": {
+    "engine": "Installed Chrome; canvas compositing of generated CSS colors and candidate fills",
+    "results": [
+      {
+        "appearance": "light",
+        "contrast": "standard",
+        "cases": 33,
+        "fieldText": 5.639065136982912,
+        "fieldFill": 4.257776706914089,
+        "actionText": 12.349139697038039,
+        "actionFill": 9.324219187971407,
+        "focusMinimum": 4.191447962384452
+      },
+      {
+        "appearance": "light",
+        "contrast": "more",
+        "cases": 33,
+        "fieldText": 5.639065136982912,
+        "fieldFill": 4.257776706914089,
+        "actionText": 12.349139697038039,
+        "actionFill": 9.324219187971407,
+        "focusMinimum": 4.191447962384452
+      },
+      {
+        "appearance": "dark",
+        "contrast": "standard",
+        "cases": 33,
+        "fieldText": 5.549337487466392,
+        "fieldFill": 3.2134007364768515,
+        "actionText": 5.673957725545887,
+        "actionFill": 3.2855633623270593,
+        "focusMinimum": 3.2855633623270593
+      },
+      {
+        "appearance": "dark",
+        "contrast": "more",
+        "cases": 33,
+        "fieldText": 5.549337487466392,
+        "fieldFill": 3.2134007364768515,
+        "actionText": 5.673957725545887,
+        "actionFill": 3.2855633623270593,
+        "focusMinimum": 3.2855633623270593
+      }
+    ]
+  },
+  "proposalStatus": {
+    "fieldPair": "Rejected as the default treatment.",
+    "darkPrimaryProposal": "Not approved; primary fills must use rds.color.ink.on-brand."
+  }
+}

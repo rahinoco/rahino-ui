@@ -29,7 +29,8 @@ export function formatMoneyDisplay(amount: number | null, unit: MoneyUnit, fract
   return { value: formatGrouped(amount, fractionDigits), unit: UNIT[unit], missing: false, negative: amount < 0 };
 }
 
-export function formatPercent(value: number, input: 'ratio' | 'percent' = 'percent', fractionDigits = 0) {
+export function formatPercent(value: number, input: 'ratio' | 'percent', fractionDigits = 0) {
+  if (input !== 'ratio' && input !== 'percent') throw new TypeError('Specify ratio or percent input explicitly.');
   const amount = input === 'ratio' ? value * 100 : value;
   return `${formatGrouped(amount, fractionDigits)}٪`;
 }
