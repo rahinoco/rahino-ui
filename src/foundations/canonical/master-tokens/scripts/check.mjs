@@ -1,9 +1,10 @@
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { pathToFileURL } from 'node:url';
 import path from 'node:path';
-import { masterDir, foundationDir, json, at, encode, encodedSourceValue, flatten, resolve, isAlias, leaves, renderReview } from './lib.mjs';
+import { masterDir, foundationDir, json, readText, at, encode, encodedSourceValue, flatten, resolve, isAlias, leaves, renderReview } from './lib.mjs';
+import { roundRatio } from './foundations.mjs';
+import { checkContrastPolicy } from './contrast-policy.mjs';
 import { renderLayout } from './layout.mjs';
 import { resolveContext } from './context.mjs';
 import { resolveTypographyStyles } from './typography.mjs';
@@ -91,7 +92,7 @@ const amendedValue = (set, publicPath, initial, property) => {
 };
 
 for (const baseline of trackedSources) {
-  const bytes = await readFile(path.join(foundationDir, baseline.file));
+  const bytes = await readText(path.join(foundationDir, baseline.file));
   const hash = createHash('sha256').update(bytes).digest('hex');
   if (auditAdoption) assert.equal(hash, expectedHashes.get(baseline.file), `Changed since adoption: ${baseline.file}`);
   if (baseline.file.endsWith('.ts')) {
@@ -203,7 +204,7 @@ if (auditAdoption && manifest.referenceLayer) {
   assert(decisions.items.some(item => item.status === 'resolved' && item.resolution?.approval === config.approval));
   if (config.foundationFilesUnchanged) {
     for (const source of baseline.foundationFiles) {
-      assert.equal(createHash('sha256').update(await readFile(path.join(foundationDir, source.file))).digest('hex'), hashAfterApprovedChanges(source.file, source.sha256), `Unapproved change since reference-layer stage: ${source.file}`);
+      assert.equal(createHash('sha256').update(await readText(path.join(foundationDir, source.file))).digest('hex'), hashAfterApprovedChanges(source.file, source.sha256), `Unapproved change since reference-layer stage: ${source.file}`);
     }
   }
   for (const [name, snapshot] of Object.entries(baseline.sets)) {
@@ -290,7 +291,7 @@ if (auditAdoption && manifest.referenceLayer) {
     }
     assert.equal(colorReferencesRenamed, colorMigration.renamedReferenceCount);
     for (const [file, hash] of Object.entries(colorMigration.foundationHashes)) {
-      assert.equal(createHash('sha256').update(await readFile(path.join(foundationDir, file))).digest('hex'), hashAfterApprovedChanges(file, hash), `Unapproved change since color naming: ${file}`);
+      assert.equal(createHash('sha256').update(await readText(path.join(foundationDir, file))).digest('hex'), hashAfterApprovedChanges(file, hash), `Unapproved change since color naming: ${file}`);
     }
     for (const document of [pending, ...Object.values(sets).map(tokens => [...tokens])]) {
       const aliases = JSON.stringify(document).match(/\{ref\.color\.[^{}]+\}/g) ?? [];
@@ -406,7 +407,7 @@ for (const entry of supplementary.entries) {
     const original = mark(entry.source, null);
     assert.deepEqual(entry.sourceValue ?? entry.value, original, `Supplementary source value changed: ${entry.id}`);
   } else {
-    const sourceText = await readFile(path.join(foundationDir, entry.source.file), 'utf8');
+    const sourceText = await readText(path.join(foundationDir, entry.source.file));
     assert(sourceText.split('\n').length >= entry.source.line, `Bad document source location: ${entry.id}`);
   }
 }
@@ -416,7 +417,7 @@ for (const projection of manifest.derivedExports ?? []) {
   const named = module[projection.sourceExport];
   assert.deepEqual(Object.keys(named), projection.sourceOrder, `Changed public chart slot order: ${projection.sourceExport}`);
   assert.deepEqual(module[projection.exportName], projection.sourceOrder.map(slot => named[slot]), `Changed derived export: ${projection.exportName}`);
-  const sourceText = await readFile(path.join(foundationDir, projection.file), 'utf8');
+  const sourceText = await readText(path.join(foundationDir, projection.file));
   mark({ file: projection.file, exportPath: [projection.exportName],
     line: sourceText.slice(0, sourceText.indexOf('export const ' + projection.exportName + ':')).split('\n').length }, null);
 }
@@ -447,7 +448,7 @@ for (const projection of manifest.derivedTypographyExports ?? []) {
       assert.deepEqual(entry.resolvedExports[script], [projection.exportName, script, role]);
     }
   }
-  const sourceText = await readFile(path.join(foundationDir, projection.file), 'utf8');
+  const sourceText = await readText(path.join(foundationDir, projection.file));
   const declaration = sourceText.indexOf('export const ' + projection.exportName + ' =');
   assert(declaration >= 0, 'Missing complete typography export declaration.');
   mark({ file: projection.file, exportPath: [projection.exportName], line: sourceText.slice(0, declaration).split('\n').length }, null);
@@ -497,17 +498,17 @@ assert.equal(sets.shared.get(widePath).$value, `{${readingPath}}`);
 assert.equal(typeof sets.shared.get(widePath).$deprecated, 'string');
 assert.equal(modules['Typography.ts'].TEXT_LAYOUT.measure.reading, '42rem');
 assert.equal(modules['Typography.ts'].TEXT_LAYOUT.measure.wide, '42rem');
-const layoutSpec = await readFile(path.join(foundationDir, 'Layout.md'), 'utf8');
-const typographySpec = await readFile(path.join(foundationDir, 'Typography.md'), 'utf8');
-const colorSource = await readFile(path.join(foundationDir, 'Color.ts'), 'utf8');
-const motionSource = await readFile(path.join(foundationDir, 'Motion.ts'), 'utf8');
-const motionSpec = await readFile(path.join(foundationDir, 'Motion.md'), 'utf8');
+const layoutSpec = await readText(path.join(foundationDir, 'Layout.md'));
+const typographySpec = await readText(path.join(foundationDir, 'Typography.md'));
+const colorSource = await readText(path.join(foundationDir, 'Color.ts'));
+const motionSource = await readText(path.join(foundationDir, 'Motion.ts'));
+const motionSpec = await readText(path.join(foundationDir, 'Motion.md'));
 for (const stale of ['rahino-ui', 'Light/Dark.tokens.json', 'css.ts', 'newer comparison table', '@alias rds.color.edge.focus']) {
   assert(!colorSource.includes(stale), `Obsolete Color reference: ${stale}`);
 }
 for (const local of ['Color.md']) {
   assert(colorSource.includes(local), `Missing local Color reference: ${local}`);
-  await readFile(path.join(foundationDir, local));
+  await readText(path.join(foundationDir, local));
 }
 assert(motionSource.includes('Guide: Motion.md.'));
 assert(motionSpec.includes('Phase one — visual motion testing in Figma completed'));
@@ -527,7 +528,7 @@ const expectedGrid = {
 };
 assert.deepEqual(layoutModule.PAGE_GRID, expectedGrid);
 assert.equal(layoutModule.PAGE_MAX_WIDTH, '1600px');
-assert.equal(await readFile(path.join(foundationDir, 'layout.ts'), 'utf8'), await renderLayout(), 'Generated layout.ts is stale.');
+assert.equal(await readText(path.join(foundationDir, 'layout.ts')), await renderLayout(), 'Generated layout.ts is stale.');
 assert.equal([...sets.shared.keys()].filter(key => key.startsWith('rds.layout.')).length, 12);
 for (const [range, indexes] of Object.entries({ narrow: [300, 300], medium: [400, 400], wide: [400, 500] })) {
   for (const [key, index] of [['gutter', indexes[0]], ['margin', indexes[1]]]) {
@@ -546,8 +547,8 @@ for (const appearance of ['light', 'dark']) {
   assert.equal([...sets[appearance].keys()].filter(key => key.startsWith('rds.shadow.')).length, 3);
 }
 assert.deepEqual(Object.keys(modules['Shadow.ts'].SHADOW), ['sm', 'md', 'lg']);
-const veilAndShadowSpec = await readFile(path.join(foundationDir, 'Veil & Shadow.md'), 'utf8');
-const shadowSource = await readFile(path.join(foundationDir, 'Shadow.ts'), 'utf8');
+const veilAndShadowSpec = await readText(path.join(foundationDir, 'Veil & Shadow.md'));
+const shadowSource = await readText(path.join(foundationDir, 'Shadow.ts'));
 assert(!veilAndShadowSpec.includes('xlg'));
 assert(!shadowSource.includes('xlg'));
 assert(veilAndShadowSpec.includes('Use `lg` for modal and confirmation dialogs'));
@@ -591,11 +592,11 @@ for (const key of Object.keys(modules['Veil.ts'].VEIL)) {
   assert(sets.shared.has(`${group}.blur`));
   for (const appearance of ['light','dark']) assert(sets[appearance].has(`${group}.color`));
 }
-const fileReview = await readFile(path.join(masterDir, manifest.reviewFile), 'utf8');
+const fileReview = await readText(path.join(masterDir, manifest.reviewFile));
 assert.equal(fileReview, await renderReview(), 'Generated review is stale. Run node master-tokens/scripts/render.mjs');
 const generatedOutputs = await renderOutputs();
 for (const [file, expected] of Object.entries(generatedOutputs)) {
-  assert.equal(await readFile(path.join(foundationDir, file), 'utf8'), expected, `Generated output is stale: ${file}`);
+  assert.equal(await readText(path.join(foundationDir, file)), expected, `Generated output is stale: ${file}`);
 }
 if (stateNamingMigration) {
   assert.equal(stateNamingMigration.status, 'approved-applied');
@@ -660,10 +661,12 @@ if (auditAdoption) {
 }
 const focusValidation = supplementary.entries.find(entry => entry.id === 'dark-focus-contrast-validation');
 assert.deepEqual(Object.keys(focusValidation.value.ratios), Object.keys(C.SURFACE));
+const darkFocusOnSurfaces = {};
 for (const [surface, colors] of Object.entries(C.SURFACE)) {
   const actual = ratio(C.FOCUS_RING.dark, colors.dark);
-  assert(actual >= 3, `Dark focus contrast below 3:1 on ${surface}`);
-  assert.equal(focusValidation.value.ratios[surface], actual, `Stale focus contrast in master: ${surface}`);
+  darkFocusOnSurfaces[surface] = actual;
+  // The 3:1 target is enforced by checkContrastPolicy against known-contrast-exceptions.json.
+  assert.equal(focusValidation.value.ratios[surface], roundRatio(actual), `Stale focus contrast in master: ${surface}`);
 }
 const diagnostics = {
   darkFocusOnSubtle: ratio(C.FOCUS_RING.dark, C.SURFACE.subtle.dark),
@@ -676,7 +679,7 @@ assert.deepEqual(Object.keys(controlValidation.value.ratios), Object.keys(C.SURF
 for (const [surface, colors] of Object.entries(C.SURFACE)) {
   const actual = ratio(C.EDGE.control.dark, colors.dark);
   assert(actual >= 3, `Dark control contrast below 3:1 on ${surface}`);
-  assert.equal(controlValidation.value.ratios[surface], actual, `Stale control contrast: ${surface}`);
+  assert.equal(controlValidation.value.ratios[surface], roundRatio(actual), `Stale control contrast: ${surface}`);
 }
 for (const appearance of ['light', 'dark']) {
   const selected = resolveContext({ appearance, contrast: 'more' });
@@ -695,6 +698,7 @@ for (const appearance of ['light', 'dark']) {
   }
 }
 assert.strictEqual(C.ACTION_PRIMARY_FG, C.INK['on-brand'], 'The existing primary foreground export must reuse on-brand ink');
+const contrastPolicy = await checkContrastPolicy({ darkFocusOnSurfaces });
 const distinct = new Set(Object.values(sets).flatMap(tokens => [...tokens.keys()]));
 const colorResolverChecks = await checkColorResolver();
 console.log(JSON.stringify({
@@ -716,5 +720,6 @@ console.log(JSON.stringify({
   scheduledDecisions: decisions.items.filter(item => item.status === 'scheduled').length,
   explicitlyResolvedDecisions: decisions.items.filter(item => item.status === 'resolved').length,
   knownContrastDiagnostics: Object.fromEntries(Object.entries(diagnostics).map(([key, value]) => [key, Number(value.toFixed(6))])),
+  contrastPolicy,
   staleContrastSnapshotEntries: staleSnapshot,
 }, null, 2));

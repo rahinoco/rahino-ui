@@ -30,7 +30,7 @@
           "background": "rds.color.surface.canvas",
           "foregroundValue": "#211D20",
           "backgroundValue": "#F3F1F2",
-          "ratio": 14.80668317340307,
+          "ratio": 14.8066831734,
           "threshold": 4.5,
           "passes": true
         },
@@ -40,7 +40,7 @@
           "background": "rds.color.surface.base",
           "foregroundValue": "#211D20",
           "backgroundValue": "#FFFFFF",
-          "ratio": 16.64989199382394,
+          "ratio": 16.6498919938,
           "threshold": 4.5,
           "passes": true
         },
@@ -50,7 +50,7 @@
           "background": "rds.color.surface.subtle",
           "foregroundValue": "#211D20",
           "backgroundValue": "#FBF9FA",
-          "ratio": 15.882842688184072,
+          "ratio": 15.8828426882,
           "threshold": 4.5,
           "passes": true
         },
@@ -60,7 +60,7 @@
           "background": "rds.color.surface.raised",
           "foregroundValue": "#211D20",
           "backgroundValue": "#FFFFFF",
-          "ratio": 16.64989199382394,
+          "ratio": 16.6498919938,
           "threshold": 4.5,
           "passes": true
         },
@@ -70,7 +70,7 @@
           "background": "rds.color.surface.sunken",
           "foregroundValue": "#211D20",
           "backgroundValue": "#E8E3E5",
-          "ratio": 13.121877861618497,
+          "ratio": 13.1218778616,
           "threshold": 4.5,
           "passes": true
         },
@@ -80,7 +80,7 @@
           "background": "rds.color.surface.canvas",
           "foregroundValue": "#5F585D",
           "backgroundValue": "#F3F1F2",
-          "ratio": 6.142089980375298,
+          "ratio": 6.1420899804,
           "threshold": 4.5,
           "passes": true
         },
@@ -90,7 +90,7 @@
           "background": "rds.color.surface.base",
           "foregroundValue": "#5F585D",
           "backgroundValue": "#FFFFFF",
-          "ratio": 6.9066875810035295,
+          "ratio": 6.906687581,
           "threshold": 4.5,
           "passes": true
         },
@@ -100,7 +100,7 @@
           "background": "rds.color.surface.subtle",
           "foregroundValue": "#5F585D",
           "backgroundValue": "#FBF9FA",
-          "ratio": 6.588501137797448,
+          "ratio": 6.5885011378,
           "threshold": 4.5,
           "passes": true
         },
@@ -110,7 +110,7 @@
           "background": "rds.color.surface.raised",
           "foregroundValue": "#5F585D",
           "backgroundValue": "#FFFFFF",
-          "ratio": 6.9066875810035295,
+          "ratio": 6.906687581,
           "threshold": 4.5,
           "passes": true
         },
@@ -120,7 +120,7 @@
           "background": "rds.color.surface.sunken",
           "foregroundValue": "#5F585D",
           "backgroundValue": "#E8E3E5",
-          "ratio": 5.443201127064558,
+          "ratio": 5.4432011271,
           "threshold": 4.5,
           "passes": true
         },
@@ -130,7 +130,7 @@
           "background": "rds.color.surface.canvas",
           "foregroundValue": "#6D656B",
           "backgroundValue": "#F3F1F2",
-          "ratio": 5.014798348749677,
+          "ratio": 5.0147983487,
           "threshold": 4.5,
           "passes": true
         },
@@ -140,7 +140,7 @@
           "background": "rds.color.surface.base",
           "foregroundValue": "#6D656B",
           "backgroundValue": "#FFFFFF",
-          "ratio": 5.639065136982912,
+          "ratio": 5.639065137,
           "threshold": 4.5,
           "passes": true
         },
@@ -150,7 +150,7 @@
           "background": "rds.color.surface.subtle",
           "foregroundValue": "#6D656B",
           "backgroundValue": "#FBF9FA",
-          "ratio": 5.379277205662684,
+          "ratio": 5.3792772057,
           "threshold": 4.5,
           "passes": true
         },
@@ -160,7 +160,7 @@
           "background": "rds.color.surface.raised",
           "foregroundValue": "#6D656B",
           "backgroundValue": "#FFFFFF",
-          "ratio": 5.639065136982912,
+          "ratio": 5.639065137,
           "threshold": 4.5,
           "passes": true
         },
@@ -170,7 +170,7 @@
           "background": "rds.color.surface.sunken",
           "foregroundValue": "#6D656B",
           "backgroundValue": "#E8E3E5",
-          "ratio": 4.44418041922724,
+          "ratio": 4.4441804192,
           "threshold": 4.5,
           "passes": false
         },
@@ -180,7 +180,7 @@
           "background": "rds.color.surface.canvas",
           "foregroundValue": "#99507A",
           "backgroundValue": "#F3F1F2",
-          "ratio": 4.936676525686077,
+          "ratio": 4.9366765257,
           "threshold": 3,
           "passes": true
         },
@@ -190,7 +190,7 @@
           "background": "rds.color.surface.base",
           "foregroundValue": "#99507A",
           "backgroundValue": "#FFFFFF",
-          "ratio": 5.551218324760575,
+          "ratio": 5.5512183248,
           "threshold": 3,
           "passes": true
         },
@@ -200,7 +200,7 @@
           "background": "rds.color.surface.subtle",
           "foregroundValue": "#99507A",
           "backgroundValue": "#FBF9FA",
-          "ratio": 5.2954774368892075,
+          "ratio": 5.2954774369,
           "threshold": 3,
           "passes": true
         },
@@ -210,7 +210,7 @@
           "background": "rds.color.surface.raised",
           "foregroundValue": "#99507A",
           "backgroundValue": "#FFFFFF",
-          "ratio": 5.551218324760575,
+          "ratio": 5.5512183248,
           "threshold": 3,
           "passes": true
         },
@@ -220,7 +220,7 @@
           "background": "rds.color.surface.sunken",
           "foregroundValue": "#99507A",
           "backgroundValue": "#E8E3E5",
-          "ratio": 4.374947829553889,
+          "ratio": 4.3749478296,
           "threshold": 3,
           "passes": true
         },
@@ -230,7 +230,7 @@
           "background": "rds.color.surface.canvas",
           "foregroundValue": "#7A8493",
           "backgroundValue": "#F3F1F2",
-          "ratio": 3.3653056928024117,
+          "ratio": 3.3653056928,
           "threshold": 3,
           "passes": true
         },
@@ -240,7 +240,7 @@
           "background": "rds.color.surface.base",
           "foregroundValue": "#7A8493",
           "backgroundValue": "#FFFFFF",
-          "ratio": 3.7842355141366197,
+          "ratio": 3.7842355141,
           "threshold": 3,
           "passes": true
         },
@@ -250,7 +250,7 @@
           "background": "rds.color.surface.subtle",
           "foregroundValue": "#7A8493",
           "backgroundValue": "#FBF9FA",
-          "ratio": 3.609898333776955,
+          "ratio": 3.6098983338,
           "threshold": 3,
           "passes": true
         },
@@ -260,7 +260,7 @@
           "background": "rds.color.surface.raised",
           "foregroundValue": "#7A8493",
           "backgroundValue": "#FFFFFF",
-          "ratio": 3.7842355141366197,
+          "ratio": 3.7842355141,
           "threshold": 3,
           "passes": true
         },
@@ -270,7 +270,7 @@
           "background": "rds.color.surface.sunken",
           "foregroundValue": "#7A8493",
           "backgroundValue": "#E8E3E5",
-          "ratio": 2.982378278160552,
+          "ratio": 2.9823782782,
           "threshold": 3,
           "passes": false
         },
@@ -280,7 +280,7 @@
           "background": "rds.color.action.primary.bg.default",
           "foregroundValue": "#FFFFFF",
           "backgroundValue": "#631244",
-          "ratio": 12.349139697038039,
+          "ratio": 12.349139697,
           "threshold": 4.5,
           "passes": true
         },
@@ -290,7 +290,7 @@
           "background": "rds.color.action.primary.bg.hover",
           "foregroundValue": "#FFFFFF",
           "backgroundValue": "#400C2C",
-          "ratio": 16.067866713898503,
+          "ratio": 16.0678667139,
           "threshold": 4.5,
           "passes": true
         },
@@ -300,7 +300,7 @@
           "background": "rds.color.action.primary.bg.pressed",
           "foregroundValue": "#FFFFFF",
           "backgroundValue": "#1E0515",
-          "ratio": 19.306071650042682,
+          "ratio": 19.30607165,
           "threshold": 4.5,
           "passes": true
         },
@@ -310,7 +310,7 @@
           "background": "rds.color.status.success.bg",
           "foregroundValue": "#216E43",
           "backgroundValue": "#DAFBE8",
-          "ratio": 5.611582051220511,
+          "ratio": 5.6115820512,
           "threshold": 4.5,
           "passes": true
         },
@@ -320,7 +320,7 @@
           "background": "rds.color.status.success.fill",
           "foregroundValue": "#FFFFFF",
           "backgroundValue": "#2F7D50",
-          "ratio": 5.035788647504453,
+          "ratio": 5.0357886475,
           "threshold": 4.5,
           "passes": true
         },
@@ -330,7 +330,7 @@
           "background": "rds.color.status.success.bg",
           "foregroundValue": "#99507A",
           "backgroundValue": "#DAFBE8",
-          "ratio": 5.008043875766247,
+          "ratio": 5.0080438758,
           "threshold": 3,
           "passes": true
         },
@@ -340,7 +340,7 @@
           "background": "rds.color.status.warning.bg",
           "foregroundValue": "#8A5A12",
           "backgroundValue": "#FEF3DF",
-          "ratio": 5.377456494929689,
+          "ratio": 5.3774564949,
           "threshold": 4.5,
           "passes": true
         },
@@ -350,7 +350,7 @@
           "background": "rds.color.status.warning.fill",
           "foregroundValue": "#FFFFFF",
           "backgroundValue": "#9E6A19",
-          "ratio": 4.636302778297268,
+          "ratio": 4.6363027783,
           "threshold": 4.5,
           "passes": true
         },
@@ -360,7 +360,7 @@
           "background": "rds.color.status.warning.bg",
           "foregroundValue": "#99507A",
           "backgroundValue": "#FEF3DF",
-          "ratio": 5.048950852083503,
+          "ratio": 5.0489508521,
           "threshold": 3,
           "passes": true
         },
@@ -370,7 +370,7 @@
           "background": "rds.color.status.error.bg",
           "foregroundValue": "#A33A43",
           "backgroundValue": "#FCE9EB",
-          "ratio": 5.5476657201122626,
+          "ratio": 5.5476657201,
           "threshold": 4.5,
           "passes": true
         },
@@ -380,7 +380,7 @@
           "background": "rds.color.status.error.fill",
           "foregroundValue": "#FFFFFF",
           "backgroundValue": "#B54650",
-          "ratio": 5.307517054397497,
+          "ratio": 5.3075170544,
           "threshold": 4.5,
           "passes": true
         },
@@ -390,7 +390,7 @@
           "background": "rds.color.status.error.bg",
           "foregroundValue": "#99507A",
           "backgroundValue": "#FCE9EB",
-          "ratio": 4.756676793285872,
+          "ratio": 4.7566767933,
           "threshold": 3,
           "passes": true
         },
@@ -400,7 +400,7 @@
           "background": "rds.color.status.info.bg",
           "foregroundValue": "#345E91",
           "backgroundValue": "#E2ECF8",
-          "ratio": 5.572753580300105,
+          "ratio": 5.5727535803,
           "threshold": 4.5,
           "passes": true
         },
@@ -410,7 +410,7 @@
           "background": "rds.color.status.info.fill",
           "foregroundValue": "#FFFFFF",
           "backgroundValue": "#416FA8",
-          "ratio": 5.167361089235222,
+          "ratio": 5.1673610892,
           "threshold": 4.5,
           "passes": true
         },
@@ -420,7 +420,7 @@
           "background": "rds.color.status.info.bg",
           "foregroundValue": "#99507A",
           "backgroundValue": "#E2ECF8",
-          "ratio": 4.649117181086466,
+          "ratio": 4.6491171811,
           "threshold": 3,
           "passes": true
         },
@@ -430,7 +430,7 @@
           "background": "rds.color.brand.bg.default",
           "foregroundValue": "#631244",
           "backgroundValue": "#F0E5EB",
-          "ratio": 10.06302535906066,
+          "ratio": 10.0630253591,
           "threshold": 4.5,
           "passes": true
         },
@@ -440,7 +440,7 @@
           "background": "rds.color.brand.bg.default",
           "foregroundValue": "#99507A",
           "backgroundValue": "#F0E5EB",
-          "ratio": 4.5235580895685,
+          "ratio": 4.5235580896,
           "threshold": 3,
           "passes": true
         },
@@ -450,7 +450,7 @@
           "background": "rds.color.brand.bg.hover",
           "foregroundValue": "#631244",
           "backgroundValue": "#E8D9E1",
-          "ratio": 9.08164626709255,
+          "ratio": 9.0816462671,
           "threshold": 4.5,
           "passes": true
         },
@@ -460,7 +460,7 @@
           "background": "rds.color.brand.bg.hover",
           "foregroundValue": "#99507A",
           "backgroundValue": "#E8D9E1",
-          "ratio": 4.082405933829509,
+          "ratio": 4.0824059338,
           "threshold": 3,
           "passes": true
         }
@@ -472,7 +472,7 @@
           "background": "rds.color.surface.sunken",
           "foregroundValue": "#6D656B",
           "backgroundValue": "#E8E3E5",
-          "ratio": 4.44418041922724,
+          "ratio": 4.4441804192,
           "threshold": 4.5,
           "passes": false
         },
@@ -482,7 +482,7 @@
           "background": "rds.color.surface.sunken",
           "foregroundValue": "#7A8493",
           "backgroundValue": "#E8E3E5",
-          "ratio": 2.982378278160552,
+          "ratio": 2.9823782782,
           "threshold": 3,
           "passes": false
         }
@@ -498,7 +498,7 @@
           "background": "rds.color.surface.canvas",
           "foregroundValue": "#211D20",
           "backgroundValue": "#FFFFFF",
-          "ratio": 16.64989199382394,
+          "ratio": 16.6498919938,
           "threshold": 4.5,
           "passes": true
         },
@@ -508,7 +508,7 @@
           "background": "rds.color.surface.base",
           "foregroundValue": "#211D20",
           "backgroundValue": "#FFFFFF",
-          "ratio": 16.64989199382394,
+          "ratio": 16.6498919938,
           "threshold": 4.5,
           "passes": true
         },
@@ -518,7 +518,7 @@
           "background": "rds.color.surface.subtle",
           "foregroundValue": "#211D20",
           "backgroundValue": "#FBF9FA",
-          "ratio": 15.882842688184072,
+          "ratio": 15.8828426882,
           "threshold": 4.5,
           "passes": true
         },
@@ -528,7 +528,7 @@
           "background": "rds.color.surface.raised",
           "foregroundValue": "#211D20",
           "backgroundValue": "#FFFFFF",
-          "ratio": 16.64989199382394,
+          "ratio": 16.6498919938,
           "threshold": 4.5,
           "passes": true
         },
@@ -538,7 +538,7 @@
           "background": "rds.color.surface.sunken",
           "foregroundValue": "#211D20",
           "backgroundValue": "#E8E3E5",
-          "ratio": 13.121877861618497,
+          "ratio": 13.1218778616,
           "threshold": 4.5,
           "passes": true
         },
@@ -548,7 +548,7 @@
           "background": "rds.color.surface.canvas",
           "foregroundValue": "#211D20",
           "backgroundValue": "#FFFFFF",
-          "ratio": 16.64989199382394,
+          "ratio": 16.6498919938,
           "threshold": 4.5,
           "passes": true
         },
@@ -558,7 +558,7 @@
           "background": "rds.color.surface.base",
           "foregroundValue": "#211D20",
           "backgroundValue": "#FFFFFF",
-          "ratio": 16.64989199382394,
+          "ratio": 16.6498919938,
           "threshold": 4.5,
           "passes": true
         },
@@ -568,7 +568,7 @@
           "background": "rds.color.surface.subtle",
           "foregroundValue": "#211D20",
           "backgroundValue": "#FBF9FA",
-          "ratio": 15.882842688184072,
+          "ratio": 15.8828426882,
           "threshold": 4.5,
           "passes": true
         },
@@ -578,7 +578,7 @@
           "background": "rds.color.surface.raised",
           "foregroundValue": "#211D20",
           "backgroundValue": "#FFFFFF",
-          "ratio": 16.64989199382394,
+          "ratio": 16.6498919938,
           "threshold": 4.5,
           "passes": true
         },
@@ -588,7 +588,7 @@
           "background": "rds.color.surface.sunken",
           "foregroundValue": "#211D20",
           "backgroundValue": "#E8E3E5",
-          "ratio": 13.121877861618497,
+          "ratio": 13.1218778616,
           "threshold": 4.5,
           "passes": true
         },
@@ -598,7 +598,7 @@
           "background": "rds.color.surface.canvas",
           "foregroundValue": "#625B60",
           "backgroundValue": "#FFFFFF",
-          "ratio": 6.594081752425566,
+          "ratio": 6.5940817524,
           "threshold": 4.5,
           "passes": true
         },
@@ -608,7 +608,7 @@
           "background": "rds.color.surface.base",
           "foregroundValue": "#625B60",
           "backgroundValue": "#FFFFFF",
-          "ratio": 6.594081752425566,
+          "ratio": 6.5940817524,
           "threshold": 4.5,
           "passes": true
         },
@@ -618,7 +618,7 @@
           "background": "rds.color.surface.subtle",
           "foregroundValue": "#625B60",
           "backgroundValue": "#FBF9FA",
-          "ratio": 6.290296849111675,
+          "ratio": 6.2902968491,
           "threshold": 4.5,
           "passes": true
         },
@@ -628,7 +628,7 @@
           "background": "rds.color.surface.raised",
           "foregroundValue": "#625B60",
           "backgroundValue": "#FFFFFF",
-          "ratio": 6.594081752425566,
+          "ratio": 6.5940817524,
           "threshold": 4.5,
           "passes": true
         },
@@ -638,7 +638,7 @@
           "background": "rds.color.surface.sunken",
           "foregroundValue": "#625B60",
           "backgroundValue": "#E8E3E5",
-          "ratio": 5.196834633939458,
+          "ratio": 5.1968346339,
           "threshold": 4.5,
           "passes": true
         },
@@ -648,7 +648,7 @@
           "background": "rds.color.surface.canvas",
           "foregroundValue": "#99507A",
           "backgroundValue": "#FFFFFF",
-          "ratio": 5.551218324760575,
+          "ratio": 5.5512183248,
           "threshold": 3,
           "passes": true
         },
@@ -658,7 +658,7 @@
           "background": "rds.color.surface.base",
           "foregroundValue": "#99507A",
           "backgroundValue": "#FFFFFF",
-          "ratio": 5.551218324760575,
+          "ratio": 5.5512183248,
           "threshold": 3,
           "passes": true
         },
@@ -668,7 +668,7 @@
           "background": "rds.color.surface.subtle",
           "foregroundValue": "#99507A",
           "backgroundValue": "#FBF9FA",
-          "ratio": 5.2954774368892075,
+          "ratio": 5.2954774369,
           "threshold": 3,
           "passes": true
         },
@@ -678,7 +678,7 @@
           "background": "rds.color.surface.raised",
           "foregroundValue": "#99507A",
           "backgroundValue": "#FFFFFF",
-          "ratio": 5.551218324760575,
+          "ratio": 5.5512183248,
           "threshold": 3,
           "passes": true
         },
@@ -688,7 +688,7 @@
           "background": "rds.color.surface.sunken",
           "foregroundValue": "#99507A",
           "backgroundValue": "#E8E3E5",
-          "ratio": 4.374947829553889,
+          "ratio": 4.3749478296,
           "threshold": 3,
           "passes": true
         },
@@ -698,7 +698,7 @@
           "background": "rds.color.surface.canvas",
           "foregroundValue": "#7A8493",
           "backgroundValue": "#FFFFFF",
-          "ratio": 3.7842355141366197,
+          "ratio": 3.7842355141,
           "threshold": 3,
           "passes": true
         },
@@ -708,7 +708,7 @@
           "background": "rds.color.surface.base",
           "foregroundValue": "#7A8493",
           "backgroundValue": "#FFFFFF",
-          "ratio": 3.7842355141366197,
+          "ratio": 3.7842355141,
           "threshold": 3,
           "passes": true
         },
@@ -718,7 +718,7 @@
           "background": "rds.color.surface.subtle",
           "foregroundValue": "#7A8493",
           "backgroundValue": "#FBF9FA",
-          "ratio": 3.609898333776955,
+          "ratio": 3.6098983338,
           "threshold": 3,
           "passes": true
         },
@@ -728,7 +728,7 @@
           "background": "rds.color.surface.raised",
           "foregroundValue": "#7A8493",
           "backgroundValue": "#FFFFFF",
-          "ratio": 3.7842355141366197,
+          "ratio": 3.7842355141,
           "threshold": 3,
           "passes": true
         },
@@ -738,7 +738,7 @@
           "background": "rds.color.surface.sunken",
           "foregroundValue": "#7A8493",
           "backgroundValue": "#E8E3E5",
-          "ratio": 2.982378278160552,
+          "ratio": 2.9823782782,
           "threshold": 3,
           "passes": false
         },
@@ -748,7 +748,7 @@
           "background": "rds.color.action.primary.bg.default",
           "foregroundValue": "#FFFFFF",
           "backgroundValue": "#631244",
-          "ratio": 12.349139697038039,
+          "ratio": 12.349139697,
           "threshold": 4.5,
           "passes": true
         },
@@ -758,7 +758,7 @@
           "background": "rds.color.action.primary.bg.hover",
           "foregroundValue": "#FFFFFF",
           "backgroundValue": "#400C2C",
-          "ratio": 16.067866713898503,
+          "ratio": 16.0678667139,
           "threshold": 4.5,
           "passes": true
         },
@@ -768,7 +768,7 @@
           "background": "rds.color.action.primary.bg.pressed",
           "foregroundValue": "#FFFFFF",
           "backgroundValue": "#1E0515",
-          "ratio": 19.306071650042682,
+          "ratio": 19.30607165,
           "threshold": 4.5,
           "passes": true
         },
@@ -778,7 +778,7 @@
           "background": "rds.color.status.success.bg",
           "foregroundValue": "#216E43",
           "backgroundValue": "#DAFBE8",
-          "ratio": 5.611582051220511,
+          "ratio": 5.6115820512,
           "threshold": 4.5,
           "passes": true
         },
@@ -788,7 +788,7 @@
           "background": "rds.color.status.success.fill",
           "foregroundValue": "#FFFFFF",
           "backgroundValue": "#2F7D50",
-          "ratio": 5.035788647504453,
+          "ratio": 5.0357886475,
           "threshold": 4.5,
           "passes": true
         },
@@ -798,7 +798,7 @@
           "background": "rds.color.status.success.bg",
           "foregroundValue": "#99507A",
           "backgroundValue": "#DAFBE8",
-          "ratio": 5.008043875766247,
+          "ratio": 5.0080438758,
           "threshold": 3,
           "passes": true
         },
@@ -808,7 +808,7 @@
           "background": "rds.color.status.warning.bg",
           "foregroundValue": "#8A5A12",
           "backgroundValue": "#FEF3DF",
-          "ratio": 5.377456494929689,
+          "ratio": 5.3774564949,
           "threshold": 4.5,
           "passes": true
         },
@@ -818,7 +818,7 @@
           "background": "rds.color.status.warning.fill",
           "foregroundValue": "#FFFFFF",
           "backgroundValue": "#9E6A19",
-          "ratio": 4.636302778297268,
+          "ratio": 4.6363027783,
           "threshold": 4.5,
           "passes": true
         },
@@ -828,7 +828,7 @@
           "background": "rds.color.status.warning.bg",
           "foregroundValue": "#99507A",
           "backgroundValue": "#FEF3DF",
-          "ratio": 5.048950852083503,
+          "ratio": 5.0489508521,
           "threshold": 3,
           "passes": true
         },
@@ -838,7 +838,7 @@
           "background": "rds.color.status.error.bg",
           "foregroundValue": "#A33A43",
           "backgroundValue": "#FCE9EB",
-          "ratio": 5.5476657201122626,
+          "ratio": 5.5476657201,
           "threshold": 4.5,
           "passes": true
         },
@@ -848,7 +848,7 @@
           "background": "rds.color.status.error.fill",
           "foregroundValue": "#FFFFFF",
           "backgroundValue": "#B54650",
-          "ratio": 5.307517054397497,
+          "ratio": 5.3075170544,
           "threshold": 4.5,
           "passes": true
         },
@@ -858,7 +858,7 @@
           "background": "rds.color.status.error.bg",
           "foregroundValue": "#99507A",
           "backgroundValue": "#FCE9EB",
-          "ratio": 4.756676793285872,
+          "ratio": 4.7566767933,
           "threshold": 3,
           "passes": true
         },
@@ -868,7 +868,7 @@
           "background": "rds.color.status.info.bg",
           "foregroundValue": "#345E91",
           "backgroundValue": "#E2ECF8",
-          "ratio": 5.572753580300105,
+          "ratio": 5.5727535803,
           "threshold": 4.5,
           "passes": true
         },
@@ -878,7 +878,7 @@
           "background": "rds.color.status.info.fill",
           "foregroundValue": "#FFFFFF",
           "backgroundValue": "#416FA8",
-          "ratio": 5.167361089235222,
+          "ratio": 5.1673610892,
           "threshold": 4.5,
           "passes": true
         },
@@ -888,7 +888,7 @@
           "background": "rds.color.status.info.bg",
           "foregroundValue": "#99507A",
           "backgroundValue": "#E2ECF8",
-          "ratio": 4.649117181086466,
+          "ratio": 4.6491171811,
           "threshold": 3,
           "passes": true
         },
@@ -898,7 +898,7 @@
           "background": "rds.color.brand.bg.default",
           "foregroundValue": "#631244",
           "backgroundValue": "#F0E5EB",
-          "ratio": 10.06302535906066,
+          "ratio": 10.0630253591,
           "threshold": 4.5,
           "passes": true
         },
@@ -908,7 +908,7 @@
           "background": "rds.color.brand.bg.default",
           "foregroundValue": "#99507A",
           "backgroundValue": "#F0E5EB",
-          "ratio": 4.5235580895685,
+          "ratio": 4.5235580896,
           "threshold": 3,
           "passes": true
         },
@@ -918,7 +918,7 @@
           "background": "rds.color.brand.bg.hover",
           "foregroundValue": "#631244",
           "backgroundValue": "#E8D9E1",
-          "ratio": 9.08164626709255,
+          "ratio": 9.0816462671,
           "threshold": 4.5,
           "passes": true
         },
@@ -928,7 +928,7 @@
           "background": "rds.color.brand.bg.hover",
           "foregroundValue": "#99507A",
           "backgroundValue": "#E8D9E1",
-          "ratio": 4.082405933829509,
+          "ratio": 4.0824059338,
           "threshold": 3,
           "passes": true
         }
@@ -940,7 +940,7 @@
           "background": "rds.color.surface.sunken",
           "foregroundValue": "#7A8493",
           "backgroundValue": "#E8E3E5",
-          "ratio": 2.982378278160552,
+          "ratio": 2.9823782782,
           "threshold": 3,
           "passes": false
         }
@@ -956,7 +956,7 @@
           "background": "rds.color.surface.canvas",
           "foregroundValue": "#EEEEF0",
           "backgroundValue": "#1A181B",
-          "ratio": 15.224681655163216,
+          "ratio": 15.2246816552,
           "threshold": 4.5,
           "passes": true
         },
@@ -966,7 +966,7 @@
           "background": "rds.color.surface.base",
           "foregroundValue": "#EEEEF0",
           "backgroundValue": "#262429",
-          "ratio": 13.259962686438163,
+          "ratio": 13.2599626864,
           "threshold": 4.5,
           "passes": true
         },
@@ -976,7 +976,7 @@
           "background": "rds.color.surface.subtle",
           "foregroundValue": "#EEEEF0",
           "backgroundValue": "#2D2C30",
-          "ratio": 11.966411996917307,
+          "ratio": 11.9664119969,
           "threshold": 4.5,
           "passes": true
         },
@@ -986,7 +986,7 @@
           "background": "rds.color.surface.raised",
           "foregroundValue": "#EEEEF0",
           "backgroundValue": "#333135",
-          "ratio": 11.108522216030298,
+          "ratio": 11.108522216,
           "threshold": 4.5,
           "passes": true
         },
@@ -996,7 +996,7 @@
           "background": "rds.color.surface.sunken",
           "foregroundValue": "#EEEEF0",
           "backgroundValue": "#030203",
-          "ratio": 17.875563444918345,
+          "ratio": 17.8755634449,
           "threshold": 4.5,
           "passes": true
         },
@@ -1006,7 +1006,7 @@
           "background": "rds.color.surface.canvas",
           "foregroundValue": "#C0BDC6",
           "backgroundValue": "#1A181B",
-          "ratio": 9.522641867330291,
+          "ratio": 9.5226418673,
           "threshold": 4.5,
           "passes": true
         },
@@ -1016,7 +1016,7 @@
           "background": "rds.color.surface.base",
           "foregroundValue": "#C0BDC6",
           "backgroundValue": "#262429",
-          "ratio": 8.293761321064537,
+          "ratio": 8.2937613211,
           "threshold": 4.5,
           "passes": true
         },
@@ -1026,7 +1026,7 @@
           "background": "rds.color.surface.subtle",
           "foregroundValue": "#C0BDC6",
           "backgroundValue": "#2D2C30",
-          "ratio": 7.4846790536945775,
+          "ratio": 7.4846790537,
           "threshold": 4.5,
           "passes": true
         },
@@ -1036,7 +1036,7 @@
           "background": "rds.color.surface.raised",
           "foregroundValue": "#C0BDC6",
           "backgroundValue": "#333135",
-          "ratio": 6.948091338426396,
+          "ratio": 6.9480913384,
           "threshold": 4.5,
           "passes": true
         },
@@ -1046,7 +1046,7 @@
           "background": "rds.color.surface.sunken",
           "foregroundValue": "#C0BDC6",
           "backgroundValue": "#030203",
-          "ratio": 11.180699387889662,
+          "ratio": 11.1806993879,
           "threshold": 4.5,
           "passes": true
         },
@@ -1056,7 +1056,7 @@
           "background": "rds.color.surface.canvas",
           "foregroundValue": "#AAA6B0",
           "backgroundValue": "#1A181B",
-          "ratio": 7.384574276056146,
+          "ratio": 7.3845742761,
           "threshold": 4.5,
           "passes": true
         },
@@ -1066,7 +1066,7 @@
           "background": "rds.color.surface.base",
           "foregroundValue": "#AAA6B0",
           "backgroundValue": "#262429",
-          "ratio": 6.431607673223684,
+          "ratio": 6.4316076732,
           "threshold": 4.5,
           "passes": true
         },
@@ -1076,7 +1076,7 @@
           "background": "rds.color.surface.subtle",
           "foregroundValue": "#AAA6B0",
           "backgroundValue": "#2D2C30",
-          "ratio": 5.804184298274436,
+          "ratio": 5.8041842983,
           "threshold": 4.5,
           "passes": true
         },
@@ -1086,7 +1086,7 @@
           "background": "rds.color.surface.raised",
           "foregroundValue": "#AAA6B0",
           "backgroundValue": "#333135",
-          "ratio": 5.388073738387545,
+          "ratio": 5.3880737384,
           "threshold": 4.5,
           "passes": true
         },
@@ -1096,7 +1096,7 @@
           "background": "rds.color.surface.sunken",
           "foregroundValue": "#AAA6B0",
           "backgroundValue": "#030203",
-          "ratio": 8.670357054105407,
+          "ratio": 8.6703570541,
           "threshold": 4.5,
           "passes": true
         },
@@ -1106,7 +1106,7 @@
           "background": "rds.color.surface.canvas",
           "foregroundValue": "#A9638B",
           "backgroundValue": "#1A181B",
-          "ratio": 4.069678896935265,
+          "ratio": 4.0696788969,
           "threshold": 3,
           "passes": true
         },
@@ -1116,7 +1116,7 @@
           "background": "rds.color.surface.base",
           "foregroundValue": "#A9638B",
           "backgroundValue": "#262429",
-          "ratio": 3.5444938384537883,
+          "ratio": 3.5444938385,
           "threshold": 3,
           "passes": true
         },
@@ -1126,7 +1126,7 @@
           "background": "rds.color.surface.subtle",
           "foregroundValue": "#A9638B",
           "backgroundValue": "#2D2C30",
-          "ratio": 3.1987174168184778,
+          "ratio": 3.1987174168,
           "threshold": 3,
           "passes": true
         },
@@ -1136,7 +1136,7 @@
           "background": "rds.color.surface.raised",
           "foregroundValue": "#A9638B",
           "backgroundValue": "#333135",
-          "ratio": 2.9693966325649535,
+          "ratio": 2.9693966326,
           "threshold": 3,
           "passes": false
         },
@@ -1146,7 +1146,7 @@
           "background": "rds.color.surface.sunken",
           "foregroundValue": "#A9638B",
           "backgroundValue": "#030203",
-          "ratio": 4.778280752946999,
+          "ratio": 4.7782807529,
           "threshold": 3,
           "passes": true
         },
@@ -1156,7 +1156,7 @@
           "background": "rds.color.surface.canvas",
           "foregroundValue": "#7A8493",
           "backgroundValue": "#1A181B",
-          "ratio": 4.661732603075154,
+          "ratio": 4.6617326031,
           "threshold": 3,
           "passes": true
         },
@@ -1166,7 +1166,7 @@
           "background": "rds.color.surface.base",
           "foregroundValue": "#7A8493",
           "backgroundValue": "#262429",
-          "ratio": 4.060144032631736,
+          "ratio": 4.0601440326,
           "threshold": 3,
           "passes": true
         },
@@ -1176,7 +1176,7 @@
           "background": "rds.color.surface.subtle",
           "foregroundValue": "#7A8493",
           "backgroundValue": "#2D2C30",
-          "ratio": 3.6640643273444544,
+          "ratio": 3.6640643273,
           "threshold": 3,
           "passes": true
         },
@@ -1186,7 +1186,7 @@
           "background": "rds.color.surface.raised",
           "foregroundValue": "#7A8493",
           "backgroundValue": "#333135",
-          "ratio": 3.4013821345742907,
+          "ratio": 3.4013821346,
           "threshold": 3,
           "passes": true
         },
@@ -1196,7 +1196,7 @@
           "background": "rds.color.surface.sunken",
           "foregroundValue": "#7A8493",
           "backgroundValue": "#030203",
-          "ratio": 5.4734213034434,
+          "ratio": 5.4734213034,
           "threshold": 3,
           "passes": true
         },
@@ -1206,7 +1206,7 @@
           "background": "rds.color.action.primary.bg.default",
           "foregroundValue": "#FFFFFF",
           "backgroundValue": "#631244",
-          "ratio": 12.349139697038039,
+          "ratio": 12.349139697,
           "threshold": 4.5,
           "passes": true
         },
@@ -1216,7 +1216,7 @@
           "background": "rds.color.action.primary.bg.hover",
           "foregroundValue": "#FFFFFF",
           "backgroundValue": "#741A52",
-          "ratio": 10.436349754678515,
+          "ratio": 10.4363497547,
           "threshold": 4.5,
           "passes": true
         },
@@ -1226,7 +1226,7 @@
           "background": "rds.color.action.primary.bg.pressed",
           "foregroundValue": "#FFFFFF",
           "backgroundValue": "#4A0D33",
-          "ratio": 15.037141596468114,
+          "ratio": 15.0371415965,
           "threshold": 4.5,
           "passes": true
         },
@@ -1236,7 +1236,7 @@
           "background": "rds.color.status.success.bg",
           "foregroundValue": "#87DCA4",
           "backgroundValue": "#203B2A",
-          "ratio": 7.442030522140857,
+          "ratio": 7.4420305221,
           "threshold": 4.5,
           "passes": true
         },
@@ -1246,7 +1246,7 @@
           "background": "rds.color.status.success.fill",
           "foregroundValue": "#FFFFFF",
           "backgroundValue": "#348556",
-          "ratio": 4.530351874061277,
+          "ratio": 4.5303518741,
           "threshold": 4.5,
           "passes": true
         },
@@ -1256,7 +1256,7 @@
           "background": "rds.color.status.success.bg",
           "foregroundValue": "#A9638B",
           "backgroundValue": "#203B2A",
-          "ratio": 2.8158905440219657,
+          "ratio": 2.815890544,
           "threshold": 3,
           "passes": false
         },
@@ -1266,7 +1266,7 @@
           "background": "rds.color.status.warning.bg",
           "foregroundValue": "#F0C86F",
           "backgroundValue": "#40341D",
-          "ratio": 7.641454508131621,
+          "ratio": 7.6414545081,
           "threshold": 4.5,
           "passes": true
         },
@@ -1276,7 +1276,7 @@
           "background": "rds.color.status.warning.fill",
           "foregroundValue": "#1B1407",
           "backgroundValue": "#BE882E",
-          "ratio": 5.871403808485186,
+          "ratio": 5.8714038085,
           "threshold": 4.5,
           "passes": true
         },
@@ -1286,7 +1286,7 @@
           "background": "rds.color.status.warning.bg",
           "foregroundValue": "#A9638B",
           "backgroundValue": "#40341D",
-          "ratio": 2.805289423080463,
+          "ratio": 2.8052894231,
           "threshold": 3,
           "passes": false
         },
@@ -1296,7 +1296,7 @@
           "background": "rds.color.status.error.bg",
           "foregroundValue": "#F4979F",
           "backgroundValue": "#42262B",
-          "ratio": 6.33115435572916,
+          "ratio": 6.3311543557,
           "threshold": 4.5,
           "passes": true
         },
@@ -1306,7 +1306,7 @@
           "background": "rds.color.status.error.fill",
           "foregroundValue": "#FFFFFF",
           "backgroundValue": "#B94C57",
-          "ratio": 4.9595465386692625,
+          "ratio": 4.9595465387,
           "threshold": 4.5,
           "passes": true
         },
@@ -1316,7 +1316,7 @@
           "background": "rds.color.status.error.bg",
           "foregroundValue": "#A9638B",
           "backgroundValue": "#42262B",
-          "ratio": 3.138114463923291,
+          "ratio": 3.1381144639,
           "threshold": 3,
           "passes": true
         },
@@ -1326,7 +1326,7 @@
           "background": "rds.color.status.info.bg",
           "foregroundValue": "#86B9EE",
           "backgroundValue": "#23354B",
-          "ratio": 6.055889747241381,
+          "ratio": 6.0558897472,
           "threshold": 4.5,
           "passes": true
         },
@@ -1336,7 +1336,7 @@
           "background": "rds.color.status.info.fill",
           "foregroundValue": "#FFFFFF",
           "backgroundValue": "#4479B5",
-          "ratio": 4.518094892658851,
+          "ratio": 4.5180948927,
           "threshold": 4.5,
           "passes": true
         },
@@ -1346,7 +1346,7 @@
           "background": "rds.color.status.info.bg",
           "foregroundValue": "#A9638B",
           "backgroundValue": "#23354B",
-          "ratio": 2.879710904712643,
+          "ratio": 2.8797109047,
           "threshold": 3,
           "passes": false
         },
@@ -1356,7 +1356,7 @@
           "background": "rds.color.brand.bg.default",
           "foregroundValue": "#E7B6D0",
           "backgroundValue": "#321A29",
-          "ratio": 9.122539466525891,
+          "ratio": 9.1225394665,
           "threshold": 4.5,
           "passes": true
         },
@@ -1366,7 +1366,7 @@
           "background": "rds.color.brand.bg.default",
           "foregroundValue": "#A9638B",
           "backgroundValue": "#321A29",
-          "ratio": 3.6829555561181433,
+          "ratio": 3.6829555561,
           "threshold": 3,
           "passes": true
         },
@@ -1376,7 +1376,7 @@
           "background": "rds.color.brand.bg.hover",
           "foregroundValue": "#E7B6D0",
           "backgroundValue": "#4A0D33",
-          "ratio": 8.5924930663678,
+          "ratio": 8.5924930664,
           "threshold": 4.5,
           "passes": true
         },
@@ -1386,7 +1386,7 @@
           "background": "rds.color.brand.bg.hover",
           "foregroundValue": "#A9638B",
           "backgroundValue": "#4A0D33",
-          "ratio": 3.4689649955263464,
+          "ratio": 3.4689649955,
           "threshold": 3,
           "passes": true
         }
@@ -1398,7 +1398,7 @@
           "background": "rds.color.surface.raised",
           "foregroundValue": "#A9638B",
           "backgroundValue": "#333135",
-          "ratio": 2.9693966325649535,
+          "ratio": 2.9693966326,
           "threshold": 3,
           "passes": false
         },
@@ -1408,7 +1408,7 @@
           "background": "rds.color.status.success.bg",
           "foregroundValue": "#A9638B",
           "backgroundValue": "#203B2A",
-          "ratio": 2.8158905440219657,
+          "ratio": 2.815890544,
           "threshold": 3,
           "passes": false
         },
@@ -1418,7 +1418,7 @@
           "background": "rds.color.status.warning.bg",
           "foregroundValue": "#A9638B",
           "backgroundValue": "#40341D",
-          "ratio": 2.805289423080463,
+          "ratio": 2.8052894231,
           "threshold": 3,
           "passes": false
         },
@@ -1428,7 +1428,7 @@
           "background": "rds.color.status.info.bg",
           "foregroundValue": "#A9638B",
           "backgroundValue": "#23354B",
-          "ratio": 2.879710904712643,
+          "ratio": 2.8797109047,
           "threshold": 3,
           "passes": false
         }
@@ -1444,7 +1444,7 @@
           "background": "rds.color.surface.canvas",
           "foregroundValue": "#FFFFFF",
           "backgroundValue": "#030203",
-          "ratio": 20.71271528032246,
+          "ratio": 20.7127152803,
           "threshold": 4.5,
           "passes": true
         },
@@ -1454,7 +1454,7 @@
           "background": "rds.color.surface.base",
           "foregroundValue": "#FFFFFF",
           "backgroundValue": "#1A181B",
-          "ratio": 17.641094073965547,
+          "ratio": 17.641094074,
           "threshold": 4.5,
           "passes": true
         },
@@ -1464,7 +1464,7 @@
           "background": "rds.color.surface.subtle",
           "foregroundValue": "#FFFFFF",
           "backgroundValue": "#2D2C30",
-          "ratio": 13.86568235361799,
+          "ratio": 13.8656823536,
           "threshold": 4.5,
           "passes": true
         },
@@ -1474,7 +1474,7 @@
           "background": "rds.color.surface.raised",
           "foregroundValue": "#FFFFFF",
           "backgroundValue": "#333135",
-          "ratio": 12.871631070805854,
+          "ratio": 12.8716310708,
           "threshold": 4.5,
           "passes": true
         },
@@ -1484,7 +1484,7 @@
           "background": "rds.color.surface.sunken",
           "foregroundValue": "#FFFFFF",
           "backgroundValue": "#030203",
-          "ratio": 20.71271528032246,
+          "ratio": 20.7127152803,
           "threshold": 4.5,
           "passes": true
         },
@@ -1494,7 +1494,7 @@
           "background": "rds.color.surface.canvas",
           "foregroundValue": "#EEEEF0",
           "backgroundValue": "#030203",
-          "ratio": 17.875563444918345,
+          "ratio": 17.8755634449,
           "threshold": 4.5,
           "passes": true
         },
@@ -1504,7 +1504,7 @@
           "background": "rds.color.surface.base",
           "foregroundValue": "#EEEEF0",
           "backgroundValue": "#1A181B",
-          "ratio": 15.224681655163216,
+          "ratio": 15.2246816552,
           "threshold": 4.5,
           "passes": true
         },
@@ -1514,7 +1514,7 @@
           "background": "rds.color.surface.subtle",
           "foregroundValue": "#EEEEF0",
           "backgroundValue": "#2D2C30",
-          "ratio": 11.966411996917307,
+          "ratio": 11.9664119969,
           "threshold": 4.5,
           "passes": true
         },
@@ -1524,7 +1524,7 @@
           "background": "rds.color.surface.raised",
           "foregroundValue": "#EEEEF0",
           "backgroundValue": "#333135",
-          "ratio": 11.108522216030298,
+          "ratio": 11.108522216,
           "threshold": 4.5,
           "passes": true
         },
@@ -1534,7 +1534,7 @@
           "background": "rds.color.surface.sunken",
           "foregroundValue": "#EEEEF0",
           "backgroundValue": "#030203",
-          "ratio": 17.875563444918345,
+          "ratio": 17.8755634449,
           "threshold": 4.5,
           "passes": true
         },
@@ -1544,7 +1544,7 @@
           "background": "rds.color.surface.canvas",
           "foregroundValue": "#B5B2BC",
           "backgroundValue": "#030203",
-          "ratio": 9.921466895613687,
+          "ratio": 9.9214668956,
           "threshold": 4.5,
           "passes": true
         },
@@ -1554,7 +1554,7 @@
           "background": "rds.color.surface.base",
           "foregroundValue": "#B5B2BC",
           "backgroundValue": "#1A181B",
-          "ratio": 8.45014902626186,
+          "ratio": 8.4501490263,
           "threshold": 4.5,
           "passes": true
         },
@@ -1564,7 +1564,7 @@
           "background": "rds.color.surface.subtle",
           "foregroundValue": "#B5B2BC",
           "backgroundValue": "#2D2C30",
-          "ratio": 6.641712908939965,
+          "ratio": 6.6417129089,
           "threshold": 4.5,
           "passes": true
         },
@@ -1574,7 +1574,7 @@
           "background": "rds.color.surface.raised",
           "foregroundValue": "#B5B2BC",
           "backgroundValue": "#333135",
-          "ratio": 6.165558683794386,
+          "ratio": 6.1655586838,
           "threshold": 4.5,
           "passes": true
         },
@@ -1584,7 +1584,7 @@
           "background": "rds.color.surface.sunken",
           "foregroundValue": "#B5B2BC",
           "backgroundValue": "#030203",
-          "ratio": 9.921466895613687,
+          "ratio": 9.9214668956,
           "threshold": 4.5,
           "passes": true
         },
@@ -1594,7 +1594,7 @@
           "background": "rds.color.surface.canvas",
           "foregroundValue": "#A9638B",
           "backgroundValue": "#030203",
-          "ratio": 4.778280752946999,
+          "ratio": 4.7782807529,
           "threshold": 3,
           "passes": true
         },
@@ -1604,7 +1604,7 @@
           "background": "rds.color.surface.base",
           "foregroundValue": "#A9638B",
           "backgroundValue": "#1A181B",
-          "ratio": 4.069678896935265,
+          "ratio": 4.0696788969,
           "threshold": 3,
           "passes": true
         },
@@ -1614,7 +1614,7 @@
           "background": "rds.color.surface.subtle",
           "foregroundValue": "#A9638B",
           "backgroundValue": "#2D2C30",
-          "ratio": 3.1987174168184778,
+          "ratio": 3.1987174168,
           "threshold": 3,
           "passes": true
         },
@@ -1624,7 +1624,7 @@
           "background": "rds.color.surface.raised",
           "foregroundValue": "#A9638B",
           "backgroundValue": "#333135",
-          "ratio": 2.9693966325649535,
+          "ratio": 2.9693966326,
           "threshold": 3,
           "passes": false
         },
@@ -1634,7 +1634,7 @@
           "background": "rds.color.surface.sunken",
           "foregroundValue": "#A9638B",
           "backgroundValue": "#030203",
-          "ratio": 4.778280752946999,
+          "ratio": 4.7782807529,
           "threshold": 3,
           "passes": true
         },
@@ -1644,7 +1644,7 @@
           "background": "rds.color.surface.canvas",
           "foregroundValue": "#7A8493",
           "backgroundValue": "#030203",
-          "ratio": 5.4734213034434,
+          "ratio": 5.4734213034,
           "threshold": 3,
           "passes": true
         },
@@ -1654,7 +1654,7 @@
           "background": "rds.color.surface.base",
           "foregroundValue": "#7A8493",
           "backgroundValue": "#1A181B",
-          "ratio": 4.661732603075154,
+          "ratio": 4.6617326031,
           "threshold": 3,
           "passes": true
         },
@@ -1664,7 +1664,7 @@
           "background": "rds.color.surface.subtle",
           "foregroundValue": "#7A8493",
           "backgroundValue": "#2D2C30",
-          "ratio": 3.6640643273444544,
+          "ratio": 3.6640643273,
           "threshold": 3,
           "passes": true
         },
@@ -1674,7 +1674,7 @@
           "background": "rds.color.surface.raised",
           "foregroundValue": "#7A8493",
           "backgroundValue": "#333135",
-          "ratio": 3.4013821345742907,
+          "ratio": 3.4013821346,
           "threshold": 3,
           "passes": true
         },
@@ -1684,7 +1684,7 @@
           "background": "rds.color.surface.sunken",
           "foregroundValue": "#7A8493",
           "backgroundValue": "#030203",
-          "ratio": 5.4734213034434,
+          "ratio": 5.4734213034,
           "threshold": 3,
           "passes": true
         },
@@ -1694,7 +1694,7 @@
           "background": "rds.color.action.primary.bg.default",
           "foregroundValue": "#FFFFFF",
           "backgroundValue": "#631244",
-          "ratio": 12.349139697038039,
+          "ratio": 12.349139697,
           "threshold": 4.5,
           "passes": true
         },
@@ -1704,7 +1704,7 @@
           "background": "rds.color.action.primary.bg.hover",
           "foregroundValue": "#FFFFFF",
           "backgroundValue": "#741A52",
-          "ratio": 10.436349754678515,
+          "ratio": 10.4363497547,
           "threshold": 4.5,
           "passes": true
         },
@@ -1714,7 +1714,7 @@
           "background": "rds.color.action.primary.bg.pressed",
           "foregroundValue": "#FFFFFF",
           "backgroundValue": "#4A0D33",
-          "ratio": 15.037141596468114,
+          "ratio": 15.0371415965,
           "threshold": 4.5,
           "passes": true
         },
@@ -1724,7 +1724,7 @@
           "background": "rds.color.status.success.bg",
           "foregroundValue": "#87DCA4",
           "backgroundValue": "#203B2A",
-          "ratio": 7.442030522140857,
+          "ratio": 7.4420305221,
           "threshold": 4.5,
           "passes": true
         },
@@ -1734,7 +1734,7 @@
           "background": "rds.color.status.success.fill",
           "foregroundValue": "#FFFFFF",
           "backgroundValue": "#348556",
-          "ratio": 4.530351874061277,
+          "ratio": 4.5303518741,
           "threshold": 4.5,
           "passes": true
         },
@@ -1744,7 +1744,7 @@
           "background": "rds.color.status.success.bg",
           "foregroundValue": "#A9638B",
           "backgroundValue": "#203B2A",
-          "ratio": 2.8158905440219657,
+          "ratio": 2.815890544,
           "threshold": 3,
           "passes": false
         },
@@ -1754,7 +1754,7 @@
           "background": "rds.color.status.warning.bg",
           "foregroundValue": "#F0C86F",
           "backgroundValue": "#40341D",
-          "ratio": 7.641454508131621,
+          "ratio": 7.6414545081,
           "threshold": 4.5,
           "passes": true
         },
@@ -1764,7 +1764,7 @@
           "background": "rds.color.status.warning.fill",
           "foregroundValue": "#1B1407",
           "backgroundValue": "#BE882E",
-          "ratio": 5.871403808485186,
+          "ratio": 5.8714038085,
           "threshold": 4.5,
           "passes": true
         },
@@ -1774,7 +1774,7 @@
           "background": "rds.color.status.warning.bg",
           "foregroundValue": "#A9638B",
           "backgroundValue": "#40341D",
-          "ratio": 2.805289423080463,
+          "ratio": 2.8052894231,
           "threshold": 3,
           "passes": false
         },
@@ -1784,7 +1784,7 @@
           "background": "rds.color.status.error.bg",
           "foregroundValue": "#F4979F",
           "backgroundValue": "#42262B",
-          "ratio": 6.33115435572916,
+          "ratio": 6.3311543557,
           "threshold": 4.5,
           "passes": true
         },
@@ -1794,7 +1794,7 @@
           "background": "rds.color.status.error.fill",
           "foregroundValue": "#FFFFFF",
           "backgroundValue": "#B94C57",
-          "ratio": 4.9595465386692625,
+          "ratio": 4.9595465387,
           "threshold": 4.5,
           "passes": true
         },
@@ -1804,7 +1804,7 @@
           "background": "rds.color.status.error.bg",
           "foregroundValue": "#A9638B",
           "backgroundValue": "#42262B",
-          "ratio": 3.138114463923291,
+          "ratio": 3.1381144639,
           "threshold": 3,
           "passes": true
         },
@@ -1814,7 +1814,7 @@
           "background": "rds.color.status.info.bg",
           "foregroundValue": "#86B9EE",
           "backgroundValue": "#23354B",
-          "ratio": 6.055889747241381,
+          "ratio": 6.0558897472,
           "threshold": 4.5,
           "passes": true
         },
@@ -1824,7 +1824,7 @@
           "background": "rds.color.status.info.fill",
           "foregroundValue": "#FFFFFF",
           "backgroundValue": "#4479B5",
-          "ratio": 4.518094892658851,
+          "ratio": 4.5180948927,
           "threshold": 4.5,
           "passes": true
         },
@@ -1834,7 +1834,7 @@
           "background": "rds.color.status.info.bg",
           "foregroundValue": "#A9638B",
           "backgroundValue": "#23354B",
-          "ratio": 2.879710904712643,
+          "ratio": 2.8797109047,
           "threshold": 3,
           "passes": false
         },
@@ -1844,7 +1844,7 @@
           "background": "rds.color.brand.bg.default",
           "foregroundValue": "#E7B6D0",
           "backgroundValue": "#321A29",
-          "ratio": 9.122539466525891,
+          "ratio": 9.1225394665,
           "threshold": 4.5,
           "passes": true
         },
@@ -1854,7 +1854,7 @@
           "background": "rds.color.brand.bg.default",
           "foregroundValue": "#A9638B",
           "backgroundValue": "#321A29",
-          "ratio": 3.6829555561181433,
+          "ratio": 3.6829555561,
           "threshold": 3,
           "passes": true
         },
@@ -1864,7 +1864,7 @@
           "background": "rds.color.brand.bg.hover",
           "foregroundValue": "#E7B6D0",
           "backgroundValue": "#4A0D33",
-          "ratio": 8.5924930663678,
+          "ratio": 8.5924930664,
           "threshold": 4.5,
           "passes": true
         },
@@ -1874,7 +1874,7 @@
           "background": "rds.color.brand.bg.hover",
           "foregroundValue": "#A9638B",
           "backgroundValue": "#4A0D33",
-          "ratio": 3.4689649955263464,
+          "ratio": 3.4689649955,
           "threshold": 3,
           "passes": true
         }
@@ -1886,7 +1886,7 @@
           "background": "rds.color.surface.raised",
           "foregroundValue": "#A9638B",
           "backgroundValue": "#333135",
-          "ratio": 2.9693966325649535,
+          "ratio": 2.9693966326,
           "threshold": 3,
           "passes": false
         },
@@ -1896,7 +1896,7 @@
           "background": "rds.color.status.success.bg",
           "foregroundValue": "#A9638B",
           "backgroundValue": "#203B2A",
-          "ratio": 2.8158905440219657,
+          "ratio": 2.815890544,
           "threshold": 3,
           "passes": false
         },
@@ -1906,7 +1906,7 @@
           "background": "rds.color.status.warning.bg",
           "foregroundValue": "#A9638B",
           "backgroundValue": "#40341D",
-          "ratio": 2.805289423080463,
+          "ratio": 2.8052894231,
           "threshold": 3,
           "passes": false
         },
@@ -1916,7 +1916,7 @@
           "background": "rds.color.status.info.bg",
           "foregroundValue": "#A9638B",
           "backgroundValue": "#23354B",
-          "ratio": 2.879710904712643,
+          "ratio": 2.8797109047,
           "threshold": 3,
           "passes": false
         }

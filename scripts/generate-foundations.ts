@@ -1,8 +1,9 @@
-import { readFile, writeFile } from 'node:fs/promises';
+import { writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { build, renderOutputs } from '../src/foundations/canonical/master-tokens/scripts/build.mjs';
 import { loadModel, cssName } from '../src/foundations/canonical/master-tokens/scripts/foundations.mjs';
+import { readText } from '../src/foundations/canonical/master-tokens/scripts/lib.mjs';
 import { renderCss } from '../src/foundations/canonical/master-tokens/scripts/css.mjs';
 import { calculateInteractionContrast } from '../src/foundations/interactionContrast.ts';
 import { renderFontsCss, renderFoundationsCss } from '../src/foundations/css.ts';
@@ -17,12 +18,12 @@ if (check) {
   const { renderReview } = await import('../src/foundations/canonical/master-tokens/scripts/lib.mjs');
   const canonicalOutputs = { ...await renderOutputs(), 'master-tokens/Master-Token-List.md': await renderReview() };
   for (const [file, content] of Object.entries(canonicalOutputs)) {
-    const current = await readFile(path.join(root, 'src/foundations/canonical', file), 'utf8').catch(() => '');
+    const current = await readText(path.join(root, 'src/foundations/canonical', file)).catch(() => '');
     if (current !== content) throw new Error('Canonical output is stale: ' + file + '. Run npm run tokens:build.');
   }
 }
 const model = await loadModel();
-const stateMigration = JSON.parse(await readFile(path.join(root, 'src/foundations/canonical/master-tokens/state-name-migration.json'), 'utf8'));
+const stateMigration = JSON.parse(await readText(path.join(root, 'src/foundations/canonical/master-tokens/state-name-migration.json')));
 const modes = Object.fromEntries(['light', 'dark'].map(appearance => [appearance,
   ['  color-scheme: ' + appearance + ';', ...[...model.sets[appearance]].map(([name]) => '  ' + cssName(name) + ': ' + model.value(name, appearance) + ';'), ...stateMigration.cssCompatibility.map((entry: { from: string; to: string }) => '  ' + entry.from + ': var(' + entry.to + ');')].join('\n'),
 ])) as Record<'light' | 'dark', string>;
@@ -39,7 +40,7 @@ for (const appearance of ['light', 'dark']) {
 }
 const guideFiles = { colors: 'Color.md', typography: 'Typography.md', spacing: 'Spacing.md', veil: 'Veil & Shadow.md', lift: 'Veil & Shadow.md', border: 'Border.md', radius: 'Radius.md', numbers: 'Numbers.md', motion: 'Motion.md', layout: 'Layout.md', tokens: 'Rahino-Tokenization.md', context: 'Rahino-Resolver.md', contrast: 'output/contrast-review/Contrast-Review.md', changes: 'output/color-value-update/Changes.md' };
 const guides = Object.fromEntries(await Promise.all(Object.entries(guideFiles).map(async ([key, file]) => [key,
-  await readFile(path.join(root, 'src/foundations/canonical', file), 'utf8'),
+  await readText(path.join(root, 'src/foundations/canonical', file)),
 ])));
 const outputs = {
   'src/foundations/interaction-contrast.json': JSON.stringify(calculateInteractionContrast(), null, 2) + '\n',
@@ -51,7 +52,7 @@ const outputs = {
 for (const [file, content] of Object.entries(outputs)) {
   const target = path.join(root, file);
   if (check) {
-    if (await readFile(target, 'utf8').catch(() => '') !== content) throw new Error(file + ' is stale. Run npm run tokens:build.');
+    if (await readText(target).catch(() => '') !== content) throw new Error(file + ' is stale. Run npm run tokens:build.');
   } else await writeFile(target, content);
 }
 console.log(check ? 'Foundation integration outputs are current.' : 'Built canonical foundations, styles, compatibility projections and shared guides.');

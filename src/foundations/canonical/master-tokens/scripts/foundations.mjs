@@ -20,6 +20,8 @@ export const luminance = hex => hex.slice(1).match(/../g).map(v => parseInt(v, 1
   .map(v => v <= .04045 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4)
   .reduce((sum, v, i) => sum + v * [.2126, .7152, .0722][i], 0);
 export const contrastRatio = (a, b) => (Math.max(luminance(a), luminance(b)) + .05) / (Math.min(luminance(a), luminance(b)) + .05);
+// Stored ratios are rounded so last-bit floating-point differences between runtimes cannot make generated files drift.
+export const roundRatio = value => Number(value.toFixed(10));
 
 export async function loadModel() {
   const manifest = await json('manifest.json');

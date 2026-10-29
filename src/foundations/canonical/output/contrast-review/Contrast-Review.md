@@ -20,7 +20,7 @@ Generated from the current [master collection](../../master-tokens/Master-Token-
 | dark | more | `rds.color.focus.ring`<br>`#A9638B` | `rds.color.status.warning.bg`<br>`#40341D` | 2.8053:1 | 3:1 |
 | dark | more | `rds.color.focus.ring`<br>`#A9638B` | `rds.color.status.info.bg`<br>`#23354B` | 2.8797:1 | 3:1 |
 
-Below-target results remain unresolved. The standard checker enforces its existing neutral-parent focus target and can stop before later checks when a pair fails. This review also includes tinted focus parents and ordinary resting text. These findings do not authorize different color values or usage mappings.
+Below-target results remain unresolved. Each listed pair is registered in [known-contrast-exceptions.json](../../master-tokens/known-contrast-exceptions.json) as a diagnostic exception. Any below-target pair that is not registered fails the color check, and approved usage families cannot be registered. This review also includes tinted focus parents and ordinary resting text. These findings do not authorize different color values or usage mappings.
 
 ## Neutral resting text
 

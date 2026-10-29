@@ -4,7 +4,9 @@ import path from 'node:path';
 
 export const masterDir = fileURLToPath(new URL('../', import.meta.url));
 export const foundationDir = path.resolve(masterDir, '..');
-export const json = async name => JSON.parse(await readFile(path.join(masterDir, name), 'utf8'));
+// Generated files are compared with LF endings; Windows checkouts may store CRLF.
+export const readText = async file => (await readFile(file, 'utf8')).replaceAll('\r\n', '\n');
+export const json = async name => JSON.parse(await readText(path.join(masterDir, name)));
 export const save = async (name, value) => writeFile(path.join(masterDir, name), JSON.stringify(value, null, 2) + '\n', 'utf8');
 export const at = (object, keys) => keys.reduce((value, key) => value[key], object);
 

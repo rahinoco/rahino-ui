@@ -1,0 +1,100 @@
+{
+  "status": "diagnostic-exceptions",
+  "policy": "Each entry is a known below-target pair that stays visible in Contrast-Review.md and results.json. Entries are diagnostics only: they do not approve the pair for use. Any below-target pair not listed here fails the color check. Approved usage families cannot be listed. Entries must be removed once their pair passes.",
+  "approvedUsageFamilies": [
+    "Enabled primary label",
+    "Status text on soft background",
+    "Status text on solid fill",
+    "Brand text on soft background"
+  ],
+  "exceptions": [
+    {
+      "appearance": "light",
+      "contrast": "standard",
+      "family": "Neutral resting text",
+      "foreground": "rds.color.ink.tertiary",
+      "background": "rds.color.surface.sunken",
+      "reason": "Tertiary ink is kept for approved resting backgrounds; this text pair is unresolved below 4.5:1."
+    },
+    {
+      "appearance": "light",
+      "contrast": "standard",
+      "family": "Control edge on neutral parent",
+      "foreground": "rds.color.edge.control",
+      "background": "rds.color.surface.sunken",
+      "reason": "Control edge is unresolved below 3:1 on the sunken neutral surface."
+    },
+    {
+      "appearance": "light",
+      "contrast": "more",
+      "family": "Control edge on neutral parent",
+      "foreground": "rds.color.edge.control",
+      "background": "rds.color.surface.sunken",
+      "reason": "Control edge is unresolved below 3:1 on the sunken neutral surface in enhanced contrast."
+    },
+    {
+      "appearance": "dark",
+      "contrast": "standard",
+      "family": "Focus on neutral parent",
+      "foreground": "rds.color.focus.ring",
+      "background": "rds.color.surface.raised",
+      "reason": "Approved dark focus ring is unresolved below 3:1 on the raised dark surface."
+    },
+    {
+      "appearance": "dark",
+      "contrast": "standard",
+      "family": "Focus on status parent",
+      "foreground": "rds.color.focus.ring",
+      "background": "rds.color.status.success.bg",
+      "reason": "Approved dark focus ring is unresolved below 3:1 on the success tint."
+    },
+    {
+      "appearance": "dark",
+      "contrast": "standard",
+      "family": "Focus on status parent",
+      "foreground": "rds.color.focus.ring",
+      "background": "rds.color.status.warning.bg",
+      "reason": "Approved dark focus ring is unresolved below 3:1 on the warning tint."
+    },
+    {
+      "appearance": "dark",
+      "contrast": "standard",
+      "family": "Focus on status parent",
+      "foreground": "rds.color.focus.ring",
+      "background": "rds.color.status.info.bg",
+      "reason": "Approved dark focus ring is unresolved below 3:1 on the info tint."
+    },
+    {
+      "appearance": "dark",
+      "contrast": "more",
+      "family": "Focus on neutral parent",
+      "foreground": "rds.color.focus.ring",
+      "background": "rds.color.surface.raised",
+      "reason": "Approved dark focus ring is unresolved below 3:1 on the raised dark surface in enhanced contrast."
+    },
+    {
+      "appearance": "dark",
+      "contrast": "more",
+      "family": "Focus on status parent",
+      "foreground": "rds.color.focus.ring",
+      "background": "rds.color.status.success.bg",
+      "reason": "Approved dark focus ring is unresolved below 3:1 on the success tint in enhanced contrast."
+    },
+    {
+      "appearance": "dark",
+      "contrast": "more",
+      "family": "Focus on status parent",
+      "foreground": "rds.color.focus.ring",
+      "background": "rds.color.status.warning.bg",
+      "reason": "Approved dark focus ring is unresolved below 3:1 on the warning tint in enhanced contrast."
+    },
+    {
+      "appearance": "dark",
+      "contrast": "more",
+      "family": "Focus on status parent",
+      "foreground": "rds.color.focus.ring",
+      "background": "rds.color.status.info.bg",
+      "reason": "Approved dark focus ring is unresolved below 3:1 on the info tint in enhanced contrast."
+    }
+  ]
+}

@@ -2,7 +2,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { pathToFileURL } from 'node:url';
 import path from 'node:path';
 import { foundationDir, json, save, renderReview, at } from './lib.mjs';
-import { loadModel, renderFoundationFiles, rawOutputFile, cssName, contrastRatio } from './foundations.mjs';
+import { loadModel, renderFoundationFiles, rawOutputFile, cssName, contrastRatio, roundRatio } from './foundations.mjs';
 import { renderDocuments } from './docs.mjs';
 import { renderCss } from './css.mjs';
 import { renderColorResolver } from './color-resolver.mjs';
@@ -75,7 +75,7 @@ export async function build() {
     if (entry.id === 'contrast-reference-snapshot') derived = currentModel.textContrast;
     if (['dark-focus-contrast-validation', 'dark-control-contrast-validation'].includes(entry.id)) {
       const foreground = entry.id === 'dark-focus-contrast-validation' ? currentModel.value('rds.color.focus.ring', 'dark') : currentModel.value('rds.color.edge.control', 'dark');
-      derived = { minimum: entry.value.minimum, ratios: Object.fromEntries(Object.keys(currentModel.api['Color.ts'].SURFACE).map(surface => [surface, contrastRatio(foreground, currentModel.value(`rds.color.surface.${surface}`, 'dark'))])) };
+      derived = { minimum: entry.value.minimum, ratios: Object.fromEntries(Object.keys(currentModel.api['Color.ts'].SURFACE).map(surface => [surface, roundRatio(contrastRatio(foreground, currentModel.value(`rds.color.surface.${surface}`, 'dark')))])) };
     }
     if (derived) {
       entry.capturedValue ??= structuredClone(entry.value);

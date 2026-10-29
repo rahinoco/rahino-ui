@@ -28,7 +28,8 @@ export async function renderColorResolver(model) {
   const module = [
     '/** Generated color resolver. Edit master JSON or generator sources and rebuild. Guide: ../../Rahino-Resolver.md. */',
     `const data = ${JSON.stringify(data, null, 2)};`,
-    selectContext.toString(), createColorResolver.toString(),
+    // Function source keeps the checkout's line endings; normalize so generated output is platform-independent.
+    selectContext.toString().replaceAll('\r\n', '\n'), createColorResolver.toString().replaceAll('\r\n', '\n'),
     'const resolver = createColorResolver(data, selectContext);',
     'export const resolveColorContext = resolver.resolveColorContext;',
     'export const resolveColor = resolver.resolveColor;',
