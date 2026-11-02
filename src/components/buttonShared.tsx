@@ -1,5 +1,6 @@
 import { clsx } from 'clsx';
 import { LoaderCircle } from 'lucide-react';
+import { ButtonShape } from './buttonShape';
 import {
   useEffect,
   useLayoutEffect,
@@ -14,11 +15,13 @@ import {
 export type ButtonAppearance = 'solid' | 'soft' | 'ghost';
 export type ButtonIntent = 'neutral' | 'brand' | 'danger';
 export type ButtonSize = 'sm' | 'md' | 'lg';
+export type ButtonRadius = 'less' | 'more';
 
 export type ButtonOwnProps = {
   appearance?: ButtonAppearance;
   intent?: ButtonIntent;
   size?: ButtonSize;
+  radius?: ButtonRadius;
   iconStart?: ReactNode;
   iconEnd?: ReactNode;
   mirrorStart?: boolean;
@@ -63,6 +66,7 @@ export function buttonData(props: ButtonOwnProps & { iconOnly?: boolean; pressed
     'data-appearance': props.appearance ?? 'soft',
     'data-intent': props.intent ?? 'neutral',
     'data-size': props.size ?? 'md',
+    'data-radius': props.radius ?? 'less',
     'data-full-width': props.fullWidth ? 'true' : undefined,
     'data-icon-only': props.iconOnly ? 'true' : undefined,
     'data-pressed': props.pressed ? 'true' : undefined,
@@ -95,29 +99,26 @@ export function ButtonFace({
   mark,
   children,
 }: ButtonOwnProps & { children?: ReactNode; labelId?: string; reserveMark?: boolean; mark?: ReactNode }) {
-  const start = loading ? <Spinner /> : iconStart;
+  // One visual slot for action icons, selection and progress, including legacy
+  // callers that pass both icon props. Keep a text-only toggle's slot stable.
+  const atEnd = !iconStart && Boolean(iconEnd);
+  const icon = loading ? <Spinner /> : iconStart || iconEnd || mark;
+  const reserveIcon = Boolean(icon) || Boolean(reserveMark && !iconStart && !iconEnd);
+  const iconSlot = reserveIcon ? (
+    <span className="rds-button__icon" data-mirror={!loading && (atEnd ? mirrorEnd : iconStart && mirrorStart) ? 'true' : undefined} aria-hidden="true">
+      {icon}
+    </span>
+  ) : null;
   return (
     <>
-      {reserveMark ? (
-        <span className="rds-button__mark" aria-hidden="true">
-          {mark}
-        </span>
-      ) : null}
-      {start ? (
-        <span className="rds-button__icon" data-mirror={mirrorStart ? 'true' : undefined} aria-hidden="true">
-          {start}
-        </span>
-      ) : null}
+      <ButtonShape />
+      {!atEnd ? iconSlot : null}
       {children ? (
         <span id={labelId} className="rds-button__label">
           {children}
         </span>
       ) : null}
-      {iconEnd ? (
-        <span className="rds-button__icon" data-mirror={mirrorEnd ? 'true' : undefined} aria-hidden="true">
-          {iconEnd}
-        </span>
-      ) : null}
+      {atEnd ? iconSlot : null}
       <span className="rds-button__status" role="status">
         {loading ? loadingLabel : ''}
       </span>

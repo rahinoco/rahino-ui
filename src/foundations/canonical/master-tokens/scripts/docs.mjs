@@ -52,9 +52,9 @@ export async function renderDocuments(model) {
     const p = `rds.veil.${key}.${part}`;
     return [code(p), refs(p), refs(p, 'dark')];
   })));
-  models.shadow = table(['Token', 'Role', 'Y / Blur', 'Light opacity', 'Dark opacity', 'Recommended use'], ['sm', 'md', 'lg'].map(key => {
+  models.shadow = table(['Token', 'Role', 'Light Y / Blur', 'Dark Y / Blur', 'Light opacity', 'Dark opacity', 'Recommended use'], ['sm', 'md', 'lg'].map(key => {
     const p = `rds.shadow.${key}`, a = token(p), b = token(p, 'dark');
-    return [code(p), sets.light.get(p).$extensions.rahino.sourceAnnotations.role, `${a.$value.offsetY.value}px / ${a.$value.blur.value}px`, Math.round(a.$value.color.alpha * 100) + '%', Math.round(b.$value.color.alpha * 100) + '%', sets.light.get(p).$description];
+    return [code(p), sets.light.get(p).$extensions.rahino.sourceAnnotations.role, `${a.$value.offsetY.value}px / ${a.$value.blur.value}px`, `${b.$value.offsetY.value}px / ${b.$value.blur.value}px`, Math.round(a.$value.color.alpha * 100) + '%', Math.round(b.$value.color.alpha * 100) + '%', sets.light.get(p).$description];
   }));
   models.shadowRefs = table(['Token', 'Part', 'Light reference / value', 'Dark reference / value'], ['sm', 'md', 'lg'].flatMap(key => {
     const p = `rds.shadow.${key}`;

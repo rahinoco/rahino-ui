@@ -47,10 +47,14 @@ import { INVENTORY, COMPARISON_REGISTRY, DECISIONS } from '@rahinoco/rahino-ui';
 
 ## Docs workbench
 
+Button, IconButton and ToggleButton retain their existing definitions and add `radius="less" | "more"` (8px default / 12px). The [button redesign record](docs/BUTTON_REDESIGN.md) documents foundation mappings, use cases, validation and pending human state approval.
+
+The [button use-case guide](docs/BUTTON_USAGE.md) maps each type and appearance/intent combination to its role, examples and exclusions, with published global/Persian sources and the owner's RTL/destructive-action decisions.
+
 `rahino-ui-frontend` (Storybook) at [design.rahino.co](https://design.rahino.co) — consumes this library. Do not reimplement components there.
 
 ## Next phase
 
 Qippo Figma via MCP → Comparison Lab → human decision → update this library.
 
-The [2026-10-28 change report](docs/FOUNDATION_UPDATE_2026-10-28.md) records every source change and verification result. The supplied palette has known contrast failures: `tokens:check` and the normal release build remain blocked. `tokens:check-generated` checks freshness independently; it does not waive the contrast gate.
+The [2026-10-28 change report](docs/FOUNDATION_UPDATE_2026-10-28.md) records every source change and verification result. The supplied palette has known contrast findings. The upstream CI policy records these as explicit diagnostic exceptions and checks approved pairs and unregistered failures separately. `tokens:check` currently passes under that policy; this does not grant component state approval. `tokens:check-generated` checks freshness independently.

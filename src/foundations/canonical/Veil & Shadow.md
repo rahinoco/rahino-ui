@@ -54,14 +54,16 @@ The 2026-10-28 update changes opaque gray swatches; the supplied alpha variants 
 
 ## Shadow tokens
 
+Light-theme updates on 2026-11-02: `sm` uses Y 3px, blur 6px and 4% black opacity; `md` uses Y 6px, blur 10px and 6%; `lg` takes the former light `md` (Y 8px, blur 20px, 10%) and is reserved exclusively for modals. All dark shadow values are unchanged. Geometry is listed separately by appearance below. See [the migration record](master-tokens/Shadow-Migration.md).
+
 All shadows use black, with `x = 0` and `spread = 0`. Only offset, blur and opacity change by level and theme.
 
 <!-- rds:generated:shadow:start -->
-| Token | Role | Y / Blur | Light opacity | Dark opacity | Recommended use |
-| --- | --- | --- | --- | --- | --- |
-| `rds.shadow.sm` | Subtle elevation | 2px / 6px | 6% | 14% | Raised cards when elevation is needed, interactive card hover, sticky headers/toolbars above scrolling content, and buttons whose elevation is explicitly part of their component recipe. |
-| `rds.shadow.md` | Contextual floating surfaces | 8px / 20px | 10% | 20% | Dropdown menus, select menus, popovers, date pickers, autocomplete panels, floating tooltips, and toasts. |
-| `rds.shadow.lg` | Modal elevation | 16px / 36px | 14% | 26% | Large navigation flyouts, modal and confirmation dialogs, expanded contextual panels, and non-modal floating drawers. |
+| Token | Role | Light Y / Blur | Dark Y / Blur | Light opacity | Dark opacity | Recommended use |
+| --- | --- | --- | --- | --- | --- | --- |
+| `rds.shadow.sm` | Subtle elevation | 3px / 6px | 2px / 6px | 4% | 14% | Raised cards when elevation is needed, interactive card hover, sticky headers/toolbars above scrolling content, and buttons whose elevation is explicitly part of their component recipe. |
+| `rds.shadow.md` | Contextual floating surfaces | 6px / 10px | 8px / 20px | 6% | 20% | Dropdown menus, select menus, popovers, date pickers, autocomplete panels, floating tooltips, and toasts. |
+| `rds.shadow.lg` | Modal-only elevation | 8px / 20px | 16px / 36px | 10% | 26% | Modal dialogs and modal confirmation surfaces only. |
 <!-- rds:generated:shadow:end -->
 
 ### Shadow references
@@ -70,27 +72,27 @@ All shadows use black, with `x = 0` and `spread = 0`. Only offset, blur and opac
 | Token | Part | Light reference / value | Dark reference / value |
 | --- | --- | --- | --- |
 | `rds.shadow.sm` | offsetX | `ref.shadow.offset.0`<br>`0px` | `ref.shadow.offset.0`<br>`0px` |
-| `rds.shadow.sm` | offsetY | `ref.shadow.offset.2`<br>`2px` | `ref.shadow.offset.2`<br>`2px` |
+| `rds.shadow.sm` | offsetY | `ref.shadow.offset.3`<br>`3px` | `ref.shadow.offset.2`<br>`2px` |
 | `rds.shadow.sm` | blur | `ref.shadow.blur.6`<br>`6px` | `ref.shadow.blur.6`<br>`6px` |
 | `rds.shadow.sm` | spread | `ref.shadow.spread.0`<br>`0px` | `ref.shadow.spread.0`<br>`0px` |
-| `rds.shadow.sm` | color | `ref.color.black-alpha-6`<br>`rgb(0 0 0 / 0.06)` | `ref.color.black-alpha-14`<br>`rgb(0 0 0 / 0.14)` |
+| `rds.shadow.sm` | color | `ref.color.black-alpha-4`<br>`rgb(0 0 0 / 0.04)` | `ref.color.black-alpha-14`<br>`rgb(0 0 0 / 0.14)` |
 | `rds.shadow.md` | offsetX | `ref.shadow.offset.0`<br>`0px` | `ref.shadow.offset.0`<br>`0px` |
-| `rds.shadow.md` | offsetY | `ref.shadow.offset.8`<br>`8px` | `ref.shadow.offset.8`<br>`8px` |
-| `rds.shadow.md` | blur | `ref.shadow.blur.20`<br>`20px` | `ref.shadow.blur.20`<br>`20px` |
+| `rds.shadow.md` | offsetY | `ref.shadow.offset.6`<br>`6px` | `ref.shadow.offset.8`<br>`8px` |
+| `rds.shadow.md` | blur | `ref.shadow.blur.10`<br>`10px` | `ref.shadow.blur.20`<br>`20px` |
 | `rds.shadow.md` | spread | `ref.shadow.spread.0`<br>`0px` | `ref.shadow.spread.0`<br>`0px` |
-| `rds.shadow.md` | color | `ref.color.black-alpha-10`<br>`rgb(0 0 0 / 0.10)` | `ref.color.black-alpha-20`<br>`rgb(0 0 0 / 0.20)` |
+| `rds.shadow.md` | color | `ref.color.black-alpha-6`<br>`rgb(0 0 0 / 0.06)` | `ref.color.black-alpha-20`<br>`rgb(0 0 0 / 0.20)` |
 | `rds.shadow.lg` | offsetX | `ref.shadow.offset.0`<br>`0px` | `ref.shadow.offset.0`<br>`0px` |
-| `rds.shadow.lg` | offsetY | `ref.shadow.offset.16`<br>`16px` | `ref.shadow.offset.16`<br>`16px` |
-| `rds.shadow.lg` | blur | `ref.shadow.blur.36`<br>`36px` | `ref.shadow.blur.36`<br>`36px` |
+| `rds.shadow.lg` | offsetY | `ref.shadow.offset.8`<br>`8px` | `ref.shadow.offset.16`<br>`16px` |
+| `rds.shadow.lg` | blur | `ref.shadow.blur.20`<br>`20px` | `ref.shadow.blur.36`<br>`36px` |
 | `rds.shadow.lg` | spread | `ref.shadow.spread.0`<br>`0px` | `ref.shadow.spread.0`<br>`0px` |
-| `rds.shadow.lg` | color | `ref.color.black-alpha-14`<br>`rgb(0 0 0 / 0.14)` | `ref.color.black-alpha-26`<br>`rgb(0 0 0 / 0.26)` |
+| `rds.shadow.lg` | color | `ref.color.black-alpha-10`<br>`rgb(0 0 0 / 0.10)` | `ref.color.black-alpha-26`<br>`rgb(0 0 0 / 0.26)` |
 <!-- rds:generated:shadowRefs:end -->
 
 **Shadow rules**
 
 - **No shadow by default.** Ordinary cards, table rows, inputs and layout containers primarily use surface contrast and spacing.
 - Choose elevation by **behavior**, not size. A small dropdown can need `md`; a large static card can need none.
-- Use `lg` for modal and confirmation dialogs. It is the maximum shadow level for modal and non-modal elements. The scale contains only `sm`, `md` and `lg`.
+- Use `lg` for modal and confirmation dialogs only. Never use it for cards, card hover, buttons, menus, toasts, popovers or non-modal drawers/panels. Card hover may use `sm` when elevation is needed; floating non-modal surfaces use `md`. The scale contains only `sm`, `md` and `lg`.
 - Use **one shadow token per surface**; do not stack shadow levels.
 - **Shadow ≠ z-index:** shadow shows elevation; z-index sets stacking order.
 

@@ -15338,6 +15338,69 @@
             }
           }
         }
+      },
+      "black-alpha-4": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0,
+            0
+          ],
+          "alpha": 0.04
+        },
+        "$description": "Raw black color with 4% alpha for the light subtle shadow.",
+        "$extensions": {
+          "rahino": {
+            "status": "adopted",
+            "layer": "reference",
+            "approval": "reference-layer-master-collection",
+            "source": {
+              "file": "master-tokens/generated/reference.ts",
+              "exportPath": [
+                "REFERENCE",
+                "ref.color.black-alpha-4"
+              ],
+              "line": 371
+            },
+            "sourceDocuments": [
+              "Veil & Shadow.md"
+            ],
+            "sourceAnnotations": {},
+            "reviewIssues": [],
+            "provenance": [
+              {
+                "set": "light",
+                "publicPath": "rds.shadow.sm",
+                "property": "color",
+                "approval": "light-sm-and-modal-only-lg-2026-11-02"
+              }
+            ],
+            "localTokenConsumers": [
+              {
+                "set": "light",
+                "publicPath": "rds.shadow.sm"
+              }
+            ],
+            "namingApproval": "color-reference-family-step-naming",
+            "adoptionApproval": "canonical-master-adoption",
+            "capturedSource": {
+              "file": "Shadow.ts",
+              "exportPath": [
+                "SHADOW",
+                "sm",
+                "light"
+              ],
+              "line": 42,
+              "encodingType": "shadow",
+              "encodedPath": [
+                "color"
+              ]
+            },
+            "amendmentApproval": "light-sm-and-modal-only-lg-2026-11-02"
+          }
+        }
       }
     },
     "shadow": {
@@ -15360,7 +15423,7 @@
                   "REFERENCE",
                   "ref.shadow.offset.0"
                 ],
-                "line": 371
+                "line": 373
               },
               "sourceDocuments": [
                 "Veil & Shadow.md"
@@ -15544,7 +15607,7 @@
                   "REFERENCE",
                   "ref.shadow.offset.2"
                 ],
-                "line": 373
+                "line": 375
               },
               "sourceDocuments": [
                 "Veil & Shadow.md"
@@ -15618,6 +15681,120 @@
             }
           }
         },
+        "3": {
+          "$type": "dimension",
+          "$value": {
+            "value": 3,
+            "unit": "px"
+          },
+          "$description": "Raw shadow offset dimension 3px.",
+          "$extensions": {
+            "rahino": {
+              "status": "adopted",
+              "layer": "reference",
+              "approval": "reference-layer-master-collection",
+              "source": {
+                "file": "master-tokens/generated/reference.ts",
+                "exportPath": [
+                  "REFERENCE",
+                  "ref.shadow.offset.3"
+                ],
+                "line": 377
+              },
+              "sourceDocuments": [
+                "Veil & Shadow.md"
+              ],
+              "sourceAnnotations": {},
+              "reviewIssues": [],
+              "provenance": [
+                {
+                  "set": "light",
+                  "publicPath": "rds.shadow.sm",
+                  "property": "offsetY",
+                  "approval": "light-sm-and-modal-only-lg-2026-11-02"
+                }
+              ],
+              "localTokenConsumers": [
+                {
+                  "set": "light",
+                  "publicPath": "rds.shadow.sm"
+                }
+              ],
+              "adoptionApproval": "canonical-master-adoption",
+              "capturedSource": {
+                "file": "Shadow.ts",
+                "exportPath": [
+                  "SHADOW",
+                  "sm",
+                  "light"
+                ],
+                "line": 42,
+                "encodingType": "shadow",
+                "encodedPath": [
+                  "offsetY"
+                ]
+              },
+              "amendmentApproval": "light-sm-and-modal-only-lg-2026-11-02"
+            }
+          }
+        },
+        "6": {
+          "$type": "dimension",
+          "$value": {
+            "value": 6,
+            "unit": "px"
+          },
+          "$description": "Raw shadow offset dimension 6px.",
+          "$extensions": {
+            "rahino": {
+              "status": "adopted",
+              "layer": "reference",
+              "approval": "reference-layer-master-collection",
+              "source": {
+                "file": "master-tokens/generated/reference.ts",
+                "exportPath": [
+                  "REFERENCE",
+                  "ref.shadow.offset.6"
+                ],
+                "line": 379
+              },
+              "sourceDocuments": [
+                "Veil & Shadow.md"
+              ],
+              "sourceAnnotations": {},
+              "reviewIssues": [],
+              "provenance": [
+                {
+                  "set": "light",
+                  "publicPath": "rds.shadow.md",
+                  "property": "offsetY",
+                  "approval": "light-shadow-update-2026-11-02"
+                }
+              ],
+              "localTokenConsumers": [
+                {
+                  "set": "light",
+                  "publicPath": "rds.shadow.md"
+                }
+              ],
+              "adoptionApproval": "canonical-master-adoption",
+              "capturedSource": {
+                "file": "Shadow.ts",
+                "exportPath": [
+                  "SHADOW",
+                  "md",
+                  "light"
+                ],
+                "line": 55,
+                "encodingType": "shadow",
+                "encodedPath": [
+                  "offsetY"
+                ]
+              },
+              "amendmentApproval": "light-shadow-update-2026-11-02"
+            }
+          }
+        },
         "8": {
           "$type": "dimension",
           "$value": {
@@ -15636,7 +15813,7 @@
                   "REFERENCE",
                   "ref.shadow.offset.8"
                 ],
-                "line": 375
+                "line": 381
               },
               "sourceDocuments": [
                 "Veil & Shadow.md"
@@ -15728,7 +15905,7 @@
                   "REFERENCE",
                   "ref.shadow.offset.16"
                 ],
-                "line": 377
+                "line": 383
               },
               "sourceDocuments": [
                 "Veil & Shadow.md"
@@ -15822,7 +15999,7 @@
                   "REFERENCE",
                   "ref.shadow.blur.6"
                 ],
-                "line": 379
+                "line": 385
               },
               "sourceDocuments": [
                 "Veil & Shadow.md"
@@ -15896,6 +16073,63 @@
             }
           }
         },
+        "10": {
+          "$type": "dimension",
+          "$value": {
+            "value": 10,
+            "unit": "px"
+          },
+          "$description": "Raw shadow blur dimension 10px.",
+          "$extensions": {
+            "rahino": {
+              "status": "adopted",
+              "layer": "reference",
+              "approval": "reference-layer-master-collection",
+              "source": {
+                "file": "master-tokens/generated/reference.ts",
+                "exportPath": [
+                  "REFERENCE",
+                  "ref.shadow.blur.10"
+                ],
+                "line": 387
+              },
+              "sourceDocuments": [
+                "Veil & Shadow.md"
+              ],
+              "sourceAnnotations": {},
+              "reviewIssues": [],
+              "provenance": [
+                {
+                  "set": "light",
+                  "publicPath": "rds.shadow.md",
+                  "property": "blur",
+                  "approval": "light-shadow-update-2026-11-02"
+                }
+              ],
+              "localTokenConsumers": [
+                {
+                  "set": "light",
+                  "publicPath": "rds.shadow.md"
+                }
+              ],
+              "adoptionApproval": "canonical-master-adoption",
+              "capturedSource": {
+                "file": "Shadow.ts",
+                "exportPath": [
+                  "SHADOW",
+                  "md",
+                  "light"
+                ],
+                "line": 55,
+                "encodingType": "shadow",
+                "encodedPath": [
+                  "blur"
+                ]
+              },
+              "amendmentApproval": "light-shadow-update-2026-11-02"
+            }
+          }
+        },
         "20": {
           "$type": "dimension",
           "$value": {
@@ -15914,7 +16148,7 @@
                   "REFERENCE",
                   "ref.shadow.blur.20"
                 ],
-                "line": 381
+                "line": 389
               },
               "sourceDocuments": [
                 "Veil & Shadow.md"
@@ -16006,7 +16240,7 @@
                   "REFERENCE",
                   "ref.shadow.blur.36"
                 ],
-                "line": 383
+                "line": 391
               },
               "sourceDocuments": [
                 "Veil & Shadow.md"
@@ -16100,7 +16334,7 @@
                   "REFERENCE",
                   "ref.shadow.spread.0"
                 ],
-                "line": 385
+                "line": 393
               },
               "sourceDocuments": [
                 "Veil & Shadow.md"

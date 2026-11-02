@@ -1,4 +1,5 @@
 import { forwardRef, type ReactNode, type Ref } from 'react';
+import { ButtonShape } from './buttonShape';
 
 import {
   assignRef,
@@ -22,6 +23,7 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(function IconB
     appearance = 'soft',
     intent = 'neutral',
     size = 'md',
+    radius = 'less',
     loading = false,
     loadingLabel = 'در حال انجام',
     fullWidth,
@@ -41,7 +43,7 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(function IconB
   return (
     <button
       {...props}
-      {...buttonData({ appearance, intent, size, fullWidth, loading, iconOnly: true })}
+      {...buttonData({ appearance, intent, size, radius, fullWidth, loading, iconOnly: true })}
       className={classNameOf(className)}
       style={{ ...widthStyle, ...style }}
       type={type}
@@ -62,6 +64,7 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(function IconB
         assignRef(ref as Ref<HTMLButtonElement>, node);
       }}
     >
+      <ButtonShape />
       <span className="rds-button__icon" data-mirror={mirror ? 'true' : undefined} aria-hidden="true">
         {loading ? <Spinner /> : children}
       </span>

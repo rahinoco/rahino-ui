@@ -2,11 +2,13 @@ import { HIGH_CONTRAST, type AppearanceName } from './color.ts';
 import { BUTTON_FOCUS, CONTROL_SIZE, DENSITY, FOCUS, ICON_SIZE, ICON_STROKE, LAYER, SPACE_ROLE, SPACING, TOUCH_MIN } from './metrics.ts';
 import { FONT_FILES, FONT_WEIGHT, TYPE_ROLES } from './type.ts';
 
-/** Aliases only. Missing hover/pressed roles are mixes of semantic tokens, not new hex. */
+/** Component recipes derive missing states from semantic colors; they are not shared foundation tokens. */
 function buttonRecipe(_appearance: AppearanceName) {
   const mix = (base: string, amount: string, withColor: string) =>
     `color-mix(in srgb, var(${base}) ${amount}, var(${withColor}))`;
   const rows: Array<[string, string]> = [
+    // In either scheme, deepen destructive fills rather than moving toward light ink.
+    ['--rds-button-danger-shade', 'light-dark(var(--rds-color-ink-primary), var(--rds-color-ink-inverse))'],
     ['--rds-button-solid-neutral-bg', 'var(--rds-color-surface-inverse)'],
     ['--rds-button-solid-neutral-bg-hover', mix('--rds-color-surface-inverse', '86%', '--rds-color-ink-primary')],
     ['--rds-button-solid-neutral-bg-pressed', mix('--rds-color-surface-inverse', '72%', '--rds-color-ink-primary')],
@@ -17,34 +19,35 @@ function buttonRecipe(_appearance: AppearanceName) {
     ['--rds-button-solid-brand-fg', 'var(--rds-color-action-primary-fg)'],
     ['--rds-button-solid-brand-bg-disabled', 'var(--rds-color-action-primary-bg-disabled)'],
     ['--rds-button-solid-danger-bg', 'var(--rds-color-status-error-fill)'],
-    ['--rds-button-solid-danger-bg-hover', mix('--rds-color-status-error-fill', '82%', '--rds-color-ink-primary')],
-    ['--rds-button-solid-danger-bg-pressed', mix('--rds-color-status-error-fill', '68%', '--rds-color-ink-primary')],
+    ['--rds-button-solid-danger-bg-hover', mix('--rds-color-status-error-fill', '82%', '--rds-button-danger-shade')],
+    ['--rds-button-solid-danger-bg-pressed', mix('--rds-color-status-error-fill', '68%', '--rds-button-danger-shade')],
     ['--rds-button-solid-danger-fg', 'var(--rds-color-status-error-on-fill)'],
     ['--rds-button-soft-neutral-bg', 'var(--rds-color-surface-subtle)'],
-    ['--rds-button-soft-neutral-bg-hover', mix('--rds-color-surface-subtle', '72%', '--rds-color-ink-primary')],
-    ['--rds-button-soft-neutral-bg-pressed', mix('--rds-color-surface-subtle', '58%', '--rds-color-ink-primary')],
+    // Canonical neutral alpha layers are painted by button.css behind the content.
+    ['--rds-button-soft-neutral-bg-hover', 'var(--rds-color-surface-subtle)'],
+    ['--rds-button-soft-neutral-bg-pressed', 'var(--rds-color-surface-subtle)'],
     ['--rds-button-soft-neutral-fg', 'var(--rds-color-ink-primary)'],
     ['--rds-button-soft-brand-bg', 'var(--rds-color-brand-bg-default)'],
     ['--rds-button-soft-brand-bg-hover', 'var(--rds-color-brand-bg-hover)'],
     ['--rds-button-soft-brand-bg-pressed', mix('--rds-color-brand-bg-hover', '72%', '--rds-color-brand-seed')],
     ['--rds-button-soft-brand-fg', 'var(--rds-color-brand-fg)'],
     ['--rds-button-soft-danger-bg', 'var(--rds-color-status-error-bg)'],
-    ['--rds-button-soft-danger-bg-hover', mix('--rds-color-status-error-bg', '78%', '--rds-color-status-error-fill')],
-    ['--rds-button-soft-danger-bg-pressed', mix('--rds-color-status-error-bg', '62%', '--rds-color-status-error-fill')],
+    ['--rds-button-soft-danger-bg-hover', mix('--rds-color-status-error-bg', '92%', '--rds-color-status-error-fill')],
+    ['--rds-button-soft-danger-bg-pressed', mix('--rds-color-status-error-bg', '88%', '--rds-color-status-error-fill')],
     ['--rds-button-soft-danger-fg', 'var(--rds-color-status-error-fg)'],
     ['--rds-button-bg-disabled', 'var(--rds-color-surface-subtle)'],
     ['--rds-button-fg-disabled', 'var(--rds-color-ink-disabled)'],
-    ['--rds-button-selected-neutral-bg', 'var(--rds-color-interaction-selected-bg)'],
-    ['--rds-button-selected-neutral-bg-hover', mix('--rds-color-interaction-selected-bg', '82%', '--rds-color-ink-primary')],
-    ['--rds-button-selected-neutral-bg-pressed', mix('--rds-color-interaction-selected-bg', '68%', '--rds-color-ink-primary')],
-    ['--rds-button-selected-neutral-fg', 'var(--rds-color-interaction-selected-fg)'],
-    ['--rds-button-selected-brand-bg', 'var(--rds-color-interaction-selected-emphasis-bg)'],
+    ['--rds-button-selected-neutral-bg', 'var(--rds-color-interaction-surface-selected)'],
+    ['--rds-button-selected-neutral-bg-hover', 'var(--rds-color-brand-bg-hover)'],
+    ['--rds-button-selected-neutral-bg-pressed', mix('--rds-color-brand-bg-hover', '72%', '--rds-color-brand-seed')],
+    ['--rds-button-selected-neutral-fg', 'var(--rds-color-brand-fg)'],
+    ['--rds-button-selected-brand-bg', 'var(--rds-color-interaction-surface-selected)'],
     ['--rds-button-selected-brand-bg-hover', 'var(--rds-color-brand-bg-hover)'],
     ['--rds-button-selected-brand-bg-pressed', mix('--rds-color-brand-bg-hover', '72%', '--rds-color-brand-seed')],
-    ['--rds-button-selected-brand-fg', 'var(--rds-color-interaction-selected-emphasis-fg)'],
+    ['--rds-button-selected-brand-fg', 'var(--rds-color-brand-fg)'],
     ['--rds-button-selected-danger-bg', 'var(--rds-color-status-error-bg)'],
-    ['--rds-button-selected-danger-bg-hover', mix('--rds-color-status-error-bg', '78%', '--rds-color-status-error-fill')],
-    ['--rds-button-selected-danger-bg-pressed', mix('--rds-color-status-error-bg', '62%', '--rds-color-status-error-fill')],
+    ['--rds-button-selected-danger-bg-hover', 'var(--rds-button-soft-danger-bg-hover)'],
+    ['--rds-button-selected-danger-bg-pressed', 'var(--rds-button-soft-danger-bg-pressed)'],
     ['--rds-button-selected-danger-fg', 'var(--rds-color-status-error-fg)'],
     ['--rds-button-focus-soft', `color-mix(in srgb, var(--rds-color-focus-ring) ${BUTTON_FOCUS.soft}, transparent)`],
   ];
@@ -79,7 +82,7 @@ function compatibilityAliases() {
     ['focus-width', 'focus-ring-width'], ['edge-width-thin', 'border-width-default'],
     ['layout-reading', 'type-layout-measure-reading'], ['layout-reading-wide', 'type-layout-measure-reading'],
     ['layout-web', 'layout-content-max'], ['layout-dashboard', 'layout-content-max'],
-    ['lift-rest', 'shadow-sm'], ['lift-float', 'shadow-md'], ['lift-raise', 'shadow-lg'], ['lift-modal', 'shadow-lg'],
+    ['lift-rest', 'shadow-sm'], ['lift-float', 'shadow-md'], ['lift-raise', 'shadow-md'], ['lift-modal', 'shadow-lg'],
   ];
   for (const key of ['primary', 'secondary', 'tertiary', 'disabled', 'on-brand']) pairs.push(['color-icon-' + key, 'color-ink-' + key]);
   for (const name of ['success', 'warning', 'error', 'info']) {

@@ -123,6 +123,7 @@ export type ColorTokenName =
   | "ref.color.white-alpha-10"
   | "ref.color.black-alpha-20"
   | "ref.color.black-alpha-26"
+  | "ref.color.black-alpha-4"
   | "rds.color.surface.canvas"
   | "rds.color.surface.base"
   | "rds.color.surface.subtle"

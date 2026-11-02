@@ -3183,9 +3183,9 @@
       "sm": {
         "$type": "shadow",
         "$value": {
-          "color": "{ref.color.black-alpha-6}",
+          "color": "{ref.color.black-alpha-4}",
           "offsetX": "{ref.shadow.offset.0}",
-          "offsetY": "{ref.shadow.offset.2}",
+          "offsetY": "{ref.shadow.offset.3}",
           "blur": "{ref.shadow.blur.6}",
           "spread": "{ref.shadow.spread.0}"
         },
@@ -3224,17 +3224,18 @@
                 "light"
               ],
               "line": 42
-            }
+            },
+            "amendmentApproval": "light-sm-and-modal-only-lg-2026-11-02"
           }
         }
       },
       "md": {
         "$type": "shadow",
         "$value": {
-          "color": "{ref.color.black-alpha-10}",
+          "color": "{ref.color.black-alpha-6}",
           "offsetX": "{ref.shadow.offset.0}",
-          "offsetY": "{ref.shadow.offset.8}",
-          "blur": "{ref.shadow.blur.20}",
+          "offsetY": "{ref.shadow.offset.6}",
+          "blur": "{ref.shadow.blur.10}",
           "spread": "{ref.shadow.spread.0}"
         },
         "$description": "Dropdown menus, select menus, popovers, date pickers, autocomplete panels, floating tooltips, and toasts.",
@@ -3272,20 +3273,21 @@
                 "light"
               ],
               "line": 55
-            }
+            },
+            "amendmentApproval": "light-shadow-update-2026-11-02"
           }
         }
       },
       "lg": {
         "$type": "shadow",
         "$value": {
-          "color": "{ref.color.black-alpha-14}",
+          "color": "{ref.color.black-alpha-10}",
           "offsetX": "{ref.shadow.offset.0}",
-          "offsetY": "{ref.shadow.offset.16}",
-          "blur": "{ref.shadow.blur.36}",
+          "offsetY": "{ref.shadow.offset.8}",
+          "blur": "{ref.shadow.blur.20}",
           "spread": "{ref.shadow.spread.0}"
         },
-        "$description": "Large navigation flyouts, modal and confirmation dialogs, expanded contextual panels, and non-modal floating drawers.",
+        "$description": "Modal dialogs and modal confirmation surfaces only.",
         "$extensions": {
           "rahino": {
             "status": "adopted",
@@ -3303,9 +3305,9 @@
             ],
             "sourceAnnotations": {
               "token": "rds.shadow.lg",
-              "role": "Modal elevation",
-              "usage": "Large navigation flyouts, modal and confirmation dialogs, expanded contextual panels, and non-modal floating drawers.",
-              "avoid": "Static layout sections or elevating ordinary containers by default. This is the maximum shadow level for modal and non-modal surfaces."
+              "role": "Modal-only elevation",
+              "usage": "Modal dialogs and modal confirmation surfaces only.",
+              "avoid": "Cards and card hover, buttons, tooltips, menus, popovers, toasts, non-modal drawers, static containers and other non-modal surfaces."
             },
             "reviewIssues": [],
             "approval": "shadow-three-level-scale",
@@ -3320,7 +3322,9 @@
                 "light"
               ],
               "line": 67
-            }
+            },
+            "amendmentApproval": "light-shadow-update-2026-11-02",
+            "usageApproval": "light-sm-and-modal-only-lg-2026-11-02"
           }
         }
       }

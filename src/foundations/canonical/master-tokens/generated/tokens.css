@@ -262,11 +262,15 @@
   --ref-color-white-alpha-10: rgb(255 255 255 / 0.1);
   --ref-color-black-alpha-20: rgb(0 0 0 / 0.2);
   --ref-color-black-alpha-26: rgb(0 0 0 / 0.26);
+  --ref-color-black-alpha-4: rgb(0 0 0 / 0.04);
   --ref-shadow-offset-0: 0px;
   --ref-shadow-offset-2: 2px;
+  --ref-shadow-offset-3: 3px;
+  --ref-shadow-offset-6: 6px;
   --ref-shadow-offset-8: 8px;
   --ref-shadow-offset-16: 16px;
   --ref-shadow-blur-6: 6px;
+  --ref-shadow-blur-10: 10px;
   --ref-shadow-blur-20: 20px;
   --ref-shadow-blur-36: 36px;
   --ref-shadow-spread-0: 0px;
@@ -399,9 +403,9 @@
   --rds-veil-400-color: var(--ref-color-white-alpha-72);
   --rds-veil-500-color: var(--ref-color-white-alpha-92);
   --rds-veil-scrim-color: var(--ref-color-gray-warm-950-alpha-52);
-  --rds-shadow-sm: var(--ref-shadow-offset-0) var(--ref-shadow-offset-2) var(--ref-shadow-blur-6) var(--ref-shadow-spread-0) var(--ref-color-black-alpha-6);
-  --rds-shadow-md: var(--ref-shadow-offset-0) var(--ref-shadow-offset-8) var(--ref-shadow-blur-20) var(--ref-shadow-spread-0) var(--ref-color-black-alpha-10);
-  --rds-shadow-lg: var(--ref-shadow-offset-0) var(--ref-shadow-offset-16) var(--ref-shadow-blur-36) var(--ref-shadow-spread-0) var(--ref-color-black-alpha-14);
+  --rds-shadow-sm: var(--ref-shadow-offset-0) var(--ref-shadow-offset-3) var(--ref-shadow-blur-6) var(--ref-shadow-spread-0) var(--ref-color-black-alpha-4);
+  --rds-shadow-md: var(--ref-shadow-offset-0) var(--ref-shadow-offset-6) var(--ref-shadow-blur-10) var(--ref-shadow-spread-0) var(--ref-color-black-alpha-6);
+  --rds-shadow-lg: var(--ref-shadow-offset-0) var(--ref-shadow-offset-8) var(--ref-shadow-blur-20) var(--ref-shadow-spread-0) var(--ref-color-black-alpha-10);
 }
 
 @media (prefers-color-scheme: dark) {

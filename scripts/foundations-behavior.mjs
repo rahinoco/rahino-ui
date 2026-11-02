@@ -35,6 +35,13 @@ for (const appearance of ['light','dark']) for (const tier of ['100','200','300'
 }
 for (const appearance of ['light','dark']) {
   assert.equal(liftShadow('modal',appearance), SHADOW.lg[appearance]);
+  assert.equal(liftShadow('raise',appearance), SHADOW.md[appearance]);
+  const request = { tier: '400', content: 'short', foreground: 'primary', background: 'controlled', lift: 'lg' };
+  const environment = { appearance, contrast: 'standard', reduceTransparency: false, reduceMotion: false, forcedColors: false, backdropFilter: true };
+  const nonModal = resolveVeil(request, environment);
+  assert.equal(nonModal.lift, 'md', 'Non-modal panels must not use lg');
+  assert(nonModal.reasons.some(reason => reason.code === 'modal-shadow-only'));
+  assert.equal(resolveVeil({ ...request, content: 'modal' }, environment).lift, 'lg');
   assert.equal(liftShadow('none',appearance), 'none');
 }
 assert.throws(() => resolveColor('rds.color.brand.bg'), RangeError);

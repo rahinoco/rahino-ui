@@ -35,6 +35,8 @@ export function resolveVeil(request: VeilRequest, environment: VeilEnvironment):
   const treatment = VEIL[tier];
   if (!treatment) throw new TypeError('Unknown Veil level.');
   const reasons: VeilReason[] = [];
+  const modalOnlyShadow = request.content !== 'modal' && (request.lift === 'lg' || request.lift === 'modal');
+  if (modalOnlyShadow) reasons.push({ code: 'modal-shadow-only', text: 'سایهٔ lg فقط برای مودال است؛ سطح غیرمودال از md استفاده می‌کند.' });
   const essential = request.content !== 'decoration';
   const fallback = environment.forcedColors
     ? { code: 'forced-colors', text: 'رنگ‌های بومی سیستم و سطح بدون شفافیت استفاده می‌شوند.' }
@@ -58,7 +60,7 @@ export function resolveVeil(request: VeilRequest, environment: VeilEnvironment):
     requestedTier: request.tier, resolvedTier: tier, renderPath: fallback ? 'plain' : 'veil',
     baseAlpha: alpha, protectAlpha: 0, effectiveAlpha: alpha,
     blur: fallback ? '0px' : treatment.blur, saturation: 1, film,
-    foreground: request.foreground, lift: request.lift, reasons,
+    foreground: request.foreground, lift: modalOnlyShadow ? 'md' : request.lift, reasons,
   };
 }
 

@@ -798,6 +798,37 @@
         "paletteValuesChanged": false,
         "publicTokensRemoved": 0
       }
+    },
+    {
+      "id": "light-shadow-update-2026-11-02",
+      "status": "resolved",
+      "title": "Light shadow md replacement and lg reassignment",
+      "currentEvidence": "Owner explicitly requested light theme only: lg takes the current light md, md becomes 0 6px 10px 0 rgba(0, 0, 0, 0.06); dark theme must not change.",
+      "nextStep": "Regenerate all projections and verify unchanged dark token bytes and values.",
+      "resolution": {
+        "approval": "light-shadow-update-2026-11-02",
+        "approvedOn": "2026-11-02",
+        "light": {
+          "md": "0 6px 10px 0 rgba(0, 0, 0, 0.06)",
+          "lg": "0 8px 20px 0 rgba(0, 0, 0, 0.10)"
+        },
+        "darkChanged": false,
+        "smChanged": false
+      }
+    },
+    {
+      "id": "light-sm-and-modal-only-lg-2026-11-02",
+      "status": "resolved",
+      "title": "Light sm shadow update and modal-only lg usage",
+      "currentEvidence": "Owner requests light sm 0 3px 6px 0 rgba(0, 0, 0, 0.04), and restricts lg to modals; no lg for card hover or other non-modal surfaces.",
+      "nextStep": "Regenerate outputs and migrate non-modal consumers and legacy raise aliases.",
+      "resolution": {
+        "approval": "light-sm-and-modal-only-lg-2026-11-02",
+        "approvedOn": "2026-11-02",
+        "lightSm": "0 3px 6px 0 rgba(0, 0, 0, 0.04)",
+        "lgUsage": "modals-only",
+        "darkValuesChanged": false
+      }
     }
   ]
 }

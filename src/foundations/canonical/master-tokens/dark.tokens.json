@@ -3300,7 +3300,7 @@
           "blur": "{ref.shadow.blur.36}",
           "spread": "{ref.shadow.spread.0}"
         },
-        "$description": "Large navigation flyouts, modal and confirmation dialogs, expanded contextual panels, and non-modal floating drawers.",
+        "$description": "Modal dialogs and modal confirmation surfaces only.",
         "$extensions": {
           "rahino": {
             "status": "adopted",
@@ -3318,9 +3318,9 @@
             ],
             "sourceAnnotations": {
               "token": "rds.shadow.lg",
-              "role": "Modal elevation",
-              "usage": "Large navigation flyouts, modal and confirmation dialogs, expanded contextual panels, and non-modal floating drawers.",
-              "avoid": "Static layout sections or elevating ordinary containers by default. This is the maximum shadow level for modal and non-modal surfaces."
+              "role": "Modal-only elevation",
+              "usage": "Modal dialogs and modal confirmation surfaces only.",
+              "avoid": "Cards and card hover, buttons, tooltips, menus, popovers, toasts, non-modal drawers, static containers and other non-modal surfaces."
             },
             "reviewIssues": [],
             "approval": "shadow-three-level-scale",
@@ -3335,7 +3335,8 @@
                 "dark"
               ],
               "line": 67
-            }
+            },
+            "usageApproval": "light-sm-and-modal-only-lg-2026-11-02"
           }
         }
       }

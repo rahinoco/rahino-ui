@@ -60,6 +60,30 @@ check('controlled off', toggleOff.includes('aria-pressed="false"'));
 const submit = renderToStaticMarkup(createElement(Button, { type: 'submit' }, 'ارسال'));
 check('explicit submit', submit.includes('type="submit"'));
 
+const startIcon = createElement('svg', { 'data-example-icon': 'start' });
+const endIcon = createElement('svg', { 'data-example-icon': 'end' });
+const countIcons = markup => (markup.match(/<svg(?:\s|>)/g) || []).length;
+for (const radius of ['less', 'more']) {
+  const both = renderToStaticMarkup(createElement(Button, { radius, iconStart: startIcon, iconEnd: endIcon }, 'ثبت'));
+  check(radius + ' button chooses one icon when both props are supplied', countIcons(both) === 1 && both.includes('data-example-icon="start"') && !both.includes('data-example-icon="end"'));
+  const pending = renderToStaticMarkup(createElement(Button, { radius, iconStart: startIcon, iconEnd: endIcon, loading: true }, 'ثبت'));
+  check(radius + ' loading replaces both action icons with one spinner', countIcons(pending) === 1 && pending.includes('rds-button__spinner') && !pending.includes('data-example-icon='));
+  const trailing = renderToStaticMarkup(createElement(Button, { radius, iconEnd: endIcon, mirrorEnd: true, loading: true }, 'ثبت'));
+  check(radius + ' trailing loading icon keeps its position without mirroring', countIcons(trailing) === 1 && trailing.indexOf('rds-button__label') < trailing.indexOf('rds-button__spinner') && !trailing.includes('data-mirror="true"'));
+  for (const pressed of [false, true]) for (const loading of [false, true]) {
+    const selectedWithIcon = renderToStaticMarkup(createElement(ToggleButton, { radius, pressed, loading, iconStart: startIcon, iconEnd: endIcon }, 'فهرست'));
+    check(`${radius} toggle pressed=${pressed} loading=${loading} has one icon`, countIcons(selectedWithIcon) === 1 && (loading ? selectedWithIcon.includes('rds-button__spinner') : selectedWithIcon.includes('data-example-icon="start"')));
+    const iconOnly = renderToStaticMarkup(createElement(ToggleButton, { radius, pressed, loading, iconEnd: endIcon, 'aria-label': 'فهرست' }));
+    check(`${radius} icon-only toggle pressed=${pressed} loading=${loading} has one icon`, countIcons(iconOnly) === 1 && iconOnly.includes(`aria-pressed="${pressed}"`));
+  }
+  const selectedText = renderToStaticMarkup(createElement(ToggleButton, { radius, pressed: true }, 'انتخاب'));
+  check(radius + ' text-only selected toggle has a single checkmark', countIcons(selectedText) === 1 && selectedText.includes('lucide-check'));
+  const selectedPending = renderToStaticMarkup(createElement(ToggleButton, { radius, pressed: true, loading: true }, 'انتخاب'));
+  check(radius + ' selected loading toggle has spinner without checkmark', countIcons(selectedPending) === 1 && selectedPending.includes('rds-button__spinner') && !selectedPending.includes('lucide-check'));
+  const iconPending = renderToStaticMarkup(createElement(IconButton, { radius, loading: true, 'aria-label': 'افزودن' }, startIcon));
+  check(radius + ' loading IconButton replaces the supplied icon', countIcons(iconPending) === 1 && iconPending.includes('rds-button__spinner') && !iconPending.includes('data-example-icon='));
+}
+
 await server.close();
 if (failures.length) {
   console.error(failures.join('\n'));

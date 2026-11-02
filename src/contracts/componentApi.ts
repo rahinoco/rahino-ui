@@ -21,8 +21,9 @@ export const BUTTON_PROPS = propsOf<ButtonProps>()([
   { name: 'appearance', type: 'solid | soft | ghost', defaultValue: 'soft', required: false, meaning: 'ظاهر. با intent ترکیب می‌شود. outline در این خانواده نیست.' },
   { name: 'intent', type: 'neutral | brand | danger', defaultValue: 'neutral', required: false, meaning: 'نیت. اقدام اصلی در نمونه‌ها solid و brand است.' },
   { name: 'size', type: 'sm | md | lg', defaultValue: 'md', required: false, meaning: 'حداقل ارتفاع و فاصله از توکن کنترل. sm در لمس به ۴۴ پیکسل می‌رسد.' },
-  { name: 'iconStart', type: 'ReactNode', defaultValue: '—', required: false, meaning: 'آیکون ابتدای خط. تزئینی است و دوباره خوانده نمی‌شود.' },
-  { name: 'iconEnd', type: 'ReactNode', defaultValue: '—', required: false, meaning: 'آیکون انتهای خط.' },
+  { name: 'radius', type: 'less | more', defaultValue: 'less', required: false, meaning: 'گردی مستقل از ظاهر، نیت و اندازه: less از radius.8 و more از radius.12. در هر سه عضو خانواده یکسان است.' },
+  { name: 'iconStart', type: 'ReactNode', defaultValue: '—', required: false, meaning: 'تنها آیکون ابتدای خط. تزئینی است؛ اگر هر دو آیکون داده شوند، فقط این آیکون نمایش داده می‌شود.' },
+  { name: 'iconEnd', type: 'ReactNode', defaultValue: '—', required: false, meaning: 'تنها آیکون انتهای خط، وقتی iconStart داده نشده باشد. بارگذاری جای همان آیکون می‌نشیند.' },
   { name: 'mirrorStart', type: 'boolean', defaultValue: 'false', required: false, meaning: 'فقط اگر آیکون شروع جهت‌دار و وابسته به مسیر باشد در RTL آینه می‌شود.' },
   { name: 'mirrorEnd', type: 'boolean', defaultValue: 'false', required: false, meaning: 'همان قاعده برای آیکون پایان.' },
   { name: 'loading', type: 'boolean', defaultValue: 'false', required: false, meaning: 'از بیرون کنترل می‌شود. عرض و فوکوس را نگه می‌دارد و کلیک و ارسال تکراری را می‌بندد.' },
@@ -36,6 +37,7 @@ export const BUTTON_PROPS = propsOf<ButtonProps>()([
 ]);
 
 export const BUTTON_LIMITS = [
+  'حداکثر یک آیکون در هر دکمه؛ Check و نشانگر بارگذاری هم آیکون محسوب می‌شوند. آیکون دوم داخل برچسب یا children آیکون‌دکمه قرار ندهید.',
   'outline، success، warning، gradient، glass، raised و shadow در API نیستند.',
   'pressed تعامل لحظه‌ای است و prop وضعیت نیست. انتخاب مال ToggleButton است.',
   'hover و focus در API عمومی جعل نمی‌شوند.',

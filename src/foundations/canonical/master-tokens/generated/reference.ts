@@ -368,16 +368,24 @@ export const REFERENCE = {
   "ref.color.black-alpha-20": "rgb(0 0 0 / 0.20)",
   /** @token ref.color.black-alpha-26 */
   "ref.color.black-alpha-26": "rgb(0 0 0 / 0.26)",
+  /** @token ref.color.black-alpha-4 */
+  "ref.color.black-alpha-4": "rgb(0 0 0 / 0.04)",
   /** @token ref.shadow.offset.0 */
   "ref.shadow.offset.0": "0px",
   /** @token ref.shadow.offset.2 */
   "ref.shadow.offset.2": "2px",
+  /** @token ref.shadow.offset.3 */
+  "ref.shadow.offset.3": "3px",
+  /** @token ref.shadow.offset.6 */
+  "ref.shadow.offset.6": "6px",
   /** @token ref.shadow.offset.8 */
   "ref.shadow.offset.8": "8px",
   /** @token ref.shadow.offset.16 */
   "ref.shadow.offset.16": "16px",
   /** @token ref.shadow.blur.6 */
   "ref.shadow.blur.6": "6px",
+  /** @token ref.shadow.blur.10 */
+  "ref.shadow.blur.10": "10px",
   /** @token ref.shadow.blur.20 */
   "ref.shadow.blur.20": "20px",
   /** @token ref.shadow.blur.36 */

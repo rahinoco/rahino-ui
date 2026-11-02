@@ -24,6 +24,7 @@ const ToggleButton = forwardRef<HTMLButtonElement, ToggleButtonProps>(function T
     appearance = 'soft',
     intent = 'neutral',
     size = 'md',
+    radius = 'less',
     iconStart,
     iconEnd,
     mirrorStart,
@@ -51,7 +52,7 @@ const ToggleButton = forwardRef<HTMLButtonElement, ToggleButtonProps>(function T
   return (
     <button
       {...props}
-      {...buttonData({ appearance, intent, size, fullWidth, loading, pressed: value, iconOnly: !children })}
+      {...buttonData({ appearance, intent, size, radius, fullWidth, loading, pressed: value, iconOnly: !children })}
       className={classNameOf(className)}
       style={{ ...widthStyle, ...style }}
       type={type}

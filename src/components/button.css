@@ -1,13 +1,14 @@
 .rds-button {
-  --rds-button-bg: var(--rds-button-soft-neutral-bg);
+  --rds-button-bg: var(--rds-color-surface-subtle);
   --rds-button-bg-hover: var(--rds-button-soft-neutral-bg-hover);
   --rds-button-bg-pressed: var(--rds-button-soft-neutral-bg-pressed);
-  --rds-button-fg: var(--rds-button-soft-neutral-fg);
-  --rds-button-edge: transparent;
-  --rds-button-shadow: var(--rds-lift-rest);
+  --rds-button-fg: var(--rds-color-ink-primary);
+  --rds-button-shadow: var(--rds-shadow-sm);
+  --rds-button-radius: var(--rds-radius-8);
   --rds-button-icon: var(--rds-size-icon-md);
   box-sizing: border-box;
   position: relative;
+  isolation: isolate;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -17,8 +18,9 @@
   padding-inline: var(--rds-size-control-md-padding-inline);
   padding-block: var(--rds-size-control-md-padding-block);
   border: 0;
-  border-radius: var(--rds-radius-control);
-  background: var(--rds-button-bg);
+  border-radius: var(--rds-button-radius);
+  --rds-button-fill: var(--rds-button-bg);
+  background: var(--rds-button-fill);
   color: var(--rds-button-fg);
   box-shadow: var(--rds-button-shadow);
   font-family: var(--rds-font-family-fa);
@@ -36,6 +38,24 @@
     background-color var(--rds-motion-duration-feedback) var(--rds-motion-easing-standard),
     color var(--rds-motion-duration-feedback) var(--rds-motion-easing-standard),
     box-shadow var(--rds-motion-duration-feedback) var(--rds-motion-easing-standard);
+}
+
+.rds-button[data-radius='more'] {
+  --rds-button-radius: var(--rds-radius-12);
+}
+
+/* State layers sit behind content; their alpha comes from the foundation. */
+.rds-button[data-intent='neutral']:is([data-appearance='soft'], [data-appearance='ghost']):not([data-pressed='true'])::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+  background-color: var(--rds-color-interaction-neutral-hover);
+  opacity: 0;
+  transition: opacity var(--rds-motion-duration-feedback) var(--rds-motion-easing-standard),
+    background-color var(--rds-motion-duration-feedback) var(--rds-motion-easing-standard);
 }
 
 .rds-button[data-size='sm'] {
@@ -56,43 +76,38 @@
 }
 
 .rds-button[data-appearance='solid'][data-intent='neutral'] {
-  --rds-button-bg: var(--rds-button-solid-neutral-bg);
+  --rds-button-bg: var(--rds-color-surface-inverse);
   --rds-button-bg-hover: var(--rds-button-solid-neutral-bg-hover);
   --rds-button-bg-pressed: var(--rds-button-solid-neutral-bg-pressed);
-  --rds-button-fg: var(--rds-button-solid-neutral-fg);
-  --rds-button-shadow: var(--rds-lift-rest);
+  --rds-button-fg: var(--rds-color-ink-inverse);
 }
 
 .rds-button[data-appearance='solid'][data-intent='brand'] {
-  --rds-button-bg: var(--rds-button-solid-brand-bg);
-  --rds-button-bg-hover: var(--rds-button-solid-brand-bg-hover);
-  --rds-button-bg-pressed: var(--rds-button-solid-brand-bg-pressed);
-  --rds-button-fg: var(--rds-button-solid-brand-fg);
-  --rds-button-shadow: var(--rds-lift-rest);
+  --rds-button-bg: var(--rds-color-action-primary-bg-default);
+  --rds-button-bg-hover: var(--rds-color-action-primary-bg-hover);
+  --rds-button-bg-pressed: var(--rds-color-action-primary-bg-pressed);
+  --rds-button-fg: var(--rds-color-ink-on-brand);
 }
 
 .rds-button[data-appearance='solid'][data-intent='danger'] {
-  --rds-button-bg: var(--rds-button-solid-danger-bg);
+  --rds-button-bg: var(--rds-color-status-error-fill);
   --rds-button-bg-hover: var(--rds-button-solid-danger-bg-hover);
   --rds-button-bg-pressed: var(--rds-button-solid-danger-bg-pressed);
-  --rds-button-fg: var(--rds-button-solid-danger-fg);
-  --rds-button-shadow: var(--rds-lift-rest);
+  --rds-button-fg: var(--rds-color-status-error-on-fill);
 }
 
 .rds-button[data-appearance='soft'][data-intent='brand'] {
-  --rds-button-bg: var(--rds-button-soft-brand-bg);
-  --rds-button-bg-hover: var(--rds-button-soft-brand-bg-hover);
+  --rds-button-bg: var(--rds-color-brand-bg-default);
+  --rds-button-bg-hover: var(--rds-color-brand-bg-hover);
   --rds-button-bg-pressed: var(--rds-button-soft-brand-bg-pressed);
-  --rds-button-fg: var(--rds-button-soft-brand-fg);
-  --rds-button-shadow: var(--rds-lift-rest);
+  --rds-button-fg: var(--rds-color-brand-fg);
 }
 
 .rds-button[data-appearance='soft'][data-intent='danger'] {
-  --rds-button-bg: var(--rds-button-soft-danger-bg);
+  --rds-button-bg: var(--rds-color-status-error-bg);
   --rds-button-bg-hover: var(--rds-button-soft-danger-bg-hover);
   --rds-button-bg-pressed: var(--rds-button-soft-danger-bg-pressed);
-  --rds-button-fg: var(--rds-button-soft-danger-fg);
-  --rds-button-shadow: var(--rds-lift-rest);
+  --rds-button-fg: var(--rds-color-status-error-fg);
 }
 
 .rds-button[data-appearance='ghost'] {
@@ -101,9 +116,9 @@
 }
 
 .rds-button[data-appearance='ghost'][data-intent='neutral'] {
-  --rds-button-fg: var(--rds-button-soft-neutral-fg);
-  --rds-button-bg-hover: var(--rds-button-soft-neutral-bg-hover);
-  --rds-button-bg-pressed: var(--rds-button-soft-neutral-bg-pressed);
+  --rds-button-fg: var(--rds-color-ink-primary);
+  --rds-button-bg-hover: transparent;
+  --rds-button-bg-pressed: transparent;
 }
 
 .rds-button[data-appearance='ghost'][data-intent='brand'] {
@@ -169,26 +184,35 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
+  .rds-button[data-intent='neutral']:is([data-appearance='soft'], [data-appearance='ghost']):hover:not(:disabled):not([aria-disabled='true'])::before {
+    opacity: 1;
+  }
+
   .rds-button:hover:not(:disabled):not([aria-disabled='true']) {
-    background: var(--rds-button-bg-hover);
+    --rds-button-fill: var(--rds-button-bg-hover);
   }
 
   .rds-button[data-pressed='true']:hover:not(:disabled):not([aria-disabled='true']) {
-    background: var(--rds-button-selected-bg-hover);
+    --rds-button-fill: var(--rds-button-selected-bg-hover);
   }
 }
 
+.rds-button[data-intent='neutral']:is([data-appearance='soft'], [data-appearance='ghost']):active:not(:disabled):not([aria-disabled='true'])::before {
+  background-color: var(--rds-color-interaction-neutral-pressed);
+  opacity: 1;
+}
+
 .rds-button:active:not(:disabled):not([aria-disabled='true']) {
-  background: var(--rds-button-bg-pressed);
+  --rds-button-fill: var(--rds-button-bg-pressed);
 }
 
 .rds-button[data-pressed='true']:active:not(:disabled):not([aria-disabled='true']) {
-  background: var(--rds-button-selected-bg-pressed);
+  --rds-button-fill: var(--rds-button-selected-bg-pressed);
 }
 
 .rds-button:disabled,
 .rds-button[aria-disabled='true'] {
-  background: var(--rds-button-bg-disabled);
+  --rds-button-fill: var(--rds-button-bg-disabled);
   color: var(--rds-button-fg-disabled);
   box-shadow: none;
   cursor: not-allowed;
@@ -197,7 +221,7 @@
 
 .rds-button[data-appearance='solid'][data-intent='brand']:disabled,
 .rds-button[data-appearance='solid'][data-intent='brand'][aria-disabled='true'] {
-  background: var(--rds-button-solid-brand-bg-disabled);
+  --rds-button-fill: var(--rds-button-solid-brand-bg-disabled);
   color: var(--rds-color-ink-primary);
 }
 
@@ -206,7 +230,7 @@
   --rds-button-selected-bg-hover: var(--rds-button-selected-neutral-bg-hover);
   --rds-button-selected-bg-pressed: var(--rds-button-selected-neutral-bg-pressed);
   --rds-button-selected-fg: var(--rds-button-selected-neutral-fg);
-  background: var(--rds-button-selected-bg);
+  --rds-button-fill: var(--rds-button-selected-bg);
   color: var(--rds-button-selected-fg);
 }
 
@@ -225,17 +249,8 @@
 }
 
 .rds-button:focus-visible {
-  outline: var(--rds-button-focus-width) solid var(--rds-button-focus-soft);
-  outline-offset: var(--rds-button-focus-gap);
-}
-
-.rds-button:focus-visible::after {
-  content: "";
-  position: absolute;
-  pointer-events: none;
-  inset: calc(-1 * (var(--rds-button-focus-gap) + var(--rds-button-focus-width)));
-  border-radius: inherit;
-  box-shadow: 0 0 0 var(--rds-button-focus-core) var(--rds-color-focus-ring);
+  outline: var(--rds-focus-ring-width) solid var(--rds-color-focus-ring);
+  outline-offset: var(--rds-space-50);
 }
 
 .rds-button__label {
@@ -255,28 +270,10 @@
   height: var(--rds-button-icon);
 }
 
-.rds-button__icon svg,
-.rds-button__mark svg {
+.rds-button__icon svg {
   width: 100%;
   height: 100%;
   stroke-width: var(--rds-icon-stroke);
-}
-
-.rds-button__mark {
-  display: inline-flex;
-  flex: none;
-  align-items: center;
-  justify-content: center;
-  width: var(--rds-button-icon);
-  height: var(--rds-button-icon);
-}
-
-.rds-button[data-icon-only='true'] .rds-button__mark {
-  position: absolute;
-  inset-inline-end: var(--ref-space-2);
-  inset-block-end: var(--ref-space-2);
-  width: var(--rds-size-icon-sm);
-  height: var(--rds-size-icon-sm);
 }
 
 [dir='rtl'] .rds-button__icon[data-mirror='true'] {
@@ -298,7 +295,7 @@
 .rds-button__spinner {
   animation:
     rds-button-in var(--rds-motion-duration-feedback) var(--rds-motion-easing-standard),
-    rds-button-spin var(--rds-motion-duration-overlay) linear infinite;
+    rds-button-spin calc(var(--rds-motion-duration-feedback) * 6) var(--rds-motion-easing-linear) infinite;
 }
 
 @keyframes rds-button-in {
@@ -314,6 +311,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .rds-button,
+  .rds-button::before,
   .rds-button__spinner {
     animation: none;
     transition: none;
@@ -321,31 +319,77 @@
 }
 
 @media (forced-colors: active) {
-  .rds-button {
-    border: 1px solid ButtonText;
+  .rds-button[data-appearance][data-intent],
+  .rds-button[data-appearance][data-intent]:is(:hover, :active, [data-pressed='true']):not(:disabled):not([aria-disabled='true']) {
+    border: var(--rds-border-width-default) solid ButtonText;
+    --rds-button-fill: ButtonFace;
     background: ButtonFace;
     color: ButtonText;
     box-shadow: none;
     forced-color-adjust: none;
   }
 
-  .rds-button:disabled,
-  .rds-button[aria-disabled='true'] {
+  .rds-button[data-appearance][data-intent]:is(:disabled, [aria-disabled='true']) {
+    --rds-button-fill: ButtonFace;
+    background: ButtonFace;
     color: GrayText;
     border-color: GrayText;
   }
 
-  .rds-button[data-pressed='true'] {
+  .rds-button[data-appearance][data-intent][data-pressed='true']:not(:disabled):not([aria-disabled='true']) {
     border-color: Highlight;
     color: Highlight;
   }
 
   .rds-button:focus-visible {
-    outline: var(--rds-focus-width) solid Highlight;
+    outline: var(--rds-focus-ring-width) solid Highlight;
     outline-offset: var(--rds-focus-offset);
   }
 
-  .rds-button:focus-visible::after {
-    content: none;
+  .rds-button::before {
+    display: none;
   }
+}
+
+/* Rounded CSS fallback remains until geometry is available. Never clip the
+   native control: only its decorative surface and neutral state layer. */
+.rds-button__elevation { display: none; }
+.rds-button[data-smoothed='true'] {
+  background: transparent;
+  box-shadow: none;
+}
+.rds-button[data-smoothed='true'] > .rds-button__elevation {
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  filter: drop-shadow(var(--rds-button-drop-shadow));
+}
+.rds-button__surface {
+  position: absolute;
+  inset: 0;
+  background: var(--rds-button-fill);
+  clip-path: var(--rds-button-path);
+  transition: background-color var(--rds-motion-duration-feedback) var(--rds-motion-easing-standard);
+}
+.rds-button[data-smoothed='true']::before { clip-path: var(--rds-button-path); }
+.rds-button[data-smoothed='true']:is([data-appearance='ghost'], :disabled, [aria-disabled='true']) > .rds-button__elevation { filter: none; }
+.rds-button[data-smoothed='true']:focus-visible { outline-color: transparent; }
+.rds-button[data-smoothed='true']:focus-visible::after {
+  content: "";
+  position: absolute;
+  inset: calc(-1 * (var(--rds-space-50) + var(--rds-focus-ring-width)));
+  pointer-events: none;
+  background: var(--rds-color-focus-ring);
+  mask-image: var(--rds-button-focus-mask);
+  mask-repeat: no-repeat;
+}
+@media (prefers-reduced-motion: reduce) {
+  .rds-button__surface { transition: none; }
+}
+@media (forced-colors: active) {
+  .rds-button[data-smoothed='true'] > .rds-button__elevation { display: none; }
+  .rds-button[data-smoothed='true']:focus-visible { outline-color: Highlight; }
+  .rds-button[data-smoothed='true']:focus-visible::after { display: none; }
 }

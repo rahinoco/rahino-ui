@@ -33,4 +33,10 @@ All primitive values use `px`. Token names reflect their actual values and remai
 
 ## Implementation
 
+### Button corner smoothing
+
+Button, IconButton and ToggleButton use a 60% Figma-style corner smoothing recipe. This shapes the transition from straight edges into corners; it does not change the numeric radius scale. The existing button variants remain 8px (default) and 12px, independent of theme, size, viewport and density. Where geometry cannot fit the requested smoothing, limit it to the available half-height/half-width as Figma does, rather than changing the radius.
+
+Generate the surface path from the measured control dimensions and its computed foundation radius. Apply the same path to interaction layers, derive elevation from the existing shadow token, and draw an independent 2px focus ring outside the shape. Keep the native control and its focus area unclipped. Standard rounded CSS geometry is the fallback before measurement or without shape support; native forced colors retain system borders and focus. This is a button recipe, not a new numeric radius token or approval of other component shapes. Button state approval remains separate.
+
 Consume numeric radius tokens through their CSS variables (for example, `--rds-radius-8`). Apply **Full** only in component recipes that call for chips, pills, or circles; do not create a separate numeric radius for every component, theme, viewport, or density mode.

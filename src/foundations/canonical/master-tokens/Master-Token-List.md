@@ -2,7 +2,7 @@
 
 **Canonical foundation. Values and outputs are generated from this collection.**
 
-152 shared and theme-dependent typed tokens, 16 semantic text styles, 192 raw references, and 14 supporting definitions.
+152 shared and theme-dependent typed tokens, 16 semantic text styles, 196 raw references, and 14 supporting definitions.
 
 ## How to read this list
 
@@ -203,9 +203,9 @@ Five overrides per theme have approved semantic targets. Native forced colors us
 
 | Token | Light value / reference | Dark value / reference | Use / review |
 | --- | --- | --- | --- |
-| [`rds.shadow.lg`](../Shadow.ts#L17) | 0px 16px 36px 0px rgb(0 0 0 / 0.14)<br>color: `ref.color.black-alpha-14`<br>offsetX: `ref.shadow.offset.0`<br>offsetY: `ref.shadow.offset.16`<br>blur: `ref.shadow.blur.36`<br>spread: `ref.shadow.spread.0` | 0px 16px 36px 0px rgb(0 0 0 / 0.26)<br>color: `ref.color.black-alpha-26`<br>offsetX: `ref.shadow.offset.0`<br>offsetY: `ref.shadow.offset.16`<br>blur: `ref.shadow.blur.36`<br>spread: `ref.shadow.spread.0` | Modal elevation |
-| [`rds.shadow.md`](../Shadow.ts#L15) | 0px 8px 20px 0px rgb(0 0 0 / 0.1)<br>color: `ref.color.black-alpha-10`<br>offsetX: `ref.shadow.offset.0`<br>offsetY: `ref.shadow.offset.8`<br>blur: `ref.shadow.blur.20`<br>spread: `ref.shadow.spread.0` | 0px 8px 20px 0px rgb(0 0 0 / 0.2)<br>color: `ref.color.black-alpha-20`<br>offsetX: `ref.shadow.offset.0`<br>offsetY: `ref.shadow.offset.8`<br>blur: `ref.shadow.blur.20`<br>spread: `ref.shadow.spread.0` | Contextual floating surfaces |
-| [`rds.shadow.sm`](../Shadow.ts#L13) | 0px 2px 6px 0px rgb(0 0 0 / 0.06)<br>color: `ref.color.black-alpha-6`<br>offsetX: `ref.shadow.offset.0`<br>offsetY: `ref.shadow.offset.2`<br>blur: `ref.shadow.blur.6`<br>spread: `ref.shadow.spread.0` | 0px 2px 6px 0px rgb(0 0 0 / 0.14)<br>color: `ref.color.black-alpha-14`<br>offsetX: `ref.shadow.offset.0`<br>offsetY: `ref.shadow.offset.2`<br>blur: `ref.shadow.blur.6`<br>spread: `ref.shadow.spread.0` | Subtle elevation |
+| [`rds.shadow.lg`](../Shadow.ts#L17) | 0px 8px 20px 0px rgb(0 0 0 / 0.1)<br>color: `ref.color.black-alpha-10`<br>offsetX: `ref.shadow.offset.0`<br>offsetY: `ref.shadow.offset.8`<br>blur: `ref.shadow.blur.20`<br>spread: `ref.shadow.spread.0` | 0px 16px 36px 0px rgb(0 0 0 / 0.26)<br>color: `ref.color.black-alpha-26`<br>offsetX: `ref.shadow.offset.0`<br>offsetY: `ref.shadow.offset.16`<br>blur: `ref.shadow.blur.36`<br>spread: `ref.shadow.spread.0` | Modal-only elevation |
+| [`rds.shadow.md`](../Shadow.ts#L15) | 0px 6px 10px 0px rgb(0 0 0 / 0.06)<br>color: `ref.color.black-alpha-6`<br>offsetX: `ref.shadow.offset.0`<br>offsetY: `ref.shadow.offset.6`<br>blur: `ref.shadow.blur.10`<br>spread: `ref.shadow.spread.0` | 0px 8px 20px 0px rgb(0 0 0 / 0.2)<br>color: `ref.color.black-alpha-20`<br>offsetX: `ref.shadow.offset.0`<br>offsetY: `ref.shadow.offset.8`<br>blur: `ref.shadow.blur.20`<br>spread: `ref.shadow.spread.0` | Contextual floating surfaces |
+| [`rds.shadow.sm`](../Shadow.ts#L13) | 0px 3px 6px 0px rgb(0 0 0 / 0.04)<br>color: `ref.color.black-alpha-4`<br>offsetX: `ref.shadow.offset.0`<br>offsetY: `ref.shadow.offset.3`<br>blur: `ref.shadow.blur.6`<br>spread: `ref.shadow.spread.0` | 0px 2px 6px 0px rgb(0 0 0 / 0.14)<br>color: `ref.color.black-alpha-14`<br>offsetX: `ref.shadow.offset.0`<br>offsetY: `ref.shadow.offset.2`<br>blur: `ref.shadow.blur.6`<br>spread: `ref.shadow.spread.0` | Subtle elevation |
 
 ### Spacing
 
@@ -309,7 +309,7 @@ Detailed rules stay in their foundation documents:
 
 ## Open decisions
 
-0 open items. Full evidence and 26 resolved decisions are retained in [decisions.json](decisions.json).
+0 open items. Full evidence and 28 resolved decisions are retained in [decisions.json](decisions.json).
 
 | ID | Issue | Needed next |
 | --- | --- | --- |
@@ -351,6 +351,7 @@ These are the reusable values behind the catalog. Color names use hue families a
 | [`ref.color.amber.575`](../master-tokens/generated/reference.ts#L281) | color | #8A5A12 |
 | [`ref.color.amber.775`](../master-tokens/generated/reference.ts#L283) | color | #40341D |
 | [`ref.color.amber.925`](../master-tokens/generated/reference.ts#L285) | color | #1B1407 |
+| [`ref.color.black-alpha-4`](../master-tokens/generated/reference.ts#L371) | color | rgb(0 0 0 / 0.04) |
 | [`ref.color.black-alpha-6`](../master-tokens/generated/reference.ts#L357) | color | rgb(0 0 0 / 0.06) |
 | [`ref.color.black-alpha-10`](../master-tokens/generated/reference.ts#L359) | color | rgb(0 0 0 / 0.1) |
 | [`ref.color.black-alpha-14`](../master-tokens/generated/reference.ts#L361) | color | rgb(0 0 0 / 0.14) |
@@ -520,14 +521,17 @@ These are the reusable values behind the catalog. Color names use hue families a
 
 | Reference | Type | Value |
 | --- | --- | --- |
-| [`ref.shadow.blur.6`](../master-tokens/generated/reference.ts#L379) | dimension | 6px |
-| [`ref.shadow.blur.20`](../master-tokens/generated/reference.ts#L381) | dimension | 20px |
-| [`ref.shadow.blur.36`](../master-tokens/generated/reference.ts#L383) | dimension | 36px |
-| [`ref.shadow.offset.0`](../master-tokens/generated/reference.ts#L371) | dimension | 0px |
-| [`ref.shadow.offset.2`](../master-tokens/generated/reference.ts#L373) | dimension | 2px |
-| [`ref.shadow.offset.8`](../master-tokens/generated/reference.ts#L375) | dimension | 8px |
-| [`ref.shadow.offset.16`](../master-tokens/generated/reference.ts#L377) | dimension | 16px |
-| [`ref.shadow.spread.0`](../master-tokens/generated/reference.ts#L385) | dimension | 0px |
+| [`ref.shadow.blur.6`](../master-tokens/generated/reference.ts#L385) | dimension | 6px |
+| [`ref.shadow.blur.10`](../master-tokens/generated/reference.ts#L387) | dimension | 10px |
+| [`ref.shadow.blur.20`](../master-tokens/generated/reference.ts#L389) | dimension | 20px |
+| [`ref.shadow.blur.36`](../master-tokens/generated/reference.ts#L391) | dimension | 36px |
+| [`ref.shadow.offset.0`](../master-tokens/generated/reference.ts#L373) | dimension | 0px |
+| [`ref.shadow.offset.2`](../master-tokens/generated/reference.ts#L375) | dimension | 2px |
+| [`ref.shadow.offset.3`](../master-tokens/generated/reference.ts#L377) | dimension | 3px |
+| [`ref.shadow.offset.6`](../master-tokens/generated/reference.ts#L379) | dimension | 6px |
+| [`ref.shadow.offset.8`](../master-tokens/generated/reference.ts#L381) | dimension | 8px |
+| [`ref.shadow.offset.16`](../master-tokens/generated/reference.ts#L383) | dimension | 16px |
+| [`ref.shadow.spread.0`](../master-tokens/generated/reference.ts#L393) | dimension | 0px |
 
 ### space
 

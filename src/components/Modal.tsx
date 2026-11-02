@@ -404,7 +404,7 @@ export function ChoiceTile({
       className={twMerge(
         clsx(
           'group flex flex-col items-center justify-center gap-4 rounded-[2rem] border border-border-subtle bg-bg-surface p-5 text-center font-sans transition-all',
-          'hover:-translate-y-1 hover:border-primary-200 hover:shadow-lg hover:shadow-primary-500/5',
+          'hover:-translate-y-1 hover:border-primary-200 hover:shadow-[var(--rds-shadow-sm)]',
           className
         )
       )}

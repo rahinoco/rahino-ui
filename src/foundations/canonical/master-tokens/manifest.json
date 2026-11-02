@@ -1108,6 +1108,225 @@
         ],
         "alpha": 1
       }
+    },
+    {
+      "approval": "light-shadow-update-2026-11-02",
+      "set": "light",
+      "publicPath": "rds.shadow.md",
+      "beforeAlias": {
+        "color": "{ref.color.black-alpha-10}",
+        "offsetX": "{ref.shadow.offset.0}",
+        "offsetY": "{ref.shadow.offset.8}",
+        "blur": "{ref.shadow.blur.20}",
+        "spread": "{ref.shadow.spread.0}"
+      },
+      "afterAlias": {
+        "color": "{ref.color.black-alpha-6}",
+        "offsetX": "{ref.shadow.offset.0}",
+        "offsetY": "{ref.shadow.offset.6}",
+        "blur": "{ref.shadow.blur.10}",
+        "spread": "{ref.shadow.spread.0}"
+      },
+      "beforeValue": {
+        "color": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0,
+            0
+          ],
+          "alpha": 0.1
+        },
+        "offsetX": {
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "value": 8,
+          "unit": "px"
+        },
+        "blur": {
+          "value": 20,
+          "unit": "px"
+        },
+        "spread": {
+          "value": 0,
+          "unit": "px"
+        }
+      },
+      "afterValue": {
+        "color": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0,
+            0
+          ],
+          "alpha": 0.06
+        },
+        "offsetX": {
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "value": 6,
+          "unit": "px"
+        },
+        "blur": {
+          "value": 10,
+          "unit": "px"
+        },
+        "spread": {
+          "value": 0,
+          "unit": "px"
+        }
+      }
+    },
+    {
+      "approval": "light-shadow-update-2026-11-02",
+      "set": "light",
+      "publicPath": "rds.shadow.lg",
+      "beforeAlias": {
+        "color": "{ref.color.black-alpha-14}",
+        "offsetX": "{ref.shadow.offset.0}",
+        "offsetY": "{ref.shadow.offset.16}",
+        "blur": "{ref.shadow.blur.36}",
+        "spread": "{ref.shadow.spread.0}"
+      },
+      "afterAlias": {
+        "color": "{ref.color.black-alpha-10}",
+        "offsetX": "{ref.shadow.offset.0}",
+        "offsetY": "{ref.shadow.offset.8}",
+        "blur": "{ref.shadow.blur.20}",
+        "spread": "{ref.shadow.spread.0}"
+      },
+      "beforeValue": {
+        "color": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0,
+            0
+          ],
+          "alpha": 0.14
+        },
+        "offsetX": {
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "value": 16,
+          "unit": "px"
+        },
+        "blur": {
+          "value": 36,
+          "unit": "px"
+        },
+        "spread": {
+          "value": 0,
+          "unit": "px"
+        }
+      },
+      "afterValue": {
+        "color": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0,
+            0
+          ],
+          "alpha": 0.1
+        },
+        "offsetX": {
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "value": 8,
+          "unit": "px"
+        },
+        "blur": {
+          "value": 20,
+          "unit": "px"
+        },
+        "spread": {
+          "value": 0,
+          "unit": "px"
+        }
+      }
+    },
+    {
+      "approval": "light-sm-and-modal-only-lg-2026-11-02",
+      "set": "light",
+      "publicPath": "rds.shadow.sm",
+      "beforeAlias": {
+        "color": "{ref.color.black-alpha-6}",
+        "offsetX": "{ref.shadow.offset.0}",
+        "offsetY": "{ref.shadow.offset.2}",
+        "blur": "{ref.shadow.blur.6}",
+        "spread": "{ref.shadow.spread.0}"
+      },
+      "afterAlias": {
+        "color": "{ref.color.black-alpha-4}",
+        "offsetX": "{ref.shadow.offset.0}",
+        "offsetY": "{ref.shadow.offset.3}",
+        "blur": "{ref.shadow.blur.6}",
+        "spread": "{ref.shadow.spread.0}"
+      },
+      "beforeValue": {
+        "color": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0,
+            0
+          ],
+          "alpha": 0.06
+        },
+        "offsetX": {
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "value": 2,
+          "unit": "px"
+        },
+        "blur": {
+          "value": 6,
+          "unit": "px"
+        },
+        "spread": {
+          "value": 0,
+          "unit": "px"
+        }
+      },
+      "afterValue": {
+        "color": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0,
+            0
+          ],
+          "alpha": 0.04
+        },
+        "offsetX": {
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "value": 3,
+          "unit": "px"
+        },
+        "blur": {
+          "value": 6,
+          "unit": "px"
+        },
+        "spread": {
+          "value": 0,
+          "unit": "px"
+        }
+      }
     }
   ],
   "retiredReferences": [
@@ -1227,5 +1446,23 @@
     "types": "generated/color-resolver.d.mts",
     "generator": "scripts/color-resolver.mjs",
     "sharedPolicy": "scripts/color-policy.mjs"
-  }
+  },
+  "approvedReferenceAdditions": [
+    {
+      "approval": "light-shadow-update-2026-11-02",
+      "paths": [
+        "ref.shadow.offset.6",
+        "ref.shadow.blur.10"
+      ],
+      "scope": "New numeric references for the explicitly requested light md shadow; existing references and dark tokens unchanged."
+    },
+    {
+      "approval": "light-sm-and-modal-only-lg-2026-11-02",
+      "paths": [
+        "ref.shadow.offset.3",
+        "ref.color.black-alpha-4"
+      ],
+      "scope": "Light sm only; no existing primitive or dark value changes."
+    }
+  ]
 }

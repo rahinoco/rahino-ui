@@ -27,7 +27,7 @@ export function InlineNotice({ message, onDismiss, durationMs = 3200 }: InlineNo
           exit={{ opacity: 0, y: 8 }}
           className="pointer-events-auto fixed bottom-24 start-4 end-4 z-[80] sm:bottom-8 sm:start-auto sm:end-6 sm:max-w-sm"
         >
-          <div className="flex items-start gap-3 rounded-lg bg-slate-900 px-4 py-3 text-white shadow-lg shadow-black/10">
+          <div className="flex items-start gap-3 rounded-lg bg-slate-900 px-4 py-3 text-white shadow-[var(--rds-shadow-md)]">
             <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-success-400" />
             <p className="flex-1 text-xs leading-5">{message}</p>
             <button

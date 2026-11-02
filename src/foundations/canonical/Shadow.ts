@@ -11,9 +11,9 @@ const pair = (light: string, dark: string): Pair => ({ light, dark });
 
 export const SHADOW = {
   /** @token rds.shadow.sm */
-  "sm": pair("0 2px 6px 0 rgba(0, 0, 0, 0.06)", "0 2px 6px 0 rgba(0, 0, 0, 0.14)"),
+  "sm": pair("0 3px 6px 0 rgba(0, 0, 0, 0.04)", "0 2px 6px 0 rgba(0, 0, 0, 0.14)"),
   /** @token rds.shadow.md */
-  "md": pair("0 8px 20px 0 rgba(0, 0, 0, 0.10)", "0 8px 20px 0 rgba(0, 0, 0, 0.20)"),
+  "md": pair("0 6px 10px 0 rgba(0, 0, 0, 0.06)", "0 8px 20px 0 rgba(0, 0, 0, 0.20)"),
   /** @token rds.shadow.lg */
-  "lg": pair("0 16px 36px 0 rgba(0, 0, 0, 0.14)", "0 16px 36px 0 rgba(0, 0, 0, 0.26)"),
+  "lg": pair("0 8px 20px 0 rgba(0, 0, 0, 0.10)", "0 16px 36px 0 rgba(0, 0, 0, 0.26)"),
 } as const;

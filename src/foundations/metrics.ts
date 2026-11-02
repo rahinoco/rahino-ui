@@ -56,7 +56,7 @@ export type LegacyLiftLevel = 'rest' | 'float' | 'raise' | 'modal';
 /** Deprecated names map to the three approved shadows; none is not an elevation token. */
 export function liftShadow(level: LiftLevel | LegacyLiftLevel, appearance: 'light' | 'dark'): string {
   if (level === 'none') return 'none';
-  const name = level === 'rest' ? 'sm' : level === 'float' ? 'md' : level === 'raise' || level === 'modal' ? 'lg' : level;
+  const name = level === 'rest' ? 'sm' : level === 'float' || level === 'raise' ? 'md' : level === 'modal' ? 'lg' : level;
   return SHADOW[name][appearance];
 }
 export const MOTION_DURATION = DURATION;

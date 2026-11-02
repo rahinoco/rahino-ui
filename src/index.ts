@@ -38,7 +38,7 @@ export { default as AppearanceControls } from '@/components/AppearanceControls';
 export { default as AuthShell, type AuthShellProps } from '@/components/AuthShell';
 export { default as Badge, type BadgeProps } from '@/components/Badge';
 export { default as Button, type ButtonProps } from '@/components/Button';
-export type { ButtonAppearance, ButtonIntent, ButtonSize } from '@/components/Button';
+export type { ButtonAppearance, ButtonIntent, ButtonSize, ButtonRadius } from '@/components/Button';
 export { default as IconButton, type IconButtonProps } from '@/components/IconButton';
 export { default as ToggleButton, type ToggleButtonProps } from '@/components/ToggleButton';
 export { default as Card, type CardProps } from '@/components/Card';

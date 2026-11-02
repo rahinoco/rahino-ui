@@ -173,7 +173,8 @@ const data = {
     "ref.color.black-alpha-72": "rgb(0 0 0 / 0.72)",
     "ref.color.white-alpha-10": "rgb(255 255 255 / 0.10)",
     "ref.color.black-alpha-20": "rgb(0 0 0 / 0.20)",
-    "ref.color.black-alpha-26": "rgb(0 0 0 / 0.26)"
+    "ref.color.black-alpha-26": "rgb(0 0 0 / 0.26)",
+    "ref.color.black-alpha-4": "rgb(0 0 0 / 0.04)"
   },
   "palettes": {
     "light": {
