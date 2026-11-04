@@ -34,6 +34,10 @@ This aligns with the restrained visual direction of products such as Linear, Not
 
 **Constraints:** Avoid nested outlines and decorative card borders. A selected or invalid state must not be communicated through border color alone. Preserve functional controls and focus indicators on mobile even when outer card borders disappear.
 
+### Text input recipe
+
+Text inputs use `surface.sunken` as the default fill, with no default or error border. The independent 2px focus indicator stays entirely inside the field bounds. Keep error feedback distinct through the existing error fill, explicit message and `aria-invalid`; essential helper text remains visible. In forced-colors mode, a system-color inset cue may identify the control. These choices do not imply visual or accessibility approval of every state.
+
 ## Final Minimal Token Set
 
 These approved roles use the canonical foundation values. Component-specific identifying cues and interaction states are defined and validated during component work.
@@ -60,10 +64,10 @@ These calculated ratios use the current master colors against opaque neutral par
 <!-- rds:generated:boundaryContrast:start -->
 | Theme | Contrast | Role | canvas | base | subtle | raised | sunken |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| light | standard | `focus.ring` | 4.9367:1 | 5.5512:1 | 5.2955:1 | 5.5512:1 | 4.3749:1 |
-| light | standard | `edge.control` | 3.3653:1 | 3.7842:1 | 3.6099:1 | 3.7842:1 | 2.9824:1 — below target |
-| light | more | `focus.ring` | 5.5512:1 | 5.5512:1 | 5.2955:1 | 5.5512:1 | 4.3749:1 |
-| light | more | `edge.control` | 3.7842:1 | 3.7842:1 | 3.6099:1 | 3.7842:1 | 2.9824:1 — below target |
+| light | standard | `focus.ring` | 4.9367:1 | 5.5512:1 | 5.2955:1 | 5.5512:1 | 4.2053:1 |
+| light | standard | `edge.control` | 3.3653:1 | 3.7842:1 | 3.6099:1 | 3.7842:1 | 2.8667:1 — below target |
+| light | more | `focus.ring` | 5.5512:1 | 5.5512:1 | 5.2955:1 | 5.5512:1 | 4.2053:1 |
+| light | more | `edge.control` | 3.7842:1 | 3.7842:1 | 3.6099:1 | 3.7842:1 | 2.8667:1 — below target |
 | dark | standard | `focus.ring` | 4.0697:1 | 3.5445:1 | 3.1987:1 | 2.9694:1 — below target | 4.7783:1 |
 | dark | standard | `edge.control` | 4.6617:1 | 4.0601:1 | 3.6641:1 | 3.4014:1 | 5.4734:1 |
 | dark | more | `focus.ring` | 4.7783:1 | 4.0697:1 | 3.1987:1 | 2.9694:1 — below target | 4.7783:1 |

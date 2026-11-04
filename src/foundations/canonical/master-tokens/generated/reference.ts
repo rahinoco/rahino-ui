@@ -76,6 +76,8 @@ export const REFERENCE = {
   "ref.motion.distance.8": "8px",
   /** @token ref.motion.scale.1 */
   "ref.motion.scale.1": 1,
+  /** @token ref.motion.scale.0-923 */
+  "ref.motion.scale.0-923": 0.923,
   /** @token ref.motion.scale.0-98 */
   "ref.motion.scale.0-98": 0.98,
   /** @token ref.font.family.iranyekanx */
@@ -128,6 +130,8 @@ export const REFERENCE = {
   "ref.color.gray-warm.75": "#F3F1F2",
   /** @token ref.color.gray-warm.100 */
   "ref.color.gray-warm.100": "#E8E3E5",
+  /** @token ref.color.gray-warm.140 */
+  "ref.color.gray-warm.140": "#E3DFE1",
   /** @token ref.color.gray-warm.200 */
   "ref.color.gray-warm.200": "#CAC2C7",
   /** @token ref.color.gray-warm.325 */
@@ -302,6 +306,8 @@ export const REFERENCE = {
   "ref.color.red.600": "#9B4D48",
   /** @token ref.color.red.625 */
   "ref.color.red.625": "#A33A43",
+  /** @token ref.color.red.750 */
+  "ref.color.red.750": "#562A2F",
   /** @token ref.color.red.800 */
   "ref.color.red.800": "#42262B",
   /** @token ref.color.blue.50 */
@@ -392,4 +398,16 @@ export const REFERENCE = {
   "ref.shadow.blur.36": "36px",
   /** @token ref.shadow.spread.0 */
   "ref.shadow.spread.0": "0px",
+  /** @token ref.size.16 */
+  "ref.size.16": "16px",
+  /** @token ref.size.20 */
+  "ref.size.20": "20px",
+  /** @token ref.size.24 */
+  "ref.size.24": "24px",
+  /** @token ref.size.32 */
+  "ref.size.32": "32px",
+  /** @token ref.number.24 */
+  "ref.number.24": 24,
+  /** @token ref.number.2-25 */
+  "ref.number.2-25": 2.25,
 } as const;

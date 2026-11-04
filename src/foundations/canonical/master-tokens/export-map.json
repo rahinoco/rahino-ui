@@ -233,6 +233,18 @@
             "path": "rds.color.brand.fg",
             "set": "dark"
           }
+        },
+        "bg-pressed": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.brand.bg.pressed",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.brand.bg.pressed",
+            "set": "dark"
+          }
         }
       },
       "LINK_FG": {
@@ -967,6 +979,196 @@
           "$binding": "recipe",
           "id": "presentation-atmosphere"
         }
+      },
+      "ACTION_NEUTRAL_BG": {
+        "default": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.action.neutral.bg.default",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.action.neutral.bg.default",
+            "set": "dark"
+          }
+        },
+        "hover": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.action.neutral.bg.hover",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.action.neutral.bg.hover",
+            "set": "dark"
+          }
+        },
+        "pressed": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.action.neutral.bg.pressed",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.action.neutral.bg.pressed",
+            "set": "dark"
+          }
+        }
+      },
+      "ACTION_NEUTRAL_SUBTLE_BG": {
+        "default": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.action.neutral-subtle.bg.default",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.action.neutral-subtle.bg.default",
+            "set": "dark"
+          }
+        },
+        "hover": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.action.neutral-subtle.bg.hover",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.action.neutral-subtle.bg.hover",
+            "set": "dark"
+          }
+        },
+        "pressed": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.action.neutral-subtle.bg.pressed",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.action.neutral-subtle.bg.pressed",
+            "set": "dark"
+          }
+        }
+      },
+      "ACTION_DANGER_BG": {
+        "default": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.action.danger.bg.default",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.action.danger.bg.default",
+            "set": "dark"
+          }
+        },
+        "hover": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.action.danger.bg.hover",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.action.danger.bg.hover",
+            "set": "dark"
+          }
+        },
+        "pressed": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.action.danger.bg.pressed",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.action.danger.bg.pressed",
+            "set": "dark"
+          }
+        }
+      },
+      "ACTION_DANGER_SUBTLE_FG": {
+        "default": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.action.danger-subtle.fg.default",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.action.danger-subtle.fg.default",
+            "set": "dark"
+          }
+        },
+        "hover": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.action.danger-subtle.fg.hover",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.action.danger-subtle.fg.hover",
+            "set": "dark"
+          }
+        },
+        "pressed": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.action.danger-subtle.fg.pressed",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.action.danger-subtle.fg.pressed",
+            "set": "dark"
+          }
+        }
+      },
+      "ACTION_DANGER_SUBTLE_BG": {
+        "default": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.action.danger-subtle.bg.default",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.action.danger-subtle.bg.default",
+            "set": "dark"
+          }
+        },
+        "hover": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.action.danger-subtle.bg.hover",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.action.danger-subtle.bg.hover",
+            "set": "dark"
+          }
+        },
+        "pressed": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.action.danger-subtle.bg.pressed",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.action.danger-subtle.bg.pressed",
+            "set": "dark"
+          }
+        }
       }
     },
     "Motion.ts": {
@@ -1042,6 +1244,11 @@
         }
       },
       "SCALE": {
+        "pressed": {
+          "$binding": "token",
+          "path": "rds.motion.scale.pressed",
+          "set": "shared"
+        },
         "subtle": {
           "$binding": "token",
           "path": "rds.motion.scale.subtle",
@@ -1662,6 +1869,46 @@
         "$binding": "token",
         "path": "rds.layout.content.max",
         "set": "shared"
+      }
+    },
+    "Icons.ts": {
+      "ICONOGRAPHY": {
+        "size": {
+          "sm": {
+            "$binding": "token",
+            "path": "rds.icon.size.sm",
+            "set": "shared"
+          },
+          "md": {
+            "$binding": "token",
+            "path": "rds.icon.size.md",
+            "set": "shared"
+          },
+          "lg": {
+            "$binding": "token",
+            "path": "rds.icon.size.lg",
+            "set": "shared"
+          },
+          "display": {
+            "$binding": "token",
+            "path": "rds.icon.size.display",
+            "set": "shared"
+          }
+        },
+        "grid": {
+          "size": {
+            "$binding": "token",
+            "path": "rds.icon.grid.size",
+            "set": "shared"
+          }
+        },
+        "stroke": {
+          "width": {
+            "$binding": "token",
+            "path": "rds.icon.stroke.width",
+            "set": "shared"
+          }
+        }
       }
     }
   }

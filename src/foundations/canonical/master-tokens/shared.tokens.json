@@ -770,7 +770,7 @@
       "8": {
         "$type": "dimension",
         "$value": "{ref.radius.8}",
-        "$description": "Default buttons, inputs, and regular interactive controls.",
+        "$description": "Default buttons and regular interactive controls; text inputs use radius.12.",
         "$extensions": {
           "rahino": {
             "status": "adopted",
@@ -787,7 +787,7 @@
             ],
             "sourceAnnotations": {
               "token": "rds.radius.8",
-              "usage": "Default buttons, inputs, and regular interactive controls.",
+              "usage": "Default buttons and regular interactive controls; text inputs use radius.12.",
               "avoid": "Replacing the full-rounding recipe for chips and pills."
             },
             "reviewIssues": [],
@@ -808,7 +808,7 @@
       "12": {
         "$type": "dimension",
         "$value": "{ref.radius.12}",
-        "$description": "Grouped controls, compact cards, and smaller nested surfaces.",
+        "$description": "Default text inputs, more-rounded buttons, grouped controls, compact cards, and smaller nested surfaces.",
         "$extensions": {
           "rahino": {
             "status": "adopted",
@@ -825,7 +825,7 @@
             ],
             "sourceAnnotations": {
               "token": "rds.radius.12",
-              "usage": "Grouped controls, compact cards, and smaller nested surfaces.",
+              "usage": "Default text inputs, more-rounded buttons, grouped controls, compact cards, and smaller nested surfaces.",
               "avoid": "Automatically applying to every small component."
             },
             "reviewIssues": [],
@@ -1726,6 +1726,54 @@
         }
       },
       "scale": {
+        "pressed": {
+          "$type": "number",
+          "$value": "{ref.motion.scale.0-923}",
+          "$description": "Pronounced press compression for explicitly reviewed component recipes. Remove scaling entirely under reduced motion.",
+          "$extensions": {
+            "rahino": {
+              "status": "adopted",
+              "layer": "shared",
+              "approval": "checkbox-spectrum-press-motion-2026-11-02",
+              "source": {
+                "file": "Motion.ts",
+                "exportPath": [
+                  "SCALE",
+                  "pressed"
+                ],
+                "line": 44
+              },
+              "sourceDocuments": [
+                "Motion.md"
+              ],
+              "sourceAnnotations": {
+                "token": "rds.motion.scale.pressed",
+                "usage": "Pronounced press compression during pointer, touch or keyboard activation, selected by a component recipe.",
+                "rules": "Opt in through an explicitly reviewed recipe. Use feedback duration and standard easing; return to rest on release or cancellation. Keep the hit target and surrounding layout stationary.",
+                "avoid": "Automatic application to all controls, disabled states, external selection updates or entrance animation. Remove scaling entirely under reduced motion."
+              },
+              "reviewIssues": [],
+              "validation": {
+                "componentVisualApproval": "pending",
+                "implementation": {
+                  "status": "passed",
+                  "environment": "browser",
+                  "checkedOn": "2026-11-02",
+                  "evidence": "scripts/check-checkbox-browser.mjs: semantic/reference override checks, pointer/keyboard/touch press, cancellation, fixed target, rapid input and reduced motion. Existing unchecked-fill contrast findings remain separate."
+                }
+              },
+              "capturedSource": {
+                "file": "Motion.ts",
+                "exportPath": [
+                  "SCALE",
+                  "checkbox-pressed"
+                ],
+                "line": 1
+              },
+              "namingApproval": "semantic-component-neutral-naming-2026-11-03"
+            }
+          }
+        },
         "subtle": {
           "$type": "number",
           "$value": "{ref.motion.scale.0-98}",
@@ -1739,7 +1787,7 @@
                   "SCALE",
                   "subtle"
                 ],
-                "line": 44
+                "line": 46
               },
               "sourceDocuments": [
                 "Motion.md"
@@ -1747,7 +1795,7 @@
               "sourceAnnotations": {
                 "token": "rds.motion.scale.subtle",
                 "usage": "Opt-in press feedback for selected controls, or a dialog's starting scale when subtle scaling improves the interaction.",
-                "rules": "0.98 is the documented minimum scale; do not shrink further. Buttons normally use subtle color/elevation feedback. Dialogs may pair opacity with scale from 0.98 to 1 instead of translation.",
+                "rules": "0.98 remains the minimum scale for this subtle preset. The pronounced alternative rds.motion.scale.pressed requires an explicitly reviewed component recipe. Buttons normally use subtle color/elevation feedback. Dialogs may pair opacity with scale from 0.98 to 1 instead of translation.",
                 "avoid": "Applying scale to all buttons, table rows, forms, or persistent UI. @a11y Remove scaling under reduced motion; use rest scale directly."
               },
               "reviewIssues": [],
@@ -1792,7 +1840,7 @@
                   "SCALE",
                   "rest"
                 ],
-                "line": 46
+                "line": 48
               },
               "sourceDocuments": [
                 "Motion.md"
@@ -3268,6 +3316,248 @@
                   "PAGE_MAX_WIDTH"
                 ],
                 "line": 51
+              }
+            }
+          }
+        }
+      }
+    },
+    "icon": {
+      "size": {
+        "sm": {
+          "$type": "dimension",
+          "$value": "{ref.size.16}",
+          "$description": "Compact actions and small supporting indicators.",
+          "$extensions": {
+            "rahino": {
+              "status": "adopted",
+              "layer": "shared",
+              "approval": "icons-foundation-2026-11-03",
+              "source": {
+                "file": "Icons.ts",
+                "exportPath": [
+                  "ICONOGRAPHY",
+                  "size",
+                  "sm"
+                ],
+                "line": 10
+              },
+              "sourceDocuments": [
+                "Icons.md"
+              ],
+              "sourceAnnotations": {
+                "token": "rds.icon.size.sm",
+                "usage": "Compact actions and small supporting indicators."
+              },
+              "reviewIssues": [],
+              "adoptionApproval": "icons-foundation-2026-11-03",
+              "capturedSource": {
+                "file": "Icons.ts",
+                "exportPath": [
+                  "ICONOGRAPHY",
+                  "size",
+                  "sm"
+                ],
+                "line": 1
+              }
+            }
+          }
+        },
+        "md": {
+          "$type": "dimension",
+          "$value": "{ref.size.20}",
+          "$description": "Default buttons, fields, toolbars and navigation.",
+          "$extensions": {
+            "rahino": {
+              "status": "adopted",
+              "layer": "shared",
+              "approval": "icons-foundation-2026-11-03",
+              "source": {
+                "file": "Icons.ts",
+                "exportPath": [
+                  "ICONOGRAPHY",
+                  "size",
+                  "md"
+                ],
+                "line": 12
+              },
+              "sourceDocuments": [
+                "Icons.md"
+              ],
+              "sourceAnnotations": {
+                "token": "rds.icon.size.md",
+                "usage": "Default buttons, fields, toolbars and navigation."
+              },
+              "reviewIssues": [],
+              "adoptionApproval": "icons-foundation-2026-11-03",
+              "capturedSource": {
+                "file": "Icons.ts",
+                "exportPath": [
+                  "ICONOGRAPHY",
+                  "size",
+                  "md"
+                ],
+                "line": 1
+              }
+            }
+          }
+        },
+        "lg": {
+          "$type": "dimension",
+          "$value": "{ref.size.24}",
+          "$description": "Large controls and prominent actions.",
+          "$extensions": {
+            "rahino": {
+              "status": "adopted",
+              "layer": "shared",
+              "approval": "icons-foundation-2026-11-03",
+              "source": {
+                "file": "Icons.ts",
+                "exportPath": [
+                  "ICONOGRAPHY",
+                  "size",
+                  "lg"
+                ],
+                "line": 14
+              },
+              "sourceDocuments": [
+                "Icons.md"
+              ],
+              "sourceAnnotations": {
+                "token": "rds.icon.size.lg",
+                "usage": "Large controls and prominent actions."
+              },
+              "reviewIssues": [],
+              "adoptionApproval": "icons-foundation-2026-11-03",
+              "capturedSource": {
+                "file": "Icons.ts",
+                "exportPath": [
+                  "ICONOGRAPHY",
+                  "size",
+                  "lg"
+                ],
+                "line": 1
+              }
+            }
+          }
+        },
+        "display": {
+          "$type": "dimension",
+          "$value": "{ref.size.32}",
+          "$description": "Empty states and standalone explanatory symbols.",
+          "$extensions": {
+            "rahino": {
+              "status": "adopted",
+              "layer": "shared",
+              "approval": "icons-foundation-2026-11-03",
+              "source": {
+                "file": "Icons.ts",
+                "exportPath": [
+                  "ICONOGRAPHY",
+                  "size",
+                  "display"
+                ],
+                "line": 16
+              },
+              "sourceDocuments": [
+                "Icons.md"
+              ],
+              "sourceAnnotations": {
+                "token": "rds.icon.size.display",
+                "usage": "Empty states and standalone explanatory symbols."
+              },
+              "reviewIssues": [],
+              "adoptionApproval": "icons-foundation-2026-11-03",
+              "capturedSource": {
+                "file": "Icons.ts",
+                "exportPath": [
+                  "ICONOGRAPHY",
+                  "size",
+                  "display"
+                ],
+                "line": 1
+              }
+            }
+          }
+        }
+      },
+      "grid": {
+        "size": {
+          "$type": "number",
+          "$value": "{ref.number.24}",
+          "$description": "Original square SVG grid size in unitless coordinates.",
+          "$extensions": {
+            "rahino": {
+              "status": "adopted",
+              "layer": "shared",
+              "approval": "icons-foundation-2026-11-03",
+              "source": {
+                "file": "Icons.ts",
+                "exportPath": [
+                  "ICONOGRAPHY",
+                  "grid",
+                  "size"
+                ],
+                "line": 20
+              },
+              "sourceDocuments": [
+                "Icons.md"
+              ],
+              "sourceAnnotations": {
+                "token": "rds.icon.grid.size",
+                "usage": "Original square SVG grid size in unitless coordinates."
+              },
+              "reviewIssues": [],
+              "adoptionApproval": "icons-foundation-2026-11-03",
+              "capturedSource": {
+                "file": "Icons.ts",
+                "exportPath": [
+                  "ICONOGRAPHY",
+                  "grid",
+                  "size"
+                ],
+                "line": 1
+              }
+            }
+          }
+        }
+      },
+      "stroke": {
+        "width": {
+          "$type": "number",
+          "$value": "{ref.number.2-25}",
+          "$description": "Stroke width on the original 24 by 24 grid; scales proportionally with rendered icon size. Not a fixed CSS pixel width.",
+          "$extensions": {
+            "rahino": {
+              "status": "adopted",
+              "layer": "shared",
+              "approval": "icons-foundation-2026-11-03",
+              "source": {
+                "file": "Icons.ts",
+                "exportPath": [
+                  "ICONOGRAPHY",
+                  "stroke",
+                  "width"
+                ],
+                "line": 24
+              },
+              "sourceDocuments": [
+                "Icons.md"
+              ],
+              "sourceAnnotations": {
+                "token": "rds.icon.stroke.width",
+                "usage": "Stroke width on the original 24 by 24 grid; scales proportionally with rendered icon size. Not a fixed CSS pixel width."
+              },
+              "reviewIssues": [],
+              "adoptionApproval": "icons-foundation-2026-11-03",
+              "capturedSource": {
+                "file": "Icons.ts",
+                "exportPath": [
+                  "ICONOGRAPHY",
+                  "stroke",
+                  "width"
+                ],
+                "line": 1
               }
             }
           }
@@ -5223,6 +5513,45 @@
             }
           }
         },
+        "0-923": {
+          "$type": "number",
+          "$value": 0.923,
+          "$description": "Raw unitless transform scale 0.923, approximating Spectrum's 24/(24+2) apparent press scale at a 20px checkbox size.",
+          "$extensions": {
+            "rahino": {
+              "status": "adopted",
+              "layer": "reference",
+              "approval": "checkbox-spectrum-press-motion-2026-11-02",
+              "source": {
+                "file": "master-tokens/generated/reference.ts",
+                "exportPath": [
+                  "REFERENCE",
+                  "ref.motion.scale.0-923"
+                ],
+                "line": 79
+              },
+              "sourceDocuments": [
+                "Motion.md"
+              ],
+              "sourceAnnotations": {},
+              "reviewIssues": [],
+              "localTokenConsumers": [
+                {
+                  "set": "shared",
+                  "publicPath": "rds.motion.scale.pressed"
+                }
+              ],
+              "capturedSource": {
+                "file": "master-tokens/generated/reference.ts",
+                "exportPath": [
+                  "REFERENCE",
+                  "ref.motion.scale.0-923"
+                ],
+                "line": 1
+              }
+            }
+          }
+        },
         "0-98": {
           "$type": "number",
           "$value": 0.98,
@@ -5238,7 +5567,7 @@
                   "REFERENCE",
                   "ref.motion.scale.0-98"
                 ],
-                "line": 79
+                "line": 81
               },
               "sourceDocuments": [
                 "Motion.md"
@@ -5299,7 +5628,7 @@
                   "REFERENCE",
                   "ref.font.family.iranyekanx"
                 ],
-                "line": 81
+                "line": 83
               },
               "sourceDocuments": [
                 "Typography.md"
@@ -5356,7 +5685,7 @@
                   "REFERENCE",
                   "ref.font.family.roboto-condensed"
                 ],
-                "line": 83
+                "line": 85
               },
               "sourceDocuments": [
                 "Typography.md"
@@ -5415,7 +5744,7 @@
                   "REFERENCE",
                   "ref.font.family.system-monospace"
                 ],
-                "line": 85
+                "line": 87
               },
               "sourceDocuments": [
                 "Typography.md"
@@ -5471,7 +5800,7 @@
                   "REFERENCE",
                   "ref.font.weight.400"
                 ],
-                "line": 87
+                "line": 89
               },
               "sourceDocuments": [
                 "Typography.md"
@@ -5525,7 +5854,7 @@
                   "REFERENCE",
                   "ref.font.weight.500"
                 ],
-                "line": 89
+                "line": 91
               },
               "sourceDocuments": [
                 "Typography.md"
@@ -5579,7 +5908,7 @@
                   "REFERENCE",
                   "ref.font.weight.600"
                 ],
-                "line": 91
+                "line": 93
               },
               "sourceDocuments": [
                 "Typography.md"
@@ -5633,7 +5962,7 @@
                   "REFERENCE",
                   "ref.font.weight.700"
                 ],
-                "line": 93
+                "line": 95
               },
               "sourceDocuments": [
                 "Typography.md"
@@ -5689,7 +6018,7 @@
                   "REFERENCE",
                   "ref.font.line-height.1-8"
                 ],
-                "line": 95
+                "line": 97
               },
               "sourceDocuments": [
                 "Typography.md"
@@ -5743,7 +6072,7 @@
                   "REFERENCE",
                   "ref.font.line-height.1-95"
                 ],
-                "line": 97
+                "line": 99
               },
               "sourceDocuments": [
                 "Typography.md"
@@ -5797,7 +6126,7 @@
                   "REFERENCE",
                   "ref.font.line-height.1-7"
                 ],
-                "line": 99
+                "line": 101
               },
               "sourceDocuments": [
                 "Typography.md"
@@ -5851,7 +6180,7 @@
                   "REFERENCE",
                   "ref.font.line-height.1-6"
                 ],
-                "line": 101
+                "line": 103
               },
               "sourceDocuments": [
                 "Typography.md"
@@ -5926,7 +6255,7 @@
                   "REFERENCE",
                   "ref.font.size.rem-0-75"
                 ],
-                "line": 103
+                "line": 105
               },
               "sourceDocuments": [
                 "Typography.md"
@@ -5987,7 +6316,7 @@
                   "REFERENCE",
                   "ref.font.size.rem-0-875"
                 ],
-                "line": 105
+                "line": 107
               },
               "sourceDocuments": [
                 "Typography.md"
@@ -6124,7 +6453,7 @@
                   "REFERENCE",
                   "ref.font.size.rem-1"
                 ],
-                "line": 107
+                "line": 109
               },
               "sourceDocuments": [
                 "Typography.md"
@@ -6261,7 +6590,7 @@
                   "REFERENCE",
                   "ref.font.size.rem-1-125"
                 ],
-                "line": 109
+                "line": 111
               },
               "sourceDocuments": [
                 "Typography.md"
@@ -6322,7 +6651,7 @@
                   "REFERENCE",
                   "ref.font.size.rem-1-25"
                 ],
-                "line": 111
+                "line": 113
               },
               "sourceDocuments": [
                 "Typography.md"
@@ -6383,7 +6712,7 @@
                   "REFERENCE",
                   "ref.font.size.rem-1-5"
                 ],
-                "line": 113
+                "line": 115
               },
               "sourceDocuments": [
                 "Typography.md"
@@ -6447,7 +6776,7 @@
                 "REFERENCE",
                 "ref.blur.16"
               ],
-              "line": 115
+              "line": 117
             },
             "sourceDocuments": [
               "Veil & Shadow.md"
@@ -6506,7 +6835,7 @@
                 "REFERENCE",
                 "ref.blur.24"
               ],
-              "line": 117
+              "line": 119
             },
             "sourceDocuments": [
               "Veil & Shadow.md"
@@ -6582,7 +6911,7 @@
                 "REFERENCE",
                 "ref.blur.36"
               ],
-              "line": 119
+              "line": 121
             },
             "sourceDocuments": [
               "Veil & Shadow.md"
@@ -6641,7 +6970,7 @@
                 "REFERENCE",
                 "ref.blur.48"
               ],
-              "line": 121
+              "line": 123
             },
             "sourceDocuments": [
               "Veil & Shadow.md"
@@ -6700,7 +7029,7 @@
                 "REFERENCE",
                 "ref.blur.64"
               ],
-              "line": 123
+              "line": 125
             },
             "sourceDocuments": [
               "Veil & Shadow.md"
@@ -6755,7 +7084,7 @@
             ],
             "alpha": 1
           },
-          "$description": "Raw color #F8F6F7; alpha is part of the color value.",
+          "$description": "Raw color #FBF9FA; alpha is part of the color value.",
           "$extensions": {
             "rahino": {
               "status": "adopted",
@@ -6767,7 +7096,7 @@
                   "REFERENCE",
                   "ref.color.gray-warm.25"
                 ],
-                "line": 125
+                "line": 127
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -6818,7 +7147,7 @@
             ],
             "alpha": 1
           },
-          "$description": "Raw color #EFECED; alpha is part of the color value.",
+          "$description": "Raw color #F3F1F2; alpha is part of the color value.",
           "$extensions": {
             "rahino": {
               "status": "adopted",
@@ -6830,7 +7159,7 @@
                   "REFERENCE",
                   "ref.color.gray-warm.75"
                 ],
-                "line": 127
+                "line": 129
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -6881,7 +7210,7 @@
             ],
             "alpha": 1
           },
-          "$description": "Raw color #ECE8EA; alpha is part of the color value.",
+          "$description": "Raw color #E8E3E5; alpha is part of the color value.",
           "$extensions": {
             "rahino": {
               "status": "adopted",
@@ -6893,7 +7222,7 @@
                   "REFERENCE",
                   "ref.color.gray-warm.100"
                 ],
-                "line": 129
+                "line": 131
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -6933,6 +7262,51 @@
             }
           }
         },
+        "140": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.8901960784313725,
+              0.8745098039215686,
+              0.8823529411764706
+            ],
+            "alpha": 1
+          },
+          "$description": "Raw color #E3DFE1 for the light-theme sunken surface.",
+          "$extensions": {
+            "rahino": {
+              "status": "adopted",
+              "layer": "reference",
+              "approval": "light-sunken-gray-warm-140-2026-11-02",
+              "source": {
+                "file": "master-tokens/generated/reference.ts",
+                "exportPath": [
+                  "REFERENCE",
+                  "ref.color.gray-warm.140"
+                ],
+                "line": 133
+              },
+              "sourceDocuments": [],
+              "sourceAnnotations": {},
+              "reviewIssues": [],
+              "localTokenConsumers": [
+                {
+                  "set": "light",
+                  "publicPath": "rds.color.surface.sunken"
+                }
+              ],
+              "capturedSource": {
+                "file": "master-tokens/generated/reference.ts",
+                "exportPath": [
+                  "REFERENCE",
+                  "ref.color.gray-warm.140"
+                ],
+                "line": 1
+              }
+            }
+          }
+        },
         "200": {
           "$type": "color",
           "$value": {
@@ -6956,7 +7330,7 @@
                   "REFERENCE",
                   "ref.color.gray-warm.200"
                 ],
-                "line": 131
+                "line": 135
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -7019,7 +7393,7 @@
                   "REFERENCE",
                   "ref.color.gray-warm.325"
                 ],
-                "line": 133
+                "line": 137
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -7082,7 +7456,7 @@
                   "REFERENCE",
                   "ref.color.gray-warm.575"
                 ],
-                "line": 135
+                "line": 139
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -7145,7 +7519,7 @@
                   "REFERENCE",
                   "ref.color.gray-warm.600"
                 ],
-                "line": 137
+                "line": 141
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -7210,7 +7584,7 @@
                   "REFERENCE",
                   "ref.color.gray-warm.625"
                 ],
-                "line": 139
+                "line": 143
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -7273,7 +7647,7 @@
                   "REFERENCE",
                   "ref.color.gray-warm.650"
                 ],
-                "line": 141
+                "line": 145
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -7336,7 +7710,7 @@
                   "REFERENCE",
                   "ref.color.gray-warm.875"
                 ],
-                "line": 143
+                "line": 147
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -7487,7 +7861,7 @@
                   "REFERENCE",
                   "ref.color.gray-warm.950-alpha-52"
                 ],
-                "line": 145
+                "line": 149
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -7568,7 +7942,7 @@
                   "REFERENCE",
                   "ref.color.gray-warm.875-alpha-6"
                 ],
-                "line": 147
+                "line": 151
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -7631,7 +8005,7 @@
                   "REFERENCE",
                   "ref.color.gray-warm.875-alpha-10"
                 ],
-                "line": 149
+                "line": 153
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -7694,7 +8068,7 @@
                   "REFERENCE",
                   "ref.color.gray-warm.900-alpha-56"
                 ],
-                "line": 151
+                "line": 155
               },
               "sourceDocuments": [
                 "Veil & Shadow.md"
@@ -7761,7 +8135,7 @@
                   "REFERENCE",
                   "ref.color.gray-warm.850-alpha-52"
                 ],
-                "line": 153
+                "line": 157
               },
               "sourceDocuments": [
                 "Veil & Shadow.md"
@@ -7829,7 +8203,7 @@
                 "REFERENCE",
                 "ref.color.white"
               ],
-              "line": 155
+              "line": 159
             },
             "sourceDocuments": [],
             "sourceAnnotations": {},
@@ -8175,7 +8549,7 @@
                   "REFERENCE",
                   "ref.color.gray.50"
                 ],
-                "line": 157
+                "line": 161
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -8291,7 +8665,7 @@
                   "REFERENCE",
                   "ref.color.gray.225"
                 ],
-                "line": 159
+                "line": 163
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -8354,7 +8728,7 @@
                   "REFERENCE",
                   "ref.color.gray.275"
                 ],
-                "line": 161
+                "line": 165
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -8419,7 +8793,7 @@
                   "REFERENCE",
                   "ref.color.gray.325"
                 ],
-                "line": 163
+                "line": 167
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -8482,7 +8856,7 @@
                   "REFERENCE",
                   "ref.color.gray.600"
                 ],
-                "line": 165
+                "line": 169
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -8533,7 +8907,7 @@
             ],
             "alpha": 1
           },
-          "$description": "Raw color #2B292D; alpha is part of the color value.",
+          "$description": "Raw color #333135; alpha is part of the color value.",
           "$extensions": {
             "rahino": {
               "status": "adopted",
@@ -8545,7 +8919,7 @@
                   "REFERENCE",
                   "ref.color.gray.850"
                 ],
-                "line": 167
+                "line": 171
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -8596,7 +8970,7 @@
             ],
             "alpha": 1
           },
-          "$description": "Raw color #232225; alpha is part of the color value.",
+          "$description": "Raw color #2D2C30; alpha is part of the color value.",
           "$extensions": {
             "rahino": {
               "status": "adopted",
@@ -8608,7 +8982,7 @@
                   "REFERENCE",
                   "ref.color.gray.900"
                 ],
-                "line": 169
+                "line": 173
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -8659,7 +9033,7 @@
             ],
             "alpha": 1
           },
-          "$description": "Raw color #1A191B; alpha is part of the color value.",
+          "$description": "Raw color #262429; alpha is part of the color value.",
           "$extensions": {
             "rahino": {
               "status": "adopted",
@@ -8671,7 +9045,7 @@
                   "REFERENCE",
                   "ref.color.gray.925"
                 ],
-                "line": 171
+                "line": 175
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -8722,7 +9096,7 @@
             ],
             "alpha": 1
           },
-          "$description": "Raw color #121113; alpha is part of the color value.",
+          "$description": "Raw color #1A181B; alpha is part of the color value.",
           "$extensions": {
             "rahino": {
               "status": "adopted",
@@ -8734,7 +9108,7 @@
                   "REFERENCE",
                   "ref.color.gray.950"
                 ],
-                "line": 173
+                "line": 177
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -8804,7 +9178,7 @@
             ],
             "alpha": 1
           },
-          "$description": "Raw color #0E0D0F; alpha is part of the color value.",
+          "$description": "Raw color #030203; alpha is part of the color value.",
           "$extensions": {
             "rahino": {
               "status": "adopted",
@@ -8816,7 +9190,7 @@
                   "REFERENCE",
                   "ref.color.gray.975"
                 ],
-                "line": 175
+                "line": 179
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -8898,7 +9272,7 @@
                   "REFERENCE",
                   "ref.color.gray.50-alpha-8"
                 ],
-                "line": 177
+                "line": 181
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -8961,7 +9335,7 @@
                   "REFERENCE",
                   "ref.color.gray.50-alpha-12"
                 ],
-                "line": 179
+                "line": 183
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -9024,7 +9398,7 @@
                   "REFERENCE",
                   "ref.color.gray.825-alpha-4"
                 ],
-                "line": 181
+                "line": 185
               },
               "sourceDocuments": [
                 "Veil & Shadow.md"
@@ -9091,7 +9465,7 @@
                   "REFERENCE",
                   "ref.color.gray.875-alpha-18"
                 ],
-                "line": 183
+                "line": 187
               },
               "sourceDocuments": [
                 "Veil & Shadow.md"
@@ -9158,7 +9532,7 @@
                   "REFERENCE",
                   "ref.color.gray.925-alpha-76"
                 ],
-                "line": 185
+                "line": 189
               },
               "sourceDocuments": [
                 "Veil & Shadow.md"
@@ -9225,7 +9599,7 @@
                   "REFERENCE",
                   "ref.color.gray.925-alpha-92"
                 ],
-                "line": 187
+                "line": 191
               },
               "sourceDocuments": [
                 "Veil & Shadow.md"
@@ -9282,7 +9656,7 @@
             ],
             "alpha": 1
           },
-          "$description": "Raw color #F3ECF0; alpha is part of the color value.",
+          "$description": "Raw color #F0E5EB; alpha is part of the color value.",
           "$extensions": {
             "rahino": {
               "status": "adopted",
@@ -9294,7 +9668,7 @@
                   "REFERENCE",
                   "ref.color.plum.50"
                 ],
-                "line": 189
+                "line": 193
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -9345,7 +9719,7 @@
             ],
             "alpha": 1
           },
-          "$description": "Raw color #EADCE4; alpha is part of the color value.",
+          "$description": "Raw color #E8D9E1; alpha is part of the color value.",
           "$extensions": {
             "rahino": {
               "status": "adopted",
@@ -9357,7 +9731,7 @@
                   "REFERENCE",
                   "ref.color.plum.100"
                 ],
-                "line": 191
+                "line": 195
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -9420,7 +9794,7 @@
                   "REFERENCE",
                   "ref.color.plum.200"
                 ],
-                "line": 193
+                "line": 197
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -9483,7 +9857,7 @@
                   "REFERENCE",
                   "ref.color.plum.250"
                 ],
-                "line": 195
+                "line": 199
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -9546,7 +9920,7 @@
                   "REFERENCE",
                   "ref.color.plum.300"
                 ],
-                "line": 197
+                "line": 201
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -9609,7 +9983,7 @@
                   "REFERENCE",
                   "ref.color.plum.325"
                 ],
-                "line": 199
+                "line": 203
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -9672,7 +10046,7 @@
                   "REFERENCE",
                   "ref.color.plum.350"
                 ],
-                "line": 201
+                "line": 205
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -9740,7 +10114,7 @@
             ],
             "alpha": 1
           },
-          "$description": "Raw color #B28DA4; alpha is part of the color value.",
+          "$description": "Raw color #DCC7D4; alpha is part of the color value.",
           "$extensions": {
             "rahino": {
               "status": "adopted",
@@ -9752,7 +10126,7 @@
                   "REFERENCE",
                   "ref.color.plum.375"
                 ],
-                "line": 203
+                "line": 207
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -9815,7 +10189,7 @@
                   "REFERENCE",
                   "ref.color.plum.400"
                 ],
-                "line": 205
+                "line": 209
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -9878,7 +10252,7 @@
                   "REFERENCE",
                   "ref.color.plum.425"
                 ],
-                "line": 207
+                "line": 211
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -9941,7 +10315,7 @@
                   "REFERENCE",
                   "ref.color.plum.450"
                 ],
-                "line": 209
+                "line": 213
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -10004,7 +10378,7 @@
                   "REFERENCE",
                   "ref.color.plum.500"
                 ],
-                "line": 211
+                "line": 215
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -10065,7 +10439,7 @@
                   "REFERENCE",
                   "ref.color.plum.525"
                 ],
-                "line": 213
+                "line": 217
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -10128,7 +10502,7 @@
                   "REFERENCE",
                   "ref.color.plum.550"
                 ],
-                "line": 215
+                "line": 219
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -10191,7 +10565,7 @@
                   "REFERENCE",
                   "ref.color.plum.575"
                 ],
-                "line": 217
+                "line": 221
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -10252,7 +10626,7 @@
                   "REFERENCE",
                   "ref.color.plum.600"
                 ],
-                "line": 219
+                "line": 223
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -10315,7 +10689,7 @@
                   "REFERENCE",
                   "ref.color.plum.625"
                 ],
-                "line": 221
+                "line": 225
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -10378,7 +10752,7 @@
                   "REFERENCE",
                   "ref.color.plum.700"
                 ],
-                "line": 223
+                "line": 227
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -10441,7 +10815,7 @@
                   "REFERENCE",
                   "ref.color.plum.725"
                 ],
-                "line": 225
+                "line": 229
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -10504,7 +10878,7 @@
                   "REFERENCE",
                   "ref.color.plum.750"
                 ],
-                "line": 227
+                "line": 231
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -10567,7 +10941,7 @@
                   "REFERENCE",
                   "ref.color.plum.775"
                 ],
-                "line": 229
+                "line": 233
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -10749,7 +11123,7 @@
                   "REFERENCE",
                   "ref.color.plum.850"
                 ],
-                "line": 231
+                "line": 235
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -10812,7 +11186,7 @@
                   "REFERENCE",
                   "ref.color.plum.875"
                 ],
-                "line": 233
+                "line": 237
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -10875,7 +11249,7 @@
                   "REFERENCE",
                   "ref.color.plum.900"
                 ],
-                "line": 235
+                "line": 239
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -10938,7 +11312,7 @@
                   "REFERENCE",
                   "ref.color.plum.925"
                 ],
-                "line": 237
+                "line": 241
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -11001,7 +11375,7 @@
                   "REFERENCE",
                   "ref.color.plum.950"
                 ],
-                "line": 239
+                "line": 243
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -11066,7 +11440,7 @@
                   "REFERENCE",
                   "ref.color.gray-cool.250"
                 ],
-                "line": 241
+                "line": 245
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -11129,7 +11503,7 @@
                   "REFERENCE",
                   "ref.color.gray-cool.450"
                 ],
-                "line": 243
+                "line": 247
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -11209,7 +11583,7 @@
                   "REFERENCE",
                   "ref.color.gray-cool.550"
                 ],
-                "line": 245
+                "line": 249
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -11272,7 +11646,7 @@
                   "REFERENCE",
                   "ref.color.gray-cool.925-alpha-12"
                 ],
-                "line": 247
+                "line": 251
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -11325,7 +11699,7 @@
             ],
             "alpha": 1
           },
-          "$description": "Raw color #EAF5EE; alpha is part of the color value.",
+          "$description": "Raw color #DAFBE8; alpha is part of the color value.",
           "$extensions": {
             "rahino": {
               "status": "adopted",
@@ -11337,7 +11711,7 @@
                   "REFERENCE",
                   "ref.color.green.50"
                 ],
-                "line": 249
+                "line": 253
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -11402,7 +11776,7 @@
                   "REFERENCE",
                   "ref.color.green.175"
                 ],
-                "line": 251
+                "line": 255
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -11467,7 +11841,7 @@
                   "REFERENCE",
                   "ref.color.green.200"
                 ],
-                "line": 253
+                "line": 257
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -11532,7 +11906,7 @@
                   "REFERENCE",
                   "ref.color.green.450"
                 ],
-                "line": 255
+                "line": 259
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -11597,7 +11971,7 @@
                   "REFERENCE",
                   "ref.color.green.500"
                 ],
-                "line": 257
+                "line": 261
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -11662,7 +12036,7 @@
                   "REFERENCE",
                   "ref.color.green.525"
                 ],
-                "line": 259
+                "line": 263
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -11727,7 +12101,7 @@
                   "REFERENCE",
                   "ref.color.green.600"
                 ],
-                "line": 261
+                "line": 265
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -11792,7 +12166,7 @@
                   "REFERENCE",
                   "ref.color.green.775"
                 ],
-                "line": 263
+                "line": 267
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -11847,7 +12221,7 @@
             ],
             "alpha": 1
           },
-          "$description": "Raw color #FBF2E2; alpha is part of the color value.",
+          "$description": "Raw color #FEF3DF; alpha is part of the color value.",
           "$extensions": {
             "rahino": {
               "status": "adopted",
@@ -11859,7 +12233,7 @@
                   "REFERENCE",
                   "ref.color.amber.50"
                 ],
-                "line": 265
+                "line": 269
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -11924,7 +12298,7 @@
                   "REFERENCE",
                   "ref.color.amber.175"
                 ],
-                "line": 267
+                "line": 271
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -11989,7 +12363,7 @@
                   "REFERENCE",
                   "ref.color.amber.200"
                 ],
-                "line": 269
+                "line": 273
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -12054,7 +12428,7 @@
                   "REFERENCE",
                   "ref.color.amber.225"
                 ],
-                "line": 271
+                "line": 275
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -12117,7 +12491,7 @@
                   "REFERENCE",
                   "ref.color.amber.400"
                 ],
-                "line": 273
+                "line": 277
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -12182,7 +12556,7 @@
                   "REFERENCE",
                   "ref.color.amber.475"
                 ],
-                "line": 275
+                "line": 279
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -12247,7 +12621,7 @@
                   "REFERENCE",
                   "ref.color.amber.500"
                 ],
-                "line": 277
+                "line": 281
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -12312,7 +12686,7 @@
                   "REFERENCE",
                   "ref.color.amber.550"
                 ],
-                "line": 279
+                "line": 283
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -12375,7 +12749,7 @@
                   "REFERENCE",
                   "ref.color.amber.575"
                 ],
-                "line": 281
+                "line": 285
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -12440,7 +12814,7 @@
                   "REFERENCE",
                   "ref.color.amber.775"
                 ],
-                "line": 283
+                "line": 287
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -12505,7 +12879,7 @@
                   "REFERENCE",
                   "ref.color.amber.925"
                 ],
-                "line": 285
+                "line": 289
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -12560,7 +12934,7 @@
             ],
             "alpha": 1
           },
-          "$description": "Raw color #FBEAEC; alpha is part of the color value.",
+          "$description": "Raw color #FCE9EB; alpha is part of the color value.",
           "$extensions": {
             "rahino": {
               "status": "adopted",
@@ -12572,7 +12946,7 @@
                   "REFERENCE",
                   "ref.color.red.50"
                 ],
-                "line": 287
+                "line": 291
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -12637,7 +13011,7 @@
                   "REFERENCE",
                   "ref.color.red.225"
                 ],
-                "line": 289
+                "line": 293
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -12702,7 +13076,7 @@
                   "REFERENCE",
                   "ref.color.red.275"
                 ],
-                "line": 291
+                "line": 295
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -12767,7 +13141,7 @@
                   "REFERENCE",
                   "ref.color.red.300"
                 ],
-                "line": 293
+                "line": 297
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -12830,7 +13204,7 @@
                   "REFERENCE",
                   "ref.color.red.525"
                 ],
-                "line": 295
+                "line": 299
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -12895,7 +13269,7 @@
                   "REFERENCE",
                   "ref.color.red.550"
                 ],
-                "line": 297
+                "line": 301
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -12960,7 +13334,7 @@
                   "REFERENCE",
                   "ref.color.red.575"
                 ],
-                "line": 299
+                "line": 303
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -13025,7 +13399,7 @@
                   "REFERENCE",
                   "ref.color.red.600"
                 ],
-                "line": 301
+                "line": 305
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -13088,7 +13462,7 @@
                   "REFERENCE",
                   "ref.color.red.625"
                 ],
-                "line": 303
+                "line": 307
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -13130,6 +13504,53 @@
             }
           }
         },
+        "750": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.33725490196078434,
+              0.16470588235294117,
+              0.1843137254901961
+            ],
+            "alpha": 1
+          },
+          "$description": "Raw color #562A2F; alpha is part of the color value.",
+          "$extensions": {
+            "rahino": {
+              "status": "adopted",
+              "layer": "reference",
+              "approval": "user-color-palette-update-2026-11-04",
+              "source": {
+                "file": "master-tokens/generated/reference.ts",
+                "exportPath": [
+                  "REFERENCE",
+                  "ref.color.red.750"
+                ],
+                "line": 309
+              },
+              "sourceDocuments": [],
+              "sourceAnnotations": {},
+              "reviewIssues": [],
+              "localTokenConsumers": [
+                {
+                  "set": "dark",
+                  "publicPath": "rds.color.action.danger-subtle.bg.hover"
+                }
+              ],
+              "namingApproval": "color-reference-family-step-naming",
+              "adoptionApproval": "user-color-palette-update-2026-11-04",
+              "capturedSource": {
+                "file": "master-tokens/generated/reference.ts",
+                "exportPath": [
+                  "REFERENCE",
+                  "ref.color.red.750"
+                ],
+                "line": 1
+              }
+            }
+          }
+        },
         "800": {
           "$type": "color",
           "$value": {
@@ -13153,7 +13574,7 @@
                   "REFERENCE",
                   "ref.color.red.800"
                 ],
-                "line": 305
+                "line": 311
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -13208,7 +13629,7 @@
             ],
             "alpha": 1
           },
-          "$description": "Raw color #EAF1F9; alpha is part of the color value.",
+          "$description": "Raw color #E2ECF8; alpha is part of the color value.",
           "$extensions": {
             "rahino": {
               "status": "adopted",
@@ -13220,7 +13641,7 @@
                   "REFERENCE",
                   "ref.color.blue.50"
                 ],
-                "line": 307
+                "line": 313
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -13285,7 +13706,7 @@
                   "REFERENCE",
                   "ref.color.blue.200"
                 ],
-                "line": 309
+                "line": 315
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -13350,7 +13771,7 @@
                   "REFERENCE",
                   "ref.color.blue.275"
                 ],
-                "line": 311
+                "line": 317
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -13415,7 +13836,7 @@
                   "REFERENCE",
                   "ref.color.blue.300"
                 ],
-                "line": 313
+                "line": 319
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -13478,7 +13899,7 @@
                   "REFERENCE",
                   "ref.color.blue.475"
                 ],
-                "line": 315
+                "line": 321
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -13543,7 +13964,7 @@
                   "REFERENCE",
                   "ref.color.blue.500"
                 ],
-                "line": 317
+                "line": 323
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -13608,7 +14029,7 @@
                   "REFERENCE",
                   "ref.color.blue.550"
                 ],
-                "line": 319
+                "line": 325
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -13673,7 +14094,7 @@
                   "REFERENCE",
                   "ref.color.blue.575"
                 ],
-                "line": 321
+                "line": 327
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -13736,7 +14157,7 @@
                   "REFERENCE",
                   "ref.color.blue.600"
                 ],
-                "line": 323
+                "line": 329
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -13801,7 +14222,7 @@
                   "REFERENCE",
                   "ref.color.blue.775"
                 ],
-                "line": 325
+                "line": 331
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -13868,7 +14289,7 @@
                   "REFERENCE",
                   "ref.color.teal.200"
                 ],
-                "line": 327
+                "line": 333
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -13931,7 +14352,7 @@
                   "REFERENCE",
                   "ref.color.teal.250"
                 ],
-                "line": 329
+                "line": 335
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -13994,7 +14415,7 @@
                   "REFERENCE",
                   "ref.color.teal.400"
                 ],
-                "line": 331
+                "line": 337
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -14057,7 +14478,7 @@
                   "REFERENCE",
                   "ref.color.teal.425"
                 ],
-                "line": 333
+                "line": 339
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -14120,7 +14541,7 @@
                   "REFERENCE",
                   "ref.color.teal.550"
                 ],
-                "line": 335
+                "line": 341
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -14183,7 +14604,7 @@
                   "REFERENCE",
                   "ref.color.teal.575"
                 ],
-                "line": 337
+                "line": 343
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -14248,7 +14669,7 @@
                   "REFERENCE",
                   "ref.color.purple.300"
                 ],
-                "line": 339
+                "line": 345
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -14311,7 +14732,7 @@
                   "REFERENCE",
                   "ref.color.purple.625"
                 ],
-                "line": 341
+                "line": 347
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -14376,7 +14797,7 @@
                   "REFERENCE",
                   "ref.color.olive.200"
                 ],
-                "line": 343
+                "line": 349
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -14439,7 +14860,7 @@
                   "REFERENCE",
                   "ref.color.olive.550"
                 ],
-                "line": 345
+                "line": 351
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -14503,7 +14924,7 @@
                 "REFERENCE",
                 "ref.color.white-alpha-4"
               ],
-              "line": 347
+              "line": 353
             },
             "sourceDocuments": [
               "Veil & Shadow.md"
@@ -14570,7 +14991,7 @@
                 "REFERENCE",
                 "ref.color.white-alpha-18"
               ],
-              "line": 349
+              "line": 355
             },
             "sourceDocuments": [
               "Veil & Shadow.md"
@@ -14637,7 +15058,7 @@
                 "REFERENCE",
                 "ref.color.white-alpha-52"
               ],
-              "line": 351
+              "line": 357
             },
             "sourceDocuments": [
               "Veil & Shadow.md"
@@ -14704,7 +15125,7 @@
                 "REFERENCE",
                 "ref.color.white-alpha-72"
               ],
-              "line": 353
+              "line": 359
             },
             "sourceDocuments": [
               "Veil & Shadow.md"
@@ -14771,7 +15192,7 @@
                 "REFERENCE",
                 "ref.color.white-alpha-92"
               ],
-              "line": 355
+              "line": 361
             },
             "sourceDocuments": [
               "Veil & Shadow.md"
@@ -14838,7 +15259,7 @@
                 "REFERENCE",
                 "ref.color.black-alpha-6"
               ],
-              "line": 357
+              "line": 363
             },
             "sourceDocuments": [
               "Veil & Shadow.md"
@@ -14913,7 +15334,7 @@
                 "REFERENCE",
                 "ref.color.black-alpha-10"
               ],
-              "line": 359
+              "line": 365
             },
             "sourceDocuments": [
               "Veil & Shadow.md"
@@ -14988,7 +15409,7 @@
                 "REFERENCE",
                 "ref.color.black-alpha-14"
               ],
-              "line": 361
+              "line": 367
             },
             "sourceDocuments": [
               "Veil & Shadow.md"
@@ -15086,7 +15507,7 @@
                 "REFERENCE",
                 "ref.color.black-alpha-72"
               ],
-              "line": 363
+              "line": 369
             },
             "sourceDocuments": [],
             "sourceAnnotations": {},
@@ -15149,7 +15570,7 @@
                 "REFERENCE",
                 "ref.color.white-alpha-10"
               ],
-              "line": 365
+              "line": 371
             },
             "sourceDocuments": [],
             "sourceAnnotations": {},
@@ -15212,7 +15633,7 @@
                 "REFERENCE",
                 "ref.color.black-alpha-20"
               ],
-              "line": 367
+              "line": 373
             },
             "sourceDocuments": [
               "Veil & Shadow.md"
@@ -15287,7 +15708,7 @@
                 "REFERENCE",
                 "ref.color.black-alpha-26"
               ],
-              "line": 369
+              "line": 375
             },
             "sourceDocuments": [
               "Veil & Shadow.md"
@@ -15362,7 +15783,7 @@
                 "REFERENCE",
                 "ref.color.black-alpha-4"
               ],
-              "line": 371
+              "line": 377
             },
             "sourceDocuments": [
               "Veil & Shadow.md"
@@ -15423,7 +15844,7 @@
                   "REFERENCE",
                   "ref.shadow.offset.0"
                 ],
-                "line": 373
+                "line": 379
               },
               "sourceDocuments": [
                 "Veil & Shadow.md"
@@ -15607,7 +16028,7 @@
                   "REFERENCE",
                   "ref.shadow.offset.2"
                 ],
-                "line": 375
+                "line": 381
               },
               "sourceDocuments": [
                 "Veil & Shadow.md"
@@ -15699,7 +16120,7 @@
                   "REFERENCE",
                   "ref.shadow.offset.3"
                 ],
-                "line": 377
+                "line": 383
               },
               "sourceDocuments": [
                 "Veil & Shadow.md"
@@ -15756,7 +16177,7 @@
                   "REFERENCE",
                   "ref.shadow.offset.6"
                 ],
-                "line": 379
+                "line": 385
               },
               "sourceDocuments": [
                 "Veil & Shadow.md"
@@ -15813,7 +16234,7 @@
                   "REFERENCE",
                   "ref.shadow.offset.8"
                 ],
-                "line": 381
+                "line": 387
               },
               "sourceDocuments": [
                 "Veil & Shadow.md"
@@ -15905,7 +16326,7 @@
                   "REFERENCE",
                   "ref.shadow.offset.16"
                 ],
-                "line": 383
+                "line": 389
               },
               "sourceDocuments": [
                 "Veil & Shadow.md"
@@ -15999,7 +16420,7 @@
                   "REFERENCE",
                   "ref.shadow.blur.6"
                 ],
-                "line": 385
+                "line": 391
               },
               "sourceDocuments": [
                 "Veil & Shadow.md"
@@ -16091,7 +16512,7 @@
                   "REFERENCE",
                   "ref.shadow.blur.10"
                 ],
-                "line": 387
+                "line": 393
               },
               "sourceDocuments": [
                 "Veil & Shadow.md"
@@ -16148,7 +16569,7 @@
                   "REFERENCE",
                   "ref.shadow.blur.20"
                 ],
-                "line": 389
+                "line": 395
               },
               "sourceDocuments": [
                 "Veil & Shadow.md"
@@ -16240,7 +16661,7 @@
                   "REFERENCE",
                   "ref.shadow.blur.36"
                 ],
-                "line": 391
+                "line": 397
               },
               "sourceDocuments": [
                 "Veil & Shadow.md"
@@ -16334,7 +16755,7 @@
                   "REFERENCE",
                   "ref.shadow.spread.0"
                 ],
-                "line": 393
+                "line": 399
               },
               "sourceDocuments": [
                 "Veil & Shadow.md"
@@ -16497,6 +16918,244 @@
                   "spread"
                 ]
               }
+            }
+          }
+        }
+      }
+    },
+    "size": {
+      "16": {
+        "$type": "dimension",
+        "$value": {
+          "value": 16,
+          "unit": "px"
+        },
+        "$description": "Raw size 16px; independent of any component.",
+        "$extensions": {
+          "rahino": {
+            "status": "adopted",
+            "layer": "reference",
+            "approval": "icons-foundation-2026-11-03",
+            "source": {
+              "file": "master-tokens/generated/reference.ts",
+              "exportPath": [
+                "REFERENCE",
+                "ref.size.16"
+              ],
+              "line": 401
+            },
+            "sourceDocuments": [
+              "Icons.md"
+            ],
+            "sourceAnnotations": {
+              "token": "ref.size.16",
+              "usage": "Raw size 16px; independent of any component."
+            },
+            "reviewIssues": [],
+            "adoptionApproval": "icons-foundation-2026-11-03",
+            "capturedSource": {
+              "file": "master-tokens/generated/reference.ts",
+              "exportPath": [
+                "REFERENCE",
+                "ref.size.16"
+              ],
+              "line": 1
+            }
+          }
+        }
+      },
+      "20": {
+        "$type": "dimension",
+        "$value": {
+          "value": 20,
+          "unit": "px"
+        },
+        "$description": "Raw size 20px; independent of any component.",
+        "$extensions": {
+          "rahino": {
+            "status": "adopted",
+            "layer": "reference",
+            "approval": "icons-foundation-2026-11-03",
+            "source": {
+              "file": "master-tokens/generated/reference.ts",
+              "exportPath": [
+                "REFERENCE",
+                "ref.size.20"
+              ],
+              "line": 403
+            },
+            "sourceDocuments": [
+              "Icons.md"
+            ],
+            "sourceAnnotations": {
+              "token": "ref.size.20",
+              "usage": "Raw size 20px; independent of any component."
+            },
+            "reviewIssues": [],
+            "adoptionApproval": "icons-foundation-2026-11-03",
+            "capturedSource": {
+              "file": "master-tokens/generated/reference.ts",
+              "exportPath": [
+                "REFERENCE",
+                "ref.size.20"
+              ],
+              "line": 1
+            }
+          }
+        }
+      },
+      "24": {
+        "$type": "dimension",
+        "$value": {
+          "value": 24,
+          "unit": "px"
+        },
+        "$description": "Raw size 24px; independent of any component.",
+        "$extensions": {
+          "rahino": {
+            "status": "adopted",
+            "layer": "reference",
+            "approval": "icons-foundation-2026-11-03",
+            "source": {
+              "file": "master-tokens/generated/reference.ts",
+              "exportPath": [
+                "REFERENCE",
+                "ref.size.24"
+              ],
+              "line": 405
+            },
+            "sourceDocuments": [
+              "Icons.md"
+            ],
+            "sourceAnnotations": {
+              "token": "ref.size.24",
+              "usage": "Raw size 24px; independent of any component."
+            },
+            "reviewIssues": [],
+            "adoptionApproval": "icons-foundation-2026-11-03",
+            "capturedSource": {
+              "file": "master-tokens/generated/reference.ts",
+              "exportPath": [
+                "REFERENCE",
+                "ref.size.24"
+              ],
+              "line": 1
+            }
+          }
+        }
+      },
+      "32": {
+        "$type": "dimension",
+        "$value": {
+          "value": 32,
+          "unit": "px"
+        },
+        "$description": "Raw size 32px; independent of any component.",
+        "$extensions": {
+          "rahino": {
+            "status": "adopted",
+            "layer": "reference",
+            "approval": "icons-foundation-2026-11-03",
+            "source": {
+              "file": "master-tokens/generated/reference.ts",
+              "exportPath": [
+                "REFERENCE",
+                "ref.size.32"
+              ],
+              "line": 407
+            },
+            "sourceDocuments": [
+              "Icons.md"
+            ],
+            "sourceAnnotations": {
+              "token": "ref.size.32",
+              "usage": "Raw size 32px; independent of any component."
+            },
+            "reviewIssues": [],
+            "adoptionApproval": "icons-foundation-2026-11-03",
+            "capturedSource": {
+              "file": "master-tokens/generated/reference.ts",
+              "exportPath": [
+                "REFERENCE",
+                "ref.size.32"
+              ],
+              "line": 1
+            }
+          }
+        }
+      }
+    },
+    "number": {
+      "24": {
+        "$type": "number",
+        "$value": 24,
+        "$description": "Raw unitless numeric value 24.",
+        "$extensions": {
+          "rahino": {
+            "status": "adopted",
+            "layer": "reference",
+            "approval": "icons-foundation-2026-11-03",
+            "source": {
+              "file": "master-tokens/generated/reference.ts",
+              "exportPath": [
+                "REFERENCE",
+                "ref.number.24"
+              ],
+              "line": 409
+            },
+            "sourceDocuments": [
+              "Icons.md"
+            ],
+            "sourceAnnotations": {
+              "token": "ref.number.24",
+              "usage": "Raw unitless numeric value 24."
+            },
+            "reviewIssues": [],
+            "adoptionApproval": "icons-foundation-2026-11-03",
+            "capturedSource": {
+              "file": "master-tokens/generated/reference.ts",
+              "exportPath": [
+                "REFERENCE",
+                "ref.number.24"
+              ],
+              "line": 1
+            }
+          }
+        }
+      },
+      "2-25": {
+        "$type": "number",
+        "$value": 2.25,
+        "$description": "Raw unitless numeric value 2.25.",
+        "$extensions": {
+          "rahino": {
+            "status": "adopted",
+            "layer": "reference",
+            "approval": "icons-foundation-2026-11-03",
+            "source": {
+              "file": "master-tokens/generated/reference.ts",
+              "exportPath": [
+                "REFERENCE",
+                "ref.number.2-25"
+              ],
+              "line": 411
+            },
+            "sourceDocuments": [
+              "Icons.md"
+            ],
+            "sourceAnnotations": {
+              "token": "ref.number.2-25",
+              "usage": "Raw unitless numeric value 2.25."
+            },
+            "reviewIssues": [],
+            "adoptionApproval": "icons-foundation-2026-11-03",
+            "capturedSource": {
+              "file": "master-tokens/generated/reference.ts",
+              "exportPath": [
+                "REFERENCE",
+                "ref.number.2-25"
+              ],
+              "line": 1
             }
           }
         }

@@ -1,0 +1,197 @@
+/* Text input recipe: all visual values come from the foundation. */
+.rds-input {
+  --rds-input-height: var(--rds-size-control-md-min-height);
+  --rds-input-padding-inline: var(--rds-size-control-md-padding-inline);
+  --rds-input-padding-block: var(--rds-size-control-md-padding-block);
+  --rds-input-radius: var(--rds-radius-12);
+  display: grid;
+  align-content: start;
+  gap: var(--rds-space-75);
+  inline-size: 100%;
+  min-inline-size: 0;
+  font-family: var(--rds-font-family-content, var(--rds-font-family-fa));
+  color: var(--rds-color-ink-primary);
+  font-synthesis: none;
+}
+.rds-input[data-control-size='lg'] {
+  --rds-input-height: var(--rds-size-control-lg-min-height);
+  --rds-input-padding-inline: var(--rds-size-control-lg-padding-inline);
+  --rds-input-padding-block: var(--rds-size-control-lg-padding-block);
+}
+.rds-input__label {
+  display: flex;
+  align-items: baseline;
+  gap: var(--rds-space-50);
+  margin-block-end: var(--rds-space-75);
+  font-size: var(--rds-type-label-sm-font-size);
+  font-weight: var(--rds-type-label-sm-font-weight);
+  line-height: var(--rds-type-label-sm-line-height);
+}
+.rds-input__label--hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.rds-input__required { color: var(--rds-color-ink-secondary); }
+.rds-input__field {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: var(--rds-space-100);
+  position: relative;
+  isolation: isolate;
+  min-inline-size: 0;
+  min-block-size: var(--rds-input-height);
+  padding-inline: var(--rds-input-padding-inline);
+  border: 0;
+  border-radius: var(--rds-input-radius);
+  background: var(--rds-color-surface-sunken);
+  transition: background-color var(--rds-motion-duration-feedback) var(--rds-motion-easing-standard);
+}
+.rds-input__field::before,
+.rds-input__field::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+}
+.rds-input__field::before {
+  z-index: -1;
+  background: var(--rds-color-interaction-neutral-hover);
+  transition: opacity var(--rds-motion-duration-feedback) var(--rds-motion-easing-standard);
+}
+.rds-input__field::after {
+  z-index: 2;
+  box-shadow: inset 0 0 0 var(--rds-focus-ring-width) var(--rds-color-focus-ring);
+}
+.rds-input__field:focus-within::after { opacity: 1; }
+@media (hover: hover) {
+  .rds-input__field:not([data-disabled]):hover::before { opacity: 1; }
+  .rds-input__field[data-readonly]:not([data-disabled]):not([data-invalid]):hover::before {
+    background: var(--ref-color-white-alpha-10);
+  }
+}
+.rds-input .rds-input__control {
+  box-sizing: border-box;
+  inline-size: 100%;
+  min-inline-size: 0;
+  min-block-size: var(--rds-input-height);
+  padding: var(--rds-input-padding-block) 0;
+  margin: 0;
+  border: 0;
+  border-radius: inherit;
+  outline: 0;
+  box-shadow: none;
+  background: transparent;
+  color: var(--rds-color-ink-primary);
+  font-family: inherit;
+  font-size: var(--rds-type-input-touch-font-size);
+  font-weight: var(--rds-type-input-touch-font-weight);
+  line-height: var(--rds-type-input-touch-line-height);
+  text-align: start;
+  caret-color: var(--rds-color-brand-fg);
+}
+.rds-input .rds-input__control[data-text-script='fa'] { font-family: var(--rds-font-family-fa); }
+.rds-input .rds-input__control[data-text-script='latin'] { font-family: var(--rds-font-family-latin); }
+.rds-input .rds-input__control[data-mono] { font-family: var(--rds-font-family-mono); }
+.rds-input__control::placeholder { color: var(--rds-color-ink-tertiary); opacity: 1; }
+.rds-input__field[data-readonly] { background: var(--rds-color-surface-base); }
+.rds-input__field[data-invalid] { background: var(--rds-color-status-error-bg); }
+.rds-input__field[data-disabled] { background: var(--rds-color-surface-subtle); cursor: not-allowed; }
+.rds-input .rds-input__control:disabled {
+  color: var(--rds-color-ink-disabled);
+  -webkit-text-fill-color: var(--rds-color-ink-disabled);
+  opacity: 1;
+  cursor: not-allowed;
+}
+.rds-input__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: var(--rds-icon-size-md);
+  block-size: var(--rds-icon-size-md);
+  pointer-events: none;
+  flex: none;
+  color: var(--rds-color-ink-secondary);
+}
+.rds-input__icon svg,
+.rds-input__end > svg { inline-size: var(--rds-icon-size-md); block-size: var(--rds-icon-size-md); }
+.rds-input__icon svg,
+.rds-input__end > svg,
+.rds-input__error-mark {
+  display: block;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: var(--rds-icon-stroke-width);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: none;
+}
+.rds-input__start,
+.rds-input__end { display: inline-flex; align-items: center; justify-content: center; flex: none; color: var(--rds-color-ink-secondary); }
+.rds-input__field:has(.rds-input__start button) { padding-inline-start: 0; }
+.rds-input__field:has(.rds-input__end button) { padding-inline-end: 0; }
+.rds-input__start button,
+.rds-input__end button { min-inline-size: var(--rds-size-touch-min); min-block-size: var(--rds-size-touch-min); }
+.rds-input__start button:focus-visible,
+.rds-input__end button:focus-visible { outline: 0; }
+/* Keep the touch target intact; inset its paint away from the field's focus ring. */
+.rds-input__start .rds-button[data-icon-only='true'],
+.rds-input__end .rds-button[data-icon-only='true'] {
+  background: none;
+  box-shadow: none;
+}
+.rds-input__start .rds-button[data-icon-only='true']::before,
+.rds-input__end .rds-button[data-icon-only='true']::before {
+  content: '';
+  position: absolute;
+  inset: var(--rds-space-75);
+  border-radius: inherit;
+  background: var(--rds-button-fill);
+  pointer-events: none;
+  z-index: -1;
+}
+.rds-input__helper,
+.rds-input__error {
+  margin: 0;
+  font-size: var(--rds-type-caption-sm-font-size);
+  font-weight: var(--rds-type-caption-sm-font-weight);
+  line-height: var(--rds-type-caption-sm-line-height);
+  overflow-wrap: anywhere;
+}
+.rds-input__helper { color: var(--rds-color-ink-secondary); }
+.rds-input__error { display: flex; align-items: center; gap: var(--rds-space-50); color: var(--rds-color-status-error-fg); }
+.rds-input__error-mark {
+  flex: none;
+  inline-size: var(--rds-icon-size-sm);
+  block-size: var(--rds-icon-size-sm);
+}
+@media (prefers-reduced-motion: reduce) {
+  .rds-input__field, .rds-input__field::before { transition-duration: var(--rds-motion-duration-none); }
+}
+@media (forced-colors: active) {
+  .rds-input__start .rds-button[data-icon-only='true']::before,
+  .rds-input__end .rds-button[data-icon-only='true']::before { display: none; }
+  .rds-input__field {
+    background: Canvas;
+    outline: var(--rds-border-width-default) solid ButtonText;
+    outline-offset: calc(-1 * var(--rds-border-width-default));
+  }
+  .rds-input__field::before, .rds-input__field::after { display: none; }
+  .rds-input__field:focus-within {
+    outline: var(--rds-focus-ring-width) solid Highlight;
+    outline-offset: calc(-1 * var(--rds-focus-ring-width));
+  }
+  .rds-input .rds-input__control { color: CanvasText; }
+  .rds-input__control::placeholder { color: GrayText; }
+  .rds-input__field[data-disabled] { outline-color: GrayText; }
+  .rds-input .rds-input__control:disabled { color: GrayText; -webkit-text-fill-color: GrayText; }
+  .rds-input__error { color: CanvasText; }
+}

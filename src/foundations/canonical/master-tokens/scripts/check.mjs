@@ -78,6 +78,11 @@ const hashAfterApprovedChanges = (file, initialHash) => {
   return hash;
 };
 const tokenChanges = manifest.approvedTokenChanges ?? [];
+const semanticAdditions = manifest.approvedSemanticAdditions ?? [];
+for (const addition of semanticAdditions) {
+  assert(decisions.items.some(item => item.status === 'resolved' && item.resolution?.approval === addition.approval), 'Semantic additions require a recorded decision');
+  assert(addition.paths.every(p => p.startsWith('rds.color.') && !/button|checkbox/.test(p)), 'Semantic color names must be component-independent');
+}
 const retiredReferences = new Map((manifest.retiredReferences ?? []).map(item => [item.publicPath, item]));
 for (const change of [...tokenChanges, ...retiredReferences.values()]) {
   assert(decisions.items.some(item => item.status === 'resolved' && item.resolution?.approval === change.approval), 'Unapproved token amendment');
@@ -158,6 +163,11 @@ for (const [name, config] of Object.entries(manifest.sets)) {
     const meta = token.$extensions?.rahino;
     assert(meta && meta.status === 'adopted', `Missing adoption metadata: ${publicPath}`);
     validIssues(meta.reviewIssues);
+    const addition = semanticAdditions.find(item => item.sets.includes(name) && item.paths.includes(publicPath));
+    if (addition) {
+      assert.equal(meta.adoptionApproval, addition.approval, `Missing semantic addition approval: ${publicPath}`);
+      assert(isAlias(token.$value), `Added semantic colors must be aliases: ${publicPath}`);
+    }
     mark(meta.source, meta.originalBundlePath ?? publicPath);
     if (!isAlias(token.$value) && token.$type !== 'shadow') checkShape(token.$type, token.$value, publicPath);
   }
@@ -215,7 +225,8 @@ if (auditAdoption && manifest.referenceLayer) {
       assert.deepEqual(actual.$value, amendedValue(name, publicPath, expected.$value, 'value'), `Unapproved value change: ${name}:${publicPath}`);
       referenceBaselineDefinitions++;
     }
-    assert.deepEqual([...sets[name].keys()].filter(key => key.startsWith('rds.')).sort(), Object.keys(snapshot).filter(key => key.startsWith('rds.')).map(activePath).sort(), `Unapproved semantic path change: ${name}`);
+    const approvedPaths = semanticAdditions.filter(item => item.sets.includes(name)).flatMap(item => item.paths);
+    assert.deepEqual([...sets[name].keys()].filter(key => key.startsWith('rds.')).sort(), [...Object.keys(snapshot).filter(key => key.startsWith('rds.')).map(activePath), ...approvedPaths].sort(), `Unapproved semantic path change: ${name}`);
   }
   const newPaths = [...sets.shared.keys()].filter(key => key.startsWith('ref.') && !Object.hasOwn(baseline.sets.shared, key));
   assert.deepEqual(newPaths.sort(), inventory.newReferencePaths.map(currentPath).filter(p => !retiredReferences.has(p)).sort());

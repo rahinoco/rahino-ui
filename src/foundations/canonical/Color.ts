@@ -19,8 +19,8 @@ export const SURFACE = {
   "subtle": pair("#FBF9FA", "#2D2C30"),
   /** @token rds.color.surface.raised @lightAlias ref.color.white @darkAlias ref.color.gray.850 */
   "raised": pair("#FFFFFF", "#333135"),
-  /** @token rds.color.surface.sunken @lightAlias ref.color.gray-warm.100 @darkAlias ref.color.gray.975 */
-  "sunken": pair("#E8E3E5", "#030203"),
+  /** @token rds.color.surface.sunken @lightAlias ref.color.gray-warm.140 @darkAlias ref.color.gray.975 */
+  "sunken": pair("#E3DFE1", "#030203"),
   /** @token rds.color.surface.inverse @lightAlias ref.color.gray-warm.875 @darkAlias ref.color.gray.50 */
   "inverse": pair("#211D20", "#EEEEF0"),
 } as const;
@@ -54,6 +54,8 @@ export const BRAND = {
   "bg-hover": pair("#E8D9E1", "#4A0D33"),
   /** @token rds.color.brand.fg @lightAlias ref.color.plum.775 @darkAlias ref.color.plum.200 */
   "fg": pair("#631244", "#E7B6D0"),
+  /** @token rds.color.brand.bg.pressed @lightAlias ref.color.plum.200 @darkAlias ref.color.plum.775 */
+  "bg-pressed": pair("#E7B6D0", "#631244"),
 } as const;
 
 /** @token rds.color.link.fg @alias rds.color.brand.fg */
@@ -62,8 +64,8 @@ export const LINK_FG = BRAND.fg;
 export const ACTION_PRIMARY_BG = {
   /** @token rds.color.action.primary.bg.default @alias ref.color.plum.775 */
   "default": pair("#631244", "#631244"),
-  /** @token rds.color.action.primary.bg.hover @lightAlias ref.color.plum.900 @darkAlias ref.color.plum.725 */
-  "hover": pair("#400C2C", "#741A52"),
+  /** @token rds.color.action.primary.bg.hover @lightAlias ref.color.plum.850 @darkAlias ref.color.plum.725 */
+  "hover": pair("#4A0D33", "#741A52"),
   /** @token rds.color.action.primary.bg.pressed @lightAlias ref.color.plum.950 @darkAlias ref.color.plum.850 */
   "pressed": pair("#1E0515", "#4A0D33"),
   /** @token rds.color.action.primary.bg.disabled @lightAlias ref.color.plum.375 @darkAlias ref.color.plum.750 */
@@ -168,21 +170,21 @@ export const CONTRAST_REFERENCE: Record<AppearanceName, Record<ReferenceInk, Rec
       "base": 16.65,
       "subtle": 15.88,
       "raised": 16.65,
-      "sunken": 13.12
+      "sunken": 12.61
     },
     "secondary": {
       "canvas": 6.14,
       "base": 6.91,
       "subtle": 6.59,
       "raised": 6.91,
-      "sunken": 5.44
+      "sunken": 5.23
     },
     "tertiary": {
       "canvas": 5.01,
       "base": 5.64,
       "subtle": 5.38,
       "raised": 5.64,
-      "sunken": 4.44
+      "sunken": 4.27
     }
   },
   "dark": {
@@ -271,4 +273,49 @@ export const PRESENTATION_GRADIENTS = {
   "brand-light": "linear-gradient(135deg, #FFFFFF 0%, #F3ECF0 65%, #EADCE4 100%)",
   /** @token rds.color.presentation.gradient.atmosphere */
   "atmosphere": "radial-gradient(ellipse at 30% 20%, rgb(99 18 68 / 0.16), transparent 65%)",
+} as const;
+
+export const ACTION_NEUTRAL_BG = {
+  /** @token rds.color.action.neutral.bg.default @lightAlias ref.color.gray-warm.875 @darkAlias ref.color.gray.50 */
+  "default": pair("#211D20", "#EEEEF0"),
+  /** @token rds.color.action.neutral.bg.hover @lightAlias ref.color.gray-warm.650 @darkAlias ref.color.gray.225 */
+  "hover": pair("#5E585F", "#C0BDC6"),
+  /** @token rds.color.action.neutral.bg.pressed @lightAlias ref.color.gray-warm.600 @darkAlias ref.color.gray.275 */
+  "pressed": pair("#625B60", "#B5B2BC"),
+} as const;
+
+export const ACTION_NEUTRAL_SUBTLE_BG = {
+  /** @token rds.color.action.neutral-subtle.bg.default @alias rds.color.surface.subtle */
+  "default": SURFACE.subtle,
+  /** @token rds.color.action.neutral-subtle.bg.hover @lightAlias ref.color.gray-warm.75 @darkAlias ref.color.gray.850 */
+  "hover": pair("#F3F1F2", "#333135"),
+  /** @token rds.color.action.neutral-subtle.bg.pressed @lightAlias ref.color.gray-warm.100 @darkAlias ref.color.gray.600 */
+  "pressed": pair("#E8E3E5", "#625F69"),
+} as const;
+
+export const ACTION_DANGER_BG = {
+  /** @token rds.color.action.danger.bg.default @alias rds.color.status.error.fill */
+  "default": STATUS.error.fill,
+  /** @token rds.color.action.danger.bg.hover @lightAlias ref.color.red.625 @darkAlias ref.color.red.575 */
+  "hover": pair("#A33A43", "#B54650"),
+  /** @token rds.color.action.danger.bg.pressed @lightAlias ref.color.red.800 @darkAlias ref.color.red.625 */
+  "pressed": pair("#42262B", "#A33A43"),
+} as const;
+
+export const ACTION_DANGER_SUBTLE_FG = {
+  /** @token rds.color.action.danger-subtle.fg.default @lightAlias ref.color.red.800 @darkAlias ref.color.red.50 */
+  "default": pair("#42262B", "#FCE9EB"),
+  /** @token rds.color.action.danger-subtle.fg.hover @lightAlias ref.color.red.800 @darkAlias ref.color.red.50 */
+  "hover": pair("#42262B", "#FCE9EB"),
+  /** @token rds.color.action.danger-subtle.fg.pressed @lightAlias ref.color.red.800 @darkAlias ref.color.red.50 */
+  "pressed": pair("#42262B", "#FCE9EB"),
+} as const;
+
+export const ACTION_DANGER_SUBTLE_BG = {
+  /** @token rds.color.action.danger-subtle.bg.default @alias rds.color.status.error.bg */
+  "default": STATUS.error.bg,
+  /** @token rds.color.action.danger-subtle.bg.hover @lightAlias ref.color.red.225 @darkAlias ref.color.red.750 */
+  "hover": pair("#EDB3B8", "#562A2F"),
+  /** @token rds.color.action.danger-subtle.bg.pressed @lightAlias ref.color.red.275 @darkAlias ref.color.red.625 */
+  "pressed": pair("#F4979F", "#A33A43"),
 } as const;

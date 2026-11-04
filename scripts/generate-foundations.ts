@@ -25,7 +25,13 @@ if (check) {
 const model = await loadModel();
 const stateMigration = JSON.parse(await readText(path.join(root, 'src/foundations/canonical/master-tokens/state-name-migration.json')));
 const modes = Object.fromEntries(['light', 'dark'].map(appearance => [appearance,
-  ['  color-scheme: ' + appearance + ';', ...[...model.sets[appearance]].map(([name]) => '  ' + cssName(name) + ': ' + model.value(name, appearance) + ';'), ...stateMigration.cssCompatibility.map((entry: { from: string; to: string }) => '  ' + entry.from + ': var(' + entry.to + ');')].join('\n'),
+  ['  color-scheme: ' + appearance + ';', ...[...model.sets[appearance]].map(([name, token]) => {
+    const value = token.$value;
+    // Preview scopes preserve the canonical alias chain instead of flattening it.
+    const cssValue = typeof value === 'string' && /^\{[^{}]+\}$/.test(value)
+      ? 'var(' + cssName(value.slice(1, -1)) + ')' : model.value(name, appearance);
+    return '  ' + cssName(name) + ': ' + cssValue + ';';
+  }), ...stateMigration.cssCompatibility.map((entry: { from: string; to: string }) => '  ' + entry.from + ': var(' + entry.to + ');')].join('\n'),
 ])) as Record<'light' | 'dark', string>;
 const legacyLines = Object.entries(compatibility.primitive).map(([old, next]) => '  ' + old + ': var(' + cssName(next) + ');');
 for (const appearance of ['light', 'dark']) {

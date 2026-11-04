@@ -1,114 +1,76 @@
-/**
- * Input — borderless soft field, FormField-aligned.
- * Optional `dir="ltr"` for English/numeric credentials: text starts left, icon at end (right).
- */
-
 import { clsx } from 'clsx';
-import { forwardRef, type InputHTMLAttributes, type ReactNode, useId } from 'react';
+import { forwardRef, type InputHTMLAttributes, type MouseEventHandler, type ReactNode, useId } from 'react';
 import { twMerge } from 'tailwind-merge';
-
-import FormField from '@/components/FormField';
-import { FIELD } from '@/tokens/fieldTokens';
+import { ICONOGRAPHY } from '../foundations/canonical/Icons';
+import IconButton from './IconButton';
 
 export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'id' | 'dir'> {
   label?: ReactNode;
+  helperText?: ReactNode;
   error?: ReactNode;
+  /** Decorative by default; use iconAction for an interactive icon. */
   icon?: ReactNode;
-  /** Extra control on the end edge (e.g. password visibility). Rendered inside the field. */
+  /** Logical edge: start is right in RTL and left in LTR. */
+  iconPosition?: 'start' | 'end';
+  /** Clickable icon with a 44px target. The caller can change icon/label after activation, e.g. show/hide, or keep the icon unchanged, e.g. copy. */
+  iconAction?: { label: string; onClick: MouseEventHandler<HTMLButtonElement>; disabled?: boolean };
+  /** Content at the reading end, such as a unit or a labeled password visibility button. */
   endAdornment?: ReactNode;
   className?: string;
   inputClassName?: string;
-  required?: boolean;
   mono?: boolean;
+  /** Visually hide the label; preserve its accessible name and supporting text. */
   dense?: boolean;
+  controlSize?: 'md' | 'lg';
+  /** Text script and direction are independent: Persian phone digits can still use dir="ltr". */
+  textScript?: 'fa' | 'latin';
   id?: string;
-  /**
-   * Text direction inside the control.
-   * Use `ltr` for username/password/english values so glyphs and caret read left-to-right.
-   */
   dir?: 'ltr' | 'rtl' | 'auto';
 }
 
-const Input = forwardRef<HTMLInputElement, InputProps>(
-  (
-    {
-      label,
-      error,
-      icon,
-      endAdornment,
-      className,
-      inputClassName,
-      placeholder,
-      required,
-      mono,
-      dense = false,
-      id: idProp,
-      dir,
-      ...props
-    },
-    ref
-  ) => {
-    const autoId = useId();
-    const id = idProp || autoId;
-    const hasIcon = Boolean(icon);
-    const hasEndAdornment = Boolean(endAdornment);
-    /** LTR credentials: adornments on the right. Default fields keep icon on the physical left (existing app convention). */
-    const isLtr = dir === 'ltr';
+/** Filled text input. State approval is tracked separately from implementation. */
+const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
+  { label, helperText, error, icon, iconPosition = 'start', iconAction, endAdornment, className, inputClassName, required,
+    mono, dense = false, controlSize = 'md', textScript, id: idProp, dir,
+    disabled, readOnly, 'aria-describedby': describedBy, 'aria-invalid': ariaInvalid, ...props }, ref
+) {
+  const autoId = useId();
+  const id = idProp ?? autoId;
+  const hasError = error != null && error !== false && error !== '';
+  const hasHelper = !hasError && helperText != null && helperText !== false && helperText !== '';
+  const invalid = hasError || ariaInvalid === true || ariaInvalid === 'true';
+  const description = [describedBy, hasHelper && `${id}-hint`, hasError && `${id}-error`].filter(Boolean).join(' ') || undefined;
+  const iconSlot = icon ? iconAction ? <span className={`rds-input__${iconPosition}`}>
+    <IconButton appearance="ghost" aria-label={iconAction.label} onClick={iconAction.onClick}
+      disabled={disabled || iconAction.disabled}>{icon}</IconButton>
+  </span> : <span className="rds-input__icon" aria-hidden="true">{icon}</span> : null;
 
-    return (
-      <FormField
-        label={label}
-        required={required}
-        error={error}
-        htmlFor={id}
-        className={className}
-        dense={dense}
-      >
-        <div dir={dir} className="relative w-full">
-          <input
-            id={id}
-            ref={ref}
-            dir={dir}
-            placeholder={placeholder}
-            className={twMerge(
-              clsx(
-                FIELD.controlClass,
-                isLtr
-                  ? (hasIcon || hasEndAdornment) && 'pe-11'
-                  : [hasIcon && 'pl-11', hasEndAdornment && 'pr-11'],
-                isLtr && 'text-start',
-                error ? FIELD.controlError : FIELD.controlOk,
-                mono && '[font-family:var(--rds-font-family-mono)]',
-                inputClassName
-              )
-            )}
-            {...props}
-          />
-          {icon ? (
-            <div
-              className={clsx(
-                'pointer-events-none absolute inset-y-0 flex w-11 items-center justify-center text-fg-subtle',
-                isLtr ? 'end-0' : 'left-0'
-              )}
-            >
-              {icon}
-            </div>
-          ) : null}
-          {endAdornment ? (
-            <div
-              className={clsx(
-                'absolute inset-y-0 z-10 flex items-center',
-                isLtr ? 'end-1' : 'right-1'
-              )}
-            >
-              {endAdornment}
-            </div>
-          ) : null}
-        </div>
-      </FormField>
-    );
-  }
-);
+  return <div className={twMerge(clsx('rds-input', className))} data-control-size={controlSize}>
+    {label != null ? <label htmlFor={id} className={clsx('rds-input__label', dense && 'rds-input__label--hidden')}>
+      {label}{required ? <span className="rds-input__required" aria-hidden="true">*</span> : null}
+    </label> : null}
+    <div className="rds-input__field" dir={dir === 'auto' ? undefined : dir}
+      onClick={event => {
+        if (!(event.target instanceof Element) || event.target.closest('button, a, input, select, textarea, [role="button"]')) return;
+        event.currentTarget.querySelector('input')?.focus();
+      }}
+      data-invalid={invalid || undefined} data-disabled={disabled || undefined} data-readonly={readOnly || undefined}>
+      {iconPosition === 'start' ? iconSlot : null}
+      <input {...props} id={id} ref={ref} dir={dir} required={required} disabled={disabled} readOnly={readOnly}
+        aria-describedby={description} aria-invalid={hasError ? true : ariaInvalid}
+        data-text-script={textScript} data-mono={mono || undefined}
+        className={twMerge(clsx('rds-input__control', inputClassName))} />
+      {iconPosition === 'end' ? iconSlot : null}
+      {endAdornment ? <span className="rds-input__end">{endAdornment}</span> : null}
+    </div>
+    {hasHelper ? <p className="rds-input__helper" id={`${id}-hint`}>{helperText}</p> : null}
+    {hasError ? <p className="rds-input__error" id={`${id}-error`} role="alert">
+      <svg className="rds-input__error-mark" viewBox={`0 0 ${ICONOGRAPHY.grid.size} ${ICONOGRAPHY.grid.size}`} aria-hidden="true" focusable="false">
+        <path d="M12 5v8M12 19h.01" />
+      </svg>{error}
+    </p> : null}
+  </div>;
+});
 
 Input.displayName = 'Input';
 export default Input;

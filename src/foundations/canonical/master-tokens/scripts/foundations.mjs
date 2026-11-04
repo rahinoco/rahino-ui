@@ -79,7 +79,7 @@ export async function renderFoundationFiles(model) {
     'Shadow.ts': 'export type AppearanceName = "light" | "dark";\nexport interface Pair { light: string; dark: string; }\nconst pair = (light: string, dark: string): Pair => ({ light, dark });\n',
     'Typography.ts': 'export type TypographyProfile = keyof typeof LINE_HEIGHT;\nexport interface TypographyStyle { fontSize: string; fontWeight: number; lineHeight: number; profile: TypographyProfile; fontFamily?: string; }\nexport type TypographyRole = keyof typeof TYPOGRAPHY;\ntype ResolvedTypographyStyles = Readonly<Record<TypographyRole, TypographyStyle & { fontFamily: string }>>;\nconst withFontFamily = (fontFamily: string): ResolvedTypographyStyles => Object.fromEntries(\n  Object.entries(TYPOGRAPHY as Record<string, TypographyStyle>).map(([role, style]) => [role, { ...style, fontFamily: style.fontFamily ?? fontFamily }]),\n) as ResolvedTypographyStyles;\n',
   };
-  const docs = { 'Color.ts': 'Color.md.', 'Border.ts': 'Border.md.', 'Motion.ts': 'Motion.md.', 'Radius.ts': 'Radius.md.', 'Shadow.ts': 'Veil & Shadow.md.', 'Spacing.ts': 'Spacing.md.', 'Typography.ts': 'Typography.md.', 'Veil.ts': 'Veil & Shadow.md.' };
+  const docs = { 'Color.ts': 'Color.md.', 'Border.ts': 'Border.md.', 'Icons.ts': 'Icons.md.', 'Motion.ts': 'Motion.md.', 'Radius.ts': 'Radius.md.', 'Shadow.ts': 'Veil & Shadow.md.', 'Spacing.ts': 'Spacing.md.', 'Typography.ts': 'Typography.md.', 'Veil.ts': 'Veil & Shadow.md.' };
   for (const [file, exports] of Object.entries(schema)) {
     if (file === 'layout.ts') { outputs[file] = await renderLayout(); continue; }
     const lines = [

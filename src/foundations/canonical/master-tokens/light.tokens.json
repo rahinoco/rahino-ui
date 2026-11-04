@@ -165,7 +165,7 @@
         },
         "sunken": {
           "$type": "color",
-          "$value": "{ref.color.gray-warm.100}",
+          "$value": "{ref.color.gray-warm.140}",
           "$description": "Recessed surfaces within a parent container, including unfocused text fields, selects, textareas, editable regions, inset controls, and progress track s. Provides background separation without borders.",
           "$extensions": {
             "rahino": {
@@ -632,6 +632,43 @@
                 "stateNamingApproval": "separate-color-state-segments"
               }
             }
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{ref.color.plum.200}",
+            "$description": "Temporary pressed fill on a soft branded action or branded selected action. Pair with brand.fg.",
+            "$extensions": {
+              "rahino": {
+                "status": "adopted",
+                "layer": "shared",
+                "adoptionApproval": "semantic-action-states-2026-11-03",
+                "source": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "BRAND",
+                    "bg-pressed",
+                    "light"
+                  ],
+                  "line": 57
+                },
+                "sourceDocuments": [],
+                "sourceAnnotations": {
+                  "token": "rds.color.brand.bg.pressed",
+                  "usage": "Temporary pressed fill on a soft branded action or branded selected action. Pair with brand.fg.",
+                  "avoid": "Do not use as a generic surface, status-message color or alpha state layer."
+                },
+                "reviewIssues": [],
+                "capturedSource": {
+                  "file": "Color.ts",
+                  "exportPath": [
+                    "BRAND",
+                    "bg-pressed",
+                    "light"
+                  ],
+                  "line": 1
+                }
+              }
+            }
           }
         },
         "fg": {
@@ -690,7 +727,7 @@
                       "default",
                       "light"
                     ],
-                    "line": 63
+                    "line": 65
                   },
                   "sourceDocuments": [],
                   "sourceAnnotations": {
@@ -716,7 +753,7 @@
             },
             "hover": {
               "$type": "color",
-              "$value": "{ref.color.plum.900}",
+              "$value": "{ref.color.plum.850}",
               "$description": "Pointer-hover state on a currently enabled primary action.",
               "$extensions": {
                 "rahino": {
@@ -728,7 +765,7 @@
                       "hover",
                       "light"
                     ],
-                    "line": 65
+                    "line": 67
                   },
                   "sourceDocuments": [],
                   "sourceAnnotations": {
@@ -766,7 +803,7 @@
                       "pressed",
                       "light"
                     ],
-                    "line": 67
+                    "line": 69
                   },
                   "sourceDocuments": [],
                   "sourceAnnotations": {
@@ -804,7 +841,7 @@
                       "disabled",
                       "light"
                     ],
-                    "line": 69
+                    "line": 71
                   },
                   "sourceDocuments": [],
                   "sourceAnnotations": {
@@ -842,7 +879,7 @@
                     "ACTION_PRIMARY_FG",
                     "light"
                   ],
-                  "line": 73
+                  "line": 75
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {
@@ -866,6 +903,582 @@
               }
             }
           }
+        },
+        "neutral": {
+          "bg": {
+            "default": {
+              "$type": "color",
+              "$value": "{ref.color.gray-warm.875}",
+              "$description": "Resting opaque high-emphasis neutral action fill.",
+              "$extensions": {
+                "rahino": {
+                  "status": "adopted",
+                  "layer": "shared",
+                  "adoptionApproval": "semantic-action-states-2026-11-03",
+                  "source": {
+                    "file": "Color.ts",
+                    "exportPath": [
+                      "ACTION_NEUTRAL_BG",
+                      "default",
+                      "light"
+                    ],
+                    "line": 279
+                  },
+                  "sourceDocuments": [],
+                  "sourceAnnotations": {
+                    "token": "rds.color.action.neutral.bg.default",
+                    "usage": "Resting opaque high-emphasis neutral action fill.",
+                    "avoid": "Do not use as a generic surface, status-message color or alpha state layer."
+                  },
+                  "reviewIssues": [],
+                  "capturedSource": {
+                    "file": "Color.ts",
+                    "exportPath": [
+                      "ACTION_NEUTRAL_BG",
+                      "default",
+                      "light"
+                    ],
+                    "line": 1
+                  }
+                }
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{ref.color.gray-warm.650}",
+              "$description": "Hover fill for an enabled high-emphasis neutral action.",
+              "$extensions": {
+                "rahino": {
+                  "status": "adopted",
+                  "layer": "shared",
+                  "adoptionApproval": "semantic-action-states-2026-11-03",
+                  "source": {
+                    "file": "Color.ts",
+                    "exportPath": [
+                      "ACTION_NEUTRAL_BG",
+                      "hover",
+                      "light"
+                    ],
+                    "line": 281
+                  },
+                  "sourceDocuments": [],
+                  "sourceAnnotations": {
+                    "token": "rds.color.action.neutral.bg.hover",
+                    "usage": "Hover fill for an enabled high-emphasis neutral action.",
+                    "avoid": "Do not use as a generic surface, status-message color or alpha state layer."
+                  },
+                  "reviewIssues": [],
+                  "capturedSource": {
+                    "file": "Color.ts",
+                    "exportPath": [
+                      "ACTION_NEUTRAL_BG",
+                      "hover",
+                      "light"
+                    ],
+                    "line": 1
+                  }
+                }
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{ref.color.gray-warm.600}",
+              "$description": "Temporary pressed fill for a high-emphasis neutral action.",
+              "$extensions": {
+                "rahino": {
+                  "status": "adopted",
+                  "layer": "shared",
+                  "adoptionApproval": "semantic-action-states-2026-11-03",
+                  "source": {
+                    "file": "Color.ts",
+                    "exportPath": [
+                      "ACTION_NEUTRAL_BG",
+                      "pressed",
+                      "light"
+                    ],
+                    "line": 283
+                  },
+                  "sourceDocuments": [],
+                  "sourceAnnotations": {
+                    "token": "rds.color.action.neutral.bg.pressed",
+                    "usage": "Temporary pressed fill for a high-emphasis neutral action.",
+                    "avoid": "Do not use as a generic surface, status-message color or alpha state layer."
+                  },
+                  "reviewIssues": [],
+                  "capturedSource": {
+                    "file": "Color.ts",
+                    "exportPath": [
+                      "ACTION_NEUTRAL_BG",
+                      "pressed",
+                      "light"
+                    ],
+                    "line": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "neutral-subtle": {
+          "bg": {
+            "default": {
+              "$type": "color",
+              "$value": "{rds.color.surface.subtle}",
+              "$description": "Resting opaque low-emphasis neutral action fill.",
+              "$extensions": {
+                "rahino": {
+                  "status": "adopted",
+                  "layer": "shared",
+                  "adoptionApproval": "semantic-action-states-2026-11-03",
+                  "source": {
+                    "file": "Color.ts",
+                    "exportPath": [
+                      "ACTION_NEUTRAL_SUBTLE_BG",
+                      "default",
+                      "light"
+                    ],
+                    "line": 288
+                  },
+                  "sourceDocuments": [],
+                  "sourceAnnotations": {
+                    "token": "rds.color.action.neutral-subtle.bg.default",
+                    "usage": "Resting opaque low-emphasis neutral action fill.",
+                    "avoid": "Do not use as a generic surface, status-message color or alpha state layer."
+                  },
+                  "reviewIssues": [],
+                  "capturedSource": {
+                    "file": "Color.ts",
+                    "exportPath": [
+                      "ACTION_NEUTRAL_SUBTLE_BG",
+                      "default",
+                      "light"
+                    ],
+                    "line": 1
+                  }
+                }
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{ref.color.gray-warm.75}",
+              "$description": "Opaque hover fill for low-emphasis neutral actions; never an alpha overlay.",
+              "$extensions": {
+                "rahino": {
+                  "status": "adopted",
+                  "layer": "shared",
+                  "adoptionApproval": "semantic-action-states-2026-11-03",
+                  "source": {
+                    "file": "Color.ts",
+                    "exportPath": [
+                      "ACTION_NEUTRAL_SUBTLE_BG",
+                      "hover",
+                      "light"
+                    ],
+                    "line": 290
+                  },
+                  "sourceDocuments": [],
+                  "sourceAnnotations": {
+                    "token": "rds.color.action.neutral-subtle.bg.hover",
+                    "usage": "Opaque hover fill for low-emphasis neutral actions; never an alpha overlay.",
+                    "avoid": "Do not use as a generic surface, status-message color or alpha state layer."
+                  },
+                  "reviewIssues": [],
+                  "capturedSource": {
+                    "file": "Color.ts",
+                    "exportPath": [
+                      "ACTION_NEUTRAL_SUBTLE_BG",
+                      "hover",
+                      "light"
+                    ],
+                    "line": 1
+                  }
+                }
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{ref.color.gray-warm.100}",
+              "$description": "Opaque temporary pressed fill for low-emphasis neutral actions.",
+              "$extensions": {
+                "rahino": {
+                  "status": "adopted",
+                  "layer": "shared",
+                  "adoptionApproval": "semantic-action-states-2026-11-03",
+                  "source": {
+                    "file": "Color.ts",
+                    "exportPath": [
+                      "ACTION_NEUTRAL_SUBTLE_BG",
+                      "pressed",
+                      "light"
+                    ],
+                    "line": 292
+                  },
+                  "sourceDocuments": [],
+                  "sourceAnnotations": {
+                    "token": "rds.color.action.neutral-subtle.bg.pressed",
+                    "usage": "Opaque temporary pressed fill for low-emphasis neutral actions.",
+                    "avoid": "Do not use as a generic surface, status-message color or alpha state layer."
+                  },
+                  "reviewIssues": [],
+                  "capturedSource": {
+                    "file": "Color.ts",
+                    "exportPath": [
+                      "ACTION_NEUTRAL_SUBTLE_BG",
+                      "pressed",
+                      "light"
+                    ],
+                    "line": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "danger": {
+          "bg": {
+            "default": {
+              "$type": "color",
+              "$value": "{rds.color.status.error.fill}",
+              "$description": "Resting opaque destructive action fill. Pair with status.error.on-fill.",
+              "$extensions": {
+                "rahino": {
+                  "status": "adopted",
+                  "layer": "shared",
+                  "adoptionApproval": "semantic-action-states-2026-11-03",
+                  "source": {
+                    "file": "Color.ts",
+                    "exportPath": [
+                      "ACTION_DANGER_BG",
+                      "default",
+                      "light"
+                    ],
+                    "line": 297
+                  },
+                  "sourceDocuments": [],
+                  "sourceAnnotations": {
+                    "token": "rds.color.action.danger.bg.default",
+                    "usage": "Resting opaque destructive action fill. Pair with status.error.on-fill.",
+                    "avoid": "Do not use as a generic surface, status-message color or alpha state layer."
+                  },
+                  "reviewIssues": [],
+                  "capturedSource": {
+                    "file": "Color.ts",
+                    "exportPath": [
+                      "ACTION_DANGER_BG",
+                      "default",
+                      "light"
+                    ],
+                    "line": 1
+                  }
+                }
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{ref.color.red.625}",
+              "$description": "Hover fill for an enabled destructive action. Pair with status.error.on-fill.",
+              "$extensions": {
+                "rahino": {
+                  "status": "adopted",
+                  "layer": "shared",
+                  "adoptionApproval": "semantic-action-states-2026-11-03",
+                  "source": {
+                    "file": "Color.ts",
+                    "exportPath": [
+                      "ACTION_DANGER_BG",
+                      "hover",
+                      "light"
+                    ],
+                    "line": 299
+                  },
+                  "sourceDocuments": [],
+                  "sourceAnnotations": {
+                    "token": "rds.color.action.danger.bg.hover",
+                    "usage": "Hover fill for an enabled destructive action. Pair with status.error.on-fill.",
+                    "avoid": "Do not use as a generic surface, status-message color or alpha state layer."
+                  },
+                  "reviewIssues": [],
+                  "capturedSource": {
+                    "file": "Color.ts",
+                    "exportPath": [
+                      "ACTION_DANGER_BG",
+                      "hover",
+                      "light"
+                    ],
+                    "line": 1
+                  }
+                }
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{ref.color.red.800}",
+              "$description": "Temporary pressed fill for an enabled destructive action. Pair with status.error.on-fill.",
+              "$extensions": {
+                "rahino": {
+                  "status": "adopted",
+                  "layer": "shared",
+                  "adoptionApproval": "semantic-action-states-2026-11-03",
+                  "source": {
+                    "file": "Color.ts",
+                    "exportPath": [
+                      "ACTION_DANGER_BG",
+                      "pressed",
+                      "light"
+                    ],
+                    "line": 301
+                  },
+                  "sourceDocuments": [],
+                  "sourceAnnotations": {
+                    "token": "rds.color.action.danger.bg.pressed",
+                    "usage": "Temporary pressed fill for an enabled destructive action. Pair with status.error.on-fill.",
+                    "avoid": "Do not use as a generic surface, status-message color or alpha state layer."
+                  },
+                  "reviewIssues": [],
+                  "capturedSource": {
+                    "file": "Color.ts",
+                    "exportPath": [
+                      "ACTION_DANGER_BG",
+                      "pressed",
+                      "light"
+                    ],
+                    "line": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "danger-subtle": {
+          "fg": {
+            "default": {
+              "$type": "color",
+              "$value": "{ref.color.red.800}",
+              "$description": "Stable foreground for low-emphasis destructive action fills across default, hover and pressed states.",
+              "$extensions": {
+                "rahino": {
+                  "status": "adopted",
+                  "layer": "shared",
+                  "adoptionApproval": "semantic-action-states-2026-11-03",
+                  "source": {
+                    "file": "Color.ts",
+                    "exportPath": [
+                      "ACTION_DANGER_SUBTLE_FG",
+                      "default",
+                      "light"
+                    ],
+                    "line": 306
+                  },
+                  "sourceDocuments": [],
+                  "sourceAnnotations": {
+                    "token": "rds.color.action.danger-subtle.fg.default",
+                    "usage": "Stable foreground for low-emphasis destructive action fills across default, hover and pressed states.",
+                    "avoid": "Do not use as a generic surface, status-message color or alpha state layer."
+                  },
+                  "reviewIssues": [],
+                  "capturedSource": {
+                    "file": "Color.ts",
+                    "exportPath": [
+                      "ACTION_DANGER_SUBTLE_FG",
+                      "default",
+                      "light"
+                    ],
+                    "line": 1
+                  },
+                  "stateConsistencyApproval": "consistent-soft-danger-states-2026-11-03"
+                }
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{ref.color.red.800}",
+              "$description": "Stable foreground for low-emphasis destructive action fills across default, hover and pressed states.",
+              "$extensions": {
+                "rahino": {
+                  "status": "adopted",
+                  "layer": "shared",
+                  "adoptionApproval": "semantic-action-states-2026-11-03",
+                  "source": {
+                    "file": "Color.ts",
+                    "exportPath": [
+                      "ACTION_DANGER_SUBTLE_FG",
+                      "hover",
+                      "light"
+                    ],
+                    "line": 308
+                  },
+                  "sourceDocuments": [],
+                  "sourceAnnotations": {
+                    "token": "rds.color.action.danger-subtle.fg.hover",
+                    "usage": "Stable foreground for low-emphasis destructive action fills across default, hover and pressed states.",
+                    "avoid": "Do not use as a generic surface, status-message color or alpha state layer."
+                  },
+                  "reviewIssues": [],
+                  "capturedSource": {
+                    "file": "Color.ts",
+                    "exportPath": [
+                      "ACTION_DANGER_SUBTLE_FG",
+                      "hover",
+                      "light"
+                    ],
+                    "line": 1
+                  },
+                  "stateConsistencyApproval": "consistent-soft-danger-states-2026-11-03"
+                }
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{ref.color.red.800}",
+              "$description": "Stable foreground for low-emphasis destructive action fills across default, hover and pressed states.",
+              "$extensions": {
+                "rahino": {
+                  "status": "adopted",
+                  "layer": "shared",
+                  "adoptionApproval": "semantic-action-states-2026-11-03",
+                  "source": {
+                    "file": "Color.ts",
+                    "exportPath": [
+                      "ACTION_DANGER_SUBTLE_FG",
+                      "pressed",
+                      "light"
+                    ],
+                    "line": 310
+                  },
+                  "sourceDocuments": [],
+                  "sourceAnnotations": {
+                    "token": "rds.color.action.danger-subtle.fg.pressed",
+                    "usage": "Stable foreground for low-emphasis destructive action fills across default, hover and pressed states.",
+                    "avoid": "Do not use as a generic surface, status-message color or alpha state layer."
+                  },
+                  "reviewIssues": [],
+                  "capturedSource": {
+                    "file": "Color.ts",
+                    "exportPath": [
+                      "ACTION_DANGER_SUBTLE_FG",
+                      "pressed",
+                      "light"
+                    ],
+                    "line": 1
+                  },
+                  "stateConsistencyApproval": "consistent-soft-danger-states-2026-11-03"
+                }
+              }
+            }
+          },
+          "bg": {
+            "default": {
+              "$type": "color",
+              "$value": "{rds.color.status.error.bg}",
+              "$description": "Opaque default fill for low-emphasis destructive actions. Pair with action.danger-subtle.fg.default; no alpha layer or color calculations.",
+              "$extensions": {
+                "rahino": {
+                  "status": "adopted",
+                  "layer": "shared",
+                  "adoptionApproval": "consistent-soft-danger-states-2026-11-03",
+                  "source": {
+                    "file": "Color.ts",
+                    "exportPath": [
+                      "ACTION_DANGER_SUBTLE_BG",
+                      "default",
+                      "light"
+                    ],
+                    "line": 315
+                  },
+                  "sourceDocuments": [],
+                  "sourceAnnotations": {
+                    "token": "rds.color.action.danger-subtle.bg.default",
+                    "usage": "Opaque default fill for low-emphasis destructive actions. Pair with action.danger-subtle.fg.default; no alpha layer or color calculations.",
+                    "avoid": "Do not use as generic surfaces or status-message colors."
+                  },
+                  "reviewIssues": [],
+                  "capturedSource": {
+                    "file": "Color.ts",
+                    "exportPath": [
+                      "ACTION_DANGER_SUBTLE_BG",
+                      "default",
+                      "light"
+                    ],
+                    "line": 1
+                  }
+                }
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{ref.color.red.225}",
+              "$description": "Opaque hover fill for low-emphasis destructive actions. Pair with action.danger-subtle.fg.default; no alpha layer or color calculations.",
+              "$extensions": {
+                "rahino": {
+                  "status": "adopted",
+                  "layer": "shared",
+                  "adoptionApproval": "consistent-soft-danger-states-2026-11-03",
+                  "source": {
+                    "file": "Color.ts",
+                    "exportPath": [
+                      "ACTION_DANGER_SUBTLE_BG",
+                      "hover",
+                      "light"
+                    ],
+                    "line": 317
+                  },
+                  "sourceDocuments": [],
+                  "sourceAnnotations": {
+                    "token": "rds.color.action.danger-subtle.bg.hover",
+                    "usage": "Opaque hover fill for low-emphasis destructive actions. Pair with action.danger-subtle.fg.default; no alpha layer or color calculations.",
+                    "avoid": "Do not use as generic surfaces or status-message colors."
+                  },
+                  "reviewIssues": [],
+                  "capturedSource": {
+                    "file": "Color.ts",
+                    "exportPath": [
+                      "ACTION_DANGER_SUBTLE_BG",
+                      "hover",
+                      "light"
+                    ],
+                    "line": 1
+                  }
+                }
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{ref.color.red.275}",
+              "$description": "Opaque pressed fill for low-emphasis destructive actions. Pair with action.danger-subtle.fg.default; no alpha layer or color calculations.",
+              "$extensions": {
+                "rahino": {
+                  "status": "adopted",
+                  "layer": "shared",
+                  "adoptionApproval": "consistent-soft-danger-states-2026-11-03",
+                  "source": {
+                    "file": "Color.ts",
+                    "exportPath": [
+                      "ACTION_DANGER_SUBTLE_BG",
+                      "pressed",
+                      "light"
+                    ],
+                    "line": 319
+                  },
+                  "sourceDocuments": [],
+                  "sourceAnnotations": {
+                    "token": "rds.color.action.danger-subtle.bg.pressed",
+                    "usage": "Opaque pressed fill for low-emphasis destructive actions. Pair with action.danger-subtle.fg.default; no alpha layer or color calculations.",
+                    "avoid": "Do not use as generic surfaces or status-message colors."
+                  },
+                  "reviewIssues": [],
+                  "capturedSource": {
+                    "file": "Color.ts",
+                    "exportPath": [
+                      "ACTION_DANGER_SUBTLE_BG",
+                      "pressed",
+                      "light"
+                    ],
+                    "line": 1
+                  }
+                }
+              }
+            }
+          }
         }
       },
       "edge": {
@@ -883,7 +1496,7 @@
                   "subtle",
                   "light"
                 ],
-                "line": 90
+                "line": 92
               },
               "sourceDocuments": [],
               "sourceAnnotations": {
@@ -921,7 +1534,7 @@
                   "control",
                   "light"
                 ],
-                "line": 92
+                "line": 94
               },
               "sourceDocuments": [],
               "sourceAnnotations": {
@@ -961,7 +1574,7 @@
                   "LINK_FG",
                   "light"
                 ],
-                "line": 59
+                "line": 61
               },
               "sourceDocuments": [],
               "sourceAnnotations": {
@@ -998,7 +1611,7 @@
                   "FOCUS_RING",
                   "light"
                 ],
-                "line": 76
+                "line": 78
               },
               "sourceDocuments": [],
               "sourceAnnotations": {
@@ -1042,7 +1655,7 @@
                     "neutral-hover",
                     "light"
                   ],
-                  "line": 80
+                  "line": 82
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {
@@ -1081,7 +1694,7 @@
                     "neutral-pressed",
                     "light"
                   ],
-                  "line": 82
+                  "line": 84
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {
@@ -1121,7 +1734,7 @@
                     "INTERACTION_SELECTED_SURFACE",
                     "light"
                   ],
-                  "line": 86
+                  "line": 88
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {
@@ -1167,7 +1780,7 @@
                     "bg",
                     "light"
                   ],
-                  "line": 98
+                  "line": 100
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {
@@ -1206,7 +1819,7 @@
                     "edge",
                     "light"
                   ],
-                  "line": 100
+                  "line": 102
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {
@@ -1245,7 +1858,7 @@
                     "fg",
                     "light"
                   ],
-                  "line": 102
+                  "line": 104
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {
@@ -1284,7 +1897,7 @@
                     "fill",
                     "light"
                   ],
-                  "line": 104
+                  "line": 106
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {
@@ -1323,7 +1936,7 @@
                     "on-fill",
                     "light"
                   ],
-                  "line": 106
+                  "line": 108
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {
@@ -1364,7 +1977,7 @@
                     "bg",
                     "light"
                   ],
-                  "line": 110
+                  "line": 112
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {
@@ -1403,7 +2016,7 @@
                     "edge",
                     "light"
                   ],
-                  "line": 112
+                  "line": 114
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {
@@ -1442,7 +2055,7 @@
                     "fg",
                     "light"
                   ],
-                  "line": 114
+                  "line": 116
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {
@@ -1481,7 +2094,7 @@
                     "fill",
                     "light"
                   ],
-                  "line": 116
+                  "line": 118
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {
@@ -1520,7 +2133,7 @@
                     "on-fill",
                     "light"
                   ],
-                  "line": 118
+                  "line": 120
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {
@@ -1561,7 +2174,7 @@
                     "bg",
                     "light"
                   ],
-                  "line": 122
+                  "line": 124
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {
@@ -1600,7 +2213,7 @@
                     "edge",
                     "light"
                   ],
-                  "line": 124
+                  "line": 126
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {
@@ -1639,7 +2252,7 @@
                     "fg",
                     "light"
                   ],
-                  "line": 126
+                  "line": 128
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {
@@ -1678,7 +2291,7 @@
                     "fill",
                     "light"
                   ],
-                  "line": 128
+                  "line": 130
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {
@@ -1717,7 +2330,7 @@
                     "on-fill",
                     "light"
                   ],
-                  "line": 130
+                  "line": 132
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {
@@ -1758,7 +2371,7 @@
                     "bg",
                     "light"
                   ],
-                  "line": 134
+                  "line": 136
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {
@@ -1797,7 +2410,7 @@
                     "edge",
                     "light"
                   ],
-                  "line": 136
+                  "line": 138
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {
@@ -1836,7 +2449,7 @@
                     "fg",
                     "light"
                   ],
-                  "line": 138
+                  "line": 140
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {
@@ -1875,7 +2488,7 @@
                     "fill",
                     "light"
                   ],
-                  "line": 140
+                  "line": 142
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {
@@ -1914,7 +2527,7 @@
                     "on-fill",
                     "light"
                   ],
-                  "line": 142
+                  "line": 144
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {
@@ -1954,7 +2567,7 @@
                   "DATA_ON_FILL",
                   "light"
                 ],
-                "line": 264
+                "line": 266
               },
               "sourceDocuments": [],
               "sourceAnnotations": {
@@ -1995,7 +2608,7 @@
                     "01",
                     "light"
                   ],
-                  "line": 214
+                  "line": 216
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {
@@ -2044,7 +2657,7 @@
                     "02",
                     "light"
                   ],
-                  "line": 216
+                  "line": 218
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {
@@ -2093,7 +2706,7 @@
                     "03",
                     "light"
                   ],
-                  "line": 218
+                  "line": 220
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {
@@ -2142,7 +2755,7 @@
                     "04",
                     "light"
                   ],
-                  "line": 220
+                  "line": 222
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {
@@ -2191,7 +2804,7 @@
                     "05",
                     "light"
                   ],
-                  "line": 222
+                  "line": 224
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {
@@ -2240,7 +2853,7 @@
                     "06",
                     "light"
                   ],
-                  "line": 224
+                  "line": 226
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {
@@ -2289,7 +2902,7 @@
                     "07",
                     "light"
                   ],
-                  "line": 226
+                  "line": 228
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {
@@ -2338,7 +2951,7 @@
                     "08",
                     "light"
                   ],
-                  "line": 228
+                  "line": 230
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {
@@ -2389,7 +3002,7 @@
                     "01",
                     "light"
                   ],
-                  "line": 235
+                  "line": 237
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {
@@ -2438,7 +3051,7 @@
                     "02",
                     "light"
                   ],
-                  "line": 237
+                  "line": 239
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {
@@ -2487,7 +3100,7 @@
                     "03",
                     "light"
                   ],
-                  "line": 239
+                  "line": 241
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {
@@ -2536,7 +3149,7 @@
                     "04",
                     "light"
                   ],
-                  "line": 241
+                  "line": 243
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {
@@ -2585,7 +3198,7 @@
                     "05",
                     "light"
                   ],
-                  "line": 243
+                  "line": 245
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {
@@ -2636,7 +3249,7 @@
                     "01",
                     "light"
                   ],
-                  "line": 250
+                  "line": 252
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {
@@ -2685,7 +3298,7 @@
                     "02",
                     "light"
                   ],
-                  "line": 252
+                  "line": 254
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {
@@ -2734,7 +3347,7 @@
                     "03",
                     "light"
                   ],
-                  "line": 254
+                  "line": 256
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {
@@ -2783,7 +3396,7 @@
                     "04",
                     "light"
                   ],
-                  "line": 256
+                  "line": 258
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {
@@ -2832,7 +3445,7 @@
                     "05",
                     "light"
                   ],
-                  "line": 258
+                  "line": 260
                 },
                 "sourceDocuments": [],
                 "sourceAnnotations": {

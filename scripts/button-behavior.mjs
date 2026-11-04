@@ -82,6 +82,8 @@ for (const radius of ['less', 'more']) {
   check(radius + ' selected loading toggle has spinner without checkmark', countIcons(selectedPending) === 1 && selectedPending.includes('rds-button__spinner') && !selectedPending.includes('lucide-check'));
   const iconPending = renderToStaticMarkup(createElement(IconButton, { radius, loading: true, 'aria-label': 'افزودن' }, startIcon));
   check(radius + ' loading IconButton replaces the supplied icon', countIcons(iconPending) === 1 && iconPending.includes('rds-button__spinner') && !iconPending.includes('data-example-icon='));
+  const mirroredPending = renderToStaticMarkup(createElement(IconButton, { radius, mirror: true, loading: true, 'aria-label': 'ادامه' }, startIcon));
+  check(radius + ' loading IconButton never mirrors its spinner', !mirroredPending.includes('data-mirror="true"'));
 }
 
 await server.close();

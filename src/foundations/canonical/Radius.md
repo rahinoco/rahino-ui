@@ -14,8 +14,8 @@ All primitive values use `px`. Token names reflect their actual values and remai
 | --- | --- | --- | --- |
 | `rds.radius.0` | `ref.radius.0` | 0px | Sharp corners, viewport-attached edges, adjoining surfaces, and precision-oriented elements where rounding is inappropriate. |
 | `rds.radius.4` | `ref.radius.4` | 4px | Checkboxes and very small controls needing restrained rounding. |
-| `rds.radius.8` | `ref.radius.8` | 8px | Default buttons, inputs, and regular interactive controls. |
-| `rds.radius.12` | `ref.radius.12` | 12px | Grouped controls, compact cards, and smaller nested surfaces. |
+| `rds.radius.8` | `ref.radius.8` | 8px | Default buttons and regular interactive controls; text inputs use radius.12. |
+| `rds.radius.12` | `ref.radius.12` | 12px | Default text inputs, more-rounded buttons, grouped controls, compact cards, and smaller nested surfaces. |
 | `rds.radius.16` | `ref.radius.16` | 16px | Panels, popovers, and larger cards; pair floating surfaces with their appropriate surface and elevation roles. |
 | `rds.radius.24` | `ref.radius.24` | 24px | Dialogs and sheets where geometry permits rounded outer corners. |
 <!-- rds:generated:radius:end -->
@@ -24,7 +24,7 @@ All primitive values use `px`. Token names reflect their actual values and remai
 
 ## Rounding rules
 
-- **Default:** Use 8px for regular controls. Do not make every button or input a pill.
+- **Default:** Use 8px for buttons and regular controls. Text inputs use 12px, as approved for this recipe. Do not make every control a pill.
 - **Nested corners:** Inner radius should generally be smaller than outer radius. Account for inset spacing and prioritize visual balance over rigid formulas.
 - **Attached edges:** Use 0px where a surface joins the viewport or an adjacent surface. A bottom sheet may have only its top corners rounded.
 - **Responsive:** Keep radius values stable across breakpoints. Change a component's radius only if its geometry or layout pattern changes.
@@ -33,10 +33,14 @@ All primitive values use `px`. Token names reflect their actual values and remai
 
 ## Implementation
 
-### Button corner smoothing
+### Text input rounding
 
-Button, IconButton and ToggleButton use a 60% Figma-style corner smoothing recipe. This shapes the transition from straight edges into corners; it does not change the numeric radius scale. The existing button variants remain 8px (default) and 12px, independent of theme, size, viewport and density. Where geometry cannot fit the requested smoothing, limit it to the available half-height/half-width as Figma does, rather than changing the radius.
+Text inputs use native CSS `border-radius` with `rds.radius.12` in both sizes and all themes. Their independent 2px focus indicator stays inset, follows the same radius and never enlarges the field. This recipe does not change the default button radius.
 
-Generate the surface path from the measured control dimensions and its computed foundation radius. Apply the same path to interaction layers, derive elevation from the existing shadow token, and draw an independent 2px focus ring outside the shape. Keep the native control and its focus area unclipped. Standard rounded CSS geometry is the fallback before measurement or without shape support; native forced colors retain system borders and focus. This is a button recipe, not a new numeric radius token or approval of other component shapes. Button state approval remains separate.
+### Button rounding
+
+Button, IconButton and ToggleButton use native CSS `border-radius`, with 8px as the default and 12px for the more-rounded variant. Keep both values independent of theme, size, viewport and density. Do not apply corner smoothing, calculated clipping paths, masks or filtered decorative surfaces to buttons.
+
+Use the existing shadow token with native `box-shadow` and the independent 2px focus ring with native CSS outline. Keep the native control and its focus area unclipped. Button state approval remains separate.
 
 Consume numeric radius tokens through their CSS variables (for example, `--rds-radius-8`). Apply **Full** only in component recipes that call for chips, pills, or circles; do not create a separate numeric radius for every component, theme, viewport, or density mode.

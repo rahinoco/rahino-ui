@@ -1,4 +1,5 @@
 export { FOUNDATION_MANIFEST } from './manifest.ts';
+export { ICONOGRAPHY } from './canonical/Icons.ts';
 export {
   ACTION_PRIMARY_BG,
   ACTION_PRIMARY_FG,

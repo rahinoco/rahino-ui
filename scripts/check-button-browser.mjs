@@ -5,6 +5,9 @@ import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
 import { build } from 'vite';
 import react from '@vitejs/plugin-react';
+import { loadModel } from '../src/foundations/canonical/master-tokens/scripts/foundations.mjs';
+import { resolveColor } from '../src/foundations/canonical/master-tokens/generated/color-resolver.mjs';
+import { ICONOGRAPHY } from '../src/foundations/canonical/Icons.ts';
 
 const require = createRequire(import.meta.url);
 let playwright;
@@ -37,20 +40,29 @@ try {
   await page.addScriptTag({ type: 'module', content: script });
   await page.locator('[data-case]').first().waitFor();
   await page.evaluate(() => document.fonts.ready);
+  const fractional = page.locator('[data-geometry-case] .rds-button');
+  const geometry = await fractional.evaluate(node => ({ width: getComputedStyle(node).width, height: getComputedStyle(node).height, radius: getComputedStyle(node).borderRadius, clip: getComputedStyle(node).clipPath, filter: getComputedStyle(node).filter }));
+  assert.equal(geometry.width, '123.375px');
+  assert.equal(geometry.height, '44.625px');
+  assert.equal(geometry.radius, '8px');
+  assert.equal(geometry.clip, 'none');
+  assert.equal(geometry.filter, 'none');
+  assert.equal(await page.locator('.rds-button__surface, .rds-button__elevation, .rds-button__shadow-surface').count(), 0, 'No custom shape layers');
   const resizable = page.locator('[data-case="less-solid-brand-md-Button-default"] .rds-button');
-  const originalPath = await resizable.evaluate(node => getComputedStyle(node.querySelector('.rds-button__surface')).clipPath);
-  await resizable.evaluate(node => { node.style.width = (node.offsetWidth + 37) + 'px'; });
-  await page.waitForFunction(original => getComputedStyle(document.querySelector('[data-case="less-solid-brand-md-Button-default"] .rds-button__surface')).clipPath !== original, originalPath);
+  const initialWidth = await resizable.evaluate(node => parseFloat(getComputedStyle(node).width));
+  await resizable.evaluate((node, width) => { node.style.width = `${width + 37}px`; }, initialWidth);
+  assert(Math.abs(await resizable.evaluate(node => parseFloat(getComputedStyle(node).width)) - initialWidth - 37) < .02);
   await resizable.evaluate(node => { node.style.removeProperty('width'); node.dataset.radius = 'more'; });
-  await page.waitForFunction(() => getComputedStyle(document.querySelector('[data-case="less-solid-brand-md-Button-default"] .rds-button__surface')).clipPath.includes('12 12'));
+  assert.equal(await resizable.evaluate(node => getComputedStyle(node).borderRadius), '12px');
   await resizable.evaluate(node => { node.dataset.radius = 'less'; });
-  await page.waitForFunction(() => getComputedStyle(document.querySelector('[data-case="less-solid-brand-md-Button-default"] .rds-button__surface')).clipPath.includes('8 8'));
+  assert.equal(await resizable.evaluate(node => getComputedStyle(node).borderRadius), '8px');
   const cdp = await page.context().newCDPSession(page);
   await cdp.send('DOM.enable');
   await cdp.send('CSS.enable');
   const { root: doc } = await cdp.send('DOM.getDocument');
   const { nodeIds } = await cdp.send('DOM.querySelectorAll', { nodeId: doc.nodeId, selector: '[data-state="default"] .rds-button, [data-state="selected"] .rds-button' });
   const findings = [];
+  const softFeedback = [];
   const contrastFindings = new Map();
   for (const theme of ['light', 'dark']) for (const contrast of ['standard', 'more']) {
     await page.evaluate(({ theme, contrast }) => {
@@ -63,7 +75,7 @@ try {
         await new Promise(requestAnimationFrame);
         await Promise.all(document.getAnimations().filter(animation => animation.effect.getTiming().iterations !== Infinity).map(animation => animation.finished.catch(() => {})));
       });
-      const snapshots = await page.locator('[data-case] .rds-button').evaluateAll((nodes, state) => {
+      const snapshots = await page.locator('[data-case] .rds-button').evaluateAll((nodes, { state, iconography }) => {
         const ctx = document.createElement('canvas').getContext('2d', { willReadFrequently: true });
         function rgba(color) {
           ctx.clearRect(0, 0, 1, 1);
@@ -78,44 +90,67 @@ try {
         return nodes.map(node => {
         const css = getComputedStyle(node);
         const overlay = getComputedStyle(node, '::before');
-        const surface = getComputedStyle(node.querySelector('.rds-button__surface'));
-        const elevation = getComputedStyle(node.querySelector('.rds-button__elevation'));
-        const paint = node.dataset.smoothed === 'true' ? surface : css;
+        const paint = css;
         const parent = node.parentElement;
         const disabled = parent.dataset.state === 'disabled' || parent.dataset.state === 'loading';
+        const selected = node.dataset.pressed === 'true' && !disabled;
+        const feedback = state === 'hover' ? '-hover' : state === 'active' ? '-pressed' : '';
+        const solidBrand = node.dataset.appearance === 'solid' && node.dataset.intent === 'brand';
+        const bgRole = disabled ? (solidBrand ? '--rds-button-solid-brand-bg-disabled' : '--rds-button-bg-disabled')
+          : selected ? '--rds-button-selected-bg' + feedback : '--rds-button-bg' + feedback;
+        const fgRole = disabled ? (solidBrand ? '--rds-color-ink-primary' : '--rds-button-fg-disabled') : '--rds-button-fg' + feedback;
+        const expectedBg = css.getPropertyValue(bgRole).trim();
+        const expectedFg = css.getPropertyValue(fgRole).trim();
+        if (expectedBg !== 'none' && JSON.stringify(rgba(css.backgroundColor)) !== JSON.stringify(rgba(expectedBg))) throw new Error(parent.dataset.case + '/' + state + ': incorrect state fill');
+        if (expectedBg === 'none' && rgba(css.backgroundColor)[3] !== 0) throw new Error(parent.dataset.case + ': ghost rest must have no fill');
+        if (JSON.stringify(rgba(css.color)) !== JSON.stringify(rgba(expectedFg))) throw new Error(parent.dataset.case + '/' + state + ': incorrect state foreground');
+        if (css.opacity !== '1' || overlay.content !== 'none') throw new Error(parent.dataset.case + ': opacity or overlay modifies semantic colors');
+        if ([...node.querySelectorAll('svg')].some(svg => getComputedStyle(svg).opacity !== '1')) throw new Error(parent.dataset.case + ': icon/spinner opacity modifies foreground');
+        for (const svg of node.querySelectorAll('.rds-button__icon svg')) {
+          const iconCss = getComputedStyle(svg);
+          const size = parseFloat(iconography.size[node.dataset.size]);
+          const matrix = svg.getScreenCTM();
+          const visibleStroke = parseFloat(iconCss.strokeWidth) * Math.hypot(matrix.a, matrix.b);
+          const expectedStroke = iconography.stroke.width * size / iconography.grid.size;
+          if (parseFloat(iconCss.width) !== size || parseFloat(iconCss.height) !== size) throw new Error(parent.dataset.case + ': incorrect icon size');
+          if (svg.getAttribute('viewBox') !== `0 0 ${iconography.grid.size} ${iconography.grid.size}`) throw new Error(parent.dataset.case + ': incorrect SVG reference grid');
+          if (parseFloat(iconCss.strokeWidth) !== iconography.stroke.width || Math.abs(visibleStroke - expectedStroke) > .001) throw new Error(parent.dataset.case + ': stroke must scale with the icon grid');
+          if (iconCss.vectorEffect !== 'none' || iconCss.strokeLinecap !== 'round' || iconCss.strokeLinejoin !== 'round' || iconCss.fill !== 'none') throw new Error(parent.dataset.case + ': icons must use proportional rounded outlines');
+          if (iconCss.stroke !== css.color || iconCss.color !== css.color) throw new Error(parent.dataset.case + ': icon must inherit the button foreground');
+          if (svg.closest('.rds-button__icon').getAttribute('aria-hidden') !== 'true') throw new Error(parent.dataset.case + ': decorative icon must be hidden from assistive technology');
+        }
         let background = composite(rgba(paint.backgroundColor), base);
-        if (overlay.content !== 'none' && Number(overlay.opacity) > 0) {
+        if (overlay.content !== 'none' && overlay.display !== 'none' && Number(overlay.opacity) > 0) {
           const layer = rgba(overlay.backgroundColor);
           layer[3] *= Number(overlay.opacity);
           background = composite(layer, background);
         }
         const foreground = composite(rgba(css.color), background);
         const a = luminance(foreground), b = luminance(background);
-        return { id: parent.dataset.case, radius: css.borderTopLeftRadius, bg: paint.backgroundColor, fg: css.color, shadow: elevation.filter, smoothed: node.dataset.smoothed, path: surface.clipPath, controlClip: css.clipPath, focusMask: getComputedStyle(node, '::after').maskImage, focusWidth: css.outlineWidth, focusColor: css.outlineColor, disabled, transition: css.transitionDuration, overlay: overlay.backgroundColor, overlayOpacity: overlay.opacity, ratio: (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05), state };
+        return { id: parent.dataset.case, radius: css.borderTopLeftRadius, bg: paint.backgroundColor, fg: css.color, shadow: css.boxShadow, smoothed: node.dataset.smoothed, controlClip: css.clipPath, focusMask: getComputedStyle(node, '::after').maskImage, focusWidth: css.outlineWidth, focusColor: css.outlineColor, disabled, transition: css.transitionDuration, overlay: overlay.backgroundColor, overlayOpacity: overlay.opacity, ratio: (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05), state };
         });
-      }, state);
+      }, { state, iconography: ICONOGRAPHY });
       assert.equal(snapshots.length, 540);
       for (const sample of snapshots) {
         if (!sample.disabled && sample.ratio < 4.5) {
           const key = [theme, contrast, state, ...sample.id.split('-').slice(1, 3), sample.id.endsWith('-selected') ? 'selected' : 'unselected'].join('/');
           contrastFindings.set(key, { context: key, example: sample.id, ratio: sample.ratio, target: 4.5 });
         }
-        assert.equal(sample.smoothed, 'true', sample.id + ' smoothing');
-        assert(sample.path.startsWith('path(') && !sample.path.includes('NaN'), sample.id + ' path');
+        assert.equal(sample.smoothed, undefined, sample.id + ' native rounding');
+        assert.equal(sample.focusMask, 'none', sample.id + ' no shape mask');
         assert.equal(sample.controlClip, 'none', sample.id + ' unclipped native control');
-        if (state === 'focus-visible' && !sample.disabled) assert(sample.focusMask.includes('data:image/svg+xml'), sample.id + ' smoothed focus ring');
+        if (state === 'focus-visible' && !sample.disabled) assert.notEqual(sample.focusColor, 'rgba(0, 0, 0, 0)', sample.id + ' native focus ring');
         assert.equal(sample.radius, sample.id.startsWith('less-') ? '8px' : '12px', sample.id);
         assert.notEqual(sample.bg, '', sample.id + ' missing background');
         assert.notEqual(sample.fg, '', sample.id + ' missing foreground');
         assert.equal(sample.shadow === 'none', sample.disabled || sample.id.includes('-ghost-'), sample.id + ' shadow');
         if (state === 'focus-visible' && !sample.disabled) assert.equal(sample.focusWidth, '2px', sample.id + ' focus');
-        if (!sample.disabled) assert(sample.transition.includes('0.15s'), sample.id + ' feedback timing');
+        assert.equal(sample.transition, '0s', sample.id + ' colors must switch without interpolation');
       }
       assert(await page.locator('.rds-button').evaluateAll(nodes => nodes.every(node => node.querySelectorAll('svg').length <= 1)), 'A button must never show multiple icons');
-      const neutral = snapshots.find(sample => sample.id === 'less-soft-neutral-md-Button-default');
-      if (state === 'hover' || state === 'active') {
-        assert.equal(neutral.overlayOpacity, '1');
-        assert(neutral.overlay.includes(theme === 'light' ? (state === 'hover' ? '0.06' : '0.1') : (state === 'hover' ? '0.08' : '0.12')), JSON.stringify(neutral));
+      if (['default', 'hover', 'active'].includes(state)) for (const intent of ['neutral', 'brand', 'danger']) {
+        const sample = snapshots.find(item => item.id === `less-soft-${intent}-md-Button-default`);
+        softFeedback.push({ theme, contrast, intent, state, bg: sample.bg, fg: sample.fg });
       }
       findings.push({ theme, contrast, state, checked: snapshots.length });
     }
@@ -123,6 +158,150 @@ try {
     await page.screenshot({ path: path.join(output, `${theme}-${contrast}.png`) });
     console.log(`ok ${theme}/${contrast}: all styles, intents, sizes, radii and family members`);
   }
+  for (const direction of ['rtl', 'ltr']) {
+    await page.evaluate(direction => { document.documentElement.dir = direction; }, direction);
+    const transforms = await page.locator('#icon-direction-review .rds-button__icon').evaluateAll(nodes => nodes.map(node => getComputedStyle(node).transform));
+    assert.deepEqual(transforms, direction === 'rtl' ? ['matrix(-1, 0, 0, 1, 0, 0)', 'none', 'matrix(-1, 0, 0, 1, 0, 0)', 'none'] : ['none', 'none', 'none', 'none'], 'Only direction-dependent action icons mirror; loading never mirrors');
+  }
+  await page.evaluate(() => { document.documentElement.dir = 'rtl'; });
+  const toggleMotion = [];
+  for (const direction of ['rtl', 'ltr']) {
+    await page.evaluate(direction => { document.documentElement.dir = direction; }, direction);
+    for (const size of ['sm', 'md', 'lg']) {
+      const pair = page.locator(`[data-toggle-size="${size}"]`);
+      const regular = pair.locator('button').nth(0);
+      const textToggle = pair.locator('button').nth(1);
+      const width = node => node.getBoundingClientRect().width;
+      const normalWidth = await regular.evaluate(width);
+      assert.equal(await textToggle.evaluate(width), normalWidth, `${direction}/${size}: no idle icon space`);
+      await textToggle.hover();
+      assert.equal(await textToggle.evaluate(width), normalWidth, `${direction}/${size}: no hover icon space`);
+      const expandedBy = await textToggle.evaluate(node => {
+        const css = getComputedStyle(node);
+        return parseFloat(css.getPropertyValue('--rds-button-icon')) + parseFloat(css.getPropertyValue('--rds-space-icon-gap'));
+      });
+      const sample = await textToggle.evaluate(async node => {
+        const slot = node.querySelector('.rds-button__mark');
+        // Observe React's commit so frame scheduling cannot skip a short transition.
+        await new Promise(resolve => {
+          const observer = new MutationObserver(() => {
+            if (slot.dataset.visible !== 'true') return;
+            observer.disconnect(); resolve();
+          });
+          observer.observe(slot, { attributes: true });
+          node.click();
+        });
+        const animations = slot.getAnimations();
+        if (animations.length !== 2) throw new Error('Slot width and gap must animate together');
+        for (const animation of animations) { animation.pause(); animation.currentTime = animation.effect.getTiming().duration / 2; }
+        const middle = node.getBoundingClientRect().width;
+        for (const animation of animations) animation.finish();
+        const end = node.getBoundingClientRect().width;
+        const mark = node.querySelector('.rds-button__mark').getBoundingClientRect();
+        const label = node.querySelector('.rds-button__label').getBoundingClientRect();
+        return { middle, end, markX: mark.x, labelX: label.x };
+      });
+      assert(sample.middle > normalWidth && sample.middle < sample.end, `${direction}/${size}: expansion is continuous`);
+      assert(Math.abs(sample.end - normalWidth - expandedBy) < .05, `${direction}/${size}: only icon and gap are added`);
+      assert.equal(sample.markX > sample.labelX, direction === 'rtl', 'Mark follows reading direction');
+      // Reverse during collapse, without waiting for pointer stability.
+      await textToggle.evaluate(node => node.click());
+      await textToggle.evaluate(async node => {
+        await new Promise(requestAnimationFrame);
+        for (const animation of node.querySelector('.rds-button__mark').getAnimations()) {
+          animation.pause(); animation.currentTime = animation.effect.getTiming().duration / 2;
+        }
+        node.click();
+        await new Promise(requestAnimationFrame);
+        for (const animation of node.querySelector('.rds-button__mark').getAnimations()) animation.finish();
+      });
+      assert(Math.abs(await textToggle.evaluate(width) - sample.end) < .05, 'Rapid reversal returns to selected width');
+      await textToggle.evaluate(node => node.click());
+      await textToggle.evaluate(async node => {
+        await new Promise(requestAnimationFrame);
+        await Promise.all(node.querySelector('.rds-button__mark').getAnimations().map(animation => animation.finished));
+      });
+      assert.equal(await textToggle.evaluate(width), normalWidth, 'Deselection restores normal width');
+      toggleMotion.push({ direction, size, normalWidth, ...sample });
+    }
+  }
+  // Compact visual evidence of the three states shown in the owner's reference.
+  await page.evaluate(() => {
+    const review = document.createElement('div');
+    review.id = 'toggle-state-preview';
+    review.dir = 'ltr';
+    review.style.cssText = 'position:fixed;inset:0 auto auto 0;width:540px;padding:24px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;background:var(--rds-color-surface-base);z-index:100';
+    for (const title of ['Default', 'Hover', 'Selected']) {
+      const heading = document.createElement('span'); heading.textContent = title; review.append(heading);
+    }
+    for (const intent of ['brand', 'neutral', 'danger']) for (const state of ['default', 'hover', 'selected']) {
+      const original = document.querySelector(`[data-case="less-soft-${intent}-md-ToggleButton-${state === 'selected' ? 'selected' : 'default'}"] button`);
+      const node = original.cloneNode(true);
+      node.dir = 'rtl'; node.dataset.reviewToggleState = state;
+      node.style.justifySelf = 'center';
+      node.querySelector('.rds-button__label').textContent = 'دنبال کردن';
+      review.append(node);
+    }
+    document.body.append(review);
+  });
+  const { nodeIds: hoverToggleIds } = await cdp.send('DOM.querySelectorAll', { nodeId: doc.nodeId, selector: '#toggle-state-preview [data-review-toggle-state="hover"]' });
+  await Promise.all(hoverToggleIds.map(nodeId => cdp.send('CSS.forcePseudoState', { nodeId, forcedPseudoClasses: ['hover'] })));
+  await page.locator('#toggle-state-preview').screenshot({ path: path.join(output, 'toggle-states.png') });
+  await page.evaluate(() => document.querySelector('#toggle-state-preview').remove());
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  const reducedToggle = page.locator('[data-toggle-size="md"] button').nth(1);
+  await reducedToggle.evaluate(node => node.click());
+  assert.equal(await reducedToggle.locator('.rds-button__mark').evaluate(node => getComputedStyle(node).transitionDuration), '0s');
+  assert.equal(await reducedToggle.locator('.rds-button__mark').evaluate(node => node.getAnimations().length), 0);
+  await reducedToggle.evaluate(node => node.click());
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.evaluate(() => { document.documentElement.dir = 'rtl'; });
+  for (const theme of ['light', 'dark']) for (const contrast of ['standard', 'more']) for (const intent of ['neutral', 'brand', 'danger']) {
+    const states = softFeedback.filter(item => item.theme === theme && item.contrast === contrast && item.intent === intent);
+    assert.equal(new Set(states.map(item => item.bg)).size, 3, `${theme}/${contrast}/${intent}: soft feedback must change the fill`);
+    assert.equal(new Set(states.map(item => item.fg)).size, 1, `${theme}/${contrast}/${intent}: soft feedback must keep the foreground stable`);
+  }
+  await page.evaluate(() => {
+    document.querySelector('#root').style.display = 'none';
+    const preview = document.createElement('div');
+    preview.id = 'soft-feedback-review';
+    preview.style.cssText = 'width:900px;direction:ltr;display:grid;grid-template-columns:1fr 1fr;gap:16px';
+    for (const theme of ['light', 'dark']) {
+      const section = document.createElement('div');
+      section.className = 'rds-stage';
+      section.dataset.appearance = theme;
+      section.dataset.contrast = 'standard';
+      section.style.cssText = 'padding:24px;background:var(--rds-color-surface-base);color:var(--rds-color-ink-primary);border-radius:var(--rds-radius-12);font:14px sans-serif';
+      const title = document.createElement('h2');
+      title.textContent = theme === 'light' ? 'Light' : 'Dark';
+      section.append(title);
+      const grid = document.createElement('div');
+      grid.style.cssText = 'display:grid;grid-template-columns:60px repeat(3,1fr);align-items:center;gap:20px 12px';
+      for (const heading of ['', 'Default', 'Hover', 'Pressed']) {
+        const cell = document.createElement('span'); cell.textContent = heading; grid.append(cell);
+      }
+      for (const [intent, label] of [['neutral', 'خنثی'], ['brand', 'نشان'], ['danger', 'خطر']]) {
+        const heading = document.createElement('span'); heading.textContent = intent; grid.append(heading);
+        for (const state of ['default', 'hover', 'active']) {
+          const node = document.querySelector(`[data-case="less-soft-${intent}-md-Button-default"] .rds-button`).cloneNode(true);
+          node.querySelector('.rds-button__label').textContent = label;
+          node.removeAttribute('aria-labelledby');
+          node.querySelectorAll('[id]').forEach(child => child.removeAttribute('id'));
+          node.dataset.reviewState = state;
+          node.dir = 'rtl';
+          grid.append(node);
+        }
+      }
+      section.append(grid); preview.append(section);
+    }
+    document.body.append(preview);
+  });
+  for (const state of ['hover', 'active']) {
+    const { nodeIds: previewIds } = await cdp.send('DOM.querySelectorAll', { nodeId: doc.nodeId, selector: `#soft-feedback-review [data-review-state="${state}"]` });
+    await Promise.all(previewIds.map(nodeId => cdp.send('CSS.forcePseudoState', { nodeId, forcedPseudoClasses: [state] })));
+  }
+  await page.locator('#soft-feedback-review').screenshot({ path: path.join(output, 'soft-state-consistency.png') });
+  await page.evaluate(() => { document.querySelector('#soft-feedback-review').remove(); document.querySelector('#root').style.removeProperty('display'); });
   const save = page.locator('#behavior .rds-button').nth(0);
   await save.focus();
   await page.keyboard.press('Enter');
@@ -155,8 +334,34 @@ try {
   const forced = await page.locator('[data-case] .rds-button').evaluateAll(nodes => nodes.map(node => ({ id: node.parentElement.dataset.case, bg: getComputedStyle(node).backgroundColor, fg: getComputedStyle(node).color, shadow: getComputedStyle(node).boxShadow })));
   assert.equal(new Set(forced.map(sample => sample.bg)).size, 1, 'Forced-color backgrounds must use system colors for every variant');
   assert(forced.every(sample => sample.shadow === 'none'));
+  assert(await page.locator('.rds-button').evaluateAll(nodes => nodes.every(node => [...node.querySelectorAll('svg')].every(svg => getComputedStyle(svg).stroke === getComputedStyle(node).color))), 'Icons must inherit system foregrounds in forced colors');
   await page.screenshot({ path: path.join(output, 'forced-colors.png') });
   await page.emulateMedia({ forcedColors: 'none' });
+  const model = await loadModel();
+  const additions = model.manifest.approvedSemanticAdditions.find(item => item.approval === 'semantic-action-states-2026-11-03');
+  await page.evaluate(() => {
+    const stage = document.createElement('div');
+    stage.id = 'color-review-stage';
+    stage.className = 'rds-stage';
+    document.body.append(stage);
+    stage.append(document.querySelector('#root'));
+  });
+  for (const appearance of ['light', 'dark']) for (const contrast of ['standard', 'more']) {
+    await page.evaluate(({ appearance, contrast }) => {
+      document.documentElement.dataset.rdsTheme = appearance === 'light' ? 'dark' : 'light';
+      const stage = document.querySelector('#color-review-stage');
+      stage.dataset.appearance = appearance;
+      stage.dataset.contrast = contrast;
+    }, { appearance, contrast });
+    const expected = Object.fromEntries([...additions.paths, 'rds.color.ink.primary', 'rds.color.surface.base'].map(p => ['--' + p.replaceAll('.', '-'), resolveColor(p, { appearance, contrast })]));
+    const actual = await page.locator('#color-review-stage').evaluate((stage, expected) => Object.fromEntries(Object.keys(expected).map(p => [p, getComputedStyle(stage).getPropertyValue(p).trim()])), expected);
+    assert.deepEqual(actual, expected, appearance + '/' + contrast + ' preview aliases must resolve independently of the root theme');
+  }
+  await page.evaluate(() => {
+    const stage = document.querySelector('#color-review-stage');
+    document.body.append(document.querySelector('#root'));
+    stage.remove();
+  });
   await page.setViewportSize({ width: 390, height: 844 });
   await page.evaluate(() => { document.querySelector('#behavior').style.flexWrap = 'wrap'; });
   assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
@@ -184,7 +389,7 @@ try {
     await Promise.all(document.getAnimations().filter(animation => animation.effect.getTiming().iterations !== Infinity).map(animation => animation.finished.catch(() => {})));
   });
   await page.screenshot({ path: path.join(output, 'radius-comparison.png'), fullPage: true });
-  fs.writeFileSync(path.join(output, 'report.json'), JSON.stringify({ findings, contrastFindings: [...contrastFindings.values()], interactions: 'keyboard, loading activation guard, retained focus, toggling, links, reduced motion, forced colors, mobile RTL/LTR, 44px coarse-pointer touch targets', approval: 'pending human review' }, null, 2));
+  fs.writeFileSync(path.join(output, 'report.json'), JSON.stringify({ findings, toggleMotion, contrastFindings: [...contrastFindings.values()], interactions: 'keyboard, loading activation guard, retained focus, toggling, links, reduced motion, forced colors, mobile RTL/LTR, 44px coarse-pointer touch targets', approval: 'pending human review' }, null, 2));
   console.log(`Contrast review: ${contrastFindings.size} distinct context/state/recipe pairs below 4.5:1; see report.json.`);
   assert.equal(contrastFindings.size, 0, 'Foreground contrast failures remain in the component recipes');
   console.log(`ok interactions, reduced motion, forced colors and mobile RTL/LTR; evidence: ${output}`);

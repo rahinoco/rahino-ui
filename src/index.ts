@@ -42,7 +42,7 @@ export type { ButtonAppearance, ButtonIntent, ButtonSize, ButtonRadius } from '@
 export { default as IconButton, type IconButtonProps } from '@/components/IconButton';
 export { default as ToggleButton, type ToggleButtonProps } from '@/components/ToggleButton';
 export { default as Card, type CardProps } from '@/components/Card';
-export { default as Checkbox, type CheckboxProps } from '@/components/Checkbox';
+export { default as Checkbox, type CheckboxProps, type CheckboxType } from '@/components/Checkbox';
 export { default as ConfirmationModal, type ConfirmationModalProps } from '@/components/ConfirmationModal';
 export {
   DataEmptyState,
@@ -263,3 +263,4 @@ export { resolveColorContext, resolveColor, applyColorPreferences, FOUNDATION_CO
 export type { ColorTokenName, ColorPreferences, ColorEnvironment, ColorContext, ColorPreferenceController } from '@/foundations';
 
 export { FOUNDATION_INTERACTION_CONTRAST_REVIEW } from '@/foundations';
+export { ICONOGRAPHY } from '@/foundations';

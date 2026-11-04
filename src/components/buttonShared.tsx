@@ -1,6 +1,5 @@
 import { clsx } from 'clsx';
 import { LoaderCircle } from 'lucide-react';
-import { ButtonShape } from './buttonShape';
 import {
   useEffect,
   useLayoutEffect,
@@ -95,24 +94,29 @@ export function ButtonFace({
   loading,
   loadingLabel = 'در حال انجام',
   labelId,
-  reserveMark,
+  animateMark,
+  markVisible = true,
   mark,
   children,
-}: ButtonOwnProps & { children?: ReactNode; labelId?: string; reserveMark?: boolean; mark?: ReactNode }) {
+}: ButtonOwnProps & { children?: ReactNode; labelId?: string; animateMark?: boolean; markVisible?: boolean; mark?: ReactNode }) {
   // One visual slot for action icons, selection and progress, including legacy
-  // callers that pass both icon props. Keep a text-only toggle's slot stable.
+  // callers that pass both icon props. Text-only toggles reveal their slot on selection.
   const atEnd = !iconStart && Boolean(iconEnd);
-  const icon = loading ? <Spinner /> : iconStart || iconEnd || mark;
-  const reserveIcon = Boolean(icon) || Boolean(reserveMark && !iconStart && !iconEnd);
-  const iconSlot = reserveIcon ? (
+  const icon = loading ? <Spinner /> : iconStart || iconEnd || (markVisible ? mark : null);
+  const iconSlot = icon || animateMark ? (
     <span className="rds-button__icon" data-mirror={!loading && (atEnd ? mirrorEnd : iconStart && mirrorStart) ? 'true' : undefined} aria-hidden="true">
-      {icon}
+      {icon || mark}
     </span>
   ) : null;
+  // Keep the mark mounted so a rapid reversal continues from the current width.
+  const leadingSlot = animateMark ? (
+    <span className="rds-button__mark" data-visible={loading || markVisible ? 'true' : undefined} aria-hidden="true">
+      {iconSlot}
+    </span>
+  ) : iconSlot;
   return (
     <>
-      <ButtonShape />
-      {!atEnd ? iconSlot : null}
+      {!atEnd ? leadingSlot : null}
       {children ? (
         <span id={labelId} className="rds-button__label">
           {children}

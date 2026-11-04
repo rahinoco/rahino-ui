@@ -7,7 +7,7 @@
       "contrast": "standard",
       "foreground": "rds.color.ink.secondary",
       "background": "rds.color.surface.sunken + rds.color.interaction.neutral.pressed",
-      "ratio": 4.496113030464314,
+      "ratio": 4.327498377804375,
       "threshold": 4.5,
       "passes": false
     }

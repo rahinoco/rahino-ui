@@ -8,9 +8,9 @@ Generated from the current [master collection](../../master-tokens/Master-Token-
 
 | Theme | Contrast | Foreground | Background | Ratio | Target |
 | --- | --- | --- | --- | --- | --- |
-| light | standard | `rds.color.ink.tertiary`<br>`#6D656B` | `rds.color.surface.sunken`<br>`#E8E3E5` | 4.4442:1 | 4.5:1 |
-| light | standard | `rds.color.edge.control`<br>`#7A8493` | `rds.color.surface.sunken`<br>`#E8E3E5` | 2.9824:1 | 3:1 |
-| light | more | `rds.color.edge.control`<br>`#7A8493` | `rds.color.surface.sunken`<br>`#E8E3E5` | 2.9824:1 | 3:1 |
+| light | standard | `rds.color.ink.tertiary`<br>`#6D656B` | `rds.color.surface.sunken`<br>`#E3DFE1` | 4.2719:1 | 4.5:1 |
+| light | standard | `rds.color.edge.control`<br>`#7A8493` | `rds.color.surface.sunken`<br>`#E3DFE1` | 2.8667:1 | 3:1 |
+| light | more | `rds.color.edge.control`<br>`#7A8493` | `rds.color.surface.sunken`<br>`#E3DFE1` | 2.8667:1 | 3:1 |
 | dark | standard | `rds.color.focus.ring`<br>`#A9638B` | `rds.color.surface.raised`<br>`#333135` | 2.9694:1 | 3:1 |
 | dark | standard | `rds.color.focus.ring`<br>`#A9638B` | `rds.color.status.success.bg`<br>`#203B2A` | 2.8159:1 | 3:1 |
 | dark | standard | `rds.color.focus.ring`<br>`#A9638B` | `rds.color.status.warning.bg`<br>`#40341D` | 2.8053:1 | 3:1 |
@@ -28,12 +28,12 @@ Each cell compares the named ink with the surface column. Values are contrast ra
 
 | Theme | Contrast | Ink | canvas | base | subtle | raised | sunken |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| light | standard | `ink.primary` | 14.8067:1 | 16.6499:1 | 15.8828:1 | 16.6499:1 | 13.1219:1 |
-| light | standard | `ink.secondary` | 6.1421:1 | 6.9067:1 | 6.5885:1 | 6.9067:1 | 5.4432:1 |
-| light | standard | `ink.tertiary` | 5.0148:1 | 5.6391:1 | 5.3793:1 | 5.6391:1 | 4.4442:1 — below target |
-| light | more | `ink.primary` | 16.6499:1 | 16.6499:1 | 15.8828:1 | 16.6499:1 | 13.1219:1 |
-| light | more | `ink.secondary` | 16.6499:1 | 16.6499:1 | 15.8828:1 | 16.6499:1 | 13.1219:1 |
-| light | more | `ink.tertiary` | 6.5941:1 | 6.5941:1 | 6.2903:1 | 6.5941:1 | 5.1968:1 |
+| light | standard | `ink.primary` | 14.8067:1 | 16.6499:1 | 15.8828:1 | 16.6499:1 | 12.6131:1 |
+| light | standard | `ink.secondary` | 6.1421:1 | 6.9067:1 | 6.5885:1 | 6.9067:1 | 5.2321:1 |
+| light | standard | `ink.tertiary` | 5.0148:1 | 5.6391:1 | 5.3793:1 | 5.6391:1 | 4.2719:1 — below target |
+| light | more | `ink.primary` | 16.6499:1 | 16.6499:1 | 15.8828:1 | 16.6499:1 | 12.6131:1 |
+| light | more | `ink.secondary` | 16.6499:1 | 16.6499:1 | 15.8828:1 | 16.6499:1 | 12.6131:1 |
+| light | more | `ink.tertiary` | 6.5941:1 | 6.5941:1 | 6.2903:1 | 6.5941:1 | 4.9953:1 |
 | dark | standard | `ink.primary` | 15.2247:1 | 13.2600:1 | 11.9664:1 | 11.1085:1 | 17.8756:1 |
 | dark | standard | `ink.secondary` | 9.5226:1 | 8.2938:1 | 7.4847:1 | 6.9481:1 | 11.1807:1 |
 | dark | standard | `ink.tertiary` | 7.3846:1 | 6.4316:1 | 5.8042:1 | 5.3881:1 | 8.6704:1 |
@@ -47,10 +47,10 @@ Each cell compares the named color with the neutral parent surface. The existing
 
 | Theme | Contrast | Role | canvas | base | subtle | raised | sunken |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| light | standard | `focus.ring` | 4.9367:1 | 5.5512:1 | 5.2955:1 | 5.5512:1 | 4.3749:1 |
-| light | standard | `edge.control` | 3.3653:1 | 3.7842:1 | 3.6099:1 | 3.7842:1 | 2.9824:1 — below target |
-| light | more | `focus.ring` | 5.5512:1 | 5.5512:1 | 5.2955:1 | 5.5512:1 | 4.3749:1 |
-| light | more | `edge.control` | 3.7842:1 | 3.7842:1 | 3.6099:1 | 3.7842:1 | 2.9824:1 — below target |
+| light | standard | `focus.ring` | 4.9367:1 | 5.5512:1 | 5.2955:1 | 5.5512:1 | 4.2053:1 |
+| light | standard | `edge.control` | 3.3653:1 | 3.7842:1 | 3.6099:1 | 3.7842:1 | 2.8667:1 — below target |
+| light | more | `focus.ring` | 5.5512:1 | 5.5512:1 | 5.2955:1 | 5.5512:1 | 4.2053:1 |
+| light | more | `edge.control` | 3.7842:1 | 3.7842:1 | 3.6099:1 | 3.7842:1 | 2.8667:1 — below target |
 | dark | standard | `focus.ring` | 4.0697:1 | 3.5445:1 | 3.1987:1 | 2.9694:1 — below target | 4.7783:1 |
 | dark | standard | `edge.control` | 4.6617:1 | 4.0601:1 | 3.6641:1 | 3.4014:1 | 5.4734:1 |
 | dark | more | `focus.ring` | 4.7783:1 | 4.0697:1 | 3.1987:1 | 2.9694:1 — below target | 4.7783:1 |

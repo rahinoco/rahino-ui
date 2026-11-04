@@ -241,21 +241,21 @@
             "base": 16.65,
             "subtle": 15.88,
             "raised": 16.65,
-            "sunken": 13.12
+            "sunken": 12.61
           },
           "secondary": {
             "canvas": 6.14,
             "base": 6.91,
             "subtle": 6.59,
             "raised": 6.91,
-            "sunken": 5.44
+            "sunken": 5.23
           },
           "tertiary": {
             "canvas": 5.01,
             "base": 5.64,
             "subtle": 5.38,
             "raised": 5.64,
-            "sunken": 4.44
+            "sunken": 4.27
           }
         },
         "dark": {

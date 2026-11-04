@@ -2,6 +2,58 @@
   "status": "draft-with-explicit-approved-resolutions",
   "items": [
     {
+      "id": "semantic-component-neutral-naming-2026-11-03",
+      "status": "resolved",
+      "title": "Semantic motion names describe reusable roles; component names belong to recipes",
+      "currentEvidence": "Owner explicitly requested a general semantic name and restricted component names to recipe tokens.",
+      "nextStep": "Regenerate foundation outputs and verify the reference, semantic and recipe chain. Component visual approval remains separate.",
+      "resolution": {
+        "approval": "semantic-component-neutral-naming-2026-11-03",
+        "approvedOn": "2026-11-03",
+        "from": "rds.motion.scale.checkbox-pressed",
+        "to": "rds.motion.scale.pressed",
+        "reference": "ref.motion.scale.0-923",
+        "value": 0.923,
+        "recipe": "--rds-checkbox-scale-pressed",
+        "cssSemantic": "--rds-motion-scale-pressed",
+        "componentVisualApproval": "pending",
+        "externalPublication": false
+      }
+    },
+    {
+      "id": "checkbox-spectrum-press-motion-2026-11-02",
+      "status": "resolved",
+      "title": "Dedicated reference and semantic token for Spectrum-like checkbox press motion",
+      "currentEvidence": "Owner explicitly requested a new motion reference, a semantic alias and a checkbox recipe consuming the semantic token to make press feedback closer to Spectrum.",
+      "nextStep": "Validate browser behavior and review checkbox states visually; token authorization does not approve the component for product use.",
+      "resolution": {
+        "approval": "checkbox-spectrum-press-motion-2026-11-02",
+        "approvedOn": "2026-11-02",
+        "reference": "ref.motion.scale.0-923",
+        "semantic": "rds.motion.scale.checkbox-pressed",
+        "value": 0.923,
+        "scope": "checkbox box and its single mark only",
+        "componentVisualApproval": "pending",
+        "externalPublication": false
+      }
+    },
+    {
+      "id": "light-sunken-gray-warm-140-2026-11-02",
+      "status": "resolved",
+      "title": "Light sunken surface uses gray-warm/140",
+      "currentEvidence": "Owner requested a new ref.color.gray-warm.140 token with value #E3DFE1 and its use as the light-theme sunken surface reference.",
+      "nextStep": "Use the regenerated sunken surface token in consumers; component state approval remains separate.",
+      "resolution": {
+        "approval": "light-sunken-gray-warm-140-2026-11-02",
+        "approvedOn": "2026-11-02",
+        "reference": "ref.color.gray-warm.140",
+        "value": "#E3DFE1",
+        "semanticToken": "rds.color.surface.sunken",
+        "appearance": "light",
+        "darkValuesChanged": false
+      }
+    },
+    {
       "id": "canonical-migration",
       "status": "resolved",
       "title": "Adopt the canonical source after review",
@@ -828,6 +880,79 @@
         "lightSm": "0 3px 6px 0 rgba(0, 0, 0, 0.04)",
         "lgUsage": "modals-only",
         "darkValuesChanged": false
+      }
+    },
+    {
+      "id": "semantic-action-states-2026-11-03",
+      "status": "resolved",
+      "title": "Reference-backed semantic action states",
+      "currentEvidence": "On 2026-11-03 the owner requested semantic-only button colors and chose adding reusable action roles backed by existing references, retaining soft danger fill with foreground hover/pressed feedback.",
+      "nextStep": "Validate all component states; human approval is still pending before product use.",
+      "resolution": {
+        "approval": "semantic-action-states-2026-11-03",
+        "approvedOn": "2026-11-03",
+        "referencePaletteChanged": false,
+        "componentStatesApproved": false,
+        "softDangerFeedback": "stable fill; foreground changes",
+        "neutralFeedback": "opaque reference-backed state fills; no alpha overlay or color interpolation"
+      }
+    },
+    {
+      "id": "consistent-soft-danger-states-2026-11-03",
+      "status": "resolved",
+      "title": "Consistent soft destructive action feedback",
+      "currentEvidence": "The owner rejected the soft danger hover difference and requested consistency with other soft buttons. This supersedes stable-fill foreground-only feedback.",
+      "nextStep": "Regenerate and validate all button states; visual approval remains pending.",
+      "resolution": {
+        "approval": "consistent-soft-danger-states-2026-11-03",
+        "approvedOn": "2026-11-03",
+        "referencePaletteChanged": false,
+        "feedback": "Fill changes with stable foreground across soft action states",
+        "componentStatesApproved": false
+      }
+    },
+    {
+      "id": "icons-foundation-2026-11-03",
+      "status": "resolved",
+      "title": "Icon foundation with proportional 2.25 stroke",
+      "currentEvidence": "The owner selected fatter icons at 2.25 on a 24 by 24 reference grid and explicitly requested foundation adoption without adding it to the frontend.",
+      "nextStep": "Keep existing frontend and component bindings unchanged. Review component states in a separately authorized migration.",
+      "resolution": {
+        "approval": "icons-foundation-2026-11-03",
+        "approvedOn": "2026-11-03",
+        "sizes": [
+          16,
+          20,
+          24,
+          32
+        ],
+        "grid": 24,
+        "stroke": 2.25,
+        "scaling": "proportional",
+        "frontendIntegration": "deferred-by-owner",
+        "componentStatesApproved": false
+      }
+    },
+    {
+      "id": "user-color-palette-update-2026-11-04",
+      "status": "resolved",
+      "title": "Dark subtle danger palette update",
+      "currentEvidence": "Owner explicitly requested #562A2F as ref.color.red.750, dark action/danger-subtle/bg/hover to reference red.750, and dark action/danger-subtle/bg/pressed to reference red.625.",
+      "nextStep": "Regenerate and verify foundation outputs. Human component state approval remains separate.",
+      "resolution": {
+        "approval": "user-color-palette-update-2026-11-04",
+        "approvedOn": "2026-11-04",
+        "referencePaletteChanged": true,
+        "reference": {
+          "path": "ref.color.red.750",
+          "value": "#562A2F"
+        },
+        "darkAliases": {
+          "rds.color.action.danger-subtle.bg.hover": "ref.color.red.750",
+          "rds.color.action.danger-subtle.bg.pressed": "ref.color.red.625"
+        },
+        "lightChanged": false,
+        "componentStatesApproved": false
       }
     }
   ]

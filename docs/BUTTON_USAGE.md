@@ -1,6 +1,6 @@
 # Button use cases
 
-Defined 2026-11-01. Usage guidance for the existing candidate Button family. The owner confirmed RTL ordering and the risk-based destructive-action policy on this date. Component/state approval remains pending.
+Defined 2026-11-01. Usage guidance for the existing candidate Button family. The owner confirmed RTL ordering and the risk-based destructive-action policy on this date. Component/state approval remains pending. The 2026-11-03 semantic-only color mapping and consistent soft danger background feedback are recorded in [BUTTON_COLOR_MAPPING.md](BUTTON_COLOR_MAPPING.md).
 
 ## Evidence and scope
 
@@ -21,11 +21,13 @@ For Iran, [Divar's Sonnat button guidance](https://www.sonnat.design/components/
 Every button shows at most one icon:
 
 - A selected toggle keeps its existing icon. Do not add a checkmark beside it.
-- If the toggle has no icon, it can show one checkmark when selected.
+- A text-only toggle uses the normal label width in default and hover. Selecting it smoothly adds the leading gap and one checkmark; deselecting collapses both. In Persian RTL the checkmark appears on the right. Reduced motion makes this change immediate.
 - During loading, the spinner replaces the icon or checkmark. It never appears beside another icon.
 - Keep the toggle's label the same when it is selected or unselected. `aria-pressed` tells screen readers which state it is in. See the [WAI button pattern](https://www.w3.org/WAI/ARIA/apg/patterns/button/).
 
 ### Choosing list or grid view
+
+Back navigation uses `iconStart={<ArrowLeft />}` with `mirrorStart`: in RTL the arrow sits to the right of the label and points right; in LTR it sits to the left and points left. Forward navigation uses `iconEnd={<ArrowRight />}` with `mirrorEnd`. Mirroring follows the button's own direction, including LTR examples inside an RTL page.
 
 For example, show two buttons: «فهرست» and «شبکه». The app keeps exactly one selected. Selecting «شبکه» also unselects «فهرست».
 
@@ -41,8 +43,7 @@ Developer note: do not call this a `radiogroup` unless you also implement its se
 A link can look like a button. Use `Button href="…"` for that appearance; it still renders a link. Links within ordinary text should stay text links. See the [WAI button pattern](https://www.w3.org/WAI/ARIA/apg/patterns/button/).
 
 ## Choose emphasis and intent
-
-`appearance` controls visual emphasis; `intent` communicates meaning. Brand does not mean selected, danger does not mean high priority, and solid does not imply a safe action. Select one principal action per active task area. A modal can have its own principal action while the underlying page is inactive. Repeated rows and cards should not each compete with the page CTA. This adapts the shared hierarchy described by [Sonnat](https://www.sonnat.design/components/button) and [Fluent](https://fluent2.microsoft.design/components/web/react/core/button/usage).
+Select one principal action per active task area. A modal can have its own principal action while the underlying page is inactive. Repeated rows and cards should not each compete with the page CTA. This adapts the shared hierarchy described by [Sonnat](https://www.sonnat.design/components/button) and [Fluent](https://fluent2.microsoft.design/components/web/react/core/button/usage).
 
 | Appearance / intent | Rahino role | Use cases and Persian labels | Avoid |
 | --- | --- | --- | --- |
@@ -56,7 +57,7 @@ A link can look like a button. Use `Button href="…"` for that appearance; it s
 | ghost / brand | Discoverable low-emphasis branded action | مشاهده جزئیات، مشاهده همه، ویرایش in a clear local context; use `href` when navigating | Paragraph navigation styled as a command; a second primary |
 | ghost / danger | Low-emphasis contextual destructive entry | Remove a reversible row or open a deletion confirmation: حذف ردیف | Icon-only irreversible commitment; color as the only explanation of the action |
 
-These nine mappings are Rahino recipes, not nine independent priorities. They adapt the high/medium/low hierarchy and destructive emphasis in [Carbon](https://www.carbondesignsystem.com/building-blocks/core/components/button/guidelines) to the existing API. Carbon's outline styles and its restriction of secondary buttons to negative actions are not imported into Rahino's `soft` appearance.
+These nine mappings are Rahino recipes, not nine independent priorities. They adapt the high/medium/low hierarchy and destructive emphasis in [Carbon](https://www.carbondesignsystem.com/building-blocks/core/components/button/guidelines) to the existing API.
 
 ## Destructive actions — owner-confirmed policy
 
@@ -91,22 +92,23 @@ See the Button documentation page (`/components/button`), under **اندازه �
 
 These are minimum heights: long labels can make a button taller. Label line-height uses the foundation's label-sm role for sm/md and label-md for lg. On touch/coarse-pointer devices, the minimum height is at least 44px. Icon-only controls use the control's minimum height for their square width and also respect the touch minimum; they do not use horizontal text padding.
 
-**Button size and shadow level are separate choices.** `size="lg"` does not mean `shadow.lg`. Size does not select a different appearance, intent, radius variant, shadow token or motion timing. The regular solid/soft button recipe uses shadow.sm at every size; ghost and blocked buttons have no shadow. Shadow.lg is reserved exclusively for modals. Both radius variants remain 8px/12px; smoothing fits the available geometry.
+**Button size and shadow level are separate choices.** Size does not select a different appearance, intent, radius variant, shadow token or motion timing. The regular solid/soft button recipe uses shadow.sm at every size; ghost and blocked buttons have no shadow. Both radius variants use native CSS rounding at 8px/12px.
 
 | Axis | Guidance |
 | --- | --- |
 | sm | Dense tables and toolbars; preserve the foundation's 44px minimum target on coarse pointers |
 | md | Default forms, dialogs and general product actions |
 | lg | A prominent standalone or mobile CTA when the layout warrants it; size is not a substitute for hierarchy |
-| less / more radius | 8px default / 12px softer context; use consistently within a group. Radius and 60% smoothing do not communicate priority, risk or selection |
+| less / more radius | 8px default / 12px softer context; use consistently within a group. Radius does not communicate priority, risk or selection |
 | fullWidth | A constrained form or mobile action area where it improves reach and clarity; not automatic at a viewport breakpoint |
 | loading | The operation is pending; keep the label and width stable, replace the icon with one spinner, announce progress and block duplicate activation |
 | disabled | A known unmet prerequisite; explain how to proceed in nearby accessible text. Do not rely on a hover-only tooltip on a native disabled control |
 | selected | Toggle state only, controlled with `pressed` or `defaultPressed`; separate from transient active/hover/focus |
 | error / success | Communicate the outcome outside the button. Existing API has no success/error appearance. For an unknown outcome, verify status before offering a potentially duplicate commit |
 
-No API default changes: `soft / neutral / md / less` remains the safe implementation default. Product authors explicitly choose `solid / brand` for the principal CTA.
 
 ## Review boundary
+
+Button-family icons use the canonical icon foundation: simple Lucide outlines, rounded caps/joins and stroke 2.25 on the original 24 × 24 grid. Render at 16/20/24px for sm/md/lg (visible strokes 1.5/1.875/2.25px), inheriting the button foreground in every state. Loading replaces the icon and never mirrors; selection uses one supplied icon or one checkmark. Mirror only direction-dependent arrows in RTL; plus, save and trash retain their orientation. Icon-only actions still require an accessible name, and icon size does not reduce the touch target. See [Icons](../src/foundations/canonical/Icons.md).
 
 Review each use case with keyboard, light/dark and enhanced contrast, RTL, narrow layouts, long Persian labels, loading, disabled, selected, reduced motion and forced colors. Preserve foundation colors, elevation and geometry. The known focus-ring contrast finding still applies. These usage definitions and the owner's two policy choices do not approve component states, product use, package release or deployment.

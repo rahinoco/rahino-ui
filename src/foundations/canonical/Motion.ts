@@ -41,6 +41,8 @@ export const TRANSLATION = {
 } as const;
 
 export const SCALE = {
+  /** @token rds.motion.scale.pressed @alias ref.motion.scale.0-923 */
+  "pressed": 0.923,
   /** @token rds.motion.scale.subtle @alias ref.motion.scale.0-98 */
   "subtle": 0.98,
   /** @token rds.motion.scale.rest @alias ref.motion.scale.1 */

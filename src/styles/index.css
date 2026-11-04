@@ -9,6 +9,8 @@
 @import "../rahino/rahino.css";
 @import "./fonts.css";
 @import "../components/button.css";
+@import "../components/checkbox.css";
+@import "../components/input.css";
 
 /*
  * Tailwind v4 must scan library components AND the workbench stories.

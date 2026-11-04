@@ -111,6 +111,9 @@
     ],
     "master-tokens/generated/reference.ts": [
       "REFERENCE"
+    ],
+    "Icons.ts": [
+      "ICONOGRAPHY"
     ]
   },
   "sources": [
@@ -925,6 +928,91 @@
         }
       ],
       "sourceExportsAfter": {}
+    },
+    {
+      "id": "semantic-action-states-2026-11-03",
+      "changedFiles": [
+        {
+          "file": "Color.ts",
+          "beforeSha256": "f06e2179441a18b8711f734874397c5f5c52b049ae34fc42791747c292bff96c",
+          "afterSha256": "e71f6ea0ae4782e6c283a7601cef9206cb97baf83a01ddb25081ecb0ce99ff95",
+          "workingTreeBeforeSha256": "8325e45d5234b6dcc8dfac388aa05498e2d30b6c933dfe34af99a80131b64a11"
+        }
+      ],
+      "sourceExportsAfter": {
+        "Color.ts": [
+          "ACTION_DANGER_BG",
+          "ACTION_DANGER_SUBTLE_FG",
+          "ACTION_NEUTRAL_BG",
+          "ACTION_NEUTRAL_SUBTLE_BG",
+          "ACTION_PRIMARY_BG",
+          "ACTION_PRIMARY_FG",
+          "BRAND",
+          "CONTRAST_REFERENCE",
+          "DATA_CATEGORICAL",
+          "DATA_CATEGORICAL_TOKENS",
+          "DATA_DIVERGING",
+          "DATA_DIVERGING_TOKENS",
+          "DATA_ON_FILL",
+          "DATA_SEQUENTIAL",
+          "DATA_SEQUENTIAL_TOKENS",
+          "EDGE",
+          "FOCUS_RING",
+          "HIGH_CONTRAST",
+          "INK",
+          "INTERACTION",
+          "INTERACTION_SELECTED_SURFACE",
+          "LINK_FG",
+          "PRESENTATION_GRADIENTS",
+          "SCRIM",
+          "STATUS",
+          "SURFACE"
+        ]
+      },
+      "scope": "Add reusable action-state exports backed by existing references; preserve previous colors and reference palette. The historical beforeSha256 follows the recorded approval chain; workingTreeBeforeSha256 records the already-edited generated source observed before this task. Existing API values were preserved.",
+      "preExistingWorkingTreeChangesPreserved": true
+    },
+    {
+      "id": "consistent-soft-danger-states-2026-11-03",
+      "changedFiles": [
+        {
+          "file": "Color.ts",
+          "beforeSha256": "e71f6ea0ae4782e6c283a7601cef9206cb97baf83a01ddb25081ecb0ce99ff95",
+          "afterSha256": "4460ae3292a86666bef46727c70e2eb536f940bbfe1d2cdcf94ab3fabd2a777c"
+        }
+      ],
+      "sourceExportsAfter": {
+        "Color.ts": [
+          "ACTION_DANGER_BG",
+          "ACTION_DANGER_SUBTLE_BG",
+          "ACTION_DANGER_SUBTLE_FG",
+          "ACTION_NEUTRAL_BG",
+          "ACTION_NEUTRAL_SUBTLE_BG",
+          "ACTION_PRIMARY_BG",
+          "ACTION_PRIMARY_FG",
+          "BRAND",
+          "CONTRAST_REFERENCE",
+          "DATA_CATEGORICAL",
+          "DATA_CATEGORICAL_TOKENS",
+          "DATA_DIVERGING",
+          "DATA_DIVERGING_TOKENS",
+          "DATA_ON_FILL",
+          "DATA_SEQUENTIAL",
+          "DATA_SEQUENTIAL_TOKENS",
+          "EDGE",
+          "FOCUS_RING",
+          "HIGH_CONTRAST",
+          "INK",
+          "INTERACTION",
+          "INTERACTION_SELECTED_SURFACE",
+          "LINK_FG",
+          "PRESENTATION_GRADIENTS",
+          "SCRIM",
+          "STATUS",
+          "SURFACE"
+        ]
+      },
+      "scope": "Add subtle destructive fill states and stable foregrounds to match soft action feedback; existing reference palette and unrelated roles preserved."
     }
   ],
   "derivedExports": [
@@ -999,6 +1087,14 @@
       "file": "Color.md",
       "sha256": "f62ff4f1b81fae2962d7db108c5aeb9ccb2a8d2e505cbcf76d56fdcbd35616a9",
       "approval": "semantic-text-styles-and-readable-guides"
+    },
+    {
+      "file": "Icons.ts",
+      "sha256": "d1cc466bad4bc576eeb0fa1f8532187ca4fe80adc329621a31e3eaf7e48185af",
+      "approval": "icons-foundation-2026-11-03",
+      "generatedFrom": "shared.tokens.json",
+      "generator": "scripts/foundations.mjs",
+      "lines": 27
     }
   ],
   "derivedTypographyExports": [
@@ -1327,6 +1423,81 @@
           "unit": "px"
         }
       }
+    },
+    {
+      "approval": "consistent-soft-danger-states-2026-11-03",
+      "set": "light",
+      "publicPath": "rds.color.action.danger-subtle.fg.default",
+      "beforeAlias": "{rds.color.status.error.fg}",
+      "afterAlias": "{ref.color.red.800}",
+      "beforeValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.6392156862745098,
+          0.22745098039215686,
+          0.2627450980392157
+        ],
+        "alpha": 1
+      },
+      "afterValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.25882352941176473,
+          0.14901960784313725,
+          0.16862745098039217
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "approval": "consistent-soft-danger-states-2026-11-03",
+      "set": "dark",
+      "publicPath": "rds.color.action.danger-subtle.fg.default",
+      "beforeAlias": "{rds.color.status.error.fg}",
+      "afterAlias": "{ref.color.red.50}",
+      "beforeValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9568627450980393,
+          0.592156862745098,
+          0.6235294117647059
+        ],
+        "alpha": 1
+      },
+      "afterValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9882352941176471,
+          0.9137254901960784,
+          0.9215686274509803
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "approval": "consistent-soft-danger-states-2026-11-03",
+      "set": "dark",
+      "publicPath": "rds.color.action.danger-subtle.fg.hover",
+      "beforeAlias": "{ref.color.red.225}",
+      "afterAlias": "{ref.color.red.50}",
+      "beforeValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9294117647058824,
+          0.7019607843137254,
+          0.7215686274509804
+        ],
+        "alpha": 1
+      },
+      "afterValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9882352941176471,
+          0.9137254901960784,
+          0.9215686274509803
+        ],
+        "alpha": 1
+      }
     }
   ],
   "retiredReferences": [
@@ -1449,6 +1620,13 @@
   },
   "approvedReferenceAdditions": [
     {
+      "approval": "light-sunken-gray-warm-140-2026-11-02",
+      "paths": [
+        "ref.color.gray-warm.140"
+      ],
+      "scope": "Owner-requested #E3DFE1 reference and light sunken surface alias; existing raw colors and dark surface values are preserved."
+    },
+    {
       "approval": "light-shadow-update-2026-11-02",
       "paths": [
         "ref.shadow.offset.6",
@@ -1463,6 +1641,63 @@
         "ref.color.black-alpha-4"
       ],
       "scope": "Light sm only; no existing primitive or dark value changes."
+    },
+    {
+      "approval": "icons-foundation-2026-11-03",
+      "paths": [
+        "ref.size.16",
+        "ref.size.20",
+        "ref.size.24",
+        "ref.size.32",
+        "ref.number.24",
+        "ref.number.2-25"
+      ],
+      "scope": "Component-independent raw size and unitless numeric references for the adopted icon foundation. Existing reference values and frontend bindings stay unchanged."
+    },
+    {
+      "approval": "user-color-palette-update-2026-11-04",
+      "paths": [
+        "ref.color.red.750"
+      ],
+      "scope": "Owner-requested #562A2F raw red reference for dark danger-subtle hover. Dark danger-subtle pressed uses existing red.625; light mappings remain unchanged."
+    }
+  ],
+  "approvedSemanticAdditions": [
+    {
+      "approval": "semantic-action-states-2026-11-03",
+      "sets": [
+        "light",
+        "dark"
+      ],
+      "paths": [
+        "rds.color.action.neutral.bg.default",
+        "rds.color.action.neutral.bg.hover",
+        "rds.color.action.neutral.bg.pressed",
+        "rds.color.action.neutral-subtle.bg.default",
+        "rds.color.action.neutral-subtle.bg.hover",
+        "rds.color.action.neutral-subtle.bg.pressed",
+        "rds.color.brand.bg.pressed",
+        "rds.color.action.danger.bg.default",
+        "rds.color.action.danger.bg.hover",
+        "rds.color.action.danger.bg.pressed",
+        "rds.color.action.danger-subtle.fg.default",
+        "rds.color.action.danger-subtle.fg.hover",
+        "rds.color.action.danger-subtle.fg.pressed"
+      ],
+      "scope": "Owner approved reusable semantic action roles using only existing reference colors, stable soft danger fills with foreground feedback; component state approval remains pending."
+    },
+    {
+      "approval": "consistent-soft-danger-states-2026-11-03",
+      "sets": [
+        "light",
+        "dark"
+      ],
+      "paths": [
+        "rds.color.action.danger-subtle.bg.default",
+        "rds.color.action.danger-subtle.bg.hover",
+        "rds.color.action.danger-subtle.bg.pressed"
+      ],
+      "scope": "Owner requested soft danger hover consistency with other soft actions: semantic fill feedback and stable contrasting label/icon colors. All references already exist; visual approval remains pending."
     }
   ]
 }

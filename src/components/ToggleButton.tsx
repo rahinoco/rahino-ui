@@ -53,6 +53,7 @@ const ToggleButton = forwardRef<HTMLButtonElement, ToggleButtonProps>(function T
     <button
       {...props}
       {...buttonData({ appearance, intent, size, radius, fullWidth, loading, pressed: value, iconOnly: !children })}
+      data-selection-mark={children && !iconStart && !iconEnd ? 'true' : undefined}
       className={classNameOf(className)}
       style={{ ...widthStyle, ...style }}
       type={type}
@@ -83,8 +84,9 @@ const ToggleButton = forwardRef<HTMLButtonElement, ToggleButtonProps>(function T
         loading={loading}
         loadingLabel={loadingLabel}
         labelId={labelId}
-        reserveMark
-        mark={value ? <Check /> : null}
+        animateMark={Boolean(children) && !iconStart && !iconEnd}
+        markVisible={value}
+        mark={<Check />}
       >
         {children}
       </ButtonFace>

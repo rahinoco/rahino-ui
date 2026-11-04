@@ -1,11 +1,13 @@
 .rds-button {
-  --rds-button-bg: var(--rds-color-surface-subtle);
+  --rds-button-bg: var(--rds-button-soft-neutral-bg);
   --rds-button-bg-hover: var(--rds-button-soft-neutral-bg-hover);
   --rds-button-bg-pressed: var(--rds-button-soft-neutral-bg-pressed);
   --rds-button-fg: var(--rds-color-ink-primary);
+  --rds-button-fg-hover: var(--rds-button-fg);
+  --rds-button-fg-pressed: var(--rds-button-fg);
   --rds-button-shadow: var(--rds-shadow-sm);
   --rds-button-radius: var(--rds-radius-8);
-  --rds-button-icon: var(--rds-size-icon-md);
+  --rds-button-icon: var(--rds-icon-size-md);
   box-sizing: border-box;
   position: relative;
   isolation: isolate;
@@ -34,32 +36,16 @@
   cursor: pointer;
   user-select: none;
   overflow: visible;
-  transition:
-    background-color var(--rds-motion-duration-feedback) var(--rds-motion-easing-standard),
-    color var(--rds-motion-duration-feedback) var(--rds-motion-easing-standard),
-    box-shadow var(--rds-motion-duration-feedback) var(--rds-motion-easing-standard);
+  /* State colors switch directly; interpolation would manufacture colors. */
+  transition: none;
 }
 
 .rds-button[data-radius='more'] {
   --rds-button-radius: var(--rds-radius-12);
 }
 
-/* State layers sit behind content; their alpha comes from the foundation. */
-.rds-button[data-intent='neutral']:is([data-appearance='soft'], [data-appearance='ghost']):not([data-pressed='true'])::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  border-radius: inherit;
-  pointer-events: none;
-  background-color: var(--rds-color-interaction-neutral-hover);
-  opacity: 0;
-  transition: opacity var(--rds-motion-duration-feedback) var(--rds-motion-easing-standard),
-    background-color var(--rds-motion-duration-feedback) var(--rds-motion-easing-standard);
-}
-
 .rds-button[data-size='sm'] {
-  --rds-button-icon: var(--rds-size-icon-sm);
+  --rds-button-icon: var(--rds-icon-size-sm);
   min-height: var(--rds-size-control-sm-min-height);
   padding-inline: var(--rds-size-control-sm-padding-inline);
   padding-block: var(--rds-size-control-sm-padding-block);
@@ -67,7 +53,7 @@
 }
 
 .rds-button[data-size='lg'] {
-  --rds-button-icon: var(--rds-size-icon-lg);
+  --rds-button-icon: var(--rds-icon-size-lg);
   min-height: var(--rds-size-control-lg-min-height);
   padding-inline: var(--rds-size-control-lg-padding-inline);
   padding-block: var(--rds-size-control-lg-padding-block);
@@ -76,7 +62,7 @@
 }
 
 .rds-button[data-appearance='solid'][data-intent='neutral'] {
-  --rds-button-bg: var(--rds-color-surface-inverse);
+  --rds-button-bg: var(--rds-button-solid-neutral-bg);
   --rds-button-bg-hover: var(--rds-button-solid-neutral-bg-hover);
   --rds-button-bg-pressed: var(--rds-button-solid-neutral-bg-pressed);
   --rds-button-fg: var(--rds-color-ink-inverse);
@@ -90,7 +76,7 @@
 }
 
 .rds-button[data-appearance='solid'][data-intent='danger'] {
-  --rds-button-bg: var(--rds-color-status-error-fill);
+  --rds-button-bg: var(--rds-button-solid-danger-bg);
   --rds-button-bg-hover: var(--rds-button-solid-danger-bg-hover);
   --rds-button-bg-pressed: var(--rds-button-solid-danger-bg-pressed);
   --rds-button-fg: var(--rds-color-status-error-on-fill);
@@ -104,21 +90,24 @@
 }
 
 .rds-button[data-appearance='soft'][data-intent='danger'] {
-  --rds-button-bg: var(--rds-color-status-error-bg);
+  --rds-button-bg: var(--rds-button-soft-danger-bg);
   --rds-button-bg-hover: var(--rds-button-soft-danger-bg-hover);
   --rds-button-bg-pressed: var(--rds-button-soft-danger-bg-pressed);
-  --rds-button-fg: var(--rds-color-status-error-fg);
+  --rds-button-fg: var(--rds-button-soft-danger-fg);
+  --rds-button-fg-hover: var(--rds-button-soft-danger-fg-hover);
+  --rds-button-fg-pressed: var(--rds-button-soft-danger-fg-pressed);
 }
 
 .rds-button[data-appearance='ghost'] {
-  --rds-button-bg: transparent;
+  /* No paint at rest; absence of a fill is not a new transparent color. */
+  --rds-button-bg: none;
   --rds-button-shadow: none;
 }
 
 .rds-button[data-appearance='ghost'][data-intent='neutral'] {
   --rds-button-fg: var(--rds-color-ink-primary);
-  --rds-button-bg-hover: transparent;
-  --rds-button-bg-pressed: transparent;
+  --rds-button-bg-hover: var(--rds-button-soft-neutral-bg-hover);
+  --rds-button-bg-pressed: var(--rds-button-soft-neutral-bg-pressed);
 }
 
 .rds-button[data-appearance='ghost'][data-intent='brand'] {
@@ -128,7 +117,9 @@
 }
 
 .rds-button[data-appearance='ghost'][data-intent='danger'] {
-  --rds-button-fg: var(--rds-button-soft-danger-fg);
+  --rds-button-fg: var(--rds-color-status-error-fg);
+  --rds-button-fg-hover: var(--rds-button-soft-danger-fg-hover);
+  --rds-button-fg-pressed: var(--rds-button-soft-danger-fg-pressed);
   --rds-button-bg-hover: var(--rds-button-soft-danger-bg);
   --rds-button-bg-pressed: var(--rds-button-soft-danger-bg-hover);
 }
@@ -183,33 +174,6 @@
   }
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .rds-button[data-intent='neutral']:is([data-appearance='soft'], [data-appearance='ghost']):hover:not(:disabled):not([aria-disabled='true'])::before {
-    opacity: 1;
-  }
-
-  .rds-button:hover:not(:disabled):not([aria-disabled='true']) {
-    --rds-button-fill: var(--rds-button-bg-hover);
-  }
-
-  .rds-button[data-pressed='true']:hover:not(:disabled):not([aria-disabled='true']) {
-    --rds-button-fill: var(--rds-button-selected-bg-hover);
-  }
-}
-
-.rds-button[data-intent='neutral']:is([data-appearance='soft'], [data-appearance='ghost']):active:not(:disabled):not([aria-disabled='true'])::before {
-  background-color: var(--rds-color-interaction-neutral-pressed);
-  opacity: 1;
-}
-
-.rds-button:active:not(:disabled):not([aria-disabled='true']) {
-  --rds-button-fill: var(--rds-button-bg-pressed);
-}
-
-.rds-button[data-pressed='true']:active:not(:disabled):not([aria-disabled='true']) {
-  --rds-button-fill: var(--rds-button-selected-bg-pressed);
-}
-
 .rds-button:disabled,
 .rds-button[aria-disabled='true'] {
   --rds-button-fill: var(--rds-button-bg-disabled);
@@ -231,7 +195,7 @@
   --rds-button-selected-bg-pressed: var(--rds-button-selected-neutral-bg-pressed);
   --rds-button-selected-fg: var(--rds-button-selected-neutral-fg);
   --rds-button-fill: var(--rds-button-selected-bg);
-  color: var(--rds-button-selected-fg);
+  --rds-button-fg: var(--rds-button-selected-fg);
 }
 
 .rds-button[data-pressed='true'][data-intent='brand']:not(:disabled):not([aria-disabled='true']) {
@@ -242,10 +206,30 @@
 }
 
 .rds-button[data-pressed='true'][data-intent='danger']:not(:disabled):not([aria-disabled='true']) {
+  --rds-button-fg-hover: var(--rds-button-soft-danger-fg-hover);
+  --rds-button-fg-pressed: var(--rds-button-soft-danger-fg-pressed);
   --rds-button-selected-bg: var(--rds-button-selected-danger-bg);
   --rds-button-selected-bg-hover: var(--rds-button-selected-danger-bg-hover);
   --rds-button-selected-bg-pressed: var(--rds-button-selected-danger-bg-pressed);
   --rds-button-selected-fg: var(--rds-button-selected-danger-fg);
+}
+
+/* State selectors follow selection recipes so active feedback wins in the cascade. */
+@media (hover: hover) and (pointer: fine) {
+  .rds-button:hover:not(:disabled):not([aria-disabled='true']) {
+    --rds-button-fill: var(--rds-button-bg-hover);
+    color: var(--rds-button-fg-hover);
+  }
+  .rds-button[data-pressed='true']:hover:not(:disabled):not([aria-disabled='true']) {
+    --rds-button-fill: var(--rds-button-selected-bg-hover);
+  }
+}
+.rds-button:active:not(:disabled):not([aria-disabled='true']) {
+  --rds-button-fill: var(--rds-button-bg-pressed);
+  color: var(--rds-button-fg-pressed);
+}
+.rds-button[data-pressed='true']:active:not(:disabled):not([aria-disabled='true']) {
+  --rds-button-fill: var(--rds-button-selected-bg-pressed);
 }
 
 .rds-button:focus-visible {
@@ -255,6 +239,28 @@
 
 .rds-button__label {
   min-width: 0;
+}
+
+/* The expanding slot owns its gap; at rest it contributes no inline space. */
+.rds-button[data-selection-mark='true'] {
+  column-gap: 0;
+}
+
+.rds-button__mark {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  width: 0;
+  margin-inline-end: 0;
+  overflow: clip;
+  transition:
+    width var(--rds-motion-duration-feedback) var(--rds-motion-easing-enter),
+    margin-inline-end var(--rds-motion-duration-feedback) var(--rds-motion-easing-enter);
+}
+
+.rds-button__mark[data-visible='true'] {
+  width: var(--rds-button-icon);
+  margin-inline-end: var(--rds-space-icon-gap);
 }
 
 .rds-button .rds-latin {
@@ -273,10 +279,16 @@
 .rds-button__icon svg {
   width: 100%;
   height: 100%;
-  stroke-width: var(--rds-icon-stroke);
+  fill: none;
+  stroke: currentColor;
+  /* Unitless SVG grid coordinates scale with the canonical icon size. */
+  stroke-width: var(--rds-icon-stroke-width);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: none;
 }
 
-[dir='rtl'] .rds-button__icon[data-mirror='true'] {
+.rds-button:dir(rtl) .rds-button__icon[data-mirror='true'] {
   transform: scaleX(-1);
 }
 
@@ -293,14 +305,7 @@
 }
 
 .rds-button__spinner {
-  animation:
-    rds-button-in var(--rds-motion-duration-feedback) var(--rds-motion-easing-standard),
-    rds-button-spin calc(var(--rds-motion-duration-feedback) * 6) var(--rds-motion-easing-linear) infinite;
-}
-
-@keyframes rds-button-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  animation: rds-button-spin calc(var(--rds-motion-duration-feedback) * 6) var(--rds-motion-easing-linear) infinite;
 }
 
 @keyframes rds-button-spin {
@@ -311,7 +316,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .rds-button,
-  .rds-button::before,
+  .rds-button__mark,
   .rds-button__spinner {
     animation: none;
     transition: none;
@@ -346,50 +351,4 @@
     outline-offset: var(--rds-focus-offset);
   }
 
-  .rds-button::before {
-    display: none;
-  }
-}
-
-/* Rounded CSS fallback remains until geometry is available. Never clip the
-   native control: only its decorative surface and neutral state layer. */
-.rds-button__elevation { display: none; }
-.rds-button[data-smoothed='true'] {
-  background: transparent;
-  box-shadow: none;
-}
-.rds-button[data-smoothed='true'] > .rds-button__elevation {
-  display: block;
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  pointer-events: none;
-  filter: drop-shadow(var(--rds-button-drop-shadow));
-}
-.rds-button__surface {
-  position: absolute;
-  inset: 0;
-  background: var(--rds-button-fill);
-  clip-path: var(--rds-button-path);
-  transition: background-color var(--rds-motion-duration-feedback) var(--rds-motion-easing-standard);
-}
-.rds-button[data-smoothed='true']::before { clip-path: var(--rds-button-path); }
-.rds-button[data-smoothed='true']:is([data-appearance='ghost'], :disabled, [aria-disabled='true']) > .rds-button__elevation { filter: none; }
-.rds-button[data-smoothed='true']:focus-visible { outline-color: transparent; }
-.rds-button[data-smoothed='true']:focus-visible::after {
-  content: "";
-  position: absolute;
-  inset: calc(-1 * (var(--rds-space-50) + var(--rds-focus-ring-width)));
-  pointer-events: none;
-  background: var(--rds-color-focus-ring);
-  mask-image: var(--rds-button-focus-mask);
-  mask-repeat: no-repeat;
-}
-@media (prefers-reduced-motion: reduce) {
-  .rds-button__surface { transition: none; }
-}
-@media (forced-colors: active) {
-  .rds-button[data-smoothed='true'] > .rds-button__elevation { display: none; }
-  .rds-button[data-smoothed='true']:focus-visible { outline-color: Highlight; }
-  .rds-button[data-smoothed='true']:focus-visible::after { display: none; }
 }

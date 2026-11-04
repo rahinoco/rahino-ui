@@ -46,6 +46,7 @@ Avoid bounce, elastic, overshoot, and exaggerated spring effects in functional i
 <!-- rds:generated:motionGeometry:start -->
 | Token | Reference | Value |
 | --- | --- | --- |
+| `rds.motion.scale.pressed` | `ref.motion.scale.0-923` | 0.923 |
 | `rds.motion.scale.rest` | `ref.motion.scale.1` | 1 |
 | `rds.motion.scale.subtle` | `ref.motion.scale.0-98` | 0.98 |
 | `rds.motion.translation.dialog-max` | `ref.motion.distance.8` | 8px |
@@ -53,10 +54,23 @@ Avoid bounce, elastic, overshoot, and exaggerated spring effects in functional i
 | `rds.motion.translation.popover-subtle` | `ref.motion.distance.2` | 2px |
 <!-- rds:generated:motionGeometry:end -->
 
+### Press scale
+
+`rds.motion.scale.pressed` is the component-independent semantic for pronounced press compression, aliased to `ref.motion.scale.0-923` (0.923). Semantic names describe reusable roles and states; only recipe token names include component names. Each component must opt in through its own reviewed recipe. Defining this semantic does not apply it automatically to other controls.
+
+### Checkbox press recipe
+
+The checkbox recipe token `--rds-checkbox-scale-pressed` maps to `--rds-motion-scale-pressed`. The reference value and resulting motion are unchanged by this naming correction. Component visual approval remains pending.
+
+This approximates [Spectrum's press transform](https://github.com/adobe/react-spectrum/blob/main/packages/@react-spectrum/s2/src/pressScale.ts) at Rahino's 20px checkbox size: a 24px perspective with a -2px depth displacement gives an apparent scale of 24 / 26, approximately 0.923. The checkbox uses a simple 2D scale to reproduce that visible compression. It keeps the existing 150ms feedback duration and standard easing, and returns to `motion.scale.rest` on release or cancellation. Only the box and its single mark scale; text, row surface, focus indication and hit target remain fixed.
+
+This is an explicit exception to the general 0.98 subtle-scale guidance for the checkbox recipe only. Do not apply this value to buttons, dialogs, rows or form layouts. Disable scaling entirely under reduced motion, and never wait for animation before changing selection. Use cases are pointer/touch press feedback and Space/Enter press feedback for enabled simple, item and item-with-description checkboxes; disabled and externally changed selections do not replay the effect.
+
 ## 4. Interaction Rules
 
 - **Immediate feedback:** Never delay interaction for animation.
 - **Buttons:** Use subtle color or elevation transitions. Press scaling is optional, with a minimum scale of 0.98.
+- **Checkboxes:** The specifically requested Spectrum-like press recipe maps `--rds-checkbox-scale-pressed` to `motion.scale.pressed` (0.923) for the box only. This recipe exception does not lower the generic minimum for other controls.
 - **Popovers and menus:** Use opacity with a maximum 2–4px translation.
 - **Dialogs:** Use opacity with up to 8px translation or scale from 0.98. Avoid combining effects unnecessarily.
 - **Navigation:** Animate only when it improves orientation. Keep persistent UI stable.

@@ -2,6 +2,8 @@
 
 This is the **canonical local source of truth**, adopted on 2026-10-26. Start with [Master-Token-List.md](Master-Token-List.md).
 
+The [icon foundation](../Icons.md) was adopted on 2026-11-03: 16/20/24/32px sizes and a proportional 2.25 stroke on a 24 × 24 grid. `Icons.ts` exports `ICONOGRAPHY`; canonical paths use `rds.icon.*`. Frontend pages and existing component bindings remain unchanged until a separate migration.
+
 ## Source files
 
 | File | Purpose |
@@ -28,7 +30,7 @@ node master-tokens/scripts/check.mjs
 
 Optional browser integration check: `node master-tokens/scripts/browser-check.cjs`. It uses Playwright and an installed Chrome/Edge or Playwright browser. It verifies CSS/resolver parity, preference updates and cleanup, theme/contrast precedence, script scoping, typography, inherited letter spacing and fluid heading bounds.
 
-The build regenerates all nine foundation TypeScript files, the raw reference module, the color resolver and its types, CSS, design-tool handoff data, marked documentation tables and the master list. Edit values and references in JSON; edit explanations in Markdown outside generated table blocks. TypeScript is generated application code with links to its guides.
+The build regenerates all ten foundation TypeScript files, the raw reference module, the color resolver and its types, CSS, design-tool handoff data, marked documentation tables and the master list. Edit values and references in JSON; edit explanations in Markdown outside generated table blocks. TypeScript is generated application code with links to its guides.
 
 For text styles, edit `properties` in typography.json: keep an alias such as `{ref.font.size.rem-1}` or the approved fluid CSS expression. There is no separate resolved value to update. Font bindings select Persian, English or code fonts. Foundation guides show semantic tokens, reference chains and resolved values together; use [Colors](../Color.md), [Typography](../Typography.md), [Spacing](../Spacing.md) and the other topic guides for everyday reading.
 
@@ -57,6 +59,8 @@ See [context selection](../Rahino-Resolver.md) and [Typography](../Typography.md
 ## Naming and migrations
 
 Color references use stable hue families and sparse steps from light to dark. These are Rahino palette IDs inspired by Spectrum; their values do not match Adobe's palette automatically. Alpha suffixes record opacity. Fixed raw references do not reverse between themes.
+
+The user-requested 2026-11-04 palette update adds `ref.color.red.750` (`#562A2F`) and assigns it to dark `rds.color.action.danger-subtle.bg.hover`. Dark `rds.color.action.danger-subtle.bg.pressed` uses `ref.color.red.625` (`#A33A43`). Light mappings remain unchanged; component state approval remains separate.
 
 Chart colors use rds.color.data.*; presentation recipes use rds.color.presentation.gradient.*. Three shadow levels remain: sm, md and lg. The former wide reading name remains a deprecated alias to the 42rem reading cap.
 

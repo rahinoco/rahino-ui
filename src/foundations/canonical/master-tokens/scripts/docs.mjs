@@ -17,6 +17,12 @@ export async function renderDocuments(model) {
   const sharedPaths = prefix => [...sets.shared.keys()].filter(p => p.startsWith(prefix)).sort((a, b) => a.localeCompare(b, 'en', { numeric: true }));
   const purpose = p => sets.shared.get(p).$description;
   const models = {};
+  models.iconSizes = table(['Token', 'Reference', 'Size', 'Visible stroke', 'Use'], ['sm', 'md', 'lg', 'display'].map(size => {
+    const p = `rds.icon.size.${size}`;
+    const stroke = value('rds.icon.stroke.width') * token(p).$value.value / value('rds.icon.grid.size');
+    return [code(p), refs(p), value(p), `${stroke}px`, purpose(p)];
+  }));
+  models.iconGeometry = table(['Token', 'Reference', 'Value', 'Meaning'], ['rds.icon.grid.size', 'rds.icon.stroke.width'].map(p => [code(p), refs(p), value(p), purpose(p)]));
   models.spacing = table(['Reference token', 'Shared semantic token', 'Value', 'Typical use'], sharedPaths('rds.space.').map(p => [code(sets.shared.get(p).$value.slice(1, -1)), code(p), value(p), purpose(p)]));
   models.radius = table(['Token', 'Reference', 'Value', 'Usage'], sharedPaths('rds.radius.').map(p => [code(p), refs(p), value(p), purpose(p)]));
   models.duration = table(['Token', 'Reference', 'Duration', 'Usage'], sharedPaths('rds.motion.duration.').map(p => [code(p), refs(p), p.endsWith('.reduced') ? `${value('rds.motion.duration.none').slice(0, -2)}–${value(p)}` : value(p), purpose(p).split('. ')[0]]));
@@ -78,6 +84,7 @@ export async function renderDocuments(model) {
   models.numberExamples = table(['Type', 'Example'], numbers.formattingExamples);
   models.numberType = table(['Context', 'Token'], numbers.typographyRoles);
   const configs = {
+    'Icons.md': [['iconSizes', '## Sizes and use cases'], ['iconGeometry', '## Stroke']],
     'Spacing.md': [['spacing', '## 1. Reference and shared spacing scale']],
     'Radius.md': [['radius', '## Radius tokens']],
     'Motion.md': [['duration', '## 2. Motion Tokens'], ['easing', '## 3. Easing'], ['motionGeometry', '### Movement and scale tokens']],

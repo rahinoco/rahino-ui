@@ -1,5 +1,7 @@
 # Qipper Fidelity Audit (Phase 1)
 
+Historical extraction audit. The shared Button family, Checkbox and Input have since been redesigned against the foundation tokens; see [Input usage](INPUT_USAGE.md), [Checkbox usage](CHECKBOX_USAGE.md) and [Button redesign](BUTTON_REDESIGN.md) for their current contracts.
+
 Scope: extract **Qipper Reference** UI, not a Rahino Design System and not a Qippo comparison.
 
 SOURCE: `qipper-app-frontend` (`src/shared/ui`, call sites in `src/pages`, `src/features`)

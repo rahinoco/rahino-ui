@@ -1,5 +1,4 @@
 import { forwardRef, type ReactNode, type Ref } from 'react';
-import { ButtonShape } from './buttonShape';
 
 import {
   assignRef,
@@ -64,8 +63,7 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(function IconB
         assignRef(ref as Ref<HTMLButtonElement>, node);
       }}
     >
-      <ButtonShape />
-      <span className="rds-button__icon" data-mirror={mirror ? 'true' : undefined} aria-hidden="true">
+      <span className="rds-button__icon" data-mirror={!loading && mirror ? 'true' : undefined} aria-hidden="true">
         {loading ? <Spinner /> : children}
       </span>
       <span className="rds-button__status" role="status">

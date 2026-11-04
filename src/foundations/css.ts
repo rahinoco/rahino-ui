@@ -1,57 +1,54 @@
-import { HIGH_CONTRAST, type AppearanceName } from './color.ts';
+import contextPolicy from './canonical/master-tokens/context-policy.json' with { type: 'json' };
 import { BUTTON_FOCUS, CONTROL_SIZE, DENSITY, FOCUS, ICON_SIZE, ICON_STROKE, LAYER, SPACE_ROLE, SPACING, TOUCH_MIN } from './metrics.ts';
 import { FONT_FILES, FONT_WEIGHT, TYPE_ROLES } from './type.ts';
 
-/** Component recipes derive missing states from semantic colors; they are not shared foundation tokens. */
-function buttonRecipe(_appearance: AppearanceName) {
-  const mix = (base: string, amount: string, withColor: string) =>
-    `color-mix(in srgb, var(${base}) ${amount}, var(${withColor}))`;
-  const rows: Array<[string, string]> = [
-    // In either scheme, deepen destructive fills rather than moving toward light ink.
-    ['--rds-button-danger-shade', 'light-dark(var(--rds-color-ink-primary), var(--rds-color-ink-inverse))'],
-    ['--rds-button-solid-neutral-bg', 'var(--rds-color-surface-inverse)'],
-    ['--rds-button-solid-neutral-bg-hover', mix('--rds-color-surface-inverse', '86%', '--rds-color-ink-primary')],
-    ['--rds-button-solid-neutral-bg-pressed', mix('--rds-color-surface-inverse', '72%', '--rds-color-ink-primary')],
-    ['--rds-button-solid-neutral-fg', 'var(--rds-color-ink-inverse)'],
-    ['--rds-button-solid-brand-bg', 'var(--rds-color-action-primary-bg-default)'],
-    ['--rds-button-solid-brand-bg-hover', 'var(--rds-color-action-primary-bg-hover)'],
-    ['--rds-button-solid-brand-bg-pressed', 'var(--rds-color-action-primary-bg-pressed)'],
-    ['--rds-button-solid-brand-fg', 'var(--rds-color-action-primary-fg)'],
-    ['--rds-button-solid-brand-bg-disabled', 'var(--rds-color-action-primary-bg-disabled)'],
-    ['--rds-button-solid-danger-bg', 'var(--rds-color-status-error-fill)'],
-    ['--rds-button-solid-danger-bg-hover', mix('--rds-color-status-error-fill', '82%', '--rds-button-danger-shade')],
-    ['--rds-button-solid-danger-bg-pressed', mix('--rds-color-status-error-fill', '68%', '--rds-button-danger-shade')],
-    ['--rds-button-solid-danger-fg', 'var(--rds-color-status-error-on-fill)'],
-    ['--rds-button-soft-neutral-bg', 'var(--rds-color-surface-subtle)'],
-    // Canonical neutral alpha layers are painted by button.css behind the content.
-    ['--rds-button-soft-neutral-bg-hover', 'var(--rds-color-surface-subtle)'],
-    ['--rds-button-soft-neutral-bg-pressed', 'var(--rds-color-surface-subtle)'],
-    ['--rds-button-soft-neutral-fg', 'var(--rds-color-ink-primary)'],
-    ['--rds-button-soft-brand-bg', 'var(--rds-color-brand-bg-default)'],
-    ['--rds-button-soft-brand-bg-hover', 'var(--rds-color-brand-bg-hover)'],
-    ['--rds-button-soft-brand-bg-pressed', mix('--rds-color-brand-bg-hover', '72%', '--rds-color-brand-seed')],
-    ['--rds-button-soft-brand-fg', 'var(--rds-color-brand-fg)'],
-    ['--rds-button-soft-danger-bg', 'var(--rds-color-status-error-bg)'],
-    ['--rds-button-soft-danger-bg-hover', mix('--rds-color-status-error-bg', '92%', '--rds-color-status-error-fill')],
-    ['--rds-button-soft-danger-bg-pressed', mix('--rds-color-status-error-bg', '88%', '--rds-color-status-error-fill')],
-    ['--rds-button-soft-danger-fg', 'var(--rds-color-status-error-fg)'],
-    ['--rds-button-bg-disabled', 'var(--rds-color-surface-subtle)'],
-    ['--rds-button-fg-disabled', 'var(--rds-color-ink-disabled)'],
-    ['--rds-button-selected-neutral-bg', 'var(--rds-color-interaction-surface-selected)'],
-    ['--rds-button-selected-neutral-bg-hover', 'var(--rds-color-brand-bg-hover)'],
-    ['--rds-button-selected-neutral-bg-pressed', mix('--rds-color-brand-bg-hover', '72%', '--rds-color-brand-seed')],
-    ['--rds-button-selected-neutral-fg', 'var(--rds-color-brand-fg)'],
-    ['--rds-button-selected-brand-bg', 'var(--rds-color-interaction-surface-selected)'],
-    ['--rds-button-selected-brand-bg-hover', 'var(--rds-color-brand-bg-hover)'],
-    ['--rds-button-selected-brand-bg-pressed', mix('--rds-color-brand-bg-hover', '72%', '--rds-color-brand-seed')],
-    ['--rds-button-selected-brand-fg', 'var(--rds-color-brand-fg)'],
-    ['--rds-button-selected-danger-bg', 'var(--rds-color-status-error-bg)'],
-    ['--rds-button-selected-danger-bg-hover', 'var(--rds-button-soft-danger-bg-hover)'],
-    ['--rds-button-selected-danger-bg-pressed', 'var(--rds-button-soft-danger-bg-pressed)'],
-    ['--rds-button-selected-danger-fg', 'var(--rds-color-status-error-fg)'],
-    ['--rds-button-focus-soft', `color-mix(in srgb, var(--rds-color-focus-ring) ${BUTTON_FOCUS.soft}, transparent)`],
-  ];
-  return rows.map(([name, value]) => `  ${name}: ${value};`);
+/** Recipes only alias reusable semantic colors; no color calculations. */
+function buttonRecipe() {
+  const roles: Record<string, string> = {
+    "solid-neutral-bg": "action.neutral.bg.default",
+    "solid-neutral-bg-hover": "action.neutral.bg.hover",
+    "solid-neutral-bg-pressed": "action.neutral.bg.pressed",
+    "solid-neutral-fg": "ink.inverse",
+    "solid-brand-bg": "action.primary.bg.default",
+    "solid-brand-bg-hover": "action.primary.bg.hover",
+    "solid-brand-bg-pressed": "action.primary.bg.pressed",
+    "solid-brand-fg": "action.primary.fg",
+    "solid-brand-bg-disabled": "action.primary.bg.disabled",
+    "solid-danger-bg": "action.danger.bg.default",
+    "solid-danger-bg-hover": "action.danger.bg.hover",
+    "solid-danger-bg-pressed": "action.danger.bg.pressed",
+    "solid-danger-fg": "status.error.on-fill",
+    "soft-neutral-bg": "action.neutral-subtle.bg.default",
+    "soft-neutral-bg-hover": "action.neutral-subtle.bg.hover",
+    "soft-neutral-bg-pressed": "action.neutral-subtle.bg.pressed",
+    "soft-neutral-fg": "ink.primary",
+    "soft-brand-bg": "brand.bg.default",
+    "soft-brand-bg-hover": "brand.bg.hover",
+    "soft-brand-bg-pressed": "brand.bg.pressed",
+    "soft-brand-fg": "brand.fg",
+    "soft-danger-bg": "action.danger-subtle.bg.default",
+    "soft-danger-bg-hover": "action.danger-subtle.bg.hover",
+    "soft-danger-bg-pressed": "action.danger-subtle.bg.pressed",
+    "soft-danger-fg": "action.danger-subtle.fg.default",
+    "soft-danger-fg-hover": "action.danger-subtle.fg.hover",
+    "soft-danger-fg-pressed": "action.danger-subtle.fg.pressed",
+    "bg-disabled": "surface.subtle",
+    "fg-disabled": "ink.disabled",
+    "selected-neutral-bg": "interaction.surface.selected",
+    "selected-neutral-bg-hover": "brand.bg.hover",
+    "selected-neutral-bg-pressed": "brand.bg.pressed",
+    "selected-neutral-fg": "brand.fg",
+    "selected-brand-bg": "interaction.surface.selected",
+    "selected-brand-bg-hover": "brand.bg.hover",
+    "selected-brand-bg-pressed": "brand.bg.pressed",
+    "selected-brand-fg": "brand.fg",
+    "selected-danger-bg": "action.danger-subtle.bg.default",
+    "selected-danger-bg-hover": "action.danger-subtle.bg.hover",
+    "selected-danger-bg-pressed": "action.danger-subtle.bg.pressed",
+    "selected-danger-fg": "action.danger-subtle.fg.default"
+  };
+  return Object.entries(roles).map(([name, role]) =>
+    `  --rds-button-${name}: var(--rds-color-${role.replaceAll('.', '-')});`);
 }
 
 
@@ -131,9 +128,10 @@ function staticTokens() {
 export function renderFoundationsCss(canonicalCss = '', modes: Record<'light' | 'dark', string> = { light: '', dark: '' }) {
   const aliases = compatibilityAliases();
   const shared = staticTokens();
-  const recipes = buttonRecipe('light').join('\n');
+  const recipes = buttonRecipe().join('\n');
   const stage = (appearance: 'light' | 'dark', more = false) => {
-    const high = more ? Object.entries(HIGH_CONTRAST[appearance]).map(([key, value]) => '  --rds-color-' + (key === 'canvas' || key === 'base' ? 'surface-' : 'ink-') + key + ': ' + value + ';').join('\n') : '';
+    const high = more ? Object.entries(contextPolicy.contrast.enhancedOverrides[appearance]).map(([name, alias]) =>
+      '  --' + name.replaceAll('.', '-') + ': var(--' + alias.slice(1, -1).replaceAll('.', '-') + ');').join('\n') : '';
     return [modes[appearance], high, shared, aliases, recipes].filter(Boolean).join('\n');
   };
   const rule = (selector: string, content: string) => selector + ' {\n' + content + '\n}';
