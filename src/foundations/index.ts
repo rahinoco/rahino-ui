@@ -1,8 +1,8 @@
 export { FOUNDATION_MANIFEST } from './manifest.ts';
 export { ICONOGRAPHY } from './canonical/Icons.ts';
 export {
-  ACTION_PRIMARY_BG,
-  ACTION_PRIMARY_FG,
+  ACTION_BRAND_BG,
+  ACTION_BRAND_FG,
   BRAND,
   CONTRAST_REFERENCE,
   DATA_CATEGORICAL,

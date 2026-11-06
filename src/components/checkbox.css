@@ -65,16 +65,16 @@
   stroke-linejoin: round;
   vector-effect: none;
 }
-.rds-checkbox[data-selected='true'] { --rds-checkbox-fill: var(--rds-color-action-primary-bg-default); }
+.rds-checkbox[data-selected='true'] { --rds-checkbox-fill: var(--rds-color-action-brand-bg-default); }
 @media (hover: hover) and (pointer: fine) {
   .rds-checkbox:hover:not(:disabled) .rds-checkbox__box::before { opacity: 1; }
-  .rds-checkbox[data-selected='true']:hover:not(:disabled) { --rds-checkbox-fill: var(--rds-color-action-primary-bg-hover); }
+  .rds-checkbox[data-selected='true']:hover:not(:disabled) { --rds-checkbox-fill: var(--rds-color-action-brand-bg-hover); }
 }
 @media (prefers-reduced-motion: no-preference) {
   .rds-checkbox[data-pressed='true']:not(:disabled) .rds-checkbox__box { transform: scale(var(--rds-checkbox-scale-pressed)); }
 }
 .rds-checkbox[data-pressed='true']:not(:disabled) .rds-checkbox__box::before { background: var(--rds-color-interaction-neutral-pressed); opacity: 1; }
-.rds-checkbox[data-selected='true'][data-pressed='true']:not(:disabled) { --rds-checkbox-fill: var(--rds-color-action-primary-bg-pressed); }
+.rds-checkbox[data-selected='true'][data-pressed='true']:not(:disabled) { --rds-checkbox-fill: var(--rds-color-action-brand-bg-pressed); }
 .rds-checkbox[data-selected='true'] .rds-checkbox__box::before { content: none; }
 .rds-checkbox:focus-visible { outline: var(--rds-focus-ring-width) solid var(--rds-color-focus-ring); outline-offset: var(--rds-space-50); }
 .rds-checkbox[data-type='item'], .rds-checkbox[data-type='item-desc'] {
@@ -104,7 +104,7 @@
   color: var(--rds-color-ink-disabled);
   cursor: not-allowed;
 }
-.rds-checkbox[data-selected='true']:disabled { --rds-checkbox-fill: var(--rds-color-action-primary-bg-disabled); --rds-checkbox-mark: var(--rds-color-ink-tertiary); }
+.rds-checkbox[data-selected='true']:disabled { --rds-checkbox-fill: var(--rds-color-action-brand-bg-disabled); --rds-checkbox-mark: var(--rds-color-ink-tertiary); }
 .rds-checkbox:disabled .rds-checkbox__description { color: var(--rds-color-ink-disabled); }
 @media (prefers-reduced-motion: reduce) {
   .rds-checkbox, .rds-checkbox__box, .rds-checkbox__box::before { transition: none; }

@@ -59,10 +59,10 @@
   --rds-color-primitive-blue-650: var(--ref-color-blue-475);
   --rds-color-primitive-blue-700: var(--ref-color-blue-600);
   --rds-color-primitive-blue-900: var(--ref-color-blue-775);
-  --rds-color-primitive-black-alpha-10: var(--ref-color-gray-warm-875-alpha-10);
+  --rds-color-primitive-black-alpha-10: var(--ref-color-gray-warm-875-alpha-8);
   --rds-color-primitive-black-alpha-52: var(--ref-color-gray-warm-950-alpha-52);
   --rds-color-primitive-black-alpha-72: var(--ref-color-black-alpha-72);
-  --rds-color-primitive-black-alpha-06: var(--ref-color-gray-warm-875-alpha-6);
+  --rds-color-primitive-black-alpha-06: var(--ref-color-gray-warm-875-alpha-4);
   --rds-color-primitive-white-alpha-10: var(--ref-color-white-alpha-10);
   --rds-color-primitive-white-alpha-12: var(--ref-color-gray-50-alpha-12);
   --rds-color-primitive-white-alpha-18: var(--ref-color-white-alpha-18);
@@ -89,8 +89,8 @@
   --rds-color-light-brand-surface-hover: #E8D9E1;
   --rds-color-light-brand-foreground: #631244;
   --rds-color-light-focus-ring: #99507A;
-  --rds-color-light-interaction-neutral-hover: rgb(33 29 32 / 0.06);
-  --rds-color-light-interaction-neutral-pressed: rgb(33 29 32 / 0.10);
+  --rds-color-light-interaction-neutral-hover: rgb(33 29 32 / 0.04);
+  --rds-color-light-interaction-neutral-pressed: rgb(33 29 32 / 0.08);
   --rds-color-light-interaction-selected-surface: #F0E5EB;
   --rds-color-light-fg-primary: #211D20;
   --rds-color-light-fg-secondary: #5F585D;
@@ -105,7 +105,7 @@
   --rds-color-light-icon-on-brand: #FFFFFF;
   --rds-color-light-action-primary-default: #631244;
   --rds-color-light-action-primary-hover: #4A0D33;
-  --rds-color-light-action-primary-pressed: #1E0515;
+  --rds-color-light-action-primary-pressed: #400C2C;
   --rds-color-light-action-primary-disabled: #DCC7D4;
   --rds-color-light-action-primary-foreground: #FFFFFF;
   --rds-color-light-status-success-surface: #DAFBE8;

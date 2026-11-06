@@ -7,10 +7,12 @@ Implementation updated on 3 November 2026 from the owner's reviewed preview. Rep
 | Use | Recipe |
 | --- | --- |
 | Names and short text | Persistent visible label; no placeholder by default. |
+| Persian full name | `autoComplete="name"` and `dir="rtl"` keep text entry right-to-left in either page direction. |
 | Phone | `type="tel"`, `inputMode="tel"`, `autoComplete="tel-national"`, `dir="ltr"`; keep format instructions in `helperText`. Accept Persian, Arabic Indic and Latin digits in application validation. |
 | Email and Latin identifiers | `type="email"` where appropriate, `dir="ltr"`, `textScript="latin"`; retain the Persian label direction. |
 | Amount | `inputMode="numeric"`, explicit label with currency; optional persistent unit in `endAdornment`. Format and validate in the application. |
-| Password | Native password input with autocomplete and a labeled visibility button in `endAdornment`. No fake password placeholder. |
+| Username | `autoComplete="username"` gives the input a left-to-right default. |
+| Password | Use `type="password"` with `autoComplete="current-password"` for sign-in or `autoComplete="new-password"` for a new password. Keep autocomplete on the input when revealing its value so it stays left-to-right. Use a labeled visibility button. |
 | Search | Persistent label; an optional placeholder can clarify the search scope. Decorative `icon` is at the reading start. |
 | Decorative icon on either edge | `icon` with `iconPosition="start"` or `"end"`; not focusable or clickable, hidden from assistive technology. |
 | Clickable icon that changes | Supply `iconAction` with a descriptive `label` and working `onClick`; update `icon`, action label and field state together, e.g. Eye/EyeOff and password/text for show/hide. |
@@ -39,7 +41,13 @@ Use Textarea for multiple lines and Select for choosing options. Avoid placehold
 | Motion | `motion.duration.feedback` with `motion.easing.standard`; no transition with reduced motion |
 | Border / elevation | None in normal, hover, focused or invalid states; forced-colors system inset cue only |
 
-`controlSize="md"` is the default: minimum height 44px, horizontal padding 16px, vertical padding 6px. `lg` uses 52px, 20px and 10px. Both use 16px input text and 12px corners. Heights are minimums and can grow when user font settings require it. The native HTML `size` prop retains its original meaning.
+| `controlSize` | Use | Minimum height | Horizontal padding | Vertical padding |
+| --- | --- | --- | --- | --- |
+| `sm` | Compact filters and forms | 32px (`space.500`) | 12px | 1px |
+| `md` (default) | Standard forms | 40px (`space.600`) | 16px | 4px |
+| `lg` | Forms with more room | 48px (`space.700`) | 20px | 8px |
+
+All sizes use 16px input text and 12px corners. Fields can grow with user font settings. The native HTML `size` prop retains its original meaning.
 
 ## Behavior and accessibility
 
@@ -51,15 +59,18 @@ The shared component does not validate on every keystroke or normalize entered t
 
 `iconPosition` chooses the logical `start` (default) or `end` edge. In RTL these are right and left; in LTR they are left and right. Without `iconAction`, `icon` is decorative and excluded from keyboard navigation. `endAdornment` stays at the reading end. Set `dir` for the data; `dir="auto"` determines the input text independently of surrounding adornment order. Direction does not choose the font.
 
+The input defaults to LTR for `type="password"` and for username and password autocomplete tokens. Labels, supporting text and adornment order follow the surrounding layout. An explicit `dir` takes precedence.
+
 `iconAction={{ label, onClick }}` creates a named native IconButton. Click, Enter and Space activate it; it does not submit a form. The action is disabled when the field or `iconAction.disabled` is disabled. Read-only values remain selectable and their independent icon actions remain available. Each button shows only the supplied icon.
 
 Clickable icons have two behaviors on either edge: **changing artwork**, such as Eye/EyeOff for show/hide, and **unchanged artwork**, such as Copy. The caller controls the current `icon`, action `label` and field state. A visibility action names what the next click will do; it does not use a persistent selected plate or selection checkmark. Copy retains its icon and reports the operation's actual outcome with `role="status"`; announce success only after the clipboard write succeeds and provide a failure message otherwise. These are click actions, not selection controls, so `iconAction` has no `pressed` prop.
 
-Interactive icons on either edge retain a 44px target. Their fill is inset by `space.75` (4px) within that unchanged target so hover and press paint stay clear of the field corners and focus ring. Colors and native rounding come from the button recipe. Focus anywhere inside the field shows the same inset indicator. Forced-colors mode keeps the button's system boundary instead of the inset fill.
+Interactive icons on either edge have a minimum width of 44px. On touch devices their target is also at least 44px tall, so `sm` and `md` fields with embedded buttons grow to fit. Their fill is inset by `space.75` (4px) so hover and press paint stay clear of the field corners and focus ring. Colors and native rounding come from the button recipe. Focus anywhere inside the field shows the same inset indicator. Forced-colors mode keeps the button's system boundary instead of the inset fill.
 
 ```tsx
 <Input label="Search" icon={<Search />} iconPosition="end" />
-<Input label="Password" type={visible ? 'text' : 'password'}
+<Input label="Username" autoComplete="username" />
+<Input label="Password" type={visible ? 'text' : 'password'} autoComplete="current-password"
   icon={visible ? <EyeOff /> : <Eye />} iconPosition="end"
   iconAction={{ label: visible ? 'Hide password' : 'Show password', onClick: () => setVisible(!visible) }} />
 <Input label="Reference" value={reference} readOnly icon={<Copy />} iconPosition="start"
@@ -73,7 +84,7 @@ The shared Input has its own recipe. Legacy Select, DatePicker, TimePicker, Text
 
 ## Review status
 
-Check empty, filled, hovered, focused, invalid, invalid+focused, disabled, read-only, pending and adornment interactions in both sizes, directions, themes and contrast modes. Check keyboard, forced colors, reduced motion, long text and mobile layout. Automated checks establish behavior, not human approval.
+Check empty, filled, hovered, focused, invalid, invalid+focused, disabled, read-only, pending and adornment interactions in all three sizes, both directions, themes and contrast modes. Check keyboard, forced colors, reduced motion, long text and mobile layout. Automated checks establish behavior, not human approval.
 
 The requested sunken fill has less than 3:1 contrast with the canvas parent when treated as the sole identifying control cue. Record and review that foundation/discoverability limitation before product approval. Do not add a local border or manufacture a darker color to hide it.
 

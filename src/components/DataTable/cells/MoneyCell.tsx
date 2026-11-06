@@ -13,16 +13,13 @@ export interface MoneyCellProps {
 export function MoneyCell({ amount = 0, emptyLabel, emphasize = false }: MoneyCellProps) {
   const num = Number(amount ?? 0);
   if (!num && emptyLabel) {
-    return <span className="text-slate-300 font-bold">{emptyLabel}</span>;
+    return <span className="rds-table__secondary">{emptyLabel}</span>;
   }
 
   return (
     <span
-      className={
-        emphasize
-          ? 'text-sm font-black text-slate-900 tabular-nums'
-          : 'text-sm font-bold text-slate-700 tabular-nums'
-      }
+      className="rds-table__money"
+      data-emphasis={emphasize || undefined}
     >
       {toPersianDigits(formatMoney(num))}
     </span>

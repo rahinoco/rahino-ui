@@ -16,6 +16,7 @@ fs.mkdirSync(output, { recursive: true });
 const bundle = await build({ root, configFile: false, plugins: [react()], define: { 'process.env.NODE_ENV': '"production"' },
   build: { write: false, lib: { entry: path.join(root, 'scripts/input-review-fixture.tsx'), formats: ['es'], fileName: 'review' } } });
 const assets = (Array.isArray(bundle) ? bundle : [bundle]).flatMap(result => result.output);
+const sizes = { sm: { height: 32, padding: '12px' }, md: { height: 40, padding: '16px' }, lg: { height: 48, padding: '20px' } };
 const browser = await playwright.chromium.launch({ headless: true, executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe' });
 try {
   const page = await browser.newPage({ viewport: { width: 1200, height: 1100 } });
@@ -51,10 +52,10 @@ try {
           linecap: getComputedStyle(mark).strokeLinecap, linejoin: getComputedStyle(mark).strokeLinejoin, vectorEffect: getComputedStyle(mark).vectorEffect,
           fontSize: getComputedStyle(error).fontSize, gap: getComputedStyle(error).gap, centered: Math.abs(markBox.top + markBox.height / 2 - errorBox.top - errorBox.height / 2) < 0.1 } : null };
     }));
-    assert.equal(readings.length, 14);
+    assert.equal(readings.length, 21);
     for (const sample of readings) {
       const [size, state] = sample.key.split('/');
-      assert.equal(sample.height, size === 'md' ? 44 : 52); assert.equal(sample.padding, size === 'md' ? '16px' : '20px');
+      assert.equal(sample.height, sizes[size].height); assert.equal(sample.padding, sizes[size].padding);
       assert.equal(sample.radius, '12px'); assert.equal(sample.border, '0px'); assert.equal(sample.textBorder, '0px'); assert.equal(sample.outline, '0px', JSON.stringify({theme, contrast, dir, ...sample}));
       assert.equal(sample.shadow, 'none'); assert.equal(sample.bg, sample.expected); assert.equal(sample.fontSize, '16px'); assert.equal(sample.weight, '400');
       assert(sample.described && sample.name); assert.equal(sample.invalid, state === 'error' ? 'true' : null); assert.equal(sample.duration, '0.15s');
@@ -74,7 +75,7 @@ try {
       assert(focus.ring.includes('2px inset')); assert.equal(focus.inset, '0px'); assert.equal(focus.opacity, '1'); assert.equal(focus.outline, '0px');
     }
     const icon = page.locator('[data-case="md/icon"] .rds-input__icon');
-    for (const size of ['md', 'lg']) {
+    for (const size of Object.keys(sizes)) {
       const geometry = await page.locator(`[data-case="${size}/icon"] .rds-input__icon svg`).evaluate(svg => {
         const rect = svg.getBoundingClientRect(), field = svg.closest('.rds-input__field').getBoundingClientRect(), css = getComputedStyle(svg);
         return { size: css.width, height: css.height, stroke: css.strokeWidth, linecap: css.strokeLinecap, linejoin: css.strokeLinejoin,
@@ -90,7 +91,7 @@ try {
     await readonly.hover(); await settle();
     assert.equal(await readonly.evaluate(node => getComputedStyle(node, '::before').backgroundColor), 'rgba(255, 255, 255, 0.1)');
     if (contrast === 'standard' && dir === 'rtl') await readonly.screenshot({ path: path.join(output, `readonly-hover-${theme}.png`) });
-    for (const size of ['md', 'lg']) for (const position of ['start', 'end']) for (const kind of ['decorative', 'action', 'changing', 'disabled', 'readonly']) {
+    for (const size of Object.keys(sizes)) for (const position of ['start', 'end']) for (const kind of ['decorative', 'action', 'changing', 'disabled', 'readonly']) {
       const id = `icon-${size}-${position}-${kind}`, input = page.locator(`#${id}`), wrapper = input.locator('..');
       const button = wrapper.locator('button');
       assert.equal(await button.count(), kind === 'decorative' ? 0 : 1);
@@ -101,7 +102,9 @@ try {
       });
       assert.equal(geometry.right, (dir === 'rtl') === (position === 'start')); assert(geometry.centered); assert.equal(geometry.width, 20); assert.equal(geometry.stroke, '2.25px');
       if (kind === 'decorative') { assert.equal(await wrapper.locator('.rds-input__icon').getAttribute('aria-hidden'), 'true'); continue; }
-      const box = await button.boundingBox(); assert(box.width >= 44 && box.height >= 44);
+      const box = await button.boundingBox();
+      assert(box.width >= 44); assert.equal(box.height, sizes[size].height);
+      assert.equal((await wrapper.boundingBox()).height, sizes[size].height);
       if (kind === 'disabled') { assert(await button.isDisabled()); continue; }
       const count = Number(await page.locator('#icon-actions').textContent());
       const initialArtwork = await svg.evaluate(node => node.innerHTML);
@@ -111,6 +114,7 @@ try {
       assert.equal(await button.getAttribute('aria-pressed'), null); assert.equal(await button.getAttribute('data-pressed'), null);
       if (kind === 'changing') {
         assert.equal(await input.getAttribute('type'), 'text'); assert.notEqual(await svg.evaluate(node => node.innerHTML), initialArtwork);
+        assert.equal(await input.getAttribute('dir'), 'ltr');
         await page.keyboard.press('Space'); assert.equal(await input.getAttribute('type'), 'password');
         assert.equal(await svg.evaluate(node => node.innerHTML), initialArtwork);
         assert.equal(await button.locator('svg').count(), 1);
@@ -130,8 +134,8 @@ try {
           fillInset: fill.inset, fillRadius: fill.borderRadius, fillBackground: fill.backgroundColor, targetBackground: getComputedStyle(button).backgroundColor,
           ring: focus.boxShadow, inset: focus.inset, focusVisible: focus.opacity, focusLayer: focus.zIndex };
       });
-      assert.equal(adornment.radius, '12px'); assert.equal(adornment.height, id === 'password' ? 44 : 52);
-      assert(adornment.targetWidth >= 44 && adornment.targetHeight >= 44); assert(adornment.inside);
+      assert.equal(adornment.radius, '12px'); assert.equal(adornment.height, id === 'password' ? 40 : 48);
+      assert(adornment.targetWidth >= 44); assert.equal(adornment.targetHeight, adornment.height); assert(adornment.inside);
       assert.equal(adornment.fillInset, '4px'); assert.equal(adornment.fillRadius, '8px');
       assert.notEqual(adornment.fillBackground, 'rgba(0, 0, 0, 0)'); assert.equal(adornment.targetBackground, 'rgba(0, 0, 0, 0)');
       assert(adornment.ring.includes('2px inset')); assert.equal(adornment.inset, '0px'); assert.equal(adornment.focusVisible, '1'); assert.equal(adornment.focusLayer, '2');
@@ -149,7 +153,19 @@ try {
   assert(await page.locator('#controlled-hint').isVisible());
   await page.locator('#focus').click(); assert(await page.locator('#controlled').evaluate(input => input === document.activeElement));
   assert.equal(await page.locator('#dense').getAttribute('aria-describedby'), 'dense-hint'); assert.equal(await page.locator('#dense').evaluate(input => input.labels[0].textContent), 'برچسب پنهان');
+  await page.evaluate(() => { document.documentElement.dir = 'rtl'; });
+  for (const id of ['username', 'password', 'password-native', 'password-new']) {
+    const directions = await page.locator(`#${id}`).evaluate(input => ({
+      input: getComputedStyle(input).direction,
+      field: getComputedStyle(input.parentElement).direction,
+      label: getComputedStyle(input.labels[0]).direction,
+    }));
+    assert.deepEqual(directions, { input: 'ltr', field: 'rtl', label: 'rtl' });
+  }
+  assert.equal(await page.locator('#password-large').getAttribute('dir'), 'rtl');
+  assert.equal(await page.locator('#controlled').getAttribute('dir'), null);
   await page.locator('#password + .rds-input__end button').click(); assert.equal(await page.locator('#password').getAttribute('type'), 'text');
+  assert.equal(await page.locator('#password').getAttribute('dir'), 'ltr');
   assert.equal(await page.locator('#password').evaluate(input => getComputedStyle(input.parentElement, '::after').opacity), '1');
   await page.locator('#uncontrolled').fill('changed'); await page.locator('#native-form button').click(); assert.equal(await page.locator('#uncontrolled').inputValue(), 'RH-1');
   await page.emulateMedia({ reducedMotion: 'reduce' }); assert.equal(await page.locator('.rds-input__field').first().evaluate(node => getComputedStyle(node).transitionDuration), '0s');
@@ -160,6 +176,17 @@ try {
   await page.screenshot({ path: path.join(output, 'light.png'), fullPage: true });
   await page.evaluate(() => document.documentElement.dataset.rdsTheme = 'dark'); await settle(); await page.screenshot({ path: path.join(output, 'dark.png'), fullPage: true });
   await page.setViewportSize({ width: 320, height: 850 }); assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+  const touch = await browser.newPage({ hasTouch: true, isMobile: true });
+  await touch.setContent('<!doctype html><html data-rds-theme="light"><body><div id="root"></div></body></html>');
+  await touch.addStyleTag({ content: assets.filter(asset => asset.type === 'asset' && asset.fileName.endsWith('.css')).map(asset => asset.source).join('\n') });
+  await touch.addScriptTag({ type: 'module', content: assets.find(asset => asset.type === 'chunk').code });
+  assert(await touch.evaluate(() => matchMedia('(pointer: coarse)').matches));
+  for (const size of Object.keys(sizes)) {
+    const field = touch.locator(`#icon-${size}-end-action`).locator('..');
+    assert.equal((await field.boundingBox()).height, Math.max(sizes[size].height, 44));
+    assert.equal((await field.locator('button').boundingBox()).height, Math.max(sizes[size].height, 44));
+  }
+  await touch.close();
   assert.deepEqual(errors, []);
   fs.writeFileSync(path.join(output, 'results.json'), JSON.stringify({ samples, status: 'behavior-checked; human state approval pending', boundaryContrast: 'sunken/canvas remains an explicit review limitation' }, null, 2));
   console.log(`PASS: ${samples.length} input size/state/theme/contrast/direction combinations, inset focus, hover, native behavior, accessible descriptions, adornments, reduced motion, forced colors and 320px layout.`);

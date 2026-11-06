@@ -20,7 +20,10 @@ function Review() {
       <span id="external">اطلاعات بیشتر</span>
       <output id="value">{value}</output>
       <button id="focus" onClick={() => ref.current?.focus()}>Focus</button>
-      <Input id="password" label="رمز" type={show ? 'text' : 'password'} defaultValue="secret" dir="ltr" textScript="latin"
+      <Input id="username" label="نام کاربری" autoComplete="section-login username webauthn" />
+      <Input id="password-native" label="رمز" type="password" />
+      <Input id="password-new" label="رمز جدید" type="text" autoComplete="new-password" />
+      <Input id="password" label="رمز" type={show ? 'text' : 'password'} autoComplete="current-password" defaultValue="secret" textScript="latin"
         endAdornment={<IconButton appearance="ghost" aria-label={show ? 'پنهان کردن رمز' : 'نمایش رمز'} onClick={() => setShow(!show)}>{show ? <EyeOff /> : <Eye />}</IconButton>} />
       <Input id="password-large" controlSize="lg" label="رمز بزرگ" type="password" dir="rtl"
         endAdornment={<IconButton appearance="ghost" aria-label="نمایش رمز بزرگ"><Eye /></IconButton>} />
@@ -31,11 +34,12 @@ function Review() {
     </div>
     <output id="icon-actions">{actions}</output>
     <div id="icon-variants" className="review-grid">
-      {(['md', 'lg'] as const).flatMap(controlSize => (['start', 'end'] as const).flatMap(position =>
+      {(['sm', 'md', 'lg'] as const).flatMap(controlSize => (['start', 'end'] as const).flatMap(position =>
         (['decorative', 'action', 'changing', 'disabled', 'readonly'] as const).map(kind => {
           const key = `${controlSize}-${position}-${kind}`;
           return <Input key={key} id={`icon-${key}`} label={key} controlSize={controlSize} iconPosition={position}
             type={kind === 'changing' && !visible[key] ? 'password' : 'text'} defaultValue={kind === 'changing' ? 'secret' : 'RH-1042'}
+            autoComplete={kind === 'changing' ? 'current-password' : undefined}
             icon={kind === 'decorative' ? <Search /> : kind === 'changing' ? (visible[key] ? <EyeOff /> : <Eye />) : <Copy />}
             disabled={kind === 'disabled'} readOnly={kind === 'readonly'}
             iconAction={kind === 'decorative' ? undefined : { label: `Action ${key}`,
@@ -43,7 +47,7 @@ function Review() {
         })))}
     </div>
     <div className="review-grid">
-      {(['md', 'lg'] as const).flatMap(controlSize => (['empty', 'filled', 'error', 'disabled', 'readonly', 'pending', 'icon'] as const).map(state => <div data-case={`${controlSize}/${state}`} key={`${controlSize}/${state}`}>
+      {(['sm', 'md', 'lg'] as const).flatMap(controlSize => (['empty', 'filled', 'error', 'disabled', 'readonly', 'pending', 'icon'] as const).map(state => <div data-case={`${controlSize}/${state}`} key={`${controlSize}/${state}`}>
         <Input label="عنوان درخواست" controlSize={controlSize} defaultValue={state === 'empty' ? '' : 'ارسال به شعبه شمال'}
           error={state === 'error' ? 'عنوان درخواست را بررسی کنید' : undefined} helperText="این راهنما هنگام نوشتن باقی می‌ماند"
           disabled={state === 'disabled'} readOnly={state === 'readonly' || state === 'pending'} aria-busy={state === 'pending' || undefined}

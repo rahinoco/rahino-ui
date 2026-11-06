@@ -95,6 +95,18 @@
             "path": "rds.color.surface.inverse",
             "set": "dark"
           }
+        },
+        "disabled": {
+          "light": {
+            "$binding": "token",
+            "path": "rds.color.surface.disabled",
+            "set": "light"
+          },
+          "dark": {
+            "$binding": "token",
+            "path": "rds.color.surface.disabled",
+            "set": "dark"
+          }
         }
       },
       "SCRIM": {
@@ -259,65 +271,65 @@
           "set": "dark"
         }
       },
-      "ACTION_PRIMARY_BG": {
+      "ACTION_BRAND_BG": {
         "default": {
           "light": {
             "$binding": "token",
-            "path": "rds.color.action.primary.bg.default",
+            "path": "rds.color.action.brand.bg.default",
             "set": "light"
           },
           "dark": {
             "$binding": "token",
-            "path": "rds.color.action.primary.bg.default",
+            "path": "rds.color.action.brand.bg.default",
             "set": "dark"
           }
         },
         "hover": {
           "light": {
             "$binding": "token",
-            "path": "rds.color.action.primary.bg.hover",
+            "path": "rds.color.action.brand.bg.hover",
             "set": "light"
           },
           "dark": {
             "$binding": "token",
-            "path": "rds.color.action.primary.bg.hover",
+            "path": "rds.color.action.brand.bg.hover",
             "set": "dark"
           }
         },
         "pressed": {
           "light": {
             "$binding": "token",
-            "path": "rds.color.action.primary.bg.pressed",
+            "path": "rds.color.action.brand.bg.pressed",
             "set": "light"
           },
           "dark": {
             "$binding": "token",
-            "path": "rds.color.action.primary.bg.pressed",
+            "path": "rds.color.action.brand.bg.pressed",
             "set": "dark"
           }
         },
         "disabled": {
           "light": {
             "$binding": "token",
-            "path": "rds.color.action.primary.bg.disabled",
+            "path": "rds.color.action.brand.bg.disabled",
             "set": "light"
           },
           "dark": {
             "$binding": "token",
-            "path": "rds.color.action.primary.bg.disabled",
+            "path": "rds.color.action.brand.bg.disabled",
             "set": "dark"
           }
         }
       },
-      "ACTION_PRIMARY_FG": {
+      "ACTION_BRAND_FG": {
         "light": {
           "$binding": "token",
-          "path": "rds.color.action.primary.fg",
+          "path": "rds.color.action.brand.fg",
           "set": "light"
         },
         "dark": {
           "$binding": "token",
-          "path": "rds.color.action.primary.fg",
+          "path": "rds.color.action.brand.fg",
           "set": "dark"
         }
       },
@@ -1014,44 +1026,6 @@
           "dark": {
             "$binding": "token",
             "path": "rds.color.action.neutral.bg.pressed",
-            "set": "dark"
-          }
-        }
-      },
-      "ACTION_NEUTRAL_SUBTLE_BG": {
-        "default": {
-          "light": {
-            "$binding": "token",
-            "path": "rds.color.action.neutral-subtle.bg.default",
-            "set": "light"
-          },
-          "dark": {
-            "$binding": "token",
-            "path": "rds.color.action.neutral-subtle.bg.default",
-            "set": "dark"
-          }
-        },
-        "hover": {
-          "light": {
-            "$binding": "token",
-            "path": "rds.color.action.neutral-subtle.bg.hover",
-            "set": "light"
-          },
-          "dark": {
-            "$binding": "token",
-            "path": "rds.color.action.neutral-subtle.bg.hover",
-            "set": "dark"
-          }
-        },
-        "pressed": {
-          "light": {
-            "$binding": "token",
-            "path": "rds.color.action.neutral-subtle.bg.pressed",
-            "set": "light"
-          },
-          "dark": {
-            "$binding": "token",
-            "path": "rds.color.action.neutral-subtle.bg.pressed",
             "set": "dark"
           }
         }

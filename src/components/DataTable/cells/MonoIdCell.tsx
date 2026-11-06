@@ -11,20 +11,20 @@ export interface MonoIdCellProps {
 
 export function MonoIdCell({ prefix = '', suffix, label }: MonoIdCellProps) {
   return (
-    <div className="flex flex-col gap-1 min-w-0">
+    <div className="rds-table__two-line">
       {label ? (
-        <span className="text-[9px] font-black uppercase text-slate-400 tracking-wider hidden md:inline">
+        <span className="rds-table__secondary">
           {label}
         </span>
       ) : null}
-      <div className="flex items-center gap-1 text-[11px] font-mono font-bold min-w-0">
-        <span className="text-slate-700 tracking-wide bg-slate-50 px-1.5 py-0.5 rounded-md ring-1 ring-slate-900/[0.04] shrink-0">
+      <div className="rds-table__id">
+        <span className="rds-table__id-prefix">
           {toPersianDigits(prefix)}
         </span>
         {suffix ? (
           <>
-            <span className="text-slate-300">/</span>
-            <span className="text-slate-500 tracking-wide truncate">{toPersianDigits(suffix)}</span>
+            <span aria-hidden="true">/</span>
+            <span>{toPersianDigits(suffix)}</span>
           </>
         ) : null}
       </div>

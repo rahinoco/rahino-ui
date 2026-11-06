@@ -359,7 +359,8 @@
           "subtle": 3.1987174168,
           "raised": 2.9693966326,
           "sunken": 4.7782807529,
-          "inverse": 3.7410031702
+          "inverse": 3.7410031702,
+          "disabled": 3.4859587171
         }
       },
       "reviewIssues": [],
@@ -403,7 +404,8 @@
           "subtle": 3.6640643273,
           "raised": 3.4013821346,
           "sunken": 5.4734213034,
-          "inverse": 3.2658848011
+          "inverse": 3.2658848011,
+          "disabled": 3.9930932676
         }
       },
       "capturedValue": {

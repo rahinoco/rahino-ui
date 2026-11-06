@@ -40,6 +40,18 @@ try {
   await page.addScriptTag({ type: 'module', content: script });
   await page.locator('[data-case]').first().waitFor();
   await page.evaluate(() => document.fonts.ready);
+  const sizeGeometry = await page.locator('[data-case] .rds-button').evaluateAll(nodes => nodes.map(node => ({
+    id: node.parentElement.dataset.case,
+    size: node.dataset.size,
+    iconOnly: node.dataset.iconOnly === 'true',
+    height: node.getBoundingClientRect().height,
+    width: node.getBoundingClientRect().width,
+  })));
+  for (const button of sizeGeometry) {
+    const expected = { sm: 32, md: 40, lg: 48 }[button.size];
+    assert.equal(button.height, expected, `${button.id}: button height`);
+    if (button.iconOnly) assert.equal(button.width, expected, `${button.id}: square icon button`);
+  }
   const fractional = page.locator('[data-geometry-case] .rds-button');
   const geometry = await fractional.evaluate(node => ({ width: getComputedStyle(node).width, height: getComputedStyle(node).height, radius: getComputedStyle(node).borderRadius, clip: getComputedStyle(node).clipPath, filter: getComputedStyle(node).filter }));
   assert.equal(geometry.width, '123.375px');
@@ -99,11 +111,20 @@ try {
         const bgRole = disabled ? (solidBrand ? '--rds-button-solid-brand-bg-disabled' : '--rds-button-bg-disabled')
           : selected ? '--rds-button-selected-bg' + feedback : '--rds-button-bg' + feedback;
         const fgRole = disabled ? (solidBrand ? '--rds-color-ink-primary' : '--rds-button-fg-disabled') : '--rds-button-fg' + feedback;
-        const expectedBg = css.getPropertyValue(bgRole).trim();
+        const disabledGhost = parent.dataset.state === 'disabled' && node.dataset.appearance === 'ghost';
+        const expectedBg = disabledGhost ? 'none' : css.getPropertyValue(bgRole).trim();
         const expectedFg = css.getPropertyValue(fgRole).trim();
         if (expectedBg !== 'none' && JSON.stringify(rgba(css.backgroundColor)) !== JSON.stringify(rgba(expectedBg))) throw new Error(parent.dataset.case + '/' + state + ': incorrect state fill');
-        if (expectedBg === 'none' && rgba(css.backgroundColor)[3] !== 0) throw new Error(parent.dataset.case + ': ghost rest must have no fill');
+        if (expectedBg === 'none' && rgba(css.backgroundColor)[3] !== 0) throw new Error(parent.dataset.case + '/' + state + ': ghost button must have no fill in this state');
         if (JSON.stringify(rgba(css.color)) !== JSON.stringify(rgba(expectedFg))) throw new Error(parent.dataset.case + '/' + state + ': incorrect state foreground');
+        if (!disabled && !selected && node.dataset.appearance === 'ghost' && node.dataset.intent === 'danger') {
+          const red = css.getPropertyValue('--rds-color-status-error-fg').trim();
+          if (JSON.stringify(rgba(css.color)) !== JSON.stringify(rgba(red))) throw new Error(parent.dataset.case + '/' + state + ': ghost danger must retain its resting red foreground');
+        }
+        if (!disabled && !selected && state === 'hover' && node.dataset.appearance === 'ghost' && node.dataset.intent === 'neutral') {
+          const hover = css.getPropertyValue('--rds-color-interaction-neutral-hover').trim();
+          if (JSON.stringify(rgba(css.backgroundColor)) !== JSON.stringify(rgba(hover))) throw new Error(parent.dataset.case + ': ghost neutral hover must use the interaction hover fill');
+        }
         if (css.opacity !== '1' || overlay.content !== 'none') throw new Error(parent.dataset.case + ': opacity or overlay modifies semantic colors');
         if ([...node.querySelectorAll('svg')].some(svg => getComputedStyle(svg).opacity !== '1')) throw new Error(parent.dataset.case + ': icon/spinner opacity modifies foreground');
         for (const svg of node.querySelectorAll('.rds-button__icon svg')) {
@@ -339,6 +360,8 @@ try {
   await page.emulateMedia({ forcedColors: 'none' });
   const model = await loadModel();
   const additions = model.manifest.approvedSemanticAdditions.find(item => item.approval === 'semantic-action-states-2026-11-03');
+  const retiredPaths = new Set((model.manifest.approvedSemanticRemovals ?? []).flatMap(item => Object.keys(item.replacements)));
+  const currentAdditionPaths = additions.paths.filter(p => !retiredPaths.has(p));
   await page.evaluate(() => {
     const stage = document.createElement('div');
     stage.id = 'color-review-stage';
@@ -353,9 +376,16 @@ try {
       stage.dataset.appearance = appearance;
       stage.dataset.contrast = contrast;
     }, { appearance, contrast });
-    const expected = Object.fromEntries([...additions.paths, 'rds.color.ink.primary', 'rds.color.surface.base'].map(p => ['--' + p.replaceAll('.', '-'), resolveColor(p, { appearance, contrast })]));
-    const actual = await page.locator('#color-review-stage').evaluate((stage, expected) => Object.fromEntries(Object.keys(expected).map(p => [p, getComputedStyle(stage).getPropertyValue(p).trim()])), expected);
-    assert.deepEqual(actual, expected, appearance + '/' + contrast + ' preview aliases must resolve independently of the root theme');
+    const expected = Object.fromEntries([...currentAdditionPaths, 'rds.color.surface.subtle', 'rds.color.interaction.neutral.hover', 'rds.color.interaction.neutral.pressed', 'rds.color.ink.primary', 'rds.color.surface.base'].map(p => ['--' + p.replaceAll('.', '-'), resolveColor(p, { appearance, contrast })]));
+    const colors = await page.locator('#color-review-stage').evaluate((stage, expected) => {
+      // CSS minification may serialize the same alpha as .1 or 0.10.
+      const normalize = value => { const probe = document.createElement('span'); probe.style.color = value; return probe.style.color; };
+      return {
+        actual: Object.fromEntries(Object.keys(expected).map(p => [p, normalize(getComputedStyle(stage).getPropertyValue(p).trim())])),
+        expected: Object.fromEntries(Object.entries(expected).map(([p, value]) => [p, normalize(value)])),
+      };
+    }, expected);
+    assert.deepEqual(colors.actual, colors.expected, appearance + '/' + contrast + ' preview aliases must resolve independently of the root theme');
   }
   await page.evaluate(() => {
     const stage = document.querySelector('#color-review-stage');

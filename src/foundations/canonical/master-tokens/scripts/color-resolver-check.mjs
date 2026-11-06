@@ -38,6 +38,6 @@ export async function checkColorResolver() {
   assert.equal(resolveColor('rds.color.brand.bg.hover', { appearance: 'light', contrast: 'forced-colors' }), 'Canvas');
   assert.equal(resolveColor('rds.color.brand.fg', { appearance: 'dark', contrast: 'forced-colors' }), 'CanvasText');
   assert.equal(resolveColor('rds.color.ink.on-brand', { appearance: 'dark', contrast: 'forced-colors' }), 'ButtonText');
-  assert.equal(resolveColor('rds.color.action.primary.fg', { appearance: 'light', contrast: 'forced-colors' }), 'ButtonText');
+  assert.equal(resolveColor('rds.color.action.brand.fg', { appearance: 'light', contrast: 'forced-colors' }), 'ButtonText');
   return { contexts, colorValuesChecked: checked, serverImportSafe: true };
 }

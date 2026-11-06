@@ -12,6 +12,7 @@ import { createPortal } from 'react-dom';
 import { twMerge } from 'tailwind-merge';
 
 import type { UiIcon } from '@/types/icon';
+import IconButton from '@/components/IconButton';
 
 function motionEase(value: string): [number, number, number, number] {
   const [a,b,c,d] = value.slice(value.indexOf('(') + 1, -1).split(',').map(Number);
@@ -204,6 +205,8 @@ export default function Modal({
       const onKey = (event: KeyboardEvent) => {
         if (modalLayers[modalLayers.length - 1]?.id !== layerId) return;
         if (event.key === 'Escape') {
+          // Let an expanded child combobox dismiss its own popup first.
+          if (event.target instanceof Element && event.target.closest('[role="combobox"][aria-expanded="true"]')) return;
           event.preventDefault();
           event.stopPropagation();
           if (closeOnEscapeRef.current) onCloseRef.current();
@@ -322,17 +325,16 @@ export default function Modal({
                     </div>
                   </div>
                   {!hideClose && (
-                    <button
-                      type="button"
+                    <IconButton
+                      appearance="ghost"
+                      size="sm"
+                      radius="more"
                       onClick={() => {
                         if (closeOnEscape) onClose();
                         else onDismissBlocked?.();
                       }}
-                      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl text-fg-subtle outline-none transition-colors hover:bg-error-50 hover:text-error-500"
                       aria-label="بستن"
-                    >
-                      <X size={18} strokeWidth={2.5} />
-                    </button>
+                    ><X /></IconButton>
                   )}
                 </div>
                 {headerExtra}

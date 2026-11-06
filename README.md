@@ -47,9 +47,15 @@ import { INVENTORY, COMPARISON_REGISTRY, DECISIONS } from '@rahinoco/rahino-ui';
 
 ## Docs workbench
 
+DataTable keeps the existing floating row base and adds foundation-backed neutral/brand background hover, full-row native activation, independent selection, and error/retry review states. Header dot menus and the logistics example's trailing action are removed. Review at `/components/data-table`; see [use cases and pending state approval](docs/DATA_TABLE_USAGE.md).
+
+SegmentedControl is a review candidate for local view switching and exclusive filters, with neutral/brand tones and text/icon-with-text content. Compare both at `/components/segmented-control`. See [use cases, foundation mappings and state approval](docs/SEGMENTED_CONTROL_USAGE.md). No new motion tokens; human approval remains pending.
+
 Button, IconButton and ToggleButton retain their existing definitions and add `radius="less" | "more"` (8px default / 12px). The [button redesign record](docs/BUTTON_REDESIGN.md) documents foundation mappings, use cases, validation and pending human state approval.
 
 The [button use-case guide](docs/BUTTON_USAGE.md) maps each type and appearance/intent combination to its role, examples and exclusions, with published global/Persian sources and the owner's RTL/destructive-action decisions.
+
+Select has foundation-based single and multiple review variants with optional search, `sm` (32px), `md` (40px, default), and `lg` (48px) field sizes, and reuse of Checkbox. See the [select use cases and review contract](docs/SELECT_USAGE.md), `/components/select` in the workbench, and `npm run test:select`. Human state approval is pending.
 
 `rahino-ui-frontend` (Storybook) at [design.rahino.co](https://design.rahino.co) — consumes this library. Do not reimplement components there.
 

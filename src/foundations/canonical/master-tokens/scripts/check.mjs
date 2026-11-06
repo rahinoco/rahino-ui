@@ -22,7 +22,9 @@ const semanticColorMigration = manifest.semanticColorMigration ? await json(mani
 const semanticPaths = new Map(semanticColorMigration?.renames.map(item => [item.from, item.to]) ?? []);
 const stateNamingMigration = manifest.stateNamingMigration ? await json(manifest.stateNamingMigration) : null;
 const statePaths = new Map(stateNamingMigration?.renames.map(item => [item.from, item.to]) ?? []);
-const activePath = publicPath => { const p = semanticPaths.get(publicPath) ?? publicPath; return statePaths.get(p) ?? p; };
+const actionPaths = new Map((manifest.approvedSemanticRenames ?? []).flatMap(item => Object.entries(item.renames)));
+const referencePaths = new Map((manifest.approvedReferenceRenames ?? []).flatMap(item => Object.entries(item.renames)));
+const activePath = publicPath => { const p = semanticPaths.get(publicPath) ?? publicPath; const state = statePaths.get(p) ?? p; const action = actionPaths.get(state) ?? state; return referencePaths.get(action) ?? action; };
 const issueIds = new Set(decisions.items.map(item => item.id));
 const typographyPolicy = typography.policy;
 assert.equal(typographyPolicy.representation, 'semantic-text-styles');
@@ -79,6 +81,18 @@ const hashAfterApprovedChanges = (file, initialHash) => {
 };
 const tokenChanges = manifest.approvedTokenChanges ?? [];
 const semanticAdditions = manifest.approvedSemanticAdditions ?? [];
+const semanticRemovals = manifest.approvedSemanticRemovals ?? [];
+const semanticRenames = manifest.approvedSemanticRenames ?? [];
+const referenceRenames = manifest.approvedReferenceRenames ?? [];
+for (const rename of referenceRenames) {
+  assert(decisions.items.some(item => item.status === 'resolved' && item.resolution?.approval === rename.approval), 'Reference renames require a recorded decision');
+}
+for (const rename of semanticRenames) {
+  assert(decisions.items.some(item => item.status === 'resolved' && item.resolution?.approval === rename.approval), 'Semantic renames require a recorded decision');
+}
+for (const removal of semanticRemovals) {
+  assert(decisions.items.some(item => item.status === 'resolved' && item.resolution?.approval === removal.approval), 'Semantic removals require a recorded decision');
+}
 for (const addition of semanticAdditions) {
   assert(decisions.items.some(item => item.status === 'resolved' && item.resolution?.approval === addition.approval), 'Semantic additions require a recorded decision');
   assert(addition.paths.every(p => p.startsWith('rds.color.') && !/button|checkbox/.test(p)), 'Semantic color names must be component-independent');
@@ -89,7 +103,7 @@ for (const change of [...tokenChanges, ...retiredReferences.values()]) {
 }
 const amendedValue = (set, publicPath, initial, property) => {
   let value = initial;
-  for (const change of tokenChanges.filter(item => item.set === set && item.publicPath === publicPath)) {
+  for (const change of tokenChanges.filter(item => item.set === set && activePath(item.publicPath) === activePath(publicPath))) {
     assert.deepEqual(value, change[property === 'alias' ? 'beforeAlias' : 'beforeValue'], `Broken token amendment: ${publicPath}`);
     value = change[property === 'alias' ? 'afterAlias' : 'afterValue'];
   }
@@ -156,6 +170,25 @@ for (const [name, config] of Object.entries(manifest.sets)) {
   const document = await json(config.file);
   assert(!JSON.stringify(document).includes('"$modes"'), 'Custom $modes is not permitted.');
   sets[name] = flatten(document);
+  if (name === 'shared') for (const rename of referenceRenames) {
+    for (const [previous, current] of Object.entries(rename.renames)) {
+      assert(!sets[name].has(previous), `Renamed reference remains published: ${previous}`);
+      assert(sets[name].has(current), `Renamed reference is missing: ${current}`);
+      assert.equal(sets[name].get(current).$value.alpha, rename.alpha[current], `Incorrect alpha for renamed reference: ${current}`);
+    }
+  }
+  for (const rename of semanticRenames.filter(item => item.sets.includes(name))) {
+    for (const [previous, current] of Object.entries(rename.renames)) {
+      assert(!sets[name].has(previous), `Renamed semantic token remains published: ${previous}`);
+      assert(sets[name].has(current), `Renamed semantic token is missing: ${current}`);
+    }
+  }
+  for (const removal of semanticRemovals.filter(item => item.sets.includes(name))) {
+    for (const [retired, replacement] of Object.entries(removal.replacements)) {
+      assert(!sets[name].has(retired), `Retired semantic token remains published: ${retired}`);
+      assert(sets[name].has(replacement) || sets.shared.has(replacement), `Missing replacement for retired semantic token: ${retired}`);
+    }
+  }
   setDefinitions += sets[name].size;
   for (const [publicPath, token] of sets[name]) {
     assert(/^(ref|rds|recipe)(?:\.[a-z0-9]+(?:-[a-z0-9]+)*)+$/.test(publicPath), `Invalid public name ${publicPath}`);
@@ -225,7 +258,8 @@ if (auditAdoption && manifest.referenceLayer) {
       assert.deepEqual(actual.$value, amendedValue(name, publicPath, expected.$value, 'value'), `Unapproved value change: ${name}:${publicPath}`);
       referenceBaselineDefinitions++;
     }
-    const approvedPaths = semanticAdditions.filter(item => item.sets.includes(name)).flatMap(item => item.paths);
+    const retiredPaths = new Set(semanticRemovals.filter(item => item.sets.includes(name)).flatMap(item => Object.keys(item.replacements)));
+    const approvedPaths = semanticAdditions.filter(item => item.sets.includes(name)).flatMap(item => item.paths).filter(p => !retiredPaths.has(p));
     assert.deepEqual([...sets[name].keys()].filter(key => key.startsWith('rds.')).sort(), [...Object.keys(snapshot).filter(key => key.startsWith('rds.')).map(activePath), ...approvedPaths].sort(), `Unapproved semantic path change: ${name}`);
   }
   const newPaths = [...sets.shared.keys()].filter(key => key.startsWith('ref.') && !Object.hasOwn(baseline.sets.shared, key));
@@ -703,12 +737,12 @@ for (const appearance of ['light', 'dark']) {
   assert.deepEqual(resolveContext({ appearance, contrast: 'standard' }).overrides, {});
 }
 for (const appearance of ['light', 'dark']) {
-  assert.equal(sets[appearance].get('rds.color.action.primary.fg').$value, '{rds.color.ink.on-brand}', 'Primary fills must use on-brand ink');
+  assert.equal(sets[appearance].get('rds.color.action.brand.fg').$value, '{rds.color.ink.on-brand}', 'Primary fills must use on-brand ink');
   for (const state of ['default', 'hover', 'pressed']) {
-    assert(ratio(C.INK['on-brand'][appearance], C.ACTION_PRIMARY_BG[state][appearance]) >= 4.5, `On-brand text contrast fails: ${appearance}/${state}`);
+    assert(ratio(C.INK['on-brand'][appearance], C.ACTION_BRAND_BG[state][appearance]) >= 4.5, `On-brand text contrast fails: ${appearance}/${state}`);
   }
 }
-assert.strictEqual(C.ACTION_PRIMARY_FG, C.INK['on-brand'], 'The existing primary foreground export must reuse on-brand ink');
+assert.strictEqual(C.ACTION_BRAND_FG, C.INK['on-brand'], 'The existing primary foreground export must reuse on-brand ink');
 const contrastPolicy = await checkContrastPolicy({ darkFocusOnSurfaces });
 const distinct = new Set(Object.values(sets).flatMap(tokens => [...tokens.keys()]));
 const colorResolverChecks = await checkColorResolver();

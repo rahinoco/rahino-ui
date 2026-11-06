@@ -954,6 +954,101 @@
         "lightChanged": false,
         "componentStatesApproved": false
       }
+    },
+    {
+      "id": "neutral-subtle-role-removal-2026-11-04",
+      "status": "resolved",
+      "title": "Reuse surface and neutral interaction roles for low-emphasis actions",
+      "currentEvidence": "The owner explicitly requested removal of all three neutral-subtle background tokens and replacement of recipe references: default to surface.subtle, hover to neutral interaction hover, pressed to neutral interaction pressed.",
+      "nextStep": "Regenerate canonical outputs and verify removed paths, recipe references and both themes. Component state approval remains separate.",
+      "resolution": {
+        "approval": "neutral-subtle-role-removal-2026-11-04",
+        "approvedOn": "2026-11-04",
+        "replacements": {
+          "rds.color.action.neutral-subtle.bg.default": "rds.color.surface.subtle",
+          "rds.color.action.neutral-subtle.bg.hover": "rds.color.interaction.neutral.hover",
+          "rds.color.action.neutral-subtle.bg.pressed": "rds.color.interaction.neutral.pressed"
+        },
+        "referencePaletteChanged": false,
+        "componentStatesApproved": false
+      }
+    },
+    {
+      "id": "neutral-and-brand-action-update-2026-11-04",
+      "status": "resolved",
+      "title": "Light neutral action update and brand action naming",
+      "currentEvidence": "Owner supplied gray.935 = #28252B and confirmed the neutral changes are light-only: default gray.935, hover/pressed gray.975. Owner requested action primary to be renamed brand and supplied light background aliases plum.775 default, plum.375 disabled, plum.850 hover, plum.900 pressed. The supplied surface screenshot also identifies disabled as gray-warm.100 in light and gray.935 in dark, which were missing from the local collection.",
+      "nextStep": "Regenerate outputs, migrate current consumers and verify mappings and unchanged existing dark values. Component state approval remains separate.",
+      "resolution": {
+        "approval": "neutral-and-brand-action-update-2026-11-04",
+        "approvedOn": "2026-11-04",
+        "reference": {
+          "path": "ref.color.gray.935",
+          "value": "#28252B"
+        },
+        "neutralTheme": "light",
+        "brandValueTheme": "light",
+        "rename": "rds.color.action.primary → rds.color.action.brand",
+        "surfaceDisabled": {
+          "light": "ref.color.gray-warm.100",
+          "dark": "ref.color.gray.935"
+        },
+        "componentStatesApproved": false
+      }
+    },
+    {
+      "id": "neutral-interaction-alpha-update-2026-11-04",
+      "status": "resolved",
+      "title": "Neutral interaction alpha references become 4% and 8%",
+      "currentEvidence": "Owner explicitly requested 875-alpha-6 → 875-alpha-4 at 4% opacity and 875-alpha-10 → 875-alpha-8 at 8% opacity.",
+      "nextStep": "Regenerate outputs and verify alpha, alias integrity, and unchanged RGB/dark values. Component state approval remains separate.",
+      "resolution": {
+        "approval": "neutral-interaction-alpha-update-2026-11-04",
+        "approvedOn": "2026-11-04",
+        "renames": {
+          "ref.color.gray-warm.875-alpha-6": "ref.color.gray-warm.875-alpha-4",
+          "ref.color.gray-warm.875-alpha-10": "ref.color.gray-warm.875-alpha-8"
+        },
+        "alpha": {
+          "ref.color.gray-warm.875-alpha-4": 0.04,
+          "ref.color.gray-warm.875-alpha-8": 0.08
+        },
+        "rgbChanged": false,
+        "darkValuesChanged": false,
+        "componentStatesApproved": false
+      }
+    },
+    {
+      "id": "plum-25-reference-addition-2026-11-04",
+      "status": "resolved",
+      "title": "Plum 25 raw palette reference",
+      "currentEvidence": "Owner explicitly requested a ref token plum 25 with hex FFF5FC.",
+      "nextStep": "Regenerate and validate the raw reference, CSS, resolver and design handoff outputs.",
+      "resolution": {
+        "approval": "plum-25-reference-addition-2026-11-04",
+        "approvedOn": "2026-11-04",
+        "reference": {
+          "path": "ref.color.plum.25",
+          "value": "#FFF5FC"
+        },
+        "semanticMappingsChanged": false,
+        "componentStatesApproved": false
+      }
+    },
+    {
+      "id": "light-danger-pressed-red-750-2026-11-06",
+      "status": "resolved",
+      "title": "Light solid danger press uses red 750",
+      "currentEvidence": "The user requested red.750 for action.danger.bg.pressed. The supplied screenshot shows the light mapping, identified by its red.625 hover reference.",
+      "nextStep": "Regenerate and validate the light action mapping.",
+      "resolution": {
+        "approval": "light-danger-pressed-red-750-2026-11-06",
+        "approvedOn": "2026-11-06",
+        "set": "light",
+        "publicPath": "rds.color.action.danger.bg.pressed",
+        "reference": "ref.color.red.750",
+        "componentStatesApproved": false
+      }
     }
   ]
 }

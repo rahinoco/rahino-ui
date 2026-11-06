@@ -1,0 +1,101 @@
+/* Select recipe. Colors resolve through existing foundation references. */
+.rds-select {
+  --rds-select-height: var(--rds-space-600);
+  --rds-select-padding-inline: var(--rds-size-control-md-padding-inline);
+  --rds-select-padding-block: var(--rds-space-75);
+  --rds-select-radius: var(--rds-radius-12);
+  --rds-select-menu-gap: var(--rds-space-100);
+  --rds-select-viewport-gutter: var(--rds-space-100);
+  --rds-select-menu-max-height: 280px;
+  display: grid; align-content: start; gap: var(--rds-space-75);
+  inline-size: 100%; min-inline-size: 0;
+  color: var(--rds-color-ink-primary);
+  font-family: var(--rds-font-family-content, var(--rds-font-family-fa)); font-synthesis: none;
+}
+.rds-select[data-control-size='sm'] {
+  --rds-select-height: var(--rds-space-500);
+  --rds-select-padding-inline: var(--rds-size-control-sm-padding-inline);
+  --rds-select-padding-block: var(--rds-space-25);
+}
+.rds-select[data-control-size='lg'] {
+  --rds-select-height: var(--rds-space-700);
+  --rds-select-padding-inline: var(--rds-size-control-lg-padding-inline);
+  --rds-select-padding-block: var(--rds-space-100);
+}
+.rds-select[data-text-script='fa'] { font-family: var(--rds-font-family-fa); }
+.rds-select[data-text-script='latin'] { font-family: var(--rds-font-family-latin); }
+.rds-select__label {
+  display: flex; align-items: baseline; gap: var(--rds-space-50); margin-block-end: var(--rds-space-75);
+  font-size: var(--rds-type-label-sm-font-size); font-weight: var(--rds-type-label-sm-font-weight); line-height: var(--rds-type-label-sm-line-height);
+}
+.rds-select__label > span { color: var(--rds-color-ink-secondary); }
+.rds-select__field {
+  position: relative; isolation: isolate; min-inline-size: 0;
+  border: 0; border-radius: var(--rds-select-radius); background: var(--rds-color-surface-sunken);
+}
+.rds-select__field::before, .rds-select__field::after {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0;
+}
+.rds-select__field::before { z-index: -1; background: var(--rds-color-interaction-neutral-hover); transition: opacity var(--rds-motion-duration-feedback) var(--rds-motion-easing-standard); }
+.rds-select__field::after { z-index: 2; box-shadow: inset 0 0 0 var(--rds-focus-ring-width) var(--rds-color-focus-ring); }
+.rds-select__field:focus-within::after, .rds-select__field[data-open]::after { opacity: 1; }
+.rds-select .rds-select__control {
+  display: block; box-sizing: border-box; inline-size: 100%; min-inline-size: 0; min-block-size: var(--rds-select-height);
+  padding: var(--rds-select-padding-block) var(--rds-select-padding-inline);
+  padding-inline-end: calc(var(--rds-select-padding-inline) + var(--rds-icon-size-md) + var(--rds-space-100));
+  border: 0; border-radius: inherit; margin: 0; outline: 0; box-shadow: none; background: transparent;
+  color: inherit; font-family: inherit; font-size: var(--rds-type-input-touch-font-size); font-weight: var(--rds-type-input-touch-font-weight); line-height: var(--rds-type-input-touch-line-height);
+  text-align: start; text-overflow: ellipsis; cursor: pointer;
+}
+.rds-select__control::placeholder { color: var(--rds-color-ink-tertiary); opacity: 1; }
+.rds-select__field[data-open] .rds-select__control::placeholder { color: var(--rds-color-ink-primary); }
+.rds-select__icon { position: absolute; inset-inline-end: var(--rds-select-padding-inline); inset-block: 0; display: flex; align-items: center; pointer-events: none; color: var(--rds-color-ink-secondary); }
+.rds-select__icon svg { display: block; inline-size: var(--rds-icon-size-md); block-size: var(--rds-icon-size-md); stroke-width: var(--rds-icon-stroke-width); }
+.rds-select__field[data-readonly] { background: var(--rds-color-surface-base); }
+.rds-select__field[data-readonly] .rds-select__control { cursor: default; }
+.rds-select__field[data-invalid] { background: var(--rds-color-status-error-bg); }
+.rds-select__field[data-disabled] { background: var(--rds-color-surface-subtle); }
+.rds-select__field[data-disabled] .rds-select__control, .rds-select__field[data-disabled] .rds-select__icon {
+  color: var(--rds-color-ink-disabled); -webkit-text-fill-color: var(--rds-color-ink-disabled); opacity: 1; cursor: not-allowed;
+}
+.rds-select__hint, .rds-select__error { margin: 0; font-size: var(--rds-type-caption-sm-font-size); font-weight: var(--rds-type-caption-sm-font-weight); line-height: var(--rds-type-caption-sm-line-height); overflow-wrap: anywhere; }
+.rds-select__hint { color: var(--rds-color-ink-secondary); }
+.rds-select__error { display: flex; align-items: center; gap: var(--rds-space-50); color: var(--rds-color-status-error-fg); }
+.rds-select__error svg { flex: none; inline-size: var(--rds-icon-size-sm); block-size: var(--rds-icon-size-sm); fill: none; stroke: currentColor; stroke-width: var(--rds-icon-stroke-width); stroke-linecap: round; }
+.rds-select__menu {
+  box-sizing: border-box; position: fixed; inset: auto; margin: 0;
+  padding: var(--rds-space-85); border: 0; border-radius: var(--rds-select-radius);
+  background: var(--rds-color-surface-raised); color: var(--rds-color-ink-primary); box-shadow: var(--rds-shadow-md);
+  overflow: auto; overscroll-behavior: contain; scrollbar-width: thin; font-family: inherit; font-synthesis: none;
+}
+.rds-select__menu::backdrop { background: transparent; pointer-events: none; }
+.rds-select__option, .rds-select__option.rds-checkbox {
+  position: relative; isolation: isolate; box-sizing: border-box; display: flex; align-items: center; justify-content: flex-start;
+  inline-size: 100%; min-inline-size: 0; min-block-size: max(var(--rds-select-height), var(--rds-size-touch-min));
+  padding: var(--rds-space-100) var(--rds-space-200); gap: var(--rds-space-100);
+  margin: 0; border: 0; border-radius: var(--rds-radius-8); outline: 0; box-shadow: none; background: transparent;
+  color: var(--rds-color-ink-primary); font-family: inherit;
+  font-size: var(--rds-type-label-sm-font-size); font-weight: var(--rds-font-weight-control); line-height: var(--rds-type-label-sm-line-height);
+  text-align: start; overflow-wrap: anywhere; cursor: pointer;
+}
+.rds-select__option::after { content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none; }
+[data-active] > .rds-select__option::after { background: var(--rds-color-interaction-neutral-hover); }
+.rds-select__option:active:not(:disabled)::after { background: var(--rds-color-interaction-neutral-pressed); }
+.rds-select__option:disabled { color: var(--rds-color-ink-disabled); cursor: not-allowed; }
+.rds-select__message { margin: 0; padding: var(--rds-space-200); font-size: var(--rds-type-body-sm-font-size); line-height: var(--rds-type-body-sm-line-height); color: var(--rds-color-ink-secondary); overflow-wrap: anywhere; }
+.rds-select__native { position: absolute; inline-size: 1px; block-size: 1px; padding: 0; margin: -1px; border: 0; clip-path: inset(50%); overflow: hidden; white-space: nowrap; }
+@media (hover: hover) {
+  .rds-select__field:not([data-disabled]):not([data-readonly]):hover::before { opacity: 1; }
+  .rds-select__option:not(:disabled):hover::after { background: var(--rds-color-interaction-neutral-hover); }
+}
+@media (prefers-reduced-motion: reduce) { .rds-select__field::before { transition: none; } }
+@media (forced-colors: active) {
+  .rds-select__field { background: Canvas; outline: var(--rds-border-width-default) solid ButtonText; outline-offset: calc(-1 * var(--rds-border-width-default)); }
+  .rds-select__field::before, .rds-select__field::after, .rds-select__option::after { display: none; }
+  .rds-select__field:focus-within, .rds-select__field[data-open] { outline: var(--rds-focus-ring-width) solid Highlight; outline-offset: calc(-1 * var(--rds-focus-ring-width)); }
+  .rds-select__field[data-disabled] { outline-color: GrayText; }
+  .rds-select__field[data-disabled] .rds-select__control { color: GrayText; -webkit-text-fill-color: GrayText; }
+  .rds-select__menu { border: var(--rds-border-width-default) solid ButtonText; background: Canvas; color: CanvasText; }
+  [data-active] > .rds-select__option { forced-color-adjust: none; background: Highlight; color: HighlightText; }
+  .rds-select__option:disabled { color: GrayText; }
+}

@@ -1,0 +1,9 @@
+.rds-data-state { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--rds-space-300); padding: var(--rds-space-800) var(--rds-space-400); text-align: center; color: var(--rds-color-ink-secondary); font-family: var(--rds-font-family-content, var(--rds-font-family-fa)); font-size: var(--rds-type-body-sm-font-size); line-height: var(--rds-type-body-sm-line-height); }
+.rds-data-state p { margin: 0; max-inline-size: var(--rds-type-layout-measure-reading); }
+.rds-data-state__title { color: var(--rds-color-ink-primary); font-weight: var(--rds-font-weight-medium); }
+.rds-data-state__icon { display: grid; place-items: center; inline-size: var(--rds-space-700); block-size: var(--rds-space-700); border-radius: var(--rds-radius-12); background: var(--rds-color-surface-sunken); }
+.rds-data-state__icon[data-error] { color: var(--rds-color-status-error-fg); background: var(--rds-color-status-error-bg); }
+.rds-data-state__icon > svg, .rds-data-state__spinner { inline-size: var(--rds-icon-size-lg); block-size: var(--rds-icon-size-lg); stroke-width: var(--rds-icon-stroke-width); }
+.rds-data-state__spinner { color: var(--rds-color-brand-fg); animation: rds-data-spin calc(var(--rds-motion-duration-feedback) * 6) var(--rds-motion-easing-linear) infinite; }
+@keyframes rds-data-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .rds-data-state__spinner { animation: none; } }

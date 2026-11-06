@@ -42,7 +42,8 @@
     "test:foundations": "node scripts/foundations-behavior.mjs",
     "tokens:check-generated": "node scripts/generate-foundations.ts --check-generated",
     "test:color-resolver": "node scripts/check-color-resolver.mjs",
-    "test:color-resolver:browser": "node scripts/check-color-resolver-browser.cjs"
+    "test:color-resolver:browser": "node scripts/check-color-resolver-browser.cjs",
+    "test:select": "node scripts/check-select-browser.mjs"
   },
   "peerDependencies": {
     "react": "^19.0.0",

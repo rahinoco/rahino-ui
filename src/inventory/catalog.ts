@@ -40,6 +40,17 @@ export interface InventoryItem {
 }
 
 export const INVENTORY: InventoryItem[] = [
+  {
+    id: 'segmented-control',
+    name: 'Segmented Control',
+    category: 'primitive',
+    status: 'needs-review',
+    extractedPath: 'src/components/SegmentedControl.tsx',
+    variants: ['neutral / brand', 'text / icon with text', 'sm / md / lg', 'automatic / manual activation'],
+    states: ['default', 'selected', 'hover', 'pressed', 'focus-visible', 'disabled', 'selected disabled'],
+    notes: 'Foundation-based review candidate for views and exclusive filters. Legacy SegmentedPills and Tabs are separate references.',
+    designDecisionsNeeded: ['Owner approval of neutral and brand treatments and all states', 'Manual screen-reader and other-browser review'],
+  },
   // Foundations
   {
     id: 'color',
@@ -278,17 +289,18 @@ export const INVENTORY: InventoryItem[] = [
     status: 'needs-review',
     qipperSource: 'src/shared/ui/Select.tsx',
     extractedPath: 'src/components/Select.tsx',
-    variants: ['searchable', 'static'],
-    states: ['closed', 'open', 'selected', 'empty', 'error', 'disabled'],
+    variants: ['single', 'multiple', 'searchable', 'static', 'sm', 'md', 'lg'],
+    states: ['closed', 'open', 'selected', 'empty', 'error', 'disabled', 'readonly', 'loading', 'no-results', 'disabled-option'],
     productSpecific: false,
-    knownIssues: ['Persian placeholder/empty copy hardcoded', 'Click-outside only, limited keyboard nav'],
+    knownIssues: ['Human state and screen-reader approval pending', 'Inherited foundation field and unchecked-checkbox contrast findings', 'Requires native Popover API; Chrome tested'],
+    notes: '2026-11-04 foundation-based review candidate. Single rows without checkmarks; multiple rows reuse Checkbox. See docs/SELECT_USAGE.md.',
   },
   {
     id: 'combobox',
     name: 'Combobox',
     category: 'primitive',
     status: 'existing',
-    notes: 'Searchable Select covers part of this; not a WAI-ARIA combobox.',
+    notes: 'Select now supports editable combobox/listbox behavior; arbitrary text and creation are excluded. Manual assistive-technology review pending.',
   },
   {
     id: 'autocomplete',
@@ -505,10 +517,10 @@ export const INVENTORY: InventoryItem[] = [
     qipperSource: 'src/shared/ui/QipperTable/',
     extractedPath: 'src/components/DataTable/',
     variants: ['card', 'compact', 'asset'],
-    states: ['loading', 'empty', 'sort', 'filter', 'pagination', 'selection', 'mobile card'],
+    states: ['default', 'hover', 'pressed', 'focus-visible', 'selected', 'disabled', 'loading', 'empty', 'error', 'sort', 'pagination', 'selection', 'mobile card'],
     knownIssues: [
       'Mobile role heuristics hardcode Qipper column ids (name, part, statusIcon)',
-      'Persian copy in column menu/pagination',
+      'Human approval pending for all states and themes; column dot menus removed, filters belong outside the table',
     ],
     designDecisionsNeeded: ['One table primitive vs Table + DataTable', 'Rename away from QipperTable'],
   },

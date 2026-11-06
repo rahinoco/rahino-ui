@@ -1013,6 +1013,113 @@
         ]
       },
       "scope": "Add subtle destructive fill states and stable foregrounds to match soft action feedback; existing reference palette and unrelated roles preserved."
+    },
+    {
+      "id": "neutral-subtle-role-removal-2026-11-04",
+      "changedFiles": [
+        {
+          "file": "Color.ts",
+          "beforeSha256": "4460ae3292a86666bef46727c70e2eb536f940bbfe1d2cdcf94ab3fabd2a777c",
+          "afterSha256": "bacd65b22a7248012a2a64977dc0a15ab8a8a3deba11ebb1568d5e21887abe69",
+          "workingTreeBeforeSha256": "dcd8b919405427688568847f8010bfb2bb42e12cbd8ea2297c72e03392170853"
+        }
+      ],
+      "sourceExportsAfter": {
+        "Color.ts": [
+          "ACTION_DANGER_BG",
+          "ACTION_DANGER_SUBTLE_BG",
+          "ACTION_DANGER_SUBTLE_FG",
+          "ACTION_NEUTRAL_BG",
+          "ACTION_PRIMARY_BG",
+          "ACTION_PRIMARY_FG",
+          "BRAND",
+          "CONTRAST_REFERENCE",
+          "DATA_CATEGORICAL",
+          "DATA_CATEGORICAL_TOKENS",
+          "DATA_DIVERGING",
+          "DATA_DIVERGING_TOKENS",
+          "DATA_ON_FILL",
+          "DATA_SEQUENTIAL",
+          "DATA_SEQUENTIAL_TOKENS",
+          "EDGE",
+          "FOCUS_RING",
+          "HIGH_CONTRAST",
+          "INK",
+          "INTERACTION",
+          "INTERACTION_SELECTED_SURFACE",
+          "LINK_FG",
+          "PRESENTATION_GRADIENTS",
+          "SCRIM",
+          "STATUS",
+          "SURFACE"
+        ]
+      },
+      "scope": "Remove the generated neutral-subtle background export with its retired semantic roles. Preserve historical source receipts; the working-tree hash includes the separately recorded red.750 palette update."
+    },
+    {
+      "id": "neutral-and-brand-action-update-2026-11-04",
+      "changedFiles": [
+        {
+          "file": "Color.ts",
+          "beforeSha256": "bacd65b22a7248012a2a64977dc0a15ab8a8a3deba11ebb1568d5e21887abe69",
+          "afterSha256": "27dc018a384daaf82b03912ece8a28a1dc1761628089fb3a936da2cba98f2d1f"
+        }
+      ],
+      "sourceExportsAfter": {
+        "Color.ts": [
+          "ACTION_BRAND_BG",
+          "ACTION_BRAND_FG",
+          "ACTION_DANGER_BG",
+          "ACTION_DANGER_SUBTLE_BG",
+          "ACTION_DANGER_SUBTLE_FG",
+          "ACTION_NEUTRAL_BG",
+          "BRAND",
+          "CONTRAST_REFERENCE",
+          "DATA_CATEGORICAL",
+          "DATA_CATEGORICAL_TOKENS",
+          "DATA_DIVERGING",
+          "DATA_DIVERGING_TOKENS",
+          "DATA_ON_FILL",
+          "DATA_SEQUENTIAL",
+          "DATA_SEQUENTIAL_TOKENS",
+          "EDGE",
+          "FOCUS_RING",
+          "HIGH_CONTRAST",
+          "INK",
+          "INTERACTION",
+          "INTERACTION_SELECTED_SURFACE",
+          "LINK_FG",
+          "PRESENTATION_GRADIENTS",
+          "SCRIM",
+          "STATUS",
+          "SURFACE"
+        ]
+      },
+      "scope": "Rename action exports to ACTION_BRAND_BG/FG, apply the requested light neutral and brand references, and add the disabled surface shown in the screenshot."
+    },
+    {
+      "id": "neutral-interaction-alpha-update-2026-11-04",
+      "changedFiles": [
+        {
+          "file": "Color.ts",
+          "beforeSha256": "27dc018a384daaf82b03912ece8a28a1dc1761628089fb3a936da2cba98f2d1f",
+          "afterSha256": "bbd91dab91c8ee245739d5b1c559640a587c6a80780e18883a320ea6abad0aab"
+        }
+      ],
+      "sourceExportsAfter": {},
+      "scope": "Update neutral interaction light values and annotations to renamed alpha references; preserve all exports and dark values."
+    },
+    {
+      "id": "light-danger-pressed-red-750-2026-11-06",
+      "changedFiles": [
+        {
+          "file": "Color.ts",
+          "beforeSha256": "bbd91dab91c8ee245739d5b1c559640a587c6a80780e18883a320ea6abad0aab",
+          "afterSha256": "be9997663cdb635a7dc6c90c209a79a0d28b79b4716a8882cd3e180d4be434bb"
+        }
+      ],
+      "sourceExportsAfter": {},
+      "scope": "Apply the requested light solid danger pressed reference."
     }
   ],
   "derivedExports": [
@@ -1498,6 +1605,213 @@
         ],
         "alpha": 1
       }
+    },
+    {
+      "approval": "neutral-and-brand-action-update-2026-11-04",
+      "set": "light",
+      "publicPath": "rds.color.action.neutral.bg.default",
+      "beforeAlias": "{ref.color.gray-warm.875}",
+      "afterAlias": "{ref.color.gray.935}",
+      "beforeValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.12941176470588237,
+          0.11372549019607843,
+          0.12549019607843137
+        ],
+        "alpha": 1
+      },
+      "afterValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.1568627450980392,
+          0.1450980392156863,
+          0.16862745098039217
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "approval": "neutral-and-brand-action-update-2026-11-04",
+      "set": "light",
+      "publicPath": "rds.color.action.neutral.bg.hover",
+      "beforeAlias": "{ref.color.gray-warm.650}",
+      "afterAlias": "{ref.color.gray.975}",
+      "beforeValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.3686274509803922,
+          0.34509803921568627,
+          0.37254901960784315
+        ],
+        "alpha": 1
+      },
+      "afterValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.011764705882352941,
+          0.00784313725490196,
+          0.011764705882352941
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "approval": "neutral-and-brand-action-update-2026-11-04",
+      "set": "light",
+      "publicPath": "rds.color.action.neutral.bg.pressed",
+      "beforeAlias": "{ref.color.gray-warm.600}",
+      "afterAlias": "{ref.color.gray.975}",
+      "beforeValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.3843137254901961,
+          0.3568627450980392,
+          0.3764705882352941
+        ],
+        "alpha": 1
+      },
+      "afterValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.011764705882352941,
+          0.00784313725490196,
+          0.011764705882352941
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "approval": "neutral-and-brand-action-update-2026-11-04",
+      "set": "light",
+      "publicPath": "rds.color.action.brand.bg.pressed",
+      "beforeAlias": "{ref.color.plum.950}",
+      "afterAlias": "{ref.color.plum.900}",
+      "beforeValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.11764705882352941,
+          0.0196078431372549,
+          0.08235294117647059
+        ],
+        "alpha": 1
+      },
+      "afterValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.25098039215686274,
+          0.047058823529411764,
+          0.17254901960784313
+        ],
+        "alpha": 1
+      }
+    },
+    {
+      "approval": "neutral-interaction-alpha-update-2026-11-04",
+      "set": "shared",
+      "publicPath": "ref.color.gray-warm.875-alpha-4",
+      "beforeAlias": {
+        "colorSpace": "srgb",
+        "components": [
+          0.12941176470588237,
+          0.11372549019607843,
+          0.12549019607843137
+        ],
+        "alpha": 0.06
+      },
+      "afterAlias": {
+        "colorSpace": "srgb",
+        "components": [
+          0.12941176470588237,
+          0.11372549019607843,
+          0.12549019607843137
+        ],
+        "alpha": 0.04
+      },
+      "beforeValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.12941176470588237,
+          0.11372549019607843,
+          0.12549019607843137
+        ],
+        "alpha": 0.06
+      },
+      "afterValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.12941176470588237,
+          0.11372549019607843,
+          0.12549019607843137
+        ],
+        "alpha": 0.04
+      }
+    },
+    {
+      "approval": "neutral-interaction-alpha-update-2026-11-04",
+      "set": "shared",
+      "publicPath": "ref.color.gray-warm.875-alpha-8",
+      "beforeAlias": {
+        "colorSpace": "srgb",
+        "components": [
+          0.12941176470588237,
+          0.11372549019607843,
+          0.12549019607843137
+        ],
+        "alpha": 0.1
+      },
+      "afterAlias": {
+        "colorSpace": "srgb",
+        "components": [
+          0.12941176470588237,
+          0.11372549019607843,
+          0.12549019607843137
+        ],
+        "alpha": 0.08
+      },
+      "beforeValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.12941176470588237,
+          0.11372549019607843,
+          0.12549019607843137
+        ],
+        "alpha": 0.1
+      },
+      "afterValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.12941176470588237,
+          0.11372549019607843,
+          0.12549019607843137
+        ],
+        "alpha": 0.08
+      }
+    },
+    {
+      "approval": "light-danger-pressed-red-750-2026-11-06",
+      "set": "light",
+      "publicPath": "rds.color.action.danger.bg.pressed",
+      "beforeAlias": "{ref.color.red.800}",
+      "afterAlias": "{ref.color.red.750}",
+      "beforeValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.25882352941176473,
+          0.14901960784313725,
+          0.16862745098039217
+        ],
+        "alpha": 1
+      },
+      "afterValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.33725490196078434,
+          0.16470588235294117,
+          0.1843137254901961
+        ],
+        "alpha": 1
+      }
     }
   ],
   "retiredReferences": [
@@ -1660,6 +1974,20 @@
         "ref.color.red.750"
       ],
       "scope": "Owner-requested #562A2F raw red reference for dark danger-subtle hover. Dark danger-subtle pressed uses existing red.625; light mappings remain unchanged."
+    },
+    {
+      "approval": "neutral-and-brand-action-update-2026-11-04",
+      "paths": [
+        "ref.color.gray.935"
+      ],
+      "scope": "User-supplied #28252B reference for light neutral action default and the supplied dark disabled surface mapping."
+    },
+    {
+      "approval": "plum-25-reference-addition-2026-11-04",
+      "paths": [
+        "ref.color.plum.25"
+      ],
+      "scope": "Owner-requested #FFF5FC reference-only palette addition; no semantic mappings or component recipes change."
     }
   ],
   "approvedSemanticAdditions": [
@@ -1698,6 +2026,63 @@
         "rds.color.action.danger-subtle.bg.pressed"
       ],
       "scope": "Owner requested soft danger hover consistency with other soft actions: semantic fill feedback and stable contrasting label/icon colors. All references already exist; visual approval remains pending."
+    },
+    {
+      "approval": "neutral-and-brand-action-update-2026-11-04",
+      "sets": [
+        "light",
+        "dark"
+      ],
+      "paths": [
+        "rds.color.surface.disabled"
+      ],
+      "scope": "Match the disabled surface role and theme aliases shown in the supplied foundation screenshot; no consumer migration is implied."
+    }
+  ],
+  "approvedSemanticRemovals": [
+    {
+      "approval": "neutral-subtle-role-removal-2026-11-04",
+      "sets": [
+        "light",
+        "dark"
+      ],
+      "replacements": {
+        "rds.color.action.neutral-subtle.bg.default": "rds.color.surface.subtle",
+        "rds.color.action.neutral-subtle.bg.hover": "rds.color.interaction.neutral.hover",
+        "rds.color.action.neutral-subtle.bg.pressed": "rds.color.interaction.neutral.pressed"
+      },
+      "scope": "Owner requested deleting all three neutral-subtle background roles and rebinding recipes to the existing surface and neutral interaction roles. Raw references remain unchanged; component state approval remains separate."
+    }
+  ],
+  "approvedSemanticRenames": [
+    {
+      "approval": "neutral-and-brand-action-update-2026-11-04",
+      "sets": [
+        "light",
+        "dark"
+      ],
+      "renames": {
+        "rds.color.action.primary.bg.default": "rds.color.action.brand.bg.default",
+        "rds.color.action.primary.bg.hover": "rds.color.action.brand.bg.hover",
+        "rds.color.action.primary.bg.pressed": "rds.color.action.brand.bg.pressed",
+        "rds.color.action.primary.bg.disabled": "rds.color.action.brand.bg.disabled",
+        "rds.color.action.primary.fg": "rds.color.action.brand.fg"
+      },
+      "scope": "Rename primary action roles to brand; dark values are preserved."
+    }
+  ],
+  "approvedReferenceRenames": [
+    {
+      "approval": "neutral-interaction-alpha-update-2026-11-04",
+      "renames": {
+        "ref.color.gray-warm.875-alpha-6": "ref.color.gray-warm.875-alpha-4",
+        "ref.color.gray-warm.875-alpha-10": "ref.color.gray-warm.875-alpha-8"
+      },
+      "alpha": {
+        "ref.color.gray-warm.875-alpha-4": 0.04,
+        "ref.color.gray-warm.875-alpha-8": 0.08
+      },
+      "scope": "Owner requested renaming gray-warm.875-alpha-6 to alpha-4 with 4% opacity, and alpha-10 to alpha-8 with 8% opacity. RGB components remain unchanged; all active aliases follow the renamed references."
     }
   ]
 }

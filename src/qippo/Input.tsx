@@ -6,6 +6,7 @@ import {
 } from 'react';
 
 import { cn } from '@/lib/cn';
+import { credentialDirection } from '@/lib/credentialDirection';
 
 export type QippoInputSize = 'sm' | 'md' | 'lg' | 'xl';
 
@@ -38,6 +39,7 @@ export const QippoInput = forwardRef<HTMLInputElement, QippoInputProps>(function
     disabled,
     id: idProp,
     placeholder,
+    dir,
     ...props
   },
   ref
@@ -70,6 +72,7 @@ export const QippoInput = forwardRef<HTMLInputElement, QippoInputProps>(function
             <input
               id={id}
               ref={ref}
+              dir={dir ?? credentialDirection(props.type, props.autoComplete)}
               className="qippo-input__control"
               placeholder={placeholder}
               disabled={disabled}

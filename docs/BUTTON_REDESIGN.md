@@ -18,14 +18,16 @@ The browser review covers both radii, all appearances/intents/sizes and family m
 | --- | --- |
 | Less radius (default) | `--rds-radius-8` |
 | More radius | `--rds-radius-12` |
-| Solid brand | `color.action.primary.bg.default/hover/pressed`; enabled content uses `color.ink.on-brand` |
+| Solid brand | `color.action.brand.bg.default/hover/pressed`; enabled content uses `color.ink.on-brand` |
 | Solid neutral | `color.action.neutral.bg.default/hover/pressed` with `color.ink.inverse` |
-| Soft neutral | `color.action.neutral-subtle.bg.default/hover/pressed` with full-opacity `color.ink.primary`; opaque fills, no overlay |
+| Soft neutral | `color.surface.subtle` at rest, `color.interaction.neutral.hover/pressed` for feedback, with full-opacity `color.ink.primary`; existing interaction alpha composites over the parent surface |
 | Soft brand | `color.brand.bg.default/hover/pressed` with `color.brand.fg` |
 | Solid danger | `color.action.danger.bg.default/hover/pressed` with `color.status.error.on-fill` |
 | Soft danger | `color.action.danger-subtle.bg.default/hover/pressed` with stable contrasting `color.action.danger-subtle.fg.default/hover/pressed` |
+| Ghost danger | Unselected label/icon retains `color.status.error.fg` on default, hover and press in both themes; existing semantic feedback fills remain |
+| Ghost neutral | Unselected hover/press use existing `color.interaction.neutral.hover/pressed` alpha fills over the parent surface, including `surface.canvas` |
 | Ghost | No background paint at rest (`none`); semantic intent fills and foregrounds on hover/press; no alpha overlay |
-| Disabled/loading | Existing disabled fill/ink roles, blocked activation, no elevation; solid brand retains `action.primary.bg.disabled` |
+| Disabled/loading | Blocked activation and no elevation. Disabled ghost uses disabled ink with no fill in standard and enhanced contrast. Loading and other disabled appearances use the existing fill and ink roles, including `action.brand.bg.disabled` for solid brand. |
 | Selected | Branded selection plate and `aria-pressed`; retain the supplied icon, or show a checkmark for a text-only toggle. Never add a second icon. |
 | Shadow | Solid and soft explicitly retain `shadow.sm`: light `0 3px 6px 0 rgb(0 0 0 / 0.04)`, dark `0 2px 6px 0 rgb(0 0 0 / 0.14)`; ghost and blocked controls have none |
 | Feedback | Immediate semantic color switches; no opacity, color or shadow interpolation and no press scaling |
@@ -77,6 +79,10 @@ Follow-up consistency review on 2026-11-03: soft danger now changes its semantic
 Icon migration verification on 2026-11-03: token checks and both project typechecks passed. All 8,640 browser state inspections passed with checks for canonical 16/20/24px size, the original 24 × 24 viewBox, proportional visible stroke, round outlines, inherited semantic/system foreground, decorative accessibility, single-icon rendering and RTL direction behavior. Button behavior checks passed, including the loading IconButton mirroring regression. Browser review retains zero enabled text contrast failures. Human state approval remains pending.
 
 Toggle sizing verification on 2026-11-04: default and hover widths match an equivalent text-only Button at all three sizes in RTL and LTR. Browser checks sample the slot transition halfway, verify the final width adds exactly the icon plus foundation gap, reverse an in-progress transition, and confirm deselection restores the original width. Reduced-motion checks verify immediate slot changes. All 8,640 existing theme/contrast/state inspections, button behavior, generated-output checks, both project typechecks and the documentation production build passed. Visual evidence: `tmp-verify/button-foundations/toggle-states.png`; animation measurements: `report.json` in the same directory. Human state approval remains pending.
+
+Ghost danger foreground update on 2026-11-04: the owner requested retaining the resting red text on hover and press in light and dark themes. Unselected Button, IconButton and ToggleButton now retain `status.error.fg`; selected danger keeps its existing selected recipe. Browser state and interaction assertions pass across both themes and contrast modes. The contrast gate remains failing for light unselected ghost danger press in standard and enhanced contrast: 3.6198:1 against the unchanged `red.225` fill, below the 4.5:1 text target. The gate is retained; this finding is not an approved accessibility exception.
+
+Button size update on 2026-11-04: the owner requested sm/md/lg minimum heights of 32/40/48px for Button, IconButton and ToggleButton. The shared button recipe reuses existing foundation dimensions and reduces block padding to 2/4/8px; field sizing is unchanged. The usage guide records the bindings and the reusable control-height foundation proposal. Browser assertions verify exact heights and square icon-only widths across both radii, all appearances/intents and default/disabled/loading/selected cases. All state and interaction assertions, including 44px coarse-pointer targets, pass, and the documentation production build passes. The full browser gate still fails only on the two previously recorded light ghost-danger pressed contrast contexts (3.6198:1). Human state approval remains pending.
 
 Before product usage, record the human reviewer, date, component/version, radius sets, reviewed states, contexts and any accepted exceptions. No state is marked approved by this change.
 

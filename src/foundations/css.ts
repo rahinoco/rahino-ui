@@ -9,18 +9,18 @@ function buttonRecipe() {
     "solid-neutral-bg-hover": "action.neutral.bg.hover",
     "solid-neutral-bg-pressed": "action.neutral.bg.pressed",
     "solid-neutral-fg": "ink.inverse",
-    "solid-brand-bg": "action.primary.bg.default",
-    "solid-brand-bg-hover": "action.primary.bg.hover",
-    "solid-brand-bg-pressed": "action.primary.bg.pressed",
-    "solid-brand-fg": "action.primary.fg",
-    "solid-brand-bg-disabled": "action.primary.bg.disabled",
+    "solid-brand-bg": "action.brand.bg.default",
+    "solid-brand-bg-hover": "action.brand.bg.hover",
+    "solid-brand-bg-pressed": "action.brand.bg.pressed",
+    "solid-brand-fg": "action.brand.fg",
+    "solid-brand-bg-disabled": "action.brand.bg.disabled",
     "solid-danger-bg": "action.danger.bg.default",
     "solid-danger-bg-hover": "action.danger.bg.hover",
     "solid-danger-bg-pressed": "action.danger.bg.pressed",
     "solid-danger-fg": "status.error.on-fill",
-    "soft-neutral-bg": "action.neutral-subtle.bg.default",
-    "soft-neutral-bg-hover": "action.neutral-subtle.bg.hover",
-    "soft-neutral-bg-pressed": "action.neutral-subtle.bg.pressed",
+    "soft-neutral-bg": "surface.subtle",
+    "soft-neutral-bg-hover": "interaction.neutral.hover",
+    "soft-neutral-bg-pressed": "interaction.neutral.pressed",
     "soft-neutral-fg": "ink.primary",
     "soft-brand-bg": "brand.bg.default",
     "soft-brand-bg-hover": "brand.bg.hover",
@@ -87,7 +87,7 @@ function compatibilityAliases() {
       pairs.push(['color-status-' + name + '-' + old, 'color-status-' + name + '-' + next]);
     }
   }
-  for (const [old, next] of [['default','bg-default'],['hover','bg-hover'],['pressed','bg-pressed'],['disabled','bg-disabled'],['foreground','fg']]) pairs.push(['color-action-primary-' + old, 'color-action-primary-' + next]);
+  for (const [old, next] of [['default','bg-default'],['hover','bg-hover'],['pressed','bg-pressed'],['disabled','bg-disabled'],['foreground','fg']]) pairs.push(['color-action-primary-' + old, 'color-action-brand-' + next]);
   for (const [name, level] of Object.entries({ trace: '100', air: '200', core: '300', shelter: '400', opaque: '500' })) {
     pairs.push(['color-veil-' + name + '-fill', 'veil-' + level + '-color'], ['veil-' + name + '-blur', 'veil-' + level + '-blur']);
   }

@@ -4,6 +4,10 @@ import { useId, useRef, useState, type ReactNode } from 'react';
 
 export type CheckboxType = 'simple' | 'item' | 'item-desc';
 export interface CheckboxProps {
+  /** Reuse the checkbox recipe as one listbox option, without a nested control. */
+  role?: 'checkbox' | 'option';
+  id?: string;
+  tabIndex?: number;
   checked?: boolean;
   indeterminate?: boolean;
   onChange?: (checked: boolean) => void;
@@ -16,7 +20,7 @@ export interface CheckboxProps {
 }
 
 /** Foundation-based candidate. Human state approval remains separate. */
-export default function Checkbox({ checked = false, indeterminate = false, onChange, className, disabled, label, description, type = 'simple', 'aria-label': ariaLabel }: CheckboxProps) {
+export default function Checkbox({ checked = false, indeterminate = false, onChange, className, disabled, label, description, type = 'simple', 'aria-label': ariaLabel, role = 'checkbox', id: controlId, tabIndex }: CheckboxProps) {
   const id = useId();
   const [pressed, setPressed] = useState(false);
   const pointerId = useRef<number | null>(null);
@@ -24,7 +28,9 @@ export default function Checkbox({ checked = false, indeterminate = false, onCha
   const selected = indeterminate || checked;
   const showDescription = type === 'item-desc' && Boolean(description);
   return (
-    <button type="button" role="checkbox" aria-checked={indeterminate ? 'mixed' : checked}
+    <button type="button" id={controlId} tabIndex={tabIndex} role={role}
+      aria-checked={role === 'checkbox' ? indeterminate ? 'mixed' : checked : undefined}
+      aria-selected={role === 'option' ? checked : undefined} aria-disabled={disabled || undefined}
       aria-label={ariaLabel} aria-labelledby={!ariaLabel && label ? `${id}-label` : undefined}
       aria-describedby={showDescription ? `${id}-description` : undefined} disabled={disabled}
       onPointerDown={event => {

@@ -60,11 +60,21 @@ See [context selection](../Rahino-Resolver.md) and [Typography](../Typography.md
 
 Color references use stable hue families and sparse steps from light to dark. These are Rahino palette IDs inspired by Spectrum; their values do not match Adobe's palette automatically. Alpha suffixes record opacity. Fixed raw references do not reverse between themes.
 
+The 2026-11-04 interaction alpha update renames `ref.color.gray-warm.875-alpha-6` to `ref.color.gray-warm.875-alpha-4` with alpha 0.04, and `ref.color.gray-warm.875-alpha-10` to `ref.color.gray-warm.875-alpha-8` with alpha 0.08. RGB stays (33, 29, 32). Current neutral interaction aliases and compatibility targets use the new reference names; historical migration receipts retain their original names and values. Dark interaction references remain unchanged.
+
+The 2026-11-04 neutral and brand update adds the owner's `ref.color.gray.935` (`#28252B`). Light neutral action backgrounds use gray.935 at rest and gray.975 on hover/press; dark neutral mappings are preserved. The supplied screenshot's `surface.disabled` role is now represented locally by gray-warm.100 in light and gray.935 in dark. Other surface mappings are unchanged.
+
+`rds.color.action.primary` is renamed to `rds.color.action.brand` in both themes, with generated exports `ACTION_BRAND_BG` and `ACTION_BRAND_FG`. Light brand backgrounds use plum.775 default, plum.375 disabled, plum.850 hover and plum.900 pressed. Dark values are preserved under the new names. Current consumers and generated outputs use the new names; historical receipts retain the previous paths. Component state approval remains separate.
+
 The user-requested 2026-11-04 palette update adds `ref.color.red.750` (`#562A2F`) and assigns it to dark `rds.color.action.danger-subtle.bg.hover`. Dark `rds.color.action.danger-subtle.bg.pressed` uses `ref.color.red.625` (`#A33A43`). Light mappings remain unchanged; component state approval remains separate.
 
 Chart colors use rds.color.data.*; presentation recipes use rds.color.presentation.gradient.*. Three shadow levels remain: sm, md and lg. The former wide reading name remains a deprecated alias to the 42rem reading cap.
 
-Color state families use a separate final state segment, following `rds.color.action.primary.bg.hover`. Repository token-name updates:
+Color state families use a separate final state segment, following `rds.color.action.brand.bg.hover`.
+
+On 2026-11-04 the owner removed the three `rds.color.action.neutral-subtle.bg` tokens and their generated `ACTION_NEUTRAL_SUBTLE_BG` export. Recipes now reference `rds.color.surface.subtle` for default, `rds.color.interaction.neutral.hover` for hover and `rds.color.interaction.neutral.pressed` for pressed. Historical addition receipts remain in the manifest; these retired names are absent from current token sets, CSS, resolver types and design handoff data. No compatibility aliases retain them.
+
+Earlier repository token-name updates:
 
 | Previous path | Current path |
 | --- | --- |

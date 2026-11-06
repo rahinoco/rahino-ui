@@ -61,7 +61,7 @@
           "light",
           "canvas"
         ],
-        "line": 149
+        "line": 151
       },
       "sourceAnnotations": {},
       "status": "approved-context-override",
@@ -95,7 +95,7 @@
           "light",
           "base"
         ],
-        "line": 149
+        "line": 151
       },
       "sourceAnnotations": {},
       "status": "approved-context-override",
@@ -129,7 +129,7 @@
           "light",
           "primary"
         ],
-        "line": 149
+        "line": 151
       },
       "sourceAnnotations": {},
       "status": "approved-context-override",
@@ -163,7 +163,7 @@
           "light",
           "secondary"
         ],
-        "line": 149
+        "line": 151
       },
       "sourceAnnotations": {},
       "status": "approved-context-override",
@@ -197,7 +197,7 @@
           "light",
           "tertiary"
         ],
-        "line": 149
+        "line": 151
       },
       "sourceAnnotations": {},
       "status": "approved-context-override",
@@ -231,7 +231,7 @@
           "dark",
           "canvas"
         ],
-        "line": 149
+        "line": 151
       },
       "sourceAnnotations": {},
       "status": "approved-context-override",
@@ -265,7 +265,7 @@
           "dark",
           "base"
         ],
-        "line": 149
+        "line": 151
       },
       "sourceAnnotations": {},
       "status": "approved-context-override",
@@ -299,7 +299,7 @@
           "dark",
           "primary"
         ],
-        "line": 149
+        "line": 151
       },
       "sourceAnnotations": {},
       "status": "approved-context-override",
@@ -333,7 +333,7 @@
           "dark",
           "secondary"
         ],
-        "line": 149
+        "line": 151
       },
       "sourceAnnotations": {},
       "status": "approved-context-override",
@@ -367,7 +367,7 @@
           "dark",
           "tertiary"
         ],
-        "line": 149
+        "line": 151
       },
       "sourceAnnotations": {},
       "status": "approved-context-override",
@@ -400,7 +400,7 @@
           "PRESENTATION_GRADIENTS",
           "brand-dark"
         ],
-        "line": 270
+        "line": 272
       },
       "sourceAnnotations": {
         "token": "rds.color.presentation.gradient.brand-dark",
@@ -439,7 +439,7 @@
           "PRESENTATION_GRADIENTS",
           "brand-light"
         ],
-        "line": 272
+        "line": 274
       },
       "sourceAnnotations": {
         "token": "rds.color.presentation.gradient.brand-light",
@@ -478,7 +478,7 @@
           "PRESENTATION_GRADIENTS",
           "atmosphere"
         ],
-        "line": 274
+        "line": 276
       },
       "sourceAnnotations": {
         "token": "rds.color.presentation.gradient.atmosphere",

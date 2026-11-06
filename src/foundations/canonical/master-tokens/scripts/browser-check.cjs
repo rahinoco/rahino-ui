@@ -66,10 +66,10 @@ const contrastRatio = (a, b) => (Math.max(luminance(a), luminance(b)) + 0.05) / 
       await page.emulateMedia({ colorScheme: theme, forcedColors: contrast === 'forced-colors' ? 'active' : 'none' });
       for (const state of ['default', 'hover', 'pressed']) {
         const colors = await page.locator('#primary-on-brand').evaluate((el, state) => {
-          el.style.backgroundColor = `var(--rds-color-action-primary-bg-${state})`;
+          el.style.backgroundColor = `var(--rds-color-action-brand-bg-${state})`;
           const style = getComputedStyle(el), root = getComputedStyle(document.documentElement);
           return { foreground: style.color, background: style.backgroundColor,
-            onBrand: root.getPropertyValue('--rds-color-ink-on-brand').trim(), alias: root.getPropertyValue('--rds-color-action-primary-fg').trim() };
+            onBrand: root.getPropertyValue('--rds-color-ink-on-brand').trim(), alias: root.getPropertyValue('--rds-color-action-brand-fg').trim() };
         }, state);
         assert.equal(colors.alias, colors.onBrand, `Primary foreground differs from on-brand: ${theme}/${contrast}`);
         const ratio = contrastRatio(channels(colors.foreground), channels(colors.background));

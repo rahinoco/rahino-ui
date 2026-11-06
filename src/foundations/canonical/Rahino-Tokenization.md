@@ -17,7 +17,7 @@ Components use shared tokens first. Following Spectrum's component-specific appr
 ## Naming and values
 
 - Use lowercase English paths separated by dots; use kebab-case within a path segment. Names describe **roles**, not temporary values, products, or viewports.
-- In state families, put the state in a separate final segment: `rds.color.action.primary.bg.default`, `.hover`, `.pressed`, `.disabled`. Use `.default` for the resting member of that family; keep meaningful compound terms such as `on-fill` intact.
+- In state families, put the state in a separate final segment: `rds.color.action.brand.bg.default`, `.hover`, `.pressed`, `.disabled`. Use `.default` for the resting member of that family; keep meaningful compound terms such as `on-fill` intact.
 - Keep reference names tied to their actual value where that convention is defined. Shared tokens may provide a named scale rather than a new semantic role for each use.
 - **Spacing example:** `ref.space.16` stores `16px`; `rds.space.300` aliases `{ref.space.16}`. Likewise, `rds.space.25` aliases `{ref.space.1}`. Use the full Spectrum index mapping in [Spacing](Spacing.md); `rds.space.0` → `{ref.space.0}` preserves Rahino's existing zero reset. Do not create separate semantic tokens for every gap.
 - Use `px` for physical dimensions (spacing, radius, borders, focus, blur and shadow geometry); `rem` for typography dimensions and breakpoints; `ms` for time; unitless numbers for ratios, alpha and scale.

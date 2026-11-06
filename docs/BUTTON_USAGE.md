@@ -84,11 +84,13 @@ See the Button documentation page (`/components/button`), under **اندازه �
 
 | Measurement | sm | md (default) | lg |
 | --- | --- | --- | --- |
-| Minimum height | 36px | 44px | 52px |
+| Minimum height | 32px | 40px | 48px |
 | Horizontal padding per side | 12px | 16px | 20px |
-| Vertical padding per side | 4px | 6px | 10px |
+| Vertical padding per side | 2px | 4px | 8px |
 | Label font size at a 16px root | 14px | 14px | 16px |
 | Icon size | 16px | 20px | 24px |
+
+The owner requested 32/40/48px button heights on 2026-11-04. Button recipe heights reuse existing foundation dimensions (`ref.size.32`, `ref.space.40`, `ref.space.48`), with block padding from `space.50/75/100`. Shared field control heights stay unchanged. A reusable canonical control-height reference/semantic family remains a foundation proposal; these recipe bindings do not add canonical size tokens. Component state approval remains pending.
 
 These are minimum heights: long labels can make a button taller. Label line-height uses the foundation's label-sm role for sm/md and label-md for lg. On touch/coarse-pointer devices, the minimum height is at least 44px. Icon-only controls use the control's minimum height for their square width and also respect the touch minimum; they do not use horizontal text padding.
 
@@ -102,7 +104,7 @@ These are minimum heights: long labels can make a button taller. Label line-heig
 | less / more radius | 8px default / 12px softer context; use consistently within a group. Radius does not communicate priority, risk or selection |
 | fullWidth | A constrained form or mobile action area where it improves reach and clarity; not automatic at a viewport breakpoint |
 | loading | The operation is pending; keep the label and width stable, replace the icon with one spinner, announce progress and block duplicate activation |
-| disabled | A known unmet prerequisite; explain how to proceed in nearby accessible text. Do not rely on a hover-only tooltip on a native disabled control |
+| disabled | A known unmet prerequisite. Explain how to proceed in nearby accessible text so the guidance is available without hovering over the disabled control. Disabled ghost actions, such as Previous on the first page, use disabled ink with no fill in standard and enhanced contrast. |
 | selected | Toggle state only, controlled with `pressed` or `defaultPressed`; separate from transient active/hover/focus |
 | error / success | Communicate the outcome outside the button. Existing API has no success/error appearance. For an unknown outcome, verify status before offering a potentially duplicate commit |
 

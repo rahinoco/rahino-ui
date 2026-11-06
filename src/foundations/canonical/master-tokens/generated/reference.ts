@@ -148,10 +148,10 @@ export const REFERENCE = {
   "ref.color.gray-warm.875": "#211D20",
   /** @token ref.color.gray-warm.950-alpha-52 */
   "ref.color.gray-warm.950-alpha-52": "rgb(20 12 17 / 0.52)",
-  /** @token ref.color.gray-warm.875-alpha-6 */
-  "ref.color.gray-warm.875-alpha-6": "rgb(33 29 32 / 0.06)",
-  /** @token ref.color.gray-warm.875-alpha-10 */
-  "ref.color.gray-warm.875-alpha-10": "rgb(33 29 32 / 0.10)",
+  /** @token ref.color.gray-warm.875-alpha-4 */
+  "ref.color.gray-warm.875-alpha-4": "rgb(33 29 32 / 0.04)",
+  /** @token ref.color.gray-warm.875-alpha-8 */
+  "ref.color.gray-warm.875-alpha-8": "rgb(33 29 32 / 0.08)",
   /** @token ref.color.gray-warm.900-alpha-56 */
   "ref.color.gray-warm.900-alpha-56": "rgb(26 25 24 / 0.56)",
   /** @token ref.color.gray-warm.850-alpha-52 */
@@ -174,6 +174,8 @@ export const REFERENCE = {
   "ref.color.gray.900": "#2D2C30",
   /** @token ref.color.gray.925 */
   "ref.color.gray.925": "#262429",
+  /** @token ref.color.gray.935 */
+  "ref.color.gray.935": "#28252B",
   /** @token ref.color.gray.950 */
   "ref.color.gray.950": "#1A181B",
   /** @token ref.color.gray.975 */
@@ -190,6 +192,8 @@ export const REFERENCE = {
   "ref.color.gray.925-alpha-76": "rgb(26 25 27 / 0.76)",
   /** @token ref.color.gray.925-alpha-92 */
   "ref.color.gray.925-alpha-92": "rgb(26 25 27 / 0.92)",
+  /** @token ref.color.plum.25 */
+  "ref.color.plum.25": "#FFF5FC",
   /** @token ref.color.plum.50 */
   "ref.color.plum.50": "#F0E5EB",
   /** @token ref.color.plum.100 */

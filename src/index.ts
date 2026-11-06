@@ -41,6 +41,7 @@ export { default as Button, type ButtonProps } from '@/components/Button';
 export type { ButtonAppearance, ButtonIntent, ButtonSize, ButtonRadius } from '@/components/Button';
 export { default as IconButton, type IconButtonProps } from '@/components/IconButton';
 export { default as ToggleButton, type ToggleButtonProps } from '@/components/ToggleButton';
+export { SegmentedControl, type SegmentedControlProps, type SegmentedControlOption } from '@/components/SegmentedControl';
 export { default as Card, type CardProps } from '@/components/Card';
 export { default as Checkbox, type CheckboxProps, type CheckboxType } from '@/components/Checkbox';
 export { default as ConfirmationModal, type ConfirmationModalProps } from '@/components/ConfirmationModal';
@@ -256,7 +257,7 @@ export {
 } from '@/rahino';
 
 export { BORDER_WIDTH, FOCUS_RING_GEOMETRY, DURATION, EASING, SCALE, TRANSLATION, FULL_RADIUS_CSS, SHADOW, SPACE, SPACING, VEIL, BREAKPOINTS, PAGE_GRID, PAGE_MAX_WIDTH, LINE_HEIGHT, TEXT_LAYOUT, TYPOGRAPHY, TYPOGRAPHY_BY_SCRIPT, REFERENCE, FOUNDATION_GUIDES, resolveContext } from '@/foundations';
-export { ACTION_PRIMARY_BG, ACTION_PRIMARY_FG, BRAND, DATA_CATEGORICAL_TOKENS, DATA_SEQUENTIAL_TOKENS, DATA_DIVERGING_TOKENS, DATA_CATEGORICAL, DATA_SEQUENTIAL, DATA_DIVERGING, DATA_ON_FILL, EDGE, FOCUS_RING, HIGH_CONTRAST, INTERACTION, INTERACTION_SELECTED_SURFACE, LINK_FG, SCRIM } from '@/foundations/color';
+export { ACTION_BRAND_BG, ACTION_BRAND_FG, BRAND, DATA_CATEGORICAL_TOKENS, DATA_SEQUENTIAL_TOKENS, DATA_DIVERGING_TOKENS, DATA_CATEGORICAL, DATA_SEQUENTIAL, DATA_DIVERGING, DATA_ON_FILL, EDGE, FOCUS_RING, HIGH_CONTRAST, INTERACTION, INTERACTION_SELECTED_SURFACE, LINK_FG, SCRIM } from '@/foundations/color';
 export type { TypographyRole, TypographyStyle, TypographyProfile, FoundationSettings, FoundationEnvironment } from '@/foundations';
 
 export { resolveColorContext, resolveColor, applyColorPreferences, FOUNDATION_CONTRAST_REVIEW } from '@/foundations';

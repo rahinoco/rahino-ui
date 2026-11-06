@@ -8,6 +8,9 @@
   --rds-button-shadow: var(--rds-shadow-sm);
   --rds-button-radius: var(--rds-radius-8);
   --rds-button-icon: var(--rds-icon-size-md);
+  /* Button recipe dimensions reuse the foundation scale; shared fields keep their sizing. */
+  --rds-button-height: var(--ref-space-40);
+  --rds-button-padding-block: var(--rds-space-75);
   box-sizing: border-box;
   position: relative;
   isolation: isolate;
@@ -16,9 +19,9 @@
   justify-content: center;
   gap: var(--rds-space-icon-gap);
   max-width: 100%;
-  min-height: var(--rds-size-control-md-min-height);
+  min-height: var(--rds-button-height);
   padding-inline: var(--rds-size-control-md-padding-inline);
-  padding-block: var(--rds-size-control-md-padding-block);
+  padding-block: var(--rds-button-padding-block);
   border: 0;
   border-radius: var(--rds-button-radius);
   --rds-button-fill: var(--rds-button-bg);
@@ -46,17 +49,17 @@
 
 .rds-button[data-size='sm'] {
   --rds-button-icon: var(--rds-icon-size-sm);
-  min-height: var(--rds-size-control-sm-min-height);
+  --rds-button-height: var(--ref-size-32);
+  --rds-button-padding-block: var(--rds-space-50);
   padding-inline: var(--rds-size-control-sm-padding-inline);
-  padding-block: var(--rds-size-control-sm-padding-block);
   font-size: var(--rds-size-control-sm-label);
 }
 
 .rds-button[data-size='lg'] {
   --rds-button-icon: var(--rds-icon-size-lg);
-  min-height: var(--rds-size-control-lg-min-height);
+  --rds-button-height: var(--ref-space-48);
+  --rds-button-padding-block: var(--rds-space-100);
   padding-inline: var(--rds-size-control-lg-padding-inline);
-  padding-block: var(--rds-size-control-lg-padding-block);
   font-size: var(--rds-size-control-lg-label);
   line-height: var(--rds-type-label-md-line-height);
 }
@@ -69,9 +72,9 @@
 }
 
 .rds-button[data-appearance='solid'][data-intent='brand'] {
-  --rds-button-bg: var(--rds-color-action-primary-bg-default);
-  --rds-button-bg-hover: var(--rds-color-action-primary-bg-hover);
-  --rds-button-bg-pressed: var(--rds-color-action-primary-bg-pressed);
+  --rds-button-bg: var(--rds-color-action-brand-bg-default);
+  --rds-button-bg-hover: var(--rds-color-action-brand-bg-hover);
+  --rds-button-bg-pressed: var(--rds-color-action-brand-bg-pressed);
   --rds-button-fg: var(--rds-color-ink-on-brand);
 }
 
@@ -106,7 +109,7 @@
 
 .rds-button[data-appearance='ghost'][data-intent='neutral'] {
   --rds-button-fg: var(--rds-color-ink-primary);
-  --rds-button-bg-hover: var(--rds-button-soft-neutral-bg-hover);
+  --rds-button-bg-hover: var(--rds-color-interaction-neutral-hover);
   --rds-button-bg-pressed: var(--rds-button-soft-neutral-bg-pressed);
 }
 
@@ -118,8 +121,6 @@
 
 .rds-button[data-appearance='ghost'][data-intent='danger'] {
   --rds-button-fg: var(--rds-color-status-error-fg);
-  --rds-button-fg-hover: var(--rds-button-soft-danger-fg-hover);
-  --rds-button-fg-pressed: var(--rds-button-soft-danger-fg-pressed);
   --rds-button-bg-hover: var(--rds-button-soft-danger-bg);
   --rds-button-bg-pressed: var(--rds-button-soft-danger-bg-hover);
 }
@@ -129,48 +130,20 @@
 }
 
 .rds-button[data-icon-only='true'] {
-  width: var(--rds-size-control-md-min-height);
-  min-width: var(--rds-size-control-md-min-height);
+  width: var(--rds-button-height);
+  min-width: var(--rds-button-height);
   padding-inline: 0;
 }
 
-.rds-button[data-icon-only='true'][data-size='sm'] {
-  width: var(--rds-size-control-sm-min-height);
-  min-width: var(--rds-size-control-sm-min-height);
-}
-
-.rds-button[data-icon-only='true'][data-size='lg'] {
-  width: var(--rds-size-control-lg-min-height);
-  min-width: var(--rds-size-control-lg-min-height);
-}
-
 @media (pointer: coarse) {
-  .rds-button[data-size='sm'] {
-    min-height: max(var(--rds-size-control-sm-min-height), var(--rds-size-touch-min));
+  .rds-button {
+    min-height: max(var(--rds-button-height), var(--rds-size-touch-min));
     min-width: var(--rds-size-touch-min);
   }
 
-  .rds-button[data-size='md'] {
-    min-height: max(var(--rds-size-control-md-min-height), var(--rds-size-touch-min));
-  }
-
-  .rds-button[data-size='lg'] {
-    min-height: max(var(--rds-size-control-lg-min-height), var(--rds-size-touch-min));
-  }
-
-  .rds-button[data-icon-only='true'][data-size='sm'] {
-    width: var(--rds-size-touch-min);
-    min-width: var(--rds-size-touch-min);
-  }
-
-  .rds-button[data-icon-only='true'][data-size='md'] {
-    width: max(var(--rds-size-control-md-min-height), var(--rds-size-touch-min));
-    min-width: max(var(--rds-size-control-md-min-height), var(--rds-size-touch-min));
-  }
-
-  .rds-button[data-icon-only='true'][data-size='lg'] {
-    width: max(var(--rds-size-control-lg-min-height), var(--rds-size-touch-min));
-    min-width: max(var(--rds-size-control-lg-min-height), var(--rds-size-touch-min));
+  .rds-button[data-icon-only='true'] {
+    width: max(var(--rds-button-height), var(--rds-size-touch-min));
+    min-width: max(var(--rds-button-height), var(--rds-size-touch-min));
   }
 }
 
@@ -181,6 +154,10 @@
   box-shadow: none;
   cursor: not-allowed;
   transform: none;
+}
+
+.rds-button[data-appearance='ghost']:is(:disabled, [aria-disabled='true']:not([data-loading='true'])) {
+  --rds-button-fill: none;
 }
 
 .rds-button[data-appearance='solid'][data-intent='brand']:disabled,

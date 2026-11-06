@@ -49,6 +49,14 @@ export interface DataTableProps<T extends object> {
   rowKey: (row: T) => string | number;
   variant?: DataTableVariant;
   loading?: boolean;
+  error?: string;
+  onRetry?: () => void;
+  /** Review candidates; human state approval remains pending. */
+  hoverTone?: 'neutral' | 'brand';
+  isRowDisabled?: (row: T) => boolean;
+  getRowLabel?: (row: T) => string;
+  'aria-label'?: string;
+  dir?: 'rtl' | 'ltr';
   pagination?: boolean;
   pageSize?: number;
   pageSizeOptions?: number[];

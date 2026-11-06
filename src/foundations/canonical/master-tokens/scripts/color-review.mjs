@@ -32,7 +32,7 @@ export async function renderColorReview(model) {
     for (const role of ['focus.ring', 'edge.control']) {
       boundaryRows.push([appearance, contrast, code(role), ...surfaces.map(surface => ratioLabel(test(role === 'focus.ring' ? 'Focus on neutral parent' : 'Control edge on neutral parent', `rds.color.${role}`, `rds.color.surface.${surface}`, 3)))]);
     }
-    for (const state of ['default', 'hover', 'pressed']) test('Enabled primary label', 'rds.color.action.primary.fg', `rds.color.action.primary.bg.${state}`, 4.5);
+    for (const state of ['default', 'hover', 'pressed']) test('Enabled primary label', 'rds.color.action.brand.fg', `rds.color.action.brand.bg.${state}`, 4.5);
     for (const status of statuses) {
       test('Status text on soft background', `rds.color.status.${status}.fg`, `rds.color.status.${status}.bg`, 4.5);
       test('Status text on solid fill', `rds.color.status.${status}.on-fill`, `rds.color.status.${status}.fill`, 4.5);

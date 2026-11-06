@@ -19,8 +19,8 @@ All types support unchecked, checked and indeterminate states, enabled or disabl
 | Part | Foundation |
 | --- | --- |
 | Unchecked box | User-selected `surface.sunken` fill, backed by light `ref.color.gray-warm.140` (`#E3DFE1`) and dark `ref.color.gray.975` (`#030203`); no border or shadow. Hover/pressed use the existing `interaction.neutral.hover/pressed` alpha reference aliases as supplied. |
-| Checked/mixed box | `action.primary.bg.default/hover/pressed`; check or minus in `ink.on-brand`. |
-| Disabled box | Unchecked references: light `ref.color.gray-warm.100` (`#E8E3E5`), dark `ref.color.gray.600` (`#625F69`). Selected: `action.primary.bg.disabled` with `ink.tertiary` mark. Labels use `ink.disabled`. |
+| Checked/mixed box | `action.brand.bg.default/hover/pressed`; check or minus in `ink.on-brand`. |
+| Disabled box | Unchecked references: light `ref.color.gray-warm.100` (`#E8E3E5`), dark `ref.color.gray.600` (`#625F69`). Selected: `action.brand.bg.disabled` with `ink.tertiary` mark. Labels use `ink.disabled`. |
 | Geometry / icons | Recipe box size maps to `icon.size.md` (20px); mark size maps to `icon.size.sm` (16px). Lucide's 24×24 grid uses `icon.stroke.width` (unitless 2.25), giving a proportional 1.5px visible stroke at 16px. Rounded ends/joins, no fixed-screen stroke, 4px box corners and minimum 44px target. |
 | Row | `surface.subtle`, selected `interaction.surface.selected`; 12px corners, spacing from foundation tokens. |
 | Description layout | Checkbox and name share the first row. Description spans both columns below, aligned with the checkbox's logical start. Horizontal gap `space.200` (12px); row gap `space.100` (8px). The box aligns with the label's first line, including wrapped names. |

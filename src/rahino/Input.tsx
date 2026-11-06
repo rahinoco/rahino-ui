@@ -13,6 +13,7 @@ import {
 import { twMerge } from 'tailwind-merge';
 
 import { FieldError } from '@/components/FormField';
+import { credentialDirection } from '@/lib/credentialDirection';
 import { FIELD } from '@/tokens/fieldTokens';
 
 export interface RahinoInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'id' | 'dir'> {
@@ -28,7 +29,7 @@ export interface RahinoInputProps extends Omit<InputHTMLAttributes<HTMLInputElem
   id?: string;
   /**
    * Text direction inside the control.
-   * Use `ltr` for username/password/english values so glyphs and caret read left-to-right.
+   * Credential inputs default to LTR. Set `ltr` explicitly for other Latin values.
    */
   dir?: 'ltr' | 'rtl' | 'auto';
 }
@@ -90,7 +91,7 @@ const RahinoInput = forwardRef<HTMLInputElement, RahinoInputProps>(
           <input
             id={id}
             ref={ref}
-            dir={dir}
+            dir={dir ?? credentialDirection(props.type, props.autoComplete)}
             value={value}
             defaultValue={defaultValue}
             placeholder={showFloating ? (focused && !filled ? placeholder : ' ') : placeholder}

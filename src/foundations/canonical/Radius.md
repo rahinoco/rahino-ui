@@ -35,7 +35,7 @@ All primitive values use `px`. Token names reflect their actual values and remai
 
 ### Text input rounding
 
-Text inputs use native CSS `border-radius` with `rds.radius.12` in both sizes and all themes. Their independent 2px focus indicator stays inset, follows the same radius and never enlarges the field. This recipe does not change the default button radius.
+Text inputs use native CSS `border-radius` with `rds.radius.12` in all sizes and themes. Their independent 2px focus indicator stays inset, follows the same radius and never enlarges the field. This recipe does not change the default button radius.
 
 ### Button rounding
 

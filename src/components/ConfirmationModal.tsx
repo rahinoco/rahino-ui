@@ -65,11 +65,11 @@ export default function ConfirmationModal({
       bodyClassName="bg-bg-surface"
       footer={
         <>
-          <Button appearance="ghost" onClick={onClose} disabled={isLoading}>
-            {cancelText}
-          </Button>
           <Button appearance="solid" intent={meta.intent} onClick={onConfirm} loading={isLoading}>
             {confirmText}
+          </Button>
+          <Button appearance="ghost" onClick={onClose} disabled={isLoading}>
+            {cancelText}
           </Button>
         </>
       }

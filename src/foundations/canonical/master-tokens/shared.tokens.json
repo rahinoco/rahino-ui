@@ -7919,7 +7919,7 @@
             }
           }
         },
-        "875-alpha-6": {
+        "875-alpha-4": {
           "$type": "color",
           "$value": {
             "colorSpace": "srgb",
@@ -7928,9 +7928,9 @@
               0.11372549019607843,
               0.12549019607843137
             ],
-            "alpha": 0.06
+            "alpha": 0.04
           },
-          "$description": "Raw color rgb(33 29 32 / 0.06); alpha is part of the color value.",
+          "$description": "Raw color rgb(33 29 32 / 0.04); alpha is part of the color value.",
           "$extensions": {
             "rahino": {
               "status": "adopted",
@@ -7940,7 +7940,7 @@
                 "file": "master-tokens/generated/reference.ts",
                 "exportPath": [
                   "REFERENCE",
-                  "ref.color.gray-warm.875-alpha-6"
+                  "ref.color.gray-warm.875-alpha-4"
                 ],
                 "line": 151
               },
@@ -7978,11 +7978,12 @@
                   "light"
                 ],
                 "line": 269
-              }
+              },
+              "valueUpdateApproval": "neutral-interaction-alpha-update-2026-11-04"
             }
           }
         },
-        "875-alpha-10": {
+        "875-alpha-8": {
           "$type": "color",
           "$value": {
             "colorSpace": "srgb",
@@ -7991,9 +7992,9 @@
               0.11372549019607843,
               0.12549019607843137
             ],
-            "alpha": 0.1
+            "alpha": 0.08
           },
-          "$description": "Raw color rgb(33 29 32 / 0.1); alpha is part of the color value.",
+          "$description": "Raw color rgb(33 29 32 / 0.08); alpha is part of the color value.",
           "$extensions": {
             "rahino": {
               "status": "adopted",
@@ -8003,7 +8004,7 @@
                 "file": "master-tokens/generated/reference.ts",
                 "exportPath": [
                   "REFERENCE",
-                  "ref.color.gray-warm.875-alpha-10"
+                  "ref.color.gray-warm.875-alpha-8"
                 ],
                 "line": 153
               },
@@ -8041,7 +8042,8 @@
                   "light"
                 ],
                 "line": 277
-              }
+              },
+              "valueUpdateApproval": "neutral-interaction-alpha-update-2026-11-04"
             }
           }
         },
@@ -8453,7 +8455,7 @@
               },
               {
                 "set": "light",
-                "publicPath": "rds.color.action.primary.fg"
+                "publicPath": "rds.color.action.brand.fg"
               },
               {
                 "set": "light",
@@ -8481,7 +8483,7 @@
               },
               {
                 "set": "dark",
-                "publicPath": "rds.color.action.primary.fg"
+                "publicPath": "rds.color.action.brand.fg"
               },
               {
                 "set": "dark",
@@ -9085,6 +9087,57 @@
             }
           }
         },
+        "935": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.1568627450980392,
+              0.1450980392156863,
+              0.16862745098039217
+            ],
+            "alpha": 1
+          },
+          "$description": "Raw color #28252B; alpha is part of the color value.",
+          "$extensions": {
+            "rahino": {
+              "status": "adopted",
+              "layer": "reference",
+              "approval": "neutral-and-brand-action-update-2026-11-04",
+              "source": {
+                "file": "master-tokens/generated/reference.ts",
+                "exportPath": [
+                  "REFERENCE",
+                  "ref.color.gray.935"
+                ],
+                "line": 177
+              },
+              "sourceDocuments": [],
+              "sourceAnnotations": {},
+              "reviewIssues": [],
+              "localTokenConsumers": [
+                {
+                  "set": "light",
+                  "publicPath": "rds.color.action.neutral.bg.default"
+                },
+                {
+                  "set": "dark",
+                  "publicPath": "rds.color.surface.disabled"
+                }
+              ],
+              "namingApproval": "color-reference-family-step-naming",
+              "adoptionApproval": "neutral-and-brand-action-update-2026-11-04",
+              "capturedSource": {
+                "file": "master-tokens/generated/reference.ts",
+                "exportPath": [
+                  "REFERENCE",
+                  "ref.color.gray.935"
+                ],
+                "line": 1
+              }
+            }
+          }
+        },
         "950": {
           "$type": "color",
           "$value": {
@@ -9108,7 +9161,7 @@
                   "REFERENCE",
                   "ref.color.gray.950"
                 ],
-                "line": 177
+                "line": 179
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -9190,7 +9243,7 @@
                   "REFERENCE",
                   "ref.color.gray.975"
                 ],
-                "line": 179
+                "line": 181
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -9272,7 +9325,7 @@
                   "REFERENCE",
                   "ref.color.gray.50-alpha-8"
                 ],
-                "line": 181
+                "line": 183
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -9335,7 +9388,7 @@
                   "REFERENCE",
                   "ref.color.gray.50-alpha-12"
                 ],
-                "line": 183
+                "line": 185
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -9398,7 +9451,7 @@
                   "REFERENCE",
                   "ref.color.gray.825-alpha-4"
                 ],
-                "line": 185
+                "line": 187
               },
               "sourceDocuments": [
                 "Veil & Shadow.md"
@@ -9465,7 +9518,7 @@
                   "REFERENCE",
                   "ref.color.gray.875-alpha-18"
                 ],
-                "line": 187
+                "line": 189
               },
               "sourceDocuments": [
                 "Veil & Shadow.md"
@@ -9532,7 +9585,7 @@
                   "REFERENCE",
                   "ref.color.gray.925-alpha-76"
                 ],
-                "line": 189
+                "line": 191
               },
               "sourceDocuments": [
                 "Veil & Shadow.md"
@@ -9599,7 +9652,7 @@
                   "REFERENCE",
                   "ref.color.gray.925-alpha-92"
                 ],
-                "line": 191
+                "line": 193
               },
               "sourceDocuments": [
                 "Veil & Shadow.md"
@@ -9645,6 +9698,48 @@
         }
       },
       "plum": {
+        "25": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              0.9607843137254902,
+              0.9882352941176471
+            ],
+            "alpha": 1
+          },
+          "$description": "Raw color #FFF5FC; alpha is part of the color value.",
+          "$extensions": {
+            "rahino": {
+              "status": "adopted",
+              "layer": "reference",
+              "approval": "plum-25-reference-addition-2026-11-04",
+              "source": {
+                "file": "master-tokens/generated/reference.ts",
+                "exportPath": [
+                  "REFERENCE",
+                  "ref.color.plum.25"
+                ],
+                "line": 195
+              },
+              "sourceDocuments": [],
+              "sourceAnnotations": {},
+              "reviewIssues": [],
+              "localTokenConsumers": [],
+              "namingApproval": "color-reference-family-step-naming",
+              "adoptionApproval": "plum-25-reference-addition-2026-11-04",
+              "capturedSource": {
+                "file": "master-tokens/generated/reference.ts",
+                "exportPath": [
+                  "REFERENCE",
+                  "ref.color.plum.25"
+                ],
+                "line": 1
+              }
+            }
+          }
+        },
         "50": {
           "$type": "color",
           "$value": {
@@ -9668,7 +9763,7 @@
                   "REFERENCE",
                   "ref.color.plum.50"
                 ],
-                "line": 193
+                "line": 197
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -9731,7 +9826,7 @@
                   "REFERENCE",
                   "ref.color.plum.100"
                 ],
-                "line": 195
+                "line": 199
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -9794,7 +9889,7 @@
                   "REFERENCE",
                   "ref.color.plum.200"
                 ],
-                "line": 197
+                "line": 201
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -9857,7 +9952,7 @@
                   "REFERENCE",
                   "ref.color.plum.250"
                 ],
-                "line": 199
+                "line": 203
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -9920,7 +10015,7 @@
                   "REFERENCE",
                   "ref.color.plum.300"
                 ],
-                "line": 201
+                "line": 205
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -9983,7 +10078,7 @@
                   "REFERENCE",
                   "ref.color.plum.325"
                 ],
-                "line": 203
+                "line": 207
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -10046,7 +10141,7 @@
                   "REFERENCE",
                   "ref.color.plum.350"
                 ],
-                "line": 205
+                "line": 209
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -10126,7 +10221,7 @@
                   "REFERENCE",
                   "ref.color.plum.375"
                 ],
-                "line": 207
+                "line": 211
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -10149,7 +10244,7 @@
               "localTokenConsumers": [
                 {
                   "set": "light",
-                  "publicPath": "rds.color.action.primary.bg.disabled"
+                  "publicPath": "rds.color.action.brand.bg.disabled"
                 }
               ],
               "namingApproval": "color-reference-family-step-naming",
@@ -10189,7 +10284,7 @@
                   "REFERENCE",
                   "ref.color.plum.400"
                 ],
-                "line": 209
+                "line": 213
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -10252,7 +10347,7 @@
                   "REFERENCE",
                   "ref.color.plum.425"
                 ],
-                "line": 211
+                "line": 215
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -10315,7 +10410,7 @@
                   "REFERENCE",
                   "ref.color.plum.450"
                 ],
-                "line": 213
+                "line": 217
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -10378,7 +10473,7 @@
                   "REFERENCE",
                   "ref.color.plum.500"
                 ],
-                "line": 215
+                "line": 219
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -10439,7 +10534,7 @@
                   "REFERENCE",
                   "ref.color.plum.525"
                 ],
-                "line": 217
+                "line": 221
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -10502,7 +10597,7 @@
                   "REFERENCE",
                   "ref.color.plum.550"
                 ],
-                "line": 219
+                "line": 223
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -10565,7 +10660,7 @@
                   "REFERENCE",
                   "ref.color.plum.575"
                 ],
-                "line": 221
+                "line": 225
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -10626,7 +10721,7 @@
                   "REFERENCE",
                   "ref.color.plum.600"
                 ],
-                "line": 223
+                "line": 227
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -10689,7 +10784,7 @@
                   "REFERENCE",
                   "ref.color.plum.625"
                 ],
-                "line": 225
+                "line": 229
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -10752,7 +10847,7 @@
                   "REFERENCE",
                   "ref.color.plum.700"
                 ],
-                "line": 227
+                "line": 231
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -10815,7 +10910,7 @@
                   "REFERENCE",
                   "ref.color.plum.725"
                 ],
-                "line": 229
+                "line": 233
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -10838,7 +10933,7 @@
               "localTokenConsumers": [
                 {
                   "set": "dark",
-                  "publicPath": "rds.color.action.primary.bg.hover"
+                  "publicPath": "rds.color.action.brand.bg.hover"
                 }
               ],
               "namingApproval": "color-reference-family-step-naming",
@@ -10878,7 +10973,7 @@
                   "REFERENCE",
                   "ref.color.plum.750"
                 ],
-                "line": 231
+                "line": 235
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -10901,7 +10996,7 @@
               "localTokenConsumers": [
                 {
                   "set": "dark",
-                  "publicPath": "rds.color.action.primary.bg.disabled"
+                  "publicPath": "rds.color.action.brand.bg.disabled"
                 }
               ],
               "namingApproval": "color-reference-family-step-naming",
@@ -10941,7 +11036,7 @@
                   "REFERENCE",
                   "ref.color.plum.775"
                 ],
-                "line": 233
+                "line": 237
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -11063,7 +11158,7 @@
                 },
                 {
                   "set": "light",
-                  "publicPath": "rds.color.action.primary.bg.default"
+                  "publicPath": "rds.color.action.brand.bg.default"
                 },
                 {
                   "set": "light",
@@ -11083,7 +11178,7 @@
                 },
                 {
                   "set": "dark",
-                  "publicPath": "rds.color.action.primary.bg.default"
+                  "publicPath": "rds.color.action.brand.bg.default"
                 }
               ],
               "namingApproval": "color-reference-family-step-naming",
@@ -11123,7 +11218,7 @@
                   "REFERENCE",
                   "ref.color.plum.850"
                 ],
-                "line": 235
+                "line": 239
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -11146,7 +11241,7 @@
               "localTokenConsumers": [
                 {
                   "set": "dark",
-                  "publicPath": "rds.color.action.primary.bg.pressed"
+                  "publicPath": "rds.color.action.brand.bg.pressed"
                 }
               ],
               "namingApproval": "color-reference-family-step-naming",
@@ -11186,7 +11281,7 @@
                   "REFERENCE",
                   "ref.color.plum.875"
                 ],
-                "line": 237
+                "line": 241
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -11249,7 +11344,7 @@
                   "REFERENCE",
                   "ref.color.plum.900"
                 ],
-                "line": 239
+                "line": 243
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -11272,7 +11367,7 @@
               "localTokenConsumers": [
                 {
                   "set": "light",
-                  "publicPath": "rds.color.action.primary.bg.hover"
+                  "publicPath": "rds.color.action.brand.bg.hover"
                 }
               ],
               "namingApproval": "color-reference-family-step-naming",
@@ -11312,7 +11407,7 @@
                   "REFERENCE",
                   "ref.color.plum.925"
                 ],
-                "line": 241
+                "line": 245
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -11375,7 +11470,7 @@
                   "REFERENCE",
                   "ref.color.plum.950"
                 ],
-                "line": 243
+                "line": 247
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -11398,7 +11493,7 @@
               "localTokenConsumers": [
                 {
                   "set": "light",
-                  "publicPath": "rds.color.action.primary.bg.pressed"
+                  "publicPath": "rds.color.action.brand.bg.pressed"
                 }
               ],
               "namingApproval": "color-reference-family-step-naming",
@@ -11440,7 +11535,7 @@
                   "REFERENCE",
                   "ref.color.gray-cool.250"
                 ],
-                "line": 245
+                "line": 249
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -11503,7 +11598,7 @@
                   "REFERENCE",
                   "ref.color.gray-cool.450"
                 ],
-                "line": 247
+                "line": 251
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -11583,7 +11678,7 @@
                   "REFERENCE",
                   "ref.color.gray-cool.550"
                 ],
-                "line": 249
+                "line": 253
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -11646,7 +11741,7 @@
                   "REFERENCE",
                   "ref.color.gray-cool.925-alpha-12"
                 ],
-                "line": 251
+                "line": 255
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -11711,7 +11806,7 @@
                   "REFERENCE",
                   "ref.color.green.50"
                 ],
-                "line": 253
+                "line": 257
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -11776,7 +11871,7 @@
                   "REFERENCE",
                   "ref.color.green.175"
                 ],
-                "line": 255
+                "line": 259
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -11841,7 +11936,7 @@
                   "REFERENCE",
                   "ref.color.green.200"
                 ],
-                "line": 257
+                "line": 261
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -11906,7 +12001,7 @@
                   "REFERENCE",
                   "ref.color.green.450"
                 ],
-                "line": 259
+                "line": 263
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -11971,7 +12066,7 @@
                   "REFERENCE",
                   "ref.color.green.500"
                 ],
-                "line": 261
+                "line": 265
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -12036,7 +12131,7 @@
                   "REFERENCE",
                   "ref.color.green.525"
                 ],
-                "line": 263
+                "line": 267
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -12101,7 +12196,7 @@
                   "REFERENCE",
                   "ref.color.green.600"
                 ],
-                "line": 265
+                "line": 269
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -12166,7 +12261,7 @@
                   "REFERENCE",
                   "ref.color.green.775"
                 ],
-                "line": 267
+                "line": 271
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -12233,7 +12328,7 @@
                   "REFERENCE",
                   "ref.color.amber.50"
                 ],
-                "line": 269
+                "line": 273
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -12298,7 +12393,7 @@
                   "REFERENCE",
                   "ref.color.amber.175"
                 ],
-                "line": 271
+                "line": 275
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -12363,7 +12458,7 @@
                   "REFERENCE",
                   "ref.color.amber.200"
                 ],
-                "line": 273
+                "line": 277
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -12428,7 +12523,7 @@
                   "REFERENCE",
                   "ref.color.amber.225"
                 ],
-                "line": 275
+                "line": 279
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -12491,7 +12586,7 @@
                   "REFERENCE",
                   "ref.color.amber.400"
                 ],
-                "line": 277
+                "line": 281
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -12556,7 +12651,7 @@
                   "REFERENCE",
                   "ref.color.amber.475"
                 ],
-                "line": 279
+                "line": 283
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -12621,7 +12716,7 @@
                   "REFERENCE",
                   "ref.color.amber.500"
                 ],
-                "line": 281
+                "line": 285
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -12686,7 +12781,7 @@
                   "REFERENCE",
                   "ref.color.amber.550"
                 ],
-                "line": 283
+                "line": 287
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -12749,7 +12844,7 @@
                   "REFERENCE",
                   "ref.color.amber.575"
                 ],
-                "line": 285
+                "line": 289
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -12814,7 +12909,7 @@
                   "REFERENCE",
                   "ref.color.amber.775"
                 ],
-                "line": 287
+                "line": 291
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -12879,7 +12974,7 @@
                   "REFERENCE",
                   "ref.color.amber.925"
                 ],
-                "line": 289
+                "line": 293
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -12946,7 +13041,7 @@
                   "REFERENCE",
                   "ref.color.red.50"
                 ],
-                "line": 291
+                "line": 295
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -13011,7 +13106,7 @@
                   "REFERENCE",
                   "ref.color.red.225"
                 ],
-                "line": 293
+                "line": 297
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -13076,7 +13171,7 @@
                   "REFERENCE",
                   "ref.color.red.275"
                 ],
-                "line": 295
+                "line": 299
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -13141,7 +13236,7 @@
                   "REFERENCE",
                   "ref.color.red.300"
                 ],
-                "line": 297
+                "line": 301
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -13204,7 +13299,7 @@
                   "REFERENCE",
                   "ref.color.red.525"
                 ],
-                "line": 299
+                "line": 303
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -13269,7 +13364,7 @@
                   "REFERENCE",
                   "ref.color.red.550"
                 ],
-                "line": 301
+                "line": 305
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -13334,7 +13429,7 @@
                   "REFERENCE",
                   "ref.color.red.575"
                 ],
-                "line": 303
+                "line": 307
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -13399,7 +13494,7 @@
                   "REFERENCE",
                   "ref.color.red.600"
                 ],
-                "line": 305
+                "line": 309
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -13462,7 +13557,7 @@
                   "REFERENCE",
                   "ref.color.red.625"
                 ],
-                "line": 307
+                "line": 311
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -13527,7 +13622,7 @@
                   "REFERENCE",
                   "ref.color.red.750"
                 ],
-                "line": 309
+                "line": 313
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -13574,7 +13669,7 @@
                   "REFERENCE",
                   "ref.color.red.800"
                 ],
-                "line": 311
+                "line": 315
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -13641,7 +13736,7 @@
                   "REFERENCE",
                   "ref.color.blue.50"
                 ],
-                "line": 313
+                "line": 317
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -13706,7 +13801,7 @@
                   "REFERENCE",
                   "ref.color.blue.200"
                 ],
-                "line": 315
+                "line": 319
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -13771,7 +13866,7 @@
                   "REFERENCE",
                   "ref.color.blue.275"
                 ],
-                "line": 317
+                "line": 321
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -13836,7 +13931,7 @@
                   "REFERENCE",
                   "ref.color.blue.300"
                 ],
-                "line": 319
+                "line": 323
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -13899,7 +13994,7 @@
                   "REFERENCE",
                   "ref.color.blue.475"
                 ],
-                "line": 321
+                "line": 325
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -13964,7 +14059,7 @@
                   "REFERENCE",
                   "ref.color.blue.500"
                 ],
-                "line": 323
+                "line": 327
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -14029,7 +14124,7 @@
                   "REFERENCE",
                   "ref.color.blue.550"
                 ],
-                "line": 325
+                "line": 329
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -14094,7 +14189,7 @@
                   "REFERENCE",
                   "ref.color.blue.575"
                 ],
-                "line": 327
+                "line": 331
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -14157,7 +14252,7 @@
                   "REFERENCE",
                   "ref.color.blue.600"
                 ],
-                "line": 329
+                "line": 333
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -14222,7 +14317,7 @@
                   "REFERENCE",
                   "ref.color.blue.775"
                 ],
-                "line": 331
+                "line": 335
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -14289,7 +14384,7 @@
                   "REFERENCE",
                   "ref.color.teal.200"
                 ],
-                "line": 333
+                "line": 337
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -14352,7 +14447,7 @@
                   "REFERENCE",
                   "ref.color.teal.250"
                 ],
-                "line": 335
+                "line": 339
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -14415,7 +14510,7 @@
                   "REFERENCE",
                   "ref.color.teal.400"
                 ],
-                "line": 337
+                "line": 341
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -14478,7 +14573,7 @@
                   "REFERENCE",
                   "ref.color.teal.425"
                 ],
-                "line": 339
+                "line": 343
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -14541,7 +14636,7 @@
                   "REFERENCE",
                   "ref.color.teal.550"
                 ],
-                "line": 341
+                "line": 345
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -14604,7 +14699,7 @@
                   "REFERENCE",
                   "ref.color.teal.575"
                 ],
-                "line": 343
+                "line": 347
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -14669,7 +14764,7 @@
                   "REFERENCE",
                   "ref.color.purple.300"
                 ],
-                "line": 345
+                "line": 349
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -14732,7 +14827,7 @@
                   "REFERENCE",
                   "ref.color.purple.625"
                 ],
-                "line": 347
+                "line": 351
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -14797,7 +14892,7 @@
                   "REFERENCE",
                   "ref.color.olive.200"
                 ],
-                "line": 349
+                "line": 353
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -14860,7 +14955,7 @@
                   "REFERENCE",
                   "ref.color.olive.550"
                 ],
-                "line": 351
+                "line": 355
               },
               "sourceDocuments": [],
               "sourceAnnotations": {},
@@ -14924,7 +15019,7 @@
                 "REFERENCE",
                 "ref.color.white-alpha-4"
               ],
-              "line": 353
+              "line": 357
             },
             "sourceDocuments": [
               "Veil & Shadow.md"
@@ -14991,7 +15086,7 @@
                 "REFERENCE",
                 "ref.color.white-alpha-18"
               ],
-              "line": 355
+              "line": 359
             },
             "sourceDocuments": [
               "Veil & Shadow.md"
@@ -15058,7 +15153,7 @@
                 "REFERENCE",
                 "ref.color.white-alpha-52"
               ],
-              "line": 357
+              "line": 361
             },
             "sourceDocuments": [
               "Veil & Shadow.md"
@@ -15125,7 +15220,7 @@
                 "REFERENCE",
                 "ref.color.white-alpha-72"
               ],
-              "line": 359
+              "line": 363
             },
             "sourceDocuments": [
               "Veil & Shadow.md"
@@ -15192,7 +15287,7 @@
                 "REFERENCE",
                 "ref.color.white-alpha-92"
               ],
-              "line": 361
+              "line": 365
             },
             "sourceDocuments": [
               "Veil & Shadow.md"
@@ -15259,7 +15354,7 @@
                 "REFERENCE",
                 "ref.color.black-alpha-6"
               ],
-              "line": 363
+              "line": 367
             },
             "sourceDocuments": [
               "Veil & Shadow.md"
@@ -15334,7 +15429,7 @@
                 "REFERENCE",
                 "ref.color.black-alpha-10"
               ],
-              "line": 365
+              "line": 369
             },
             "sourceDocuments": [
               "Veil & Shadow.md"
@@ -15409,7 +15504,7 @@
                 "REFERENCE",
                 "ref.color.black-alpha-14"
               ],
-              "line": 367
+              "line": 371
             },
             "sourceDocuments": [
               "Veil & Shadow.md"
@@ -15507,7 +15602,7 @@
                 "REFERENCE",
                 "ref.color.black-alpha-72"
               ],
-              "line": 369
+              "line": 373
             },
             "sourceDocuments": [],
             "sourceAnnotations": {},
@@ -15570,7 +15665,7 @@
                 "REFERENCE",
                 "ref.color.white-alpha-10"
               ],
-              "line": 371
+              "line": 375
             },
             "sourceDocuments": [],
             "sourceAnnotations": {},
@@ -15633,7 +15728,7 @@
                 "REFERENCE",
                 "ref.color.black-alpha-20"
               ],
-              "line": 373
+              "line": 377
             },
             "sourceDocuments": [
               "Veil & Shadow.md"
@@ -15708,7 +15803,7 @@
                 "REFERENCE",
                 "ref.color.black-alpha-26"
               ],
-              "line": 375
+              "line": 379
             },
             "sourceDocuments": [
               "Veil & Shadow.md"
@@ -15783,7 +15878,7 @@
                 "REFERENCE",
                 "ref.color.black-alpha-4"
               ],
-              "line": 377
+              "line": 381
             },
             "sourceDocuments": [
               "Veil & Shadow.md"
@@ -15844,7 +15939,7 @@
                   "REFERENCE",
                   "ref.shadow.offset.0"
                 ],
-                "line": 379
+                "line": 383
               },
               "sourceDocuments": [
                 "Veil & Shadow.md"
@@ -16028,7 +16123,7 @@
                   "REFERENCE",
                   "ref.shadow.offset.2"
                 ],
-                "line": 381
+                "line": 385
               },
               "sourceDocuments": [
                 "Veil & Shadow.md"
@@ -16120,7 +16215,7 @@
                   "REFERENCE",
                   "ref.shadow.offset.3"
                 ],
-                "line": 383
+                "line": 387
               },
               "sourceDocuments": [
                 "Veil & Shadow.md"
@@ -16177,7 +16272,7 @@
                   "REFERENCE",
                   "ref.shadow.offset.6"
                 ],
-                "line": 385
+                "line": 389
               },
               "sourceDocuments": [
                 "Veil & Shadow.md"
@@ -16234,7 +16329,7 @@
                   "REFERENCE",
                   "ref.shadow.offset.8"
                 ],
-                "line": 387
+                "line": 391
               },
               "sourceDocuments": [
                 "Veil & Shadow.md"
@@ -16326,7 +16421,7 @@
                   "REFERENCE",
                   "ref.shadow.offset.16"
                 ],
-                "line": 389
+                "line": 393
               },
               "sourceDocuments": [
                 "Veil & Shadow.md"
@@ -16420,7 +16515,7 @@
                   "REFERENCE",
                   "ref.shadow.blur.6"
                 ],
-                "line": 391
+                "line": 395
               },
               "sourceDocuments": [
                 "Veil & Shadow.md"
@@ -16512,7 +16607,7 @@
                   "REFERENCE",
                   "ref.shadow.blur.10"
                 ],
-                "line": 393
+                "line": 397
               },
               "sourceDocuments": [
                 "Veil & Shadow.md"
@@ -16569,7 +16664,7 @@
                   "REFERENCE",
                   "ref.shadow.blur.20"
                 ],
-                "line": 395
+                "line": 399
               },
               "sourceDocuments": [
                 "Veil & Shadow.md"
@@ -16661,7 +16756,7 @@
                   "REFERENCE",
                   "ref.shadow.blur.36"
                 ],
-                "line": 397
+                "line": 401
               },
               "sourceDocuments": [
                 "Veil & Shadow.md"
@@ -16755,7 +16850,7 @@
                   "REFERENCE",
                   "ref.shadow.spread.0"
                 ],
-                "line": 399
+                "line": 403
               },
               "sourceDocuments": [
                 "Veil & Shadow.md"
@@ -16942,7 +17037,7 @@
                 "REFERENCE",
                 "ref.size.16"
               ],
-              "line": 401
+              "line": 405
             },
             "sourceDocuments": [
               "Icons.md"
@@ -16982,7 +17077,7 @@
                 "REFERENCE",
                 "ref.size.20"
               ],
-              "line": 403
+              "line": 407
             },
             "sourceDocuments": [
               "Icons.md"
@@ -17022,7 +17117,7 @@
                 "REFERENCE",
                 "ref.size.24"
               ],
-              "line": 405
+              "line": 409
             },
             "sourceDocuments": [
               "Icons.md"
@@ -17062,7 +17157,7 @@
                 "REFERENCE",
                 "ref.size.32"
               ],
-              "line": 407
+              "line": 411
             },
             "sourceDocuments": [
               "Icons.md"
@@ -17101,7 +17196,7 @@
                 "REFERENCE",
                 "ref.number.24"
               ],
-              "line": 409
+              "line": 413
             },
             "sourceDocuments": [
               "Icons.md"
@@ -17138,7 +17233,7 @@
                 "REFERENCE",
                 "ref.number.2-25"
               ],
-              "line": 411
+              "line": 415
             },
             "sourceDocuments": [
               "Icons.md"

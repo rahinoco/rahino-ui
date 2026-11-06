@@ -2,6 +2,7 @@ import { clsx } from 'clsx';
 import { forwardRef, type InputHTMLAttributes, type MouseEventHandler, type ReactNode, useId } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { ICONOGRAPHY } from '../foundations/canonical/Icons';
+import { credentialDirection } from '../lib/credentialDirection';
 import IconButton from './IconButton';
 
 export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'id' | 'dir'> {
@@ -12,7 +13,7 @@ export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 
   icon?: ReactNode;
   /** Logical edge: start is right in RTL and left in LTR. */
   iconPosition?: 'start' | 'end';
-  /** Clickable icon with a 44px target. The caller can change icon/label after activation, e.g. show/hide, or keep the icon unchanged, e.g. copy. */
+  /** Clickable icon with a 44px target on touch devices. */
   iconAction?: { label: string; onClick: MouseEventHandler<HTMLButtonElement>; disabled?: boolean };
   /** Content at the reading end, such as a unit or a labeled password visibility button. */
   endAdornment?: ReactNode;
@@ -21,10 +22,11 @@ export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 
   mono?: boolean;
   /** Visually hide the label; preserve its accessible name and supporting text. */
   dense?: boolean;
-  controlSize?: 'md' | 'lg';
+  controlSize?: 'sm' | 'md' | 'lg';
   /** Text script and direction are independent: Persian phone digits can still use dir="ltr". */
   textScript?: 'fa' | 'latin';
   id?: string;
+  /** Credentials default to LTR in the input. An explicit direction overrides the default. */
   dir?: 'ltr' | 'rtl' | 'auto';
 }
 
@@ -56,7 +58,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
       }}
       data-invalid={invalid || undefined} data-disabled={disabled || undefined} data-readonly={readOnly || undefined}>
       {iconPosition === 'start' ? iconSlot : null}
-      <input {...props} id={id} ref={ref} dir={dir} required={required} disabled={disabled} readOnly={readOnly}
+      <input {...props} id={id} ref={ref} dir={dir ?? credentialDirection(props.type, props.autoComplete)} required={required} disabled={disabled} readOnly={readOnly}
         aria-describedby={description} aria-invalid={hasError ? true : ariaInvalid}
         data-text-script={textScript} data-mono={mono || undefined}
         className={twMerge(clsx('rds-input__control', inputClassName))} />

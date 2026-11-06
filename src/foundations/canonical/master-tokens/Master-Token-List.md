@@ -2,7 +2,7 @@
 
 **Canonical foundation. Values and outputs are generated from this collection.**
 
-175 shared and theme-dependent typed tokens, 16 semantic text styles, 205 raw references, and 14 supporting definitions.
+173 shared and theme-dependent typed tokens, 16 semantic text styles, 207 raw references, and 14 supporting definitions.
 
 ## How to read this list
 
@@ -30,67 +30,65 @@ Current resolved colors appear below. See the [color-value changes](../output/co
 
 | Token | Light value / reference | Dark value / reference | Use / review |
 | --- | --- | --- | --- |
-| [`rds.color.action.danger-subtle.bg.default`](../Color.ts#L315) | #FCE9EB<br>`rds.color.status.error.bg` → `ref.color.red.50` | #42262B<br>`rds.color.status.error.bg` → `ref.color.red.800` | Opaque default fill for low-emphasis destructive actions |
-| [`rds.color.action.danger-subtle.bg.hover`](../Color.ts#L317) | #EDB3B8<br>`ref.color.red.225` | #562A2F<br>`ref.color.red.750` | Opaque hover fill for low-emphasis destructive actions |
-| [`rds.color.action.danger-subtle.bg.pressed`](../Color.ts#L319) | #F4979F<br>`ref.color.red.275` | #A33A43<br>`ref.color.red.625` | Opaque pressed fill for low-emphasis destructive actions |
-| [`rds.color.action.danger-subtle.fg.default`](../Color.ts#L306) | #42262B<br>`ref.color.red.800` | #FCE9EB<br>`ref.color.red.50` | Stable foreground for low-emphasis destructive action fills across default, hover and pressed states. |
-| [`rds.color.action.danger-subtle.fg.hover`](../Color.ts#L308) | #42262B<br>`ref.color.red.800` | #FCE9EB<br>`ref.color.red.50` | Stable foreground for low-emphasis destructive action fills across default, hover and pressed states. |
-| [`rds.color.action.danger-subtle.fg.pressed`](../Color.ts#L310) | #42262B<br>`ref.color.red.800` | #FCE9EB<br>`ref.color.red.50` | Stable foreground for low-emphasis destructive action fills across default, hover and pressed states. |
-| [`rds.color.action.danger.bg.default`](../Color.ts#L297) | #B54650<br>`rds.color.status.error.fill` → `ref.color.red.575` | #B94C57<br>`rds.color.status.error.fill` → `ref.color.red.550` | Resting opaque destructive action fill |
-| [`rds.color.action.danger.bg.hover`](../Color.ts#L299) | #A33A43<br>`ref.color.red.625` | #B54650<br>`ref.color.red.575` | Hover fill for an enabled destructive action |
-| [`rds.color.action.danger.bg.pressed`](../Color.ts#L301) | #42262B<br>`ref.color.red.800` | #A33A43<br>`ref.color.red.625` | Temporary pressed fill for an enabled destructive action |
-| [`rds.color.action.neutral-subtle.bg.default`](../Color.ts#L288) | #FBF9FA<br>`rds.color.surface.subtle` → `ref.color.gray-warm.25` | #2D2C30<br>`rds.color.surface.subtle` → `ref.color.gray.900` | Resting opaque low-emphasis neutral action fill. |
-| [`rds.color.action.neutral-subtle.bg.hover`](../Color.ts#L290) | #F3F1F2<br>`ref.color.gray-warm.75` | #333135<br>`ref.color.gray.850` | Opaque hover fill for low-emphasis neutral actions; never an alpha overlay. |
-| [`rds.color.action.neutral-subtle.bg.pressed`](../Color.ts#L292) | #E8E3E5<br>`ref.color.gray-warm.100` | #625F69<br>`ref.color.gray.600` | Opaque temporary pressed fill for low-emphasis neutral actions. |
-| [`rds.color.action.neutral.bg.default`](../Color.ts#L279) | #211D20<br>`ref.color.gray-warm.875` | #EEEEF0<br>`ref.color.gray.50` | Resting opaque high-emphasis neutral action fill. |
-| [`rds.color.action.neutral.bg.hover`](../Color.ts#L281) | #5E585F<br>`ref.color.gray-warm.650` | #C0BDC6<br>`ref.color.gray.225` | Hover fill for an enabled high-emphasis neutral action. |
-| [`rds.color.action.neutral.bg.pressed`](../Color.ts#L283) | #625B60<br>`ref.color.gray-warm.600` | #B5B2BC<br>`ref.color.gray.275` | Temporary pressed fill for a high-emphasis neutral action. |
-| [`rds.color.action.primary.bg.default`](../Color.ts#L65) | #631244<br>`ref.color.plum.775` | #631244<br>`ref.color.plum.775` | Primary high-priority button/action background in its rest state. |
-| [`rds.color.action.primary.bg.disabled`](../Color.ts#L71) | #DCC7D4<br>`ref.color.plum.375` | #4A3742<br>`ref.color.plum.750` | Inactive solid primary control fill; interaction must be disabled too. |
-| [`rds.color.action.primary.bg.hover`](../Color.ts#L67) | #4A0D33<br>`ref.color.plum.850` | #741A52<br>`ref.color.plum.725` | Pointer-hover state on a currently enabled primary action. |
-| [`rds.color.action.primary.bg.pressed`](../Color.ts#L69) | #1E0515<br>`ref.color.plum.950` | #4A0D33<br>`ref.color.plum.850` | Temporary active/pressed feedback for enabled primary actions. |
-| [`rds.color.action.primary.fg`](../Color.ts#L75) | #FFFFFF<br>`rds.color.ink.on-brand` → `ref.color.white` | #FFFFFF<br>`rds.color.ink.on-brand` → `ref.color.white` | Primary-action foreground alias of rds.color.ink.on-brand across enabled default, hover and pressed states. |
-| [`rds.color.brand.bg.default`](../Color.ts#L51) | #F0E5EB<br>`ref.color.plum.50` | #321A29<br>`ref.color.plum.875` | Selected/highlighted branded container, low-intensity emphasis panel, or soft brand control at rest. |
-| [`rds.color.brand.bg.hover`](../Color.ts#L53) | #E8D9E1<br>`ref.color.plum.100` | #4A0D33<br>`ref.color.plum.850` | Pointer-hover state ONLY for an interactive brand.bg.default surface. |
-| [`rds.color.brand.bg.pressed`](../Color.ts#L57) | #E7B6D0<br>`ref.color.plum.200` | #631244<br>`ref.color.plum.775` | Temporary pressed fill on a soft branded action or branded selected action |
-| [`rds.color.brand.fg`](../Color.ts#L55) | #631244<br>`ref.color.plum.775` | #E7B6D0<br>`ref.color.plum.200` | Branded text/icon emphasis on appropriate light/dark backgrounds, especially on brand.bg.default, soft brand controls and toned badges. |
-| [`rds.color.brand.seed`](../Color.ts#L49) | #631244<br>`ref.color.plum.775` | #631244<br>`ref.color.plum.775` | Immutable corporate identity reference, brand signatures and recipes that explicitly require the original brand seed in either appearance. |
-| [`rds.color.edge.control`](../Color.ts#L94) | #7A8493<br>`ref.color.gray-cool.450` | #7A8493<br>`ref.color.gray-cool.450` | 1px boundary for enabled inputs, selects, or secondary controls only when their filled treatment needs a clearer affordance. |
-| [`rds.color.edge.subtle`](../Color.ts#L92) | rgb(15 23 42 / 0.12)<br>`ref.color.gray-cool.925-alpha-12` | rgb(255 255 255 / 0.1)<br>`ref.color.white-alpha-10` | Optional 1px separators in dense tables or between adjacent panels when spacing and surface contrast are insufficient. |
-| [`rds.color.focus.ring`](../Color.ts#L78) | #99507A<br>`ref.color.plum.575` | #A9638B<br>`ref.color.plum.500` | Visible keyboard focus ring, generally via :focus-visible and focus geometry tokens (width) defined elsewhere. |
-| [`rds.color.ink.disabled`](../Color.ts#L40) | #AAA3A7<br>`ref.color.gray-warm.325` | #625F69<br>`ref.color.gray.600` | Text/labels of genuinely disabled, noninteractive controls. |
-| [`rds.color.ink.inverse`](../Color.ts#L44) | #EEEEF0<br>`ref.color.gray.50` | #211D20<br>`ref.color.gray-warm.875` | Text/icons only on intentionally inverse neutral-solid controls. |
-| [`rds.color.ink.on-brand`](../Color.ts#L42) | #FFFFFF<br>`ref.color.white` | #FFFFFF<br>`ref.color.white` | Text and icons on enabled solid primary fills across default, hover and pressed states. |
-| [`rds.color.ink.primary`](../Color.ts#L34) | #211D20<br>`ref.color.gray-warm.875` | #EEEEF0<br>`ref.color.gray.50` | Main text, values and labels on neutral surfaces; solid primary fills use rds.color.ink.on-brand. |
-| [`rds.color.ink.secondary`](../Color.ts#L36) | #5F585D<br>`ref.color.gray-warm.625` | #C0BDC6<br>`ref.color.gray.225` | Readable supporting text, including descriptions, helper text, notification content, and meaningful metadata |
-| [`rds.color.ink.tertiary`](../Color.ts#L38) | #6D656B<br>`ref.color.gray-warm.575` | #AAA6B0<br>`ref.color.gray.325` | Low-emphasis text at full opacity on approved resting opaque surfaces; use secondary or primary ink on neutral hover/pressed overlays unless the complete treatment is separately validated. |
-| [`rds.color.interaction.neutral.hover`](../Color.ts#L82) | rgb(33 29 32 / 0.06)<br>`ref.color.gray-warm.875-alpha-6` | rgb(238 238 240 / 0.08)<br>`ref.color.gray.50-alpha-8` | Pointer-hover overlay behind neutral interactive content; use secondary or primary ink at full opacity and validate the final composite. |
-| [`rds.color.interaction.neutral.pressed`](../Color.ts#L84) | rgb(33 29 32 / 0.1)<br>`ref.color.gray-warm.875-alpha-10` | rgb(238 238 240 / 0.12)<br>`ref.color.gray.50-alpha-12` | Pressed overlay behind neutral interactive content; use secondary or primary ink at full opacity and validate the final composite. |
-| [`rds.color.interaction.surface.selected`](../Color.ts#L88) | #F0E5EB<br>`rds.color.brand.bg.default` → `ref.color.plum.50` | #321A29<br>`rds.color.brand.bg.default` → `ref.color.plum.875` | Persistent BRANDED selection plate (e.g. active segmented option or selected category) when the component recipe specifies branded tone. |
-| [`rds.color.link.fg`](../Color.ts#L61) | #631244<br>`rds.color.brand.fg` → `ref.color.plum.775` | #E7B6D0<br>`rds.color.brand.fg` → `ref.color.plum.200` | Link-colored text where an actual interactive hyperlink is present. |
-| [`rds.color.scrim.modal`](../Color.ts#L29) | rgb(20 12 17 / 0.52)<br>`ref.color.gray-warm.950-alpha-52` | rgb(0 0 0 / 0.72)<br>`ref.color.black-alpha-72` | Backdrop dimming behind a modal/dialog that blocks the underlying UI. |
-| [`rds.color.status.error.bg`](../Color.ts#L124) | #FCE9EB<br>`ref.color.red.50` | #42262B<br>`ref.color.red.800` | Error callout/validation container background. |
-| [`rds.color.status.error.edge`](../Color.ts#L126) | #EDB3B8<br>`ref.color.red.225` | #AA5963<br>`ref.color.red.525` | Invalid field or error alert border. |
-| [`rds.color.status.error.fg`](../Color.ts#L128) | #A33A43<br>`ref.color.red.625` | #F4979F<br>`ref.color.red.275` | Validation error text/icon; don't signal error with color alone. |
-| [`rds.color.status.error.fill`](../Color.ts#L130) | #B54650<br>`ref.color.red.575` | #B94C57<br>`ref.color.red.550` | Solid error badge; destructive button through a separate recipe. |
-| [`rds.color.status.error.on-fill`](../Color.ts#L132) | #FFFFFF<br>`ref.color.white` | #FFFFFF<br>`ref.color.white` | Text/icons on error.fill. |
-| [`rds.color.status.info.bg`](../Color.ts#L136) | #E2ECF8<br>`ref.color.blue.50` | #23354B<br>`ref.color.blue.775` | Nonurgent informational banner/panel fill. |
-| [`rds.color.status.info.edge`](../Color.ts#L138) | #B6CCE6<br>`ref.color.blue.200` | #5A83AE<br>`ref.color.blue.475` | Info border around a feedback block. |
-| [`rds.color.status.info.fg`](../Color.ts#L140) | #345E91<br>`ref.color.blue.600` | #86B9EE<br>`ref.color.blue.275` | Information label/icon; link styling also needs link affordance. |
-| [`rds.color.status.info.fill`](../Color.ts#L142) | #416FA8<br>`ref.color.blue.550` | #4479B5<br>`ref.color.blue.500` | Solid informational badge/indicator. |
-| [`rds.color.status.info.on-fill`](../Color.ts#L144) | #FFFFFF<br>`ref.color.white` | #FFFFFF<br>`ref.color.white` | Text/icons on info.fill. |
-| [`rds.color.status.success.bg`](../Color.ts#L100) | #DAFBE8<br>`ref.color.green.50` | #203B2A<br>`ref.color.green.775` | Positive alert/validation panel fill; not a primary action. |
-| [`rds.color.status.success.edge`](../Color.ts#L102) | #ADD7BC<br>`ref.color.green.175` | #4F9166<br>`ref.color.green.450` | Border of positive feedback panel or field-success indication. |
-| [`rds.color.status.success.fg`](../Color.ts#L104) | #216E43<br>`ref.color.green.600` | #87DCA4<br>`ref.color.green.200` | Success message, icon or state label on validated surfaces. |
-| [`rds.color.status.success.fill`](../Color.ts#L106) | #2F7D50<br>`ref.color.green.525` | #348556<br>`ref.color.green.500` | Solid positive badge/indicator or success-specific action recipe. |
-| [`rds.color.status.success.on-fill`](../Color.ts#L108) | #FFFFFF<br>`ref.color.white` | #FFFFFF<br>`ref.color.white` | Text/icons only on status.success.fill. |
-| [`rds.color.status.warning.bg`](../Color.ts#L112) | #FEF3DF<br>`ref.color.amber.50` | #40341D<br>`ref.color.amber.775` | Warning callout/banner background. |
-| [`rds.color.status.warning.edge`](../Color.ts#L114) | #E8C98C<br>`ref.color.amber.200` | #9B7937<br>`ref.color.amber.475` | Warning field/alert border. |
-| [`rds.color.status.warning.fg`](../Color.ts#L116) | #8A5A12<br>`ref.color.amber.575` | #F0C86F<br>`ref.color.amber.175` | Warning text/icon; reserve for caution, not generic emphasis. |
-| [`rds.color.status.warning.fill`](../Color.ts#L118) | #9E6A19<br>`ref.color.amber.500` | #BE882E<br>`ref.color.amber.400` | Solid warning pill/badge or alert marker. |
-| [`rds.color.status.warning.on-fill`](../Color.ts#L120) | #FFFFFF<br>`ref.color.white` | #1B1407<br>`ref.color.amber.925` | Text/icons on warning.fill; light/dark inks differ intentionally. |
+| [`rds.color.action.brand.bg.default`](../Color.ts#L67) | #631244<br>`ref.color.plum.775` | #631244<br>`ref.color.plum.775` | Primary high-priority button/action background in its rest state. |
+| [`rds.color.action.brand.bg.disabled`](../Color.ts#L73) | #DCC7D4<br>`ref.color.plum.375` | #4A3742<br>`ref.color.plum.750` | Inactive solid primary control fill; interaction must be disabled too. |
+| [`rds.color.action.brand.bg.hover`](../Color.ts#L69) | #4A0D33<br>`ref.color.plum.850` | #741A52<br>`ref.color.plum.725` | Pointer-hover state on a currently enabled primary action. |
+| [`rds.color.action.brand.bg.pressed`](../Color.ts#L71) | #400C2C<br>`ref.color.plum.900` | #4A0D33<br>`ref.color.plum.850` | Temporary active/pressed feedback for enabled primary actions. |
+| [`rds.color.action.brand.fg`](../Color.ts#L77) | #FFFFFF<br>`rds.color.ink.on-brand` → `ref.color.white` | #FFFFFF<br>`rds.color.ink.on-brand` → `ref.color.white` | Primary-action foreground alias of rds.color.ink.on-brand across enabled default, hover and pressed states. |
+| [`rds.color.action.danger-subtle.bg.default`](../Color.ts#L308) | #FCE9EB<br>`rds.color.status.error.bg` → `ref.color.red.50` | #42262B<br>`rds.color.status.error.bg` → `ref.color.red.800` | Opaque default fill for low-emphasis destructive actions |
+| [`rds.color.action.danger-subtle.bg.hover`](../Color.ts#L310) | #EDB3B8<br>`ref.color.red.225` | #562A2F<br>`ref.color.red.750` | Opaque hover fill for low-emphasis destructive actions |
+| [`rds.color.action.danger-subtle.bg.pressed`](../Color.ts#L312) | #F4979F<br>`ref.color.red.275` | #A33A43<br>`ref.color.red.625` | Opaque pressed fill for low-emphasis destructive actions |
+| [`rds.color.action.danger-subtle.fg.default`](../Color.ts#L299) | #42262B<br>`ref.color.red.800` | #FCE9EB<br>`ref.color.red.50` | Stable foreground for low-emphasis destructive action fills across default, hover and pressed states. |
+| [`rds.color.action.danger-subtle.fg.hover`](../Color.ts#L301) | #42262B<br>`ref.color.red.800` | #FCE9EB<br>`ref.color.red.50` | Stable foreground for low-emphasis destructive action fills across default, hover and pressed states. |
+| [`rds.color.action.danger-subtle.fg.pressed`](../Color.ts#L303) | #42262B<br>`ref.color.red.800` | #FCE9EB<br>`ref.color.red.50` | Stable foreground for low-emphasis destructive action fills across default, hover and pressed states. |
+| [`rds.color.action.danger.bg.default`](../Color.ts#L290) | #B54650<br>`rds.color.status.error.fill` → `ref.color.red.575` | #B94C57<br>`rds.color.status.error.fill` → `ref.color.red.550` | Resting opaque destructive action fill |
+| [`rds.color.action.danger.bg.hover`](../Color.ts#L292) | #A33A43<br>`ref.color.red.625` | #B54650<br>`ref.color.red.575` | Hover fill for an enabled destructive action |
+| [`rds.color.action.danger.bg.pressed`](../Color.ts#L294) | #562A2F<br>`ref.color.red.750` | #A33A43<br>`ref.color.red.625` | Temporary pressed fill for an enabled destructive action |
+| [`rds.color.action.neutral.bg.default`](../Color.ts#L281) | #28252B<br>`ref.color.gray.935` | #EEEEF0<br>`ref.color.gray.50` | Resting opaque high-emphasis neutral action fill. |
+| [`rds.color.action.neutral.bg.hover`](../Color.ts#L283) | #030203<br>`ref.color.gray.975` | #C0BDC6<br>`ref.color.gray.225` | Hover fill for an enabled high-emphasis neutral action. |
+| [`rds.color.action.neutral.bg.pressed`](../Color.ts#L285) | #030203<br>`ref.color.gray.975` | #B5B2BC<br>`ref.color.gray.275` | Temporary pressed fill for a high-emphasis neutral action. |
+| [`rds.color.brand.bg.default`](../Color.ts#L53) | #F0E5EB<br>`ref.color.plum.50` | #321A29<br>`ref.color.plum.875` | Selected/highlighted branded container, low-intensity emphasis panel, or soft brand control at rest. |
+| [`rds.color.brand.bg.hover`](../Color.ts#L55) | #E8D9E1<br>`ref.color.plum.100` | #4A0D33<br>`ref.color.plum.850` | Pointer-hover state ONLY for an interactive brand.bg.default surface. |
+| [`rds.color.brand.bg.pressed`](../Color.ts#L59) | #E7B6D0<br>`ref.color.plum.200` | #631244<br>`ref.color.plum.775` | Temporary pressed fill on a soft branded action or branded selected action |
+| [`rds.color.brand.fg`](../Color.ts#L57) | #631244<br>`ref.color.plum.775` | #E7B6D0<br>`ref.color.plum.200` | Branded text/icon emphasis on appropriate light/dark backgrounds, especially on brand.bg.default, soft brand controls and toned badges. |
+| [`rds.color.brand.seed`](../Color.ts#L51) | #631244<br>`ref.color.plum.775` | #631244<br>`ref.color.plum.775` | Immutable corporate identity reference, brand signatures and recipes that explicitly require the original brand seed in either appearance. |
+| [`rds.color.edge.control`](../Color.ts#L96) | #7A8493<br>`ref.color.gray-cool.450` | #7A8493<br>`ref.color.gray-cool.450` | 1px boundary for enabled inputs, selects, or secondary controls only when their filled treatment needs a clearer affordance. |
+| [`rds.color.edge.subtle`](../Color.ts#L94) | rgb(15 23 42 / 0.12)<br>`ref.color.gray-cool.925-alpha-12` | rgb(255 255 255 / 0.1)<br>`ref.color.white-alpha-10` | Optional 1px separators in dense tables or between adjacent panels when spacing and surface contrast are insufficient. |
+| [`rds.color.focus.ring`](../Color.ts#L80) | #99507A<br>`ref.color.plum.575` | #A9638B<br>`ref.color.plum.500` | Visible keyboard focus ring, generally via :focus-visible and focus geometry tokens (width) defined elsewhere. |
+| [`rds.color.ink.disabled`](../Color.ts#L42) | #AAA3A7<br>`ref.color.gray-warm.325` | #625F69<br>`ref.color.gray.600` | Text/labels of genuinely disabled, noninteractive controls. |
+| [`rds.color.ink.inverse`](../Color.ts#L46) | #EEEEF0<br>`ref.color.gray.50` | #211D20<br>`ref.color.gray-warm.875` | Text/icons only on intentionally inverse neutral-solid controls. |
+| [`rds.color.ink.on-brand`](../Color.ts#L44) | #FFFFFF<br>`ref.color.white` | #FFFFFF<br>`ref.color.white` | Text and icons on enabled solid primary fills across default, hover and pressed states. |
+| [`rds.color.ink.primary`](../Color.ts#L36) | #211D20<br>`ref.color.gray-warm.875` | #EEEEF0<br>`ref.color.gray.50` | Main text, values and labels on neutral surfaces; solid primary fills use rds.color.ink.on-brand. |
+| [`rds.color.ink.secondary`](../Color.ts#L38) | #5F585D<br>`ref.color.gray-warm.625` | #C0BDC6<br>`ref.color.gray.225` | Readable supporting text, including descriptions, helper text, notification content, and meaningful metadata |
+| [`rds.color.ink.tertiary`](../Color.ts#L40) | #6D656B<br>`ref.color.gray-warm.575` | #AAA6B0<br>`ref.color.gray.325` | Low-emphasis text at full opacity on approved resting opaque surfaces; use secondary or primary ink on neutral hover/pressed overlays unless the complete treatment is separately validated. |
+| [`rds.color.interaction.neutral.hover`](../Color.ts#L84) | rgb(33 29 32 / 0.04)<br>`ref.color.gray-warm.875-alpha-4` | rgb(238 238 240 / 0.08)<br>`ref.color.gray.50-alpha-8` | Pointer-hover overlay behind neutral interactive content; use secondary or primary ink at full opacity and validate the final composite. |
+| [`rds.color.interaction.neutral.pressed`](../Color.ts#L86) | rgb(33 29 32 / 0.08)<br>`ref.color.gray-warm.875-alpha-8` | rgb(238 238 240 / 0.12)<br>`ref.color.gray.50-alpha-12` | Pressed overlay behind neutral interactive content; use secondary or primary ink at full opacity and validate the final composite. |
+| [`rds.color.interaction.surface.selected`](../Color.ts#L90) | #F0E5EB<br>`rds.color.brand.bg.default` → `ref.color.plum.50` | #321A29<br>`rds.color.brand.bg.default` → `ref.color.plum.875` | Persistent BRANDED selection plate (e.g. active segmented option or selected category) when the component recipe specifies branded tone. |
+| [`rds.color.link.fg`](../Color.ts#L63) | #631244<br>`rds.color.brand.fg` → `ref.color.plum.775` | #E7B6D0<br>`rds.color.brand.fg` → `ref.color.plum.200` | Link-colored text where an actual interactive hyperlink is present. |
+| [`rds.color.scrim.modal`](../Color.ts#L31) | rgb(20 12 17 / 0.52)<br>`ref.color.gray-warm.950-alpha-52` | rgb(0 0 0 / 0.72)<br>`ref.color.black-alpha-72` | Backdrop dimming behind a modal/dialog that blocks the underlying UI. |
+| [`rds.color.status.error.bg`](../Color.ts#L126) | #FCE9EB<br>`ref.color.red.50` | #42262B<br>`ref.color.red.800` | Error callout/validation container background. |
+| [`rds.color.status.error.edge`](../Color.ts#L128) | #EDB3B8<br>`ref.color.red.225` | #AA5963<br>`ref.color.red.525` | Invalid field or error alert border. |
+| [`rds.color.status.error.fg`](../Color.ts#L130) | #A33A43<br>`ref.color.red.625` | #F4979F<br>`ref.color.red.275` | Validation error text/icon; don't signal error with color alone. |
+| [`rds.color.status.error.fill`](../Color.ts#L132) | #B54650<br>`ref.color.red.575` | #B94C57<br>`ref.color.red.550` | Solid error badge; destructive button through a separate recipe. |
+| [`rds.color.status.error.on-fill`](../Color.ts#L134) | #FFFFFF<br>`ref.color.white` | #FFFFFF<br>`ref.color.white` | Text/icons on error.fill. |
+| [`rds.color.status.info.bg`](../Color.ts#L138) | #E2ECF8<br>`ref.color.blue.50` | #23354B<br>`ref.color.blue.775` | Nonurgent informational banner/panel fill. |
+| [`rds.color.status.info.edge`](../Color.ts#L140) | #B6CCE6<br>`ref.color.blue.200` | #5A83AE<br>`ref.color.blue.475` | Info border around a feedback block. |
+| [`rds.color.status.info.fg`](../Color.ts#L142) | #345E91<br>`ref.color.blue.600` | #86B9EE<br>`ref.color.blue.275` | Information label/icon; link styling also needs link affordance. |
+| [`rds.color.status.info.fill`](../Color.ts#L144) | #416FA8<br>`ref.color.blue.550` | #4479B5<br>`ref.color.blue.500` | Solid informational badge/indicator. |
+| [`rds.color.status.info.on-fill`](../Color.ts#L146) | #FFFFFF<br>`ref.color.white` | #FFFFFF<br>`ref.color.white` | Text/icons on info.fill. |
+| [`rds.color.status.success.bg`](../Color.ts#L102) | #DAFBE8<br>`ref.color.green.50` | #203B2A<br>`ref.color.green.775` | Positive alert/validation panel fill; not a primary action. |
+| [`rds.color.status.success.edge`](../Color.ts#L104) | #ADD7BC<br>`ref.color.green.175` | #4F9166<br>`ref.color.green.450` | Border of positive feedback panel or field-success indication. |
+| [`rds.color.status.success.fg`](../Color.ts#L106) | #216E43<br>`ref.color.green.600` | #87DCA4<br>`ref.color.green.200` | Success message, icon or state label on validated surfaces. |
+| [`rds.color.status.success.fill`](../Color.ts#L108) | #2F7D50<br>`ref.color.green.525` | #348556<br>`ref.color.green.500` | Solid positive badge/indicator or success-specific action recipe. |
+| [`rds.color.status.success.on-fill`](../Color.ts#L110) | #FFFFFF<br>`ref.color.white` | #FFFFFF<br>`ref.color.white` | Text/icons only on status.success.fill. |
+| [`rds.color.status.warning.bg`](../Color.ts#L114) | #FEF3DF<br>`ref.color.amber.50` | #40341D<br>`ref.color.amber.775` | Warning callout/banner background. |
+| [`rds.color.status.warning.edge`](../Color.ts#L116) | #E8C98C<br>`ref.color.amber.200` | #9B7937<br>`ref.color.amber.475` | Warning field/alert border. |
+| [`rds.color.status.warning.fg`](../Color.ts#L118) | #8A5A12<br>`ref.color.amber.575` | #F0C86F<br>`ref.color.amber.175` | Warning text/icon; reserve for caution, not generic emphasis. |
+| [`rds.color.status.warning.fill`](../Color.ts#L120) | #9E6A19<br>`ref.color.amber.500` | #BE882E<br>`ref.color.amber.400` | Solid warning pill/badge or alert marker. |
+| [`rds.color.status.warning.on-fill`](../Color.ts#L122) | #FFFFFF<br>`ref.color.white` | #1B1407<br>`ref.color.amber.925` | Text/icons on warning.fill; light/dark inks differ intentionally. |
 | [`rds.color.surface.base`](../Color.ts#L16) | #FFFFFF<br>`ref.color.white` | #262429<br>`ref.color.gray.925` | Default content surface for cards, panels, and sections within the page |
 | [`rds.color.surface.canvas`](../Color.ts#L14) | #F3F1F2<br>`ref.color.gray-warm.75` | #1A181B<br>`ref.color.gray.950` | Root application/page background |
+| [`rds.color.surface.disabled`](../Color.ts#L26) | #E8E3E5<br>`ref.color.gray-warm.100` | #28252B<br>`ref.color.gray.935` | Surface fill for disabled, non-interactive regions; combine with disabled ink and actual disabled behavior. |
 | [`rds.color.surface.inverse`](../Color.ts#L24) | #211D20<br>`ref.color.gray-warm.875` | #EEEEF0<br>`ref.color.gray.50` | Intentionally high-contrast, solid neutral controls only, such as an explicitly emphasized neutral button. |
 | [`rds.color.surface.raised`](../Color.ts#L20) | #FFFFFF<br>`ref.color.white` | #333135<br>`ref.color.gray.850` | Default opaque surface for dialogs, menus, popovers and floating toolbars; glass requires an explicit component choice and validated backdrop. |
 | [`rds.color.surface.subtle`](../Color.ts#L18) | #FBF9FA<br>`ref.color.gray-warm.25` | #2D2C30<br>`ref.color.gray.900` | Low-emphasis grouping within content surfaces, including alternate sections, section headers, list tracks, and secondary containers. |
@@ -102,25 +100,25 @@ Chart slots start at 01; existing array index 0 maps to slot 01. Series order is
 
 | Token | Light value / reference | Dark value / reference | Use / review |
 | --- | --- | --- | --- |
-| [`rds.color.data.categorical.01`](../Color.ts#L216) | #631244<br>`ref.color.plum.775` | #E18FBD<br>`ref.color.plum.350` | categorical chart slot 01; retain the existing series order and family usage constraints. |
-| [`rds.color.data.categorical.02`](../Color.ts#L218) | #287569<br>`ref.color.teal.550` | #74CCB4<br>`ref.color.teal.250` | categorical chart slot 02; retain the existing series order and family usage constraints. |
-| [`rds.color.data.categorical.03`](../Color.ts#L220) | #386EAA<br>`ref.color.blue.575` | #85B7ED<br>`ref.color.blue.300` | categorical chart slot 03; retain the existing series order and family usage constraints. |
-| [`rds.color.data.categorical.04`](../Color.ts#L222) | #926119<br>`ref.color.amber.550` | #E5B567<br>`ref.color.amber.225` | categorical chart slot 04; retain the existing series order and family usage constraints. |
-| [`rds.color.data.categorical.05`](../Color.ts#L224) | #654D91<br>`ref.color.purple.625` | #B8A1E6<br>`ref.color.purple.300` | categorical chart slot 05; retain the existing series order and family usage constraints. |
-| [`rds.color.data.categorical.06`](../Color.ts#L226) | #9B4D48<br>`ref.color.red.600` | #E9968D<br>`ref.color.red.300` | categorical chart slot 06; retain the existing series order and family usage constraints. |
-| [`rds.color.data.categorical.07`](../Color.ts#L228) | #526C7B<br>`ref.color.gray-cool.550` | #A4BECD<br>`ref.color.gray-cool.250` | categorical chart slot 07; retain the existing series order and family usage constraints. |
-| [`rds.color.data.categorical.08`](../Color.ts#L230) | #637437<br>`ref.color.olive.550` | #BFCB7A<br>`ref.color.olive.200` | categorical chart slot 08; retain the existing series order and family usage constraints. |
-| [`rds.color.data.diverging.01`](../Color.ts#L252) | #246F67<br>`ref.color.teal.575` | #8AD3BF<br>`ref.color.teal.200` | diverging chart slot 01; retain the existing series order and family usage constraints. |
-| [`rds.color.data.diverging.02`](../Color.ts#L254) | #64988D<br>`ref.color.teal.400` | #58968A<br>`ref.color.teal.425` | diverging chart slot 02; retain the existing series order and family usage constraints. |
-| [`rds.color.data.diverging.03`](../Color.ts#L256) | #CAC2C7<br>`ref.color.gray-warm.200` | #5E585F<br>`ref.color.gray-warm.650` | diverging chart slot 03; retain the existing series order and family usage constraints. |
-| [`rds.color.data.diverging.04`](../Color.ts#L258) | #9B5878<br>`ref.color.plum.550` | #A47891<br>`ref.color.plum.450` | diverging chart slot 04; retain the existing series order and family usage constraints. |
-| [`rds.color.data.diverging.05`](../Color.ts#L260) | #631244<br>`ref.color.plum.775` | #E18FBD<br>`ref.color.plum.350` | diverging chart slot 05; retain the existing series order and family usage constraints. |
-| [`rds.color.data.on-fill`](../Color.ts#L266) | #FFFFFF<br>`ref.color.white` | #211D20<br>`ref.color.gray-warm.875` | Foreground for text/icons inside solid categorical chart marks only, after contrast validation against the selected series color. |
-| [`rds.color.data.sequential.01`](../Color.ts#L237) | #966883<br>`ref.color.plum.525` | #A7839B<br>`ref.color.plum.425` | sequential chart slot 01; retain the existing series order and family usage constraints. |
-| [`rds.color.data.sequential.02`](../Color.ts#L239) | #8C5776<br>`ref.color.plum.600` | #B48BA6<br>`ref.color.plum.400` | sequential chart slot 02; retain the existing series order and family usage constraints. |
-| [`rds.color.data.sequential.03`](../Color.ts#L241) | #824465<br>`ref.color.plum.625` | #C89CB6<br>`ref.color.plum.325` | sequential chart slot 03; retain the existing series order and family usage constraints. |
-| [`rds.color.data.sequential.04`](../Color.ts#L243) | #752C55<br>`ref.color.plum.700` | #D9A7C3<br>`ref.color.plum.250` | sequential chart slot 04; retain the existing series order and family usage constraints. |
-| [`rds.color.data.sequential.05`](../Color.ts#L245) | #631244<br>`ref.color.plum.775` | #E7B6D0<br>`ref.color.plum.200` | sequential chart slot 05; retain the existing series order and family usage constraints. |
+| [`rds.color.data.categorical.01`](../Color.ts#L218) | #631244<br>`ref.color.plum.775` | #E18FBD<br>`ref.color.plum.350` | categorical chart slot 01; retain the existing series order and family usage constraints. |
+| [`rds.color.data.categorical.02`](../Color.ts#L220) | #287569<br>`ref.color.teal.550` | #74CCB4<br>`ref.color.teal.250` | categorical chart slot 02; retain the existing series order and family usage constraints. |
+| [`rds.color.data.categorical.03`](../Color.ts#L222) | #386EAA<br>`ref.color.blue.575` | #85B7ED<br>`ref.color.blue.300` | categorical chart slot 03; retain the existing series order and family usage constraints. |
+| [`rds.color.data.categorical.04`](../Color.ts#L224) | #926119<br>`ref.color.amber.550` | #E5B567<br>`ref.color.amber.225` | categorical chart slot 04; retain the existing series order and family usage constraints. |
+| [`rds.color.data.categorical.05`](../Color.ts#L226) | #654D91<br>`ref.color.purple.625` | #B8A1E6<br>`ref.color.purple.300` | categorical chart slot 05; retain the existing series order and family usage constraints. |
+| [`rds.color.data.categorical.06`](../Color.ts#L228) | #9B4D48<br>`ref.color.red.600` | #E9968D<br>`ref.color.red.300` | categorical chart slot 06; retain the existing series order and family usage constraints. |
+| [`rds.color.data.categorical.07`](../Color.ts#L230) | #526C7B<br>`ref.color.gray-cool.550` | #A4BECD<br>`ref.color.gray-cool.250` | categorical chart slot 07; retain the existing series order and family usage constraints. |
+| [`rds.color.data.categorical.08`](../Color.ts#L232) | #637437<br>`ref.color.olive.550` | #BFCB7A<br>`ref.color.olive.200` | categorical chart slot 08; retain the existing series order and family usage constraints. |
+| [`rds.color.data.diverging.01`](../Color.ts#L254) | #246F67<br>`ref.color.teal.575` | #8AD3BF<br>`ref.color.teal.200` | diverging chart slot 01; retain the existing series order and family usage constraints. |
+| [`rds.color.data.diverging.02`](../Color.ts#L256) | #64988D<br>`ref.color.teal.400` | #58968A<br>`ref.color.teal.425` | diverging chart slot 02; retain the existing series order and family usage constraints. |
+| [`rds.color.data.diverging.03`](../Color.ts#L258) | #CAC2C7<br>`ref.color.gray-warm.200` | #5E585F<br>`ref.color.gray-warm.650` | diverging chart slot 03; retain the existing series order and family usage constraints. |
+| [`rds.color.data.diverging.04`](../Color.ts#L260) | #9B5878<br>`ref.color.plum.550` | #A47891<br>`ref.color.plum.450` | diverging chart slot 04; retain the existing series order and family usage constraints. |
+| [`rds.color.data.diverging.05`](../Color.ts#L262) | #631244<br>`ref.color.plum.775` | #E18FBD<br>`ref.color.plum.350` | diverging chart slot 05; retain the existing series order and family usage constraints. |
+| [`rds.color.data.on-fill`](../Color.ts#L268) | #FFFFFF<br>`ref.color.white` | #211D20<br>`ref.color.gray-warm.875` | Foreground for text/icons inside solid categorical chart marks only, after contrast validation against the selected series color. |
+| [`rds.color.data.sequential.01`](../Color.ts#L239) | #966883<br>`ref.color.plum.525` | #A7839B<br>`ref.color.plum.425` | sequential chart slot 01; retain the existing series order and family usage constraints. |
+| [`rds.color.data.sequential.02`](../Color.ts#L241) | #8C5776<br>`ref.color.plum.600` | #B48BA6<br>`ref.color.plum.400` | sequential chart slot 02; retain the existing series order and family usage constraints. |
+| [`rds.color.data.sequential.03`](../Color.ts#L243) | #824465<br>`ref.color.plum.625` | #C89CB6<br>`ref.color.plum.325` | sequential chart slot 03; retain the existing series order and family usage constraints. |
+| [`rds.color.data.sequential.04`](../Color.ts#L245) | #752C55<br>`ref.color.plum.700` | #D9A7C3<br>`ref.color.plum.250` | sequential chart slot 04; retain the existing series order and family usage constraints. |
+| [`rds.color.data.sequential.05`](../Color.ts#L247) | #631244<br>`ref.color.plum.775` | #E7B6D0<br>`ref.color.plum.200` | sequential chart slot 05; retain the existing series order and family usage constraints. |
 
 #### Presentation backgrounds
 
@@ -128,9 +126,9 @@ Full gradient recipes. Brand light/dark follow the active theme; atmosphere rema
 
 | Recipe | CSS value |
 | --- | --- |
-| [`rds.color.presentation.gradient.brand-dark`](../Color.ts#L270) | linear-gradient(135deg, #121113 0%, #291823 65%, #631244 100%) |
-| [`rds.color.presentation.gradient.brand-light`](../Color.ts#L272) | linear-gradient(135deg, #FFFFFF 0%, #F3ECF0 65%, #EADCE4 100%) |
-| [`rds.color.presentation.gradient.atmosphere`](../Color.ts#L274) | radial-gradient(ellipse at 30% 20%, rgb(99 18 68 / 0.16), transparent 65%) |
+| [`rds.color.presentation.gradient.brand-dark`](../Color.ts#L272) | linear-gradient(135deg, #121113 0%, #291823 65%, #631244 100%) |
+| [`rds.color.presentation.gradient.brand-light`](../Color.ts#L274) | linear-gradient(135deg, #FFFFFF 0%, #F3ECF0 65%, #EADCE4 100%) |
+| [`rds.color.presentation.gradient.atmosphere`](../Color.ts#L276) | radial-gradient(ellipse at 30% 20%, rgb(99 18 68 / 0.16), transparent 65%) |
 
 #### Enhanced contrast
 
@@ -138,16 +136,16 @@ Five overrides per theme have approved semantic targets. Native forced colors us
 
 | Existing field | Value |
 | --- | --- |
-| [HIGH_CONTRAST.light.canvas](../Color.ts#L149) | #FFFFFF |
-| [HIGH_CONTRAST.light.base](../Color.ts#L149) | #FFFFFF |
-| [HIGH_CONTRAST.light.primary](../Color.ts#L149) | #211D20 |
-| [HIGH_CONTRAST.light.secondary](../Color.ts#L149) | #211D20 |
-| [HIGH_CONTRAST.light.tertiary](../Color.ts#L149) | #625B60 |
-| [HIGH_CONTRAST.dark.canvas](../Color.ts#L149) | #030203 |
-| [HIGH_CONTRAST.dark.base](../Color.ts#L149) | #1A181B |
-| [HIGH_CONTRAST.dark.primary](../Color.ts#L149) | #FFFFFF |
-| [HIGH_CONTRAST.dark.secondary](../Color.ts#L149) | #EEEEF0 |
-| [HIGH_CONTRAST.dark.tertiary](../Color.ts#L149) | #B5B2BC |
+| [HIGH_CONTRAST.light.canvas](../Color.ts#L151) | #FFFFFF |
+| [HIGH_CONTRAST.light.base](../Color.ts#L151) | #FFFFFF |
+| [HIGH_CONTRAST.light.primary](../Color.ts#L151) | #211D20 |
+| [HIGH_CONTRAST.light.secondary](../Color.ts#L151) | #211D20 |
+| [HIGH_CONTRAST.light.tertiary](../Color.ts#L151) | #625B60 |
+| [HIGH_CONTRAST.dark.canvas](../Color.ts#L151) | #030203 |
+| [HIGH_CONTRAST.dark.base](../Color.ts#L151) | #1A181B |
+| [HIGH_CONTRAST.dark.primary](../Color.ts#L151) | #FFFFFF |
+| [HIGH_CONTRAST.dark.secondary](../Color.ts#L151) | #EEEEF0 |
+| [HIGH_CONTRAST.dark.tertiary](../Color.ts#L151) | #B5B2BC |
 
 ### Focus
 
@@ -337,7 +335,7 @@ Detailed rules stay in their foundation documents:
 
 ## Open decisions
 
-0 open items. Full evidence and 35 resolved decisions are retained in [decisions.json](decisions.json).
+0 open items. Full evidence and 40 resolved decisions are retained in [decisions.json](decisions.json).
 
 | ID | Issue | Needed next |
 | --- | --- | --- |
@@ -368,38 +366,38 @@ These are the reusable values behind the catalog. Color names use hue families a
 
 | Reference | Type | Value |
 | --- | --- | --- |
-| [`ref.color.amber.50`](../master-tokens/generated/reference.ts#L269) | color | #FEF3DF |
-| [`ref.color.amber.175`](../master-tokens/generated/reference.ts#L271) | color | #F0C86F |
-| [`ref.color.amber.200`](../master-tokens/generated/reference.ts#L273) | color | #E8C98C |
-| [`ref.color.amber.225`](../master-tokens/generated/reference.ts#L275) | color | #E5B567 |
-| [`ref.color.amber.400`](../master-tokens/generated/reference.ts#L277) | color | #BE882E |
-| [`ref.color.amber.475`](../master-tokens/generated/reference.ts#L279) | color | #9B7937 |
-| [`ref.color.amber.500`](../master-tokens/generated/reference.ts#L281) | color | #9E6A19 |
-| [`ref.color.amber.550`](../master-tokens/generated/reference.ts#L283) | color | #926119 |
-| [`ref.color.amber.575`](../master-tokens/generated/reference.ts#L285) | color | #8A5A12 |
-| [`ref.color.amber.775`](../master-tokens/generated/reference.ts#L287) | color | #40341D |
-| [`ref.color.amber.925`](../master-tokens/generated/reference.ts#L289) | color | #1B1407 |
-| [`ref.color.black-alpha-4`](../master-tokens/generated/reference.ts#L377) | color | rgb(0 0 0 / 0.04) |
-| [`ref.color.black-alpha-6`](../master-tokens/generated/reference.ts#L363) | color | rgb(0 0 0 / 0.06) |
-| [`ref.color.black-alpha-10`](../master-tokens/generated/reference.ts#L365) | color | rgb(0 0 0 / 0.1) |
-| [`ref.color.black-alpha-14`](../master-tokens/generated/reference.ts#L367) | color | rgb(0 0 0 / 0.14) |
-| [`ref.color.black-alpha-20`](../master-tokens/generated/reference.ts#L373) | color | rgb(0 0 0 / 0.2) |
-| [`ref.color.black-alpha-26`](../master-tokens/generated/reference.ts#L375) | color | rgb(0 0 0 / 0.26) |
-| [`ref.color.black-alpha-72`](../master-tokens/generated/reference.ts#L369) | color | rgb(0 0 0 / 0.72) |
-| [`ref.color.blue.50`](../master-tokens/generated/reference.ts#L313) | color | #E2ECF8 |
-| [`ref.color.blue.200`](../master-tokens/generated/reference.ts#L315) | color | #B6CCE6 |
-| [`ref.color.blue.275`](../master-tokens/generated/reference.ts#L317) | color | #86B9EE |
-| [`ref.color.blue.300`](../master-tokens/generated/reference.ts#L319) | color | #85B7ED |
-| [`ref.color.blue.475`](../master-tokens/generated/reference.ts#L321) | color | #5A83AE |
-| [`ref.color.blue.500`](../master-tokens/generated/reference.ts#L323) | color | #4479B5 |
-| [`ref.color.blue.550`](../master-tokens/generated/reference.ts#L325) | color | #416FA8 |
-| [`ref.color.blue.575`](../master-tokens/generated/reference.ts#L327) | color | #386EAA |
-| [`ref.color.blue.600`](../master-tokens/generated/reference.ts#L329) | color | #345E91 |
-| [`ref.color.blue.775`](../master-tokens/generated/reference.ts#L331) | color | #23354B |
-| [`ref.color.gray-cool.250`](../master-tokens/generated/reference.ts#L245) | color | #A4BECD |
-| [`ref.color.gray-cool.450`](../master-tokens/generated/reference.ts#L247) | color | #7A8493 |
-| [`ref.color.gray-cool.550`](../master-tokens/generated/reference.ts#L249) | color | #526C7B |
-| [`ref.color.gray-cool.925-alpha-12`](../master-tokens/generated/reference.ts#L251) | color | rgb(15 23 42 / 0.12) |
+| [`ref.color.amber.50`](../master-tokens/generated/reference.ts#L273) | color | #FEF3DF |
+| [`ref.color.amber.175`](../master-tokens/generated/reference.ts#L275) | color | #F0C86F |
+| [`ref.color.amber.200`](../master-tokens/generated/reference.ts#L277) | color | #E8C98C |
+| [`ref.color.amber.225`](../master-tokens/generated/reference.ts#L279) | color | #E5B567 |
+| [`ref.color.amber.400`](../master-tokens/generated/reference.ts#L281) | color | #BE882E |
+| [`ref.color.amber.475`](../master-tokens/generated/reference.ts#L283) | color | #9B7937 |
+| [`ref.color.amber.500`](../master-tokens/generated/reference.ts#L285) | color | #9E6A19 |
+| [`ref.color.amber.550`](../master-tokens/generated/reference.ts#L287) | color | #926119 |
+| [`ref.color.amber.575`](../master-tokens/generated/reference.ts#L289) | color | #8A5A12 |
+| [`ref.color.amber.775`](../master-tokens/generated/reference.ts#L291) | color | #40341D |
+| [`ref.color.amber.925`](../master-tokens/generated/reference.ts#L293) | color | #1B1407 |
+| [`ref.color.black-alpha-4`](../master-tokens/generated/reference.ts#L381) | color | rgb(0 0 0 / 0.04) |
+| [`ref.color.black-alpha-6`](../master-tokens/generated/reference.ts#L367) | color | rgb(0 0 0 / 0.06) |
+| [`ref.color.black-alpha-10`](../master-tokens/generated/reference.ts#L369) | color | rgb(0 0 0 / 0.1) |
+| [`ref.color.black-alpha-14`](../master-tokens/generated/reference.ts#L371) | color | rgb(0 0 0 / 0.14) |
+| [`ref.color.black-alpha-20`](../master-tokens/generated/reference.ts#L377) | color | rgb(0 0 0 / 0.2) |
+| [`ref.color.black-alpha-26`](../master-tokens/generated/reference.ts#L379) | color | rgb(0 0 0 / 0.26) |
+| [`ref.color.black-alpha-72`](../master-tokens/generated/reference.ts#L373) | color | rgb(0 0 0 / 0.72) |
+| [`ref.color.blue.50`](../master-tokens/generated/reference.ts#L317) | color | #E2ECF8 |
+| [`ref.color.blue.200`](../master-tokens/generated/reference.ts#L319) | color | #B6CCE6 |
+| [`ref.color.blue.275`](../master-tokens/generated/reference.ts#L321) | color | #86B9EE |
+| [`ref.color.blue.300`](../master-tokens/generated/reference.ts#L323) | color | #85B7ED |
+| [`ref.color.blue.475`](../master-tokens/generated/reference.ts#L325) | color | #5A83AE |
+| [`ref.color.blue.500`](../master-tokens/generated/reference.ts#L327) | color | #4479B5 |
+| [`ref.color.blue.550`](../master-tokens/generated/reference.ts#L329) | color | #416FA8 |
+| [`ref.color.blue.575`](../master-tokens/generated/reference.ts#L331) | color | #386EAA |
+| [`ref.color.blue.600`](../master-tokens/generated/reference.ts#L333) | color | #345E91 |
+| [`ref.color.blue.775`](../master-tokens/generated/reference.ts#L335) | color | #23354B |
+| [`ref.color.gray-cool.250`](../master-tokens/generated/reference.ts#L249) | color | #A4BECD |
+| [`ref.color.gray-cool.450`](../master-tokens/generated/reference.ts#L251) | color | #7A8493 |
+| [`ref.color.gray-cool.550`](../master-tokens/generated/reference.ts#L253) | color | #526C7B |
+| [`ref.color.gray-cool.925-alpha-12`](../master-tokens/generated/reference.ts#L255) | color | rgb(15 23 42 / 0.12) |
 | [`ref.color.gray-warm.25`](../master-tokens/generated/reference.ts#L127) | color | #FBF9FA |
 | [`ref.color.gray-warm.75`](../master-tokens/generated/reference.ts#L129) | color | #F3F1F2 |
 | [`ref.color.gray-warm.100`](../master-tokens/generated/reference.ts#L131) | color | #E8E3E5 |
@@ -412,88 +410,90 @@ These are the reusable values behind the catalog. Color names use hue families a
 | [`ref.color.gray-warm.650`](../master-tokens/generated/reference.ts#L145) | color | #5E585F |
 | [`ref.color.gray-warm.850-alpha-52`](../master-tokens/generated/reference.ts#L157) | color | rgb(43 37 41 / 0.52) |
 | [`ref.color.gray-warm.875`](../master-tokens/generated/reference.ts#L147) | color | #211D20 |
-| [`ref.color.gray-warm.875-alpha-6`](../master-tokens/generated/reference.ts#L151) | color | rgb(33 29 32 / 0.06) |
-| [`ref.color.gray-warm.875-alpha-10`](../master-tokens/generated/reference.ts#L153) | color | rgb(33 29 32 / 0.1) |
+| [`ref.color.gray-warm.875-alpha-4`](../master-tokens/generated/reference.ts#L151) | color | rgb(33 29 32 / 0.04) |
+| [`ref.color.gray-warm.875-alpha-8`](../master-tokens/generated/reference.ts#L153) | color | rgb(33 29 32 / 0.08) |
 | [`ref.color.gray-warm.900-alpha-56`](../master-tokens/generated/reference.ts#L155) | color | rgb(26 25 24 / 0.56) |
 | [`ref.color.gray-warm.950-alpha-52`](../master-tokens/generated/reference.ts#L149) | color | rgb(20 12 17 / 0.52) |
 | [`ref.color.gray.50`](../master-tokens/generated/reference.ts#L161) | color | #EEEEF0 |
-| [`ref.color.gray.50-alpha-8`](../master-tokens/generated/reference.ts#L181) | color | rgb(238 238 240 / 0.08) |
-| [`ref.color.gray.50-alpha-12`](../master-tokens/generated/reference.ts#L183) | color | rgb(238 238 240 / 0.12) |
+| [`ref.color.gray.50-alpha-8`](../master-tokens/generated/reference.ts#L183) | color | rgb(238 238 240 / 0.08) |
+| [`ref.color.gray.50-alpha-12`](../master-tokens/generated/reference.ts#L185) | color | rgb(238 238 240 / 0.12) |
 | [`ref.color.gray.225`](../master-tokens/generated/reference.ts#L163) | color | #C0BDC6 |
 | [`ref.color.gray.275`](../master-tokens/generated/reference.ts#L165) | color | #B5B2BC |
 | [`ref.color.gray.325`](../master-tokens/generated/reference.ts#L167) | color | #AAA6B0 |
 | [`ref.color.gray.600`](../master-tokens/generated/reference.ts#L169) | color | #625F69 |
-| [`ref.color.gray.825-alpha-4`](../master-tokens/generated/reference.ts#L185) | color | rgb(43 43 43 / 0.04) |
+| [`ref.color.gray.825-alpha-4`](../master-tokens/generated/reference.ts#L187) | color | rgb(43 43 43 / 0.04) |
 | [`ref.color.gray.850`](../master-tokens/generated/reference.ts#L171) | color | #333135 |
-| [`ref.color.gray.875-alpha-18`](../master-tokens/generated/reference.ts#L187) | color | rgb(37 37 37 / 0.18) |
+| [`ref.color.gray.875-alpha-18`](../master-tokens/generated/reference.ts#L189) | color | rgb(37 37 37 / 0.18) |
 | [`ref.color.gray.900`](../master-tokens/generated/reference.ts#L173) | color | #2D2C30 |
 | [`ref.color.gray.925`](../master-tokens/generated/reference.ts#L175) | color | #262429 |
-| [`ref.color.gray.925-alpha-76`](../master-tokens/generated/reference.ts#L189) | color | rgb(26 25 27 / 0.76) |
-| [`ref.color.gray.925-alpha-92`](../master-tokens/generated/reference.ts#L191) | color | rgb(26 25 27 / 0.92) |
-| [`ref.color.gray.950`](../master-tokens/generated/reference.ts#L177) | color | #1A181B |
-| [`ref.color.gray.975`](../master-tokens/generated/reference.ts#L179) | color | #030203 |
-| [`ref.color.green.50`](../master-tokens/generated/reference.ts#L253) | color | #DAFBE8 |
-| [`ref.color.green.175`](../master-tokens/generated/reference.ts#L255) | color | #ADD7BC |
-| [`ref.color.green.200`](../master-tokens/generated/reference.ts#L257) | color | #87DCA4 |
-| [`ref.color.green.450`](../master-tokens/generated/reference.ts#L259) | color | #4F9166 |
-| [`ref.color.green.500`](../master-tokens/generated/reference.ts#L261) | color | #348556 |
-| [`ref.color.green.525`](../master-tokens/generated/reference.ts#L263) | color | #2F7D50 |
-| [`ref.color.green.600`](../master-tokens/generated/reference.ts#L265) | color | #216E43 |
-| [`ref.color.green.775`](../master-tokens/generated/reference.ts#L267) | color | #203B2A |
-| [`ref.color.olive.200`](../master-tokens/generated/reference.ts#L349) | color | #BFCB7A |
-| [`ref.color.olive.550`](../master-tokens/generated/reference.ts#L351) | color | #637437 |
-| [`ref.color.plum.50`](../master-tokens/generated/reference.ts#L193) | color | #F0E5EB |
-| [`ref.color.plum.100`](../master-tokens/generated/reference.ts#L195) | color | #E8D9E1 |
-| [`ref.color.plum.200`](../master-tokens/generated/reference.ts#L197) | color | #E7B6D0 |
-| [`ref.color.plum.250`](../master-tokens/generated/reference.ts#L199) | color | #D9A7C3 |
-| [`ref.color.plum.300`](../master-tokens/generated/reference.ts#L201) | color | #C7A4B6 |
-| [`ref.color.plum.325`](../master-tokens/generated/reference.ts#L203) | color | #C89CB6 |
-| [`ref.color.plum.350`](../master-tokens/generated/reference.ts#L205) | color | #E18FBD |
-| [`ref.color.plum.375`](../master-tokens/generated/reference.ts#L207) | color | #DCC7D4 |
-| [`ref.color.plum.400`](../master-tokens/generated/reference.ts#L209) | color | #B48BA6 |
-| [`ref.color.plum.425`](../master-tokens/generated/reference.ts#L211) | color | #A7839B |
-| [`ref.color.plum.450`](../master-tokens/generated/reference.ts#L213) | color | #A47891 |
-| [`ref.color.plum.500`](../master-tokens/generated/reference.ts#L215) | color | #A9638B |
-| [`ref.color.plum.525`](../master-tokens/generated/reference.ts#L217) | color | #966883 |
-| [`ref.color.plum.550`](../master-tokens/generated/reference.ts#L219) | color | #9B5878 |
-| [`ref.color.plum.575`](../master-tokens/generated/reference.ts#L221) | color | #99507A |
-| [`ref.color.plum.600`](../master-tokens/generated/reference.ts#L223) | color | #8C5776 |
-| [`ref.color.plum.625`](../master-tokens/generated/reference.ts#L225) | color | #824465 |
-| [`ref.color.plum.700`](../master-tokens/generated/reference.ts#L227) | color | #752C55 |
-| [`ref.color.plum.725`](../master-tokens/generated/reference.ts#L229) | color | #741A52 |
-| [`ref.color.plum.750`](../master-tokens/generated/reference.ts#L231) | color | #4A3742 |
-| [`ref.color.plum.775`](../master-tokens/generated/reference.ts#L233) | color | #631244 |
-| [`ref.color.plum.850`](../master-tokens/generated/reference.ts#L235) | color | #4A0D33 |
-| [`ref.color.plum.875`](../master-tokens/generated/reference.ts#L237) | color | #321A29 |
-| [`ref.color.plum.900`](../master-tokens/generated/reference.ts#L239) | color | #400C2C |
-| [`ref.color.plum.925`](../master-tokens/generated/reference.ts#L241) | color | #291823 |
-| [`ref.color.plum.950`](../master-tokens/generated/reference.ts#L243) | color | #1E0515 |
-| [`ref.color.purple.300`](../master-tokens/generated/reference.ts#L345) | color | #B8A1E6 |
-| [`ref.color.purple.625`](../master-tokens/generated/reference.ts#L347) | color | #654D91 |
-| [`ref.color.red.50`](../master-tokens/generated/reference.ts#L291) | color | #FCE9EB |
-| [`ref.color.red.225`](../master-tokens/generated/reference.ts#L293) | color | #EDB3B8 |
-| [`ref.color.red.275`](../master-tokens/generated/reference.ts#L295) | color | #F4979F |
-| [`ref.color.red.300`](../master-tokens/generated/reference.ts#L297) | color | #E9968D |
-| [`ref.color.red.525`](../master-tokens/generated/reference.ts#L299) | color | #AA5963 |
-| [`ref.color.red.550`](../master-tokens/generated/reference.ts#L301) | color | #B94C57 |
-| [`ref.color.red.575`](../master-tokens/generated/reference.ts#L303) | color | #B54650 |
-| [`ref.color.red.600`](../master-tokens/generated/reference.ts#L305) | color | #9B4D48 |
-| [`ref.color.red.625`](../master-tokens/generated/reference.ts#L307) | color | #A33A43 |
-| [`ref.color.red.750`](../master-tokens/generated/reference.ts#L309) | color | #562A2F |
-| [`ref.color.red.800`](../master-tokens/generated/reference.ts#L311) | color | #42262B |
-| [`ref.color.teal.200`](../master-tokens/generated/reference.ts#L333) | color | #8AD3BF |
-| [`ref.color.teal.250`](../master-tokens/generated/reference.ts#L335) | color | #74CCB4 |
-| [`ref.color.teal.400`](../master-tokens/generated/reference.ts#L337) | color | #64988D |
-| [`ref.color.teal.425`](../master-tokens/generated/reference.ts#L339) | color | #58968A |
-| [`ref.color.teal.550`](../master-tokens/generated/reference.ts#L341) | color | #287569 |
-| [`ref.color.teal.575`](../master-tokens/generated/reference.ts#L343) | color | #246F67 |
+| [`ref.color.gray.925-alpha-76`](../master-tokens/generated/reference.ts#L191) | color | rgb(26 25 27 / 0.76) |
+| [`ref.color.gray.925-alpha-92`](../master-tokens/generated/reference.ts#L193) | color | rgb(26 25 27 / 0.92) |
+| [`ref.color.gray.935`](../master-tokens/generated/reference.ts#L177) | color | #28252B |
+| [`ref.color.gray.950`](../master-tokens/generated/reference.ts#L179) | color | #1A181B |
+| [`ref.color.gray.975`](../master-tokens/generated/reference.ts#L181) | color | #030203 |
+| [`ref.color.green.50`](../master-tokens/generated/reference.ts#L257) | color | #DAFBE8 |
+| [`ref.color.green.175`](../master-tokens/generated/reference.ts#L259) | color | #ADD7BC |
+| [`ref.color.green.200`](../master-tokens/generated/reference.ts#L261) | color | #87DCA4 |
+| [`ref.color.green.450`](../master-tokens/generated/reference.ts#L263) | color | #4F9166 |
+| [`ref.color.green.500`](../master-tokens/generated/reference.ts#L265) | color | #348556 |
+| [`ref.color.green.525`](../master-tokens/generated/reference.ts#L267) | color | #2F7D50 |
+| [`ref.color.green.600`](../master-tokens/generated/reference.ts#L269) | color | #216E43 |
+| [`ref.color.green.775`](../master-tokens/generated/reference.ts#L271) | color | #203B2A |
+| [`ref.color.olive.200`](../master-tokens/generated/reference.ts#L353) | color | #BFCB7A |
+| [`ref.color.olive.550`](../master-tokens/generated/reference.ts#L355) | color | #637437 |
+| [`ref.color.plum.25`](../master-tokens/generated/reference.ts#L195) | color | #FFF5FC |
+| [`ref.color.plum.50`](../master-tokens/generated/reference.ts#L197) | color | #F0E5EB |
+| [`ref.color.plum.100`](../master-tokens/generated/reference.ts#L199) | color | #E8D9E1 |
+| [`ref.color.plum.200`](../master-tokens/generated/reference.ts#L201) | color | #E7B6D0 |
+| [`ref.color.plum.250`](../master-tokens/generated/reference.ts#L203) | color | #D9A7C3 |
+| [`ref.color.plum.300`](../master-tokens/generated/reference.ts#L205) | color | #C7A4B6 |
+| [`ref.color.plum.325`](../master-tokens/generated/reference.ts#L207) | color | #C89CB6 |
+| [`ref.color.plum.350`](../master-tokens/generated/reference.ts#L209) | color | #E18FBD |
+| [`ref.color.plum.375`](../master-tokens/generated/reference.ts#L211) | color | #DCC7D4 |
+| [`ref.color.plum.400`](../master-tokens/generated/reference.ts#L213) | color | #B48BA6 |
+| [`ref.color.plum.425`](../master-tokens/generated/reference.ts#L215) | color | #A7839B |
+| [`ref.color.plum.450`](../master-tokens/generated/reference.ts#L217) | color | #A47891 |
+| [`ref.color.plum.500`](../master-tokens/generated/reference.ts#L219) | color | #A9638B |
+| [`ref.color.plum.525`](../master-tokens/generated/reference.ts#L221) | color | #966883 |
+| [`ref.color.plum.550`](../master-tokens/generated/reference.ts#L223) | color | #9B5878 |
+| [`ref.color.plum.575`](../master-tokens/generated/reference.ts#L225) | color | #99507A |
+| [`ref.color.plum.600`](../master-tokens/generated/reference.ts#L227) | color | #8C5776 |
+| [`ref.color.plum.625`](../master-tokens/generated/reference.ts#L229) | color | #824465 |
+| [`ref.color.plum.700`](../master-tokens/generated/reference.ts#L231) | color | #752C55 |
+| [`ref.color.plum.725`](../master-tokens/generated/reference.ts#L233) | color | #741A52 |
+| [`ref.color.plum.750`](../master-tokens/generated/reference.ts#L235) | color | #4A3742 |
+| [`ref.color.plum.775`](../master-tokens/generated/reference.ts#L237) | color | #631244 |
+| [`ref.color.plum.850`](../master-tokens/generated/reference.ts#L239) | color | #4A0D33 |
+| [`ref.color.plum.875`](../master-tokens/generated/reference.ts#L241) | color | #321A29 |
+| [`ref.color.plum.900`](../master-tokens/generated/reference.ts#L243) | color | #400C2C |
+| [`ref.color.plum.925`](../master-tokens/generated/reference.ts#L245) | color | #291823 |
+| [`ref.color.plum.950`](../master-tokens/generated/reference.ts#L247) | color | #1E0515 |
+| [`ref.color.purple.300`](../master-tokens/generated/reference.ts#L349) | color | #B8A1E6 |
+| [`ref.color.purple.625`](../master-tokens/generated/reference.ts#L351) | color | #654D91 |
+| [`ref.color.red.50`](../master-tokens/generated/reference.ts#L295) | color | #FCE9EB |
+| [`ref.color.red.225`](../master-tokens/generated/reference.ts#L297) | color | #EDB3B8 |
+| [`ref.color.red.275`](../master-tokens/generated/reference.ts#L299) | color | #F4979F |
+| [`ref.color.red.300`](../master-tokens/generated/reference.ts#L301) | color | #E9968D |
+| [`ref.color.red.525`](../master-tokens/generated/reference.ts#L303) | color | #AA5963 |
+| [`ref.color.red.550`](../master-tokens/generated/reference.ts#L305) | color | #B94C57 |
+| [`ref.color.red.575`](../master-tokens/generated/reference.ts#L307) | color | #B54650 |
+| [`ref.color.red.600`](../master-tokens/generated/reference.ts#L309) | color | #9B4D48 |
+| [`ref.color.red.625`](../master-tokens/generated/reference.ts#L311) | color | #A33A43 |
+| [`ref.color.red.750`](../master-tokens/generated/reference.ts#L313) | color | #562A2F |
+| [`ref.color.red.800`](../master-tokens/generated/reference.ts#L315) | color | #42262B |
+| [`ref.color.teal.200`](../master-tokens/generated/reference.ts#L337) | color | #8AD3BF |
+| [`ref.color.teal.250`](../master-tokens/generated/reference.ts#L339) | color | #74CCB4 |
+| [`ref.color.teal.400`](../master-tokens/generated/reference.ts#L341) | color | #64988D |
+| [`ref.color.teal.425`](../master-tokens/generated/reference.ts#L343) | color | #58968A |
+| [`ref.color.teal.550`](../master-tokens/generated/reference.ts#L345) | color | #287569 |
+| [`ref.color.teal.575`](../master-tokens/generated/reference.ts#L347) | color | #246F67 |
 | [`ref.color.white`](../master-tokens/generated/reference.ts#L159) | color | #FFFFFF |
-| [`ref.color.white-alpha-4`](../master-tokens/generated/reference.ts#L353) | color | rgb(255 255 255 / 0.04) |
-| [`ref.color.white-alpha-10`](../master-tokens/generated/reference.ts#L371) | color | rgb(255 255 255 / 0.1) |
-| [`ref.color.white-alpha-18`](../master-tokens/generated/reference.ts#L355) | color | rgb(255 255 255 / 0.18) |
-| [`ref.color.white-alpha-52`](../master-tokens/generated/reference.ts#L357) | color | rgb(255 255 255 / 0.52) |
-| [`ref.color.white-alpha-72`](../master-tokens/generated/reference.ts#L359) | color | rgb(255 255 255 / 0.72) |
-| [`ref.color.white-alpha-92`](../master-tokens/generated/reference.ts#L361) | color | rgb(255 255 255 / 0.92) |
+| [`ref.color.white-alpha-4`](../master-tokens/generated/reference.ts#L357) | color | rgb(255 255 255 / 0.04) |
+| [`ref.color.white-alpha-10`](../master-tokens/generated/reference.ts#L375) | color | rgb(255 255 255 / 0.1) |
+| [`ref.color.white-alpha-18`](../master-tokens/generated/reference.ts#L359) | color | rgb(255 255 255 / 0.18) |
+| [`ref.color.white-alpha-52`](../master-tokens/generated/reference.ts#L361) | color | rgb(255 255 255 / 0.52) |
+| [`ref.color.white-alpha-72`](../master-tokens/generated/reference.ts#L363) | color | rgb(255 255 255 / 0.72) |
+| [`ref.color.white-alpha-92`](../master-tokens/generated/reference.ts#L365) | color | rgb(255 255 255 / 0.92) |
 
 ### font
 
@@ -541,8 +541,8 @@ These are the reusable values behind the catalog. Color names use hue families a
 
 | Reference | Type | Value |
 | --- | --- | --- |
-| [`ref.number.2-25`](../master-tokens/generated/reference.ts#L411) | number | 2.25 |
-| [`ref.number.24`](../master-tokens/generated/reference.ts#L409) | number | 24 |
+| [`ref.number.2-25`](../master-tokens/generated/reference.ts#L415) | number | 2.25 |
+| [`ref.number.24`](../master-tokens/generated/reference.ts#L413) | number | 24 |
 
 ### radius
 
@@ -559,26 +559,26 @@ These are the reusable values behind the catalog. Color names use hue families a
 
 | Reference | Type | Value |
 | --- | --- | --- |
-| [`ref.shadow.blur.6`](../master-tokens/generated/reference.ts#L391) | dimension | 6px |
-| [`ref.shadow.blur.10`](../master-tokens/generated/reference.ts#L393) | dimension | 10px |
-| [`ref.shadow.blur.20`](../master-tokens/generated/reference.ts#L395) | dimension | 20px |
-| [`ref.shadow.blur.36`](../master-tokens/generated/reference.ts#L397) | dimension | 36px |
-| [`ref.shadow.offset.0`](../master-tokens/generated/reference.ts#L379) | dimension | 0px |
-| [`ref.shadow.offset.2`](../master-tokens/generated/reference.ts#L381) | dimension | 2px |
-| [`ref.shadow.offset.3`](../master-tokens/generated/reference.ts#L383) | dimension | 3px |
-| [`ref.shadow.offset.6`](../master-tokens/generated/reference.ts#L385) | dimension | 6px |
-| [`ref.shadow.offset.8`](../master-tokens/generated/reference.ts#L387) | dimension | 8px |
-| [`ref.shadow.offset.16`](../master-tokens/generated/reference.ts#L389) | dimension | 16px |
-| [`ref.shadow.spread.0`](../master-tokens/generated/reference.ts#L399) | dimension | 0px |
+| [`ref.shadow.blur.6`](../master-tokens/generated/reference.ts#L395) | dimension | 6px |
+| [`ref.shadow.blur.10`](../master-tokens/generated/reference.ts#L397) | dimension | 10px |
+| [`ref.shadow.blur.20`](../master-tokens/generated/reference.ts#L399) | dimension | 20px |
+| [`ref.shadow.blur.36`](../master-tokens/generated/reference.ts#L401) | dimension | 36px |
+| [`ref.shadow.offset.0`](../master-tokens/generated/reference.ts#L383) | dimension | 0px |
+| [`ref.shadow.offset.2`](../master-tokens/generated/reference.ts#L385) | dimension | 2px |
+| [`ref.shadow.offset.3`](../master-tokens/generated/reference.ts#L387) | dimension | 3px |
+| [`ref.shadow.offset.6`](../master-tokens/generated/reference.ts#L389) | dimension | 6px |
+| [`ref.shadow.offset.8`](../master-tokens/generated/reference.ts#L391) | dimension | 8px |
+| [`ref.shadow.offset.16`](../master-tokens/generated/reference.ts#L393) | dimension | 16px |
+| [`ref.shadow.spread.0`](../master-tokens/generated/reference.ts#L403) | dimension | 0px |
 
 ### size
 
 | Reference | Type | Value |
 | --- | --- | --- |
-| [`ref.size.16`](../master-tokens/generated/reference.ts#L401) | dimension | 16px |
-| [`ref.size.20`](../master-tokens/generated/reference.ts#L403) | dimension | 20px |
-| [`ref.size.24`](../master-tokens/generated/reference.ts#L405) | dimension | 24px |
-| [`ref.size.32`](../master-tokens/generated/reference.ts#L407) | dimension | 32px |
+| [`ref.size.16`](../master-tokens/generated/reference.ts#L405) | dimension | 16px |
+| [`ref.size.20`](../master-tokens/generated/reference.ts#L407) | dimension | 20px |
+| [`ref.size.24`](../master-tokens/generated/reference.ts#L409) | dimension | 24px |
+| [`ref.size.32`](../master-tokens/generated/reference.ts#L411) | dimension | 32px |
 
 ### space
 

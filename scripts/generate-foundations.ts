@@ -5,7 +5,6 @@ import { build, renderOutputs } from '../src/foundations/canonical/master-tokens
 import { loadModel, cssName } from '../src/foundations/canonical/master-tokens/scripts/foundations.mjs';
 import { readText } from '../src/foundations/canonical/master-tokens/scripts/lib.mjs';
 import { renderCss } from '../src/foundations/canonical/master-tokens/scripts/css.mjs';
-import { calculateInteractionContrast } from '../src/foundations/interactionContrast.ts';
 import { renderFontsCss, renderFoundationsCss } from '../src/foundations/css.ts';
 import compatibility from '../src/foundations/compatibility-map.json' with { type: 'json' };
 
@@ -23,6 +22,8 @@ if (check) {
   }
 }
 const model = await loadModel();
+// Load after build() refreshes the generated resolver used by these calculations.
+const { calculateInteractionContrast } = await import('../src/foundations/interactionContrast.ts');
 const stateMigration = JSON.parse(await readText(path.join(root, 'src/foundations/canonical/master-tokens/state-name-migration.json')));
 const modes = Object.fromEntries(['light', 'dark'].map(appearance => [appearance,
   ['  color-scheme: ' + appearance + ';', ...[...model.sets[appearance]].map(([name, token]) => {
