@@ -6,6 +6,7 @@ import {
   classNameOf,
   guardActivation,
   Spinner,
+  useButtonPressFeedback,
   useStableWidth,
   type ButtonOwnProps,
   type NativeButtonProps,
@@ -38,11 +39,13 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(function IconB
   ref,
 ) {
   const blocked = Boolean(disabled || loading);
+  const pressFeedback = useButtonPressFeedback(blocked, props);
   const { ref: widthRef, style: widthStyle } = useStableWidth<HTMLButtonElement>(loading);
   return (
     <button
       {...props}
       {...buttonData({ appearance, intent, size, radius, fullWidth, loading, iconOnly: true })}
+      {...pressFeedback}
       className={classNameOf(className)}
       style={{ ...widthStyle, ...style }}
       type={type}
@@ -56,15 +59,17 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(function IconB
           event.stopPropagation();
           return;
         }
-        props.onKeyDown?.(event);
+        pressFeedback.onKeyDown(event);
       }}
       ref={(node) => {
         assignRef(widthRef, node);
         assignRef(ref as Ref<HTMLButtonElement>, node);
       }}
     >
-      <span className="rds-button__icon" data-mirror={!loading && mirror ? 'true' : undefined} aria-hidden="true">
-        {loading ? <Spinner /> : children}
+      <span className="rds-button__face">
+        <span className="rds-button__icon" data-mirror={!loading && mirror ? 'true' : undefined} aria-hidden="true">
+          {loading ? <Spinner /> : children}
+        </span>
       </span>
       <span className="rds-button__status" role="status">
         {loading ? loadingLabel : ''}

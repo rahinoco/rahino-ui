@@ -82,7 +82,8 @@ try {
       document.documentElement.dataset.rdsContrast = contrast;
     }, { theme, contrast });
     for (const state of ['default', 'hover', 'active', 'focus-visible']) {
-      await Promise.all(nodeIds.map(nodeId => cdp.send('CSS.forcePseudoState', { nodeId, forcedPseudoClasses: state === 'default' ? [] : [state] })));
+      const forcedPseudoClasses = state === 'active' ? ['hover', 'active'] : state === 'default' ? [] : [state];
+      await Promise.all(nodeIds.map(nodeId => cdp.send('CSS.forcePseudoState', { nodeId, forcedPseudoClasses })));
       await page.evaluate(async () => {
         await new Promise(requestAnimationFrame);
         await Promise.all(document.getAnimations().filter(animation => animation.effect.getTiming().iterations !== Infinity).map(animation => animation.finished.catch(() => {})));
@@ -102,11 +103,12 @@ try {
         return nodes.map(node => {
         const css = getComputedStyle(node);
         const overlay = getComputedStyle(node, '::before');
-        const paint = css;
+        const paint = getComputedStyle(node.querySelector('.rds-button__face'));
+        const scale = paint.transform === 'none' ? 1 : new DOMMatrix(paint.transform).a;
         const parent = node.parentElement;
         const disabled = parent.dataset.state === 'disabled' || parent.dataset.state === 'loading';
         const selected = node.dataset.pressed === 'true' && !disabled;
-        const feedback = state === 'hover' ? '-hover' : state === 'active' ? '-pressed' : '';
+        const feedback = state === 'hover' || state === 'active' ? '-hover' : '';
         const solidBrand = node.dataset.appearance === 'solid' && node.dataset.intent === 'brand';
         const bgRole = disabled ? (solidBrand ? '--rds-button-solid-brand-bg-disabled' : '--rds-button-bg-disabled')
           : selected ? '--rds-button-selected-bg' + feedback : '--rds-button-bg' + feedback;
@@ -114,8 +116,8 @@ try {
         const disabledGhost = parent.dataset.state === 'disabled' && node.dataset.appearance === 'ghost';
         const expectedBg = disabledGhost ? 'none' : css.getPropertyValue(bgRole).trim();
         const expectedFg = css.getPropertyValue(fgRole).trim();
-        if (expectedBg !== 'none' && JSON.stringify(rgba(css.backgroundColor)) !== JSON.stringify(rgba(expectedBg))) throw new Error(parent.dataset.case + '/' + state + ': incorrect state fill');
-        if (expectedBg === 'none' && rgba(css.backgroundColor)[3] !== 0) throw new Error(parent.dataset.case + '/' + state + ': ghost button must have no fill in this state');
+        if (expectedBg !== 'none' && JSON.stringify(rgba(paint.backgroundColor)) !== JSON.stringify(rgba(expectedBg))) throw new Error(parent.dataset.case + '/' + state + ': incorrect state fill');
+        if (expectedBg === 'none' && rgba(paint.backgroundColor)[3] !== 0) throw new Error(parent.dataset.case + '/' + state + ': ghost button must have no fill in this state');
         if (JSON.stringify(rgba(css.color)) !== JSON.stringify(rgba(expectedFg))) throw new Error(parent.dataset.case + '/' + state + ': incorrect state foreground');
         if (!disabled && !selected && node.dataset.appearance === 'ghost' && node.dataset.intent === 'danger') {
           const red = css.getPropertyValue('--rds-color-status-error-fg').trim();
@@ -123,7 +125,7 @@ try {
         }
         if (!disabled && !selected && state === 'hover' && node.dataset.appearance === 'ghost' && node.dataset.intent === 'neutral') {
           const hover = css.getPropertyValue('--rds-color-interaction-neutral-hover').trim();
-          if (JSON.stringify(rgba(css.backgroundColor)) !== JSON.stringify(rgba(hover))) throw new Error(parent.dataset.case + ': ghost neutral hover must use the interaction hover fill');
+          if (JSON.stringify(rgba(paint.backgroundColor)) !== JSON.stringify(rgba(hover))) throw new Error(parent.dataset.case + ': ghost neutral hover must use the interaction hover fill');
         }
         if (css.opacity !== '1' || overlay.content !== 'none') throw new Error(parent.dataset.case + ': opacity or overlay modifies semantic colors');
         if ([...node.querySelectorAll('svg')].some(svg => getComputedStyle(svg).opacity !== '1')) throw new Error(parent.dataset.case + ': icon/spinner opacity modifies foreground');
@@ -132,7 +134,7 @@ try {
           const size = parseFloat(iconography.size[node.dataset.size]);
           const matrix = svg.getScreenCTM();
           const visibleStroke = parseFloat(iconCss.strokeWidth) * Math.hypot(matrix.a, matrix.b);
-          const expectedStroke = iconography.stroke.width * size / iconography.grid.size;
+          const expectedStroke = iconography.stroke.width * size / iconography.grid.size * scale;
           if (parseFloat(iconCss.width) !== size || parseFloat(iconCss.height) !== size) throw new Error(parent.dataset.case + ': incorrect icon size');
           if (svg.getAttribute('viewBox') !== `0 0 ${iconography.grid.size} ${iconography.grid.size}`) throw new Error(parent.dataset.case + ': incorrect SVG reference grid');
           if (parseFloat(iconCss.strokeWidth) !== iconography.stroke.width || Math.abs(visibleStroke - expectedStroke) > .001) throw new Error(parent.dataset.case + ': stroke must scale with the icon grid');
@@ -148,7 +150,7 @@ try {
         }
         const foreground = composite(rgba(css.color), background);
         const a = luminance(foreground), b = luminance(background);
-        return { id: parent.dataset.case, radius: css.borderTopLeftRadius, bg: paint.backgroundColor, fg: css.color, shadow: css.boxShadow, smoothed: node.dataset.smoothed, controlClip: css.clipPath, focusMask: getComputedStyle(node, '::after').maskImage, focusWidth: css.outlineWidth, focusColor: css.outlineColor, disabled, transition: css.transitionDuration, overlay: overlay.backgroundColor, overlayOpacity: overlay.opacity, ratio: (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05), state };
+        return { id: parent.dataset.case, radius: paint.borderTopLeftRadius, bg: paint.backgroundColor, fg: css.color, shadow: paint.boxShadow, smoothed: node.dataset.smoothed, controlClip: css.clipPath, focusMask: getComputedStyle(node, '::after').maskImage, focusWidth: css.outlineWidth, focusColor: css.outlineColor, disabled, transition: paint.transitionProperty, scale, controlTransform: css.transform, ratio: (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05), state };
         });
       }, { state, iconography: ICONOGRAPHY });
       assert.equal(snapshots.length, 540);
@@ -166,7 +168,9 @@ try {
         assert.notEqual(sample.fg, '', sample.id + ' missing foreground');
         assert.equal(sample.shadow === 'none', sample.disabled || sample.id.includes('-ghost-'), sample.id + ' shadow');
         if (state === 'focus-visible' && !sample.disabled) assert.equal(sample.focusWidth, '2px', sample.id + ' focus');
-        assert.equal(sample.transition, '0s', sample.id + ' colors must switch without interpolation');
+        assert.equal(sample.transition, sample.disabled ? 'none' : 'transform', sample.id + ' only an enabled face transform may transition');
+        assert.equal(sample.scale, state === 'active' && !sample.disabled ? 0.98 : 1, sample.id + '/' + state + ' face scale');
+        assert.equal(sample.controlTransform, 'none', sample.id + ' target and focus geometry must stay fixed');
       }
       assert(await page.locator('.rds-button').evaluateAll(nodes => nodes.every(node => node.querySelectorAll('svg').length <= 1)), 'A button must never show multiple icons');
       if (['default', 'hover', 'active'].includes(state)) for (const intent of ['neutral', 'brand', 'danger']) {
@@ -279,7 +283,8 @@ try {
   await page.evaluate(() => { document.documentElement.dir = 'rtl'; });
   for (const theme of ['light', 'dark']) for (const contrast of ['standard', 'more']) for (const intent of ['neutral', 'brand', 'danger']) {
     const states = softFeedback.filter(item => item.theme === theme && item.contrast === contrast && item.intent === intent);
-    assert.equal(new Set(states.map(item => item.bg)).size, 3, `${theme}/${contrast}/${intent}: soft feedback must change the fill`);
+    assert.equal(new Set(states.map(item => item.bg)).size, 2, `${theme}/${contrast}/${intent}: only hover changes the fill`);
+    assert.equal(states.find(item => item.state === 'active').bg, states.find(item => item.state === 'hover').bg);
     assert.equal(new Set(states.map(item => item.fg)).size, 1, `${theme}/${contrast}/${intent}: soft feedback must keep the foreground stable`);
   }
   await page.evaluate(() => {
@@ -319,11 +324,29 @@ try {
   });
   for (const state of ['hover', 'active']) {
     const { nodeIds: previewIds } = await cdp.send('DOM.querySelectorAll', { nodeId: doc.nodeId, selector: `#soft-feedback-review [data-review-state="${state}"]` });
-    await Promise.all(previewIds.map(nodeId => cdp.send('CSS.forcePseudoState', { nodeId, forcedPseudoClasses: [state] })));
+    await Promise.all(previewIds.map(nodeId => cdp.send('CSS.forcePseudoState', { nodeId, forcedPseudoClasses: state === 'active' ? ['hover', 'active'] : ['hover'] })));
   }
   await page.locator('#soft-feedback-review').screenshot({ path: path.join(output, 'soft-state-consistency.png') });
   await page.evaluate(() => { document.querySelector('#soft-feedback-review').remove(); document.querySelector('#root').style.removeProperty('display'); });
   const save = page.locator('#behavior .rds-button').nth(0);
+  const pointerButton = page.locator('[data-case="less-soft-brand-md-Button-default"] .rds-button');
+  await pointerButton.hover();
+  const pointerTarget = await pointerButton.boundingBox();
+  const pointerFace = pointerButton.locator('.rds-button__face');
+  await page.mouse.down();
+  await pointerFace.evaluate(async node => {
+    getComputedStyle(node).transform;
+    await Promise.all(node.getAnimations().map(animation => animation.finished));
+  });
+  assert.equal(await pointerFace.evaluate(node => new DOMMatrix(getComputedStyle(node).transform).a), 0.98);
+  assert.deepEqual(await pointerButton.boundingBox(), pointerTarget);
+  await page.mouse.move(0, 0);
+  await pointerFace.evaluate(async node => {
+    getComputedStyle(node).transform;
+    await Promise.all(node.getAnimations().map(animation => animation.finished));
+  });
+  assert.equal(await pointerFace.evaluate(node => new DOMMatrix(getComputedStyle(node).transform).a), 1);
+  await page.mouse.up();
   await save.focus();
   await page.keyboard.press('Enter');
   await page.waitForFunction(() => document.querySelector('#behavior output').textContent === '1');
@@ -334,7 +357,15 @@ try {
   await page.getByRole('button', { name: 'Finish', exact: true }).click();
   const toggle = page.getByRole('button', { name: 'Toggle', exact: true });
   await toggle.focus();
-  await page.keyboard.press('Space');
+  const toggleFace = toggle.locator('.rds-button__face');
+  await page.keyboard.down('Space');
+  await toggleFace.evaluate(async node => {
+    getComputedStyle(node).transform;
+    await Promise.all(node.getAnimations().map(animation => animation.finished));
+  });
+  assert.equal(await toggleFace.evaluate(node => new DOMMatrix(getComputedStyle(node).transform).a), 0.98);
+  assert.equal(await toggle.getAttribute('aria-pressed'), 'false');
+  await page.keyboard.up('Space');
   assert.equal(await toggle.getAttribute('aria-pressed'), 'true');
   assert.equal(await toggle.locator('svg').count(), 1);
   assert.equal(await toggle.locator('[data-example-icon="toggle"]').count(), 1);
@@ -346,16 +377,31 @@ try {
   assert(page.url().endsWith('#destination'));
   await page.emulateMedia({ reducedMotion: 'reduce' });
   assert.equal(await page.locator('[data-state="loading"] .rds-button__spinner').first().evaluate(node => getComputedStyle(node).animationName), 'none');
-  assert.equal(await save.evaluate(node => getComputedStyle(node).transitionDuration), '0s');
+  assert.equal(await save.locator('.rds-button__face').evaluate(node => getComputedStyle(node).transitionDuration), '0s');
+  await toggle.focus();
+  await page.keyboard.down('Space');
+  assert.deepEqual(await toggleFace.evaluate(node => {
+    const css = getComputedStyle(node);
+    return { scale: new DOMMatrix(css.transform).a, cue: css.outlineStyle, inset: css.outlineOffset };
+  }), { scale: 1, cue: 'solid', inset: '-1px' });
+  await page.keyboard.up('Space');
   await page.emulateMedia({ reducedMotion: 'no-preference', forcedColors: 'active' });
   await page.evaluate(async () => {
     await new Promise(requestAnimationFrame);
     await Promise.all(document.getAnimations().filter(animation => animation.effect.getTiming().iterations !== Infinity).map(animation => animation.finished.catch(() => {})));
   });
-  const forced = await page.locator('[data-case] .rds-button').evaluateAll(nodes => nodes.map(node => ({ id: node.parentElement.dataset.case, bg: getComputedStyle(node).backgroundColor, fg: getComputedStyle(node).color, shadow: getComputedStyle(node).boxShadow })));
+  const forced = await page.locator('[data-case] .rds-button__face').evaluateAll(nodes => nodes.map(node => {
+    const css = getComputedStyle(node);
+    return { bg: css.backgroundColor, shadow: css.boxShadow };
+  }));
   assert.equal(new Set(forced.map(sample => sample.bg)).size, 1, 'Forced-color backgrounds must use system colors for every variant');
   assert(forced.every(sample => sample.shadow === 'none'));
   assert(await page.locator('.rds-button').evaluateAll(nodes => nodes.every(node => [...node.querySelectorAll('svg')].every(svg => getComputedStyle(svg).stroke === getComputedStyle(node).color))), 'Icons must inherit system foregrounds in forced colors');
+  await toggle.focus();
+  await page.keyboard.down('Space');
+  assert.equal(await toggleFace.evaluate(node => getComputedStyle(node).outlineStyle), 'solid');
+  assert.equal(await toggleFace.evaluate(node => new DOMMatrix(getComputedStyle(node).transform).a), 1);
+  await page.keyboard.up('Space');
   await page.screenshot({ path: path.join(output, 'forced-colors.png') });
   await page.emulateMedia({ forcedColors: 'none' });
   const model = await loadModel();
@@ -402,7 +448,26 @@ try {
   await touch.addScriptTag({ type: 'module', content: script });
   await touch.locator('[data-case]').first().waitFor();
   const targets = await touch.locator('[data-case] .rds-button').evaluateAll(nodes => nodes.map(node => ({ id: node.parentElement.dataset.case, height: node.getBoundingClientRect().height, width: node.getBoundingClientRect().width })));
-  assert(targets.every(target => target.height >= 44 && target.width >= 44), 'Touch targets must be at least 44 CSS pixels');
+  assert(targets.every(target => target.height >= 40 && target.width >= 40), 'Touch targets must be at least 40 CSS pixels');
+  const touchButton = touch.locator('[data-case="less-ghost-neutral-sm-IconButton-default"] .rds-button');
+  assert.equal((await touchButton.boundingBox()).width, 40);
+  assert.equal((await touchButton.boundingBox()).height, 40);
+  await touchButton.scrollIntoViewIfNeeded();
+  const touchTarget = await touchButton.boundingBox();
+  const touchCdp = await touch.context().newCDPSession(touch);
+  await touchCdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: touchTarget.x + touchTarget.width / 2, y: touchTarget.y + touchTarget.height / 2 }] });
+  const touchFace = touchButton.locator('.rds-button__face');
+  await touch.waitForFunction(() => {
+    const face = document.querySelector('[data-case="less-ghost-neutral-sm-IconButton-default"] .rds-button__face');
+    return new DOMMatrix(getComputedStyle(face).transform).a === 0.98;
+  }, undefined, { timeout: 2500 });
+  assert.deepEqual(await touchButton.boundingBox(), touchTarget);
+  await touchCdp.send('Input.dispatchTouchEvent', { type: 'touchCancel', touchPoints: [] });
+  await touchFace.evaluate(async node => {
+    getComputedStyle(node).transform;
+    await Promise.all(node.getAnimations().map(animation => animation.finished));
+  });
+  assert.equal(await touchFace.evaluate(node => new DOMMatrix(getComputedStyle(node).transform).a), 1);
   await touch.close();
   await page.evaluate(() => { document.documentElement.dir = 'ltr'; });
   assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
@@ -419,7 +484,7 @@ try {
     await Promise.all(document.getAnimations().filter(animation => animation.effect.getTiming().iterations !== Infinity).map(animation => animation.finished.catch(() => {})));
   });
   await page.screenshot({ path: path.join(output, 'radius-comparison.png'), fullPage: true });
-  fs.writeFileSync(path.join(output, 'report.json'), JSON.stringify({ findings, toggleMotion, contrastFindings: [...contrastFindings.values()], interactions: 'keyboard, loading activation guard, retained focus, toggling, links, reduced motion, forced colors, mobile RTL/LTR, 44px coarse-pointer touch targets', approval: 'pending human review' }, null, 2));
+  fs.writeFileSync(path.join(output, 'report.json'), JSON.stringify({ findings, toggleMotion, contrastFindings: [...contrastFindings.values()], interactions: 'keyboard, loading activation guard, retained focus, toggling, links, reduced motion, forced colors, mobile RTL/LTR, 40px coarse-pointer touch targets', approval: 'pending human review' }, null, 2));
   console.log(`Contrast review: ${contrastFindings.size} distinct context/state/recipe pairs below 4.5:1; see report.json.`);
   assert.equal(contrastFindings.size, 0, 'Foreground contrast failures remain in the component recipes');
   console.log(`ok interactions, reduced motion, forced colors and mobile RTL/LTR; evidence: ${output}`);

@@ -13,7 +13,7 @@ export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 
   icon?: ReactNode;
   /** Logical edge: start is right in RTL and left in LTR. */
   iconPosition?: 'start' | 'end';
-  /** Clickable icon with a 44px target on touch devices. */
+  /** Clickable icon with a 40px minimum target on touch devices. */
   iconAction?: { label: string; onClick: MouseEventHandler<HTMLButtonElement>; disabled?: boolean };
   /** Content at the reading end, such as a unit or a labeled password visibility button. */
   endAdornment?: ReactNode;

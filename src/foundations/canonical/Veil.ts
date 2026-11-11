@@ -44,7 +44,7 @@ export const VEIL = {
   "scrim": {
       /** @token rds.veil.scrim.color @lightAlias ref.color.gray-warm.950-alpha-52 @darkAlias ref.color.gray-warm.850-alpha-52 */
       "color": pair("rgb(20 12 17 / 0.52)", "rgb(43 37 41 / 0.52)"),
-      /** @token rds.veil.scrim.blur @alias ref.blur.24 */
-      "blur": "24px",
+      /** @token rds.veil.scrim.blur @alias ref.blur.16 */
+      "blur": "16px",
     },
 } as const;

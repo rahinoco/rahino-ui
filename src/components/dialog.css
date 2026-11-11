@@ -1,0 +1,261 @@
+/* Widths are dialog recipes. The last two retain the existing public sizes. */
+.rds-dialog {
+  --rds-dialog-max-inline: 35rem;
+  --rds-dialog-gutter: var(--rds-layout-grid-narrow-margin);
+  --rds-dialog-padding: var(--rds-space-300);
+  --rds-dialog-body-end-padding: var(--rds-space-400);
+  --rds-dialog-inline-inset: max(var(--rds-dialog-gutter), env(safe-area-inset-left), env(safe-area-inset-right));
+  --rds-dialog-top: max(var(--rds-dialog-gutter), env(safe-area-inset-top));
+  --rds-dialog-bottom: max(var(--rds-dialog-gutter), env(safe-area-inset-bottom));
+  position: fixed;
+  inset-inline: 0;
+  inset-block: var(--rds-dialog-viewport-top, 0px) var(--rds-dialog-viewport-bottom, 0px);
+  inline-size: min(var(--rds-dialog-max-inline), calc(100% - 2 * var(--rds-dialog-inline-inset)));
+  max-inline-size: none;
+  max-block-size: calc(100dvh - var(--rds-dialog-top) - var(--rds-dialog-bottom) - var(--rds-dialog-viewport-top, 0px) - var(--rds-dialog-viewport-bottom, 0px));
+  margin: auto;
+  padding: 0;
+  border: 0;
+  overflow: visible;
+  background: none;
+  color: var(--rds-color-ink-primary);
+}
+
+.rds-dialog[data-size='sm'] { --rds-dialog-max-inline: 25rem; }
+.rds-dialog[data-size='lg'] { --rds-dialog-max-inline: 48rem; }
+.rds-dialog[data-size='xl'] { --rds-dialog-max-inline: 64rem; }
+.rds-dialog[data-size='2xl'] { --rds-dialog-max-inline: 80rem; }
+
+.rds-dialog::backdrop { background-color: transparent; }
+.rds-dialog[open]::backdrop { background-color: var(--rds-color-scrim-modal); }
+
+@supports (backdrop-filter: none) {
+  .rds-dialog[open]:not(:where([data-rds-contrast='more'] *, [data-contrast='more'] *, [data-reduce-transparency='on'] *))::backdrop {
+    background-color: var(--rds-veil-scrim-color);
+    backdrop-filter: blur(var(--rds-veil-scrim-blur));
+  }
+}
+
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more), (forced-colors: active) {
+  .rds-dialog[open]::backdrop {
+    background-color: var(--rds-color-scrim-modal);
+    backdrop-filter: none;
+  }
+}
+
+/* Only the top dialog paints a scrim. Swap nested scrims without a crossfade. */
+.rds-dialog:has(.rds-dialog:modal)::backdrop { visibility: hidden; }
+.rds-dialog:not([open])::backdrop { pointer-events: none; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .rds-dialog,
+  .rds-dialog:where(:not(.rds-dialog .rds-dialog))::backdrop {
+    transition-duration: var(--rds-motion-duration-dissolve);
+    transition-timing-function: var(--rds-motion-easing-exit);
+  }
+
+  .rds-dialog[open],
+  .rds-dialog[open]:where(:not(.rds-dialog .rds-dialog))::backdrop {
+    transition-duration: var(--rds-motion-duration-overlay);
+    transition-timing-function: var(--rds-motion-easing-enter);
+  }
+
+  .rds-dialog { opacity: 0; transition-property: opacity; }
+  .rds-dialog[open] { opacity: 1; }
+  .rds-dialog:where(:not(.rds-dialog .rds-dialog))::backdrop {
+    transition-property: background-color, backdrop-filter;
+  }
+
+  @supports (overlay: auto) and (transition-behavior: allow-discrete) {
+    .rds-dialog {
+      transition-property: opacity, display, overlay;
+      transition-behavior: allow-discrete;
+    }
+    .rds-dialog:where(:not(.rds-dialog .rds-dialog))::backdrop {
+      transition-property: background-color, backdrop-filter, display, overlay;
+      transition-behavior: allow-discrete;
+    }
+  }
+
+  @starting-style {
+    .rds-dialog[open] { opacity: 0; }
+    .rds-dialog[open]:where(:not(.rds-dialog .rds-dialog))::backdrop {
+      background-color: transparent;
+      backdrop-filter: none;
+    }
+  }
+}
+
+.rds-dialog:where([data-reduce-motion='on'] *),
+.rds-dialog:where([data-reduce-motion='on'] *)::backdrop { transition: none; }
+
+html:has(.rds-dialog:modal),
+body:has(.rds-dialog:modal),
+main:has(.rds-dialog:modal) {
+  scrollbar-gutter: stable;
+  overflow: hidden;
+}
+
+.rds-dialog__panel {
+  container: rds-dialog / inline-size;
+  display: flex;
+  flex-direction: column;
+  max-block-size: inherit;
+  border-radius: var(--rds-radius-24);
+  background: var(--rds-color-surface-raised);
+  box-shadow: var(--rds-shadow-lg);
+}
+
+/* Keep the bottom inset outside the scrollable content. */
+.rds-dialog__panel:where(:has(> .rds-dialog__content > :not(.rds-dialog__footer:empty))) {
+  padding-block-end: var(--rds-dialog-padding);
+}
+
+.rds-dialog__panel:has(> .rds-dialog__content > .rds-dialog__body:where(:last-child, :has(+ .rds-dialog__footer:empty))) {
+  padding-block-end: var(--rds-dialog-body-end-padding);
+}
+
+.rds-dialog__content {
+  display: flex;
+  flex-direction: column;
+  min-block-size: 0;
+}
+
+.rds-dialog__header {
+  flex: none;
+  padding: var(--rds-dialog-padding);
+}
+
+.rds-dialog__heading {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--rds-space-200);
+}
+
+.rds-dialog__copy {
+  flex: 1;
+  min-inline-size: 0;
+}
+
+.rds-dialog__heading h2,
+.rds-dialog__description,
+.rds-dialog__error {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.rds-dialog__heading h2:focus-visible {
+  outline: var(--rds-focus-ring-width) solid var(--rds-color-focus-ring);
+  outline-offset: var(--rds-focus-offset);
+}
+
+.rds-dialog__description {
+  max-inline-size: var(--rds-type-layout-measure-reading);
+  color: var(--rds-color-ink-secondary);
+}
+
+.rds-dialog__heading h2 + .rds-dialog__description {
+  margin-block-start: var(--rds-space-100);
+}
+
+.rds-dialog__icon {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  color: var(--rds-color-ink-secondary);
+}
+
+.rds-dialog__heading > .rds-dialog__icon { min-block-size: calc(var(--rds-type-title-md-line-height) * var(--rds-type-title-md-font-size)); }
+
+.rds-dialog__icon svg {
+  inline-size: var(--rds-icon-size-md);
+  block-size: var(--rds-icon-size-md);
+  stroke-width: var(--rds-icon-stroke-width);
+}
+
+.rds-dialog--warning .rds-dialog__icon { color: var(--rds-color-status-warning-fg); }
+
+.rds-dialog__body {
+  flex: 1 1 auto;
+  min-block-size: 0;
+  padding: var(--rds-dialog-padding);
+  overflow: auto;
+  overscroll-behavior: contain;
+  scroll-padding-block: var(--rds-space-100);
+}
+
+.rds-dialog__header + .rds-dialog__body { padding-block-start: var(--rds-space-100); }
+.rds-dialog__header:where(:last-child, :has(+ .rds-dialog__footer:empty)),
+.rds-dialog__body:where(:last-child, :has(+ .rds-dialog__footer:empty)) {
+  padding-block-end: 0;
+}
+.rds-dialog__error { color: var(--rds-color-status-error-fg); }
+
+.rds-dialog__footer {
+  flex: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--rds-space-100);
+  padding: var(--rds-space-200) var(--rds-dialog-padding) 0;
+}
+
+.rds-dialog__footer > .rds-button { max-inline-size: 100%; }
+.rds-dialog__footer:empty { display: none; }
+
+@container rds-dialog (max-width: 18rem) {
+  .rds-dialog__footer { flex-direction: column; align-items: stretch; }
+}
+
+/* 48rem is the foundation medium breakpoint. */
+@media (min-width: 48rem) {
+  .rds-dialog {
+    --rds-dialog-gutter: var(--rds-layout-grid-medium-margin);
+    --rds-dialog-padding: var(--rds-space-400);
+    --rds-dialog-body-end-padding: var(--rds-space-500);
+  }
+}
+
+.rds-dialog[data-short-viewport] .rds-dialog__content { overflow: auto; }
+.rds-dialog[data-short-viewport] .rds-dialog__body { flex: none; overflow: visible; }
+
+@media (max-height: 25rem) {
+  .rds-dialog__content { overflow: auto; }
+  .rds-dialog__body { flex: none; overflow: visible; }
+}
+
+@media (forced-colors: active) {
+  .rds-dialog__panel { outline: var(--rds-border-width-default) solid CanvasText; outline-offset: calc(-1 * var(--rds-border-width-default)); }
+}
+
+.rds-dialog-form-card {
+  background: var(--rds-color-surface-base);
+  border: var(--rds-border-width-default) solid var(--rds-color-edge-subtle);
+  border-radius: var(--rds-radius-16);
+  padding: var(--rds-space-400);
+}
+
+.rds-dialog-choice {
+  display: grid;
+  justify-items: start;
+  gap: var(--rds-space-100);
+  padding: var(--rds-space-300);
+  min-block-size: var(--rds-size-control-md-min-height);
+  border: var(--rds-border-width-default) solid var(--rds-color-edge-control);
+  border-radius: var(--rds-radius-12);
+  background: var(--rds-color-surface-base);
+  color: var(--rds-color-ink-primary);
+  text-align: start;
+  cursor: pointer;
+}
+
+.rds-dialog-choice .rds-type-body-sm { color: var(--rds-color-ink-secondary); }
+
+@media (hover: hover) {
+  .rds-dialog-choice:hover { box-shadow: var(--rds-shadow-sm); }
+}
+
+.rds-dialog-choice:focus-visible {
+  outline: var(--rds-focus-ring-width) solid var(--rds-color-focus-ring);
+  outline-offset: var(--rds-focus-offset);
+}

@@ -6,7 +6,11 @@ import {
   useRef,
   useState,
   type ButtonHTMLAttributes,
+  type FocusEvent,
+  type HTMLAttributes,
+  type KeyboardEvent,
   type MouseEvent,
+  type PointerEvent,
   type ReactNode,
   type Ref,
 } from 'react';
@@ -86,6 +90,68 @@ export function guardActivation<T extends HTMLElement>(
   onClick?.(event);
 }
 
+type PressHandlers<T extends HTMLElement> = Pick<HTMLAttributes<T>,
+  'onKeyDown' | 'onKeyUp' | 'onBlur' | 'onPointerDown' | 'onPointerUp' | 'onPointerCancel' | 'onLostPointerCapture' | 'onContextMenu'>;
+
+export function useButtonPressFeedback<T extends HTMLElement>(
+  blocked: boolean,
+  handlers: PressHandlers<T>,
+) {
+  const [heldKey, setHeldKey] = useState<string>();
+  const [heldPointer, setHeldPointer] = useState<number>();
+  useEffect(() => {
+    if (blocked) {
+      setHeldKey(undefined);
+      setHeldPointer(undefined);
+    }
+  }, [blocked]);
+
+  function endPointer(event: PointerEvent<T>) {
+    if (event.pointerId === heldPointer) setHeldPointer(undefined);
+  }
+
+  return {
+    'data-press-key': !blocked && heldKey ? '' : undefined,
+    'data-press-pointer': !blocked && heldPointer !== undefined ? '' : undefined,
+    onKeyDown(event: KeyboardEvent<T>) {
+      handlers.onKeyDown?.(event);
+      const activates = event.key === 'Enter' || (event.key === ' ' && event.currentTarget.tagName === 'BUTTON');
+      if (!blocked && !event.defaultPrevented && !event.repeat && activates) setHeldKey(event.key);
+    },
+    onKeyUp(event: KeyboardEvent<T>) {
+      if (event.key === heldKey) setHeldKey(undefined);
+      handlers.onKeyUp?.(event);
+    },
+    onBlur(event: FocusEvent<T>) {
+      setHeldKey(undefined);
+      handlers.onBlur?.(event);
+    },
+    onPointerDown(event: PointerEvent<T>) {
+      handlers.onPointerDown?.(event);
+      // Touch and pen need feedback before browsers resolve a gesture to :active.
+      if (!blocked && !event.defaultPrevented && event.isPrimary && event.button === 0 && event.pointerType !== 'mouse') {
+        setHeldPointer(event.pointerId);
+      }
+    },
+    onPointerUp(event: PointerEvent<T>) {
+      endPointer(event);
+      handlers.onPointerUp?.(event);
+    },
+    onPointerCancel(event: PointerEvent<T>) {
+      endPointer(event);
+      handlers.onPointerCancel?.(event);
+    },
+    onLostPointerCapture(event: PointerEvent<T>) {
+      endPointer(event);
+      handlers.onLostPointerCapture?.(event);
+    },
+    onContextMenu(event: MouseEvent<T>) {
+      setHeldPointer(undefined);
+      handlers.onContextMenu?.(event);
+    },
+  };
+}
+
 export function ButtonFace({
   iconStart,
   iconEnd,
@@ -116,13 +182,15 @@ export function ButtonFace({
   ) : iconSlot;
   return (
     <>
-      {!atEnd ? leadingSlot : null}
-      {children ? (
-        <span id={labelId} className="rds-button__label">
-          {children}
-        </span>
-      ) : null}
-      {atEnd ? iconSlot : null}
+      <span className="rds-button__face">
+        {!atEnd ? leadingSlot : null}
+        {children ? (
+          <span id={labelId} className="rds-button__label">
+            {children}
+          </span>
+        ) : null}
+        {atEnd ? iconSlot : null}
+      </span>
       <span className="rds-button__status" role="status">
         {loading ? loadingLabel : ''}
       </span>

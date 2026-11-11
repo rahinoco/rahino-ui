@@ -1,33 +1,10 @@
-/**
- * Confirmation dialog on Modal shell — same visual language.
- */
-import { AlertCircle, AlertTriangle, Info } from 'lucide-react';
+import { AlertTriangle } from 'lucide-react';
+import { useRef, type RefObject } from 'react';
 
 import Button from '@/components/Button';
 import Modal from '@/components/Modal';
 
 type ConfirmationVariant = 'danger' | 'warning' | 'info';
-
-const VARIANT_META: Record<
-  ConfirmationVariant,
-  { icon: typeof AlertTriangle; iconClass: string; intent: 'danger' | 'brand' }
-> = {
-  danger: {
-    icon: AlertTriangle,
-    iconClass: 'bg-error-100 text-error-600 border-error-200',
-    intent: 'danger',
-  },
-  warning: {
-    icon: AlertCircle,
-    iconClass: 'bg-warning-50 text-warning-600 border-warning-100',
-    intent: 'brand',
-  },
-  info: {
-    icon: Info,
-    iconClass: 'bg-primary-100 text-primary-600 border-primary-200',
-    intent: 'brand',
-  },
-};
 
 export interface ConfirmationModalProps {
   isOpen: boolean;
@@ -39,6 +16,8 @@ export interface ConfirmationModalProps {
   cancelText?: string;
   variant?: ConfirmationVariant;
   isLoading?: boolean;
+  error?: string;
+  returnFocusRef?: RefObject<HTMLElement | null>;
 }
 
 export default function ConfirmationModal({
@@ -51,34 +30,38 @@ export default function ConfirmationModal({
   cancelText = 'انصراف',
   variant = 'danger',
   isLoading = false,
+  error,
+  returnFocusRef,
 }: ConfirmationModalProps) {
-  const meta = VARIANT_META[variant] || VARIANT_META.info;
-  const Icon = meta.icon;
+  const cancelRef = useRef<HTMLButtonElement>(null);
+  const confirmRef = useRef<HTMLButtonElement>(null);
+  const urgent = variant === 'danger' || variant === 'warning';
 
   return (
     <Modal
       isOpen={isOpen}
-      onClose={onClose}
+      onClose={() => { if (!isLoading) onClose(); }}
       size="sm"
       title={title}
-      icon={Icon}
-      bodyClassName="bg-bg-surface"
+      subtitle={message}
+      role={urgent ? 'alertdialog' : 'dialog'}
+      className={variant === 'warning' ? 'rds-dialog--warning' : undefined}
+      icon={variant === 'warning' ? AlertTriangle : undefined}
+      initialFocusRef={isLoading ? confirmRef : cancelRef}
+      returnFocusRef={returnFocusRef}
+      hideClose
       footer={
         <>
-          <Button appearance="solid" intent={meta.intent} onClick={onConfirm} loading={isLoading}>
+          <Button ref={confirmRef} appearance="solid" intent={variant === 'danger' ? 'danger' : 'brand'} onClick={onConfirm} loading={isLoading}>
             {confirmText}
           </Button>
-          <Button appearance="ghost" onClick={onClose} disabled={isLoading}>
+          <Button ref={cancelRef} appearance="ghost" onClick={onClose} disabled={isLoading}>
             {cancelText}
           </Button>
         </>
       }
     >
-      <div className="px-6 sm:px-8 py-6">
-        {message && (
-          <p className="text-sm font-bold text-slate-600 leading-relaxed text-justify">{message}</p>
-        )}
-      </div>
+      {error ? <p className="rds-dialog__error rds-type-body-sm" role="alert">{error}</p> : null}
     </Modal>
   );
 }

@@ -69,7 +69,7 @@ This is an explicit exception to the general 0.98 subtle-scale guidance for the 
 ## 4. Interaction Rules
 
 - **Immediate feedback:** Never delay interaction for animation.
-- **Buttons:** Use subtle color or elevation transitions. Press scaling is optional, with a minimum scale of 0.98.
+- **Buttons:** Enabled Button, IconButton and ToggleButton faces use `motion.scale.subtle` (0.98) while held and return to `motion.scale.rest` on release or cancellation. Use `motion.duration.feedback` with `motion.easing.standard` for the transition. IconButton faces inside text inputs reach 0.98 immediately with `motion.duration.none` so short taps can show the feedback. Their release uses the standard feedback transition. Keep the hit target and focus ring fixed and retain the underlying rest, hover or selection colors. Reduced motion and forced colors use a static inset outline in the existing foreground color, sized with the default border-width token.
 - **Checkboxes:** The specifically requested Spectrum-like press recipe maps `--rds-checkbox-scale-pressed` to `motion.scale.pressed` (0.923) for the box only. This recipe exception does not lower the generic minimum for other controls.
 - **Popovers and menus:** Use opacity with a maximum 2–4px translation.
 - **Dialogs:** Use opacity with up to 8px translation or scale from 0.98. Avoid combining effects unnecessarily.

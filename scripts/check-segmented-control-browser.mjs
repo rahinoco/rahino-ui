@@ -151,7 +151,7 @@ try {
   const visible = await items.last().evaluate(el => { const a = el.getBoundingClientRect(), b = el.closest('.rds-segmented__viewport').getBoundingClientRect(); return Math.min(a.right, b.right) - Math.max(a.left, b.left) >= Math.min(a.width, b.width) - 1; }); assert(visible, 'Focused overflowing item scrolled into view (a long label may exceed the viewport)');
   await page.screenshot({ path: path.join(output, 'mobile-overflow.png') });
   const touch = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true }); const touchPage = await touch.newPage(); await mount(touchPage); await configure(touchPage, { size: 'sm' });
-  assert((await touchPage.locator('#subject button').first().boundingBox()).height >= 44);
+  assert.equal((await touchPage.locator('#subject button').first().boundingBox()).height, 40);
   await checkClippedSelection(touchPage, 'rtl', (x, y) => touchPage.touchscreen.tap(x, y));
   await touch.close();
   assert.deepEqual(errors, []);

@@ -35,7 +35,7 @@ export const DENSITY = {
 } as const;
 export const FOCUS = { width: FOCUS_RING_GEOMETRY.width, offset: SPACING[50] } as const;
 export const BUTTON_FOCUS = { width: FOCUS_RING_GEOMETRY.width, gap: SPACING[50], core: BORDER_WIDTH.default, soft: '40%' } as const;
-export const TOUCH_MIN = '44px';
+export const TOUCH_MIN = '40px';
 export const ICON_STROKE = '2';
 export const ICON_SIZE = { sm: '16px', md: '20px', lg: '24px', display: '32px' } as const;
 export const EDGE_WIDTH = { thin: BORDER_WIDTH.default } as const;

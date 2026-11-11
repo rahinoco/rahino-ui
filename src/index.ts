@@ -99,6 +99,7 @@ export {
 } from '@/components/PageShell';
 export { default as RadioGroup, RadioPills, type RadioGroupProps, type RadioOption, type RadioPillsProps } from '@/components/RadioGroup';
 export { default as SectionHeader, type SectionHeaderProps } from '@/components/SectionHeader';
+export { HorizontalAnimatedChevron, VerticalAnimatedChevron, type AnimatedChevronProps } from '@/components/AnimatedChevron';
 export { default as Select, type SelectOption, type SelectProps } from '@/components/Select';
 export { SegmentedPills, type PillOption, type SegmentedPillsProps } from '@/components/SegmentedPills';
 export { default as StatCard } from '@/components/StatCard';

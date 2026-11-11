@@ -6,7 +6,7 @@ Values in marked tables are generated from the [master collection](master-tokens
 
 Use semantic `rds.color.*` tokens when choosing colors for an interface. Each row shows the light/dark value and its reference; arrows follow aliases through to the raw value. Raw `ref.color.*` swatches stay fixed across themes.
 
-Enabled solid primary fills use `rds.color.ink.on-brand` for text and icons in default, hover and pressed states. Use `ink.primary` on neutral surfaces. The existing `rds.color.action.primary.fg` token aliases `ink.on-brand`.
+Enabled solid primary buttons use `rds.color.ink.on-brand` for text and icons. Button-family press feedback retains the current colors and follows [Motion](Motion.md#4-interaction-rules). The pressed-color roles in this guide remain available for other recipes. Use `ink.primary` on neutral surfaces. The existing `rds.color.action.primary.fg` token aliases `ink.on-brand`.
 
 For text in rows or controls with neutral hover/pressed overlays, use `rds.color.ink.secondary` or `rds.color.ink.primary` at full opacity. Keep `ink.tertiary` for approved resting backgrounds unless the complete interactive treatment is separately validated. Place overlays behind content; do not lower the opacity of the whole control.
 

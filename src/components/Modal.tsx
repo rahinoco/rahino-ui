@@ -1,44 +1,23 @@
-/**
- * Modal — Part Management + Finance Nature/Ledger shell.
- * Header/footer transparent; body soft #f8fafc when needed.
- */
-
-import { clsx } from 'clsx';
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import { DURATION, EASING, SCALE } from '@/foundations/metrics';
+import { AnimatePresence, usePresence } from 'framer-motion';
 import { X } from 'lucide-react';
-import { type ReactNode, useEffect, useId, useRef, useState } from 'react';
-import { createPortal } from 'react-dom';
-import { twMerge } from 'tailwind-merge';
+import { useEffect, useId, useLayoutEffect, useRef, type ReactNode, type RefObject } from 'react';
 
-import type { UiIcon } from '@/types/icon';
 import IconButton from '@/components/IconButton';
+import type { UiIcon } from '@/types/icon';
 
-function motionEase(value: string): [number, number, number, number] {
-  const [a,b,c,d] = value.slice(value.indexOf('(') + 1, -1).split(',').map(Number);
-  return [a,b,c,d];
-}
-const ENTER_EASE = motionEase(EASING.enter);
-const EXIT_EASE = motionEase(EASING.exit);
-
-const SIZES = {
-  sm: 'max-w-md',
-  md: 'max-w-xl',
-  lg: 'max-w-3xl',
-  xl: 'max-w-5xl',
-  '2xl': 'max-w-7xl',
-} as const;
-
-export type ModalSize = keyof typeof SIZES;
-
-type IconComponent = UiIcon;
+export type ModalSize = 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 
 export interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   title?: ReactNode;
   subtitle?: ReactNode;
-  icon?: IconComponent;
+  accessibleName?: string;
+  closeLabel?: string;
+  role?: 'dialog' | 'alertdialog';
+  initialFocusRef?: RefObject<HTMLElement | null>;
+  returnFocusRef?: RefObject<HTMLElement | null>;
+  icon?: UiIcon;
   children?: ReactNode;
   footer?: ReactNode;
   size?: ModalSize;
@@ -47,321 +26,156 @@ export interface ModalProps {
   className?: string;
   headerExtra?: ReactNode;
   closeOnBackdrop?: boolean;
-  /** پیش‌فرض true. برای دادهٔ ذخیره‌نشده false بگذارید تا Escape بی‌اطلاع onClose را صدا نزند. */
   closeOnEscape?: boolean;
-  /** وقتی Escape یا زمینه بستن را انجام نداد صدا زده می‌شود. خود جزء جملهٔ هشدار نمی‌سازد. */
   onDismissBlocked?: () => void;
 }
 
-const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
-
-type ModalLayer = { id: string; node: HTMLElement };
-
-const modalLayers: ModalLayer[] = [];
-const inertBefore = new Map<HTMLElement, string | null>();
-let scrollLocks = 0;
-
-type SavedScroll = {
-  el: HTMLElement;
-  overflow: string;
-  paddingInlineStart: string;
-  paddingInlineEnd: string;
-};
-
-let savedScroll: SavedScroll[] = [];
-
-function backgroundScrollers(modalNode: HTMLElement) {
-  const found = new Set<HTMLElement>();
-  if (document.body) found.add(document.body);
-  document.querySelectorAll<HTMLElement>('main').forEach((el) => {
-    if (!modalNode.contains(el)) found.add(el);
-  });
-  return [...found];
+export default function Modal({ isOpen, ...props }: ModalProps) {
+  // Only an open nested dialog needs to participate in its parent’s exit.
+  return (
+    <AnimatePresence propagate={isOpen}>
+      {isOpen && <OpenModal {...props} />}
+    </AnimatePresence>
+  );
 }
 
-function focusableIn(root: HTMLElement) {
-  return Array.from(root.querySelectorAll<HTMLElement>(FOCUSABLE)).filter((node) => !node.hasAttribute('disabled') && node.tabIndex !== -1);
-}
-
-function syncModalLayers() {
-  const top = modalLayers[modalLayers.length - 1];
-  for (const layer of modalLayers) {
-    if (top && layer.id === top.id) layer.node.removeAttribute('inert');
-    else layer.node.setAttribute('inert', '');
-  }
-  const children = Array.from(document.body.children) as HTMLElement[];
-  if (modalLayers.length === 0) {
-    for (const [node, previous] of inertBefore) {
-      if (previous === null) node.removeAttribute('inert');
-      else node.setAttribute('inert', previous);
-    }
-    inertBefore.clear();
-    return;
-  }
-  for (const child of children) {
-    if (child.hasAttribute('data-rahino-modal-root')) continue;
-    if (top && child.contains(top.node)) continue;
-    if (!inertBefore.has(child)) inertBefore.set(child, child.getAttribute('inert'));
-    child.setAttribute('inert', '');
-  }
-}
-
-function lockModalScroll(modalNode: HTMLElement) {
-  scrollLocks += 1;
-  if (scrollLocks !== 1) return;
-  savedScroll = backgroundScrollers(modalNode).map((el) => {
-    const gap = Math.max(0, el.offsetWidth - el.clientWidth);
-    const rtl = getComputedStyle(el).direction === 'rtl';
-    const cssProp = rtl ? 'padding-inline-start' : 'padding-inline-end';
-    const current = Number.parseFloat(getComputedStyle(el).getPropertyValue(cssProp)) || 0;
-    const top = el.scrollTop;
-    const snapshot: SavedScroll = {
-      el,
-      overflow: el.style.overflow,
-      paddingInlineStart: el.style.paddingInlineStart,
-      paddingInlineEnd: el.style.paddingInlineEnd,
-    };
-    el.style.overflow = 'hidden';
-    if (el.scrollTop !== top) el.scrollTop = top;
-    if (gap > 0) {
-      el.style[rtl ? 'paddingInlineStart' : 'paddingInlineEnd'] = `${current + gap}px`;
-    }
-    return snapshot;
-  });
-}
-
-function unlockModalScroll() {
-  scrollLocks = Math.max(0, scrollLocks - 1);
-  if (scrollLocks !== 0) return;
-  for (const snap of savedScroll) {
-    snap.el.style.overflow = snap.overflow;
-    snap.el.style.paddingInlineStart = snap.paddingInlineStart;
-    snap.el.style.paddingInlineEnd = snap.paddingInlineEnd;
-  }
-  savedScroll = [];
-}
-
-export default function Modal({
-  isOpen,
+function OpenModal({
   onClose,
   title,
   subtitle,
+  accessibleName = 'دیالوگ',
+  closeLabel = 'بستن',
+  role = 'dialog',
+  initialFocusRef,
+  returnFocusRef,
   icon: Icon,
   children,
   footer,
   size = 'md',
   hideClose = false,
-  bodyClassName = 'bg-bg-body',
+  bodyClassName,
   className,
   headerExtra,
-  closeOnBackdrop = true,
+  closeOnBackdrop = false,
   closeOnEscape = true,
   onDismissBlocked,
-}: ModalProps) {
-  const reducedMotion = useReducedMotion();
-  const motionDuration = parseFloat(reducedMotion ? DURATION.reduced : DURATION.overlay) / 1000;
-  const [mounted, setMounted] = useState(false);
-  const portalRef = useRef<HTMLElement | null>(null);
-  const rootRef = useRef<HTMLDivElement>(null);
-  const panelRef = useRef<HTMLDivElement>(null);
-  const layerId = useId();
+}: Omit<ModalProps, 'isOpen'>) {
+  const [isPresent, safeToRemove] = usePresence();
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
+  const pointerStartedOnBackdrop = useRef(false);
+  const focusOptions = useRef({ initialFocusRef, returnFocusRef });
   const titleId = useId();
-  const subtitleId = useId();
-  const onCloseRef = useRef(onClose);
-  const onDismissBlockedRef = useRef(onDismissBlocked);
-  const closeOnEscapeRef = useRef(closeOnEscape);
-  onCloseRef.current = onClose;
-  onDismissBlockedRef.current = onDismissBlocked;
-  closeOnEscapeRef.current = closeOnEscape;
+  const descriptionId = useId();
 
-  useEffect(() => {
-    portalRef.current =
-      document.getElementById('rahino-portal-root') ??
-      document.getElementById('portal-root') ??
-      document.body;
-    setMounted(true);
-  }, []);
+  useLayoutEffect(() => {
+    const dialog = dialogRef.current;
+    if (!dialog || !isPresent) return;
+    const focus = focusOptions.current;
+    const requested = focus.initialFocusRef?.current;
+    const initial = requested && dialog.contains(requested) && !requested.matches(':disabled, [hidden]')
+      ? requested
+      : (children == null ? closeRef.current ?? titleRef.current : titleRef.current ?? closeRef.current);
+    const alreadyAutofocus = initial?.hasAttribute('autofocus');
+    initial?.setAttribute('autofocus', '');
+    dialog.showModal();
+    if (!alreadyAutofocus) initial?.removeAttribute('autofocus');
 
-  useEffect(() => {
-    if (!isOpen) return;
-    let cancelled = false;
-    let frame = 0;
-    let release: (() => void) | undefined;
-    const attach = () => {
-      if (cancelled) return;
-      const node = rootRef.current;
-      const panel = panelRef.current;
-      if (!node || !panel) {
-        frame = requestAnimationFrame(attach);
-        return;
-      }
-      const trigger = document.activeElement instanceof HTMLElement ? document.activeElement : null;
-      modalLayers.push({ id: layerId, node });
-      lockModalScroll(node);
-      syncModalLayers();
-      frame = requestAnimationFrame(() => {
-        panel.focus();
-      });
-      const onKey = (event: KeyboardEvent) => {
-        if (modalLayers[modalLayers.length - 1]?.id !== layerId) return;
-        if (event.key === 'Escape') {
-          // Let an expanded child combobox dismiss its own popup first.
-          if (event.target instanceof Element && event.target.closest('[role="combobox"][aria-expanded="true"]')) return;
-          event.preventDefault();
-          event.stopPropagation();
-          if (closeOnEscapeRef.current) onCloseRef.current();
-          else onDismissBlockedRef.current?.();
-          return;
-        }
-        if (event.key !== 'Tab') return;
-        const items = focusableIn(panel);
-        const active = document.activeElement;
-        const inside = active === panel || (active instanceof Node && panel.contains(active));
-        if (!items.length) {
-          event.preventDefault();
-          panel.focus();
-          return;
-        }
-        const first = items[0];
-        const last = items[items.length - 1];
-        if (!inside || (event.shiftKey && (active === first || active === panel)) || (!event.shiftKey && (active === last || active === panel))) {
-          event.preventDefault();
-          const backward = event.shiftKey;
-          (backward ? last : first).focus();
-        }
-      };
-      document.addEventListener('keydown', onKey, true);
-      release = () => {
-        cancelAnimationFrame(frame);
-        document.removeEventListener('keydown', onKey, true);
-        const index = modalLayers.findIndex((layer) => layer.id === layerId);
-        if (index >= 0) modalLayers.splice(index, 1);
-        unlockModalScroll();
-        syncModalLayers();
-        requestAnimationFrame(() => {
-          if (trigger && trigger.isConnected) {
-            trigger.focus();
-            return;
-          }
-          const lower = modalLayers[modalLayers.length - 1]?.node.querySelector<HTMLElement>('[role="dialog"]');
-          lower?.focus();
-        });
-      };
-    };
-    attach();
+    const viewport = window.visualViewport;
+    function fitViewport() {
+      if (!dialog || !viewport) return;
+      dialog.style.setProperty('--rds-dialog-viewport-top', `${viewport.offsetTop}px`);
+      dialog.style.setProperty('--rds-dialog-viewport-bottom', `${Math.max(0, document.documentElement.clientHeight - viewport.height - viewport.offsetTop)}px`);
+      dialog.toggleAttribute('data-short-viewport', viewport.height < 400);
+    }
+    fitViewport();
+    viewport?.addEventListener('resize', fitViewport);
+    viewport?.addEventListener('scroll', fitViewport);
     return () => {
-      cancelled = true;
-      release?.();
+      viewport?.removeEventListener('resize', fitViewport);
+      viewport?.removeEventListener('scroll', fitViewport);
+      dialog.close();
+      requestAnimationFrame(() => {
+        if (dialog.open || document.activeElement !== document.body) return;
+        focus.returnFocusRef?.current?.focus();
+      });
     };
-  }, [isOpen, mounted, layerId]);
+  }, [isPresent]);
 
-  if (!mounted || !portalRef.current) return null;
+  useEffect(() => {
+    if (isPresent) return;
 
-  const showChrome = Boolean(title || subtitle || Icon || headerExtra);
+    // Native modality ends immediately. Keep the DOM only while the exit is painted.
+    const exit = dialogRef.current?.getAnimations().find(
+      (animation) => animation instanceof CSSTransition && animation.transitionProperty === 'display',
+    );
+    if (!exit) {
+      safeToRemove?.();
+      return;
+    }
 
-  return createPortal(
-    <AnimatePresence mode="wait">
-      {isOpen ? (
-          <div
-          key="rahino-modal"
-          ref={rootRef}
-          data-rahino-modal-root=""
-          className="fixed inset-0 z-[100] flex items-center justify-center overscroll-none p-4 sm:p-6"
-        >
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onMouseDown={(event) => event.preventDefault()}
-            onClick={() => {
-              if (closeOnBackdrop) onClose();
-              else onDismissBlocked?.();
-            }}
-            transition={{ duration: motionDuration }}
-            className="absolute inset-0 bg-overlay"
-            aria-hidden="true"
-          />
+    let cancelled = false;
+    const remove = () => { if (!cancelled) safeToRemove?.(); };
+    void exit.finished.then(remove, remove);
+    return () => { cancelled = true; };
+  }, [isPresent, safeToRemove]);
 
-          <motion.div
-            ref={panelRef}
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby={title ? titleId : undefined}
-            aria-describedby={subtitle ? subtitleId : undefined}
-            tabIndex={-1}
-            initial={{ opacity: 0, scale: reducedMotion ? 1 : SCALE.subtle }}
-            animate={{ opacity: 1, scale: SCALE.rest }}
-            exit={{ opacity: 0, scale: reducedMotion ? 1 : SCALE.subtle, transition: { duration: motionDuration * 0.8, ease: EXIT_EASE } }}
-            transition={{ duration: motionDuration, ease: ENTER_EASE }}
-            className={twMerge(
-              clsx(
-                'relative w-full flex flex-col overflow-hidden max-h-[90vh] outline-none',
-                'bg-[var(--rds-color-surface-raised)] rounded-[var(--rds-radius-24)] shadow-[var(--rds-shadow-lg)]',
-                SIZES[size],
-                className
-              )
-            )}
-          >
-            {showChrome && (
-              <div className="shrink-0 bg-transparent relative z-10">
-                <div className="flex items-start justify-between gap-4 px-6 sm:px-8 pt-6 pb-4">
-                  <div className="flex items-start gap-3.5 min-w-0">
-                    {Icon && (
-                      <div className="w-11 h-11 rounded-2xl bg-primary-50 text-primary-600 flex items-center justify-center shrink-0 border border-primary-100">
-                        <Icon size={20} strokeWidth={2.5} />
-                      </div>
-                    )}
-                    <div className="min-w-0 pt-0.5">
-                      {title && (
-                        <h3 id={titleId} className="truncate font-sans text-lg font-black tracking-tight text-fg">
-                          {title}
-                        </h3>
-                      )}
-                      {subtitle && (
-                        <p id={subtitleId} className="mt-1 font-sans text-[12px] font-bold leading-relaxed text-fg-subtle">
-                          {subtitle}
-                        </p>
-                      )}
-                    </div>
-                  </div>
-                  {!hideClose && (
-                    <IconButton
-                      appearance="ghost"
-                      size="sm"
-                      radius="more"
-                      onClick={() => {
-                        if (closeOnEscape) onClose();
-                        else onDismissBlocked?.();
-                      }}
-                      aria-label="بستن"
-                    ><X /></IconButton>
-                  )}
+  function requestDismiss(allowed: boolean) {
+    if (allowed) onClose();
+    else onDismissBlocked?.();
+  }
+
+  return (
+    <dialog
+      ref={dialogRef}
+      className={['rds-dialog', className].filter(Boolean).join(' ')}
+      data-size={size}
+      inert={!isPresent}
+      role={role === 'alertdialog' ? role : undefined}
+      aria-labelledby={title ? titleId : undefined}
+      aria-label={title ? undefined : accessibleName}
+      aria-describedby={subtitle ? descriptionId : undefined}
+      onCancel={(event) => {
+        if (event.target !== event.currentTarget) return;
+        event.preventDefault();
+        requestDismiss(closeOnEscape);
+      }}
+      onClose={(event) => {
+        if (isPresent && event.target === event.currentTarget && !event.currentTarget.open) onClose();
+      }}
+      onPointerDown={(event) => {
+        pointerStartedOnBackdrop.current = event.target === event.currentTarget && event.button === 0;
+      }}
+      onClick={(event) => {
+        if (pointerStartedOnBackdrop.current && event.target === event.currentTarget) requestDismiss(closeOnBackdrop);
+        pointerStartedOnBackdrop.current = false;
+      }}
+    >
+      <div className="rds-dialog__panel">
+        <div className="rds-dialog__content">
+          {(title || subtitle || Icon || headerExtra || !hideClose) && (
+            <div className="rds-dialog__header">
+              <div className="rds-dialog__heading">
+                {Icon && <span className="rds-dialog__icon" aria-hidden="true"><Icon /></span>}
+                <div className="rds-dialog__copy">
+                  {title && <h2 id={titleId} ref={titleRef} tabIndex={-1} className="rds-type-title-md">{title}</h2>}
+                  {subtitle && <div id={descriptionId} className="rds-dialog__description rds-type-body-md">{subtitle}</div>}
                 </div>
-                {headerExtra}
+                {!hideClose && (
+                  <IconButton ref={closeRef} appearance="ghost" size="md" aria-label={closeLabel} onClick={() => requestDismiss(closeOnEscape)}>
+                    <X />
+                  </IconButton>
+                )}
               </div>
-            )}
-
-            <div
-              className={twMerge(
-                clsx(
-                  'custom-scrollbar relative flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain',
-                  bodyClassName
-                )
-              )}
-            >
-              {children}
+              {headerExtra}
             </div>
-
-            {footer && (
-              <div className="flex shrink-0 flex-wrap items-center justify-between gap-3 border-t border-border bg-transparent px-6 py-5 sm:px-8">
-                {footer}
-              </div>
-            )}
-          </motion.div>
+          )}
+          {children != null && <div className={['rds-dialog__body', bodyClassName].filter(Boolean).join(' ')}>{children}</div>}
+          {footer && <div className="rds-dialog__footer">{footer}</div>}
         </div>
-      ) : null}
-    </AnimatePresence>,
-    portalRef.current
+      </div>
+    </dialog>
   );
 }
 
@@ -371,57 +185,23 @@ export interface ModalFormCardProps {
 }
 
 export function ModalFormCard({ children, className }: ModalFormCardProps) {
-  return (
-    <div
-      className={twMerge(
-        'rounded-[2rem] border border-border bg-bg-surface p-6 shadow-light',
-        className
-      )}
-    >
-      {children}
-    </div>
-  );
+  return <div className={['rds-dialog-form-card', className].filter(Boolean).join(' ')}>{children}</div>;
 }
 
 export interface ChoiceTileProps {
-  icon?: IconComponent;
-  label: ReactNode;
+  icon?: UiIcon;
+  label?: ReactNode;
   description?: ReactNode;
   onClick?: () => void;
   className?: string;
 }
 
-/** Finance «Select Document Nature» tile */
-export function ChoiceTile({
-  icon: Icon,
-  label,
-  description,
-  onClick,
-  className,
-}: ChoiceTileProps) {
+export function ChoiceTile({ icon: Icon, label, description, onClick, className }: ChoiceTileProps) {
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={twMerge(
-        clsx(
-          'group flex flex-col items-center justify-center gap-4 rounded-[2rem] border border-border-subtle bg-bg-surface p-5 text-center font-sans transition-all',
-          'hover:-translate-y-1 hover:border-primary-200 hover:shadow-[var(--rds-shadow-sm)]',
-          className
-        )
-      )}
-    >
-      {Icon && (
-        <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary-50 text-primary-600 transition-colors group-hover:bg-primary-500 group-hover:text-white">
-          <Icon size={22} strokeWidth={2.5} />
-        </div>
-      )}
-      <span className="block text-xs font-black text-fg">{label}</span>
-      {description && (
-        <span className="block text-[10px] font-bold leading-relaxed text-fg-subtle">
-          {description}
-        </span>
-      )}
+    <button type="button" onClick={onClick} className={['rds-dialog-choice', className].filter(Boolean).join(' ')}>
+      {Icon && <span className="rds-dialog__icon" aria-hidden="true"><Icon /></span>}
+      <span className="rds-type-label-md">{label}</span>
+      {description && <span className="rds-type-body-sm">{description}</span>}
     </button>
   );
 }

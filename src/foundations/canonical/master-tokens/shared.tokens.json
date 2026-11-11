@@ -2762,7 +2762,7 @@
       "scrim": {
         "blur": {
           "$type": "dimension",
-          "$value": "{ref.blur.24}",
+          "$value": "{ref.blur.16}",
           "$description": "Blurred background overlay behind floating modals.",
           "$extensions": {
             "rahino": {
@@ -6802,6 +6802,10 @@
               {
                 "set": "shared",
                 "publicPath": "rds.veil.500.blur"
+              },
+              {
+                "set": "shared",
+                "publicPath": "rds.veil.scrim.blur"
               }
             ],
             "adoptionApproval": "canonical-master-adoption",
@@ -6874,10 +6878,6 @@
               {
                 "set": "shared",
                 "publicPath": "rds.veil.400.blur"
-              },
-              {
-                "set": "shared",
-                "publicPath": "rds.veil.scrim.blur"
               }
             ],
             "adoptionApproval": "canonical-master-adoption",

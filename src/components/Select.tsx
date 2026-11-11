@@ -1,6 +1,8 @@
 import { clsx } from 'clsx';
-import { ChevronDown, LoaderCircle } from 'lucide-react';
+import { LoaderCircle, X } from 'lucide-react';
 import { useEffect, useId, useLayoutEffect, useRef, useState, type KeyboardEvent, type ReactNode } from 'react';
+import { toPersianDigits } from '../utils/persianDigits';
+import { VerticalAnimatedChevron } from './AnimatedChevron';
 import Checkbox from './Checkbox';
 
 export interface SelectOption {
@@ -12,12 +14,10 @@ export interface SelectOption {
 interface SelectBaseProps {
   options?: readonly SelectOption[];
   placeholder?: string;
-  label?: ReactNode;
   helperText?: ReactNode;
   error?: ReactNode;
   className?: string;
   controlClassName?: string;
-  searchable?: boolean;
   required?: boolean;
   disabled?: boolean;
   readOnly?: boolean;
@@ -34,6 +34,15 @@ interface SelectBaseProps {
   'aria-describedby'?: string;
 }
 export type SelectProps = SelectBaseProps & ({
+  variant?: 'field';
+  label?: ReactNode;
+  searchable?: boolean;
+} | {
+  variant: 'filter';
+  label: string;
+  searchable?: false;
+  clearLabel?: string;
+}) & ({
   multiple?: false;
   value?: string | null;
   defaultValue?: string;
@@ -50,9 +59,11 @@ const normalize = (text: string) => text.normalize('NFKC').replace(/ي/g, 'ی').
 /** Review candidate. State approval is separate from implementation and checks. */
 export default function Select(props: SelectProps) {
   const { options: suppliedOptions = [], label, helperText, error, className, controlClassName,
-    placeholder = 'انتخاب کنید', searchable = true, disabled = false, readOnly = false, loading = false,
+    placeholder = 'انتخاب کنید', disabled = false, readOnly = false, loading = false,
     loadingText = 'در حال دریافت گزینه‌ها…', emptyText = 'گزینه‌ای پیدا نشد', required, controlSize = 'md',
     dir, textScript, name, form, 'aria-label': ariaLabel, 'aria-describedby': describedBy } = props;
+  const filter = props.variant === 'filter';
+  const searchable = !filter && (props.searchable ?? true);
   const autoId = useId();
   const id = props.id ?? autoId;
   const multiple = props.multiple === true;
@@ -67,13 +78,19 @@ export default function Select(props: SelectProps) {
     seen.add(option.value); return true;
   });
   const selected = options.filter(option => values.has(option.value));
-  const summary = selected.map(option => option.label).join('، ');
+  const latin = textScript === 'latin';
+  const separator = filter && latin ? ', ' : '، ';
+  const summary = selected.map(option => option.label).join(separator);
+  const extra = filter && selected.length > 1 ? `+${latin ? selected.length - 1 : toPersianDigits(selected.length - 1)}` : '';
+  const firstLabel = selected[0]?.label;
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [activeValue, setActiveValue] = useState<string | null>(null);
   const [keyboardNavigation, setKeyboardNavigation] = useState(false);
   const root = useRef<HTMLDivElement>(null);
   const input = useRef<HTMLInputElement>(null);
+  const filterButton = useRef<HTMLButtonElement>(null);
+  const trigger = filter ? filterButton : input;
   const native = useRef<HTMLSelectElement>(null);
   const menu = useRef<HTMLDivElement>(null);
   const typeAhead = useRef({ value: '', time: 0 });
@@ -87,6 +104,7 @@ export default function Select(props: SelectProps) {
   const hasError = error != null && error !== false && error !== '';
   const hasHint = !hasError && helperText != null && helperText !== false && helperText !== '';
   const description = [describedBy, hasError && `${id}-error`, hasHint && `${id}-hint`].filter(Boolean).join(' ') || undefined;
+  const filterDescription = [description, extra && `${id}-selection`].filter(Boolean).join(' ') || undefined;
   const close = () => { setOpen(false); setQuery(''); setActiveValue(null); setKeyboardNavigation(false); typeAhead.current.value = ''; };
   const show = (last = false) => {
     if (blocked) return;
@@ -105,7 +123,19 @@ export default function Select(props: SelectProps) {
       props.onChange?.(option.value);
       close();
     }
-    input.current?.focus({ preventScroll: true });
+    trigger.current?.focus({ preventScroll: true });
+  };
+  const clear = () => {
+    if (blocked) return;
+    trigger.current?.focus({ preventScroll: true });
+    close();
+    if (props.multiple) {
+      if (props.value === undefined) setLocalValue([]);
+      props.onChange?.([]);
+    } else {
+      if (props.value === undefined) setLocalValue('');
+      props.onChange?.('');
+    }
   };
 
   useEffect(() => { if (blocked) close(); }, [blocked]);
@@ -134,12 +164,13 @@ export default function Select(props: SelectProps) {
   }, [expanded]);
 
   useLayoutEffect(() => {
-    const popup = menu.current, trigger = input.current;
-    if (!expanded || !popup || !trigger) return;
+    const popup = menu.current;
+    const anchor = filter ? filterButton.current?.parentElement : input.current;
+    if (!expanded || !popup || !anchor) return;
     // Top layer escapes clipping while preserving inherited theme and modal DOM order.
     popup.showPopover();
     const position = () => {
-      const field = trigger.getBoundingClientRect();
+      const field = anchor.getBoundingClientRect();
       const css = getComputedStyle(popup);
       const gap = parseFloat(css.getPropertyValue('--rds-select-menu-gap')) || 8;
       const gutter = parseFloat(css.getPropertyValue('--rds-select-viewport-gutter')) || 8;
@@ -151,19 +182,28 @@ export default function Select(props: SelectProps) {
       const bottomEdge = (view?.offsetTop ?? 0) + (view?.height ?? innerHeight) - gutter;
       const below = Math.max(0, bottomEdge - field.bottom - gap);
       const above = Math.max(0, field.top - gap - topEdge);
+      const availableWidth = rightEdge - leftEdge;
+      const minWidth = Math.min(field.width, availableWidth);
+      if (filter) {
+        popup.style.width = 'max-content';
+        popup.style.minWidth = `${minWidth}px`;
+        popup.style.maxWidth = `${availableWidth}px`;
+      } else {
+        popup.style.width = `${minWidth}px`;
+      }
+      const width = filter ? popup.getBoundingClientRect().width : minWidth;
       const upwards = below < Math.min(cap, popup.scrollHeight) && above > below;
       const height = Math.min(cap, upwards ? above : below);
-      const width = Math.min(field.width, rightEdge - leftEdge);
-      popup.style.width = `${width}px`;
+      const left = filter && css.direction === 'rtl' ? field.right - width : field.left;
       popup.style.maxHeight = `${height}px`;
-      popup.style.left = `${Math.max(leftEdge, Math.min(field.left, rightEdge - width))}px`;
+      popup.style.left = `${Math.max(leftEdge, Math.min(left, rightEdge - width))}px`;
       popup.style.top = `${upwards ? field.top - gap - Math.min(popup.scrollHeight, height) : field.bottom + gap}px`;
       popup.dataset.placement = upwards ? 'top' : 'bottom';
     };
     position();
     const scroll = (event: Event) => { if (!(event.target instanceof Node) || !popup.contains(event.target)) position(); };
     const observer = new ResizeObserver(position);
-    observer.observe(trigger); observer.observe(popup);
+    observer.observe(anchor); observer.observe(popup);
     window.addEventListener('resize', position);
     document.addEventListener('scroll', scroll, true);
     window.visualViewport?.addEventListener('resize', position);
@@ -174,13 +214,17 @@ export default function Select(props: SelectProps) {
       window.visualViewport?.removeEventListener('resize', position);
       window.visualViewport?.removeEventListener('scroll', position);
       popup.hidePopover();
+      if (filter) {
+        popup.style.removeProperty('min-width');
+        popup.style.removeProperty('max-width');
+      }
     };
-  }, [expanded]);
+  }, [expanded, filter]);
   useLayoutEffect(() => {
     if (expanded && active) document.getElementById(optionId(active.value))?.scrollIntoView({ block: 'nearest' });
   }, [expanded, active?.value, query]);
 
-  const keyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+  const keyDown = (event: KeyboardEvent<HTMLInputElement | HTMLButtonElement>) => {
     if (blocked || event.nativeEvent.isComposing || composing.current || event.keyCode === 229) return;
     const key = event.key;
     if (key === 'Tab') { close(); return; }
@@ -213,29 +257,66 @@ export default function Select(props: SelectProps) {
     }
   };
 
+  const controlProps = {
+    id, role: 'combobox', disabled,
+    'aria-expanded': expanded,
+    'aria-controls': expanded ? `${id}-list` : undefined,
+    'aria-haspopup': 'listbox' as const,
+    'aria-activedescendant': expanded && active ? optionId(active.value) : undefined,
+    'aria-required': required || undefined,
+    'aria-readonly': readOnly || undefined,
+    'aria-invalid': hasError || undefined,
+    'aria-busy': loading || undefined,
+    title: summary || undefined,
+    onKeyDown: keyDown,
+    onClick: () => { if (!expanded) show(); else if (!searchable) close(); },
+  };
+  const fieldState = {
+    'data-open': expanded || undefined,
+    'data-invalid': hasError || undefined,
+    'data-disabled': disabled || undefined,
+    'data-readonly': readOnly || undefined,
+  };
+  const icon = loading ? <LoaderCircle aria-hidden="true" /> : (
+    <VerticalAnimatedChevron expanded={expanded} size={filter ? 'sm' : 'md'} />
+  );
+
   return <div ref={root} className={clsx('rds-select', className)} dir={dir} data-control-size={controlSize} data-text-script={textScript}
+    data-variant={filter ? 'filter' : undefined}
     onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget as Node | null)) close(); }}>
-    {label != null ? <label className="rds-select__label" id={`${id}-label`} htmlFor={id}>{label}{required ? <span aria-hidden="true">*</span> : null}</label> : null}
-    <div className="rds-select__field" data-open={expanded || undefined} data-invalid={hasError || undefined} data-disabled={disabled || undefined} data-readonly={readOnly || undefined}>
-      <input ref={input} id={id} type="text" role="combobox" autoComplete="off" spellCheck={false}
-        className={clsx('rds-select__control', controlClassName)} disabled={disabled} readOnly={!searchable || readOnly}
+    {!filter && label != null ? <label className="rds-select__label" id={`${id}-label`} htmlFor={id}>{label}{required ? <span aria-hidden="true">*</span> : null}</label> : null}
+    {filter ? <div className="rds-select__filter" {...fieldState} data-selected={selected.length > 0 || undefined}>
+      <button {...controlProps} ref={filterButton} type="button" className={clsx('rds-select__filter-trigger', controlClassName)}
+        aria-label={firstLabel ? `${ariaLabel ?? props.label}: ${firstLabel}${extra ? separator + extra : ''}` : ariaLabel ?? props.label}
+        aria-describedby={filterDescription}>
+        <span className="rds-select__filter-summary">
+          <span className="rds-select__filter-label" dir="auto">{firstLabel ?? props.label}{extra && separator.trimEnd()}</span>
+          {extra ? <bdi dir="ltr" className="rds-select__filter-count">{extra}</bdi> : null}
+        </span>
+        {icon}
+      </button>
+      {selected.length > 0 && !blocked ? <button type="button" className="rds-select__filter-clear"
+        aria-label={props.clearLabel ?? (latin ? `Clear ${props.label} filter` : `پاک کردن فیلتر ${props.label}`)} onClick={clear}>
+        <X aria-hidden="true" />
+      </button> : null}
+      {extra ? <span id={`${id}-selection`} hidden>{summary}</span> : null}
+    </div> : <div className="rds-select__field" {...fieldState}>
+      <input {...controlProps} ref={input} type="text" autoComplete="off" spellCheck={false}
+        className={clsx('rds-select__control', controlClassName)} readOnly={!searchable || readOnly}
         aria-label={ariaLabel ?? (label == null ? placeholder : undefined)} aria-labelledby={!ariaLabel && label != null ? `${id}-label` : undefined}
-        aria-expanded={expanded} aria-controls={expanded ? `${id}-list` : undefined} aria-haspopup="listbox"
-        aria-autocomplete={searchable && !readOnly ? 'list' : 'none'} aria-activedescendant={expanded && active ? optionId(active.value) : undefined}
-        aria-required={required || undefined} aria-readonly={readOnly || undefined} aria-invalid={hasError || undefined} aria-describedby={description} aria-busy={loading || undefined}
+        aria-autocomplete={searchable && !readOnly ? 'list' : 'none'} aria-describedby={description}
         value={expanded && searchable ? query : summary} placeholder={expanded && searchable ? summary || placeholder : placeholder}
-        title={summary || undefined} onKeyDown={keyDown} onClick={() => { if (!expanded) show(); else if (!searchable) close(); }}
         onCompositionStart={() => { composing.current = true; }} onCompositionEnd={() => { composing.current = false; }}
         onChange={event => { if (!blocked && searchable) { setQuery(event.target.value); setActiveValue(null); setOpen(true); } }} />
-      <span className="rds-select__icon" aria-hidden="true">{loading ? <LoaderCircle /> : <ChevronDown />}</span>
-    </div>
+      <span className="rds-select__icon" aria-hidden="true">{icon}</span>
+    </div>}
     {hasHint ? <p className="rds-select__hint" id={`${id}-hint`}>{helperText}</p> : null}
     {hasError ? <p className="rds-select__error" id={`${id}-error`} role="alert"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v8M12 19h.01" /></svg>{error}</p> : null}
     <div ref={menu} popover="manual" className="rds-select__menu" data-control-size={controlSize}
       onMouseDown={event => event.preventDefault()}>
       <div id={`${id}-list`} role="listbox" aria-multiselectable={multiple || undefined}
-        aria-labelledby={!ariaLabel && label != null ? `${id}-label` : undefined}
-        aria-label={ariaLabel ?? (label == null ? placeholder : undefined)} aria-busy={loading || undefined}>
+        aria-labelledby={!filter && !ariaLabel && label != null ? `${id}-label` : undefined}
+        aria-label={ariaLabel ?? (filter ? props.label : label == null ? placeholder : undefined)} aria-busy={loading || undefined}>
         {filtered.map(option => {
           const isActive = active?.value === option.value;
           return <div key={option.value} role="presentation" data-active={isActive && keyboardNavigation || undefined}
@@ -251,7 +332,7 @@ export default function Select(props: SelectProps) {
     </div>
     <select ref={native} className="rds-select__native" aria-hidden="true" tabIndex={-1} name={name} form={form} multiple={multiple}
       required={required && !readOnly} disabled={disabled} value={multiple ? selected.map(option => option.value) : selected[0]?.value ?? ''}
-      onChange={() => {}} onInvalid={event => { event.preventDefault(); input.current?.focus(); }}>
+      onChange={() => {}} onInvalid={event => { event.preventDefault(); trigger.current?.focus(); }}>
       {!multiple ? <option value="" /> : null}
       {options.map(option => <option key={option.value} value={option.value}>{option.label}</option>)}
     </select>

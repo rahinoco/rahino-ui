@@ -1153,14 +1153,14 @@
       "light": {
         "type": "dimension",
         "value": {
-          "value": 24,
+          "value": 16,
           "unit": "px"
         }
       },
       "dark": {
         "type": "dimension",
         "value": {
-          "value": 24,
+          "value": 16,
           "unit": "px"
         }
       }

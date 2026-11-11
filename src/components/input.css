@@ -155,20 +155,12 @@
 .rds-input__start button:focus-visible,
 .rds-input__end button:focus-visible { outline: 0; }
 /* Keep the button paint away from the field's focus ring. */
-.rds-input__start .rds-button[data-icon-only='true'],
-.rds-input__end .rds-button[data-icon-only='true'] {
-  background: none;
+.rds-input__start .rds-button[data-icon-only='true'] > .rds-button__face,
+.rds-input__end .rds-button[data-icon-only='true'] > .rds-button__face {
+  --rds-button-press-enter-duration: var(--rds-motion-duration-none);
+  margin: var(--rds-space-75);
+  padding-block: 0;
   box-shadow: none;
-}
-.rds-input__start .rds-button[data-icon-only='true']::before,
-.rds-input__end .rds-button[data-icon-only='true']::before {
-  content: '';
-  position: absolute;
-  inset: var(--rds-space-75);
-  border-radius: inherit;
-  background: var(--rds-button-fill);
-  pointer-events: none;
-  z-index: -1;
 }
 .rds-input__helper,
 .rds-input__error {
@@ -189,8 +181,8 @@
   .rds-input__field, .rds-input__field::before { transition-duration: var(--rds-motion-duration-none); }
 }
 @media (forced-colors: active) {
-  .rds-input__start .rds-button[data-icon-only='true']::before,
-  .rds-input__end .rds-button[data-icon-only='true']::before { display: none; }
+  .rds-input__start .rds-button[data-icon-only='true'] > .rds-button__face,
+  .rds-input__end .rds-button[data-icon-only='true'] > .rds-button__face { margin: 0; }
   .rds-input__field {
     background: Canvas;
     outline: var(--rds-border-width-default) solid ButtonText;

@@ -19,7 +19,7 @@ Each veil **group** contains two tokens: `.color` is a theme-specific fill with 
 | `rds.veil.300` | Lightweight | `#FFFFFF / 52%` | `#1A1918 / 56%` | 36px | Opt-in glass for short labels and simple overlays on controlled backdrops; validate final contrast and provide an opaque fallback. |
 | `rds.veil.400` | Functional | `#FFFFFF / 72%` | `#1A191B / 76%` | 24px | Opt-in glass for toolbars, navigation flyouts, dropdowns and popovers on controlled backdrops; opaque raised surfaces remain the default. |
 | `rds.veil.500` | Focused | `#FFFFFF / 92%` | `#1A191B / 92%` | 16px | Opt-in glass for content-rich panels, expanded navigation and modals on controlled backdrops; opaque raised surfaces remain the default. |
-| `rds.veil.scrim` | Scrim | `#140C11 / 52%` | `#2B2529 / 52%` | 24px | Blurred background overlay behind floating modals. |
+| `rds.veil.scrim` | Scrim | `#140C11 / 52%` | `#2B2529 / 52%` | 16px | Blurred background overlay behind floating modals. |
 <!-- rds:generated:veil:end -->
 
 ### Public token paths
@@ -38,7 +38,7 @@ Each veil **group** contains two tokens: `.color` is a theme-specific fill with 
 | `rds.veil.500.color` | `ref.color.white-alpha-92` | `ref.color.gray.925-alpha-92` |
 | `rds.veil.500.blur` | `ref.blur.16` | `ref.blur.16` |
 | `rds.veil.scrim.color` | `ref.color.gray-warm.950-alpha-52` | `ref.color.gray-warm.850-alpha-52` |
-| `rds.veil.scrim.blur` | `ref.blur.24` | `ref.blur.24` |
+| `rds.veil.scrim.blur` | `ref.blur.16` | `ref.blur.16` |
 <!-- rds:generated:veilPaths:end -->
 
 For example, `rds.veil.400` is the Functional group; apply `rds.veil.400.color` as `background-color` and `rds.veil.400.blur` as the `backdrop-filter` blur radius. CSS variable names are `--rds-veil-400-color` and `--rds-veil-400-blur`.

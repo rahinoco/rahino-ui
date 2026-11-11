@@ -2,6 +2,8 @@
 .rds-segmented {
   --rds-segmented-selected-bg: var(--rds-color-surface-base);
   --rds-segmented-selected-fg: var(--rds-color-ink-primary);
+  --rds-segmented-item-hover-bg: var(--rds-color-interaction-neutral-hover);
+  --rds-segmented-item-pressed-bg: var(--rds-color-interaction-neutral-pressed);
   --rds-segmented-track-height: 40px;
   --rds-segmented-min-inline-size: var(--rds-size-control-sm-min-height);
   --rds-segmented-padding: var(--rds-space-100);
@@ -69,7 +71,7 @@
   color: var(--rds-segmented-selected-fg);
 }
 .rds-segmented__plate[data-animate='true'] {
-  transition: transform var(--rds-motion-duration-feedback) var(--rds-motion-easing-standard), width var(--rds-motion-duration-feedback) var(--rds-motion-easing-standard);
+  transition: transform var(--rds-motion-duration-feedback) var(--rds-motion-easing-standard), width var(--rds-motion-duration-feedback) var(--rds-motion-easing-standard), background-color var(--rds-motion-duration-feedback) var(--rds-motion-easing-standard);
 }
 .rds-segmented__item {
   position: relative;
@@ -106,13 +108,22 @@
 }
 .rds-segmented__content svg { inline-size: var(--rds-segmented-icon); block-size: var(--rds-segmented-icon); flex: none; stroke-width: var(--rds-icon-stroke-width); }
 .rds-segmented__item[aria-pressed='true'] { color: var(--rds-segmented-selected-fg); }
-@media (hover: hover) and (pointer: fine) {
-  .rds-segmented__item:hover:not(:disabled) { background: var(--rds-color-interaction-neutral-hover); }
-  .rds-segmented[data-tone='brand'] .rds-segmented__item[aria-pressed='true']:hover:not(:disabled) { background: var(--rds-color-brand-bg-hover); }
+/* Keep the brand selection fill on the sliding plate through hover and press. */
+.rds-segmented[data-tone='brand'] .rds-segmented__item[aria-pressed='true'] {
+  --rds-segmented-item-hover-bg: transparent;
+  --rds-segmented-item-pressed-bg: transparent;
 }
-.rds-segmented__item:active:not(:disabled) { background: var(--rds-color-interaction-neutral-pressed); }
+@media (hover: hover) and (pointer: fine) {
+  .rds-segmented__item:hover:not(:disabled) { background: var(--rds-segmented-item-hover-bg); }
+  .rds-segmented[data-tone='brand'] .rds-segmented__track:has(> .rds-segmented__item[aria-pressed='true']:hover:not(:disabled)) {
+    --rds-segmented-selected-bg: var(--rds-color-brand-bg-hover);
+  }
+}
+.rds-segmented__item:active:not(:disabled) { background: var(--rds-segmented-item-pressed-bg); }
 .rds-segmented__item:active:not(:disabled):not([aria-pressed='true']) { color: var(--rds-color-ink-primary); }
-.rds-segmented[data-tone='brand'] .rds-segmented__item[aria-pressed='true']:active:not(:disabled) { background: var(--rds-color-brand-bg-pressed); }
+.rds-segmented[data-tone='brand'] .rds-segmented__track:has(> .rds-segmented__item[aria-pressed='true']:active:not(:disabled)) {
+  --rds-segmented-selected-bg: var(--rds-color-brand-bg-pressed);
+}
 .rds-segmented__item:active:not(:disabled) .rds-segmented__content { transform: scale(var(--rds-motion-scale-subtle)); }
 .rds-segmented__item:focus-visible { outline: var(--rds-focus-ring-width) solid var(--rds-color-focus-ring); outline-offset: 0; }
 .rds-segmented__item:disabled { color: var(--rds-color-ink-disabled); cursor: not-allowed; }

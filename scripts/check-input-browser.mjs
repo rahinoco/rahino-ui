@@ -103,7 +103,7 @@ try {
       assert.equal(geometry.right, (dir === 'rtl') === (position === 'start')); assert(geometry.centered); assert.equal(geometry.width, 20); assert.equal(geometry.stroke, '2.25px');
       if (kind === 'decorative') { assert.equal(await wrapper.locator('.rds-input__icon').getAttribute('aria-hidden'), 'true'); continue; }
       const box = await button.boundingBox();
-      assert(box.width >= 44); assert.equal(box.height, sizes[size].height);
+      assert(box.width >= 40); assert.equal(box.height, sizes[size].height);
       assert.equal((await wrapper.boundingBox()).height, sizes[size].height);
       if (kind === 'disabled') { assert(await button.isDisabled()); continue; }
       const count = Number(await page.locator('#icon-actions').textContent());
@@ -128,14 +128,14 @@ try {
       await action.focus(); await action.hover(); await settle();
       const adornment = await action.evaluate(button => {
         const field = button.closest('.rds-input__field'), rect = field.getBoundingClientRect(), target = button.getBoundingClientRect();
-        const focus = getComputedStyle(field, '::after'), fill = getComputedStyle(button, '::before');
+        const focus = getComputedStyle(field, '::after'), fill = getComputedStyle(button.querySelector('.rds-button__face'));
         return { radius: getComputedStyle(field).borderRadius, height: rect.height, targetWidth: target.width, targetHeight: target.height,
           inside: target.left >= rect.left && target.right <= rect.right && target.top >= rect.top && target.bottom <= rect.bottom,
-          fillInset: fill.inset, fillRadius: fill.borderRadius, fillBackground: fill.backgroundColor, targetBackground: getComputedStyle(button).backgroundColor,
+          fillInset: fill.margin, fillRadius: fill.borderRadius, fillBackground: fill.backgroundColor, targetBackground: getComputedStyle(button).backgroundColor,
           ring: focus.boxShadow, inset: focus.inset, focusVisible: focus.opacity, focusLayer: focus.zIndex };
       });
       assert.equal(adornment.radius, '12px'); assert.equal(adornment.height, id === 'password' ? 40 : 48);
-      assert(adornment.targetWidth >= 44); assert.equal(adornment.targetHeight, adornment.height); assert(adornment.inside);
+      assert(adornment.targetWidth >= 40); assert.equal(adornment.targetHeight, adornment.height); assert(adornment.inside);
       assert.equal(adornment.fillInset, '4px'); assert.equal(adornment.fillRadius, '8px');
       assert.notEqual(adornment.fillBackground, 'rgba(0, 0, 0, 0)'); assert.equal(adornment.targetBackground, 'rgba(0, 0, 0, 0)');
       assert(adornment.ring.includes('2px inset')); assert.equal(adornment.inset, '0px'); assert.equal(adornment.focusVisible, '1'); assert.equal(adornment.focusLayer, '2');
@@ -183,8 +183,8 @@ try {
   assert(await touch.evaluate(() => matchMedia('(pointer: coarse)').matches));
   for (const size of Object.keys(sizes)) {
     const field = touch.locator(`#icon-${size}-end-action`).locator('..');
-    assert.equal((await field.boundingBox()).height, Math.max(sizes[size].height, 44));
-    assert.equal((await field.locator('button').boundingBox()).height, Math.max(sizes[size].height, 44));
+    assert.equal((await field.boundingBox()).height, Math.max(sizes[size].height, 40));
+    assert.equal((await field.locator('button').boundingBox()).height, Math.max(sizes[size].height, 40));
   }
   await touch.close();
   assert.deepEqual(errors, []);

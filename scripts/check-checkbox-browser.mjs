@@ -94,7 +94,7 @@ try {
         assert.equal(sample.checked, selection === 'mixed' ? 'mixed' : String(selection === 'checked'));
         assert.equal(sample.border, '0px', sample.id + ' no stroke'); assert.equal(sample.shadow, 'none');
         assert.equal(sample.boxSize, '20px'); assert.equal(sample.radius, '4px');
-        assert(sample.width >= 44 && sample.height >= 44, sample.id + ' minimum hit area');
+        assert(sample.width >= 40 && sample.height >= 40, sample.id + ' minimum hit area');
         assert.notEqual(sample.fill, 'rgba(0, 0, 0, 0)'); assert(sample.named && sample.described);
         if (sample.descriptionLayout) assert(Object.values(sample.descriptionLayout).every(Boolean), sample.id + ' full-width explanation below aligned checkbox/name row: ' + JSON.stringify(sample.descriptionLayout));
         assert.equal(sample.marks, selection === 'unchecked' ? 0 : 1); if (sample.marks) assert.equal(sample.markSize, '16px');
@@ -208,7 +208,7 @@ try {
   await page.emulateMedia({ forcedColors: 'none' });
   await page.setViewportSize({ width: 320, height: 844 });
   await page.evaluate(() => { document.documentElement.dir = 'rtl'; document.documentElement.dataset.rdsTheme = 'light'; });
-  assert(await page.locator('[data-case] .rds-checkbox').evaluateAll(nodes => nodes.every(node => node.getBoundingClientRect().height >= 44)));
+  assert(await page.locator('[data-case] .rds-checkbox').evaluateAll(nodes => nodes.every(node => node.getBoundingClientRect().height >= 40)));
   assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), 'No horizontal overflow at 320px');
   await page.screenshot({ path: path.join(output, 'mobile.png'), fullPage: true });
   const touch = await browser.newPage({ viewport: { width: 390, height: 844 }, hasTouch: true });
@@ -216,7 +216,7 @@ try {
   await touch.addStyleTag({ content: styles }); await touch.addScriptTag({ type: 'module', content: script });
   await touch.locator('[data-case]').first().waitFor();
   assert(await touch.evaluate(() => matchMedia('(pointer: coarse)').matches));
-  assert(await touch.locator('.rds-checkbox').evaluateAll(nodes => nodes.every(node => node.getBoundingClientRect().width >= 44 && node.getBoundingClientRect().height >= 44)));
+  assert(await touch.locator('.rds-checkbox').evaluateAll(nodes => nodes.every(node => node.getBoundingClientRect().width >= 40 && node.getBoundingClientRect().height >= 40)));
   const touchControl = touch.getByRole('checkbox', { name: 'Delivery updates', exact: true });
   const touchBox = touchControl.locator('.rds-checkbox__box');
   const touchRect = await touchControl.boundingBox();

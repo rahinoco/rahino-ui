@@ -39,7 +39,7 @@ Use 2–5 related options. Do not use for page/section navigation (Tabs), saved 
 | Label | Existing script-aware label typography and control weight |
 | Small / medium / large | 32 / 40 / 48px minimum outer track heights, giving 24 / 32 / 40px segments and selection plates at standard text sizes. Inline padding is 6 / 8 / 12px, block padding is 0 / 2 / 4px, and icons are 16 / 16 / 20px. |
 | Label gap / icon-text gap | `rds.space.85` (6px) |
-| Touch | Segments use the existing `size.touch.min` (44px), giving a minimum 52px outer track with both insets. |
+| Touch | Segments use the existing `size.touch.min` (40px), giving a minimum 48px outer track with both insets. |
 
 The 2026-11-06 size decision applies to the outer track. The grid stretches the segment to fill the space inside its 4px insets and allows the track to grow under text zoom. The small track uses `ref.size.32`. The specified 40px and 48px heights are local recipe values. The [reusable control-height foundation proposal](COMPONENT_FOUNDATION_AUDIT_2026-11-04.md) should cover the 32/40/48px outer heights if adopted.
 

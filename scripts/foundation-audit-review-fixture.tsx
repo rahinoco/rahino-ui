@@ -5,9 +5,13 @@ import { MonoIdCell } from '../src/components/DataTable/cells/MonoIdCell';
 import { RowActionCell } from '../src/components/DataTable/cells/RowActionCell';
 import ConfirmationModal from '../src/components/ConfirmationModal';
 import { DataLoadingState } from '../src/components/DataState';
+import DatePicker from '../src/components/DatePicker';
+import Modal from '../src/components/Modal';
+import TimePicker from '../src/components/TimePicker';
 
 function Review() {
   const [open, setOpen] = useState(false);
+  const [pickers, setPickers] = useState(false);
   const [calls, setCalls] = useState(0);
   return <main className="rds-stage" data-appearance="light" data-rds-theme="light" dir="rtl" style={{ padding: 24 }}>
     <div className="rds-table" id="helpers" onClick={() => setCalls(n => n + 100)}>
@@ -18,7 +22,12 @@ function Review() {
     <output id="calls">{calls}</output>
     <DataLoadingState />
     <button type="button" onClick={() => setOpen(true)}>Open confirmation</button>
+    <button type="button" onClick={() => setPickers(true)}>Open pickers</button>
     <ConfirmationModal isOpen={open} onClose={() => setOpen(false)} onConfirm={() => setOpen(false)} title="تأیید عملیات" message="این یک نمونه بازبینی است" confirmText="تأیید" cancelText="انصراف" />
+    <Modal isOpen={pickers} onClose={() => setPickers(false)} title="Pickers" closeLabel="Close">
+      <DatePicker label="Date" placeholder="Pick a date" />
+      <TimePicker label="Time" />
+    </Modal>
   </main>;
 }
 createRoot(document.getElementById('root')!).render(<Review />);

@@ -6,6 +6,7 @@ import {
   buttonData,
   ButtonFace,
   classNameOf,
+  useButtonPressFeedback,
   usePressed,
   useStableWidth,
   type ButtonOwnProps,
@@ -48,11 +49,13 @@ const ToggleButton = forwardRef<HTMLButtonElement, ToggleButtonProps>(function T
   const labelId = useId();
   const [value, setValue] = usePressed(pressed, defaultPressed, onPressedChange);
   const blocked = Boolean(disabled || loading);
+  const pressFeedback = useButtonPressFeedback(blocked, props);
   const { ref: widthRef, style: widthStyle } = useStableWidth<HTMLButtonElement>(loading);
   return (
     <button
       {...props}
       {...buttonData({ appearance, intent, size, radius, fullWidth, loading, pressed: value, iconOnly: !children })}
+      {...pressFeedback}
       data-selection-mark={children && !iconStart && !iconEnd ? 'true' : undefined}
       className={classNameOf(className)}
       style={{ ...widthStyle, ...style }}

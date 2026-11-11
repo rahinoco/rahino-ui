@@ -10,6 +10,7 @@ Status: implemented review candidate, 2026-11-04. Human state approval is pendin
 | Multiple | Status filters, allowed delivery methods | Independent choices; existing Checkbox recipe; each change commits immediately and menu stays open. |
 | Searchable single/multiple | Long lists and known item names | Filter existing options in the field; arbitrary text never becomes a value. |
 | Non-searchable single/multiple | Short, browsable lists | Pointer/touch, arrow navigation, Enter/Space, and prefix typeahead. |
+| Filter | Search results and filter toolbars for dates, types, statuses, or owners | Width follows the text. Shows the category when empty, the first selected option when applied, and a `+N` count for additional selections. A separate clear button removes the current category's selections. |
 | `sm` | Dense filters and toolbar controls | 32px minimum field height. |
 | `md` (default) | Standard forms | 40px minimum field height. |
 | `lg` | Spacious or touch-first forms | 48px minimum field height. |
@@ -19,7 +20,35 @@ Status: implemented review candidate, 2026-11-04. Human state approval is pendin
 | Empty/no results | No options supplied or filtering matches none | A visible status message; no active descendant and no invented option. |
 | Error/required | A selection needs correction | Visible error replaces hint; aria-invalid and linked description; focus indicator remains independent. |
 
-Use visible radio buttons or checkboxes when the choices should remain visible. Do not use Select for commands, navigation, free text, creation, or a large data explorer. Clearable chips, nested groups, select-all, virtualization, and remote request management are outside this recipe.
+Use visible radio buttons or checkboxes when the choices should remain visible. Do not use Select for commands, navigation, free text, creation, or a large data explorer. Nested groups, select-all, virtualization, and remote request management are outside this recipe.
+
+## Filter variant
+
+```tsx
+<Select variant="filter" label="وضعیت" multiple options={statuses}
+  value={activeStatuses} onChange={setActiveStatuses} />
+```
+
+Use one filter per category. Each change applies immediately. The first selected label follows option order and the remaining count stays visible when a long label truncates. The full selection is available from the menu and the trigger description when multiple values are selected. Counts default to Persian numerals. Use `textScript="latin"` for Latin labels, punctuation, numerals and the English clear label. `clearLabel` overrides the accessible name of the X button.
+
+The filter uses the existing non-editable listbox interaction. The trigger and the X are sibling buttons with independent focus indicators. In RTL, the clear button follows the trigger in RTL reading and keyboard order. Clearing closes the menu and returns focus to the trigger. It emits an empty string for a single filter or an empty array for a multiple filter, and updates local state when uncontrolled. Disabled and read-only filters retain their summaries and omit the X. While loading, the spinner replaces the chevron and an applied filter can still be cleared.
+
+The trigger uses `surface.sunken` and the selected state uses `interaction.surface.selected` and `brand.fg`. The borderless buttons use inset focus and native rounding. When the clear button is present, the corners facing the `space.50` gap use `radius.0` and the outer corners use `radius.8`. Inside the trigger, `space.100` separates the summary and chevron, and `space.85` sets the padding at the chevron edge. A selected button uses `brand.bg.hover` for hover and press to keep the inset ring above 3:1 in the standard dark theme. Controls use the current size recipe with the shared touch minimum on coarse pointers. The menu keeps `surface.raised`, `radius.12`, and `shadow.md`. It can grow wider than a short trigger to fit its options, within the viewport gutter.
+
+Selection colors and hover feedback use `motion.duration.feedback` and `motion.easing.standard`. Menu entry fades using `motion.duration.overlay` and `motion.easing.enter`. With reduced motion, the colors update immediately and the menu opens without a fade.
+
+Review in the live filter example under `/components/select#filters` and in Storybook. Check empty, one and several selections, clearing, long labels, disabled, read-only, loading, empty menus, focus and pressed states, RTL/LTR, all theme and contrast contexts, forced colors, reduced motion and touch. Human state approval is pending.
+
+## Animated chevrons
+
+| Component | Use cases | Collapsed → expanded |
+| --- | --- | --- |
+| `VerticalAnimatedChevron` | Select fields, filter menus, accordion headers, and disclosures that expand vertically. | Down → up in either reading direction. |
+| `HorizontalAnimatedChevron` | Inline disclosures and side panels that expand toward the end of the reading direction. | Right → left in LTR, left → right in RTL. Set `dir` on the containing region. |
+
+Pass the parent control's `expanded` state to the icon and expose that state on the parent through `aria-expanded`. The icon is decorative and inherits the foreground. It uses the Lucide 24 × 24 path, canonical size and stroke tokens, and rounded caps and joins. It bends through a straight line in both directions using `motion.duration.feedback` and `motion.easing.standard`. Rapid changes reverse from the current shape. Reduced motion switches immediately to the final shape.
+
+Select uses the vertical chevron at `icon.size.md` for fields and `icon.size.sm` for filters. Disabled and read-only controls show the collapsed chevron. Loading replaces it with the spinner. Try both standalone review candidates at `/components/select#chevrons`. State approval is pending.
 
 ## Foundation mapping
 
@@ -31,7 +60,7 @@ Use visible radio buttons or checkboxes when the choices should remain visible. 
 | Error / disabled / readonly | `status.error.bg` / `surface.subtle` / `surface.base` |
 | Menu | Opaque `surface.raised`, `shadow.md`, native `radius.12` |
 | Field size | `space.500` / `space.600` / `space.700` for the 32 / 40 / 48px minimum heights, matching text input; all sizes use `radius.12` and 16px `type.input-touch` |
-| Row | `radius.8`, a minimum of 44px or the field height if larger, foundation spacing and label typography |
+| Row | `radius.8`, a minimum of 40px or the field height if larger, foundation spacing and label typography |
 | Previously selected row | No persistent row fill, ring or single-select marker; multi selection is shown only by Checkbox |
 | Active row | Neutral hover layer during keyboard navigation; pointer hover follows the actual hovered row. No option focus ring. |
 | Text / hint / disabled | `ink.primary` / `ink.secondary` / `ink.disabled` |

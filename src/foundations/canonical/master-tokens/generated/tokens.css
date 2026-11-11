@@ -66,7 +66,7 @@
   --rds-veil-300-blur: var(--ref-blur-36);
   --rds-veil-400-blur: var(--ref-blur-24);
   --rds-veil-500-blur: var(--ref-blur-16);
-  --rds-veil-scrim-blur: var(--ref-blur-24);
+  --rds-veil-scrim-blur: var(--ref-blur-16);
   --rds-layout-breakpoint-medium: 48rem;
   --rds-layout-breakpoint-wide: 64rem;
   --rds-layout-grid-narrow-columns: 4;

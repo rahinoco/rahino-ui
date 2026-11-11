@@ -1,0 +1,3 @@
+.rds-chevron { flex: none; }
+.rds-chevron--horizontal { transform: rotate(-90deg); }
+.rds-chevron--horizontal:dir(rtl) { transform: rotate(90deg); }

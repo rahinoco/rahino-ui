@@ -131,7 +131,7 @@ try {
         assert.equal(menuStyle.radius, '12px'); assert(menuStyle.shadow !== 'none');
         assert(menuStyle.rect.x >= 7 && menuStyle.rect.right <= 1193 && menuStyle.rect.bottom <= 1093 && menuStyle.rect.y >= 7, `${key}: menu within viewport`);
         for (const option of await popup.getByRole('option').all()) {
-          assert((await option.boundingBox()).height >= Math.max(expectedHeight, 44), `${key}: option height`);
+          assert((await option.boundingBox()).height >= Math.max(expectedHeight, 40), `${key}: option height`);
           const row = await option.evaluate(node => { const style = getComputedStyle(node); return { outline: style.outlineWidth, shadow: style.boxShadow, fill: style.backgroundColor }; });
           assert.equal(row.outline, '0px', `${key}: options never have a focus ring`);
           assert.equal(row.shadow, 'none');

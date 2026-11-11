@@ -68,6 +68,7 @@ export default function TimePicker({
 
   useEffect(() => {
     portalRef.current =
+      triggerRef.current?.closest('dialog.rds-dialog') ??
       document.getElementById('rahino-portal-root') ??
       document.getElementById('portal-root') ??
       document.body;
@@ -104,6 +105,11 @@ export default function TimePicker({
         ref={triggerRef}
         type="button"
         disabled={disabled}
+        onKeyDown={(event) => {
+          if (event.key !== 'Escape' || !open) return;
+          event.preventDefault();
+          setOpen(false);
+        }}
         onClick={() => {
           updatePos();
           setOpen((v) => !v);
@@ -133,6 +139,12 @@ export default function TimePicker({
                 <motion.div
                   key="rahino-time-picker"
                   ref={panelRef}
+                  onKeyDown={(event) => {
+                    if (event.key !== 'Escape') return;
+                    event.preventDefault();
+                    setOpen(false);
+                    triggerRef.current?.focus();
+                  }}
                   initial={{ opacity: 0, y: 8, scale: 0.98 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 4, scale: 0.98 }}

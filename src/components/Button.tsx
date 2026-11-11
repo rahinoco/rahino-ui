@@ -14,6 +14,7 @@ import {
   ButtonFace,
   classNameOf,
   guardActivation,
+  useButtonPressFeedback,
   useStableWidth,
   type ButtonOwnProps,
   type NativeButtonProps,
@@ -57,6 +58,7 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
   ) {
     const labelId = useId();
     const blocked = Boolean(disabled || loading);
+    const pressFeedback = useButtonPressFeedback<HTMLButtonElement | HTMLAnchorElement>(blocked, props);
     const { ref: widthRef, style: widthStyle } = useStableWidth<
       HTMLButtonElement | HTMLAnchorElement
     >(loading);
@@ -96,6 +98,7 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
         <a
           {...anchorProps}
           {...shared}
+          {...pressFeedback}
           href={blocked ? undefined : href}
           onClick={(event) =>
             guardActivation(
@@ -108,9 +111,7 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
           }
           onKeyDown={(event) => {
             blockKeys(event);
-            props.onKeyDown?.(
-              event as unknown as KeyboardEvent<HTMLButtonElement>,
-            );
+            pressFeedback.onKeyDown(event);
           }}
           ref={(node) => {
             assignRef(widthRef, node);
@@ -126,12 +127,13 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
       <button
         {...props}
         {...shared}
+        {...pressFeedback}
         type={type}
         disabled={disabled}
         onClick={(event) => guardActivation(event, blocked, onClick)}
         onKeyDown={(event) => {
           blockKeys(event);
-          props.onKeyDown?.(event);
+          pressFeedback.onKeyDown(event);
         }}
         ref={(node) => {
           assignRef(widthRef, node);

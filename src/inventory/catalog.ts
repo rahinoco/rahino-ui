@@ -289,7 +289,7 @@ export const INVENTORY: InventoryItem[] = [
     status: 'needs-review',
     qipperSource: 'src/shared/ui/Select.tsx',
     extractedPath: 'src/components/Select.tsx',
-    variants: ['single', 'multiple', 'searchable', 'static', 'sm', 'md', 'lg'],
+    variants: ['single', 'multiple', 'searchable', 'static', 'filter', 'sm', 'md', 'lg'],
     states: ['closed', 'open', 'selected', 'empty', 'error', 'disabled', 'readonly', 'loading', 'no-results', 'disabled-option'],
     productSpecific: false,
     knownIssues: ['Human state and screen-reader approval pending', 'Inherited foundation field and unchecked-checkbox contrast findings', 'Requires native Popover API; Chrome tested'],
@@ -383,7 +383,7 @@ export const INVENTORY: InventoryItem[] = [
     extractedPath: 'src/components/Modal.tsx',
     variants: ['sm', 'md', 'lg', 'xl', '2xl', 'ModalFormCard', 'ChoiceTile'],
     states: ['open', 'closed', 'esc', 'backdrop'],
-    knownIssues: ['Close label is Persian-only', 'ChoiceTile originated as finance tile'],
+    knownIssues: ['Human state review pending', 'Body-level third-party portals require a container inside the active dialog'],
   },
   {
     id: 'drawer',

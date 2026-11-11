@@ -4,7 +4,7 @@
  */
 
 import { formatJalali, PersianDatePicker, toJalaliParts } from 'persian-date-kit';
-import { useId, useMemo } from 'react';
+import { useCallback, useId, useMemo, useState } from 'react';
 import 'persian-date-kit/styles.css';
 
 import { clsx } from 'clsx';
@@ -60,6 +60,10 @@ export default function DatePicker({
   const id = useId();
   const themeCtx = useOptionalTheme();
   const theme = themeCtx ? themeCtx.resolvedTheme : resolveTheme('system');
+  const [insideDialog, setInsideDialog] = useState(false);
+  const attachControl = useCallback((node: HTMLDivElement | null) => {
+    if (node) setInsideDialog(Boolean(node.closest('dialog.rds-dialog')));
+  }, []);
 
   const dateValue = useMemo(() => {
     if (!value) return null;
@@ -105,7 +109,7 @@ export default function DatePicker({
       htmlFor={id}
       className={twMerge('qipper-datepicker relative', className)}
     >
-      <div className="relative w-full h-11">
+      <div ref={attachControl} className="relative w-full h-11">
         <PersianDatePicker
           value={dateValue}
           onChange={(next) => {
@@ -128,7 +132,7 @@ export default function DatePicker({
           }
           showCalendarButton={false}
           classes={classes}
-          popover={{ portal: true, gutter: 10, align: 'end' }}
+          popover={{ portal: !insideDialog, gutter: 10, align: 'end' }}
           formatValue={(d) => formatDisplay(d, withTime)}
         />
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 flex w-11 items-center justify-center text-fg-subtle">

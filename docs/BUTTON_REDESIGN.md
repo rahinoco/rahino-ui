@@ -18,27 +18,27 @@ The browser review covers both radii, all appearances/intents/sizes and family m
 | --- | --- |
 | Less radius (default) | `--rds-radius-8` |
 | More radius | `--rds-radius-12` |
-| Solid brand | `color.action.brand.bg.default/hover/pressed`; enabled content uses `color.ink.on-brand` |
-| Solid neutral | `color.action.neutral.bg.default/hover/pressed` with `color.ink.inverse` |
-| Soft neutral | `color.surface.subtle` at rest, `color.interaction.neutral.hover/pressed` for feedback, with full-opacity `color.ink.primary`; existing interaction alpha composites over the parent surface |
-| Soft brand | `color.brand.bg.default/hover/pressed` with `color.brand.fg` |
-| Solid danger | `color.action.danger.bg.default/hover/pressed` with `color.status.error.on-fill` |
-| Soft danger | `color.action.danger-subtle.bg.default/hover/pressed` with stable contrasting `color.action.danger-subtle.fg.default/hover/pressed` |
-| Ghost danger | Unselected label/icon retains `color.status.error.fg` on default, hover and press in both themes; existing semantic feedback fills remain |
-| Ghost neutral | Unselected hover/press use existing `color.interaction.neutral.hover/pressed` alpha fills over the parent surface, including `surface.canvas` |
-| Ghost | No background paint at rest (`none`); semantic intent fills and foregrounds on hover/press; no alpha overlay |
+| Solid brand | `color.action.brand.bg.default/hover` with `color.ink.on-brand` |
+| Solid neutral | `color.action.neutral.bg.default/hover` with `color.ink.inverse` |
+| Soft neutral | `color.surface.subtle` at rest and `color.interaction.neutral.hover` on hover, with `color.ink.primary` |
+| Soft brand | `color.brand.bg.default/hover` with `color.brand.fg` |
+| Solid danger | `color.action.danger.bg.default/hover` with `color.status.error.on-fill` |
+| Soft danger | `color.action.danger-subtle.bg.default/hover` with `color.action.danger-subtle.fg.default/hover` |
+| Ghost danger | Unselected label/icon uses `color.status.error.fg` and hover uses `color.action.danger-subtle.bg.default` |
+| Ghost neutral | Hover uses the existing `color.interaction.neutral.hover` alpha fill over the parent surface |
+| Ghost | No background paint at rest (`none`) and semantic intent fill on hover |
 | Disabled/loading | Blocked activation and no elevation. Disabled ghost uses disabled ink with no fill in standard and enhanced contrast. Loading and other disabled appearances use the existing fill and ink roles, including `action.brand.bg.disabled` for solid brand. |
 | Selected | Branded selection plate and `aria-pressed`; retain the supplied icon, or show a checkmark for a text-only toggle. Never add a second icon. |
 | Shadow | Solid and soft explicitly retain `shadow.sm`: light `0 3px 6px 0 rgb(0 0 0 / 0.04)`, dark `0 2px 6px 0 rgb(0 0 0 / 0.14)`; ghost and blocked controls have none |
-| Feedback | Immediate semantic color switches; no opacity, color or shadow interpolation and no press scaling |
+| Press feedback | The visible face scales to `motion.scale.subtle` (0.98) using `motion.duration.feedback` and `motion.easing.standard`. IconButton faces inside text inputs use `motion.duration.none` on press so the feedback appears immediately. Release or cancel to return to rest over the standard feedback interval. The hit target and focus outline stay fixed. Press retains the underlying rest, hover or selection colors. |
 | Loading motion | One rotation is six feedback intervals (900ms) with `motion.easing.linear`; a component recipe, not an overlay timing or a new foundation token |
-| Reduced motion | Spinner rotation stops and toggle slot changes are immediate; loading status remains announced |
+| Reduced motion | An immediate inset outline uses the current foreground and `border.width.default`. Spinner rotation stops and toggle slot changes are immediate. |
 | Focus | Independent `focus.ring.width` (2px), `color.focus.ring`, offset `space.50` (2px), follows either radius |
-| Forced colors | System foreground/background, disabled/selection/focus cues; no shadows or alpha state layer |
+| Forced colors | System colors preserve the face boundary, disabled state, selection and focus cues. The inset press outline uses the current system foreground. |
 
 Radius is independent of size, viewport, density, theme and intent. No pill shape, alternate reference palette or motion library is introduced. Reusable semantic action-state aliases were added on 2026-11-03.
 
-On 2026-11-03 the owner selected reusable semantic action-state roles backed by existing references. After reviewing the initial foreground-only danger feedback, the owner requested consistency with the other soft buttons: semantic background changes with stable contrasting label/icon colors. All previous mixed recipes and the unused softened focus recipe are removed. Neutral soft/ghost states use opaque semantic fills rather than composited overlays. Color transitions and spinner fade-in are removed because their intermediate colors/alpha would be outside the selected tokens. Spinner rotation remains.
+On 2026-11-07 the owner selected the 2% press effect for every enabled button recipe. Shared semantic color tokens remain available to other controls. The button recipe applies motion to the visible face and uses native rounding for both radii. The same face supports inset IconButton actions inside text fields.
 
 The [semantic action color mapping](BUTTON_COLOR_MAPPING.md) records each added role, use case and light/dark reference mapping. Theme previews preserve reference aliases, including enhanced-contrast overrides. Ghost rest uses background `none` to express absence of paint; it does not create an alpha-zero reference. Forced-colors mode retains native system-color cues. Human component/state approval remains pending.
 
@@ -69,6 +69,10 @@ Required checks: default, hover, active, focus-visible, disabled, loading, and s
 Run `npm run typecheck`, `node scripts/button-behavior.mjs`, `node scripts/check-button-browser.mjs`, and `npm run tokens:check-generated` in the library. Run `npm run typecheck` and `npm run build` in the documentation project. Browser evidence is written under `tmp-verify/button-foundations/` and does not constitute human approval.
 
 Known foundation contrast failures remain in `src/foundations/canonical/output/contrast-review/`. The normal token/release gate must remain active. Browser rendering checks do not certify all contrast pairs, assistive technology behavior, physical touch devices or production performance.
+
+The 2026-11-07 browser review passed 8,640 state inspections across light, dark and enhanced contrast. It verified mouse release and drag cancellation, keyboard activation, touch cancellation, fixed targets, and the static cues in reduced motion and forced colors. The measured text pairs passed the 4.5:1 threshold, including the light ghost danger press case recorded below for the earlier recipe.
+
+### Earlier checks on the color-based press recipe
 
 Historical verification on 2026-10-30 (before the 2026-11-03 color rewrite): both project typechecks passed, the documentation production build passed, existing button behavior checks passed, generated outputs were current, and foundation behavior passed across 288 contexts. The browser fixture passed 540 rendered cases in four theme/contrast contexts with default, hover, active and focus-visible inspection (8,640 inspections), plus keyboard/loading/link/toggle interactions, reduced motion, forced colors, mobile RTL/LTR and coarse-pointer target checks. After correcting the component mixes, no measured enabled foreground/background pair in this fixture fell below 4.5:1. Measurements use the fixture's opaque base background, including neutral alpha state layers; they do not certify focus adjacency or arbitrary product backdrops. At that review, `npm run tokens:check` failed on the pre-existing dark focus contrast against the raised surface (2.9694:1 versus 3:1). After integrating the upstream CI policy on 2026-11-02, the check passes with known diagnostic exceptions registered separately; the contrast finding and pending human state approval remain.
 

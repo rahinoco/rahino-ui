@@ -92,19 +92,20 @@ See the Button documentation page (`/components/button`), under **اندازه �
 
 The owner requested 32/40/48px button heights on 2026-11-04. Button recipe heights reuse existing foundation dimensions (`ref.size.32`, `ref.space.40`, `ref.space.48`), with block padding from `space.50/75/100`. Shared field control heights stay unchanged. A reusable canonical control-height reference/semantic family remains a foundation proposal; these recipe bindings do not add canonical size tokens. Component state approval remains pending.
 
-These are minimum heights: long labels can make a button taller. Label line-height uses the foundation's label-sm role for sm/md and label-md for lg. On touch/coarse-pointer devices, the minimum height is at least 44px. Icon-only controls use the control's minimum height for their square width and also respect the touch minimum; they do not use horizontal text padding.
+These are minimum heights: long labels can make a button taller. Label line-height uses the foundation's label-sm role for sm/md and label-md for lg. On touch/coarse-pointer devices, the minimum height is at least 40px. Icon-only controls use the control's minimum height for their square width and also respect the touch minimum; they do not use horizontal text padding.
 
 **Button size and shadow level are separate choices.** Size does not select a different appearance, intent, radius variant, shadow token or motion timing. The regular solid/soft button recipe uses shadow.sm at every size; ghost and blocked buttons have no shadow. Both radius variants use native CSS rounding at 8px/12px.
 
 | Axis | Guidance |
 | --- | --- |
-| sm | Dense tables and toolbars; preserve the foundation's 44px minimum target on coarse pointers |
+| sm | Dense tables and toolbars; preserve the foundation's 40px minimum target on coarse pointers |
 | md | Default forms, dialogs and general product actions |
 | lg | A prominent standalone or mobile CTA when the layout warrants it; size is not a substitute for hierarchy |
 | less / more radius | 8px default / 12px softer context; use consistently within a group. Radius does not communicate priority, risk or selection |
 | fullWidth | A constrained form or mobile action area where it improves reach and clarity; not automatic at a viewport breakpoint |
 | loading | The operation is pending; keep the label and width stable, replace the icon with one spinner, announce progress and block duplicate activation |
 | disabled | A known unmet prerequisite. Explain how to proceed in nearby accessible text so the guidance is available without hovering over the disabled control. Disabled ghost actions, such as Previous on the first page, use disabled ink with no fill in standard and enhanced contrast. |
+| active press | For all enabled solid, soft and ghost actions, scale the face to 98% during mouse, touch or keyboard activation. Release or cancel to restore it. The hit target, focus ring and current colors stay steady. With reduced motion or forced colors, use a static inset stroke in the current foreground. |
 | selected | Toggle state only, controlled with `pressed` or `defaultPressed`; separate from transient active/hover/focus |
 | error / success | Communicate the outcome outside the button. Existing API has no success/error appearance. For an unknown outcome, verify status before offering a potentially duplicate commit |
 

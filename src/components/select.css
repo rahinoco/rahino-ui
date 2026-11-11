@@ -48,6 +48,104 @@
   text-align: start; text-overflow: ellipsis; cursor: pointer;
 }
 .rds-select__control::placeholder { color: var(--rds-color-ink-tertiary); opacity: 1; }
+.rds-select[data-variant='filter'] {
+  display: inline-grid;
+  inline-size: max-content;
+  max-inline-size: 100%;
+  justify-self: start;
+  vertical-align: middle;
+}
+.rds-select__filter {
+  --rds-select-filter-target: var(--rds-select-height);
+  --rds-select-filter-background: var(--rds-color-surface-sunken);
+  --rds-select-filter-hover: var(--rds-color-interaction-neutral-hover);
+  --rds-select-filter-pressed: var(--rds-color-interaction-neutral-pressed);
+  display: flex;
+  gap: var(--rds-space-50);
+  min-inline-size: 0;
+}
+.rds-select__filter[data-selected] {
+  --rds-select-filter-background: var(--rds-color-interaction-surface-selected);
+  --rds-select-filter-hover: var(--rds-color-brand-bg-hover);
+  /* The hover surface keeps the inset ring legible through a focused press. */
+  --rds-select-filter-pressed: var(--rds-color-brand-bg-hover);
+  color: var(--rds-color-brand-fg);
+}
+.rds-select__filter[data-readonly] { --rds-select-filter-background: var(--rds-color-surface-base); color: var(--rds-color-ink-primary); }
+.rds-select__filter[data-invalid] {
+  --rds-select-filter-background: var(--rds-color-status-error-bg);
+  --rds-select-filter-hover: var(--rds-color-interaction-neutral-hover);
+  --rds-select-filter-pressed: var(--rds-color-interaction-neutral-pressed);
+  color: var(--rds-color-status-error-fg);
+}
+.rds-select__filter[data-disabled] {
+  --rds-select-filter-background: var(--rds-color-surface-disabled);
+  color: var(--rds-color-ink-disabled);
+}
+.rds-select__filter-trigger, .rds-select__filter-clear {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-inline-size: 0;
+  min-block-size: var(--rds-select-filter-target);
+  margin: 0;
+  border: 0;
+  border-radius: var(--rds-radius-8);
+  background: var(--rds-select-filter-background);
+  color: inherit;
+  font: inherit;
+  font-size: var(--rds-type-label-sm-font-size);
+  font-weight: var(--rds-font-weight-control);
+  line-height: var(--rds-type-label-sm-line-height);
+  cursor: pointer;
+  transition: background-color var(--rds-motion-duration-feedback) var(--rds-motion-easing-standard),
+    color var(--rds-motion-duration-feedback) var(--rds-motion-easing-standard);
+}
+.rds-select__filter-trigger::before, .rds-select__filter-clear::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+  transition: background-color var(--rds-motion-duration-feedback) var(--rds-motion-easing-standard);
+}
+.rds-select__filter-trigger {
+  gap: var(--rds-space-100);
+  padding-block: var(--rds-select-padding-block);
+  padding-inline: var(--rds-select-padding-inline) var(--rds-space-85);
+}
+.rds-select__filter-trigger:has(+ .rds-select__filter-clear) {
+  border-start-end-radius: var(--rds-radius-0);
+  border-end-end-radius: var(--rds-radius-0);
+}
+.rds-select__filter-clear {
+  flex: none;
+  inline-size: var(--rds-select-filter-target);
+  padding: 0;
+  border-start-start-radius: var(--rds-radius-0);
+  border-end-start-radius: var(--rds-radius-0);
+}
+.rds-select__filter-summary { display: flex; align-items: baseline; min-inline-size: 0; gap: var(--rds-space-50); }
+.rds-select__filter-label { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rds-select__filter-count, .rds-select__filter svg { flex: none; }
+.rds-select__filter svg { inline-size: var(--rds-icon-size-sm); block-size: var(--rds-icon-size-sm); stroke-width: var(--rds-icon-stroke-width); }
+.rds-select__filter-trigger:focus-visible, .rds-select__filter-clear:focus-visible, [data-open] > .rds-select__filter-trigger {
+  outline: var(--rds-focus-ring-width) solid var(--rds-color-focus-ring);
+  outline-offset: calc(-1 * var(--rds-focus-ring-width));
+}
+.rds-select__filter-trigger:disabled { cursor: not-allowed; }
+.rds-select__filter[data-readonly] .rds-select__filter-trigger:not(:disabled) { cursor: default; }
+.rds-select[data-variant='filter'] .rds-select__menu:popover-open {
+  animation: rds-select-filter-enter var(--rds-motion-duration-overlay) var(--rds-motion-easing-enter);
+}
+@keyframes rds-select-filter-enter { from { opacity: 0; } to { opacity: 1; } }
+@media (pointer: coarse) {
+  .rds-select__filter { --rds-select-filter-target: max(var(--rds-select-height), var(--rds-size-touch-min)); }
+}
 .rds-select__field[data-open] .rds-select__control::placeholder { color: var(--rds-color-ink-primary); }
 .rds-select__icon { position: absolute; inset-inline-end: var(--rds-select-padding-inline); inset-block: 0; display: flex; align-items: center; pointer-events: none; color: var(--rds-color-ink-secondary); }
 .rds-select__icon svg { display: block; inline-size: var(--rds-icon-size-md); block-size: var(--rds-icon-size-md); stroke-width: var(--rds-icon-stroke-width); }
@@ -87,9 +185,31 @@
 @media (hover: hover) {
   .rds-select__field:not([data-disabled]):not([data-readonly]):hover::before { opacity: 1; }
   .rds-select__option:not(:disabled):hover::after { background: var(--rds-color-interaction-neutral-hover); }
+  .rds-select__filter:not([data-disabled], [data-readonly]) > button:hover::before { background-color: var(--rds-select-filter-hover); }
 }
-@media (prefers-reduced-motion: reduce) { .rds-select__field::before { transition: none; } }
+.rds-select__filter:not([data-disabled], [data-readonly]) > button:active::before { background-color: var(--rds-select-filter-pressed); }
+@media (prefers-reduced-motion: reduce) {
+  .rds-select__field::before,
+  .rds-select__filter-trigger, .rds-select__filter-clear,
+  .rds-select__filter-trigger::before, .rds-select__filter-clear::before { transition: none; }
+  .rds-select[data-variant='filter'] .rds-select__menu:popover-open { animation: none; }
+}
 @media (forced-colors: active) {
+  .rds-select__filter, .rds-select__filter[data-selected], .rds-select__filter[data-invalid], .rds-select__filter[data-readonly], .rds-select__filter[data-disabled] {
+    --rds-select-filter-background: ButtonFace;
+    --rds-select-filter-hover: ButtonFace;
+    --rds-select-filter-pressed: ButtonFace;
+    forced-color-adjust: none;
+    color: ButtonText;
+  }
+  .rds-select__filter[data-selected]:not([data-disabled], [data-readonly], [data-invalid]) {
+    --rds-select-filter-background: Highlight;
+    --rds-select-filter-hover: Highlight;
+    --rds-select-filter-pressed: Highlight;
+    color: HighlightText;
+  }
+  .rds-select__filter[data-disabled] { color: GrayText; }
+  .rds-select__filter-trigger:focus-visible, .rds-select__filter-clear:focus-visible, [data-open] > .rds-select__filter-trigger { outline-color: currentColor; }
   .rds-select__field { background: Canvas; outline: var(--rds-border-width-default) solid ButtonText; outline-offset: calc(-1 * var(--rds-border-width-default)); }
   .rds-select__field::before, .rds-select__field::after, .rds-select__option::after { display: none; }
   .rds-select__field:focus-within, .rds-select__field[data-open] { outline: var(--rds-focus-ring-width) solid Highlight; outline-offset: calc(-1 * var(--rds-focus-ring-width)); }

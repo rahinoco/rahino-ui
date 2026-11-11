@@ -303,7 +303,7 @@ Semantic text styles are defined in [typography.json](typography.json). See [Typ
 | [`rds.veil.300.blur`](../Veil.ts#L29) | `ref.blur.36` | 36px | Opt-in glass for short labels and simple overlays on controlled backdrops; validate final contrast and provide an opaque fallback. |
 | [`rds.veil.400.blur`](../Veil.ts#L35) | `ref.blur.24` | 24px | Opt-in glass for toolbars, navigation flyouts, dropdowns and popovers on controlled backdrops; opaque raised surfaces remain the default. |
 | [`rds.veil.500.blur`](../Veil.ts#L41) | `ref.blur.16` | 16px | Opt-in glass for content-rich panels, expanded navigation and modals on controlled backdrops; opaque raised surfaces remain the default. |
-| [`rds.veil.scrim.blur`](../Veil.ts#L47) | `ref.blur.24` | 24px | Blurred background overlay behind floating modals. |
+| [`rds.veil.scrim.blur`](../Veil.ts#L47) | `ref.blur.16` | 16px | Blurred background overlay behind floating modals. |
 
 | Token | Light value / reference | Dark value / reference | Use / review |
 | --- | --- | --- | --- |

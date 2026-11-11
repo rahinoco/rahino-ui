@@ -36,7 +36,7 @@ Use **2.25 on the original 24 × 24 grid**, scaling naturally with the icon. Pre
 - Add visible text for unfamiliar or consequential actions. Give icon-only controls an accessible name; hide decorative icons from screen readers.
 - A button shows at most one icon. Loading replaces it with a spinner.
 - In Persian RTL, leading icons sit on the right. Mirror navigation arrows when direction changes; keep search, save, plus, trash and logos unchanged.
-- Icon size is separate from the hit area. Retain the existing 44px minimum target on touch devices.
+- Icon size is separate from the hit area. Use the 40px minimum target on touch devices.
 
 ## Integration boundary
 
@@ -46,6 +46,6 @@ Button, IconButton and ToggleButton now bind directly to `rds.icon.size.sm/md/lg
 
 Checkbox recipes bind the 20px box to `rds.icon.size.md` and the 16px check/minus to `rds.icon.size.sm`, using `rds.icon.stroke.width` for a proportional 1.5px visible stroke. Both marks retain Lucide's 24 × 24 grid, rounded ends/joins and inherited foreground, with no RTL mirroring. Box and label are vertically centered in plain item rows; the mark is centered inside the box. Description variants keep the box centered against the label's first line.
 
-Text-input recipes bind field icons to `rds.icon.size.md` (20px) and the bare error exclamation to `rds.icon.size.sm` (16px), using `rds.icon.stroke.width` on the 24 × 24 grid with rounded ends/joins and proportional scaling. Field icons are centered within their slots and controls; the borderless error symbol is vertically centered beside its message. Decorative icons can occupy either logical edge. Clickable icons on either edge use the button family's icon recipe and preserve its 44px target and single-icon rule. They can change artwork with the action (Eye/EyeOff for show/hide), or keep their artwork after activation (Copy with separate outcome feedback). These text-field actions do not use selection indicators or a persistent selected fill. See [Input usage](../../../docs/INPUT_USAGE.md).
+Text-input recipes bind field icons to `rds.icon.size.md` (20px) and the bare error exclamation to `rds.icon.size.sm` (16px), using `rds.icon.stroke.width` on the 24 × 24 grid with rounded ends/joins and proportional scaling. Field icons are centered within their slots and controls; the borderless error symbol is vertically centered beside its message. Decorative icons can occupy either logical edge. Clickable icons on either edge use the button family's icon recipe and preserve its 40px minimum target and single-icon rule. They can change artwork with the action (Eye/EyeOff for show/hide), or keep their artwork after activation (Copy with separate outcome feedback). These text-field actions do not use selection indicators or a persistent selected fill. See [Input usage](../../../docs/INPUT_USAGE.md).
 
 Existing `metrics.ts` exports and the `--rds-icon-stroke` compatibility binding retain their previous value of 2 for components awaiting migration. These requests do not migrate other components or add this guide to frontend pages. Review all affected component states before product use.
